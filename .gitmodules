@@ -106,3 +106,6 @@
 [submodule "bench/bullet3/bullet3"]
 	path = bench/bullet3/bullet3
 	url = git@github.com:bulletphysics/bullet3.git
+[submodule "bench/cvc5/cvc5"]
+	path = bench/cvc5/cvc5
+	url = git@github.com:cvc5/cvc5.git
