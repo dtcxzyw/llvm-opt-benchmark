@@ -112,3 +112,6 @@
 [submodule "bench/z3/z3"]
 	path = bench/z3/z3
 	url = git@github.com:Z3Prover/z3.git
+[submodule "bench/llama.cpp/llama.cpp"]
+	path = bench/llama.cpp/llama.cpp
+	url = git@github.com:ggerganov/llama.cpp.git
