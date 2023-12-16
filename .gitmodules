@@ -64,3 +64,6 @@
 [submodule "bench/yyjson/yyjson"]
 	path = bench/yyjson/yyjson
 	url = git@github.com:ibireme/yyjson.git
+[submodule "bench/tomlplusplus/tomlplusplus"]
+	path = bench/tomlplusplus/tomlplusplus
+	url = git@github.com:marzer/tomlplusplus.git
