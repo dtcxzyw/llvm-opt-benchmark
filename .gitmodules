@@ -124,3 +124,6 @@
 [submodule "bench/icu/icu"]
 	path = bench/icu/icu
 	url = git@github.com:unicode-org/icu.git
+[submodule "bench/cppfront/cppfront"]
+	path = bench/cppfront/cppfront
+	url = git@github.com:hsutter/cppfront.git
