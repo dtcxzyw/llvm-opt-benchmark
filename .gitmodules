@@ -115,3 +115,6 @@
 [submodule "bench/llama.cpp/llama.cpp"]
 	path = bench/llama.cpp/llama.cpp
 	url = git@github.com:ggerganov/llama.cpp.git
+[submodule "bench/protobuf/protobuf"]
+	path = bench/protobuf/protobuf
+	url = git@github.com:protocolbuffers/protobuf.git

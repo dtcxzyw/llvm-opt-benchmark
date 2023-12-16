@@ -1,0 +1,8847 @@
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-unknown-linux-gnu"
+
+%"class.std::ios_base::Init" = type { i8 }
+%"struct.absl::lts_20230802::base_internal::SpinLockWaitTransition" = type { i32, i32, i8 }
+%"struct.std::in_place_t" = type { i8 }
+%"struct.std::piecewise_construct_t" = type { i8 }
+%"struct.absl::lts_20230802::container_internal::PolicyFunctions" = type { i64, ptr, ptr, ptr }
+%"class.google::protobuf::util::SimpleFieldComparator" = type { %"class.google::protobuf::util::FieldComparator", i32, i8, i8, %"struct.google::protobuf::util::SimpleFieldComparator::Tolerance", %"class.absl::lts_20230802::flat_hash_map" }
+%"class.google::protobuf::util::FieldComparator" = type { ptr }
+%"struct.google::protobuf::util::SimpleFieldComparator::Tolerance" = type { double, double }
+%"class.absl::lts_20230802::flat_hash_map" = type { %"class.absl::lts_20230802::container_internal::raw_hash_map" }
+%"class.absl::lts_20230802::container_internal::raw_hash_map" = type { %"class.absl::lts_20230802::container_internal::raw_hash_set" }
+%"class.absl::lts_20230802::container_internal::raw_hash_set" = type { %"class.absl::lts_20230802::container_internal::CompressedTuple" }
+%"class.absl::lts_20230802::container_internal::CompressedTuple" = type { %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl" }
+%"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl" = type { %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage" }
+%"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage" = type { %"class.absl::lts_20230802::container_internal::CommonFields" }
+%"class.absl::lts_20230802::container_internal::CommonFields" = type { ptr, ptr, i64, %"class.absl::lts_20230802::container_internal::CompressedTuple.0" }
+%"class.absl::lts_20230802::container_internal::CompressedTuple.0" = type { %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl.1" }
+%"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl.1" = type { %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage.2" }
+%"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage.2" = type { i64 }
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.14 }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon.14 = type { i64, [8 x i8] }
+%"class.absl::lts_20230802::log_internal::Voidify" = type { i8 }
+%"class.absl::lts_20230802::log_internal::LogMessageFatal" = type { %"class.absl::lts_20230802::log_internal::LogMessage" }
+%"class.absl::lts_20230802::log_internal::LogMessage" = type { %"class.absl::lts_20230802::base_internal::ErrnoSaver", %"class.std::unique_ptr" }
+%"class.absl::lts_20230802::base_internal::ErrnoSaver" = type { i32 }
+%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
+%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
+%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
+%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
+%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.16" }
+%"struct.std::_Head_base.16" = type { ptr }
+%"struct.google::protobuf::Metadata" = type { ptr, ptr }
+%"class.std::basic_string_view" = type { i64, ptr }
+%"class.google::protobuf::FieldDescriptor" = type { %"class.google::protobuf::internal::SymbolBase", i8, i8, i8, i32, ptr, ptr, ptr, ptr, %union.anon, %union.anon.7, ptr, ptr, ptr, %union.anon.8 }
+%"class.google::protobuf::internal::SymbolBase" = type { i8 }
+%union.anon = type { ptr }
+%union.anon.7 = type { ptr }
+%union.anon.8 = type { i64 }
+%"class.absl::lts_20230802::log_internal::LogMessage::OstreamView" = type { %"class.std::basic_streambuf", ptr, %"class.absl::lts_20230802::Span", %"class.absl::lts_20230802::Span", %"class.absl::lts_20230802::Span" }
+%"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
+%"class.std::locale" = type { ptr }
+%"class.absl::lts_20230802::Span" = type { ptr, i64 }
+%"class.google::protobuf::util::FieldContext" = type { ptr }
+%"struct.std::pair.87" = type <{ %"class.absl::lts_20230802::container_internal::raw_hash_set<absl::lts_20230802::container_internal::FlatHashMapPolicy<const google::protobuf::FieldDescriptor *, google::protobuf::util::SimpleFieldComparator::Tolerance>, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Hash, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Eq, std::allocator<std::pair<const google::protobuf::FieldDescriptor *const, google::protobuf::util::SimpleFieldComparator::Tolerance>>>::iterator", i8, [7 x i8] }>
+%"class.absl::lts_20230802::container_internal::raw_hash_set<absl::lts_20230802::container_internal::FlatHashMapPolicy<const google::protobuf::FieldDescriptor *, google::protobuf::util::SimpleFieldComparator::Tolerance>, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Hash, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Eq, std::allocator<std::pair<const google::protobuf::FieldDescriptor *const, google::protobuf::util::SimpleFieldComparator::Tolerance>>>::iterator" = type { ptr, %union.anon.89 }
+%union.anon.89 = type { ptr }
+%"struct.std::pair" = type { ptr, %"struct.google::protobuf::util::SimpleFieldComparator::Tolerance" }
+%"class.google::protobuf::EnumValueDescriptor" = type { %"class.google::protobuf::internal::SymbolBaseN", %"class.google::protobuf::internal::SymbolBaseN.81", i32, ptr, ptr, ptr, ptr, ptr }
+%"class.google::protobuf::internal::SymbolBaseN" = type { %"class.google::protobuf::internal::SymbolBase" }
+%"class.google::protobuf::internal::SymbolBaseN.81" = type { %"class.google::protobuf::internal::SymbolBase" }
+%"union.absl::lts_20230802::container_internal::map_slot_type" = type { %"struct.std::pair" }
+%"class.std::allocator.84" = type { i8 }
+%"class.absl::lts_20230802::once_flag" = type { %"struct.std::atomic.9" }
+%"struct.std::atomic.9" = type { %"struct.std::__atomic_base.10" }
+%"struct.std::__atomic_base.10" = type { i32 }
+%"class.absl::lts_20230802::base_internal::SchedulingHelper" = type <{ i32, i8, [3 x i8] }>
+%"struct.absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Hash" = type { i8 }
+%"struct.absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Eq" = type { i8 }
+%"class.std::allocator" = type { i8 }
+%"class.absl::lts_20230802::container_internal::HashtablezInfoHandle" = type { i8 }
+%"struct.std::pair.90" = type <{ i64, i8, [7 x i8] }>
+%"class.std::tuple.93" = type { %"struct.std::_Tuple_impl.94" }
+%"struct.std::_Tuple_impl.94" = type { %"struct.std::_Head_base.95" }
+%"struct.std::_Head_base.95" = type { ptr }
+%"class.std::tuple.96" = type { i8 }
+%"class.absl::lts_20230802::container_internal::probe_seq" = type { i64, i64, i64 }
+%"struct.absl::lts_20230802::container_internal::GroupSse2Impl" = type { <2 x i64> }
+%"class.absl::lts_20230802::container_internal::BitMask" = type { %"class.absl::lts_20230802::container_internal::NonIterableBitMask" }
+%"class.absl::lts_20230802::container_internal::NonIterableBitMask" = type { i32 }
+%"struct.absl::lts_20230802::container_internal::raw_hash_set<absl::lts_20230802::container_internal::FlatHashMapPolicy<const google::protobuf::FieldDescriptor *, google::protobuf::util::SimpleFieldComparator::Tolerance>, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Hash, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Eq, std::allocator<std::pair<const google::protobuf::FieldDescriptor *const, google::protobuf::util::SimpleFieldComparator::Tolerance>>>::EqualElement" = type { ptr, ptr }
+%"struct.absl::lts_20230802::hash_internal::Hash" = type { i8 }
+%"struct.absl::lts_20230802::container_internal::FindInfo" = type { i64, i64 }
+%"class.absl::lts_20230802::hash_internal::MixingHashState" = type { i64 }
+%"struct.std::pair.97" = type { i64, i64 }
+%"struct.std::pair.99" = type { %"class.std::tuple.93", %"class.std::tuple.101" }
+%"class.std::tuple.101" = type { %"struct.std::_Tuple_impl.102" }
+%"struct.std::_Tuple_impl.102" = type { %"struct.std::_Head_base.103" }
+%"struct.std::_Head_base.103" = type { ptr }
+%"struct.absl::lts_20230802::container_internal::raw_hash_set<absl::lts_20230802::container_internal::FlatHashMapPolicy<const google::protobuf::FieldDescriptor *, google::protobuf::util::SimpleFieldComparator::Tolerance>, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Hash, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Eq, std::allocator<std::pair<const google::protobuf::FieldDescriptor *const, google::protobuf::util::SimpleFieldComparator::Tolerance>>>::HashElement" = type { ptr }
+%"class.std::allocator.11" = type { i8 }
+%"struct.std::pair.82" = type { ptr, %"struct.google::protobuf::util::SimpleFieldComparator::Tolerance" }
+
+$_ZN6google8protobuf4util21SimpleFieldComparator9ToleranceC2Ev = comdat any
+
+$_ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf15FieldDescriptorENS3_4util21SimpleFieldComparator9ToleranceENS0_18container_internal6HashEqIS6_vE4HashENSC_2EqESaISt4pairIKS6_S9_EEEC2Ev = comdat any
+
+$_ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf15FieldDescriptorENS3_4util21SimpleFieldComparator9ToleranceENS0_18container_internal6HashEqIS6_vE4HashENSC_2EqESaISt4pairIKS6_S9_EEED2Ev = comdat any
+
+$_ZNK6google8protobuf7Message13GetReflectionEv = comdat any
+
+$_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv = comdat any
+
+$_ZNK6google8protobuf15FieldDescriptor11is_repeatedEv = comdat any
+
+$_ZN6google8protobuf4util21SimpleFieldComparator11CompareBoolERKNS0_15FieldDescriptorEbb = comdat any
+
+$_ZN6google8protobuf4util21SimpleFieldComparator12CompareInt32ERKNS0_15FieldDescriptorEii = comdat any
+
+$_ZN6google8protobuf4util21SimpleFieldComparator12CompareInt64ERKNS0_15FieldDescriptorEll = comdat any
+
+$_ZN6google8protobuf4util21SimpleFieldComparator13CompareStringERKNS0_15FieldDescriptorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_ = comdat any
+
+$_ZN6google8protobuf4util21SimpleFieldComparator13CompareUInt32ERKNS0_15FieldDescriptorEjj = comdat any
+
+$_ZN6google8protobuf4util21SimpleFieldComparator13CompareUInt64ERKNS0_15FieldDescriptorEmm = comdat any
+
+$_ZNKO4absl12lts_2023080212log_internal7VoidifyaaINS1_10LogMessageEEEvRKT_ = comdat any
+
+$_ZN4absl12lts_2023080212log_internal10LogMessage14InternalStreamEv = comdat any
+
+$_ZN4absl12lts_2023080212log_internal10LogMessagelsILi30EEERS2_RAT__Kc = comdat any
+
+$_ZNK6google8protobuf15FieldDescriptor9full_nameB5cxx11Ev = comdat any
+
+$_ZN4absl12lts_2023080212log_internal10LogMessagelsILi15EEERS2_RAT__Kc = comdat any
+
+$_ZN4absl12lts_2023080212log_internal10LogMessagelsIN6google8protobuf8internal19FieldDescriptorLite7CppTypeETnNSt9enable_ifIXntsr16strings_internal16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKSA_ = comdat any
+
+$_ZNK6google8protobuf4util12FieldContext13parent_fieldsEv = comdat any
+
+$_ZN6google8protobuf4util21SimpleFieldComparator9ToleranceC2Edd = comdat any
+
+$_ZNSt17basic_string_viewIcSt11char_traitsIcEEC2EPKc = comdat any
+
+$_ZN4absl12lts_2023080212log_internal10LogMessagelsILi54EEERS2_RAT__Kc = comdat any
+
+$_ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEEixIS8_SC_EEDTclsrT0_5valueclL_ZSt9addressofISJ_EPT_RSP_EclL_ZSt7declvalIRSJ_EDTcl9__declvalISP_ELi0EEEvEEEEERKSP_ = comdat any
+
+$_ZN6google8protobuf4util21SimpleFieldComparator20CompareDoubleOrFloatIdEEbRKNS0_15FieldDescriptorET_S7_ = comdat any
+
+$_ZNK6google8protobuf19EnumValueDescriptor6numberEv = comdat any
+
+$_ZN6google8protobuf4util21SimpleFieldComparator20CompareDoubleOrFloatIfEEbRKNS0_15FieldDescriptorET_S7_ = comdat any
+
+$_ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEED2Ev = comdat any
+
+$_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEED2Ev = comdat any
+
+$_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE8capacityEv = comdat any
+
+$__clang_call_terminate = comdat any
+
+$_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE13destroy_slotsEv = comdat any
+
+$_ZN4absl12lts_2023080218container_internal29SanitizerUnpoisonMemoryRegionEPKvm = comdat any
+
+$_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE10slot_arrayEv = comdat any
+
+$_ZN4absl12lts_2023080218container_internal10DeallocateILm8ESaISt4pairIKPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEEEEvPT0_Pvm = comdat any
+
+$_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE9alloc_refEv = comdat any
+
+$_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE6commonEv = comdat any
+
+$_ZNK4absl12lts_2023080218container_internal12CommonFields19backing_array_startEv = comdat any
+
+$_ZN4absl12lts_2023080218container_internal9AllocSizeEmmm = comdat any
+
+$_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE5infozEv = comdat any
+
+$_ZN4absl12lts_2023080218container_internal20HashtablezInfoHandle10UnregisterEv = comdat any
+
+$_ZN4absl12lts_2023080218container_internal15CompressedTupleIJNS1_12CommonFieldsENS1_6HashEqIPKN6google8protobuf15FieldDescriptorEvE4HashENSA_2EqESaISt4pairIKS9_NS6_4util21SimpleFieldComparator9ToleranceEEEEED2Ev = comdat any
+
+$_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE6commonEv = comdat any
+
+$_ZNK4absl12lts_2023080218container_internal12CommonFields8capacityEv = comdat any
+
+$_ZNKR4absl12lts_2023080218container_internal15CompressedTupleIJNS1_12CommonFieldsENS1_6HashEqIPKN6google8protobuf15FieldDescriptorEvE4HashENSA_2EqESaISt4pairIKS9_NS6_4util21SimpleFieldComparator9ToleranceEEEEE3getILi0EEERKNS1_25internal_compressed_tuple4ElemISK_XT_EE4typeEv = comdat any
+
+$_ZNKR4absl12lts_2023080218container_internal25internal_compressed_tuple7StorageINS1_12CommonFieldsELm0ELb0EE3getEv = comdat any
+
+$_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE7controlEv = comdat any
+
+$_ZN4absl12lts_2023080218container_internal6IsFullENS1_6ctrl_tE = comdat any
+
+$_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEEvE7destroyISaISt4pairIKS8_SB_EEEEvPT_PNS1_13map_slot_typeIS8_SB_EE = comdat any
+
+$_ZNK4absl12lts_2023080218container_internal12CommonFields7controlEv = comdat any
+
+$_ZN4absl12lts_2023080218container_internal17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS4_4util21SimpleFieldComparator9ToleranceEE7destroyISaISt4pairIKS7_SA_EEEEvPT_PNS1_13map_slot_typeIS7_SA_EE = comdat any
+
+$_ZN4absl12lts_2023080218container_internal15map_slot_policyIPKN6google8protobuf15FieldDescriptorENS4_4util21SimpleFieldComparator9ToleranceEE7destroyISaISt4pairIKS7_SA_EEEEvPT_PNS1_13map_slot_typeIS7_SA_EE = comdat any
+
+$_ZNSt16allocator_traitsISaISt4pairIKPKN6google8protobuf15FieldDescriptorENS2_4util21SimpleFieldComparator9ToleranceEEEE7destroyIS0_IS5_S9_EEEvRSB_PT_ = comdat any
+
+$_ZNSt15__new_allocatorISt4pairIKPKN6google8protobuf15FieldDescriptorENS2_4util21SimpleFieldComparator9ToleranceEEE7destroyIS0_IS5_S9_EEEvPT_ = comdat any
+
+$_ZNK4absl12lts_2023080218container_internal12CommonFields10slot_arrayEv = comdat any
+
+$_ZNSaIN4absl12lts_2023080218container_internal11AlignedTypeILm8EEEEC2ISt4pairIKPKN6google8protobuf15FieldDescriptorENS8_4util21SimpleFieldComparator9ToleranceEEEERKSaIT_E = comdat any
+
+$_ZNSt16allocator_traitsISaIN4absl12lts_2023080218container_internal11AlignedTypeILm8EEEEE10deallocateERS5_PS4_m = comdat any
+
+$_ZNSaIN4absl12lts_2023080218container_internal11AlignedTypeILm8EEEED2Ev = comdat any
+
+$_ZNSt15__new_allocatorIN4absl12lts_2023080218container_internal11AlignedTypeILm8EEEEC2Ev = comdat any
+
+$_ZNSt15__new_allocatorIN4absl12lts_2023080218container_internal11AlignedTypeILm8EEEE10deallocateEPS4_m = comdat any
+
+$_ZNSt15__new_allocatorIN4absl12lts_2023080218container_internal11AlignedTypeILm8EEEED2Ev = comdat any
+
+$_ZNR4absl12lts_2023080218container_internal15CompressedTupleIJNS1_12CommonFieldsENS1_6HashEqIPKN6google8protobuf15FieldDescriptorEvE4HashENSA_2EqESaISt4pairIKS9_NS6_4util21SimpleFieldComparator9ToleranceEEEEE3getILi3EEERNS1_25internal_compressed_tuple4ElemISK_XT_EE4typeEv = comdat any
+
+$_ZNR4absl12lts_2023080218container_internal25internal_compressed_tuple7StorageISaISt4pairIKPKN6google8protobuf15FieldDescriptorENS6_4util21SimpleFieldComparator9ToleranceEEELm3ELb1EE3getEv = comdat any
+
+$_ZNR4absl12lts_2023080218container_internal15CompressedTupleIJNS1_12CommonFieldsENS1_6HashEqIPKN6google8protobuf15FieldDescriptorEvE4HashENSA_2EqESaISt4pairIKS9_NS6_4util21SimpleFieldComparator9ToleranceEEEEE3getILi0EEERNS1_25internal_compressed_tuple4ElemISK_XT_EE4typeEv = comdat any
+
+$_ZNR4absl12lts_2023080218container_internal25internal_compressed_tuple7StorageINS1_12CommonFieldsELm0ELb0EE3getEv = comdat any
+
+$_ZN4absl12lts_2023080218container_internal10SlotOffsetEmm = comdat any
+
+$_ZN4absl12lts_2023080218container_internal16GenerationOffsetEm = comdat any
+
+$_ZN4absl12lts_2023080218container_internal18NumGenerationBytesEv = comdat any
+
+$_ZN4absl12lts_2023080218container_internal14NumClonedBytesEv = comdat any
+
+$_ZN4absl12lts_2023080218container_internal13ControlOffsetEv = comdat any
+
+$_ZN4absl12lts_2023080218container_internal12CommonFields5infozEv = comdat any
+
+$_ZNR4absl12lts_2023080218container_internal15CompressedTupleIJmNS1_20HashtablezInfoHandleEEE3getILi1EEERNS1_25internal_compressed_tuple4ElemIS4_XT_EE4typeEv = comdat any
+
+$_ZNR4absl12lts_2023080218container_internal25internal_compressed_tuple7StorageINS1_20HashtablezInfoHandleELm1ELb1EE3getEv = comdat any
+
+$_ZN4absl12lts_2023080218container_internal25internal_compressed_tuple19CompressedTupleImplINS1_15CompressedTupleIJNS1_12CommonFieldsENS1_6HashEqIPKN6google8protobuf15FieldDescriptorEvE4HashENSC_2EqESaISt4pairIKSB_NS8_4util21SimpleFieldComparator9ToleranceEEEEEENS0_16integer_sequenceImJLm0ELm1ELm2ELm3EEEELb1EED2Ev = comdat any
+
+$_ZN4absl12lts_2023080218container_internal25internal_compressed_tuple7StorageISaISt4pairIKPKN6google8protobuf15FieldDescriptorENS6_4util21SimpleFieldComparator9ToleranceEEELm3ELb1EED2Ev = comdat any
+
+$_ZNSt15__new_allocatorISt4pairIKPKN6google8protobuf15FieldDescriptorENS2_4util21SimpleFieldComparator9ToleranceEEED2Ev = comdat any
+
+$_ZNK6google8protobuf15FieldDescriptor4typeEv = comdat any
+
+$_ZN4absl12lts_202308029call_onceIPFvPKN6google8protobuf15FieldDescriptorEEJS6_EEEvRNS0_9once_flagEOT_DpOT0_ = comdat any
+
+$_ZN4absl12lts_2023080213base_internal11ControlWordEPNS0_9once_flagE = comdat any
+
+$_ZN4absl12lts_2023080213base_internal12CallOnceImplIPFvPKN6google8protobuf15FieldDescriptorEEJS7_EEEvPSt6atomicIjENS1_14SchedulingModeEOT_DpOT0_ = comdat any
+
+$_ZStanSt12memory_orderSt23__memory_order_modifier = comdat any
+
+$_ZN4absl12lts_2023080213base_internal16SchedulingHelperC2ENS1_14SchedulingModeE = comdat any
+
+$_ZSt6invokeIPFvPKN6google8protobuf15FieldDescriptorEEJS4_EENSt13invoke_resultIT_JDpT0_EE4typeEOS8_DpOS9_ = comdat any
+
+$_ZN4absl12lts_2023080213base_internal12SpinLockWakeEPSt6atomicIjEb = comdat any
+
+$_ZN4absl12lts_2023080213base_internal16SchedulingHelperD2Ev = comdat any
+
+$_ZN4absl12lts_2023080213base_internal15SchedulingGuard19DisableReschedulingEv = comdat any
+
+$_ZSt23__cmpexch_failure_orderSt12memory_order = comdat any
+
+$_ZStorSt12memory_orderSt23__memory_order_modifier = comdat any
+
+$_ZSt24__cmpexch_failure_order2St12memory_order = comdat any
+
+$_ZSt8__invokeIPFvPKN6google8protobuf15FieldDescriptorEEJS4_EENSt15__invoke_resultIT_JDpT0_EE4typeEOS8_DpOS9_ = comdat any
+
+$_ZSt13__invoke_implIvPFvPKN6google8protobuf15FieldDescriptorEEJS4_EET_St14__invoke_otherOT0_DpOT1_ = comdat any
+
+$_ZN4absl12lts_2023080213base_internal15SchedulingGuard18EnableReschedulingEb = comdat any
+
+$_ZNK6google8protobuf15FieldDescriptor5labelEv = comdat any
+
+$_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_ = comdat any
+
+$_ZNSt11char_traitsIcE7compareEPKcS2_m = comdat any
+
+$_ZNSt11char_traitsIcE6lengthEPKc = comdat any
+
+$_ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEEC2Ev = comdat any
+
+$_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEEC2Ev = comdat any
+
+$_ZN4absl12lts_2023080218container_internal12CommonFieldsC2Ev = comdat any
+
+$_ZNSaISt4pairIKPKN6google8protobuf15FieldDescriptorENS1_4util21SimpleFieldComparator9ToleranceEEEC2Ev = comdat any
+
+$_ZN4absl12lts_2023080218container_internal15CompressedTupleIJNS1_12CommonFieldsENS1_6HashEqIPKN6google8protobuf15FieldDescriptorEvE4HashENSA_2EqESaISt4pairIKS9_NS6_4util21SimpleFieldComparator9ToleranceEEEEEC2IS3_JSB_SC_SJ_ETnNSt9enable_ifIXsr4absl11conjunctionINS0_8negationISt7is_sameIFvSK_EFvNSt5decayIT_E4typeEEEEENS1_25internal_compressed_tuple27TupleItemsMoveConstructibleISK_JSR_DpT0_EEEEE5valueEbE4typeELb1EEEOSR_DpOSZ_ = comdat any
+
+$_ZNSaISt4pairIKPKN6google8protobuf15FieldDescriptorENS1_4util21SimpleFieldComparator9ToleranceEEED2Ev = comdat any
+
+$_ZN4absl12lts_2023080218container_internal10EmptyGroupEv = comdat any
+
+$_ZN4absl12lts_2023080218container_internal15CompressedTupleIJmNS1_20HashtablezInfoHandleEEEC2IjJS3_ETnNSt9enable_ifIXsr4absl11conjunctionINS0_8negationISt7is_sameIFvS4_EFvNSt5decayIT_E4typeEEEEENS1_25internal_compressed_tuple27TupleItemsMoveConstructibleIS4_JSB_DpT0_EEEEE5valueEbE4typeELb1EEEOSB_DpOSJ_ = comdat any
+
+$_ZN4absl12lts_202308027forwardIjEEOT_RNSt16remove_referenceIS2_E4typeE = comdat any
+
+$_ZN4absl12lts_202308027forwardINS0_18container_internal20HashtablezInfoHandleEEEOT_RNSt16remove_referenceIS4_E4typeE = comdat any
+
+$_ZN4absl12lts_2023080218container_internal25internal_compressed_tuple19CompressedTupleImplINS1_15CompressedTupleIJmNS1_20HashtablezInfoHandleEEEENS0_16integer_sequenceImJLm0ELm1EEEELb1EEC2IJjS5_EEESt10in_place_tDpOT_ = comdat any
+
+$_ZN4absl12lts_2023080218container_internal25internal_compressed_tuple7StorageImLm0ELb0EEC2IjEESt10in_place_tOT_ = comdat any
+
+$_ZN4absl12lts_2023080218container_internal25internal_compressed_tuple7StorageINS1_20HashtablezInfoHandleELm1ELb1EEC2IS4_EESt10in_place_tOT_ = comdat any
+
+$_ZNSt15__new_allocatorISt4pairIKPKN6google8protobuf15FieldDescriptorENS2_4util21SimpleFieldComparator9ToleranceEEEC2Ev = comdat any
+
+$_ZN4absl12lts_202308027forwardINS0_18container_internal12CommonFieldsEEEOT_RNSt16remove_referenceIS4_E4typeE = comdat any
+
+$_ZN4absl12lts_202308027forwardINS0_18container_internal6HashEqIPKN6google8protobuf15FieldDescriptorEvE4HashEEEOT_RNSt16remove_referenceISB_E4typeE = comdat any
+
+$_ZN4absl12lts_202308027forwardINS0_18container_internal6HashEqIPKN6google8protobuf15FieldDescriptorEvE2EqEEEOT_RNSt16remove_referenceISB_E4typeE = comdat any
+
+$_ZN4absl12lts_202308027forwardISaISt4pairIKPKN6google8protobuf15FieldDescriptorENS4_4util21SimpleFieldComparator9ToleranceEEEEEOT_RNSt16remove_referenceISE_E4typeE = comdat any
+
+$_ZN4absl12lts_2023080218container_internal25internal_compressed_tuple19CompressedTupleImplINS1_15CompressedTupleIJNS1_12CommonFieldsENS1_6HashEqIPKN6google8protobuf15FieldDescriptorEvE4HashENSC_2EqESaISt4pairIKSB_NS8_4util21SimpleFieldComparator9ToleranceEEEEEENS0_16integer_sequenceImJLm0ELm1ELm2ELm3EEEELb1EEC2IJS5_SD_SE_SL_EEESt10in_place_tDpOT_ = comdat any
+
+$_ZN4absl12lts_2023080218container_internal25internal_compressed_tuple7StorageINS1_12CommonFieldsELm0ELb0EEC2IS4_EESt10in_place_tOT_ = comdat any
+
+$_ZN4absl12lts_2023080218container_internal25internal_compressed_tuple7StorageINS1_6HashEqIPKN6google8protobuf15FieldDescriptorEvE4HashELm1ELb1EEC2ISB_EESt10in_place_tOT_ = comdat any
+
+$_ZN4absl12lts_2023080218container_internal25internal_compressed_tuple7StorageINS1_6HashEqIPKN6google8protobuf15FieldDescriptorEvE2EqELm2ELb1EEC2ISB_EESt10in_place_tOT_ = comdat any
+
+$_ZN4absl12lts_2023080218container_internal25internal_compressed_tuple7StorageISaISt4pairIKPKN6google8protobuf15FieldDescriptorENS6_4util21SimpleFieldComparator9ToleranceEEELm3ELb1EEC2ISF_EESt10in_place_tOT_ = comdat any
+
+$_ZN4absl12lts_2023080218container_internal12CommonFieldsC2EOS2_ = comdat any
+
+$_ZNK4absl12lts_2023080218container_internal12CommonFields4sizeEv = comdat any
+
+$_ZN4absl12lts_2023080218container_internal15CompressedTupleIJmNS1_20HashtablezInfoHandleEEEC2ImJS3_ETnNSt9enable_ifIXsr4absl11conjunctionINS0_8negationISt7is_sameIFvS4_EFvNSt5decayIT_E4typeEEEEENS1_25internal_compressed_tuple27TupleItemsMoveConstructibleIS4_JSB_DpT0_EEEEE5valueEbE4typeELb1EEEOSB_DpOSJ_ = comdat any
+
+$_ZN4absl12lts_2023080218container_internal12CommonFields11set_controlEPNS1_6ctrl_tE = comdat any
+
+$_ZN4absl12lts_2023080218container_internal12CommonFields9set_slotsEPv = comdat any
+
+$_ZN4absl12lts_2023080218container_internal12CommonFields12set_capacityEm = comdat any
+
+$_ZN4absl12lts_2023080218container_internal12CommonFields8set_sizeEm = comdat any
+
+$_ZNKR4absl12lts_2023080218container_internal15CompressedTupleIJmNS1_20HashtablezInfoHandleEEE3getILi0EEERKNS1_25internal_compressed_tuple4ElemIS4_XT_EE4typeEv = comdat any
+
+$_ZNKR4absl12lts_2023080218container_internal25internal_compressed_tuple7StorageImLm0ELb0EE3getEv = comdat any
+
+$_ZN4absl12lts_202308027forwardImEEOT_RNSt16remove_referenceIS2_E4typeE = comdat any
+
+$_ZN4absl12lts_2023080218container_internal25internal_compressed_tuple19CompressedTupleImplINS1_15CompressedTupleIJmNS1_20HashtablezInfoHandleEEEENS0_16integer_sequenceImJLm0ELm1EEEELb1EEC2IJmS5_EEESt10in_place_tDpOT_ = comdat any
+
+$_ZN4absl12lts_2023080218container_internal25internal_compressed_tuple7StorageImLm0ELb0EEC2ImEESt10in_place_tOT_ = comdat any
+
+$_ZNR4absl12lts_2023080218container_internal15CompressedTupleIJmNS1_20HashtablezInfoHandleEEE3getILi0EEERNS1_25internal_compressed_tuple4ElemIS4_XT_EE4typeEv = comdat any
+
+$_ZNR4absl12lts_2023080218container_internal25internal_compressed_tuple7StorageImLm0ELb0EE3getEv = comdat any
+
+$_ZNSaISt4pairIKPKN6google8protobuf15FieldDescriptorENS1_4util21SimpleFieldComparator9ToleranceEEEC2ERKSA_ = comdat any
+
+$_ZNSt15__new_allocatorISt4pairIKPKN6google8protobuf15FieldDescriptorENS2_4util21SimpleFieldComparator9ToleranceEEEC2ERKSB_ = comdat any
+
+$_ZNKSt10unique_ptrIN4absl12lts_2023080212log_internal10LogMessage14LogMessageDataESt14default_deleteIS4_EEdeEv = comdat any
+
+$_ZN4absl12lts_2023080212log_internal9NullGuardIN6google8protobuf8internal19FieldDescriptorLite7CppTypeEE5GuardERKS7_ = comdat any
+
+$_ZNKSt10unique_ptrIN4absl12lts_2023080212log_internal10LogMessage14LogMessageDataESt14default_deleteIS4_EE3getEv = comdat any
+
+$_ZNKSt15__uniq_ptr_implIN4absl12lts_2023080212log_internal10LogMessage14LogMessageDataESt14default_deleteIS4_EE6_M_ptrEv = comdat any
+
+$_ZSt3getILm0EJPN4absl12lts_2023080212log_internal10LogMessage14LogMessageDataESt14default_deleteIS4_EEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKSC_ = comdat any
+
+$_ZSt12__get_helperILm0EPN4absl12lts_2023080212log_internal10LogMessage14LogMessageDataEJSt14default_deleteIS4_EEERKT0_RKSt11_Tuple_implIXT_EJS8_DpT1_EE = comdat any
+
+$_ZNSt11_Tuple_implILm0EJPN4absl12lts_2023080212log_internal10LogMessage14LogMessageDataESt14default_deleteIS4_EEE7_M_headERKS8_ = comdat any
+
+$_ZNSt10_Head_baseILm0EPN4absl12lts_2023080212log_internal10LogMessage14LogMessageDataELb0EE7_M_headERKS6_ = comdat any
+
+$_ZN4absl12lts_2023080218container_internal17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS4_4util21SimpleFieldComparator9ToleranceEE5valueEPSt4pairIKS7_SA_E = comdat any
+
+$_ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE11try_emplaceIS8_JETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS1_12raw_hash_setISC_SF_SG_SK_E14const_iteratorEEE5valueEiE4typeELi0EEESH_INSQ_8iteratorEbERKSO_DpOT0_ = comdat any
+
+$_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE8iteratordeEv = comdat any
+
+$_ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE16try_emplace_implIRSI_JEEESH_INS1_12raw_hash_setISC_SF_SG_SK_E8iteratorEbEOT_DpOT0_ = comdat any
+
+$_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE22find_or_prepare_insertIS8_EESH_ImbERKT_ = comdat any
+
+$_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE10emplace_atIJRKSt21piecewise_construct_tSt5tupleIJRSI_EESQ_IJEEEEEvmDpOT_ = comdat any
+
+$_ZSt16forward_as_tupleIJRKPKN6google8protobuf15FieldDescriptorEEESt5tupleIJDpOT_EESA_ = comdat any
+
+$_ZSt16forward_as_tupleIJEESt5tupleIJDpOT_EES3_ = comdat any
+
+$_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE11iterator_atEm = comdat any
+
+$_ZNSt4pairIN4absl12lts_2023080218container_internal12raw_hash_setINS2_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS6_4util21SimpleFieldComparator9ToleranceEEENS2_6HashEqIS9_vE4HashENSF_2EqESaIS_IKS9_SC_EEE8iteratorEbEC2ISM_RbTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISR_SS_EEEbE4typeELb1EEEOSR_OSS_ = comdat any
+
+$_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE19prefetch_heap_blockEv = comdat any
+
+$_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE8hash_refEv = comdat any
+
+$_ZNK4absl12lts_2023080218container_internal6HashEqIPKN6google8protobuf15FieldDescriptorEvE4HashclIS7_EEmRKT_ = comdat any
+
+$_ZN4absl12lts_2023080218container_internal5probeERKNS1_12CommonFieldsEm = comdat any
+
+$_ZNK4absl12lts_2023080218container_internal9probe_seqILm16EE6offsetEv = comdat any
+
+$_ZN4absl12lts_2023080218container_internal13GroupSse2ImplC2EPKNS1_6ctrl_tE = comdat any
+
+$_ZNK4absl12lts_2023080218container_internal13GroupSse2Impl5MatchEh = comdat any
+
+$_ZN4absl12lts_2023080218container_internal2H2Em = comdat any
+
+$_ZNK4absl12lts_2023080218container_internal7BitMaskIjLi16ELi0EE5beginEv = comdat any
+
+$_ZNK4absl12lts_2023080218container_internal7BitMaskIjLi16ELi0EE3endEv = comdat any
+
+$_ZN4absl12lts_2023080218container_internalneERKNS1_7BitMaskIjLi16ELi0EEES5_ = comdat any
+
+$_ZNK4absl12lts_2023080218container_internal7BitMaskIjLi16ELi0EEdeEv = comdat any
+
+$_ZN4absl12lts_2023080218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEEvE5applyINS1_12raw_hash_setISC_NS1_6HashEqIS8_vE4HashENSH_2EqESaISt4pairIKS8_SB_EEE12EqualElementIS8_EEJRSM_ESC_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOST_DpOSU_ = comdat any
+
+$_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE6eq_refEv = comdat any
+
+$_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEEvE7elementISC_EEDTclsrT_7elementfp_EEPNS1_13map_slot_typeIS8_SB_EE = comdat any
+
+$_ZNK4absl12lts_2023080218container_internal9probe_seqILm16EE6offsetEm = comdat any
+
+$_ZNSt4pairImbEC2ImbTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS3_S4_EEEbE4typeELb1EEEOS3_OS4_ = comdat any
+
+$_ZN4absl12lts_2023080218container_internal7BitMaskIjLi16ELi0EEppEv = comdat any
+
+$_ZNK4absl12lts_2023080218container_internal13GroupSse2Impl9MaskEmptyEv = comdat any
+
+$_ZNK4absl12lts_2023080218container_internal18NonIterableBitMaskIjLi16ELi0EEcvbEv = comdat any
+
+$_ZN4absl12lts_2023080218container_internal9probe_seqILm16EE4nextEv = comdat any
+
+$_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE14prepare_insertEm = comdat any
+
+$_ZNR4absl12lts_2023080218container_internal15CompressedTupleIJNS1_12CommonFieldsENS1_6HashEqIPKN6google8protobuf15FieldDescriptorEvE4HashENSA_2EqESaISt4pairIKS9_NS6_4util21SimpleFieldComparator9ToleranceEEEEE3getILi1EEERNS1_25internal_compressed_tuple4ElemISK_XT_EE4typeEv = comdat any
+
+$_ZNR4absl12lts_2023080218container_internal25internal_compressed_tuple7StorageINS1_6HashEqIPKN6google8protobuf15FieldDescriptorEvE4HashELm1ELb1EE3getEv = comdat any
+
+$_ZNK4absl12lts_2023080213hash_internal8HashImplIPKN6google8protobuf15FieldDescriptorEEclERKS7_ = comdat any
+
+$_ZN4absl12lts_2023080218container_internal6HashEqIPKN6google8protobuf15FieldDescriptorEvE5ToPtrES7_ = comdat any
+
+$_ZN4absl12lts_2023080213hash_internal15MixingHashState4hashIPKN6google8protobuf15FieldDescriptorETnNSt9enable_ifIXntsr16IntegralFastPathIT_EE5valueEiE4typeELi0EEEmRKSA_ = comdat any
+
+$_ZN4absl12lts_2023080213hash_internal13HashStateBaseINS1_15MixingHashStateEE7combineIPKN6google8protobuf15FieldDescriptorEJEEES3_S3_RKT_DpRKT0_ = comdat any
+
+$_ZN4absl12lts_2023080213hash_internal15MixingHashStateC2Ev = comdat any
+
+$_ZN4absl12lts_2023080213hash_internal13HashStateBaseINS1_15MixingHashStateEE7combineES3_ = comdat any
+
+$_ZN4absl12lts_2023080213hash_internal10HashSelect14HashValueProbe6InvokeINS1_15MixingHashStateEPKN6google8protobuf15FieldDescriptorEEENSt9enable_ifIXsr3std7is_sameIT_DTcl13AbslHashValueclsr3stdE4movefp_Efp0_EEEE5valueESC_E4typeESC_RKT0_ = comdat any
+
+$_ZN4absl12lts_2023080213hash_internal13AbslHashValueINS1_15MixingHashStateEKN6google8protobuf15FieldDescriptorEEET_S8_PT0_ = comdat any
+
+$_ZN4absl12lts_2023080213hash_internal13HashStateBaseINS1_15MixingHashStateEE7combineImJmEEES3_S3_RKT_DpRKT0_ = comdat any
+
+$_ZN4absl12lts_2023080213hash_internal13HashStateBaseINS1_15MixingHashStateEE7combineImJEEES3_S3_RKT_DpRKT0_ = comdat any
+
+$_ZN4absl12lts_2023080213hash_internal10HashSelect24UniquelyRepresentedProbe6InvokeINS1_15MixingHashStateEmEENSt9enable_ifIXsr23is_uniquely_representedIT0_EE5valueET_E4typeES8_RKS7_ = comdat any
+
+$_ZN4absl12lts_2023080213hash_internal10hash_bytesINS1_15MixingHashStateEmEET_S4_RKT0_ = comdat any
+
+$_ZN4absl12lts_2023080213hash_internal15MixingHashState18combine_contiguousES2_PKhm = comdat any
+
+$_ZN4absl12lts_2023080213hash_internal15MixingHashState21CombineContiguousImplEmPKhmSt17integral_constantIiLi8EE = comdat any
+
+$_ZN4absl12lts_2023080213hash_internal15MixingHashStateC2Em = comdat any
+
+$_ZN4absl12lts_2023080213hash_internal18PiecewiseChunkSizeEv = comdat any
+
+$_ZN4absl12lts_2023080213hash_internal15MixingHashState9Read9To16EPKhm = comdat any
+
+$_ZN4absl12lts_202308024rotrImEENSt9enable_ifIXsr3std11is_unsignedIT_EE5valueES3_E4typeES3_i = comdat any
+
+$_ZN4absl12lts_2023080213hash_internal15MixingHashState8Read4To8EPKhm = comdat any
+
+$_ZN4absl12lts_2023080213hash_internal15MixingHashState8Read1To3EPKhm = comdat any
+
+$_ZN4absl12lts_2023080213base_internal15UnalignedLoad64EPKv = comdat any
+
+$_ZNSt4pairImmEC2IRmS2_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS4_S5_EEEbE4typeELb1EEEOS4_OS5_ = comdat any
+
+$_ZN4absl12lts_2023080213base_internal15UnalignedLoad32EPKv = comdat any
+
+$_ZN4absl12lts_2023080218container_internal5probeEPKNS1_6ctrl_tEmm = comdat any
+
+$_ZN4absl12lts_2023080218container_internal2H1EmPKNS1_6ctrl_tE = comdat any
+
+$_ZN4absl12lts_2023080218container_internal9probe_seqILm16EEC2Emm = comdat any
+
+$_ZN4absl12lts_2023080218container_internal12PerTableSaltEPKNS1_6ctrl_tE = comdat any
+
+$_ZN4absl12lts_2023080218container_internal7BitMaskIjLi16ELi0EEC2Ej = comdat any
+
+$_ZNK4absl12lts_2023080218container_internal18NonIterableBitMaskIjLi16ELi0EE12LowestBitSetEv = comdat any
+
+$_ZN4absl12lts_2023080218container_internal13TrailingZerosIjEEjT_ = comdat any
+
+$_ZN4absl12lts_2023080211countr_zeroIjEENSt9enable_ifIXsr3std11is_unsignedIT_EE5valueEiE4typeES3_ = comdat any
+
+$_ZN4absl12lts_2023080218container_internal17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS4_4util21SimpleFieldComparator9ToleranceEE5applyINS1_12raw_hash_setISB_NS1_6HashEqIS7_vE4HashENSF_2EqESaISt4pairIKS7_SA_EEE12EqualElementIS7_EEJRSK_EEEDTclsr4absl18container_internalE13DecomposePairclsr3stdE7declvalIT_EEspclsr3stdE7declvalIT0_EEEEOSQ_DpOSR_ = comdat any
+
+$_ZN4absl12lts_2023080218container_internal13DecomposePairINS1_12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS6_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS9_vE4HashENSF_2EqESaISt4pairIKS9_SC_EEE12EqualElementIS9_EEJRSK_EEEDTclsr15memory_internalE17DecomposePairImplclsr3stdE7forwardIT_Efp_Ecl8PairArgsspclsr3stdE7forwardIT0_Efp0_EEEEOSQ_DpOSR_ = comdat any
+
+$_ZN4absl12lts_2023080218container_internal15memory_internal17DecomposePairImplINS1_12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS7_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqISA_vE4HashENSG_2EqESaISt4pairIKSA_SD_EEE12EqualElementISA_EERSK_St5tupleIJRKSD_EEEEDTclclsr3stdE7declvalIT_EEclsr3stdE7declvalIRKT0_EEL_ZSt19piecewise_constructEclsr3stdE7declvalISR_IJSW_EEEEclsr3stdE7declvalIT1_EEEEOSV_SJ_ISZ_S10_E = comdat any
+
+$_ZN4absl12lts_2023080218container_internal8PairArgsIKPKN6google8protobuf15FieldDescriptorENS4_4util21SimpleFieldComparator9ToleranceEEESt4pairISt5tupleIJRKT_EESD_IJRKT0_EEERKSC_ISE_SI_E = comdat any
+
+$_ZSt3getILm0EJRKPKN6google8protobuf15FieldDescriptorEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSB_ = comdat any
+
+$_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE12EqualElementIS8_EclIS8_JRKSt21piecewise_construct_tSt5tupleIJRSI_EESS_IJRKSB_EEEEEbRKT_DpOT0_ = comdat any
+
+$_ZSt12__get_helperILm0ERKPKN6google8protobuf15FieldDescriptorEJEERT0_RSt11_Tuple_implIXT_EJS7_DpT1_EE = comdat any
+
+$_ZNSt11_Tuple_implILm0EJRKPKN6google8protobuf15FieldDescriptorEEE7_M_headERS7_ = comdat any
+
+$_ZNSt10_Head_baseILm0ERKPKN6google8protobuf15FieldDescriptorELb0EE7_M_headERS7_ = comdat any
+
+$_ZNK4absl12lts_2023080218container_internal6HashEqIPKN6google8protobuf15FieldDescriptorEvE2EqclIS7_S7_EEbRKT_RKT0_ = comdat any
+
+$_ZN4absl12lts_2023080218container_internal8PairArgsIRKPKN6google8protobuf15FieldDescriptorERKNS4_4util21SimpleFieldComparator9ToleranceEEESt4pairISt5tupleIJOT_EESG_IJOT0_EEESI_SL_ = comdat any
+
+$_ZSt16forward_as_tupleIJRKN6google8protobuf4util21SimpleFieldComparator9ToleranceEEESt5tupleIJDpOT_EESA_ = comdat any
+
+$_ZNSt4pairISt5tupleIJRKPKN6google8protobuf15FieldDescriptorEEES0_IJRKNS2_4util21SimpleFieldComparator9ToleranceEEEEC2IJS7_EJSD_EEESt21piecewise_construct_tS0_IJDpT_EES0_IJDpT0_EE = comdat any
+
+$_ZNSt5tupleIJRKN6google8protobuf4util21SimpleFieldComparator9ToleranceEEEC2ILb1ETnNSt9enable_ifIXclsr4_TCCIXT_EEE29__is_implicitly_constructibleIS6_EEEbE4typeELb1EEES6_ = comdat any
+
+$_ZNSt11_Tuple_implILm0EJRKN6google8protobuf4util21SimpleFieldComparator9ToleranceEEEC2ES6_ = comdat any
+
+$_ZNSt10_Head_baseILm0ERKN6google8protobuf4util21SimpleFieldComparator9ToleranceELb0EEC2ES6_ = comdat any
+
+$_ZNSt4pairISt5tupleIJRKPKN6google8protobuf15FieldDescriptorEEES0_IJRKNS2_4util21SimpleFieldComparator9ToleranceEEEEC2IJS7_EJLm0EEJSD_EJLm0EEEERS0_IJDpT_EERS0_IJDpT1_EESt12_Index_tupleIJXspT0_EEESP_IJXspT2_EEE = comdat any
+
+$_ZNSt5tupleIJRKPKN6google8protobuf15FieldDescriptorEEEC2ILb1ETnNSt9enable_ifIXclsr4_TCCIXT_EEE29__is_implicitly_constructibleIS6_EEEbE4typeELb1EEES6_ = comdat any
+
+$_ZSt3getILm0EJRKN6google8protobuf4util21SimpleFieldComparator9ToleranceEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSB_ = comdat any
+
+$_ZNSt11_Tuple_implILm0EJRKPKN6google8protobuf15FieldDescriptorEEEC2ES6_ = comdat any
+
+$_ZNSt10_Head_baseILm0ERKPKN6google8protobuf15FieldDescriptorELb0EEC2ES6_ = comdat any
+
+$_ZSt12__get_helperILm0ERKN6google8protobuf4util21SimpleFieldComparator9ToleranceEJEERT0_RSt11_Tuple_implIXT_EJS7_DpT1_EE = comdat any
+
+$_ZNSt11_Tuple_implILm0EJRKN6google8protobuf4util21SimpleFieldComparator9ToleranceEEE7_M_headERS7_ = comdat any
+
+$_ZNSt10_Head_baseILm0ERKN6google8protobuf4util21SimpleFieldComparator9ToleranceELb0EE7_M_headERS7_ = comdat any
+
+$_ZNR4absl12lts_2023080218container_internal15CompressedTupleIJNS1_12CommonFieldsENS1_6HashEqIPKN6google8protobuf15FieldDescriptorEvE4HashENSA_2EqESaISt4pairIKS9_NS6_4util21SimpleFieldComparator9ToleranceEEEEE3getILi2EEERNS1_25internal_compressed_tuple4ElemISK_XT_EE4typeEv = comdat any
+
+$_ZNR4absl12lts_2023080218container_internal25internal_compressed_tuple7StorageINS1_6HashEqIPKN6google8protobuf15FieldDescriptorEvE2EqELm2ELb1EE3getEv = comdat any
+
+$_ZN4absl12lts_2023080218container_internal17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS4_4util21SimpleFieldComparator9ToleranceEE7elementEPNS1_13map_slot_typeIS7_SA_EE = comdat any
+
+$_ZN4absl12lts_2023080218container_internal18NonIterableBitMaskIjLi16ELi0EEC2Ej = comdat any
+
+$_ZNK4absl12lts_2023080218container_internal12CommonFields41should_rehash_for_bug_detection_on_insertEv = comdat any
+
+$_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE6resizeEm = comdat any
+
+$_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE11growth_leftEv = comdat any
+
+$_ZN4absl12lts_2023080218container_internal12NextCapacityEm = comdat any
+
+$_ZN4absl12lts_2023080218container_internal9IsDeletedENS1_6ctrl_tE = comdat any
+
+$_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE28rehash_and_grow_if_necessaryEv = comdat any
+
+$_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE15set_growth_leftEm = comdat any
+
+$_ZN4absl12lts_2023080218container_internal7IsEmptyENS1_6ctrl_tE = comdat any
+
+$_ZN4absl12lts_2023080218container_internal7SetCtrlERKNS1_12CommonFieldsEmhm = comdat any
+
+$_ZN4absl12lts_2023080218container_internal34CommonFieldsGenerationInfoDisabled36maybe_increment_generation_on_insertEv = comdat any
+
+$_ZN4absl12lts_2023080218container_internal20HashtablezInfoHandle12RecordInsertEmm = comdat any
+
+$_ZNK4absl12lts_2023080218container_internal34CommonFieldsGenerationInfoDisabled41should_rehash_for_bug_detection_on_insertEPKNS1_6ctrl_tEm = comdat any
+
+$_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE16initialize_slotsEv = comdat any
+
+$_ZN4absl12lts_2023080218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEEvE5applyINS1_12raw_hash_setISC_NS1_6HashEqIS8_vE4HashENSH_2EqESaISt4pairIKS8_SB_EEE11HashElementEJRSM_ESC_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSS_DpOST_ = comdat any
+
+$_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEEvE8transferISaISt4pairIKS8_SB_EEEEvPT_PNS1_13map_slot_typeIS8_SB_EESN_ = comdat any
+
+$_ZN4absl12lts_2023080218container_internal20HashtablezInfoHandle12RecordRehashEm = comdat any
+
+$_ZN4absl12lts_2023080218container_internal15InitializeSlotsISaIcELm24ELm8EEEvRNS1_12CommonFieldsET_ = comdat any
+
+$_ZNSaIcEC2ISt4pairIKPKN6google8protobuf15FieldDescriptorENS3_4util21SimpleFieldComparator9ToleranceEEEERKSaIT_E = comdat any
+
+$_ZN4absl12lts_2023080218container_internal8AllocateILm8ESaIcEEEPvPT0_m = comdat any
+
+$_ZNK4absl12lts_2023080218container_internal34CommonFieldsGenerationInfoDisabled10generationEv = comdat any
+
+$_ZN4absl12lts_2023080218container_internal34CommonFieldsGenerationInfoDisabled18set_generation_ptrEPh = comdat any
+
+$_ZN4absl12lts_2023080218container_internal34CommonFieldsGenerationInfoDisabled14set_generationEh = comdat any
+
+$_ZN4absl12lts_2023080218container_internal14NextGenerationEh = comdat any
+
+$_ZN4absl12lts_2023080218container_internal9ResetCtrlERNS1_12CommonFieldsEm = comdat any
+
+$_ZN4absl12lts_2023080218container_internal6SampleEm = comdat any
+
+$_ZN4absl12lts_2023080218container_internal20HashtablezInfoHandle20RecordStorageChangedEmm = comdat any
+
+$_ZNSaIN4absl12lts_2023080218container_internal11AlignedTypeILm8EEEEC2IcEERKSaIT_E = comdat any
+
+$_ZNSt16allocator_traitsISaIN4absl12lts_2023080218container_internal11AlignedTypeILm8EEEEE8allocateERS5_m = comdat any
+
+$_ZNSt15__new_allocatorIN4absl12lts_2023080218container_internal11AlignedTypeILm8EEEE8allocateEmPKv = comdat any
+
+$_ZNKSt15__new_allocatorIN4absl12lts_2023080218container_internal11AlignedTypeILm8EEEE11_M_max_sizeEv = comdat any
+
+$_ZN4absl12lts_2023080218container_internal23SentinelEmptyGenerationEv = comdat any
+
+$_ZN4absl12lts_2023080218container_internal27SanitizerPoisonMemoryRegionEPKvm = comdat any
+
+$_ZN4absl12lts_2023080218container_internal15ResetGrowthLeftERNS1_12CommonFieldsE = comdat any
+
+$_ZN4absl12lts_2023080218container_internal12CommonFields15set_growth_leftEm = comdat any
+
+$_ZN4absl12lts_2023080218container_internal16CapacityToGrowthEm = comdat any
+
+$_ZN4absl12lts_2023080218container_internal20HashtablezInfoHandleC2EDn = comdat any
+
+$_ZNSt15__new_allocatorIcEC2Ev = comdat any
+
+$_ZN4absl12lts_2023080218container_internal17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS4_4util21SimpleFieldComparator9ToleranceEE5applyINS1_12raw_hash_setISB_NS1_6HashEqIS7_vE4HashENSF_2EqESaISt4pairIKS7_SA_EEE11HashElementEJRSK_EEEDTclsr4absl18container_internalE13DecomposePairclsr3stdE7declvalIT_EEspclsr3stdE7declvalIT0_EEEEOSP_DpOSQ_ = comdat any
+
+$_ZN4absl12lts_2023080218container_internal13DecomposePairINS1_12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS6_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS9_vE4HashENSF_2EqESaISt4pairIKS9_SC_EEE11HashElementEJRSK_EEEDTclsr15memory_internalE17DecomposePairImplclsr3stdE7forwardIT_Efp_Ecl8PairArgsspclsr3stdE7forwardIT0_Efp0_EEEEOSP_DpOSQ_ = comdat any
+
+$_ZN4absl12lts_2023080218container_internal15memory_internal17DecomposePairImplINS1_12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS7_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqISA_vE4HashENSG_2EqESaISt4pairIKSA_SD_EEE11HashElementERSK_St5tupleIJRKSD_EEEEDTclclsr3stdE7declvalIT_EEclsr3stdE7declvalIRKT0_EEL_ZSt19piecewise_constructEclsr3stdE7declvalISQ_IJSV_EEEEclsr3stdE7declvalIT1_EEEEOSU_SJ_ISY_SZ_E = comdat any
+
+$_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE11HashElementclIS8_JRKSt21piecewise_construct_tSt5tupleIJRSI_EESR_IJRKSB_EEEEEmRKT_DpOT0_ = comdat any
+
+$_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEEvE13transfer_implISaISt4pairIKS8_SB_EESC_EEDTcvvclsrT0_8transferfp_fp0_fp1_EEPT_PNS1_13map_slot_typeIS8_SB_EESP_NSD_5Rank0E = comdat any
+
+$_ZN4absl12lts_2023080218container_internal17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS4_4util21SimpleFieldComparator9ToleranceEE8transferISaISt4pairIKS7_SA_EEEEvPT_PNS1_13map_slot_typeIS7_SA_EESL_ = comdat any
+
+$_ZN4absl12lts_2023080218container_internal15map_slot_policyIPKN6google8protobuf15FieldDescriptorENS4_4util21SimpleFieldComparator9ToleranceEE8transferISaISt4pairIKS7_SA_EEEEvPT_PNS1_13map_slot_typeIS7_SA_EESL_ = comdat any
+
+$_ZN4absl12lts_2023080218container_internal15map_slot_policyIPKN6google8protobuf15FieldDescriptorENS4_4util21SimpleFieldComparator9ToleranceEE7emplaceEPNS1_13map_slot_typeIS7_SA_EE = comdat any
+
+$_ZSt7launderISt4pairIKPKN6google8protobuf15FieldDescriptorENS2_4util21SimpleFieldComparator9ToleranceEEEPT_SC_ = comdat any
+
+$_ZN4absl12lts_2023080218container_internal13map_slot_typeIPKN6google8protobuf15FieldDescriptorENS4_4util21SimpleFieldComparator9ToleranceEEC2Ev = comdat any
+
+$_ZNK4absl12lts_2023080218container_internal12CommonFields11growth_leftEv = comdat any
+
+$_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE4sizeEv = comdat any
+
+$_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE27drop_deletes_without_resizeEv = comdat any
+
+$_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE18GetPolicyFunctionsEv = comdat any
+
+$_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE12hash_slot_fnEPvSM_ = comdat any
+
+$_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE16transfer_slot_fnEPvSM_SM_ = comdat any
+
+$_ZN4absl12lts_2023080218container_internal18DeallocateStandardILm8EEEvRNS1_12CommonFieldsERKNS1_15PolicyFunctionsE = comdat any
+
+$_ZN4absl12lts_2023080218container_internal10DeallocateILm8ESaIcEEEvPT0_Pvm = comdat any
+
+$_ZNK4absl12lts_2023080218container_internal12CommonFields10alloc_sizeEmm = comdat any
+
+$_ZN4absl12lts_2023080218container_internal7SetCtrlERKNS1_12CommonFieldsEmNS1_6ctrl_tEm = comdat any
+
+$_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEEvE9constructISaISt4pairIKS8_SB_EEJRKSt21piecewise_construct_tSt5tupleIJRSG_EESM_IJEEEEEvPT_PNS1_13map_slot_typeIS8_SB_EEDpOT0_ = comdat any
+
+$_ZN4absl12lts_2023080218container_internal17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS4_4util21SimpleFieldComparator9ToleranceEE9constructISaISt4pairIKS7_SA_EEJRKSt21piecewise_construct_tSt5tupleIJRSE_EESK_IJEEEEEvPT_PNS1_13map_slot_typeIS7_SA_EEDpOT0_ = comdat any
+
+$_ZN4absl12lts_2023080218container_internal15map_slot_policyIPKN6google8protobuf15FieldDescriptorENS4_4util21SimpleFieldComparator9ToleranceEE9constructISaISt4pairIKS7_SA_EEJRKSt21piecewise_construct_tSt5tupleIJRSE_EESK_IJEEEEEvPT_PNS1_13map_slot_typeIS7_SA_EEDpOT0_ = comdat any
+
+$_ZNSt16allocator_traitsISaISt4pairIKPKN6google8protobuf15FieldDescriptorENS2_4util21SimpleFieldComparator9ToleranceEEEE9constructIS0_IS5_S9_EJRKSt21piecewise_construct_tSt5tupleIJRS6_EESI_IJEEEEEvRSB_PT_DpOT0_ = comdat any
+
+$_ZNSt15__new_allocatorISt4pairIKPKN6google8protobuf15FieldDescriptorENS2_4util21SimpleFieldComparator9ToleranceEEE9constructIS0_IS5_S9_EJRKSt21piecewise_construct_tSt5tupleIJRS6_EESH_IJEEEEEvPT_DpOT0_ = comdat any
+
+$_ZNSt5tupleIJRKPKN6google8protobuf15FieldDescriptorEEEC2EOS7_ = comdat any
+
+$_ZNSt4pairIPKN6google8protobuf15FieldDescriptorENS1_4util21SimpleFieldComparator9ToleranceEEC2IJRKS4_EJEEESt21piecewise_construct_tSt5tupleIJDpT_EESD_IJDpT0_EE = comdat any
+
+$_ZNSt11_Tuple_implILm0EJRKPKN6google8protobuf15FieldDescriptorEEEC2EOS7_ = comdat any
+
+$_ZNSt4pairIPKN6google8protobuf15FieldDescriptorENS1_4util21SimpleFieldComparator9ToleranceEEC2IJRKS4_EJLm0EEJETpTnmJEEERSt5tupleIJDpT_EERSC_IJDpT1_EESt12_Index_tupleIJXspT0_EEESL_IJXspT2_EEE = comdat any
+
+$_ZNK4absl12lts_2023080218container_internal34CommonFieldsGenerationInfoDisabled14generation_ptrEv = comdat any
+
+$_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE8iteratorC2EPNS1_6ctrl_tEPNS1_13map_slot_typeIS8_SB_EEPKh = comdat any
+
+$_ZN4absl12lts_2023080218container_internal37HashSetIteratorGenerationInfoDisabledC2EPKh = comdat any
+
+$_ZN4absl12lts_2023080218container_internal12AssertIsFullEPKNS1_6ctrl_tEhPKhPKc = comdat any
+
+$_ZNK4absl12lts_2023080218container_internal37HashSetIteratorGenerationInfoDisabled10generationEv = comdat any
+
+$_ZNK4absl12lts_2023080218container_internal37HashSetIteratorGenerationInfoDisabled14generation_ptrEv = comdat any
+
+$_ZSt5isnand = comdat any
+
+$_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE4findIS8_EENSL_8iteratorERKT_ = comdat any
+
+$_ZN4absl12lts_2023080218container_internalneERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE8iteratorESO_ = comdat any
+
+$_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE3endEv = comdat any
+
+$_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE8iteratorptEv = comdat any
+
+$_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE4findIS8_EENSL_8iteratorERKT_m = comdat any
+
+$_ZN4absl12lts_2023080218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE8iteratorESO_ = comdat any
+
+$_ZN4absl12lts_2023080218container_internal26AssertIsValidForComparisonEPKNS1_6ctrl_tEhPKh = comdat any
+
+$_ZN4absl12lts_2023080218container_internal19AssertSameContainerEPKNS1_6ctrl_tES4_RKPKvS8_PKhSA_ = comdat any
+
+$_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE8iteratorC2EPKh = comdat any
+
+$_ZSt8isfinited = comdat any
+
+$_ZSt3maxIdERKT_S2_S2_ = comdat any
+
+$_ZSt5isnanf = comdat any
+
+$_ZSt4fabsf = comdat any
+
+$_ZSt8isfinitef = comdat any
+
+$_ZSt3maxIfERKT_S2_S2_ = comdat any
+
+$_ZZN4absl12lts_2023080213base_internal12CallOnceImplIPFvPKN6google8protobuf15FieldDescriptorEEJS7_EEEvPSt6atomicIjENS1_14SchedulingModeEOT_DpOT0_E5trans = comdat any
+
+$_ZSt8in_place = comdat any
+
+$_ZSt19piecewise_construct = comdat any
+
+$_ZZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE18GetPolicyFunctionsEvE5value = comdat any
+
+@_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
+@__dso_handle = external hidden global i8
+@_ZTVN6google8protobuf4util15FieldComparatorE = unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN6google8protobuf4util15FieldComparatorE, ptr @_ZN6google8protobuf4util15FieldComparatorD1Ev, ptr @_ZN6google8protobuf4util15FieldComparatorD0Ev, ptr @__cxa_pure_virtual] }, align 8
+@_ZTVN6google8protobuf4util21SimpleFieldComparatorE = unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN6google8protobuf4util21SimpleFieldComparatorE, ptr @_ZN6google8protobuf4util21SimpleFieldComparatorD1Ev, ptr @_ZN6google8protobuf4util21SimpleFieldComparatorD0Ev, ptr @__cxa_pure_virtual] }, align 8
+@.str = private unnamed_addr constant [140 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/protobuf/protobuf/src/google/protobuf/util/field_comparator.cc\00", align 1
+@.str.1 = private unnamed_addr constant [30 x i8] c"No comparison code for field \00", align 1
+@.str.2 = private unnamed_addr constant [15 x i8] c" of CppType = \00", align 1
+@.str.3 = private unnamed_addr constant [108 x i8] c"FieldDescriptor::CPPTYPE_FLOAT == field->cpp_type() || FieldDescriptor::CPPTYPE_DOUBLE == field->cpp_type()\00", align 1
+@.str.4 = private unnamed_addr constant [54 x i8] c"Field has to be float or double type. Field name is: \00", align 1
+@_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
+@_ZTSN6google8protobuf4util15FieldComparatorE = constant [41 x i8] c"N6google8protobuf4util15FieldComparatorE\00", align 1
+@_ZTIN6google8protobuf4util15FieldComparatorE = constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN6google8protobuf4util15FieldComparatorE }, align 8
+@_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
+@_ZTSN6google8protobuf4util21SimpleFieldComparatorE = constant [47 x i8] c"N6google8protobuf4util21SimpleFieldComparatorE\00", align 1
+@_ZTIN6google8protobuf4util21SimpleFieldComparatorE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN6google8protobuf4util21SimpleFieldComparatorE, ptr @_ZTIN6google8protobuf4util15FieldComparatorE }, align 8
+@_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE = external constant [19 x i32], align 16
+@_ZZN4absl12lts_2023080213base_internal12CallOnceImplIPFvPKN6google8protobuf15FieldDescriptorEEJS7_EEEvPSt6atomicIjENS1_14SchedulingModeEOT_DpOT0_E5trans = linkonce_odr hidden constant [3 x %"struct.absl::lts_20230802::base_internal::SpinLockWaitTransition"] [%"struct.absl::lts_20230802::base_internal::SpinLockWaitTransition" { i32 0, i32 1707250555, i8 1 }, %"struct.absl::lts_20230802::base_internal::SpinLockWaitTransition" { i32 1707250555, i32 94570706, i8 0 }, %"struct.absl::lts_20230802::base_internal::SpinLockWaitTransition" { i32 221, i32 221, i8 1 }], comdat, align 16
+@_ZN4absl12lts_2023080218container_internal11kEmptyGroupE = external constant [32 x i8], align 16
+@_ZSt8in_place = linkonce_odr constant %"struct.std::in_place_t" zeroinitializer, comdat, align 1
+@_ZSt19piecewise_construct = linkonce_odr constant %"struct.std::piecewise_construct_t" zeroinitializer, comdat, align 1
+@_ZN4absl12lts_2023080213hash_internal15MixingHashState5kSeedE = external constant ptr, align 8
+@_ZZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE18GetPolicyFunctionsEvE5value = linkonce_odr hidden constant %"struct.absl::lts_20230802::container_internal::PolicyFunctions" { i64 24, ptr @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE12hash_slot_fnEPvSM_, ptr @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE16transfer_slot_fnEPvSM_SM_, ptr @_ZN4absl12lts_2023080218container_internal18DeallocateStandardILm8EEEvRNS1_12CommonFieldsERKNS1_15PolicyFunctionsE }, comdat, align 8
+@.str.5 = private unnamed_addr constant [12 x i8] c"operator*()\00", align 1
+@.str.6 = private unnamed_addr constant [11 x i8] c"operator->\00", align 1
+@llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_field_comparator.cc, ptr null }]
+
+@_ZN6google8protobuf4util15FieldComparatorD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6google8protobuf4util15FieldComparatorD2Ev
+@_ZN6google8protobuf4util21SimpleFieldComparatorD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6google8protobuf4util21SimpleFieldComparatorD2Ev
+
+; Function Attrs: uwtable
+define internal void @__cxx_global_var_init() #0 section ".text.startup" {
+entry:
+  call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
+  %0 = call i32 @__cxa_atexit(ptr @_ZNSt8ios_base4InitD1Ev, ptr @_ZStL8__ioinit, ptr @__dso_handle) #3
+  ret void
+}
+
+declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
+
+; Function Attrs: nounwind
+declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
+
+; Function Attrs: nounwind
+declare i32 @__cxa_atexit(ptr, ptr, ptr) #3
+
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN6google8protobuf4util15FieldComparatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #4 align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf4util15FieldComparatorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN6google8protobuf4util15FieldComparatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #4 align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN6google8protobuf4util15FieldComparatorD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #4 align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  call void @llvm.trap() #20
+  unreachable
+}
+
+; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
+declare void @llvm.trap() #5
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN6google8protobuf4util21SimpleFieldComparatorC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %exn.slot = alloca ptr, align 8
+  %ehselector.slot = alloca i32, align 4
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZN6google8protobuf4util15FieldComparatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf4util21SimpleFieldComparatorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  %float_comparison_ = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this1, i32 0, i32 1
+  store i32 0, ptr %float_comparison_, align 8
+  %treat_nan_as_equal_ = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this1, i32 0, i32 2
+  store i8 0, ptr %treat_nan_as_equal_, align 4
+  %has_default_tolerance_ = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this1, i32 0, i32 3
+  store i8 0, ptr %has_default_tolerance_, align 1
+  %default_tolerance_ = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this1, i32 0, i32 4
+  invoke void @_ZN6google8protobuf4util21SimpleFieldComparator9ToleranceC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %default_tolerance_)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %entry
+  %map_tolerance_ = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this1, i32 0, i32 5
+  invoke void @_ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf15FieldDescriptorENS3_4util21SimpleFieldComparator9ToleranceENS0_18container_internal6HashEqIS6_vE4HashENSC_2EqESaISt4pairIKS6_S9_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %map_tolerance_)
+          to label %invoke.cont2 unwind label %lpad
+
+invoke.cont2:                                     ; preds = %invoke.cont
+  ret void
+
+lpad:                                             ; preds = %invoke.cont, %entry
+  %0 = landingpad { ptr, i32 }
+          cleanup
+  %1 = extractvalue { ptr, i32 } %0, 0
+  store ptr %1, ptr %exn.slot, align 8
+  %2 = extractvalue { ptr, i32 } %0, 1
+  store i32 %2, ptr %ehselector.slot, align 4
+  call void @_ZN6google8protobuf4util15FieldComparatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
+  br label %eh.resume
+
+eh.resume:                                        ; preds = %lpad
+  %exn = load ptr, ptr %exn.slot, align 8
+  %sel = load i32, ptr %ehselector.slot, align 4
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
+  %lpad.val3 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
+  resume { ptr, i32 } %lpad.val3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN6google8protobuf4util21SimpleFieldComparator9ToleranceC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %fraction = getelementptr inbounds %"struct.google::protobuf::util::SimpleFieldComparator::Tolerance", ptr %this1, i32 0, i32 0
+  store double 0.000000e+00, ptr %fraction, align 8
+  %margin = getelementptr inbounds %"struct.google::protobuf::util::SimpleFieldComparator::Tolerance", ptr %this1, i32 0, i32 1
+  store double 0.000000e+00, ptr %margin, align 8
+  ret void
+}
+
+declare i32 @__gxx_personality_v0(...)
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf15FieldDescriptorENS3_4util21SimpleFieldComparator9ToleranceENS0_18container_internal6HashEqIS6_vE4HashENSC_2EqESaISt4pairIKS6_S9_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN6google8protobuf4util21SimpleFieldComparatorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf4util21SimpleFieldComparatorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  %map_tolerance_ = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this1, i32 0, i32 5
+  call void @_ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf15FieldDescriptorENS3_4util21SimpleFieldComparator9ToleranceENS0_18container_internal6HashEqIS6_vE4HashENSC_2EqESaISt4pairIKS6_S9_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %map_tolerance_) #3
+  call void @_ZN6google8protobuf4util15FieldComparatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf15FieldDescriptorENS3_4util21SimpleFieldComparator9ToleranceENS0_18container_internal6HashEqIS6_vE4HashENSC_2EqESaISt4pairIKS6_S9_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN6google8protobuf4util21SimpleFieldComparatorD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  call void @llvm.trap() #20
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define noundef i32 @_ZN6google8protobuf4util21SimpleFieldComparator13SimpleCompareERKNS0_7MessageES5_PKNS0_15FieldDescriptorEiiPKNS1_12FieldContextE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %message_1, ptr noundef nonnull align 8 dereferenceable(16) %message_2, ptr noundef %field, i32 noundef %index_1, i32 noundef %index_2, ptr noundef %0) #6 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %retval = alloca i32, align 4
+  %this.addr = alloca ptr, align 8
+  %message_1.addr = alloca ptr, align 8
+  %message_2.addr = alloca ptr, align 8
+  %field.addr = alloca ptr, align 8
+  %index_1.addr = alloca i32, align 4
+  %index_2.addr = alloca i32, align 4
+  %.addr = alloca ptr, align 8
+  %reflection_1 = alloca ptr, align 8
+  %reflection_2 = alloca ptr, align 8
+  %scratch1 = alloca %"class.std::__cxx11::basic_string", align 8
+  %scratch2 = alloca %"class.std::__cxx11::basic_string", align 8
+  %exn.slot = alloca ptr, align 8
+  %ehselector.slot = alloca i32, align 4
+  %scratch184 = alloca %"class.std::__cxx11::basic_string", align 8
+  %scratch285 = alloca %"class.std::__cxx11::basic_string", align 8
+  %ref.tmp = alloca %"class.absl::lts_20230802::log_internal::Voidify", align 1
+  %ref.tmp120 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
+  %ref.tmp132 = alloca i32, align 4
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %message_1, ptr %message_1.addr, align 8
+  store ptr %message_2, ptr %message_2.addr, align 8
+  store ptr %field, ptr %field.addr, align 8
+  store i32 %index_1, ptr %index_1.addr, align 4
+  store i32 %index_2, ptr %index_2.addr, align 4
+  store ptr %0, ptr %.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %1 = load ptr, ptr %message_1.addr, align 8
+  %call = call noundef ptr @_ZNK6google8protobuf7Message13GetReflectionEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  store ptr %call, ptr %reflection_1, align 8
+  %2 = load ptr, ptr %message_2.addr, align 8
+  %call2 = call noundef ptr @_ZNK6google8protobuf7Message13GetReflectionEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
+  store ptr %call2, ptr %reflection_2, align 8
+  %3 = load ptr, ptr %field.addr, align 8
+  %call3 = call noundef i32 @_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv(ptr noundef nonnull align 8 dereferenceable(88) %3)
+  switch i32 %call3, label %sw.default [
+    i32 7, label %sw.bb
+    i32 5, label %sw.bb13
+    i32 8, label %sw.bb25
+    i32 6, label %sw.bb37
+    i32 1, label %sw.bb49
+    i32 2, label %sw.bb61
+    i32 9, label %sw.bb73
+    i32 3, label %sw.bb95
+    i32 4, label %sw.bb107
+    i32 10, label %sw.bb119
+  ]
+
+sw.bb:                                            ; preds = %entry
+  %4 = load ptr, ptr %field.addr, align 8
+  %call4 = call noundef zeroext i1 @_ZNK6google8protobuf15FieldDescriptor11is_repeatedEv(ptr noundef nonnull align 8 dereferenceable(88) %4)
+  br i1 %call4, label %if.then, label %if.else
+
+if.then:                                          ; preds = %sw.bb
+  %5 = load ptr, ptr %field.addr, align 8
+  %6 = load ptr, ptr %reflection_1, align 8
+  %7 = load ptr, ptr %message_1.addr, align 8
+  %8 = load ptr, ptr %field.addr, align 8
+  %9 = load i32, ptr %index_1.addr, align 4
+  %call5 = call noundef zeroext i1 @_ZNK6google8protobuf10Reflection15GetRepeatedBoolERKNS0_7MessageEPKNS0_15FieldDescriptorEi(ptr noundef nonnull align 8 dereferenceable(112) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %8, i32 noundef %9)
+  %10 = load ptr, ptr %reflection_2, align 8
+  %11 = load ptr, ptr %message_2.addr, align 8
+  %12 = load ptr, ptr %field.addr, align 8
+  %13 = load i32, ptr %index_2.addr, align 4
+  %call6 = call noundef zeroext i1 @_ZNK6google8protobuf10Reflection15GetRepeatedBoolERKNS0_7MessageEPKNS0_15FieldDescriptorEi(ptr noundef nonnull align 8 dereferenceable(112) %10, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %12, i32 noundef %13)
+  %call7 = call noundef zeroext i1 @_ZN6google8protobuf4util21SimpleFieldComparator11CompareBoolERKNS0_15FieldDescriptorEbb(ptr noundef nonnull align 8 dereferenceable(64) %this1, ptr noundef nonnull align 8 dereferenceable(88) %5, i1 noundef zeroext %call5, i1 noundef zeroext %call6)
+  %call8 = call noundef i32 @_ZNK6google8protobuf4util21SimpleFieldComparator17ResultFromBooleanEb(ptr noundef nonnull align 8 dereferenceable(64) %this1, i1 noundef zeroext %call7)
+  store i32 %call8, ptr %retval, align 4
+  br label %return
+
+if.else:                                          ; preds = %sw.bb
+  %14 = load ptr, ptr %field.addr, align 8
+  %15 = load ptr, ptr %reflection_1, align 8
+  %16 = load ptr, ptr %message_1.addr, align 8
+  %17 = load ptr, ptr %field.addr, align 8
+  %call9 = call noundef zeroext i1 @_ZNK6google8protobuf10Reflection7GetBoolERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %15, ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef %17)
+  %18 = load ptr, ptr %reflection_2, align 8
+  %19 = load ptr, ptr %message_2.addr, align 8
+  %20 = load ptr, ptr %field.addr, align 8
+  %call10 = call noundef zeroext i1 @_ZNK6google8protobuf10Reflection7GetBoolERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %18, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef %20)
+  %call11 = call noundef zeroext i1 @_ZN6google8protobuf4util21SimpleFieldComparator11CompareBoolERKNS0_15FieldDescriptorEbb(ptr noundef nonnull align 8 dereferenceable(64) %this1, ptr noundef nonnull align 8 dereferenceable(88) %14, i1 noundef zeroext %call9, i1 noundef zeroext %call10)
+  %call12 = call noundef i32 @_ZNK6google8protobuf4util21SimpleFieldComparator17ResultFromBooleanEb(ptr noundef nonnull align 8 dereferenceable(64) %this1, i1 noundef zeroext %call11)
+  store i32 %call12, ptr %retval, align 4
+  br label %return
+
+sw.bb13:                                          ; preds = %entry
+  %21 = load ptr, ptr %field.addr, align 8
+  %call14 = call noundef zeroext i1 @_ZNK6google8protobuf15FieldDescriptor11is_repeatedEv(ptr noundef nonnull align 8 dereferenceable(88) %21)
+  br i1 %call14, label %if.then15, label %if.else20
+
+if.then15:                                        ; preds = %sw.bb13
+  %22 = load ptr, ptr %field.addr, align 8
+  %23 = load ptr, ptr %reflection_1, align 8
+  %24 = load ptr, ptr %message_1.addr, align 8
+  %25 = load ptr, ptr %field.addr, align 8
+  %26 = load i32, ptr %index_1.addr, align 4
+  %call16 = call noundef double @_ZNK6google8protobuf10Reflection17GetRepeatedDoubleERKNS0_7MessageEPKNS0_15FieldDescriptorEi(ptr noundef nonnull align 8 dereferenceable(112) %23, ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef %25, i32 noundef %26)
+  %27 = load ptr, ptr %reflection_2, align 8
+  %28 = load ptr, ptr %message_2.addr, align 8
+  %29 = load ptr, ptr %field.addr, align 8
+  %30 = load i32, ptr %index_2.addr, align 4
+  %call17 = call noundef double @_ZNK6google8protobuf10Reflection17GetRepeatedDoubleERKNS0_7MessageEPKNS0_15FieldDescriptorEi(ptr noundef nonnull align 8 dereferenceable(112) %27, ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef %29, i32 noundef %30)
+  %call18 = call noundef zeroext i1 @_ZN6google8protobuf4util21SimpleFieldComparator13CompareDoubleERKNS0_15FieldDescriptorEdd(ptr noundef nonnull align 8 dereferenceable(64) %this1, ptr noundef nonnull align 8 dereferenceable(88) %22, double noundef %call16, double noundef %call17)
+  %call19 = call noundef i32 @_ZNK6google8protobuf4util21SimpleFieldComparator17ResultFromBooleanEb(ptr noundef nonnull align 8 dereferenceable(64) %this1, i1 noundef zeroext %call18)
+  store i32 %call19, ptr %retval, align 4
+  br label %return
+
+if.else20:                                        ; preds = %sw.bb13
+  %31 = load ptr, ptr %field.addr, align 8
+  %32 = load ptr, ptr %reflection_1, align 8
+  %33 = load ptr, ptr %message_1.addr, align 8
+  %34 = load ptr, ptr %field.addr, align 8
+  %call21 = call noundef double @_ZNK6google8protobuf10Reflection9GetDoubleERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %32, ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef %34)
+  %35 = load ptr, ptr %reflection_2, align 8
+  %36 = load ptr, ptr %message_2.addr, align 8
+  %37 = load ptr, ptr %field.addr, align 8
+  %call22 = call noundef double @_ZNK6google8protobuf10Reflection9GetDoubleERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %35, ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef %37)
+  %call23 = call noundef zeroext i1 @_ZN6google8protobuf4util21SimpleFieldComparator13CompareDoubleERKNS0_15FieldDescriptorEdd(ptr noundef nonnull align 8 dereferenceable(64) %this1, ptr noundef nonnull align 8 dereferenceable(88) %31, double noundef %call21, double noundef %call22)
+  %call24 = call noundef i32 @_ZNK6google8protobuf4util21SimpleFieldComparator17ResultFromBooleanEb(ptr noundef nonnull align 8 dereferenceable(64) %this1, i1 noundef zeroext %call23)
+  store i32 %call24, ptr %retval, align 4
+  br label %return
+
+sw.bb25:                                          ; preds = %entry
+  %38 = load ptr, ptr %field.addr, align 8
+  %call26 = call noundef zeroext i1 @_ZNK6google8protobuf15FieldDescriptor11is_repeatedEv(ptr noundef nonnull align 8 dereferenceable(88) %38)
+  br i1 %call26, label %if.then27, label %if.else32
+
+if.then27:                                        ; preds = %sw.bb25
+  %39 = load ptr, ptr %field.addr, align 8
+  %40 = load ptr, ptr %reflection_1, align 8
+  %41 = load ptr, ptr %message_1.addr, align 8
+  %42 = load ptr, ptr %field.addr, align 8
+  %43 = load i32, ptr %index_1.addr, align 4
+  %call28 = call noundef ptr @_ZNK6google8protobuf10Reflection15GetRepeatedEnumERKNS0_7MessageEPKNS0_15FieldDescriptorEi(ptr noundef nonnull align 8 dereferenceable(112) %40, ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef %42, i32 noundef %43)
+  %44 = load ptr, ptr %reflection_2, align 8
+  %45 = load ptr, ptr %message_2.addr, align 8
+  %46 = load ptr, ptr %field.addr, align 8
+  %47 = load i32, ptr %index_2.addr, align 4
+  %call29 = call noundef ptr @_ZNK6google8protobuf10Reflection15GetRepeatedEnumERKNS0_7MessageEPKNS0_15FieldDescriptorEi(ptr noundef nonnull align 8 dereferenceable(112) %44, ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef %46, i32 noundef %47)
+  %call30 = call noundef zeroext i1 @_ZN6google8protobuf4util21SimpleFieldComparator11CompareEnumERKNS0_15FieldDescriptorEPKNS0_19EnumValueDescriptorES8_(ptr noundef nonnull align 8 dereferenceable(64) %this1, ptr noundef nonnull align 8 dereferenceable(88) %39, ptr noundef %call28, ptr noundef %call29)
+  %call31 = call noundef i32 @_ZNK6google8protobuf4util21SimpleFieldComparator17ResultFromBooleanEb(ptr noundef nonnull align 8 dereferenceable(64) %this1, i1 noundef zeroext %call30)
+  store i32 %call31, ptr %retval, align 4
+  br label %return
+
+if.else32:                                        ; preds = %sw.bb25
+  %48 = load ptr, ptr %field.addr, align 8
+  %49 = load ptr, ptr %reflection_1, align 8
+  %50 = load ptr, ptr %message_1.addr, align 8
+  %51 = load ptr, ptr %field.addr, align 8
+  %call33 = call noundef ptr @_ZNK6google8protobuf10Reflection7GetEnumERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %49, ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef %51)
+  %52 = load ptr, ptr %reflection_2, align 8
+  %53 = load ptr, ptr %message_2.addr, align 8
+  %54 = load ptr, ptr %field.addr, align 8
+  %call34 = call noundef ptr @_ZNK6google8protobuf10Reflection7GetEnumERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %52, ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef %54)
+  %call35 = call noundef zeroext i1 @_ZN6google8protobuf4util21SimpleFieldComparator11CompareEnumERKNS0_15FieldDescriptorEPKNS0_19EnumValueDescriptorES8_(ptr noundef nonnull align 8 dereferenceable(64) %this1, ptr noundef nonnull align 8 dereferenceable(88) %48, ptr noundef %call33, ptr noundef %call34)
+  %call36 = call noundef i32 @_ZNK6google8protobuf4util21SimpleFieldComparator17ResultFromBooleanEb(ptr noundef nonnull align 8 dereferenceable(64) %this1, i1 noundef zeroext %call35)
+  store i32 %call36, ptr %retval, align 4
+  br label %return
+
+sw.bb37:                                          ; preds = %entry
+  %55 = load ptr, ptr %field.addr, align 8
+  %call38 = call noundef zeroext i1 @_ZNK6google8protobuf15FieldDescriptor11is_repeatedEv(ptr noundef nonnull align 8 dereferenceable(88) %55)
+  br i1 %call38, label %if.then39, label %if.else44
+
+if.then39:                                        ; preds = %sw.bb37
+  %56 = load ptr, ptr %field.addr, align 8
+  %57 = load ptr, ptr %reflection_1, align 8
+  %58 = load ptr, ptr %message_1.addr, align 8
+  %59 = load ptr, ptr %field.addr, align 8
+  %60 = load i32, ptr %index_1.addr, align 4
+  %call40 = call noundef float @_ZNK6google8protobuf10Reflection16GetRepeatedFloatERKNS0_7MessageEPKNS0_15FieldDescriptorEi(ptr noundef nonnull align 8 dereferenceable(112) %57, ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef %59, i32 noundef %60)
+  %61 = load ptr, ptr %reflection_2, align 8
+  %62 = load ptr, ptr %message_2.addr, align 8
+  %63 = load ptr, ptr %field.addr, align 8
+  %64 = load i32, ptr %index_2.addr, align 4
+  %call41 = call noundef float @_ZNK6google8protobuf10Reflection16GetRepeatedFloatERKNS0_7MessageEPKNS0_15FieldDescriptorEi(ptr noundef nonnull align 8 dereferenceable(112) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef %63, i32 noundef %64)
+  %call42 = call noundef zeroext i1 @_ZN6google8protobuf4util21SimpleFieldComparator12CompareFloatERKNS0_15FieldDescriptorEff(ptr noundef nonnull align 8 dereferenceable(64) %this1, ptr noundef nonnull align 8 dereferenceable(88) %56, float noundef %call40, float noundef %call41)
+  %call43 = call noundef i32 @_ZNK6google8protobuf4util21SimpleFieldComparator17ResultFromBooleanEb(ptr noundef nonnull align 8 dereferenceable(64) %this1, i1 noundef zeroext %call42)
+  store i32 %call43, ptr %retval, align 4
+  br label %return
+
+if.else44:                                        ; preds = %sw.bb37
+  %65 = load ptr, ptr %field.addr, align 8
+  %66 = load ptr, ptr %reflection_1, align 8
+  %67 = load ptr, ptr %message_1.addr, align 8
+  %68 = load ptr, ptr %field.addr, align 8
+  %call45 = call noundef float @_ZNK6google8protobuf10Reflection8GetFloatERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %66, ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef %68)
+  %69 = load ptr, ptr %reflection_2, align 8
+  %70 = load ptr, ptr %message_2.addr, align 8
+  %71 = load ptr, ptr %field.addr, align 8
+  %call46 = call noundef float @_ZNK6google8protobuf10Reflection8GetFloatERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %69, ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef %71)
+  %call47 = call noundef zeroext i1 @_ZN6google8protobuf4util21SimpleFieldComparator12CompareFloatERKNS0_15FieldDescriptorEff(ptr noundef nonnull align 8 dereferenceable(64) %this1, ptr noundef nonnull align 8 dereferenceable(88) %65, float noundef %call45, float noundef %call46)
+  %call48 = call noundef i32 @_ZNK6google8protobuf4util21SimpleFieldComparator17ResultFromBooleanEb(ptr noundef nonnull align 8 dereferenceable(64) %this1, i1 noundef zeroext %call47)
+  store i32 %call48, ptr %retval, align 4
+  br label %return
+
+sw.bb49:                                          ; preds = %entry
+  %72 = load ptr, ptr %field.addr, align 8
+  %call50 = call noundef zeroext i1 @_ZNK6google8protobuf15FieldDescriptor11is_repeatedEv(ptr noundef nonnull align 8 dereferenceable(88) %72)
+  br i1 %call50, label %if.then51, label %if.else56
+
+if.then51:                                        ; preds = %sw.bb49
+  %73 = load ptr, ptr %field.addr, align 8
+  %74 = load ptr, ptr %reflection_1, align 8
+  %75 = load ptr, ptr %message_1.addr, align 8
+  %76 = load ptr, ptr %field.addr, align 8
+  %77 = load i32, ptr %index_1.addr, align 4
+  %call52 = call noundef i32 @_ZNK6google8protobuf10Reflection16GetRepeatedInt32ERKNS0_7MessageEPKNS0_15FieldDescriptorEi(ptr noundef nonnull align 8 dereferenceable(112) %74, ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef %76, i32 noundef %77)
+  %78 = load ptr, ptr %reflection_2, align 8
+  %79 = load ptr, ptr %message_2.addr, align 8
+  %80 = load ptr, ptr %field.addr, align 8
+  %81 = load i32, ptr %index_2.addr, align 4
+  %call53 = call noundef i32 @_ZNK6google8protobuf10Reflection16GetRepeatedInt32ERKNS0_7MessageEPKNS0_15FieldDescriptorEi(ptr noundef nonnull align 8 dereferenceable(112) %78, ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef %80, i32 noundef %81)
+  %call54 = call noundef zeroext i1 @_ZN6google8protobuf4util21SimpleFieldComparator12CompareInt32ERKNS0_15FieldDescriptorEii(ptr noundef nonnull align 8 dereferenceable(64) %this1, ptr noundef nonnull align 8 dereferenceable(88) %73, i32 noundef %call52, i32 noundef %call53)
+  %call55 = call noundef i32 @_ZNK6google8protobuf4util21SimpleFieldComparator17ResultFromBooleanEb(ptr noundef nonnull align 8 dereferenceable(64) %this1, i1 noundef zeroext %call54)
+  store i32 %call55, ptr %retval, align 4
+  br label %return
+
+if.else56:                                        ; preds = %sw.bb49
+  %82 = load ptr, ptr %field.addr, align 8
+  %83 = load ptr, ptr %reflection_1, align 8
+  %84 = load ptr, ptr %message_1.addr, align 8
+  %85 = load ptr, ptr %field.addr, align 8
+  %call57 = call noundef i32 @_ZNK6google8protobuf10Reflection8GetInt32ERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %83, ptr noundef nonnull align 8 dereferenceable(16) %84, ptr noundef %85)
+  %86 = load ptr, ptr %reflection_2, align 8
+  %87 = load ptr, ptr %message_2.addr, align 8
+  %88 = load ptr, ptr %field.addr, align 8
+  %call58 = call noundef i32 @_ZNK6google8protobuf10Reflection8GetInt32ERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %86, ptr noundef nonnull align 8 dereferenceable(16) %87, ptr noundef %88)
+  %call59 = call noundef zeroext i1 @_ZN6google8protobuf4util21SimpleFieldComparator12CompareInt32ERKNS0_15FieldDescriptorEii(ptr noundef nonnull align 8 dereferenceable(64) %this1, ptr noundef nonnull align 8 dereferenceable(88) %82, i32 noundef %call57, i32 noundef %call58)
+  %call60 = call noundef i32 @_ZNK6google8protobuf4util21SimpleFieldComparator17ResultFromBooleanEb(ptr noundef nonnull align 8 dereferenceable(64) %this1, i1 noundef zeroext %call59)
+  store i32 %call60, ptr %retval, align 4
+  br label %return
+
+sw.bb61:                                          ; preds = %entry
+  %89 = load ptr, ptr %field.addr, align 8
+  %call62 = call noundef zeroext i1 @_ZNK6google8protobuf15FieldDescriptor11is_repeatedEv(ptr noundef nonnull align 8 dereferenceable(88) %89)
+  br i1 %call62, label %if.then63, label %if.else68
+
+if.then63:                                        ; preds = %sw.bb61
+  %90 = load ptr, ptr %field.addr, align 8
+  %91 = load ptr, ptr %reflection_1, align 8
+  %92 = load ptr, ptr %message_1.addr, align 8
+  %93 = load ptr, ptr %field.addr, align 8
+  %94 = load i32, ptr %index_1.addr, align 4
+  %call64 = call noundef i64 @_ZNK6google8protobuf10Reflection16GetRepeatedInt64ERKNS0_7MessageEPKNS0_15FieldDescriptorEi(ptr noundef nonnull align 8 dereferenceable(112) %91, ptr noundef nonnull align 8 dereferenceable(16) %92, ptr noundef %93, i32 noundef %94)
+  %95 = load ptr, ptr %reflection_2, align 8
+  %96 = load ptr, ptr %message_2.addr, align 8
+  %97 = load ptr, ptr %field.addr, align 8
+  %98 = load i32, ptr %index_2.addr, align 4
+  %call65 = call noundef i64 @_ZNK6google8protobuf10Reflection16GetRepeatedInt64ERKNS0_7MessageEPKNS0_15FieldDescriptorEi(ptr noundef nonnull align 8 dereferenceable(112) %95, ptr noundef nonnull align 8 dereferenceable(16) %96, ptr noundef %97, i32 noundef %98)
+  %call66 = call noundef zeroext i1 @_ZN6google8protobuf4util21SimpleFieldComparator12CompareInt64ERKNS0_15FieldDescriptorEll(ptr noundef nonnull align 8 dereferenceable(64) %this1, ptr noundef nonnull align 8 dereferenceable(88) %90, i64 noundef %call64, i64 noundef %call65)
+  %call67 = call noundef i32 @_ZNK6google8protobuf4util21SimpleFieldComparator17ResultFromBooleanEb(ptr noundef nonnull align 8 dereferenceable(64) %this1, i1 noundef zeroext %call66)
+  store i32 %call67, ptr %retval, align 4
+  br label %return
+
+if.else68:                                        ; preds = %sw.bb61
+  %99 = load ptr, ptr %field.addr, align 8
+  %100 = load ptr, ptr %reflection_1, align 8
+  %101 = load ptr, ptr %message_1.addr, align 8
+  %102 = load ptr, ptr %field.addr, align 8
+  %call69 = call noundef i64 @_ZNK6google8protobuf10Reflection8GetInt64ERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %100, ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef %102)
+  %103 = load ptr, ptr %reflection_2, align 8
+  %104 = load ptr, ptr %message_2.addr, align 8
+  %105 = load ptr, ptr %field.addr, align 8
+  %call70 = call noundef i64 @_ZNK6google8protobuf10Reflection8GetInt64ERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %103, ptr noundef nonnull align 8 dereferenceable(16) %104, ptr noundef %105)
+  %call71 = call noundef zeroext i1 @_ZN6google8protobuf4util21SimpleFieldComparator12CompareInt64ERKNS0_15FieldDescriptorEll(ptr noundef nonnull align 8 dereferenceable(64) %this1, ptr noundef nonnull align 8 dereferenceable(88) %99, i64 noundef %call69, i64 noundef %call70)
+  %call72 = call noundef i32 @_ZNK6google8protobuf4util21SimpleFieldComparator17ResultFromBooleanEb(ptr noundef nonnull align 8 dereferenceable(64) %this1, i1 noundef zeroext %call71)
+  store i32 %call72, ptr %retval, align 4
+  br label %return
+
+sw.bb73:                                          ; preds = %entry
+  %106 = load ptr, ptr %field.addr, align 8
+  %call74 = call noundef zeroext i1 @_ZNK6google8protobuf15FieldDescriptor11is_repeatedEv(ptr noundef nonnull align 8 dereferenceable(88) %106)
+  br i1 %call74, label %if.then75, label %if.else83
+
+if.then75:                                        ; preds = %sw.bb73
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %scratch1) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %scratch2) #3
+  %107 = load ptr, ptr %field.addr, align 8
+  %108 = load ptr, ptr %reflection_1, align 8
+  %109 = load ptr, ptr %message_1.addr, align 8
+  %110 = load ptr, ptr %field.addr, align 8
+  %111 = load i32, ptr %index_1.addr, align 4
+  %call76 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf10Reflection26GetRepeatedStringReferenceERKNS0_7MessageEPKNS0_15FieldDescriptorEiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) %108, ptr noundef nonnull align 8 dereferenceable(16) %109, ptr noundef %110, i32 noundef %111, ptr noundef %scratch1)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %if.then75
+  %112 = load ptr, ptr %reflection_2, align 8
+  %113 = load ptr, ptr %message_2.addr, align 8
+  %114 = load ptr, ptr %field.addr, align 8
+  %115 = load i32, ptr %index_2.addr, align 4
+  %call78 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf10Reflection26GetRepeatedStringReferenceERKNS0_7MessageEPKNS0_15FieldDescriptorEiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) %112, ptr noundef nonnull align 8 dereferenceable(16) %113, ptr noundef %114, i32 noundef %115, ptr noundef %scratch2)
+          to label %invoke.cont77 unwind label %lpad
+
+invoke.cont77:                                    ; preds = %invoke.cont
+  %call80 = invoke noundef zeroext i1 @_ZN6google8protobuf4util21SimpleFieldComparator13CompareStringERKNS0_15FieldDescriptorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_(ptr noundef nonnull align 8 dereferenceable(64) %this1, ptr noundef nonnull align 8 dereferenceable(88) %107, ptr noundef nonnull align 8 dereferenceable(32) %call76, ptr noundef nonnull align 8 dereferenceable(32) %call78)
+          to label %invoke.cont79 unwind label %lpad
+
+invoke.cont79:                                    ; preds = %invoke.cont77
+  %call82 = invoke noundef i32 @_ZNK6google8protobuf4util21SimpleFieldComparator17ResultFromBooleanEb(ptr noundef nonnull align 8 dereferenceable(64) %this1, i1 noundef zeroext %call80)
+          to label %invoke.cont81 unwind label %lpad
+
+invoke.cont81:                                    ; preds = %invoke.cont79
+  store i32 %call82, ptr %retval, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %scratch2) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %scratch1) #3
+  br label %return
+
+lpad:                                             ; preds = %invoke.cont79, %invoke.cont77, %invoke.cont, %if.then75
+  %116 = landingpad { ptr, i32 }
+          cleanup
+  %117 = extractvalue { ptr, i32 } %116, 0
+  store ptr %117, ptr %exn.slot, align 8
+  %118 = extractvalue { ptr, i32 } %116, 1
+  store i32 %118, ptr %ehselector.slot, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %scratch2) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %scratch1) #3
+  br label %eh.resume
+
+if.else83:                                        ; preds = %sw.bb73
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %scratch184) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %scratch285) #3
+  %119 = load ptr, ptr %field.addr, align 8
+  %120 = load ptr, ptr %reflection_1, align 8
+  %121 = load ptr, ptr %message_1.addr, align 8
+  %122 = load ptr, ptr %field.addr, align 8
+  %call88 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf10Reflection18GetStringReferenceERKNS0_7MessageEPKNS0_15FieldDescriptorEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) %120, ptr noundef nonnull align 8 dereferenceable(16) %121, ptr noundef %122, ptr noundef %scratch184)
+          to label %invoke.cont87 unwind label %lpad86
+
+invoke.cont87:                                    ; preds = %if.else83
+  %123 = load ptr, ptr %reflection_2, align 8
+  %124 = load ptr, ptr %message_2.addr, align 8
+  %125 = load ptr, ptr %field.addr, align 8
+  %call90 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf10Reflection18GetStringReferenceERKNS0_7MessageEPKNS0_15FieldDescriptorEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) %123, ptr noundef nonnull align 8 dereferenceable(16) %124, ptr noundef %125, ptr noundef %scratch285)
+          to label %invoke.cont89 unwind label %lpad86
+
+invoke.cont89:                                    ; preds = %invoke.cont87
+  %call92 = invoke noundef zeroext i1 @_ZN6google8protobuf4util21SimpleFieldComparator13CompareStringERKNS0_15FieldDescriptorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_(ptr noundef nonnull align 8 dereferenceable(64) %this1, ptr noundef nonnull align 8 dereferenceable(88) %119, ptr noundef nonnull align 8 dereferenceable(32) %call88, ptr noundef nonnull align 8 dereferenceable(32) %call90)
+          to label %invoke.cont91 unwind label %lpad86
+
+invoke.cont91:                                    ; preds = %invoke.cont89
+  %call94 = invoke noundef i32 @_ZNK6google8protobuf4util21SimpleFieldComparator17ResultFromBooleanEb(ptr noundef nonnull align 8 dereferenceable(64) %this1, i1 noundef zeroext %call92)
+          to label %invoke.cont93 unwind label %lpad86
+
+invoke.cont93:                                    ; preds = %invoke.cont91
+  store i32 %call94, ptr %retval, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %scratch285) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %scratch184) #3
+  br label %return
+
+lpad86:                                           ; preds = %invoke.cont91, %invoke.cont89, %invoke.cont87, %if.else83
+  %126 = landingpad { ptr, i32 }
+          cleanup
+  %127 = extractvalue { ptr, i32 } %126, 0
+  store ptr %127, ptr %exn.slot, align 8
+  %128 = extractvalue { ptr, i32 } %126, 1
+  store i32 %128, ptr %ehselector.slot, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %scratch285) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %scratch184) #3
+  br label %eh.resume
+
+sw.bb95:                                          ; preds = %entry
+  %129 = load ptr, ptr %field.addr, align 8
+  %call96 = call noundef zeroext i1 @_ZNK6google8protobuf15FieldDescriptor11is_repeatedEv(ptr noundef nonnull align 8 dereferenceable(88) %129)
+  br i1 %call96, label %if.then97, label %if.else102
+
+if.then97:                                        ; preds = %sw.bb95
+  %130 = load ptr, ptr %field.addr, align 8
+  %131 = load ptr, ptr %reflection_1, align 8
+  %132 = load ptr, ptr %message_1.addr, align 8
+  %133 = load ptr, ptr %field.addr, align 8
+  %134 = load i32, ptr %index_1.addr, align 4
+  %call98 = call noundef i32 @_ZNK6google8protobuf10Reflection17GetRepeatedUInt32ERKNS0_7MessageEPKNS0_15FieldDescriptorEi(ptr noundef nonnull align 8 dereferenceable(112) %131, ptr noundef nonnull align 8 dereferenceable(16) %132, ptr noundef %133, i32 noundef %134)
+  %135 = load ptr, ptr %reflection_2, align 8
+  %136 = load ptr, ptr %message_2.addr, align 8
+  %137 = load ptr, ptr %field.addr, align 8
+  %138 = load i32, ptr %index_2.addr, align 4
+  %call99 = call noundef i32 @_ZNK6google8protobuf10Reflection17GetRepeatedUInt32ERKNS0_7MessageEPKNS0_15FieldDescriptorEi(ptr noundef nonnull align 8 dereferenceable(112) %135, ptr noundef nonnull align 8 dereferenceable(16) %136, ptr noundef %137, i32 noundef %138)
+  %call100 = call noundef zeroext i1 @_ZN6google8protobuf4util21SimpleFieldComparator13CompareUInt32ERKNS0_15FieldDescriptorEjj(ptr noundef nonnull align 8 dereferenceable(64) %this1, ptr noundef nonnull align 8 dereferenceable(88) %130, i32 noundef %call98, i32 noundef %call99)
+  %call101 = call noundef i32 @_ZNK6google8protobuf4util21SimpleFieldComparator17ResultFromBooleanEb(ptr noundef nonnull align 8 dereferenceable(64) %this1, i1 noundef zeroext %call100)
+  store i32 %call101, ptr %retval, align 4
+  br label %return
+
+if.else102:                                       ; preds = %sw.bb95
+  %139 = load ptr, ptr %field.addr, align 8
+  %140 = load ptr, ptr %reflection_1, align 8
+  %141 = load ptr, ptr %message_1.addr, align 8
+  %142 = load ptr, ptr %field.addr, align 8
+  %call103 = call noundef i32 @_ZNK6google8protobuf10Reflection9GetUInt32ERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %140, ptr noundef nonnull align 8 dereferenceable(16) %141, ptr noundef %142)
+  %143 = load ptr, ptr %reflection_2, align 8
+  %144 = load ptr, ptr %message_2.addr, align 8
+  %145 = load ptr, ptr %field.addr, align 8
+  %call104 = call noundef i32 @_ZNK6google8protobuf10Reflection9GetUInt32ERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %143, ptr noundef nonnull align 8 dereferenceable(16) %144, ptr noundef %145)
+  %call105 = call noundef zeroext i1 @_ZN6google8protobuf4util21SimpleFieldComparator13CompareUInt32ERKNS0_15FieldDescriptorEjj(ptr noundef nonnull align 8 dereferenceable(64) %this1, ptr noundef nonnull align 8 dereferenceable(88) %139, i32 noundef %call103, i32 noundef %call104)
+  %call106 = call noundef i32 @_ZNK6google8protobuf4util21SimpleFieldComparator17ResultFromBooleanEb(ptr noundef nonnull align 8 dereferenceable(64) %this1, i1 noundef zeroext %call105)
+  store i32 %call106, ptr %retval, align 4
+  br label %return
+
+sw.bb107:                                         ; preds = %entry
+  %146 = load ptr, ptr %field.addr, align 8
+  %call108 = call noundef zeroext i1 @_ZNK6google8protobuf15FieldDescriptor11is_repeatedEv(ptr noundef nonnull align 8 dereferenceable(88) %146)
+  br i1 %call108, label %if.then109, label %if.else114
+
+if.then109:                                       ; preds = %sw.bb107
+  %147 = load ptr, ptr %field.addr, align 8
+  %148 = load ptr, ptr %reflection_1, align 8
+  %149 = load ptr, ptr %message_1.addr, align 8
+  %150 = load ptr, ptr %field.addr, align 8
+  %151 = load i32, ptr %index_1.addr, align 4
+  %call110 = call noundef i64 @_ZNK6google8protobuf10Reflection17GetRepeatedUInt64ERKNS0_7MessageEPKNS0_15FieldDescriptorEi(ptr noundef nonnull align 8 dereferenceable(112) %148, ptr noundef nonnull align 8 dereferenceable(16) %149, ptr noundef %150, i32 noundef %151)
+  %152 = load ptr, ptr %reflection_2, align 8
+  %153 = load ptr, ptr %message_2.addr, align 8
+  %154 = load ptr, ptr %field.addr, align 8
+  %155 = load i32, ptr %index_2.addr, align 4
+  %call111 = call noundef i64 @_ZNK6google8protobuf10Reflection17GetRepeatedUInt64ERKNS0_7MessageEPKNS0_15FieldDescriptorEi(ptr noundef nonnull align 8 dereferenceable(112) %152, ptr noundef nonnull align 8 dereferenceable(16) %153, ptr noundef %154, i32 noundef %155)
+  %call112 = call noundef zeroext i1 @_ZN6google8protobuf4util21SimpleFieldComparator13CompareUInt64ERKNS0_15FieldDescriptorEmm(ptr noundef nonnull align 8 dereferenceable(64) %this1, ptr noundef nonnull align 8 dereferenceable(88) %147, i64 noundef %call110, i64 noundef %call111)
+  %call113 = call noundef i32 @_ZNK6google8protobuf4util21SimpleFieldComparator17ResultFromBooleanEb(ptr noundef nonnull align 8 dereferenceable(64) %this1, i1 noundef zeroext %call112)
+  store i32 %call113, ptr %retval, align 4
+  br label %return
+
+if.else114:                                       ; preds = %sw.bb107
+  %156 = load ptr, ptr %field.addr, align 8
+  %157 = load ptr, ptr %reflection_1, align 8
+  %158 = load ptr, ptr %message_1.addr, align 8
+  %159 = load ptr, ptr %field.addr, align 8
+  %call115 = call noundef i64 @_ZNK6google8protobuf10Reflection9GetUInt64ERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %157, ptr noundef nonnull align 8 dereferenceable(16) %158, ptr noundef %159)
+  %160 = load ptr, ptr %reflection_2, align 8
+  %161 = load ptr, ptr %message_2.addr, align 8
+  %162 = load ptr, ptr %field.addr, align 8
+  %call116 = call noundef i64 @_ZNK6google8protobuf10Reflection9GetUInt64ERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %160, ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef %162)
+  %call117 = call noundef zeroext i1 @_ZN6google8protobuf4util21SimpleFieldComparator13CompareUInt64ERKNS0_15FieldDescriptorEmm(ptr noundef nonnull align 8 dereferenceable(64) %this1, ptr noundef nonnull align 8 dereferenceable(88) %156, i64 noundef %call115, i64 noundef %call116)
+  %call118 = call noundef i32 @_ZNK6google8protobuf4util21SimpleFieldComparator17ResultFromBooleanEb(ptr noundef nonnull align 8 dereferenceable(64) %this1, i1 noundef zeroext %call117)
+  store i32 %call118, ptr %retval, align 4
+  br label %return
+
+sw.bb119:                                         ; preds = %entry
+  store i32 2, ptr %retval, align 4
+  br label %return
+
+sw.default:                                       ; preds = %entry
+  call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp120, ptr noundef @.str, i32 noundef 132) #21
+  %call123 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2023080212log_internal10LogMessage14InternalStreamEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp120)
+          to label %invoke.cont122 unwind label %lpad121
+
+invoke.cont122:                                   ; preds = %sw.default
+  %call125 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2023080212log_internal10LogMessagelsILi30EEERS2_RAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %call123, ptr noundef nonnull align 1 dereferenceable(30) @.str.1)
+          to label %invoke.cont124 unwind label %lpad121
+
+invoke.cont124:                                   ; preds = %invoke.cont122
+  %163 = load ptr, ptr %field.addr, align 8
+  %call127 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf15FieldDescriptor9full_nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(88) %163)
+          to label %invoke.cont126 unwind label %lpad121
+
+invoke.cont126:                                   ; preds = %invoke.cont124
+  %call129 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2023080212log_internal10LogMessagelsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %call125, ptr noundef nonnull align 8 dereferenceable(32) %call127)
+          to label %invoke.cont128 unwind label %lpad121
+
+invoke.cont128:                                   ; preds = %invoke.cont126
+  %call131 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2023080212log_internal10LogMessagelsILi15EEERS2_RAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %call129, ptr noundef nonnull align 1 dereferenceable(15) @.str.2)
+          to label %invoke.cont130 unwind label %lpad121
+
+invoke.cont130:                                   ; preds = %invoke.cont128
+  %164 = load ptr, ptr %field.addr, align 8
+  %call134 = invoke noundef i32 @_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv(ptr noundef nonnull align 8 dereferenceable(88) %164)
+          to label %invoke.cont133 unwind label %lpad121
+
+invoke.cont133:                                   ; preds = %invoke.cont130
+  store i32 %call134, ptr %ref.tmp132, align 4
+  %call136 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2023080212log_internal10LogMessagelsIN6google8protobuf8internal19FieldDescriptorLite7CppTypeETnNSt9enable_ifIXntsr16strings_internal16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKSA_(ptr noundef nonnull align 8 dereferenceable(16) %call131, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp132)
+          to label %invoke.cont135 unwind label %lpad121
+
+invoke.cont135:                                   ; preds = %invoke.cont133
+  invoke void @_ZNKO4absl12lts_2023080212log_internal7VoidifyaaINS1_10LogMessageEEEvRKT_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %call136)
+          to label %invoke.cont137 unwind label %lpad121
+
+invoke.cont137:                                   ; preds = %invoke.cont135
+  call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp120) #20
+  unreachable
+
+lpad121:                                          ; preds = %invoke.cont135, %invoke.cont133, %invoke.cont130, %invoke.cont128, %invoke.cont126, %invoke.cont124, %invoke.cont122, %sw.default
+  %165 = landingpad { ptr, i32 }
+          cleanup
+  %166 = extractvalue { ptr, i32 } %165, 0
+  store ptr %166, ptr %exn.slot, align 8
+  %167 = extractvalue { ptr, i32 } %165, 1
+  store i32 %167, ptr %ehselector.slot, align 4
+  call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp120) #20
+  unreachable
+
+168:                                              ; No predecessors!
+  br label %eh.resume
+
+return:                                           ; preds = %sw.bb119, %if.else114, %if.then109, %if.else102, %if.then97, %invoke.cont93, %invoke.cont81, %if.else68, %if.then63, %if.else56, %if.then51, %if.else44, %if.then39, %if.else32, %if.then27, %if.else20, %if.then15, %if.else, %if.then
+  %169 = load i32, ptr %retval, align 4
+  ret i32 %169
+
+eh.resume:                                        ; preds = %168, %lpad86, %lpad
+  %exn = load ptr, ptr %exn.slot, align 8
+  %sel = load i32, ptr %ehselector.slot, align 4
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
+  %lpad.val138 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
+  resume { ptr, i32 } %lpad.val138
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef ptr @_ZNK6google8protobuf7Message13GetReflectionEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %ref.tmp = alloca %"struct.google::protobuf::Metadata", align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %vtable = load ptr, ptr %this1, align 8
+  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 10
+  %0 = load ptr, ptr %vfn, align 8
+  %call = call { ptr, ptr } %0(ptr noundef nonnull align 8 dereferenceable(16) %this1)
+  %1 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp, i32 0, i32 0
+  %2 = extractvalue { ptr, ptr } %call, 0
+  store ptr %2, ptr %1, align 8
+  %3 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp, i32 0, i32 1
+  %4 = extractvalue { ptr, ptr } %call, 1
+  store ptr %4, ptr %3, align 8
+  %reflection = getelementptr inbounds %"struct.google::protobuf::Metadata", ptr %ref.tmp, i32 0, i32 1
+  %5 = load ptr, ptr %reflection, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef i32 @_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv(ptr noundef nonnull align 8 dereferenceable(88) %this) #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef i32 @_ZNK6google8protobuf15FieldDescriptor4typeEv(ptr noundef nonnull align 8 dereferenceable(88) %this1)
+  %idxprom = zext i32 %call to i64
+  %arrayidx = getelementptr inbounds [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %idxprom
+  %0 = load i32, ptr %arrayidx, align 4
+  ret i32 %0
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNK6google8protobuf15FieldDescriptor11is_repeatedEv(ptr noundef nonnull align 8 dereferenceable(88) %this) #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef i32 @_ZNK6google8protobuf15FieldDescriptor5labelEv(ptr noundef nonnull align 8 dereferenceable(88) %this1)
+  %cmp = icmp eq i32 %call, 3
+  ret i1 %cmp
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define noundef i32 @_ZNK6google8protobuf4util21SimpleFieldComparator17ResultFromBooleanEb(ptr noundef nonnull align 8 dereferenceable(64) %this, i1 noundef zeroext %boolean_result) #4 align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %boolean_result.addr = alloca i8, align 1
+  store ptr %this, ptr %this.addr, align 8
+  %frombool = zext i1 %boolean_result to i8
+  store i8 %frombool, ptr %boolean_result.addr, align 1
+  %0 = load i8, ptr %boolean_result.addr, align 1
+  %tobool = trunc i8 %0 to i1
+  %cond = select i1 %tobool, i32 0, i32 1
+  ret i32 %cond
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN6google8protobuf4util21SimpleFieldComparator11CompareBoolERKNS0_15FieldDescriptorEbb(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(88) %0, i1 noundef zeroext %value_1, i1 noundef zeroext %value_2) #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  %value_1.addr = alloca i8, align 1
+  %value_2.addr = alloca i8, align 1
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  %frombool = zext i1 %value_1 to i8
+  store i8 %frombool, ptr %value_1.addr, align 1
+  %frombool1 = zext i1 %value_2 to i8
+  store i8 %frombool1, ptr %value_2.addr, align 1
+  %1 = load i8, ptr %value_1.addr, align 1
+  %tobool = trunc i8 %1 to i1
+  %conv = zext i1 %tobool to i32
+  %2 = load i8, ptr %value_2.addr, align 1
+  %tobool3 = trunc i8 %2 to i1
+  %conv4 = zext i1 %tobool3 to i32
+  %cmp = icmp eq i32 %conv, %conv4
+  ret i1 %cmp
+}
+
+declare noundef zeroext i1 @_ZNK6google8protobuf10Reflection15GetRepeatedBoolERKNS0_7MessageEPKNS0_15FieldDescriptorEi(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i32 noundef) #1
+
+declare noundef zeroext i1 @_ZNK6google8protobuf10Reflection7GetBoolERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) #1
+
+; Function Attrs: mustprogress uwtable
+define noundef zeroext i1 @_ZN6google8protobuf4util21SimpleFieldComparator13CompareDoubleERKNS0_15FieldDescriptorEdd(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(88) %field, double noundef %value_1, double noundef %value_2) #6 align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %field.addr = alloca ptr, align 8
+  %value_1.addr = alloca double, align 8
+  %value_2.addr = alloca double, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %field, ptr %field.addr, align 8
+  store double %value_1, ptr %value_1.addr, align 8
+  store double %value_2, ptr %value_2.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %field.addr, align 8
+  %1 = load double, ptr %value_1.addr, align 8
+  %2 = load double, ptr %value_2.addr, align 8
+  %call = call noundef zeroext i1 @_ZN6google8protobuf4util21SimpleFieldComparator20CompareDoubleOrFloatIdEEbRKNS0_15FieldDescriptorET_S7_(ptr noundef nonnull align 8 dereferenceable(64) %this1, ptr noundef nonnull align 8 dereferenceable(88) %0, double noundef %1, double noundef %2)
+  ret i1 %call
+}
+
+declare noundef double @_ZNK6google8protobuf10Reflection17GetRepeatedDoubleERKNS0_7MessageEPKNS0_15FieldDescriptorEi(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i32 noundef) #1
+
+declare noundef double @_ZNK6google8protobuf10Reflection9GetDoubleERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) #1
+
+; Function Attrs: mustprogress uwtable
+define noundef zeroext i1 @_ZN6google8protobuf4util21SimpleFieldComparator11CompareEnumERKNS0_15FieldDescriptorEPKNS0_19EnumValueDescriptorES8_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %value_1, ptr noundef %value_2) #6 align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  %value_1.addr = alloca ptr, align 8
+  %value_2.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  store ptr %value_1, ptr %value_1.addr, align 8
+  store ptr %value_2, ptr %value_2.addr, align 8
+  %1 = load ptr, ptr %value_1.addr, align 8
+  %call = call noundef i32 @_ZNK6google8protobuf19EnumValueDescriptor6numberEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
+  %2 = load ptr, ptr %value_2.addr, align 8
+  %call2 = call noundef i32 @_ZNK6google8protobuf19EnumValueDescriptor6numberEv(ptr noundef nonnull align 8 dereferenceable(48) %2)
+  %cmp = icmp eq i32 %call, %call2
+  ret i1 %cmp
+}
+
+declare noundef ptr @_ZNK6google8protobuf10Reflection15GetRepeatedEnumERKNS0_7MessageEPKNS0_15FieldDescriptorEi(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i32 noundef) #1
+
+declare noundef ptr @_ZNK6google8protobuf10Reflection7GetEnumERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) #1
+
+; Function Attrs: mustprogress uwtable
+define noundef zeroext i1 @_ZN6google8protobuf4util21SimpleFieldComparator12CompareFloatERKNS0_15FieldDescriptorEff(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(88) %field, float noundef %value_1, float noundef %value_2) #6 align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %field.addr = alloca ptr, align 8
+  %value_1.addr = alloca float, align 4
+  %value_2.addr = alloca float, align 4
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %field, ptr %field.addr, align 8
+  store float %value_1, ptr %value_1.addr, align 4
+  store float %value_2, ptr %value_2.addr, align 4
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %field.addr, align 8
+  %1 = load float, ptr %value_1.addr, align 4
+  %2 = load float, ptr %value_2.addr, align 4
+  %call = call noundef zeroext i1 @_ZN6google8protobuf4util21SimpleFieldComparator20CompareDoubleOrFloatIfEEbRKNS0_15FieldDescriptorET_S7_(ptr noundef nonnull align 8 dereferenceable(64) %this1, ptr noundef nonnull align 8 dereferenceable(88) %0, float noundef %1, float noundef %2)
+  ret i1 %call
+}
+
+declare noundef float @_ZNK6google8protobuf10Reflection16GetRepeatedFloatERKNS0_7MessageEPKNS0_15FieldDescriptorEi(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i32 noundef) #1
+
+declare noundef float @_ZNK6google8protobuf10Reflection8GetFloatERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN6google8protobuf4util21SimpleFieldComparator12CompareInt32ERKNS0_15FieldDescriptorEii(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %value_1, i32 noundef %value_2) #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  %value_1.addr = alloca i32, align 4
+  %value_2.addr = alloca i32, align 4
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  store i32 %value_1, ptr %value_1.addr, align 4
+  store i32 %value_2, ptr %value_2.addr, align 4
+  %1 = load i32, ptr %value_1.addr, align 4
+  %2 = load i32, ptr %value_2.addr, align 4
+  %cmp = icmp eq i32 %1, %2
+  ret i1 %cmp
+}
+
+declare noundef i32 @_ZNK6google8protobuf10Reflection16GetRepeatedInt32ERKNS0_7MessageEPKNS0_15FieldDescriptorEi(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i32 noundef) #1
+
+declare noundef i32 @_ZNK6google8protobuf10Reflection8GetInt32ERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN6google8protobuf4util21SimpleFieldComparator12CompareInt64ERKNS0_15FieldDescriptorEll(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(88) %0, i64 noundef %value_1, i64 noundef %value_2) #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  %value_1.addr = alloca i64, align 8
+  %value_2.addr = alloca i64, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  store i64 %value_1, ptr %value_1.addr, align 8
+  store i64 %value_2, ptr %value_2.addr, align 8
+  %1 = load i64, ptr %value_1.addr, align 8
+  %2 = load i64, ptr %value_2.addr, align 8
+  %cmp = icmp eq i64 %1, %2
+  ret i1 %cmp
+}
+
+declare noundef i64 @_ZNK6google8protobuf10Reflection16GetRepeatedInt64ERKNS0_7MessageEPKNS0_15FieldDescriptorEi(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i32 noundef) #1
+
+declare noundef i64 @_ZNK6google8protobuf10Reflection8GetInt64ERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) #1
+
+; Function Attrs: nounwind
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN6google8protobuf4util21SimpleFieldComparator13CompareStringERKNS0_15FieldDescriptorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(32) %value_1, ptr noundef nonnull align 8 dereferenceable(32) %value_2) #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  %value_1.addr = alloca ptr, align 8
+  %value_2.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  store ptr %value_1, ptr %value_1.addr, align 8
+  store ptr %value_2, ptr %value_2.addr, align 8
+  %1 = load ptr, ptr %value_1.addr, align 8
+  %2 = load ptr, ptr %value_2.addr, align 8
+  %call = call noundef zeroext i1 @_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  ret i1 %call
+}
+
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf10Reflection26GetRepeatedStringReferenceERKNS0_7MessageEPKNS0_15FieldDescriptorEiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i32 noundef, ptr noundef) #1
+
+; Function Attrs: nounwind
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf10Reflection18GetStringReferenceERKNS0_7MessageEPKNS0_15FieldDescriptorEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN6google8protobuf4util21SimpleFieldComparator13CompareUInt32ERKNS0_15FieldDescriptorEjj(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %value_1, i32 noundef %value_2) #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  %value_1.addr = alloca i32, align 4
+  %value_2.addr = alloca i32, align 4
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  store i32 %value_1, ptr %value_1.addr, align 4
+  store i32 %value_2, ptr %value_2.addr, align 4
+  %1 = load i32, ptr %value_1.addr, align 4
+  %2 = load i32, ptr %value_2.addr, align 4
+  %cmp = icmp eq i32 %1, %2
+  ret i1 %cmp
+}
+
+declare noundef i32 @_ZNK6google8protobuf10Reflection17GetRepeatedUInt32ERKNS0_7MessageEPKNS0_15FieldDescriptorEi(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i32 noundef) #1
+
+declare noundef i32 @_ZNK6google8protobuf10Reflection9GetUInt32ERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN6google8protobuf4util21SimpleFieldComparator13CompareUInt64ERKNS0_15FieldDescriptorEmm(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(88) %0, i64 noundef %value_1, i64 noundef %value_2) #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  %value_1.addr = alloca i64, align 8
+  %value_2.addr = alloca i64, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  store i64 %value_1, ptr %value_1.addr, align 8
+  store i64 %value_2, ptr %value_2.addr, align 8
+  %1 = load i64, ptr %value_1.addr, align 8
+  %2 = load i64, ptr %value_2.addr, align 8
+  %cmp = icmp eq i64 %1, %2
+  ret i1 %cmp
+}
+
+declare noundef i64 @_ZNK6google8protobuf10Reflection17GetRepeatedUInt64ERKNS0_7MessageEPKNS0_15FieldDescriptorEi(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i32 noundef) #1
+
+declare noundef i64 @_ZNK6google8protobuf10Reflection9GetUInt64ERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNKO4absl12lts_2023080212log_internal7VoidifyaaINS1_10LogMessageEEEvRKT_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  ret void
+}
+
+; Function Attrs: cold
+declare void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i32 noundef) unnamed_addr #7
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2023080212log_internal10LogMessage14InternalStreamEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  ret ptr %this1
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2023080212log_internal10LogMessagelsILi30EEERS2_RAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(30) %buf) #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %buf.addr = alloca ptr, align 8
+  %agg.tmp = alloca %"class.std::basic_string_view", align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %buf, ptr %buf.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %buf.addr, align 8
+  %arraydecay = getelementptr inbounds [30 x i8], ptr %0, i64 0, i64 0
+  call void @_ZNSt17basic_string_viewIcSt11char_traitsIcEEC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef %arraydecay) #3
+  %1 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 0
+  %2 = load i64, ptr %1, align 8
+  %3 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 1
+  %4 = load ptr, ptr %3, align 8
+  call void @_ZN4absl12lts_2023080212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i64 %2, ptr %4)
+  ret ptr %this1
+}
+
+declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2023080212log_internal10LogMessagelsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(32)) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf15FieldDescriptor9full_nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %all_names_ = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %this1, i32 0, i32 5
+  %0 = load ptr, ptr %all_names_, align 8
+  %arrayidx = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 1
+  ret ptr %arrayidx
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2023080212log_internal10LogMessagelsILi15EEERS2_RAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(15) %buf) #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %buf.addr = alloca ptr, align 8
+  %agg.tmp = alloca %"class.std::basic_string_view", align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %buf, ptr %buf.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %buf.addr, align 8
+  %arraydecay = getelementptr inbounds [15 x i8], ptr %0, i64 0, i64 0
+  call void @_ZNSt17basic_string_viewIcSt11char_traitsIcEEC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef %arraydecay) #3
+  %1 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 0
+  %2 = load i64, ptr %1, align 8
+  %3 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 1
+  %4 = load ptr, ptr %3, align 8
+  call void @_ZN4absl12lts_2023080212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i64 %2, ptr %4)
+  ret ptr %this1
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2023080212log_internal10LogMessagelsIN6google8protobuf8internal19FieldDescriptorLite7CppTypeETnNSt9enable_ifIXntsr16strings_internal16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKSA_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %v) #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %v.addr = alloca ptr, align 8
+  %view = alloca %"class.absl::lts_20230802::log_internal::LogMessage::OstreamView", align 8
+  %exn.slot = alloca ptr, align 8
+  %ehselector.slot = alloca i32, align 4
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %v, ptr %v.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %data_ = getelementptr inbounds %"class.absl::lts_20230802::log_internal::LogMessage", ptr %this1, i32 0, i32 1
+  %call = call noundef nonnull align 1 ptr @_ZNKSt10unique_ptrIN4absl12lts_2023080212log_internal10LogMessage14LogMessageDataESt14default_deleteIS4_EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %data_) #3
+  call void @_ZN4absl12lts_2023080212log_internal10LogMessage11OstreamViewC1ERNS2_14LogMessageDataE(ptr noundef nonnull align 8 dereferenceable(120) %view, ptr noundef nonnull align 1 %call)
+  %call2 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl12lts_2023080212log_internal10LogMessage11OstreamView6streamEv(ptr noundef nonnull align 8 dereferenceable(120) %view)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %entry
+  %0 = load ptr, ptr %v.addr, align 8
+  %call4 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN4absl12lts_2023080212log_internal9NullGuardIN6google8protobuf8internal19FieldDescriptorLite7CppTypeEE5GuardERKS7_(ptr noundef nonnull align 4 dereferenceable(4) %0)
+          to label %invoke.cont3 unwind label %lpad
+
+invoke.cont3:                                     ; preds = %invoke.cont
+  %1 = load i32, ptr %call4, align 4
+  %call6 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call2, i32 noundef %1)
+          to label %invoke.cont5 unwind label %lpad
+
+invoke.cont5:                                     ; preds = %invoke.cont3
+  call void @_ZN4absl12lts_2023080212log_internal10LogMessage11OstreamViewD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %view) #3
+  ret ptr %this1
+
+lpad:                                             ; preds = %invoke.cont3, %invoke.cont, %entry
+  %2 = landingpad { ptr, i32 }
+          cleanup
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
+  call void @_ZN4absl12lts_2023080212log_internal10LogMessage11OstreamViewD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %view) #3
+  br label %eh.resume
+
+eh.resume:                                        ; preds = %lpad
+  %exn = load ptr, ptr %exn.slot, align 8
+  %sel = load i32, ptr %ehselector.slot, align 4
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
+  %lpad.val7 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
+  resume { ptr, i32 } %lpad.val7
+}
+
+; Function Attrs: noreturn nounwind
+declare void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #8
+
+; Function Attrs: mustprogress uwtable
+define noundef zeroext i1 @_ZN6google8protobuf4util21SimpleFieldComparator22CompareWithDifferencerEPNS1_18MessageDifferencerERKNS0_7MessageES7_PKNS1_12FieldContextE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %differencer, ptr noundef nonnull align 8 dereferenceable(16) %message1, ptr noundef nonnull align 8 dereferenceable(16) %message2, ptr noundef %field_context) #6 align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %differencer.addr = alloca ptr, align 8
+  %message1.addr = alloca ptr, align 8
+  %message2.addr = alloca ptr, align 8
+  %field_context.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %differencer, ptr %differencer.addr, align 8
+  store ptr %message1, ptr %message1.addr, align 8
+  store ptr %message2, ptr %message2.addr, align 8
+  store ptr %field_context, ptr %field_context.addr, align 8
+  %0 = load ptr, ptr %differencer.addr, align 8
+  %1 = load ptr, ptr %message1.addr, align 8
+  %2 = load ptr, ptr %message2.addr, align 8
+  %3 = load ptr, ptr %field_context.addr, align 8
+  %call = call noundef ptr @_ZNK6google8protobuf4util12FieldContext13parent_fieldsEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %call2 = call noundef zeroext i1 @_ZN6google8protobuf4util18MessageDifferencer7CompareERKNS0_7MessageES5_iPSt6vectorINS2_13SpecificFieldESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(432) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 0, ptr noundef %call)
+  ret i1 %call2
+}
+
+declare noundef zeroext i1 @_ZN6google8protobuf4util18MessageDifferencer7CompareERKNS0_7MessageES5_iPSt6vectorINS2_13SpecificFieldESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(432), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, ptr noundef) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNK6google8protobuf4util12FieldContext13parent_fieldsEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %parent_fields_ = getelementptr inbounds %"class.google::protobuf::util::FieldContext", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %parent_fields_, align 8
+  ret ptr %0
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN6google8protobuf4util21SimpleFieldComparator27SetDefaultFractionAndMarginEdd(ptr noundef nonnull align 8 dereferenceable(64) %this, double noundef %fraction, double noundef %margin) #6 align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %fraction.addr = alloca double, align 8
+  %margin.addr = alloca double, align 8
+  %ref.tmp = alloca %"struct.google::protobuf::util::SimpleFieldComparator::Tolerance", align 8
+  store ptr %this, ptr %this.addr, align 8
+  store double %fraction, ptr %fraction.addr, align 8
+  store double %margin, ptr %margin.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load double, ptr %fraction.addr, align 8
+  %1 = load double, ptr %margin.addr, align 8
+  call void @_ZN6google8protobuf4util21SimpleFieldComparator9ToleranceC2Edd(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, double noundef %0, double noundef %1)
+  %default_tolerance_ = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this1, i32 0, i32 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %default_tolerance_, ptr align 8 %ref.tmp, i64 16, i1 false)
+  %has_default_tolerance_ = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this1, i32 0, i32 3
+  store i8 1, ptr %has_default_tolerance_, align 1
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN6google8protobuf4util21SimpleFieldComparator9ToleranceC2Edd(ptr noundef nonnull align 8 dereferenceable(16) %this, double noundef %f, double noundef %m) unnamed_addr #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %f.addr = alloca double, align 8
+  %m.addr = alloca double, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store double %f, ptr %f.addr, align 8
+  store double %m, ptr %m.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %fraction = getelementptr inbounds %"struct.google::protobuf::util::SimpleFieldComparator::Tolerance", ptr %this1, i32 0, i32 0
+  %0 = load double, ptr %f.addr, align 8
+  store double %0, ptr %fraction, align 8
+  %margin = getelementptr inbounds %"struct.google::protobuf::util::SimpleFieldComparator::Tolerance", ptr %this1, i32 0, i32 1
+  %1 = load double, ptr %m.addr, align 8
+  store double %1, ptr %margin, align 8
+  ret void
+}
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN6google8protobuf4util21SimpleFieldComparator20SetFractionAndMarginEPKNS0_15FieldDescriptorEdd(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %field, double noundef %fraction, double noundef %margin) #6 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %field.addr = alloca ptr, align 8
+  %fraction.addr = alloca double, align 8
+  %margin.addr = alloca double, align 8
+  %ref.tmp = alloca %"class.absl::lts_20230802::log_internal::Voidify", align 1
+  %ref.tmp4 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
+  %agg.tmp = alloca %"class.std::basic_string_view", align 8
+  %cleanup.cond = alloca i1, align 1
+  %exn.slot = alloca ptr, align 8
+  %ehselector.slot = alloca i32, align 4
+  %ref.tmp16 = alloca %"struct.google::protobuf::util::SimpleFieldComparator::Tolerance", align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %field, ptr %field.addr, align 8
+  store double %fraction, ptr %fraction.addr, align 8
+  store double %margin, ptr %margin.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %field.addr, align 8
+  %call = call noundef i32 @_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv(ptr noundef nonnull align 8 dereferenceable(88) %0)
+  %cmp = icmp eq i32 6, %call
+  store i1 false, ptr %cleanup.cond, align 1
+  br i1 %cmp, label %lor.end, label %lor.rhs
+
+lor.rhs:                                          ; preds = %entry
+  %1 = load ptr, ptr %field.addr, align 8
+  %call2 = call noundef i32 @_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv(ptr noundef nonnull align 8 dereferenceable(88) %1)
+  %cmp3 = icmp eq i32 5, %call2
+  br label %lor.end
+
+lor.end:                                          ; preds = %lor.rhs, %entry
+  %2 = phi i1 [ true, %entry ], [ %cmp3, %lor.rhs ]
+  %lnot = xor i1 %2, true
+  br i1 %lnot, label %cond.false, label %cond.true
+
+cond.true:                                        ; preds = %lor.end
+  br label %cond.end
+
+cond.false:                                       ; preds = %lor.end
+  call void @_ZNSt17basic_string_viewIcSt11char_traitsIcEEC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef @.str.3) #3
+  %3 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 0
+  %4 = load i64, ptr %3, align 8
+  %5 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8
+  call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4, ptr noundef @.str, i32 noundef 155, i64 %4, ptr %6) #21
+  store i1 true, ptr %cleanup.cond, align 1
+  %call5 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2023080212log_internal10LogMessage14InternalStreamEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %cond.false
+  %call7 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2023080212log_internal10LogMessagelsILi54EEERS2_RAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %call5, ptr noundef nonnull align 1 dereferenceable(54) @.str.4)
+          to label %invoke.cont6 unwind label %lpad
+
+invoke.cont6:                                     ; preds = %invoke.cont
+  %7 = load ptr, ptr %field.addr, align 8
+  %call9 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf15FieldDescriptor9full_nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(88) %7)
+          to label %invoke.cont8 unwind label %lpad
+
+invoke.cont8:                                     ; preds = %invoke.cont6
+  %call11 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2023080212log_internal10LogMessagelsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %call7, ptr noundef nonnull align 8 dereferenceable(32) %call9)
+          to label %invoke.cont10 unwind label %lpad
+
+invoke.cont10:                                    ; preds = %invoke.cont8
+  invoke void @_ZNKO4absl12lts_2023080212log_internal7VoidifyaaINS1_10LogMessageEEEvRKT_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %call11)
+          to label %invoke.cont12 unwind label %lpad
+
+invoke.cont12:                                    ; preds = %invoke.cont10
+  br label %cond.end
+
+cond.end:                                         ; preds = %invoke.cont12, %cond.true
+  %cleanup.is_active = load i1, ptr %cleanup.cond, align 1
+  br i1 %cleanup.is_active, label %cleanup.action, label %cleanup.done
+
+cleanup.action:                                   ; preds = %cond.end
+  call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4) #20
+  unreachable
+
+lpad:                                             ; preds = %invoke.cont10, %invoke.cont8, %invoke.cont6, %invoke.cont, %cond.false
+  %8 = landingpad { ptr, i32 }
+          cleanup
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
+  %cleanup.is_active13 = load i1, ptr %cleanup.cond, align 1
+  br i1 %cleanup.is_active13, label %cleanup.action14, label %cleanup.done15
+
+11:                                               ; No predecessors!
+  br label %cleanup.done
+
+cleanup.done:                                     ; preds = %11, %cond.end
+  %12 = load double, ptr %fraction.addr, align 8
+  %13 = load double, ptr %margin.addr, align 8
+  call void @_ZN6google8protobuf4util21SimpleFieldComparator9ToleranceC2Edd(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp16, double noundef %12, double noundef %13)
+  %map_tolerance_ = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this1, i32 0, i32 5
+  %call17 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEEixIS8_SC_EEDTclsrT0_5valueclL_ZSt9addressofISJ_EPT_RSP_EclL_ZSt7declvalIRSJ_EDTcl9__declvalISP_ELi0EEEvEEEEERKSP_(ptr noundef nonnull align 8 dereferenceable(32) %map_tolerance_, ptr noundef nonnull align 8 dereferenceable(8) %field.addr)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call17, ptr align 8 %ref.tmp16, i64 16, i1 false)
+  ret void
+
+cleanup.action14:                                 ; preds = %lpad
+  call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4) #20
+  unreachable
+
+14:                                               ; No predecessors!
+  br label %cleanup.done15
+
+cleanup.done15:                                   ; preds = %14, %lpad
+  br label %eh.resume
+
+eh.resume:                                        ; preds = %cleanup.done15
+  %exn = load ptr, ptr %exn.slot, align 8
+  %sel = load i32, ptr %ehselector.slot, align 4
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
+  %lpad.val18 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
+  resume { ptr, i32 } %lpad.val18
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt17basic_string_viewIcSt11char_traitsIcEEC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %__str) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__str.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__str, ptr %__str.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_len = getelementptr inbounds %"class.std::basic_string_view", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %__str.addr, align 8
+  %call = invoke noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %0)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %entry
+  store i64 %call, ptr %_M_len, align 8
+  %_M_str = getelementptr inbounds %"class.std::basic_string_view", ptr %this1, i32 0, i32 1
+  %1 = load ptr, ptr %__str.addr, align 8
+  store ptr %1, ptr %_M_str, align 8
+  ret void
+
+terminate.lpad:                                   ; preds = %entry
+  %2 = landingpad { ptr, i32 }
+          catch ptr null
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #20
+  unreachable
+}
+
+; Function Attrs: cold
+declare void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i32 noundef, i64, ptr) unnamed_addr #7
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2023080212log_internal10LogMessagelsILi54EEERS2_RAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(54) %buf) #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %buf.addr = alloca ptr, align 8
+  %agg.tmp = alloca %"class.std::basic_string_view", align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %buf, ptr %buf.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %buf.addr, align 8
+  %arraydecay = getelementptr inbounds [54 x i8], ptr %0, i64 0, i64 0
+  call void @_ZNSt17basic_string_viewIcSt11char_traitsIcEEC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef %arraydecay) #3
+  %1 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 0
+  %2 = load i64, ptr %1, align 8
+  %3 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 1
+  %4 = load ptr, ptr %3, align 8
+  call void @_ZN4absl12lts_2023080212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i64 %2, ptr %4)
+  ret ptr %this1
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEEixIS8_SC_EEDTclsrT0_5valueclL_ZSt9addressofISJ_EPT_RSP_EclL_ZSt7declvalIRSJ_EDTcl9__declvalISP_ELi0EEEvEEEEERKSP_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(8) %key) #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %key.addr = alloca ptr, align 8
+  %ref.tmp = alloca %"struct.std::pair.87", align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %key, ptr %key.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %key.addr, align 8
+  call void @_ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE11try_emplaceIS8_JETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS1_12raw_hash_setISC_SF_SG_SK_E14const_iteratorEEE5valueEiE4typeELi0EEESH_INSQ_8iteratorEbERKSO_DpOT0_(ptr sret(%"struct.std::pair.87") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %first = getelementptr inbounds %"struct.std::pair.87", ptr %ref.tmp, i32 0, i32 0
+  %call = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE8iteratordeEv(ptr noundef nonnull align 8 dereferenceable(16) %first)
+  %call2 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2023080218container_internal17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS4_4util21SimpleFieldComparator9ToleranceEE5valueEPSt4pairIKS7_SA_E(ptr noundef %call)
+  ret ptr %call2
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef zeroext i1 @_ZN6google8protobuf4util21SimpleFieldComparator20CompareDoubleOrFloatIdEEbRKNS0_15FieldDescriptorET_S7_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(88) %field, double noundef %value_1, double noundef %value_2) #6 comdat align 2 {
+entry:
+  %retval = alloca i1, align 1
+  %this.addr = alloca ptr, align 8
+  %field.addr = alloca ptr, align 8
+  %value_1.addr = alloca double, align 8
+  %value_2.addr = alloca double, align 8
+  %tolerance = alloca ptr, align 8
+  %it = alloca %"class.absl::lts_20230802::container_internal::raw_hash_set<absl::lts_20230802::container_internal::FlatHashMapPolicy<const google::protobuf::FieldDescriptor *, google::protobuf::util::SimpleFieldComparator::Tolerance>, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Hash, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Eq, std::allocator<std::pair<const google::protobuf::FieldDescriptor *const, google::protobuf::util::SimpleFieldComparator::Tolerance>>>::iterator", align 8
+  %ref.tmp = alloca ptr, align 8
+  %ref.tmp20 = alloca %"class.absl::lts_20230802::container_internal::raw_hash_set<absl::lts_20230802::container_internal::FlatHashMapPolicy<const google::protobuf::FieldDescriptor *, google::protobuf::util::SimpleFieldComparator::Tolerance>, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Hash, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Eq, std::allocator<std::pair<const google::protobuf::FieldDescriptor *const, google::protobuf::util::SimpleFieldComparator::Tolerance>>>::iterator", align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %field, ptr %field.addr, align 8
+  store double %value_1, ptr %value_1.addr, align 8
+  store double %value_2, ptr %value_2.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load double, ptr %value_1.addr, align 8
+  %1 = load double, ptr %value_2.addr, align 8
+  %cmp = fcmp oeq double %0, %1
+  br i1 %cmp, label %if.then, label %if.else
+
+if.then:                                          ; preds = %entry
+  store i1 true, ptr %retval, align 1
+  br label %return
+
+if.else:                                          ; preds = %entry
+  %float_comparison_ = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this1, i32 0, i32 1
+  %2 = load i32, ptr %float_comparison_, align 8
+  %cmp2 = icmp eq i32 %2, 0
+  br i1 %cmp2, label %if.then3, label %if.else7
+
+if.then3:                                         ; preds = %if.else
+  %treat_nan_as_equal_ = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this1, i32 0, i32 2
+  %3 = load i8, ptr %treat_nan_as_equal_, align 4
+  %tobool = trunc i8 %3 to i1
+  br i1 %tobool, label %land.lhs.true, label %if.end
+
+land.lhs.true:                                    ; preds = %if.then3
+  %4 = load double, ptr %value_1.addr, align 8
+  %call = call noundef zeroext i1 @_ZSt5isnand(double noundef %4)
+  br i1 %call, label %land.lhs.true4, label %if.end
+
+land.lhs.true4:                                   ; preds = %land.lhs.true
+  %5 = load double, ptr %value_2.addr, align 8
+  %call5 = call noundef zeroext i1 @_ZSt5isnand(double noundef %5)
+  br i1 %call5, label %if.then6, label %if.end
+
+if.then6:                                         ; preds = %land.lhs.true4
+  store i1 true, ptr %retval, align 1
+  br label %return
+
+if.end:                                           ; preds = %land.lhs.true4, %land.lhs.true, %if.then3
+  store i1 false, ptr %retval, align 1
+  br label %return
+
+if.else7:                                         ; preds = %if.else
+  %treat_nan_as_equal_8 = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this1, i32 0, i32 2
+  %6 = load i8, ptr %treat_nan_as_equal_8, align 4
+  %tobool9 = trunc i8 %6 to i1
+  br i1 %tobool9, label %land.lhs.true10, label %if.end15
+
+land.lhs.true10:                                  ; preds = %if.else7
+  %7 = load double, ptr %value_1.addr, align 8
+  %call11 = call noundef zeroext i1 @_ZSt5isnand(double noundef %7)
+  br i1 %call11, label %land.lhs.true12, label %if.end15
+
+land.lhs.true12:                                  ; preds = %land.lhs.true10
+  %8 = load double, ptr %value_2.addr, align 8
+  %call13 = call noundef zeroext i1 @_ZSt5isnand(double noundef %8)
+  br i1 %call13, label %if.then14, label %if.end15
+
+if.then14:                                        ; preds = %land.lhs.true12
+  store i1 true, ptr %retval, align 1
+  br label %return
+
+if.end15:                                         ; preds = %land.lhs.true12, %land.lhs.true10, %if.else7
+  store ptr null, ptr %tolerance, align 8
+  %has_default_tolerance_ = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this1, i32 0, i32 3
+  %9 = load i8, ptr %has_default_tolerance_, align 1
+  %tobool16 = trunc i8 %9 to i1
+  br i1 %tobool16, label %if.then17, label %if.end18
+
+if.then17:                                        ; preds = %if.end15
+  %default_tolerance_ = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this1, i32 0, i32 4
+  store ptr %default_tolerance_, ptr %tolerance, align 8
+  br label %if.end18
+
+if.end18:                                         ; preds = %if.then17, %if.end15
+  %map_tolerance_ = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this1, i32 0, i32 5
+  %10 = load ptr, ptr %field.addr, align 8
+  store ptr %10, ptr %ref.tmp, align 8
+  %call19 = call { ptr, ptr } @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE4findIS8_EENSL_8iteratorERKT_(ptr noundef nonnull align 8 dereferenceable(32) %map_tolerance_, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
+  %11 = getelementptr inbounds { ptr, ptr }, ptr %it, i32 0, i32 0
+  %12 = extractvalue { ptr, ptr } %call19, 0
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds { ptr, ptr }, ptr %it, i32 0, i32 1
+  %14 = extractvalue { ptr, ptr } %call19, 1
+  store ptr %14, ptr %13, align 8
+  %map_tolerance_21 = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this1, i32 0, i32 5
+  %call22 = call { ptr, ptr } @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %map_tolerance_21)
+  %15 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp20, i32 0, i32 0
+  %16 = extractvalue { ptr, ptr } %call22, 0
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp20, i32 0, i32 1
+  %18 = extractvalue { ptr, ptr } %call22, 1
+  store ptr %18, ptr %17, align 8
+  %call23 = call noundef zeroext i1 @_ZN4absl12lts_2023080218container_internalneERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE8iteratorESO_(ptr noundef nonnull align 8 dereferenceable(16) %it, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp20)
+  br i1 %call23, label %if.then24, label %if.end26
+
+if.then24:                                        ; preds = %if.end18
+  %call25 = call noundef ptr @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE8iteratorptEv(ptr noundef nonnull align 8 dereferenceable(16) %it)
+  %second = getelementptr inbounds %"struct.std::pair", ptr %call25, i32 0, i32 1
+  store ptr %second, ptr %tolerance, align 8
+  br label %if.end26
+
+if.end26:                                         ; preds = %if.then24, %if.end18
+  %19 = load ptr, ptr %tolerance, align 8
+  %cmp27 = icmp ne ptr %19, null
+  br i1 %cmp27, label %if.then28, label %if.else30
+
+if.then28:                                        ; preds = %if.end26
+  %20 = load double, ptr %value_1.addr, align 8
+  %21 = load double, ptr %value_2.addr, align 8
+  %22 = load ptr, ptr %tolerance, align 8
+  %fraction = getelementptr inbounds %"struct.google::protobuf::util::SimpleFieldComparator::Tolerance", ptr %22, i32 0, i32 0
+  %23 = load double, ptr %fraction, align 8
+  %24 = load ptr, ptr %tolerance, align 8
+  %margin = getelementptr inbounds %"struct.google::protobuf::util::SimpleFieldComparator::Tolerance", ptr %24, i32 0, i32 1
+  %25 = load double, ptr %margin, align 8
+  %call29 = call noundef zeroext i1 @_ZN6google8protobuf4util12_GLOBAL__N_122WithinFractionOrMarginIdEEbT_S4_S4_S4_(double noundef %20, double noundef %21, double noundef %23, double noundef %25)
+  store i1 %call29, ptr %retval, align 1
+  br label %return
+
+if.else30:                                        ; preds = %if.end26
+  %26 = load double, ptr %value_1.addr, align 8
+  %27 = call double @llvm.fabs.f64(double %26)
+  %cmp31 = fcmp ole double %27, 0x3D00000000000000
+  br i1 %cmp31, label %land.lhs.true32, label %if.end35
+
+land.lhs.true32:                                  ; preds = %if.else30
+  %28 = load double, ptr %value_2.addr, align 8
+  %29 = call double @llvm.fabs.f64(double %28)
+  %cmp33 = fcmp ole double %29, 0x3D00000000000000
+  br i1 %cmp33, label %if.then34, label %if.end35
+
+if.then34:                                        ; preds = %land.lhs.true32
+  store i1 true, ptr %retval, align 1
+  br label %return
+
+if.end35:                                         ; preds = %land.lhs.true32, %if.else30
+  %30 = load double, ptr %value_1.addr, align 8
+  %31 = load double, ptr %value_2.addr, align 8
+  %call36 = call noundef zeroext i1 @_ZN6google8protobuf4util12_GLOBAL__N_122WithinFractionOrMarginIdEEbT_S4_S4_S4_(double noundef %30, double noundef %31, double noundef 0x3D00000000000000, double noundef 0x3D00000000000000)
+  store i1 %call36, ptr %retval, align 1
+  br label %return
+
+return:                                           ; preds = %if.end35, %if.then34, %if.then28, %if.then14, %if.end, %if.then6, %if.then
+  %32 = load i1, ptr %retval, align 1
+  ret i1 %32
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i32 @_ZNK6google8protobuf19EnumValueDescriptor6numberEv(ptr noundef nonnull align 8 dereferenceable(48) %this) #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %number_ = getelementptr inbounds %"class.google::protobuf::EnumValueDescriptor", ptr %this1, i32 0, i32 2
+  %0 = load i32, ptr %number_, align 4
+  ret i32 %0
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef zeroext i1 @_ZN6google8protobuf4util21SimpleFieldComparator20CompareDoubleOrFloatIfEEbRKNS0_15FieldDescriptorET_S7_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(88) %field, float noundef %value_1, float noundef %value_2) #6 comdat align 2 {
+entry:
+  %retval = alloca i1, align 1
+  %this.addr = alloca ptr, align 8
+  %field.addr = alloca ptr, align 8
+  %value_1.addr = alloca float, align 4
+  %value_2.addr = alloca float, align 4
+  %tolerance = alloca ptr, align 8
+  %it = alloca %"class.absl::lts_20230802::container_internal::raw_hash_set<absl::lts_20230802::container_internal::FlatHashMapPolicy<const google::protobuf::FieldDescriptor *, google::protobuf::util::SimpleFieldComparator::Tolerance>, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Hash, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Eq, std::allocator<std::pair<const google::protobuf::FieldDescriptor *const, google::protobuf::util::SimpleFieldComparator::Tolerance>>>::iterator", align 8
+  %ref.tmp = alloca ptr, align 8
+  %ref.tmp20 = alloca %"class.absl::lts_20230802::container_internal::raw_hash_set<absl::lts_20230802::container_internal::FlatHashMapPolicy<const google::protobuf::FieldDescriptor *, google::protobuf::util::SimpleFieldComparator::Tolerance>, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Hash, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Eq, std::allocator<std::pair<const google::protobuf::FieldDescriptor *const, google::protobuf::util::SimpleFieldComparator::Tolerance>>>::iterator", align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %field, ptr %field.addr, align 8
+  store float %value_1, ptr %value_1.addr, align 4
+  store float %value_2, ptr %value_2.addr, align 4
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load float, ptr %value_1.addr, align 4
+  %1 = load float, ptr %value_2.addr, align 4
+  %cmp = fcmp oeq float %0, %1
+  br i1 %cmp, label %if.then, label %if.else
+
+if.then:                                          ; preds = %entry
+  store i1 true, ptr %retval, align 1
+  br label %return
+
+if.else:                                          ; preds = %entry
+  %float_comparison_ = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this1, i32 0, i32 1
+  %2 = load i32, ptr %float_comparison_, align 8
+  %cmp2 = icmp eq i32 %2, 0
+  br i1 %cmp2, label %if.then3, label %if.else7
+
+if.then3:                                         ; preds = %if.else
+  %treat_nan_as_equal_ = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this1, i32 0, i32 2
+  %3 = load i8, ptr %treat_nan_as_equal_, align 4
+  %tobool = trunc i8 %3 to i1
+  br i1 %tobool, label %land.lhs.true, label %if.end
+
+land.lhs.true:                                    ; preds = %if.then3
+  %4 = load float, ptr %value_1.addr, align 4
+  %call = call noundef zeroext i1 @_ZSt5isnanf(float noundef %4)
+  br i1 %call, label %land.lhs.true4, label %if.end
+
+land.lhs.true4:                                   ; preds = %land.lhs.true
+  %5 = load float, ptr %value_2.addr, align 4
+  %call5 = call noundef zeroext i1 @_ZSt5isnanf(float noundef %5)
+  br i1 %call5, label %if.then6, label %if.end
+
+if.then6:                                         ; preds = %land.lhs.true4
+  store i1 true, ptr %retval, align 1
+  br label %return
+
+if.end:                                           ; preds = %land.lhs.true4, %land.lhs.true, %if.then3
+  store i1 false, ptr %retval, align 1
+  br label %return
+
+if.else7:                                         ; preds = %if.else
+  %treat_nan_as_equal_8 = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this1, i32 0, i32 2
+  %6 = load i8, ptr %treat_nan_as_equal_8, align 4
+  %tobool9 = trunc i8 %6 to i1
+  br i1 %tobool9, label %land.lhs.true10, label %if.end15
+
+land.lhs.true10:                                  ; preds = %if.else7
+  %7 = load float, ptr %value_1.addr, align 4
+  %call11 = call noundef zeroext i1 @_ZSt5isnanf(float noundef %7)
+  br i1 %call11, label %land.lhs.true12, label %if.end15
+
+land.lhs.true12:                                  ; preds = %land.lhs.true10
+  %8 = load float, ptr %value_2.addr, align 4
+  %call13 = call noundef zeroext i1 @_ZSt5isnanf(float noundef %8)
+  br i1 %call13, label %if.then14, label %if.end15
+
+if.then14:                                        ; preds = %land.lhs.true12
+  store i1 true, ptr %retval, align 1
+  br label %return
+
+if.end15:                                         ; preds = %land.lhs.true12, %land.lhs.true10, %if.else7
+  store ptr null, ptr %tolerance, align 8
+  %has_default_tolerance_ = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this1, i32 0, i32 3
+  %9 = load i8, ptr %has_default_tolerance_, align 1
+  %tobool16 = trunc i8 %9 to i1
+  br i1 %tobool16, label %if.then17, label %if.end18
+
+if.then17:                                        ; preds = %if.end15
+  %default_tolerance_ = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this1, i32 0, i32 4
+  store ptr %default_tolerance_, ptr %tolerance, align 8
+  br label %if.end18
+
+if.end18:                                         ; preds = %if.then17, %if.end15
+  %map_tolerance_ = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this1, i32 0, i32 5
+  %10 = load ptr, ptr %field.addr, align 8
+  store ptr %10, ptr %ref.tmp, align 8
+  %call19 = call { ptr, ptr } @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE4findIS8_EENSL_8iteratorERKT_(ptr noundef nonnull align 8 dereferenceable(32) %map_tolerance_, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
+  %11 = getelementptr inbounds { ptr, ptr }, ptr %it, i32 0, i32 0
+  %12 = extractvalue { ptr, ptr } %call19, 0
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds { ptr, ptr }, ptr %it, i32 0, i32 1
+  %14 = extractvalue { ptr, ptr } %call19, 1
+  store ptr %14, ptr %13, align 8
+  %map_tolerance_21 = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this1, i32 0, i32 5
+  %call22 = call { ptr, ptr } @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %map_tolerance_21)
+  %15 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp20, i32 0, i32 0
+  %16 = extractvalue { ptr, ptr } %call22, 0
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp20, i32 0, i32 1
+  %18 = extractvalue { ptr, ptr } %call22, 1
+  store ptr %18, ptr %17, align 8
+  %call23 = call noundef zeroext i1 @_ZN4absl12lts_2023080218container_internalneERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE8iteratorESO_(ptr noundef nonnull align 8 dereferenceable(16) %it, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp20)
+  br i1 %call23, label %if.then24, label %if.end26
+
+if.then24:                                        ; preds = %if.end18
+  %call25 = call noundef ptr @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE8iteratorptEv(ptr noundef nonnull align 8 dereferenceable(16) %it)
+  %second = getelementptr inbounds %"struct.std::pair", ptr %call25, i32 0, i32 1
+  store ptr %second, ptr %tolerance, align 8
+  br label %if.end26
+
+if.end26:                                         ; preds = %if.then24, %if.end18
+  %19 = load ptr, ptr %tolerance, align 8
+  %cmp27 = icmp ne ptr %19, null
+  br i1 %cmp27, label %if.then28, label %if.else31
+
+if.then28:                                        ; preds = %if.end26
+  %20 = load float, ptr %value_1.addr, align 4
+  %21 = load float, ptr %value_2.addr, align 4
+  %22 = load ptr, ptr %tolerance, align 8
+  %fraction = getelementptr inbounds %"struct.google::protobuf::util::SimpleFieldComparator::Tolerance", ptr %22, i32 0, i32 0
+  %23 = load double, ptr %fraction, align 8
+  %conv = fptrunc double %23 to float
+  %24 = load ptr, ptr %tolerance, align 8
+  %margin = getelementptr inbounds %"struct.google::protobuf::util::SimpleFieldComparator::Tolerance", ptr %24, i32 0, i32 1
+  %25 = load double, ptr %margin, align 8
+  %conv29 = fptrunc double %25 to float
+  %call30 = call noundef zeroext i1 @_ZN6google8protobuf4util12_GLOBAL__N_122WithinFractionOrMarginIfEEbT_S4_S4_S4_(float noundef %20, float noundef %21, float noundef %conv, float noundef %conv29)
+  store i1 %call30, ptr %retval, align 1
+  br label %return
+
+if.else31:                                        ; preds = %if.end26
+  %26 = load float, ptr %value_1.addr, align 4
+  %call32 = call noundef float @_ZSt4fabsf(float noundef %26)
+  %cmp33 = fcmp ole float %call32, 0x3ED0000000000000
+  br i1 %cmp33, label %land.lhs.true34, label %if.end38
+
+land.lhs.true34:                                  ; preds = %if.else31
+  %27 = load float, ptr %value_2.addr, align 4
+  %call35 = call noundef float @_ZSt4fabsf(float noundef %27)
+  %cmp36 = fcmp ole float %call35, 0x3ED0000000000000
+  br i1 %cmp36, label %if.then37, label %if.end38
+
+if.then37:                                        ; preds = %land.lhs.true34
+  store i1 true, ptr %retval, align 1
+  br label %return
+
+if.end38:                                         ; preds = %land.lhs.true34, %if.else31
+  %28 = load float, ptr %value_1.addr, align 4
+  %29 = load float, ptr %value_2.addr, align 4
+  %call39 = call noundef zeroext i1 @_ZN6google8protobuf4util12_GLOBAL__N_122WithinFractionOrMarginIfEEbT_S4_S4_S4_(float noundef %28, float noundef %29, float noundef 0x3ED0000000000000, float noundef 0x3ED0000000000000)
+  store i1 %call39, ptr %retval, align 1
+  br label %return
+
+return:                                           ; preds = %if.end38, %if.then37, %if.then28, %if.then14, %if.end, %if.then6, %if.then
+  %30 = load i1, ptr %retval, align 1
+  ret i1 %30
+}
+
+declare void @__cxa_pure_virtual() unnamed_addr
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %cap = alloca i64, align 8
+  %cleanup.dest.slot = alloca i32, align 4
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = invoke noundef i64 @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %entry
+  store i64 %call, ptr %cap, align 8
+  %0 = load i64, ptr %cap, align 8
+  %tobool = icmp ne i64 %0, 0
+  br i1 %tobool, label %if.end, label %if.then
+
+if.then:                                          ; preds = %invoke.cont
+  store i32 1, ptr %cleanup.dest.slot, align 4
+  br label %cleanup
+
+if.end:                                           ; preds = %invoke.cont
+  invoke void @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE13destroy_slotsEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+          to label %invoke.cont2 unwind label %terminate.lpad
+
+invoke.cont2:                                     ; preds = %if.end
+  %call4 = invoke noundef ptr @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE10slot_arrayEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+          to label %invoke.cont3 unwind label %terminate.lpad
+
+invoke.cont3:                                     ; preds = %invoke.cont2
+  %1 = load i64, ptr %cap, align 8
+  %mul = mul i64 24, %1
+  invoke void @_ZN4absl12lts_2023080218container_internal29SanitizerUnpoisonMemoryRegionEPKvm(ptr noundef %call4, i64 noundef %mul)
+          to label %invoke.cont5 unwind label %terminate.lpad
+
+invoke.cont5:                                     ; preds = %invoke.cont3
+  %call7 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE9alloc_refEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+          to label %invoke.cont6 unwind label %terminate.lpad
+
+invoke.cont6:                                     ; preds = %invoke.cont5
+  %call9 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE6commonEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+          to label %invoke.cont8 unwind label %terminate.lpad
+
+invoke.cont8:                                     ; preds = %invoke.cont6
+  %call11 = invoke noundef ptr @_ZNK4absl12lts_2023080218container_internal12CommonFields19backing_array_startEv(ptr noundef nonnull align 8 dereferenceable(32) %call9)
+          to label %invoke.cont10 unwind label %terminate.lpad
+
+invoke.cont10:                                    ; preds = %invoke.cont8
+  %2 = load i64, ptr %cap, align 8
+  %call13 = invoke noundef i64 @_ZN4absl12lts_2023080218container_internal9AllocSizeEmmm(i64 noundef %2, i64 noundef 24, i64 noundef 8)
+          to label %invoke.cont12 unwind label %terminate.lpad
+
+invoke.cont12:                                    ; preds = %invoke.cont10
+  invoke void @_ZN4absl12lts_2023080218container_internal10DeallocateILm8ESaISt4pairIKPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEEEEvPT0_Pvm(ptr noundef %call7, ptr noundef %call11, i64 noundef %call13)
+          to label %invoke.cont14 unwind label %terminate.lpad
+
+invoke.cont14:                                    ; preds = %invoke.cont12
+  %call16 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE5infozEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+          to label %invoke.cont15 unwind label %terminate.lpad
+
+invoke.cont15:                                    ; preds = %invoke.cont14
+  invoke void @_ZN4absl12lts_2023080218container_internal20HashtablezInfoHandle10UnregisterEv(ptr noundef nonnull align 1 dereferenceable(1) %call16)
+          to label %invoke.cont17 unwind label %terminate.lpad
+
+invoke.cont17:                                    ; preds = %invoke.cont15
+  store i32 0, ptr %cleanup.dest.slot, align 4
+  br label %cleanup
+
+cleanup:                                          ; preds = %invoke.cont17, %if.then
+  %settings_ = getelementptr inbounds %"class.absl::lts_20230802::container_internal::raw_hash_set", ptr %this1, i32 0, i32 0
+  call void @_ZN4absl12lts_2023080218container_internal15CompressedTupleIJNS1_12CommonFieldsENS1_6HashEqIPKN6google8protobuf15FieldDescriptorEvE4HashENSA_2EqESaISt4pairIKS9_NS6_4util21SimpleFieldComparator9ToleranceEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %settings_) #3
+  %cleanup.dest = load i32, ptr %cleanup.dest.slot, align 4
+  switch i32 %cleanup.dest, label %unreachable [
+    i32 0, label %cleanup.cont
+    i32 1, label %cleanup.cont
+  ]
+
+cleanup.cont:                                     ; preds = %cleanup, %cleanup
+  ret void
+
+terminate.lpad:                                   ; preds = %invoke.cont15, %invoke.cont14, %invoke.cont12, %invoke.cont10, %invoke.cont8, %invoke.cont6, %invoke.cont5, %invoke.cont3, %invoke.cont2, %if.end, %entry
+  %3 = landingpad { ptr, i32 }
+          catch ptr null
+  %4 = extractvalue { ptr, i32 } %3, 0
+  call void @__clang_call_terminate(ptr %4) #20
+  unreachable
+
+unreachable:                                      ; preds = %cleanup
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef i64 @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE6commonEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  %call2 = call noundef i64 @_ZNK4absl12lts_2023080218container_internal12CommonFields8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %call)
+  ret i64 %call2
+}
+
+; Function Attrs: noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #10 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #3
+  call void @_ZSt9terminatev() #20
+  unreachable
+}
+
+declare ptr @__cxa_begin_catch(ptr)
+
+declare void @_ZSt9terminatev()
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE13destroy_slotsEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %cap = alloca i64, align 8
+  %ctrl = alloca ptr, align 8
+  %slot = alloca ptr, align 8
+  %i = alloca i64, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef i64 @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  store i64 %call, ptr %cap, align 8
+  %call2 = call noundef ptr @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE7controlEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  store ptr %call2, ptr %ctrl, align 8
+  %call3 = call noundef ptr @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE10slot_arrayEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  store ptr %call3, ptr %slot, align 8
+  store i64 0, ptr %i, align 8
+  br label %for.cond
+
+for.cond:                                         ; preds = %for.inc, %entry
+  %0 = load i64, ptr %i, align 8
+  %1 = load i64, ptr %cap, align 8
+  %cmp = icmp ne i64 %0, %1
+  br i1 %cmp, label %for.body, label %for.end
+
+for.body:                                         ; preds = %for.cond
+  %2 = load ptr, ptr %ctrl, align 8
+  %3 = load i64, ptr %i, align 8
+  %arrayidx = getelementptr inbounds i8, ptr %2, i64 %3
+  %4 = load i8, ptr %arrayidx, align 1
+  %call4 = call noundef zeroext i1 @_ZN4absl12lts_2023080218container_internal6IsFullENS1_6ctrl_tE(i8 noundef signext %4)
+  br i1 %call4, label %if.then, label %if.end
+
+if.then:                                          ; preds = %for.body
+  %call5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE9alloc_refEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  %5 = load ptr, ptr %slot, align 8
+  %6 = load i64, ptr %i, align 8
+  %add.ptr = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %5, i64 %6
+  call void @_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEEvE7destroyISaISt4pairIKS8_SB_EEEEvPT_PNS1_13map_slot_typeIS8_SB_EE(ptr noundef %call5, ptr noundef %add.ptr)
+  br label %if.end
+
+if.end:                                           ; preds = %if.then, %for.body
+  br label %for.inc
+
+for.inc:                                          ; preds = %if.end
+  %7 = load i64, ptr %i, align 8
+  %inc = add i64 %7, 1
+  store i64 %inc, ptr %i, align 8
+  br label %for.cond, !llvm.loop !4
+
+for.end:                                          ; preds = %for.cond
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal29SanitizerUnpoisonMemoryRegionEPKvm(ptr noundef %m, i64 noundef %s) #4 comdat {
+entry:
+  %m.addr = alloca ptr, align 8
+  %s.addr = alloca i64, align 8
+  store ptr %m, ptr %m.addr, align 8
+  store i64 %s, ptr %s.addr, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef ptr @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE10slot_arrayEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE6commonEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  %call2 = call noundef ptr @_ZNK4absl12lts_2023080218container_internal12CommonFields10slot_arrayEv(ptr noundef nonnull align 8 dereferenceable(32) %call)
+  ret ptr %call2
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal10DeallocateILm8ESaISt4pairIKPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEEEEvPT0_Pvm(ptr noundef %alloc, ptr noundef %p, i64 noundef %n) #6 comdat personality ptr @__gxx_personality_v0 {
+entry:
+  %alloc.addr = alloca ptr, align 8
+  %p.addr = alloca ptr, align 8
+  %n.addr = alloca i64, align 8
+  %my_mem_alloc = alloca %"class.std::allocator.84", align 1
+  %exn.slot = alloca ptr, align 8
+  %ehselector.slot = alloca i32, align 4
+  store ptr %alloc, ptr %alloc.addr, align 8
+  store ptr %p, ptr %p.addr, align 8
+  store i64 %n, ptr %n.addr, align 8
+  %0 = load ptr, ptr %alloc.addr, align 8
+  call void @_ZNSaIN4absl12lts_2023080218container_internal11AlignedTypeILm8EEEEC2ISt4pairIKPKN6google8protobuf15FieldDescriptorENS8_4util21SimpleFieldComparator9ToleranceEEEERKSaIT_E(ptr noundef nonnull align 1 dereferenceable(1) %my_mem_alloc, ptr noundef nonnull align 1 dereferenceable(1) %0) #3
+  %1 = load ptr, ptr %p.addr, align 8
+  %2 = load i64, ptr %n.addr, align 8
+  %add = add i64 %2, 8
+  %sub = sub i64 %add, 1
+  %div = udiv i64 %sub, 8
+  invoke void @_ZNSt16allocator_traitsISaIN4absl12lts_2023080218container_internal11AlignedTypeILm8EEEEE10deallocateERS5_PS4_m(ptr noundef nonnull align 1 dereferenceable(1) %my_mem_alloc, ptr noundef %1, i64 noundef %div)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %entry
+  call void @_ZNSaIN4absl12lts_2023080218container_internal11AlignedTypeILm8EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %my_mem_alloc) #3
+  ret void
+
+lpad:                                             ; preds = %entry
+  %3 = landingpad { ptr, i32 }
+          cleanup
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
+  call void @_ZNSaIN4absl12lts_2023080218container_internal11AlignedTypeILm8EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %my_mem_alloc) #3
+  br label %eh.resume
+
+eh.resume:                                        ; preds = %lpad
+  %exn = load ptr, ptr %exn.slot, align 8
+  %sel = load i32, ptr %ehselector.slot, align 4
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
+  %lpad.val1 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
+  resume { ptr, i32 } %lpad.val1
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE9alloc_refEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %settings_ = getelementptr inbounds %"class.absl::lts_20230802::container_internal::raw_hash_set", ptr %this1, i32 0, i32 0
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNR4absl12lts_2023080218container_internal15CompressedTupleIJNS1_12CommonFieldsENS1_6HashEqIPKN6google8protobuf15FieldDescriptorEvE4HashENSA_2EqESaISt4pairIKS9_NS6_4util21SimpleFieldComparator9ToleranceEEEEE3getILi3EEERNS1_25internal_compressed_tuple4ElemISK_XT_EE4typeEv(ptr noundef nonnull align 8 dereferenceable(32) %settings_)
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE6commonEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %settings_ = getelementptr inbounds %"class.absl::lts_20230802::container_internal::raw_hash_set", ptr %this1, i32 0, i32 0
+  %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNR4absl12lts_2023080218container_internal15CompressedTupleIJNS1_12CommonFieldsENS1_6HashEqIPKN6google8protobuf15FieldDescriptorEvE4HashENSA_2EqESaISt4pairIKS9_NS6_4util21SimpleFieldComparator9ToleranceEEEEE3getILi0EEERNS1_25internal_compressed_tuple4ElemISK_XT_EE4typeEv(ptr noundef nonnull align 8 dereferenceable(32) %settings_)
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNK4absl12lts_2023080218container_internal12CommonFields19backing_array_startEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef ptr @_ZNK4absl12lts_2023080218container_internal12CommonFields7controlEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  %add.ptr = getelementptr inbounds i8, ptr %call, i64 -8
+  ret ptr %add.ptr
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef i64 @_ZN4absl12lts_2023080218container_internal9AllocSizeEmmm(i64 noundef %capacity, i64 noundef %slot_size, i64 noundef %slot_align) #6 comdat {
+entry:
+  %capacity.addr = alloca i64, align 8
+  %slot_size.addr = alloca i64, align 8
+  %slot_align.addr = alloca i64, align 8
+  store i64 %capacity, ptr %capacity.addr, align 8
+  store i64 %slot_size, ptr %slot_size.addr, align 8
+  store i64 %slot_align, ptr %slot_align.addr, align 8
+  %0 = load i64, ptr %capacity.addr, align 8
+  %1 = load i64, ptr %slot_align.addr, align 8
+  %call = call noundef i64 @_ZN4absl12lts_2023080218container_internal10SlotOffsetEmm(i64 noundef %0, i64 noundef %1)
+  %2 = load i64, ptr %capacity.addr, align 8
+  %3 = load i64, ptr %slot_size.addr, align 8
+  %mul = mul i64 %2, %3
+  %add = add i64 %call, %mul
+  ret i64 %add
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE5infozEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE6commonEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  %call2 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN4absl12lts_2023080218container_internal12CommonFields5infozEv(ptr noundef nonnull align 8 dereferenceable(32) %call)
+  ret ptr %call2
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal20HashtablezInfoHandle10UnregisterEv(ptr noundef nonnull align 1 dereferenceable(1) %this) #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal15CompressedTupleIJNS1_12CommonFieldsENS1_6HashEqIPKN6google8protobuf15FieldDescriptorEvE4HashENSA_2EqESaISt4pairIKS9_NS6_4util21SimpleFieldComparator9ToleranceEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZN4absl12lts_2023080218container_internal25internal_compressed_tuple19CompressedTupleImplINS1_15CompressedTupleIJNS1_12CommonFieldsENS1_6HashEqIPKN6google8protobuf15FieldDescriptorEvE4HashENSC_2EqESaISt4pairIKSB_NS8_4util21SimpleFieldComparator9ToleranceEEEEEENS0_16integer_sequenceImJLm0ELm1ELm2ELm3EEEELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE6commonEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %settings_ = getelementptr inbounds %"class.absl::lts_20230802::container_internal::raw_hash_set", ptr %this1, i32 0, i32 0
+  %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNKR4absl12lts_2023080218container_internal15CompressedTupleIJNS1_12CommonFieldsENS1_6HashEqIPKN6google8protobuf15FieldDescriptorEvE4HashENSA_2EqESaISt4pairIKS9_NS6_4util21SimpleFieldComparator9ToleranceEEEEE3getILi0EEERKNS1_25internal_compressed_tuple4ElemISK_XT_EE4typeEv(ptr noundef nonnull align 8 dereferenceable(32) %settings_)
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZNK4absl12lts_2023080218container_internal12CommonFields8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %capacity_ = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this1, i32 0, i32 2
+  %0 = load i64, ptr %capacity_, align 8
+  ret i64 %0
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNKR4absl12lts_2023080218container_internal15CompressedTupleIJNS1_12CommonFieldsENS1_6HashEqIPKN6google8protobuf15FieldDescriptorEvE4HashENSA_2EqESaISt4pairIKS9_NS6_4util21SimpleFieldComparator9ToleranceEEEEE3getILi0EEERKNS1_25internal_compressed_tuple4ElemISK_XT_EE4typeEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNKR4absl12lts_2023080218container_internal25internal_compressed_tuple7StorageINS1_12CommonFieldsELm0ELb0EE3getEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNKR4absl12lts_2023080218container_internal25internal_compressed_tuple7StorageINS1_12CommonFieldsELm0ELb0EE3getEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %value = getelementptr inbounds %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage", ptr %this1, i32 0, i32 0
+  ret ptr %value
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef ptr @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE7controlEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE6commonEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  %call2 = call noundef ptr @_ZNK4absl12lts_2023080218container_internal12CommonFields7controlEv(ptr noundef nonnull align 8 dereferenceable(32) %call)
+  ret ptr %call2
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN4absl12lts_2023080218container_internal6IsFullENS1_6ctrl_tE(i8 noundef signext %c) #4 comdat {
+entry:
+  %c.addr = alloca i8, align 1
+  store i8 %c, ptr %c.addr, align 1
+  %0 = load i8, ptr %c.addr, align 1
+  %cmp = icmp sge i8 %0, 0
+  ret i1 %cmp
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEEvE7destroyISaISt4pairIKS8_SB_EEEEvPT_PNS1_13map_slot_typeIS8_SB_EE(ptr noundef %alloc, ptr noundef %slot) #6 comdat align 2 {
+entry:
+  %alloc.addr = alloca ptr, align 8
+  %slot.addr = alloca ptr, align 8
+  store ptr %alloc, ptr %alloc.addr, align 8
+  store ptr %slot, ptr %slot.addr, align 8
+  %0 = load ptr, ptr %alloc.addr, align 8
+  %1 = load ptr, ptr %slot.addr, align 8
+  call void @_ZN4absl12lts_2023080218container_internal17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS4_4util21SimpleFieldComparator9ToleranceEE7destroyISaISt4pairIKS7_SA_EEEEvPT_PNS1_13map_slot_typeIS7_SA_EE(ptr noundef %0, ptr noundef %1)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNK4absl12lts_2023080218container_internal12CommonFields7controlEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %control_ = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %control_, align 8
+  ret ptr %0
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS4_4util21SimpleFieldComparator9ToleranceEE7destroyISaISt4pairIKS7_SA_EEEEvPT_PNS1_13map_slot_typeIS7_SA_EE(ptr noundef %alloc, ptr noundef %slot) #6 comdat align 2 {
+entry:
+  %alloc.addr = alloca ptr, align 8
+  %slot.addr = alloca ptr, align 8
+  store ptr %alloc, ptr %alloc.addr, align 8
+  store ptr %slot, ptr %slot.addr, align 8
+  %0 = load ptr, ptr %alloc.addr, align 8
+  %1 = load ptr, ptr %slot.addr, align 8
+  call void @_ZN4absl12lts_2023080218container_internal15map_slot_policyIPKN6google8protobuf15FieldDescriptorENS4_4util21SimpleFieldComparator9ToleranceEE7destroyISaISt4pairIKS7_SA_EEEEvPT_PNS1_13map_slot_typeIS7_SA_EE(ptr noundef %0, ptr noundef %1)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal15map_slot_policyIPKN6google8protobuf15FieldDescriptorENS4_4util21SimpleFieldComparator9ToleranceEE7destroyISaISt4pairIKS7_SA_EEEEvPT_PNS1_13map_slot_typeIS7_SA_EE(ptr noundef %alloc, ptr noundef %slot) #4 comdat align 2 {
+entry:
+  %alloc.addr = alloca ptr, align 8
+  %slot.addr = alloca ptr, align 8
+  store ptr %alloc, ptr %alloc.addr, align 8
+  store ptr %slot, ptr %slot.addr, align 8
+  %0 = load ptr, ptr %alloc.addr, align 8
+  %1 = load ptr, ptr %slot.addr, align 8
+  call void @_ZNSt16allocator_traitsISaISt4pairIKPKN6google8protobuf15FieldDescriptorENS2_4util21SimpleFieldComparator9ToleranceEEEE7destroyIS0_IS5_S9_EEEvRSB_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt16allocator_traitsISaISt4pairIKPKN6google8protobuf15FieldDescriptorENS2_4util21SimpleFieldComparator9ToleranceEEEE7destroyIS0_IS5_S9_EEEvRSB_PT_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %__p) #4 comdat align 2 {
+entry:
+  %__a.addr = alloca ptr, align 8
+  %__p.addr = alloca ptr, align 8
+  store ptr %__a, ptr %__a.addr, align 8
+  store ptr %__p, ptr %__p.addr, align 8
+  %0 = load ptr, ptr %__a.addr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  call void @_ZNSt15__new_allocatorISt4pairIKPKN6google8protobuf15FieldDescriptorENS2_4util21SimpleFieldComparator9ToleranceEEE7destroyIS0_IS5_S9_EEEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt15__new_allocatorISt4pairIKPKN6google8protobuf15FieldDescriptorENS2_4util21SimpleFieldComparator9ToleranceEEE7destroyIS0_IS5_S9_EEEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %__p) #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__p.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__p, ptr %__p.addr, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNK4absl12lts_2023080218container_internal12CommonFields10slot_arrayEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %slots_ = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this1, i32 0, i32 1
+  %0 = load ptr, ptr %slots_, align 8
+  ret ptr %0
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSaIN4absl12lts_2023080218container_internal11AlignedTypeILm8EEEEC2ISt4pairIKPKN6google8protobuf15FieldDescriptorENS8_4util21SimpleFieldComparator9ToleranceEEEERKSaIT_E(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZNSt15__new_allocatorIN4absl12lts_2023080218container_internal11AlignedTypeILm8EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1) #3
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIN4absl12lts_2023080218container_internal11AlignedTypeILm8EEEEE10deallocateERS5_PS4_m(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %__p, i64 noundef %__n) #6 comdat align 2 {
+entry:
+  %__a.addr = alloca ptr, align 8
+  %__p.addr = alloca ptr, align 8
+  %__n.addr = alloca i64, align 8
+  store ptr %__a, ptr %__a.addr, align 8
+  store ptr %__p, ptr %__p.addr, align 8
+  store i64 %__n, ptr %__n.addr, align 8
+  %0 = load ptr, ptr %__a.addr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  %2 = load i64, ptr %__n.addr, align 8
+  call void @_ZNSt15__new_allocatorIN4absl12lts_2023080218container_internal11AlignedTypeILm8EEEE10deallocateEPS4_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSaIN4absl12lts_2023080218container_internal11AlignedTypeILm8EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZNSt15__new_allocatorIN4absl12lts_2023080218container_internal11AlignedTypeILm8EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt15__new_allocatorIN4absl12lts_2023080218container_internal11AlignedTypeILm8EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt15__new_allocatorIN4absl12lts_2023080218container_internal11AlignedTypeILm8EEEE10deallocateEPS4_m(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %__p, i64 noundef %__n) #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__p.addr = alloca ptr, align 8
+  %__n.addr = alloca i64, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__p, ptr %__p.addr, align 8
+  store i64 %__n, ptr %__n.addr, align 8
+  %0 = load ptr, ptr %__p.addr, align 8
+  call void @_ZdlPv(ptr noundef %0) #22
+  ret void
+}
+
+; Function Attrs: nobuiltin nounwind
+declare void @_ZdlPv(ptr noundef) #11
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt15__new_allocatorIN4absl12lts_2023080218container_internal11AlignedTypeILm8EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNR4absl12lts_2023080218container_internal15CompressedTupleIJNS1_12CommonFieldsENS1_6HashEqIPKN6google8protobuf15FieldDescriptorEvE4HashENSA_2EqESaISt4pairIKS9_NS6_4util21SimpleFieldComparator9ToleranceEEEEE3getILi3EEERNS1_25internal_compressed_tuple4ElemISK_XT_EE4typeEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNR4absl12lts_2023080218container_internal25internal_compressed_tuple7StorageISaISt4pairIKPKN6google8protobuf15FieldDescriptorENS6_4util21SimpleFieldComparator9ToleranceEEELm3ELb1EE3getEv(ptr noundef nonnull align 1 dereferenceable(1) %this1)
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNR4absl12lts_2023080218container_internal25internal_compressed_tuple7StorageISaISt4pairIKPKN6google8protobuf15FieldDescriptorENS6_4util21SimpleFieldComparator9ToleranceEEELm3ELb1EE3getEv(ptr noundef nonnull align 1 dereferenceable(1) %this) #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  ret ptr %this1
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNR4absl12lts_2023080218container_internal15CompressedTupleIJNS1_12CommonFieldsENS1_6HashEqIPKN6google8protobuf15FieldDescriptorEvE4HashENSA_2EqESaISt4pairIKS9_NS6_4util21SimpleFieldComparator9ToleranceEEEEE3getILi0EEERNS1_25internal_compressed_tuple4ElemISK_XT_EE4typeEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNR4absl12lts_2023080218container_internal25internal_compressed_tuple7StorageINS1_12CommonFieldsELm0ELb0EE3getEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNR4absl12lts_2023080218container_internal25internal_compressed_tuple7StorageINS1_12CommonFieldsELm0ELb0EE3getEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %value = getelementptr inbounds %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage", ptr %this1, i32 0, i32 0
+  ret ptr %value
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef i64 @_ZN4absl12lts_2023080218container_internal10SlotOffsetEmm(i64 noundef %capacity, i64 noundef %slot_align) #6 comdat {
+entry:
+  %capacity.addr = alloca i64, align 8
+  %slot_align.addr = alloca i64, align 8
+  store i64 %capacity, ptr %capacity.addr, align 8
+  store i64 %slot_align, ptr %slot_align.addr, align 8
+  %0 = load i64, ptr %capacity.addr, align 8
+  %call = call noundef i64 @_ZN4absl12lts_2023080218container_internal16GenerationOffsetEm(i64 noundef %0)
+  %call1 = call noundef i64 @_ZN4absl12lts_2023080218container_internal18NumGenerationBytesEv()
+  %add = add i64 %call, %call1
+  %1 = load i64, ptr %slot_align.addr, align 8
+  %add2 = add i64 %add, %1
+  %sub = sub i64 %add2, 1
+  %2 = load i64, ptr %slot_align.addr, align 8
+  %not = xor i64 %2, -1
+  %add3 = add i64 %not, 1
+  %and = and i64 %sub, %add3
+  ret i64 %and
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef i64 @_ZN4absl12lts_2023080218container_internal16GenerationOffsetEm(i64 noundef %capacity) #6 comdat {
+entry:
+  %capacity.addr = alloca i64, align 8
+  %num_control_bytes = alloca i64, align 8
+  store i64 %capacity, ptr %capacity.addr, align 8
+  %0 = load i64, ptr %capacity.addr, align 8
+  %add = add i64 %0, 1
+  %call = call noundef i64 @_ZN4absl12lts_2023080218container_internal14NumClonedBytesEv()
+  %add1 = add i64 %add, %call
+  store i64 %add1, ptr %num_control_bytes, align 8
+  %call2 = call noundef i64 @_ZN4absl12lts_2023080218container_internal13ControlOffsetEv()
+  %1 = load i64, ptr %num_control_bytes, align 8
+  %add3 = add i64 %call2, %1
+  ret i64 %add3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZN4absl12lts_2023080218container_internal18NumGenerationBytesEv() #4 comdat {
+entry:
+  ret i64 0
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZN4absl12lts_2023080218container_internal14NumClonedBytesEv() #4 comdat {
+entry:
+  ret i64 15
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZN4absl12lts_2023080218container_internal13ControlOffsetEv() #4 comdat {
+entry:
+  ret i64 8
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN4absl12lts_2023080218container_internal12CommonFields5infozEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %compressed_tuple_ = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this1, i32 0, i32 3
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNR4absl12lts_2023080218container_internal15CompressedTupleIJmNS1_20HashtablezInfoHandleEEE3getILi1EEERNS1_25internal_compressed_tuple4ElemIS4_XT_EE4typeEv(ptr noundef nonnull align 8 dereferenceable(8) %compressed_tuple_)
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNR4absl12lts_2023080218container_internal15CompressedTupleIJmNS1_20HashtablezInfoHandleEEE3getILi1EEERNS1_25internal_compressed_tuple4ElemIS4_XT_EE4typeEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNR4absl12lts_2023080218container_internal25internal_compressed_tuple7StorageINS1_20HashtablezInfoHandleELm1ELb1EE3getEv(ptr noundef nonnull align 1 dereferenceable(1) %this1)
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNR4absl12lts_2023080218container_internal25internal_compressed_tuple7StorageINS1_20HashtablezInfoHandleELm1ELb1EE3getEv(ptr noundef nonnull align 1 dereferenceable(1) %this) #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  ret ptr %this1
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal25internal_compressed_tuple19CompressedTupleImplINS1_15CompressedTupleIJNS1_12CommonFieldsENS1_6HashEqIPKN6google8protobuf15FieldDescriptorEvE4HashENSC_2EqESaISt4pairIKSB_NS8_4util21SimpleFieldComparator9ToleranceEEEEEENS0_16integer_sequenceImJLm0ELm1ELm2ELm3EEEELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZN4absl12lts_2023080218container_internal25internal_compressed_tuple7StorageISaISt4pairIKPKN6google8protobuf15FieldDescriptorENS6_4util21SimpleFieldComparator9ToleranceEEELm3ELb1EED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal25internal_compressed_tuple7StorageISaISt4pairIKPKN6google8protobuf15FieldDescriptorENS6_4util21SimpleFieldComparator9ToleranceEEELm3ELb1EED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZNSaISt4pairIKPKN6google8protobuf15FieldDescriptorENS1_4util21SimpleFieldComparator9ToleranceEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt15__new_allocatorISt4pairIKPKN6google8protobuf15FieldDescriptorENS2_4util21SimpleFieldComparator9ToleranceEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef i32 @_ZNK6google8protobuf15FieldDescriptor4typeEv(ptr noundef nonnull align 8 dereferenceable(88) %this) #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %ref.tmp = alloca ptr, align 8
+  %ref.tmp3 = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %type_once_ = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %this1, i32 0, i32 7
+  %0 = load ptr, ptr %type_once_, align 8
+  %tobool = icmp ne ptr %0, null
+  br i1 %tobool, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %type_once_2 = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %this1, i32 0, i32 7
+  %1 = load ptr, ptr %type_once_2, align 8
+  store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %ref.tmp, align 8
+  store ptr %this1, ptr %ref.tmp3, align 8
+  call void @_ZN4absl12lts_202308029call_onceIPFvPKN6google8protobuf15FieldDescriptorEEJS6_EEEvRNS0_9once_flagEOT_DpOT0_(ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp3)
+  br label %if.end
+
+if.end:                                           ; preds = %if.then, %entry
+  %type_ = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %this1, i32 0, i32 2
+  %2 = load i8, ptr %type_, align 2
+  %conv = zext i8 %2 to i32
+  ret i32 %conv
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_202308029call_onceIPFvPKN6google8protobuf15FieldDescriptorEEJS6_EEEvRNS0_9once_flagEOT_DpOT0_(ptr noundef nonnull align 4 dereferenceable(4) %flag, ptr noundef nonnull align 8 dereferenceable(8) %fn, ptr noundef nonnull align 8 dereferenceable(8) %args) #6 comdat personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr.i = alloca ptr, align 8
+  %__m.addr.i = alloca i32, align 4
+  %__b.i = alloca i32, align 4
+  %atomic-temp.i = alloca i32, align 4
+  %flag.addr = alloca ptr, align 8
+  %fn.addr = alloca ptr, align 8
+  %args.addr = alloca ptr, align 8
+  %once = alloca ptr, align 8
+  %s = alloca i32, align 4
+  store ptr %flag, ptr %flag.addr, align 8
+  store ptr %fn, ptr %fn.addr, align 8
+  store ptr %args, ptr %args.addr, align 8
+  %0 = load ptr, ptr %flag.addr, align 8
+  %call = call noundef ptr @_ZN4absl12lts_2023080213base_internal11ControlWordEPNS0_9once_flagE(ptr noundef %0)
+  store ptr %call, ptr %once, align 8
+  %1 = load ptr, ptr %once, align 8
+  store ptr %1, ptr %this.addr.i, align 8
+  store i32 2, ptr %__m.addr.i, align 4
+  %this1.i = load ptr, ptr %this.addr.i, align 8
+  %2 = load i32, ptr %__m.addr.i, align 4
+  %call.i = invoke noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %2, i32 noundef 65535)
+          to label %invoke.cont.i unwind label %terminate.lpad.i
+
+invoke.cont.i:                                    ; preds = %entry
+  store i32 %call.i, ptr %__b.i, align 4
+  %3 = load i32, ptr %__m.addr.i, align 4
+  switch i32 %3, label %monotonic.i [
+    i32 1, label %acquire.i
+    i32 2, label %acquire.i
+    i32 5, label %seqcst.i
+  ]
+
+monotonic.i:                                      ; preds = %invoke.cont.i
+  %4 = load atomic i32, ptr %this1.i monotonic, align 4
+  store i32 %4, ptr %atomic-temp.i, align 4
+  br label %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit
+
+acquire.i:                                        ; preds = %invoke.cont.i, %invoke.cont.i
+  %5 = load atomic i32, ptr %this1.i acquire, align 4
+  store i32 %5, ptr %atomic-temp.i, align 4
+  br label %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit
+
+seqcst.i:                                         ; preds = %invoke.cont.i
+  %6 = load atomic i32, ptr %this1.i seq_cst, align 4
+  store i32 %6, ptr %atomic-temp.i, align 4
+  br label %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit
+
+terminate.lpad.i:                                 ; preds = %entry
+  %7 = landingpad { ptr, i32 }
+          catch ptr null
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #20
+  unreachable
+
+_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit: ; preds = %seqcst.i, %acquire.i, %monotonic.i
+  %9 = load i32, ptr %atomic-temp.i, align 4
+  store i32 %9, ptr %s, align 4
+  %10 = load i32, ptr %s, align 4
+  %cmp = icmp ne i32 %10, 221
+  br i1 %cmp, label %if.then, label %if.end
+
+if.then:                                          ; preds = %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit
+  %11 = load ptr, ptr %once, align 8
+  %12 = load ptr, ptr %fn.addr, align 8
+  %13 = load ptr, ptr %args.addr, align 8
+  call void @_ZN4absl12lts_2023080213base_internal12CallOnceImplIPFvPKN6google8protobuf15FieldDescriptorEEJS7_EEEvPSt6atomicIjENS1_14SchedulingModeEOT_DpOT0_(ptr noundef %11, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13)
+  br label %if.end
+
+if.end:                                           ; preds = %if.then, %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit
+  ret void
+}
+
+declare void @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_(ptr noundef) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN4absl12lts_2023080213base_internal11ControlWordEPNS0_9once_flagE(ptr noundef %flag) #4 comdat {
+entry:
+  %flag.addr = alloca ptr, align 8
+  store ptr %flag, ptr %flag.addr, align 8
+  %0 = load ptr, ptr %flag.addr, align 8
+  %control_ = getelementptr inbounds %"class.absl::lts_20230802::once_flag", ptr %0, i32 0, i32 0
+  ret ptr %control_
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080213base_internal12CallOnceImplIPFvPKN6google8protobuf15FieldDescriptorEEJS7_EEEvPSt6atomicIjENS1_14SchedulingModeEOT_DpOT0_(ptr noundef %control, i32 noundef %scheduling_mode, ptr noundef nonnull align 8 dereferenceable(8) %fn, ptr noundef nonnull align 8 dereferenceable(8) %args) #6 comdat personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr.i12 = alloca ptr, align 8
+  %__i1.addr.i13 = alloca ptr, align 8
+  %__i2.addr.i14 = alloca i32, align 4
+  %__m1.addr.i = alloca i32, align 4
+  %__m2.addr.i = alloca i32, align 4
+  %.atomictmp.i15 = alloca i32, align 4
+  %cmpxchg.bool.i = alloca i8, align 1
+  %this.addr.i9 = alloca ptr, align 8
+  %__i.addr.i = alloca i32, align 4
+  %__m.addr.i10 = alloca i32, align 4
+  %.atomictmp.i = alloca i32, align 4
+  %atomic-temp.i = alloca i32, align 4
+  %this.addr.i = alloca ptr, align 8
+  %__i1.addr.i = alloca ptr, align 8
+  %__i2.addr.i = alloca i32, align 4
+  %__m.addr.i = alloca i32, align 4
+  %control.addr = alloca ptr, align 8
+  %scheduling_mode.addr = alloca i32, align 4
+  %fn.addr = alloca ptr, align 8
+  %args.addr = alloca ptr, align 8
+  %maybe_disable_scheduling = alloca %"class.absl::lts_20230802::base_internal::SchedulingHelper", align 4
+  %old_control = alloca i32, align 4
+  %exn.slot = alloca ptr, align 8
+  %ehselector.slot = alloca i32, align 4
+  store ptr %control, ptr %control.addr, align 8
+  store i32 %scheduling_mode, ptr %scheduling_mode.addr, align 4
+  store ptr %fn, ptr %fn.addr, align 8
+  store ptr %args, ptr %args.addr, align 8
+  %0 = load i32, ptr %scheduling_mode.addr, align 4
+  call void @_ZN4absl12lts_2023080213base_internal16SchedulingHelperC2ENS1_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(5) %maybe_disable_scheduling, i32 noundef %0)
+  store i32 0, ptr %old_control, align 4
+  %1 = load ptr, ptr %control.addr, align 8
+  store ptr %1, ptr %this.addr.i, align 8
+  store ptr %old_control, ptr %__i1.addr.i, align 8
+  store i32 1707250555, ptr %__i2.addr.i, align 4
+  store i32 0, ptr %__m.addr.i, align 4
+  %this1.i = load ptr, ptr %this.addr.i, align 8
+  %2 = load ptr, ptr %__i1.addr.i, align 8
+  %3 = load i32, ptr %__i2.addr.i, align 4
+  %4 = load i32, ptr %__m.addr.i, align 4
+  %5 = load i32, ptr %__m.addr.i, align 4
+  %call.i = call noundef i32 @_ZSt23__cmpexch_failure_orderSt12memory_order(i32 noundef %5) #3
+  store ptr %this1.i, ptr %this.addr.i12, align 8
+  store ptr %2, ptr %__i1.addr.i13, align 8
+  store i32 %3, ptr %__i2.addr.i14, align 4
+  store i32 %4, ptr %__m1.addr.i, align 4
+  store i32 %call.i, ptr %__m2.addr.i, align 4
+  %this1.i16 = load ptr, ptr %this.addr.i12, align 8
+  %6 = load i32, ptr %__m1.addr.i, align 4
+  %7 = load ptr, ptr %__i1.addr.i13, align 8
+  %8 = load i32, ptr %__i2.addr.i14, align 4
+  store i32 %8, ptr %.atomictmp.i15, align 4
+  %9 = load i32, ptr %__m2.addr.i, align 4
+  switch i32 %6, label %monotonic.i21 [
+    i32 1, label %acquire.i20
+    i32 2, label %acquire.i20
+    i32 3, label %release.i19
+    i32 4, label %acqrel.i18
+    i32 5, label %seqcst.i17
+  ]
+
+monotonic.i21:                                    ; preds = %entry
+  switch i32 %9, label %monotonic_fail.i [
+    i32 1, label %acquire_fail.i
+    i32 2, label %acquire_fail.i
+    i32 5, label %seqcst_fail.i
+  ]
+
+acquire.i20:                                      ; preds = %entry, %entry
+  switch i32 %9, label %monotonic_fail9.i [
+    i32 1, label %acquire_fail10.i
+    i32 2, label %acquire_fail10.i
+    i32 5, label %seqcst_fail11.i
+  ]
+
+release.i19:                                      ; preds = %entry
+  switch i32 %9, label %monotonic_fail22.i [
+    i32 1, label %acquire_fail23.i
+    i32 2, label %acquire_fail23.i
+    i32 5, label %seqcst_fail24.i
+  ]
+
+acqrel.i18:                                       ; preds = %entry
+  switch i32 %9, label %monotonic_fail35.i [
+    i32 1, label %acquire_fail36.i
+    i32 2, label %acquire_fail36.i
+    i32 5, label %seqcst_fail37.i
+  ]
+
+seqcst.i17:                                       ; preds = %entry
+  switch i32 %9, label %monotonic_fail48.i [
+    i32 1, label %acquire_fail49.i
+    i32 2, label %acquire_fail49.i
+    i32 5, label %seqcst_fail50.i
+  ]
+
+monotonic_fail.i:                                 ; preds = %monotonic.i21
+  %10 = load i32, ptr %7, align 4
+  %11 = load i32, ptr %.atomictmp.i15, align 4
+  %12 = cmpxchg ptr %this1.i16, i32 %10, i32 %11 monotonic monotonic, align 4
+  %13 = extractvalue { i32, i1 } %12, 0
+  %14 = extractvalue { i32, i1 } %12, 1
+  br i1 %14, label %cmpxchg.continue.i, label %cmpxchg.store_expected.i
+
+acquire_fail.i:                                   ; preds = %monotonic.i21, %monotonic.i21
+  %15 = load i32, ptr %7, align 4
+  %16 = load i32, ptr %.atomictmp.i15, align 4
+  %17 = cmpxchg ptr %this1.i16, i32 %15, i32 %16 monotonic acquire, align 4
+  %18 = extractvalue { i32, i1 } %17, 0
+  %19 = extractvalue { i32, i1 } %17, 1
+  br i1 %19, label %cmpxchg.continue4.i, label %cmpxchg.store_expected3.i
+
+seqcst_fail.i:                                    ; preds = %monotonic.i21
+  %20 = load i32, ptr %7, align 4
+  %21 = load i32, ptr %.atomictmp.i15, align 4
+  %22 = cmpxchg ptr %this1.i16, i32 %20, i32 %21 monotonic seq_cst, align 4
+  %23 = extractvalue { i32, i1 } %22, 0
+  %24 = extractvalue { i32, i1 } %22, 1
+  br i1 %24, label %cmpxchg.continue7.i, label %cmpxchg.store_expected6.i
+
+atomic.continue2.i:                               ; preds = %cmpxchg.continue7.i, %cmpxchg.continue4.i, %cmpxchg.continue.i
+  br label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit
+
+cmpxchg.store_expected.i:                         ; preds = %monotonic_fail.i
+  store i32 %13, ptr %7, align 4
+  br label %cmpxchg.continue.i
+
+cmpxchg.continue.i:                               ; preds = %cmpxchg.store_expected.i, %monotonic_fail.i
+  %frombool.i = zext i1 %14 to i8
+  store i8 %frombool.i, ptr %cmpxchg.bool.i, align 1
+  br label %atomic.continue2.i
+
+cmpxchg.store_expected3.i:                        ; preds = %acquire_fail.i
+  store i32 %18, ptr %7, align 4
+  br label %cmpxchg.continue4.i
+
+cmpxchg.continue4.i:                              ; preds = %cmpxchg.store_expected3.i, %acquire_fail.i
+  %frombool5.i = zext i1 %19 to i8
+  store i8 %frombool5.i, ptr %cmpxchg.bool.i, align 1
+  br label %atomic.continue2.i
+
+cmpxchg.store_expected6.i:                        ; preds = %seqcst_fail.i
+  store i32 %23, ptr %7, align 4
+  br label %cmpxchg.continue7.i
+
+cmpxchg.continue7.i:                              ; preds = %cmpxchg.store_expected6.i, %seqcst_fail.i
+  %frombool8.i = zext i1 %24 to i8
+  store i8 %frombool8.i, ptr %cmpxchg.bool.i, align 1
+  br label %atomic.continue2.i
+
+monotonic_fail9.i:                                ; preds = %acquire.i20
+  %25 = load i32, ptr %7, align 4
+  %26 = load i32, ptr %.atomictmp.i15, align 4
+  %27 = cmpxchg ptr %this1.i16, i32 %25, i32 %26 acquire monotonic, align 4
+  %28 = extractvalue { i32, i1 } %27, 0
+  %29 = extractvalue { i32, i1 } %27, 1
+  br i1 %29, label %cmpxchg.continue14.i, label %cmpxchg.store_expected13.i
+
+acquire_fail10.i:                                 ; preds = %acquire.i20, %acquire.i20
+  %30 = load i32, ptr %7, align 4
+  %31 = load i32, ptr %.atomictmp.i15, align 4
+  %32 = cmpxchg ptr %this1.i16, i32 %30, i32 %31 acquire acquire, align 4
+  %33 = extractvalue { i32, i1 } %32, 0
+  %34 = extractvalue { i32, i1 } %32, 1
+  br i1 %34, label %cmpxchg.continue17.i, label %cmpxchg.store_expected16.i
+
+seqcst_fail11.i:                                  ; preds = %acquire.i20
+  %35 = load i32, ptr %7, align 4
+  %36 = load i32, ptr %.atomictmp.i15, align 4
+  %37 = cmpxchg ptr %this1.i16, i32 %35, i32 %36 acquire seq_cst, align 4
+  %38 = extractvalue { i32, i1 } %37, 0
+  %39 = extractvalue { i32, i1 } %37, 1
+  br i1 %39, label %cmpxchg.continue20.i, label %cmpxchg.store_expected19.i
+
+atomic.continue12.i:                              ; preds = %cmpxchg.continue20.i, %cmpxchg.continue17.i, %cmpxchg.continue14.i
+  br label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit
+
+cmpxchg.store_expected13.i:                       ; preds = %monotonic_fail9.i
+  store i32 %28, ptr %7, align 4
+  br label %cmpxchg.continue14.i
+
+cmpxchg.continue14.i:                             ; preds = %cmpxchg.store_expected13.i, %monotonic_fail9.i
+  %frombool15.i = zext i1 %29 to i8
+  store i8 %frombool15.i, ptr %cmpxchg.bool.i, align 1
+  br label %atomic.continue12.i
+
+cmpxchg.store_expected16.i:                       ; preds = %acquire_fail10.i
+  store i32 %33, ptr %7, align 4
+  br label %cmpxchg.continue17.i
+
+cmpxchg.continue17.i:                             ; preds = %cmpxchg.store_expected16.i, %acquire_fail10.i
+  %frombool18.i = zext i1 %34 to i8
+  store i8 %frombool18.i, ptr %cmpxchg.bool.i, align 1
+  br label %atomic.continue12.i
+
+cmpxchg.store_expected19.i:                       ; preds = %seqcst_fail11.i
+  store i32 %38, ptr %7, align 4
+  br label %cmpxchg.continue20.i
+
+cmpxchg.continue20.i:                             ; preds = %cmpxchg.store_expected19.i, %seqcst_fail11.i
+  %frombool21.i = zext i1 %39 to i8
+  store i8 %frombool21.i, ptr %cmpxchg.bool.i, align 1
+  br label %atomic.continue12.i
+
+monotonic_fail22.i:                               ; preds = %release.i19
+  %40 = load i32, ptr %7, align 4
+  %41 = load i32, ptr %.atomictmp.i15, align 4
+  %42 = cmpxchg ptr %this1.i16, i32 %40, i32 %41 release monotonic, align 4
+  %43 = extractvalue { i32, i1 } %42, 0
+  %44 = extractvalue { i32, i1 } %42, 1
+  br i1 %44, label %cmpxchg.continue27.i, label %cmpxchg.store_expected26.i
+
+acquire_fail23.i:                                 ; preds = %release.i19, %release.i19
+  %45 = load i32, ptr %7, align 4
+  %46 = load i32, ptr %.atomictmp.i15, align 4
+  %47 = cmpxchg ptr %this1.i16, i32 %45, i32 %46 release acquire, align 4
+  %48 = extractvalue { i32, i1 } %47, 0
+  %49 = extractvalue { i32, i1 } %47, 1
+  br i1 %49, label %cmpxchg.continue30.i, label %cmpxchg.store_expected29.i
+
+seqcst_fail24.i:                                  ; preds = %release.i19
+  %50 = load i32, ptr %7, align 4
+  %51 = load i32, ptr %.atomictmp.i15, align 4
+  %52 = cmpxchg ptr %this1.i16, i32 %50, i32 %51 release seq_cst, align 4
+  %53 = extractvalue { i32, i1 } %52, 0
+  %54 = extractvalue { i32, i1 } %52, 1
+  br i1 %54, label %cmpxchg.continue33.i, label %cmpxchg.store_expected32.i
+
+atomic.continue25.i:                              ; preds = %cmpxchg.continue33.i, %cmpxchg.continue30.i, %cmpxchg.continue27.i
+  br label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit
+
+cmpxchg.store_expected26.i:                       ; preds = %monotonic_fail22.i
+  store i32 %43, ptr %7, align 4
+  br label %cmpxchg.continue27.i
+
+cmpxchg.continue27.i:                             ; preds = %cmpxchg.store_expected26.i, %monotonic_fail22.i
+  %frombool28.i = zext i1 %44 to i8
+  store i8 %frombool28.i, ptr %cmpxchg.bool.i, align 1
+  br label %atomic.continue25.i
+
+cmpxchg.store_expected29.i:                       ; preds = %acquire_fail23.i
+  store i32 %48, ptr %7, align 4
+  br label %cmpxchg.continue30.i
+
+cmpxchg.continue30.i:                             ; preds = %cmpxchg.store_expected29.i, %acquire_fail23.i
+  %frombool31.i = zext i1 %49 to i8
+  store i8 %frombool31.i, ptr %cmpxchg.bool.i, align 1
+  br label %atomic.continue25.i
+
+cmpxchg.store_expected32.i:                       ; preds = %seqcst_fail24.i
+  store i32 %53, ptr %7, align 4
+  br label %cmpxchg.continue33.i
+
+cmpxchg.continue33.i:                             ; preds = %cmpxchg.store_expected32.i, %seqcst_fail24.i
+  %frombool34.i = zext i1 %54 to i8
+  store i8 %frombool34.i, ptr %cmpxchg.bool.i, align 1
+  br label %atomic.continue25.i
+
+monotonic_fail35.i:                               ; preds = %acqrel.i18
+  %55 = load i32, ptr %7, align 4
+  %56 = load i32, ptr %.atomictmp.i15, align 4
+  %57 = cmpxchg ptr %this1.i16, i32 %55, i32 %56 acq_rel monotonic, align 4
+  %58 = extractvalue { i32, i1 } %57, 0
+  %59 = extractvalue { i32, i1 } %57, 1
+  br i1 %59, label %cmpxchg.continue40.i, label %cmpxchg.store_expected39.i
+
+acquire_fail36.i:                                 ; preds = %acqrel.i18, %acqrel.i18
+  %60 = load i32, ptr %7, align 4
+  %61 = load i32, ptr %.atomictmp.i15, align 4
+  %62 = cmpxchg ptr %this1.i16, i32 %60, i32 %61 acq_rel acquire, align 4
+  %63 = extractvalue { i32, i1 } %62, 0
+  %64 = extractvalue { i32, i1 } %62, 1
+  br i1 %64, label %cmpxchg.continue43.i, label %cmpxchg.store_expected42.i
+
+seqcst_fail37.i:                                  ; preds = %acqrel.i18
+  %65 = load i32, ptr %7, align 4
+  %66 = load i32, ptr %.atomictmp.i15, align 4
+  %67 = cmpxchg ptr %this1.i16, i32 %65, i32 %66 acq_rel seq_cst, align 4
+  %68 = extractvalue { i32, i1 } %67, 0
+  %69 = extractvalue { i32, i1 } %67, 1
+  br i1 %69, label %cmpxchg.continue46.i, label %cmpxchg.store_expected45.i
+
+atomic.continue38.i:                              ; preds = %cmpxchg.continue46.i, %cmpxchg.continue43.i, %cmpxchg.continue40.i
+  br label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit
+
+cmpxchg.store_expected39.i:                       ; preds = %monotonic_fail35.i
+  store i32 %58, ptr %7, align 4
+  br label %cmpxchg.continue40.i
+
+cmpxchg.continue40.i:                             ; preds = %cmpxchg.store_expected39.i, %monotonic_fail35.i
+  %frombool41.i = zext i1 %59 to i8
+  store i8 %frombool41.i, ptr %cmpxchg.bool.i, align 1
+  br label %atomic.continue38.i
+
+cmpxchg.store_expected42.i:                       ; preds = %acquire_fail36.i
+  store i32 %63, ptr %7, align 4
+  br label %cmpxchg.continue43.i
+
+cmpxchg.continue43.i:                             ; preds = %cmpxchg.store_expected42.i, %acquire_fail36.i
+  %frombool44.i = zext i1 %64 to i8
+  store i8 %frombool44.i, ptr %cmpxchg.bool.i, align 1
+  br label %atomic.continue38.i
+
+cmpxchg.store_expected45.i:                       ; preds = %seqcst_fail37.i
+  store i32 %68, ptr %7, align 4
+  br label %cmpxchg.continue46.i
+
+cmpxchg.continue46.i:                             ; preds = %cmpxchg.store_expected45.i, %seqcst_fail37.i
+  %frombool47.i = zext i1 %69 to i8
+  store i8 %frombool47.i, ptr %cmpxchg.bool.i, align 1
+  br label %atomic.continue38.i
+
+monotonic_fail48.i:                               ; preds = %seqcst.i17
+  %70 = load i32, ptr %7, align 4
+  %71 = load i32, ptr %.atomictmp.i15, align 4
+  %72 = cmpxchg ptr %this1.i16, i32 %70, i32 %71 seq_cst monotonic, align 4
+  %73 = extractvalue { i32, i1 } %72, 0
+  %74 = extractvalue { i32, i1 } %72, 1
+  br i1 %74, label %cmpxchg.continue53.i, label %cmpxchg.store_expected52.i
+
+acquire_fail49.i:                                 ; preds = %seqcst.i17, %seqcst.i17
+  %75 = load i32, ptr %7, align 4
+  %76 = load i32, ptr %.atomictmp.i15, align 4
+  %77 = cmpxchg ptr %this1.i16, i32 %75, i32 %76 seq_cst acquire, align 4
+  %78 = extractvalue { i32, i1 } %77, 0
+  %79 = extractvalue { i32, i1 } %77, 1
+  br i1 %79, label %cmpxchg.continue56.i, label %cmpxchg.store_expected55.i
+
+seqcst_fail50.i:                                  ; preds = %seqcst.i17
+  %80 = load i32, ptr %7, align 4
+  %81 = load i32, ptr %.atomictmp.i15, align 4
+  %82 = cmpxchg ptr %this1.i16, i32 %80, i32 %81 seq_cst seq_cst, align 4
+  %83 = extractvalue { i32, i1 } %82, 0
+  %84 = extractvalue { i32, i1 } %82, 1
+  br i1 %84, label %cmpxchg.continue59.i, label %cmpxchg.store_expected58.i
+
+atomic.continue51.i:                              ; preds = %cmpxchg.continue59.i, %cmpxchg.continue56.i, %cmpxchg.continue53.i
+  br label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit
+
+cmpxchg.store_expected52.i:                       ; preds = %monotonic_fail48.i
+  store i32 %73, ptr %7, align 4
+  br label %cmpxchg.continue53.i
+
+cmpxchg.continue53.i:                             ; preds = %cmpxchg.store_expected52.i, %monotonic_fail48.i
+  %frombool54.i = zext i1 %74 to i8
+  store i8 %frombool54.i, ptr %cmpxchg.bool.i, align 1
+  br label %atomic.continue51.i
+
+cmpxchg.store_expected55.i:                       ; preds = %acquire_fail49.i
+  store i32 %78, ptr %7, align 4
+  br label %cmpxchg.continue56.i
+
+cmpxchg.continue56.i:                             ; preds = %cmpxchg.store_expected55.i, %acquire_fail49.i
+  %frombool57.i = zext i1 %79 to i8
+  store i8 %frombool57.i, ptr %cmpxchg.bool.i, align 1
+  br label %atomic.continue51.i
+
+cmpxchg.store_expected58.i:                       ; preds = %seqcst_fail50.i
+  store i32 %83, ptr %7, align 4
+  br label %cmpxchg.continue59.i
+
+cmpxchg.continue59.i:                             ; preds = %cmpxchg.store_expected58.i, %seqcst_fail50.i
+  %frombool60.i = zext i1 %84 to i8
+  store i8 %frombool60.i, ptr %cmpxchg.bool.i, align 1
+  br label %atomic.continue51.i
+
+_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit: ; preds = %atomic.continue51.i, %atomic.continue38.i, %atomic.continue25.i, %atomic.continue12.i, %atomic.continue2.i
+  %85 = load i8, ptr %cmpxchg.bool.i, align 1
+  %tobool.i = trunc i8 %85 to i1
+  br i1 %tobool.i, label %if.then, label %lor.lhs.false
+
+lor.lhs.false:                                    ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit
+  %86 = load ptr, ptr %control.addr, align 8
+  %87 = load i32, ptr %scheduling_mode.addr, align 4
+  %call1 = invoke noundef i32 @_ZN4absl12lts_2023080213base_internal12SpinLockWaitEPSt6atomicIjEiPKNS1_22SpinLockWaitTransitionENS1_14SchedulingModeE(ptr noundef %86, i32 noundef 3, ptr noundef @_ZZN4absl12lts_2023080213base_internal12CallOnceImplIPFvPKN6google8protobuf15FieldDescriptorEEJS7_EEEvPSt6atomicIjENS1_14SchedulingModeEOT_DpOT0_E5trans, i32 noundef %87)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %lor.lhs.false
+  %cmp = icmp eq i32 %call1, 0
+  br i1 %cmp, label %if.then, label %if.end7
+
+if.then:                                          ; preds = %invoke.cont, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit
+  %88 = load ptr, ptr %fn.addr, align 8
+  %89 = load ptr, ptr %args.addr, align 8
+  invoke void @_ZSt6invokeIPFvPKN6google8protobuf15FieldDescriptorEEJS4_EENSt13invoke_resultIT_JDpT0_EE4typeEOS8_DpOS9_(ptr noundef nonnull align 8 dereferenceable(8) %88, ptr noundef nonnull align 8 dereferenceable(8) %89)
+          to label %invoke.cont2 unwind label %lpad
+
+invoke.cont2:                                     ; preds = %if.then
+  %90 = load ptr, ptr %control.addr, align 8
+  store ptr %90, ptr %this.addr.i9, align 8
+  store i32 221, ptr %__i.addr.i, align 4
+  store i32 3, ptr %__m.addr.i10, align 4
+  %this1.i11 = load ptr, ptr %this.addr.i9, align 8
+  %91 = load i32, ptr %__m.addr.i10, align 4
+  %92 = load i32, ptr %__i.addr.i, align 4
+  store i32 %92, ptr %.atomictmp.i, align 4
+  switch i32 %91, label %monotonic.i [
+    i32 1, label %acquire.i
+    i32 2, label %acquire.i
+    i32 3, label %release.i
+    i32 4, label %acqrel.i
+    i32 5, label %seqcst.i
+  ]
+
+monotonic.i:                                      ; preds = %invoke.cont2
+  %93 = load i32, ptr %.atomictmp.i, align 4
+  %94 = atomicrmw xchg ptr %this1.i11, i32 %93 monotonic, align 4
+  store i32 %94, ptr %atomic-temp.i, align 4
+  br label %_ZNSt13__atomic_baseIjE8exchangeEjSt12memory_order.exit
+
+acquire.i:                                        ; preds = %invoke.cont2, %invoke.cont2
+  %95 = load i32, ptr %.atomictmp.i, align 4
+  %96 = atomicrmw xchg ptr %this1.i11, i32 %95 acquire, align 4
+  store i32 %96, ptr %atomic-temp.i, align 4
+  br label %_ZNSt13__atomic_baseIjE8exchangeEjSt12memory_order.exit
+
+release.i:                                        ; preds = %invoke.cont2
+  %97 = load i32, ptr %.atomictmp.i, align 4
+  %98 = atomicrmw xchg ptr %this1.i11, i32 %97 release, align 4
+  store i32 %98, ptr %atomic-temp.i, align 4
+  br label %_ZNSt13__atomic_baseIjE8exchangeEjSt12memory_order.exit
+
+acqrel.i:                                         ; preds = %invoke.cont2
+  %99 = load i32, ptr %.atomictmp.i, align 4
+  %100 = atomicrmw xchg ptr %this1.i11, i32 %99 acq_rel, align 4
+  store i32 %100, ptr %atomic-temp.i, align 4
+  br label %_ZNSt13__atomic_baseIjE8exchangeEjSt12memory_order.exit
+
+seqcst.i:                                         ; preds = %invoke.cont2
+  %101 = load i32, ptr %.atomictmp.i, align 4
+  %102 = atomicrmw xchg ptr %this1.i11, i32 %101 seq_cst, align 4
+  store i32 %102, ptr %atomic-temp.i, align 4
+  br label %_ZNSt13__atomic_baseIjE8exchangeEjSt12memory_order.exit
+
+_ZNSt13__atomic_baseIjE8exchangeEjSt12memory_order.exit: ; preds = %seqcst.i, %acqrel.i, %release.i, %acquire.i, %monotonic.i
+  %103 = load i32, ptr %atomic-temp.i, align 4
+  store i32 %103, ptr %old_control, align 4
+  %104 = load i32, ptr %old_control, align 4
+  %cmp4 = icmp eq i32 %104, 94570706
+  br i1 %cmp4, label %if.then5, label %if.end
+
+if.then5:                                         ; preds = %_ZNSt13__atomic_baseIjE8exchangeEjSt12memory_order.exit
+  %105 = load ptr, ptr %control.addr, align 8
+  invoke void @_ZN4absl12lts_2023080213base_internal12SpinLockWakeEPSt6atomicIjEb(ptr noundef %105, i1 noundef zeroext true)
+          to label %invoke.cont6 unwind label %lpad
+
+invoke.cont6:                                     ; preds = %if.then5
+  br label %if.end
+
+lpad:                                             ; preds = %if.then5, %if.then, %lor.lhs.false
+  %106 = landingpad { ptr, i32 }
+          cleanup
+  %107 = extractvalue { ptr, i32 } %106, 0
+  store ptr %107, ptr %exn.slot, align 8
+  %108 = extractvalue { ptr, i32 } %106, 1
+  store i32 %108, ptr %ehselector.slot, align 4
+  call void @_ZN4absl12lts_2023080213base_internal16SchedulingHelperD2Ev(ptr noundef nonnull align 4 dereferenceable(5) %maybe_disable_scheduling) #3
+  br label %eh.resume
+
+if.end:                                           ; preds = %invoke.cont6, %_ZNSt13__atomic_baseIjE8exchangeEjSt12memory_order.exit
+  br label %if.end7
+
+if.end7:                                          ; preds = %if.end, %invoke.cont
+  call void @_ZN4absl12lts_2023080213base_internal16SchedulingHelperD2Ev(ptr noundef nonnull align 4 dereferenceable(5) %maybe_disable_scheduling) #3
+  ret void
+
+eh.resume:                                        ; preds = %lpad
+  %exn = load ptr, ptr %exn.slot, align 8
+  %sel = load i32, ptr %ehselector.slot, align 4
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
+  %lpad.val8 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
+  resume { ptr, i32 } %lpad.val8
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %__m, i32 noundef %__mod) #4 comdat {
+entry:
+  %__m.addr = alloca i32, align 4
+  %__mod.addr = alloca i32, align 4
+  store i32 %__m, ptr %__m.addr, align 4
+  store i32 %__mod, ptr %__mod.addr, align 4
+  %0 = load i32, ptr %__m.addr, align 4
+  %1 = load i32, ptr %__mod.addr, align 4
+  %and = and i32 %0, %1
+  ret i32 %and
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080213base_internal16SchedulingHelperC2ENS1_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(5) %this, i32 noundef %mode) unnamed_addr #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %mode.addr = alloca i32, align 4
+  store ptr %this, ptr %this.addr, align 8
+  store i32 %mode, ptr %mode.addr, align 4
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mode_ = getelementptr inbounds %"class.absl::lts_20230802::base_internal::SchedulingHelper", ptr %this1, i32 0, i32 0
+  %0 = load i32, ptr %mode.addr, align 4
+  store i32 %0, ptr %mode_, align 4
+  %guard_result_ = getelementptr inbounds %"class.absl::lts_20230802::base_internal::SchedulingHelper", ptr %this1, i32 0, i32 1
+  store i8 0, ptr %guard_result_, align 4
+  %mode_2 = getelementptr inbounds %"class.absl::lts_20230802::base_internal::SchedulingHelper", ptr %this1, i32 0, i32 0
+  %1 = load i32, ptr %mode_2, align 4
+  %cmp = icmp eq i32 %1, 0
+  br i1 %cmp, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %call = call noundef zeroext i1 @_ZN4absl12lts_2023080213base_internal15SchedulingGuard19DisableReschedulingEv()
+  %guard_result_3 = getelementptr inbounds %"class.absl::lts_20230802::base_internal::SchedulingHelper", ptr %this1, i32 0, i32 1
+  %frombool = zext i1 %call to i8
+  store i8 %frombool, ptr %guard_result_3, align 4
+  br label %if.end
+
+if.end:                                           ; preds = %if.then, %entry
+  ret void
+}
+
+declare noundef i32 @_ZN4absl12lts_2023080213base_internal12SpinLockWaitEPSt6atomicIjEiPKNS1_22SpinLockWaitTransitionENS1_14SchedulingModeE(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #1
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZSt6invokeIPFvPKN6google8protobuf15FieldDescriptorEEJS4_EENSt13invoke_resultIT_JDpT0_EE4typeEOS8_DpOS9_(ptr noundef nonnull align 8 dereferenceable(8) %__fn, ptr noundef nonnull align 8 dereferenceable(8) %__args) #6 comdat {
+entry:
+  %__fn.addr = alloca ptr, align 8
+  %__args.addr = alloca ptr, align 8
+  store ptr %__fn, ptr %__fn.addr, align 8
+  store ptr %__args, ptr %__args.addr, align 8
+  %0 = load ptr, ptr %__fn.addr, align 8
+  %1 = load ptr, ptr %__args.addr, align 8
+  call void @_ZSt8__invokeIPFvPKN6google8protobuf15FieldDescriptorEEJS4_EENSt15__invoke_resultIT_JDpT0_EE4typeEOS8_DpOS9_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080213base_internal12SpinLockWakeEPSt6atomicIjEb(ptr noundef %w, i1 noundef zeroext %all) #6 comdat {
+entry:
+  %w.addr = alloca ptr, align 8
+  %all.addr = alloca i8, align 1
+  store ptr %w, ptr %w.addr, align 8
+  %frombool = zext i1 %all to i8
+  store i8 %frombool, ptr %all.addr, align 1
+  %0 = load ptr, ptr %w.addr, align 8
+  %1 = load i8, ptr %all.addr, align 1
+  %tobool = trunc i8 %1 to i1
+  call void @AbslInternalSpinLockWake_lts_20230802(ptr noundef %0, i1 noundef zeroext %tobool)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080213base_internal16SchedulingHelperD2Ev(ptr noundef nonnull align 4 dereferenceable(5) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mode_ = getelementptr inbounds %"class.absl::lts_20230802::base_internal::SchedulingHelper", ptr %this1, i32 0, i32 0
+  %0 = load i32, ptr %mode_, align 4
+  %cmp = icmp eq i32 %0, 0
+  br i1 %cmp, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %guard_result_ = getelementptr inbounds %"class.absl::lts_20230802::base_internal::SchedulingHelper", ptr %this1, i32 0, i32 1
+  %1 = load i8, ptr %guard_result_, align 4
+  %tobool = trunc i8 %1 to i1
+  invoke void @_ZN4absl12lts_2023080213base_internal15SchedulingGuard18EnableReschedulingEb(i1 noundef zeroext %tobool)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %if.then
+  br label %if.end
+
+if.end:                                           ; preds = %invoke.cont, %entry
+  ret void
+
+terminate.lpad:                                   ; preds = %if.then
+  %2 = landingpad { ptr, i32 }
+          catch ptr null
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #20
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN4absl12lts_2023080213base_internal15SchedulingGuard19DisableReschedulingEv() #4 comdat align 2 {
+entry:
+  ret i1 false
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZSt23__cmpexch_failure_orderSt12memory_order(i32 noundef %__m) #4 comdat personality ptr @__gxx_personality_v0 {
+entry:
+  %__m.addr = alloca i32, align 4
+  store i32 %__m, ptr %__m.addr, align 4
+  %0 = load i32, ptr %__m.addr, align 4
+  %call = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %0, i32 noundef 65535)
+  %call1 = call noundef i32 @_ZSt24__cmpexch_failure_order2St12memory_order(i32 noundef %call) #3
+  %1 = load i32, ptr %__m.addr, align 4
+  %call2 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %1, i32 noundef -65536)
+  %call3 = invoke noundef i32 @_ZStorSt12memory_orderSt23__memory_order_modifier(i32 noundef %call1, i32 noundef %call2)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %entry
+  ret i32 %call3
+
+terminate.lpad:                                   ; preds = %entry
+  %2 = landingpad { ptr, i32 }
+          catch ptr null
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #20
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZStorSt12memory_orderSt23__memory_order_modifier(i32 noundef %__m, i32 noundef %__mod) #4 comdat {
+entry:
+  %__m.addr = alloca i32, align 4
+  %__mod.addr = alloca i32, align 4
+  store i32 %__m, ptr %__m.addr, align 4
+  store i32 %__mod, ptr %__mod.addr, align 4
+  %0 = load i32, ptr %__m.addr, align 4
+  %1 = load i32, ptr %__mod.addr, align 4
+  %or = or i32 %0, %1
+  ret i32 %or
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZSt24__cmpexch_failure_order2St12memory_order(i32 noundef %__m) #4 comdat {
+entry:
+  %__m.addr = alloca i32, align 4
+  store i32 %__m, ptr %__m.addr, align 4
+  %0 = load i32, ptr %__m.addr, align 4
+  %cmp = icmp eq i32 %0, 4
+  br i1 %cmp, label %cond.true, label %cond.false
+
+cond.true:                                        ; preds = %entry
+  br label %cond.end4
+
+cond.false:                                       ; preds = %entry
+  %1 = load i32, ptr %__m.addr, align 4
+  %cmp1 = icmp eq i32 %1, 3
+  br i1 %cmp1, label %cond.true2, label %cond.false3
+
+cond.true2:                                       ; preds = %cond.false
+  br label %cond.end
+
+cond.false3:                                      ; preds = %cond.false
+  %2 = load i32, ptr %__m.addr, align 4
+  br label %cond.end
+
+cond.end:                                         ; preds = %cond.false3, %cond.true2
+  %cond = phi i32 [ 0, %cond.true2 ], [ %2, %cond.false3 ]
+  br label %cond.end4
+
+cond.end4:                                        ; preds = %cond.end, %cond.true
+  %cond5 = phi i32 [ 2, %cond.true ], [ %cond, %cond.end ]
+  ret i32 %cond5
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZSt8__invokeIPFvPKN6google8protobuf15FieldDescriptorEEJS4_EENSt15__invoke_resultIT_JDpT0_EE4typeEOS8_DpOS9_(ptr noundef nonnull align 8 dereferenceable(8) %__fn, ptr noundef nonnull align 8 dereferenceable(8) %__args) #6 comdat {
+entry:
+  %__fn.addr = alloca ptr, align 8
+  %__args.addr = alloca ptr, align 8
+  store ptr %__fn, ptr %__fn.addr, align 8
+  store ptr %__args, ptr %__args.addr, align 8
+  %0 = load ptr, ptr %__fn.addr, align 8
+  %1 = load ptr, ptr %__args.addr, align 8
+  call void @_ZSt13__invoke_implIvPFvPKN6google8protobuf15FieldDescriptorEEJS4_EET_St14__invoke_otherOT0_DpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZSt13__invoke_implIvPFvPKN6google8protobuf15FieldDescriptorEEJS4_EET_St14__invoke_otherOT0_DpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %__f, ptr noundef nonnull align 8 dereferenceable(8) %__args) #6 comdat {
+entry:
+  %__f.addr = alloca ptr, align 8
+  %__args.addr = alloca ptr, align 8
+  store ptr %__f, ptr %__f.addr, align 8
+  store ptr %__args, ptr %__args.addr, align 8
+  %0 = load ptr, ptr %__f.addr, align 8
+  %1 = load ptr, ptr %0, align 8
+  %2 = load ptr, ptr %__args.addr, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void %1(ptr noundef %3)
+  ret void
+}
+
+declare void @AbslInternalSpinLockWake_lts_20230802(ptr noundef, i1 noundef zeroext) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080213base_internal15SchedulingGuard18EnableReschedulingEb(i1 noundef zeroext %0) #4 comdat align 2 {
+entry:
+  %.addr = alloca i8, align 1
+  %frombool = zext i1 %0 to i8
+  store i8 %frombool, ptr %.addr, align 1
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i32 @_ZNK6google8protobuf15FieldDescriptor5labelEv(ptr noundef nonnull align 8 dereferenceable(88) %this) #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %label_ = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %this1, i32 0, i32 1
+  %bf.load = load i8, ptr %label_, align 1
+  %bf.lshr = lshr i8 %bf.load, 5
+  %bf.clear = and i8 %bf.lshr, 3
+  %conv = zext i8 %bf.clear to i32
+  ret i32 %conv
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_(ptr noundef nonnull align 8 dereferenceable(32) %__lhs, ptr noundef nonnull align 8 dereferenceable(32) %__rhs) #4 comdat personality ptr @__gxx_personality_v0 {
+entry:
+  %__lhs.addr = alloca ptr, align 8
+  %__rhs.addr = alloca ptr, align 8
+  store ptr %__lhs, ptr %__lhs.addr, align 8
+  store ptr %__rhs, ptr %__rhs.addr, align 8
+  %0 = load ptr, ptr %__lhs.addr, align 8
+  %call = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #3
+  %1 = load ptr, ptr %__rhs.addr, align 8
+  %call1 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
+  %cmp = icmp eq i64 %call, %call1
+  br i1 %cmp, label %land.rhs, label %land.end
+
+land.rhs:                                         ; preds = %entry
+  %2 = load ptr, ptr %__lhs.addr, align 8
+  %call2 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  %3 = load ptr, ptr %__rhs.addr, align 8
+  %call3 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #3
+  %4 = load ptr, ptr %__lhs.addr, align 8
+  %call4 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  %call5 = invoke noundef i32 @_ZNSt11char_traitsIcE7compareEPKcS2_m(ptr noundef %call2, ptr noundef %call3, i64 noundef %call4)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %land.rhs
+  %tobool = icmp ne i32 %call5, 0
+  %lnot = xor i1 %tobool, true
+  br label %land.end
+
+land.end:                                         ; preds = %invoke.cont, %entry
+  %5 = phi i1 [ false, %entry ], [ %lnot, %invoke.cont ]
+  ret i1 %5
+
+terminate.lpad:                                   ; preds = %land.rhs
+  %6 = landingpad { ptr, i32 }
+          catch ptr null
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #20
+  unreachable
+}
+
+; Function Attrs: nounwind
+declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) #2
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i32 @_ZNSt11char_traitsIcE7compareEPKcS2_m(ptr noundef %__s1, ptr noundef %__s2, i64 noundef %__n) #4 comdat align 2 {
+entry:
+  %retval = alloca i32, align 4
+  %__s1.addr = alloca ptr, align 8
+  %__s2.addr = alloca ptr, align 8
+  %__n.addr = alloca i64, align 8
+  store ptr %__s1, ptr %__s1.addr, align 8
+  store ptr %__s2, ptr %__s2.addr, align 8
+  store i64 %__n, ptr %__n.addr, align 8
+  %0 = load i64, ptr %__n.addr, align 8
+  %cmp = icmp eq i64 %0, 0
+  br i1 %cmp, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  store i32 0, ptr %retval, align 4
+  br label %return
+
+if.end:                                           ; preds = %entry
+  %1 = load ptr, ptr %__s1.addr, align 8
+  %2 = load ptr, ptr %__s2.addr, align 8
+  %3 = load i64, ptr %__n.addr, align 8
+  %call = call i32 @memcmp(ptr noundef %1, ptr noundef %2, i64 noundef %3) #3
+  store i32 %call, ptr %retval, align 4
+  br label %return
+
+return:                                           ; preds = %if.end, %if.then
+  %4 = load i32, ptr %retval, align 4
+  ret i32 %4
+}
+
+; Function Attrs: nounwind
+declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) #2
+
+; Function Attrs: nounwind
+declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #2
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %__s) #4 comdat align 2 {
+entry:
+  %__s.addr = alloca ptr, align 8
+  store ptr %__s, ptr %__s.addr, align 8
+  %0 = load ptr, ptr %__s.addr, align 8
+  %call = call i64 @strlen(ptr noundef %0) #3
+  ret i64 %call
+}
+
+; Function Attrs: nounwind
+declare i64 @strlen(ptr noundef) #2
+
+declare void @_ZN4absl12lts_2023080212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16), i64, ptr) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %ref.tmp = alloca %"class.absl::lts_20230802::container_internal::CommonFields", align 8
+  %ref.tmp2 = alloca %"struct.absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Hash", align 1
+  %ref.tmp3 = alloca %"struct.absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Eq", align 1
+  %ref.tmp4 = alloca %"class.std::allocator", align 1
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %settings_ = getelementptr inbounds %"class.absl::lts_20230802::container_internal::raw_hash_set", ptr %this1, i32 0, i32 0
+  call void @llvm.memset.p0.i64(ptr align 8 %ref.tmp, i8 0, i64 32, i1 false)
+  invoke void @_ZN4absl12lts_2023080218container_internal12CommonFieldsC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %entry
+  call void @_ZNSaISt4pairIKPKN6google8protobuf15FieldDescriptorENS1_4util21SimpleFieldComparator9ToleranceEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #3
+  invoke void @_ZN4absl12lts_2023080218container_internal15CompressedTupleIJNS1_12CommonFieldsENS1_6HashEqIPKN6google8protobuf15FieldDescriptorEvE4HashENSA_2EqESaISt4pairIKS9_NS6_4util21SimpleFieldComparator9ToleranceEEEEEC2IS3_JSB_SC_SJ_ETnNSt9enable_ifIXsr4absl11conjunctionINS0_8negationISt7is_sameIFvSK_EFvNSt5decayIT_E4typeEEEEENS1_25internal_compressed_tuple27TupleItemsMoveConstructibleISK_JSR_DpT0_EEEEE5valueEbE4typeELb1EEEOSR_DpOSZ_(ptr noundef nonnull align 8 dereferenceable(32) %settings_, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
+          to label %invoke.cont5 unwind label %terminate.lpad
+
+invoke.cont5:                                     ; preds = %invoke.cont
+  call void @_ZNSaISt4pairIKPKN6google8protobuf15FieldDescriptorENS1_4util21SimpleFieldComparator9ToleranceEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #3
+  ret void
+
+terminate.lpad:                                   ; preds = %invoke.cont, %entry
+  %0 = landingpad { ptr, i32 }
+          catch ptr null
+  %1 = extractvalue { ptr, i32 } %0, 0
+  call void @__clang_call_terminate(ptr %1) #20
+  unreachable
+}
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal12CommonFieldsC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %ref.tmp = alloca i32, align 4
+  %ref.tmp2 = alloca %"class.absl::lts_20230802::container_internal::HashtablezInfoHandle", align 1
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %control_ = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this1, i32 0, i32 0
+  %call = call noundef ptr @_ZN4absl12lts_2023080218container_internal10EmptyGroupEv()
+  store ptr %call, ptr %control_, align 8
+  %slots_ = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this1, i32 0, i32 1
+  store ptr null, ptr %slots_, align 8
+  %capacity_ = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this1, i32 0, i32 2
+  store i64 0, ptr %capacity_, align 8
+  %compressed_tuple_ = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this1, i32 0, i32 3
+  store i32 0, ptr %ref.tmp, align 4
+  call void @_ZN4absl12lts_2023080218container_internal15CompressedTupleIJmNS1_20HashtablezInfoHandleEEEC2IjJS3_ETnNSt9enable_ifIXsr4absl11conjunctionINS0_8negationISt7is_sameIFvS4_EFvNSt5decayIT_E4typeEEEEENS1_25internal_compressed_tuple27TupleItemsMoveConstructibleIS4_JSB_DpT0_EEEEE5valueEbE4typeELb1EEEOSB_DpOSJ_(ptr noundef nonnull align 8 dereferenceable(8) %compressed_tuple_, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSaISt4pairIKPKN6google8protobuf15FieldDescriptorENS1_4util21SimpleFieldComparator9ToleranceEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZNSt15__new_allocatorISt4pairIKPKN6google8protobuf15FieldDescriptorENS2_4util21SimpleFieldComparator9ToleranceEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1) #3
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal15CompressedTupleIJNS1_12CommonFieldsENS1_6HashEqIPKN6google8protobuf15FieldDescriptorEvE4HashENSA_2EqESaISt4pairIKS9_NS6_4util21SimpleFieldComparator9ToleranceEEEEEC2IS3_JSB_SC_SJ_ETnNSt9enable_ifIXsr4absl11conjunctionINS0_8negationISt7is_sameIFvSK_EFvNSt5decayIT_E4typeEEEEENS1_25internal_compressed_tuple27TupleItemsMoveConstructibleISK_JSR_DpT0_EEEEE5valueEbE4typeELb1EEEOSR_DpOSZ_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %first, ptr noundef nonnull align 1 dereferenceable(1) %base, ptr noundef nonnull align 1 dereferenceable(1) %base1, ptr noundef nonnull align 1 dereferenceable(1) %base3) unnamed_addr #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %first.addr = alloca ptr, align 8
+  %base.addr = alloca ptr, align 8
+  %base.addr2 = alloca ptr, align 8
+  %base.addr4 = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %first, ptr %first.addr, align 8
+  store ptr %base, ptr %base.addr, align 8
+  store ptr %base1, ptr %base.addr2, align 8
+  store ptr %base3, ptr %base.addr4, align 8
+  %this5 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %first.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4absl12lts_202308027forwardINS0_18container_internal12CommonFieldsEEEOT_RNSt16remove_referenceIS4_E4typeE(ptr noundef nonnull align 8 dereferenceable(32) %0) #3
+  %1 = load ptr, ptr %base.addr, align 8
+  %call6 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN4absl12lts_202308027forwardINS0_18container_internal6HashEqIPKN6google8protobuf15FieldDescriptorEvE4HashEEEOT_RNSt16remove_referenceISB_E4typeE(ptr noundef nonnull align 1 dereferenceable(1) %1) #3
+  %2 = load ptr, ptr %base.addr2, align 8
+  %call7 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN4absl12lts_202308027forwardINS0_18container_internal6HashEqIPKN6google8protobuf15FieldDescriptorEvE2EqEEEOT_RNSt16remove_referenceISB_E4typeE(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  %3 = load ptr, ptr %base.addr4, align 8
+  %call8 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN4absl12lts_202308027forwardISaISt4pairIKPKN6google8protobuf15FieldDescriptorENS4_4util21SimpleFieldComparator9ToleranceEEEEEOT_RNSt16remove_referenceISE_E4typeE(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @_ZN4absl12lts_2023080218container_internal25internal_compressed_tuple19CompressedTupleImplINS1_15CompressedTupleIJNS1_12CommonFieldsENS1_6HashEqIPKN6google8protobuf15FieldDescriptorEvE4HashENSC_2EqESaISt4pairIKSB_NS8_4util21SimpleFieldComparator9ToleranceEEEEEENS0_16integer_sequenceImJLm0ELm1ELm2ELm3EEEELb1EEC2IJS5_SD_SE_SL_EEESt10in_place_tDpOT_(ptr noundef nonnull align 8 dereferenceable(32) %this5, ptr noundef nonnull align 8 dereferenceable(32) %call, ptr noundef nonnull align 1 dereferenceable(1) %call6, ptr noundef nonnull align 1 dereferenceable(1) %call7, ptr noundef nonnull align 1 dereferenceable(1) %call8)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSaISt4pairIKPKN6google8protobuf15FieldDescriptorENS1_4util21SimpleFieldComparator9ToleranceEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZNSt15__new_allocatorISt4pairIKPKN6google8protobuf15FieldDescriptorENS2_4util21SimpleFieldComparator9ToleranceEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN4absl12lts_2023080218container_internal10EmptyGroupEv() #4 comdat {
+entry:
+  ret ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16)
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal15CompressedTupleIJmNS1_20HashtablezInfoHandleEEEC2IjJS3_ETnNSt9enable_ifIXsr4absl11conjunctionINS0_8negationISt7is_sameIFvS4_EFvNSt5decayIT_E4typeEEEEENS1_25internal_compressed_tuple27TupleItemsMoveConstructibleIS4_JSB_DpT0_EEEEE5valueEbE4typeELb1EEEOSB_DpOSJ_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 4 dereferenceable(4) %first, ptr noundef nonnull align 1 dereferenceable(1) %base) unnamed_addr #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %first.addr = alloca ptr, align 8
+  %base.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %first, ptr %first.addr, align 8
+  store ptr %base, ptr %base.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %first.addr, align 8
+  %call = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4absl12lts_202308027forwardIjEEOT_RNSt16remove_referenceIS2_E4typeE(ptr noundef nonnull align 4 dereferenceable(4) %0) #3
+  %1 = load ptr, ptr %base.addr, align 8
+  %call2 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN4absl12lts_202308027forwardINS0_18container_internal20HashtablezInfoHandleEEEOT_RNSt16remove_referenceIS4_E4typeE(ptr noundef nonnull align 1 dereferenceable(1) %1) #3
+  call void @_ZN4absl12lts_2023080218container_internal25internal_compressed_tuple19CompressedTupleImplINS1_15CompressedTupleIJmNS1_20HashtablezInfoHandleEEEENS0_16integer_sequenceImJLm0ELm1EEEELb1EEC2IJjS5_EEESt10in_place_tDpOT_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 4 dereferenceable(4) %call, ptr noundef nonnull align 1 dereferenceable(1) %call2)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN4absl12lts_202308027forwardIjEEOT_RNSt16remove_referenceIS2_E4typeE(ptr noundef nonnull align 4 dereferenceable(4) %t) #4 comdat {
+entry:
+  %t.addr = alloca ptr, align 8
+  store ptr %t, ptr %t.addr, align 8
+  %0 = load ptr, ptr %t.addr, align 8
+  ret ptr %0
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN4absl12lts_202308027forwardINS0_18container_internal20HashtablezInfoHandleEEEOT_RNSt16remove_referenceIS4_E4typeE(ptr noundef nonnull align 1 dereferenceable(1) %t) #4 comdat {
+entry:
+  %t.addr = alloca ptr, align 8
+  store ptr %t, ptr %t.addr, align 8
+  %0 = load ptr, ptr %t.addr, align 8
+  ret ptr %0
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal25internal_compressed_tuple19CompressedTupleImplINS1_15CompressedTupleIJmNS1_20HashtablezInfoHandleEEEENS0_16integer_sequenceImJLm0ELm1EEEELb1EEC2IJjS5_EEESt10in_place_tDpOT_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 4 dereferenceable(4) %args, ptr noundef nonnull align 1 dereferenceable(1) %args1) unnamed_addr #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %args.addr = alloca ptr, align 8
+  %args.addr2 = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %args, ptr %args.addr, align 8
+  store ptr %args1, ptr %args.addr2, align 8
+  %this3 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %args.addr, align 8
+  %call = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4absl12lts_202308027forwardIjEEOT_RNSt16remove_referenceIS2_E4typeE(ptr noundef nonnull align 4 dereferenceable(4) %0) #3
+  call void @_ZN4absl12lts_2023080218container_internal25internal_compressed_tuple7StorageImLm0ELb0EEC2IjEESt10in_place_tOT_(ptr noundef nonnull align 8 dereferenceable(8) %this3, ptr noundef nonnull align 4 dereferenceable(4) %call)
+  %1 = load ptr, ptr %args.addr2, align 8
+  %call5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN4absl12lts_202308027forwardINS0_18container_internal20HashtablezInfoHandleEEEOT_RNSt16remove_referenceIS4_E4typeE(ptr noundef nonnull align 1 dereferenceable(1) %1) #3
+  call void @_ZN4absl12lts_2023080218container_internal25internal_compressed_tuple7StorageINS1_20HashtablezInfoHandleELm1ELb1EEC2IS4_EESt10in_place_tOT_(ptr noundef nonnull align 1 dereferenceable(1) %this3, ptr noundef nonnull align 1 dereferenceable(1) %call5)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal25internal_compressed_tuple7StorageImLm0ELb0EEC2IjEESt10in_place_tOT_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 4 dereferenceable(4) %v) unnamed_addr #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %v.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %v, ptr %v.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %value = getelementptr inbounds %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage.2", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %v.addr, align 8
+  %call = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4absl12lts_202308027forwardIjEEOT_RNSt16remove_referenceIS2_E4typeE(ptr noundef nonnull align 4 dereferenceable(4) %0) #3
+  %1 = load i32, ptr %call, align 4
+  %conv = zext i32 %1 to i64
+  store i64 %conv, ptr %value, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal25internal_compressed_tuple7StorageINS1_20HashtablezInfoHandleELm1ELb1EEC2IS4_EESt10in_place_tOT_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 1 dereferenceable(1) %v) unnamed_addr #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %v.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %v, ptr %v.addr, align 8
+  %0 = load ptr, ptr %v.addr, align 8
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN4absl12lts_202308027forwardINS0_18container_internal20HashtablezInfoHandleEEEOT_RNSt16remove_referenceIS4_E4typeE(ptr noundef nonnull align 1 dereferenceable(1) %0) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt15__new_allocatorISt4pairIKPKN6google8protobuf15FieldDescriptorENS2_4util21SimpleFieldComparator9ToleranceEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN4absl12lts_202308027forwardINS0_18container_internal12CommonFieldsEEEOT_RNSt16remove_referenceIS4_E4typeE(ptr noundef nonnull align 8 dereferenceable(32) %t) #4 comdat {
+entry:
+  %t.addr = alloca ptr, align 8
+  store ptr %t, ptr %t.addr, align 8
+  %0 = load ptr, ptr %t.addr, align 8
+  ret ptr %0
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN4absl12lts_202308027forwardINS0_18container_internal6HashEqIPKN6google8protobuf15FieldDescriptorEvE4HashEEEOT_RNSt16remove_referenceISB_E4typeE(ptr noundef nonnull align 1 dereferenceable(1) %t) #4 comdat {
+entry:
+  %t.addr = alloca ptr, align 8
+  store ptr %t, ptr %t.addr, align 8
+  %0 = load ptr, ptr %t.addr, align 8
+  ret ptr %0
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN4absl12lts_202308027forwardINS0_18container_internal6HashEqIPKN6google8protobuf15FieldDescriptorEvE2EqEEEOT_RNSt16remove_referenceISB_E4typeE(ptr noundef nonnull align 1 dereferenceable(1) %t) #4 comdat {
+entry:
+  %t.addr = alloca ptr, align 8
+  store ptr %t, ptr %t.addr, align 8
+  %0 = load ptr, ptr %t.addr, align 8
+  ret ptr %0
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN4absl12lts_202308027forwardISaISt4pairIKPKN6google8protobuf15FieldDescriptorENS4_4util21SimpleFieldComparator9ToleranceEEEEEOT_RNSt16remove_referenceISE_E4typeE(ptr noundef nonnull align 1 dereferenceable(1) %t) #4 comdat {
+entry:
+  %t.addr = alloca ptr, align 8
+  store ptr %t, ptr %t.addr, align 8
+  %0 = load ptr, ptr %t.addr, align 8
+  ret ptr %0
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal25internal_compressed_tuple19CompressedTupleImplINS1_15CompressedTupleIJNS1_12CommonFieldsENS1_6HashEqIPKN6google8protobuf15FieldDescriptorEvE4HashENSC_2EqESaISt4pairIKSB_NS8_4util21SimpleFieldComparator9ToleranceEEEEEENS0_16integer_sequenceImJLm0ELm1ELm2ELm3EEEELb1EEC2IJS5_SD_SE_SL_EEESt10in_place_tDpOT_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %args, ptr noundef nonnull align 1 dereferenceable(1) %args1, ptr noundef nonnull align 1 dereferenceable(1) %args3, ptr noundef nonnull align 1 dereferenceable(1) %args5) unnamed_addr #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %args.addr = alloca ptr, align 8
+  %args.addr2 = alloca ptr, align 8
+  %args.addr4 = alloca ptr, align 8
+  %args.addr6 = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %args, ptr %args.addr, align 8
+  store ptr %args1, ptr %args.addr2, align 8
+  store ptr %args3, ptr %args.addr4, align 8
+  store ptr %args5, ptr %args.addr6, align 8
+  %this7 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %args.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4absl12lts_202308027forwardINS0_18container_internal12CommonFieldsEEEOT_RNSt16remove_referenceIS4_E4typeE(ptr noundef nonnull align 8 dereferenceable(32) %0) #3
+  call void @_ZN4absl12lts_2023080218container_internal25internal_compressed_tuple7StorageINS1_12CommonFieldsELm0ELb0EEC2IS4_EESt10in_place_tOT_(ptr noundef nonnull align 8 dereferenceable(32) %this7, ptr noundef nonnull align 8 dereferenceable(32) %call)
+  %1 = load ptr, ptr %args.addr2, align 8
+  %call9 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN4absl12lts_202308027forwardINS0_18container_internal6HashEqIPKN6google8protobuf15FieldDescriptorEvE4HashEEEOT_RNSt16remove_referenceISB_E4typeE(ptr noundef nonnull align 1 dereferenceable(1) %1) #3
+  call void @_ZN4absl12lts_2023080218container_internal25internal_compressed_tuple7StorageINS1_6HashEqIPKN6google8protobuf15FieldDescriptorEvE4HashELm1ELb1EEC2ISB_EESt10in_place_tOT_(ptr noundef nonnull align 1 dereferenceable(1) %this7, ptr noundef nonnull align 1 dereferenceable(1) %call9)
+  %2 = load ptr, ptr %args.addr4, align 8
+  %call11 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN4absl12lts_202308027forwardINS0_18container_internal6HashEqIPKN6google8protobuf15FieldDescriptorEvE2EqEEEOT_RNSt16remove_referenceISB_E4typeE(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @_ZN4absl12lts_2023080218container_internal25internal_compressed_tuple7StorageINS1_6HashEqIPKN6google8protobuf15FieldDescriptorEvE2EqELm2ELb1EEC2ISB_EESt10in_place_tOT_(ptr noundef nonnull align 1 dereferenceable(1) %this7, ptr noundef nonnull align 1 dereferenceable(1) %call11)
+  %3 = load ptr, ptr %args.addr6, align 8
+  %call13 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN4absl12lts_202308027forwardISaISt4pairIKPKN6google8protobuf15FieldDescriptorENS4_4util21SimpleFieldComparator9ToleranceEEEEEOT_RNSt16remove_referenceISE_E4typeE(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @_ZN4absl12lts_2023080218container_internal25internal_compressed_tuple7StorageISaISt4pairIKPKN6google8protobuf15FieldDescriptorENS6_4util21SimpleFieldComparator9ToleranceEEELm3ELb1EEC2ISF_EESt10in_place_tOT_(ptr noundef nonnull align 1 dereferenceable(1) %this7, ptr noundef nonnull align 1 dereferenceable(1) %call13)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal25internal_compressed_tuple7StorageINS1_12CommonFieldsELm0ELb0EEC2IS4_EESt10in_place_tOT_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %v) unnamed_addr #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %v.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %v, ptr %v.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %value = getelementptr inbounds %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %v.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4absl12lts_202308027forwardINS0_18container_internal12CommonFieldsEEEOT_RNSt16remove_referenceIS4_E4typeE(ptr noundef nonnull align 8 dereferenceable(32) %0) #3
+  call void @_ZN4absl12lts_2023080218container_internal12CommonFieldsC2EOS2_(ptr noundef nonnull align 8 dereferenceable(32) %value, ptr noundef nonnull align 8 dereferenceable(32) %call)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal25internal_compressed_tuple7StorageINS1_6HashEqIPKN6google8protobuf15FieldDescriptorEvE4HashELm1ELb1EEC2ISB_EESt10in_place_tOT_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 1 dereferenceable(1) %v) unnamed_addr #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %v.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %v, ptr %v.addr, align 8
+  %0 = load ptr, ptr %v.addr, align 8
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN4absl12lts_202308027forwardINS0_18container_internal6HashEqIPKN6google8protobuf15FieldDescriptorEvE4HashEEEOT_RNSt16remove_referenceISB_E4typeE(ptr noundef nonnull align 1 dereferenceable(1) %0) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal25internal_compressed_tuple7StorageINS1_6HashEqIPKN6google8protobuf15FieldDescriptorEvE2EqELm2ELb1EEC2ISB_EESt10in_place_tOT_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 1 dereferenceable(1) %v) unnamed_addr #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %v.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %v, ptr %v.addr, align 8
+  %0 = load ptr, ptr %v.addr, align 8
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN4absl12lts_202308027forwardINS0_18container_internal6HashEqIPKN6google8protobuf15FieldDescriptorEvE2EqEEEOT_RNSt16remove_referenceISB_E4typeE(ptr noundef nonnull align 1 dereferenceable(1) %0) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal25internal_compressed_tuple7StorageISaISt4pairIKPKN6google8protobuf15FieldDescriptorENS6_4util21SimpleFieldComparator9ToleranceEEELm3ELb1EEC2ISF_EESt10in_place_tOT_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 1 dereferenceable(1) %v) unnamed_addr #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %v.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %v, ptr %v.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %v.addr, align 8
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN4absl12lts_202308027forwardISaISt4pairIKPKN6google8protobuf15FieldDescriptorENS4_4util21SimpleFieldComparator9ToleranceEEEEEOT_RNSt16remove_referenceISE_E4typeE(ptr noundef nonnull align 1 dereferenceable(1) %0) #3
+  call void @_ZNSaISt4pairIKPKN6google8protobuf15FieldDescriptorENS1_4util21SimpleFieldComparator9ToleranceEEEC2ERKSA_(ptr noundef nonnull align 1 dereferenceable(1) %this1, ptr noundef nonnull align 1 dereferenceable(1) %call) #3
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal12CommonFieldsC2EOS2_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %that) unnamed_addr #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %that.addr = alloca ptr, align 8
+  %ref.tmp = alloca i64, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %that, ptr %that.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %control_ = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %that.addr, align 8
+  %call = call noundef ptr @_ZNK4absl12lts_2023080218container_internal12CommonFields7controlEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
+  store ptr %call, ptr %control_, align 8
+  %slots_ = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this1, i32 0, i32 1
+  %1 = load ptr, ptr %that.addr, align 8
+  %call2 = call noundef ptr @_ZNK4absl12lts_2023080218container_internal12CommonFields10slot_arrayEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
+  store ptr %call2, ptr %slots_, align 8
+  %capacity_ = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this1, i32 0, i32 2
+  %2 = load ptr, ptr %that.addr, align 8
+  %call3 = call noundef i64 @_ZNK4absl12lts_2023080218container_internal12CommonFields8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %2)
+  store i64 %call3, ptr %capacity_, align 8
+  %compressed_tuple_ = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this1, i32 0, i32 3
+  %3 = load ptr, ptr %that.addr, align 8
+  %call4 = call noundef i64 @_ZNK4absl12lts_2023080218container_internal12CommonFields4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  store i64 %call4, ptr %ref.tmp, align 8
+  %4 = load ptr, ptr %that.addr, align 8
+  %call5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN4absl12lts_2023080218container_internal12CommonFields5infozEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
+  call void @_ZN4absl12lts_2023080218container_internal15CompressedTupleIJmNS1_20HashtablezInfoHandleEEEC2ImJS3_ETnNSt9enable_ifIXsr4absl11conjunctionINS0_8negationISt7is_sameIFvS4_EFvNSt5decayIT_E4typeEEEEENS1_25internal_compressed_tuple27TupleItemsMoveConstructibleIS4_JSB_DpT0_EEEEE5valueEbE4typeELb1EEEOSB_DpOSJ_(ptr noundef nonnull align 8 dereferenceable(8) %compressed_tuple_, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(1) %call5)
+  %5 = load ptr, ptr %that.addr, align 8
+  %call6 = call noundef ptr @_ZN4absl12lts_2023080218container_internal10EmptyGroupEv()
+  call void @_ZN4absl12lts_2023080218container_internal12CommonFields11set_controlEPNS1_6ctrl_tE(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %call6)
+  %6 = load ptr, ptr %that.addr, align 8
+  call void @_ZN4absl12lts_2023080218container_internal12CommonFields9set_slotsEPv(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef null)
+  %7 = load ptr, ptr %that.addr, align 8
+  call void @_ZN4absl12lts_2023080218container_internal12CommonFields12set_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 0)
+  %8 = load ptr, ptr %that.addr, align 8
+  call void @_ZN4absl12lts_2023080218container_internal12CommonFields8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef 0)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef i64 @_ZNK4absl12lts_2023080218container_internal12CommonFields4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %compressed_tuple_ = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this1, i32 0, i32 3
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR4absl12lts_2023080218container_internal15CompressedTupleIJmNS1_20HashtablezInfoHandleEEE3getILi0EEERKNS1_25internal_compressed_tuple4ElemIS4_XT_EE4typeEv(ptr noundef nonnull align 8 dereferenceable(8) %compressed_tuple_)
+  %0 = load i64, ptr %call, align 8
+  ret i64 %0
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal15CompressedTupleIJmNS1_20HashtablezInfoHandleEEEC2ImJS3_ETnNSt9enable_ifIXsr4absl11conjunctionINS0_8negationISt7is_sameIFvS4_EFvNSt5decayIT_E4typeEEEEENS1_25internal_compressed_tuple27TupleItemsMoveConstructibleIS4_JSB_DpT0_EEEEE5valueEbE4typeELb1EEEOSB_DpOSJ_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %first, ptr noundef nonnull align 1 dereferenceable(1) %base) unnamed_addr #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %first.addr = alloca ptr, align 8
+  %base.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %first, ptr %first.addr, align 8
+  store ptr %base, ptr %base.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %first.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl12lts_202308027forwardImEEOT_RNSt16remove_referenceIS2_E4typeE(ptr noundef nonnull align 8 dereferenceable(8) %0) #3
+  %1 = load ptr, ptr %base.addr, align 8
+  %call2 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN4absl12lts_202308027forwardINS0_18container_internal20HashtablezInfoHandleEEEOT_RNSt16remove_referenceIS4_E4typeE(ptr noundef nonnull align 1 dereferenceable(1) %1) #3
+  call void @_ZN4absl12lts_2023080218container_internal25internal_compressed_tuple19CompressedTupleImplINS1_15CompressedTupleIJmNS1_20HashtablezInfoHandleEEEENS0_16integer_sequenceImJLm0ELm1EEEELb1EEC2IJmS5_EEESt10in_place_tDpOT_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull align 1 dereferenceable(1) %call2)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal12CommonFields11set_controlEPNS1_6ctrl_tE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %c) #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %c.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %c, ptr %c.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %c.addr, align 8
+  %control_ = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this1, i32 0, i32 0
+  store ptr %0, ptr %control_, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal12CommonFields9set_slotsEPv(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %s) #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %s.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %s, ptr %s.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %s.addr, align 8
+  %slots_ = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this1, i32 0, i32 1
+  store ptr %0, ptr %slots_, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal12CommonFields12set_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %c) #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %c.addr = alloca i64, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store i64 %c, ptr %c.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load i64, ptr %c.addr, align 8
+  %capacity_ = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this1, i32 0, i32 2
+  store i64 %0, ptr %capacity_, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal12CommonFields8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %s) #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %s.addr = alloca i64, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store i64 %s, ptr %s.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load i64, ptr %s.addr, align 8
+  %compressed_tuple_ = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this1, i32 0, i32 3
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNR4absl12lts_2023080218container_internal15CompressedTupleIJmNS1_20HashtablezInfoHandleEEE3getILi0EEERNS1_25internal_compressed_tuple4ElemIS4_XT_EE4typeEv(ptr noundef nonnull align 8 dereferenceable(8) %compressed_tuple_)
+  store i64 %0, ptr %call, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR4absl12lts_2023080218container_internal15CompressedTupleIJmNS1_20HashtablezInfoHandleEEE3getILi0EEERKNS1_25internal_compressed_tuple4ElemIS4_XT_EE4typeEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR4absl12lts_2023080218container_internal25internal_compressed_tuple7StorageImLm0ELb0EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %this1)
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR4absl12lts_2023080218container_internal25internal_compressed_tuple7StorageImLm0ELb0EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %value = getelementptr inbounds %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage.2", ptr %this1, i32 0, i32 0
+  ret ptr %value
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl12lts_202308027forwardImEEOT_RNSt16remove_referenceIS2_E4typeE(ptr noundef nonnull align 8 dereferenceable(8) %t) #4 comdat {
+entry:
+  %t.addr = alloca ptr, align 8
+  store ptr %t, ptr %t.addr, align 8
+  %0 = load ptr, ptr %t.addr, align 8
+  ret ptr %0
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal25internal_compressed_tuple19CompressedTupleImplINS1_15CompressedTupleIJmNS1_20HashtablezInfoHandleEEEENS0_16integer_sequenceImJLm0ELm1EEEELb1EEC2IJmS5_EEESt10in_place_tDpOT_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull align 1 dereferenceable(1) %args1) unnamed_addr #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %args.addr = alloca ptr, align 8
+  %args.addr2 = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %args, ptr %args.addr, align 8
+  store ptr %args1, ptr %args.addr2, align 8
+  %this3 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %args.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl12lts_202308027forwardImEEOT_RNSt16remove_referenceIS2_E4typeE(ptr noundef nonnull align 8 dereferenceable(8) %0) #3
+  call void @_ZN4absl12lts_2023080218container_internal25internal_compressed_tuple7StorageImLm0ELb0EEC2ImEESt10in_place_tOT_(ptr noundef nonnull align 8 dereferenceable(8) %this3, ptr noundef nonnull align 8 dereferenceable(8) %call)
+  %1 = load ptr, ptr %args.addr2, align 8
+  %call5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN4absl12lts_202308027forwardINS0_18container_internal20HashtablezInfoHandleEEEOT_RNSt16remove_referenceIS4_E4typeE(ptr noundef nonnull align 1 dereferenceable(1) %1) #3
+  call void @_ZN4absl12lts_2023080218container_internal25internal_compressed_tuple7StorageINS1_20HashtablezInfoHandleELm1ELb1EEC2IS4_EESt10in_place_tOT_(ptr noundef nonnull align 1 dereferenceable(1) %this3, ptr noundef nonnull align 1 dereferenceable(1) %call5)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal25internal_compressed_tuple7StorageImLm0ELb0EEC2ImEESt10in_place_tOT_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %v) unnamed_addr #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %v.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %v, ptr %v.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %value = getelementptr inbounds %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage.2", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %v.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl12lts_202308027forwardImEEOT_RNSt16remove_referenceIS2_E4typeE(ptr noundef nonnull align 8 dereferenceable(8) %0) #3
+  %1 = load i64, ptr %call, align 8
+  store i64 %1, ptr %value, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNR4absl12lts_2023080218container_internal15CompressedTupleIJmNS1_20HashtablezInfoHandleEEE3getILi0EEERNS1_25internal_compressed_tuple4ElemIS4_XT_EE4typeEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNR4absl12lts_2023080218container_internal25internal_compressed_tuple7StorageImLm0ELb0EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %this1)
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNR4absl12lts_2023080218container_internal25internal_compressed_tuple7StorageImLm0ELb0EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %value = getelementptr inbounds %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage.2", ptr %this1, i32 0, i32 0
+  ret ptr %value
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSaISt4pairIKPKN6google8protobuf15FieldDescriptorENS1_4util21SimpleFieldComparator9ToleranceEEEC2ERKSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__a.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__a, ptr %__a.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %__a.addr, align 8
+  call void @_ZNSt15__new_allocatorISt4pairIKPKN6google8protobuf15FieldDescriptorENS2_4util21SimpleFieldComparator9ToleranceEEEC2ERKSB_(ptr noundef nonnull align 1 dereferenceable(1) %this1, ptr noundef nonnull align 1 dereferenceable(1) %0) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt15__new_allocatorISt4pairIKPKN6google8protobuf15FieldDescriptorENS2_4util21SimpleFieldComparator9ToleranceEEEC2ERKSB_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 1 ptr @_ZNKSt10unique_ptrIN4absl12lts_2023080212log_internal10LogMessage14LogMessageDataESt14default_deleteIS4_EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  br label %do.body
+
+do.body:                                          ; preds = %entry
+  br label %do.cond
+
+do.cond:                                          ; preds = %do.body
+  br label %do.end
+
+do.end:                                           ; preds = %do.cond
+  %call = call noundef ptr @_ZNKSt10unique_ptrIN4absl12lts_2023080212log_internal10LogMessage14LogMessageDataESt14default_deleteIS4_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
+  ret ptr %call
+}
+
+declare void @_ZN4absl12lts_2023080212log_internal10LogMessage11OstreamViewC1ERNS2_14LogMessageDataE(ptr noundef nonnull align 8 dereferenceable(120), ptr noundef nonnull align 1) unnamed_addr #1
+
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl12lts_2023080212log_internal10LogMessage11OstreamView6streamEv(ptr noundef nonnull align 8 dereferenceable(120)) #1
+
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN4absl12lts_2023080212log_internal9NullGuardIN6google8protobuf8internal19FieldDescriptorLite7CppTypeEE5GuardERKS7_(ptr noundef nonnull align 4 dereferenceable(4) %v) #4 comdat align 2 {
+entry:
+  %v.addr = alloca ptr, align 8
+  store ptr %v, ptr %v.addr, align 8
+  %0 = load ptr, ptr %v.addr, align 8
+  ret ptr %0
+}
+
+; Function Attrs: nounwind
+declare void @_ZN4absl12lts_2023080212log_internal10LogMessage11OstreamViewD1Ev(ptr noundef nonnull align 8 dereferenceable(120)) unnamed_addr #2
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNKSt10unique_ptrIN4absl12lts_2023080212log_internal10LogMessage14LogMessageDataESt14default_deleteIS4_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_t = getelementptr inbounds %"class.std::unique_ptr", ptr %this1, i32 0, i32 0
+  %call = call noundef ptr @_ZNKSt15__uniq_ptr_implIN4absl12lts_2023080212log_internal10LogMessage14LogMessageDataESt14default_deleteIS4_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #3
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNKSt15__uniq_ptr_implIN4absl12lts_2023080212log_internal10LogMessage14LogMessageDataESt14default_deleteIS4_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_t = getelementptr inbounds %"class.std::__uniq_ptr_impl", ptr %this1, i32 0, i32 0
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN4absl12lts_2023080212log_internal10LogMessage14LogMessageDataESt14default_deleteIS4_EEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKSC_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #3
+  %0 = load ptr, ptr %call, align 8
+  ret ptr %0
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN4absl12lts_2023080212log_internal10LogMessage14LogMessageDataESt14default_deleteIS4_EEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKSC_(ptr noundef nonnull align 8 dereferenceable(8) %__t) #4 comdat {
+entry:
+  %__t.addr = alloca ptr, align 8
+  store ptr %__t, ptr %__t.addr, align 8
+  %0 = load ptr, ptr %__t.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN4absl12lts_2023080212log_internal10LogMessage14LogMessageDataEJSt14default_deleteIS4_EEERKT0_RKSt11_Tuple_implIXT_EJS8_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #3
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN4absl12lts_2023080212log_internal10LogMessage14LogMessageDataEJSt14default_deleteIS4_EEERKT0_RKSt11_Tuple_implIXT_EJS8_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %__t) #4 comdat {
+entry:
+  %__t.addr = alloca ptr, align 8
+  store ptr %__t, ptr %__t.addr, align 8
+  %0 = load ptr, ptr %__t.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN4absl12lts_2023080212log_internal10LogMessage14LogMessageDataESt14default_deleteIS4_EEE7_M_headERKS8_(ptr noundef nonnull align 8 dereferenceable(8) %0) #3
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN4absl12lts_2023080212log_internal10LogMessage14LogMessageDataESt14default_deleteIS4_EEE7_M_headERKS8_(ptr noundef nonnull align 8 dereferenceable(8) %__t) #4 comdat align 2 {
+entry:
+  %__t.addr = alloca ptr, align 8
+  store ptr %__t, ptr %__t.addr, align 8
+  %0 = load ptr, ptr %__t.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN4absl12lts_2023080212log_internal10LogMessage14LogMessageDataELb0EE7_M_headERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %0) #3
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN4absl12lts_2023080212log_internal10LogMessage14LogMessageDataELb0EE7_M_headERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %__b) #4 comdat align 2 {
+entry:
+  %__b.addr = alloca ptr, align 8
+  store ptr %__b, ptr %__b.addr, align 8
+  %0 = load ptr, ptr %__b.addr, align 8
+  %_M_head_impl = getelementptr inbounds %"struct.std::_Head_base.16", ptr %0, i32 0, i32 0
+  ret ptr %_M_head_impl
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2023080218container_internal17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS4_4util21SimpleFieldComparator9ToleranceEE5valueEPSt4pairIKS7_SA_E(ptr noundef %kv) #4 comdat align 2 {
+entry:
+  %kv.addr = alloca ptr, align 8
+  store ptr %kv, ptr %kv.addr, align 8
+  %0 = load ptr, ptr %kv.addr, align 8
+  %second = getelementptr inbounds %"struct.std::pair", ptr %0, i32 0, i32 1
+  ret ptr %second
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE11try_emplaceIS8_JETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS1_12raw_hash_setISC_SF_SG_SK_E14const_iteratorEEE5valueEiE4typeELi0EEESH_INSQ_8iteratorEbERKSO_DpOT0_(ptr noalias sret(%"struct.std::pair.87") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(8) %k) #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %k.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %k, ptr %k.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %k.addr, align 8
+  call void @_ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE16try_emplace_implIRSI_JEEESH_INS1_12raw_hash_setISC_SF_SG_SK_E8iteratorEbEOT_DpOT0_(ptr sret(%"struct.std::pair.87") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE8iteratordeEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %ctrl_ = getelementptr inbounds %"class.absl::lts_20230802::container_internal::raw_hash_set<absl::lts_20230802::container_internal::FlatHashMapPolicy<const google::protobuf::FieldDescriptor *, google::protobuf::util::SimpleFieldComparator::Tolerance>, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Hash, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Eq, std::allocator<std::pair<const google::protobuf::FieldDescriptor *const, google::protobuf::util::SimpleFieldComparator::Tolerance>>>::iterator", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %ctrl_, align 8
+  %call = call noundef zeroext i8 @_ZNK4absl12lts_2023080218container_internal37HashSetIteratorGenerationInfoDisabled10generationEv(ptr noundef nonnull align 1 dereferenceable(1) %this1)
+  %call2 = call noundef ptr @_ZNK4absl12lts_2023080218container_internal37HashSetIteratorGenerationInfoDisabled14generation_ptrEv(ptr noundef nonnull align 1 dereferenceable(1) %this1)
+  call void @_ZN4absl12lts_2023080218container_internal12AssertIsFullEPKNS1_6ctrl_tEhPKhPKc(ptr noundef %0, i8 noundef zeroext %call, ptr noundef %call2, ptr noundef @.str.5)
+  %1 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::raw_hash_set<absl::lts_20230802::container_internal::FlatHashMapPolicy<const google::protobuf::FieldDescriptor *, google::protobuf::util::SimpleFieldComparator::Tolerance>, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Hash, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Eq, std::allocator<std::pair<const google::protobuf::FieldDescriptor *const, google::protobuf::util::SimpleFieldComparator::Tolerance>>>::iterator", ptr %this1, i32 0, i32 1
+  %2 = load ptr, ptr %1, align 8
+  %call3 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEEvE7elementISC_EEDTclsrT_7elementfp_EEPNS1_13map_slot_typeIS8_SB_EE(ptr noundef %2)
+  ret ptr %call3
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE16try_emplace_implIRSI_JEEESH_INS1_12raw_hash_setISC_SF_SG_SK_E8iteratorEbEOT_DpOT0_(ptr noalias sret(%"struct.std::pair.87") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(8) %k) #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %k.addr = alloca ptr, align 8
+  %res = alloca %"struct.std::pair.90", align 8
+  %ref.tmp = alloca %"class.std::tuple.93", align 8
+  %ref.tmp2 = alloca %"class.std::tuple.96", align 1
+  %ref.tmp3 = alloca %"class.absl::lts_20230802::container_internal::raw_hash_set<absl::lts_20230802::container_internal::FlatHashMapPolicy<const google::protobuf::FieldDescriptor *, google::protobuf::util::SimpleFieldComparator::Tolerance>, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Hash, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Eq, std::allocator<std::pair<const google::protobuf::FieldDescriptor *const, google::protobuf::util::SimpleFieldComparator::Tolerance>>>::iterator", align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %k, ptr %k.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %k.addr, align 8
+  %call = call { i64, i8 } @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE22find_or_prepare_insertIS8_EESH_ImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %1 = getelementptr inbounds { i64, i8 }, ptr %res, i32 0, i32 0
+  %2 = extractvalue { i64, i8 } %call, 0
+  store i64 %2, ptr %1, align 8
+  %3 = getelementptr inbounds { i64, i8 }, ptr %res, i32 0, i32 1
+  %4 = extractvalue { i64, i8 } %call, 1
+  store i8 %4, ptr %3, align 8
+  %second = getelementptr inbounds %"struct.std::pair.90", ptr %res, i32 0, i32 1
+  %5 = load i8, ptr %second, align 8
+  %tobool = trunc i8 %5 to i1
+  br i1 %tobool, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %first = getelementptr inbounds %"struct.std::pair.90", ptr %res, i32 0, i32 0
+  %6 = load i64, ptr %first, align 8
+  %7 = load ptr, ptr %k.addr, align 8
+  call void @_ZSt16forward_as_tupleIJRKPKN6google8protobuf15FieldDescriptorEEESt5tupleIJDpOT_EESA_(ptr sret(%"class.std::tuple.93") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  call void @_ZSt16forward_as_tupleIJEESt5tupleIJDpOT_EES3_() #3
+  call void @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE10emplace_atIJRKSt21piecewise_construct_tSt5tupleIJRSI_EESQ_IJEEEEEvmDpOT_(ptr noundef nonnull align 8 dereferenceable(32) %this1, i64 noundef %6, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
+  br label %if.end
+
+if.end:                                           ; preds = %if.then, %entry
+  %first4 = getelementptr inbounds %"struct.std::pair.90", ptr %res, i32 0, i32 0
+  %8 = load i64, ptr %first4, align 8
+  %call5 = call { ptr, ptr } @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE11iterator_atEm(ptr noundef nonnull align 8 dereferenceable(32) %this1, i64 noundef %8)
+  %9 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp3, i32 0, i32 0
+  %10 = extractvalue { ptr, ptr } %call5, 0
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp3, i32 0, i32 1
+  %12 = extractvalue { ptr, ptr } %call5, 1
+  store ptr %12, ptr %11, align 8
+  %second6 = getelementptr inbounds %"struct.std::pair.90", ptr %res, i32 0, i32 1
+  call void @_ZNSt4pairIN4absl12lts_2023080218container_internal12raw_hash_setINS2_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS6_4util21SimpleFieldComparator9ToleranceEEENS2_6HashEqIS9_vE4HashENSF_2EqESaIS_IKS9_SC_EEE8iteratorEbEC2ISM_RbTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISR_SS_EEEbE4typeELb1EEEOSR_OSS_(ptr noundef nonnull align 8 dereferenceable(17) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, ptr noundef nonnull align 1 dereferenceable(1) %second6)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden { i64, i8 } @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE22find_or_prepare_insertIS8_EESH_ImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(8) %key) #6 comdat align 2 {
+entry:
+  %retval = alloca %"struct.std::pair.90", align 8
+  %this.addr = alloca ptr, align 8
+  %key.addr = alloca ptr, align 8
+  %hash = alloca i64, align 8
+  %seq = alloca %"class.absl::lts_20230802::container_internal::probe_seq", align 8
+  %ctrl = alloca ptr, align 8
+  %g = alloca %"struct.absl::lts_20230802::container_internal::GroupSse2Impl", align 16
+  %__range5 = alloca ptr, align 8
+  %ref.tmp = alloca %"class.absl::lts_20230802::container_internal::BitMask", align 4
+  %__begin0 = alloca %"class.absl::lts_20230802::container_internal::BitMask", align 4
+  %__end0 = alloca %"class.absl::lts_20230802::container_internal::BitMask", align 4
+  %i = alloca i32, align 4
+  %ref.tmp17 = alloca %"struct.absl::lts_20230802::container_internal::raw_hash_set<absl::lts_20230802::container_internal::FlatHashMapPolicy<const google::protobuf::FieldDescriptor *, google::protobuf::util::SimpleFieldComparator::Tolerance>, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Hash, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Eq, std::allocator<std::pair<const google::protobuf::FieldDescriptor *const, google::protobuf::util::SimpleFieldComparator::Tolerance>>>::EqualElement", align 8
+  %ref.tmp25 = alloca i64, align 8
+  %ref.tmp28 = alloca i8, align 1
+  %ref.tmp30 = alloca %"class.absl::lts_20230802::container_internal::NonIterableBitMask", align 4
+  %ref.tmp37 = alloca i64, align 8
+  %ref.tmp39 = alloca i8, align 1
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %key, ptr %key.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE19prefetch_heap_blockEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE8hash_refEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  %0 = load ptr, ptr %key.addr, align 8
+  %call2 = call noundef i64 @_ZNK4absl12lts_2023080218container_internal6HashEqIPKN6google8protobuf15FieldDescriptorEvE4HashclIS7_EEmRKT_(ptr noundef nonnull align 1 dereferenceable(1) %call, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  store i64 %call2, ptr %hash, align 8
+  %call3 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE6commonEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  %1 = load i64, ptr %hash, align 8
+  call void @_ZN4absl12lts_2023080218container_internal5probeERKNS1_12CommonFieldsEm(ptr sret(%"class.absl::lts_20230802::container_internal::probe_seq") align 8 %seq, ptr noundef nonnull align 8 dereferenceable(32) %call3, i64 noundef %1)
+  %call4 = call noundef ptr @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE7controlEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  store ptr %call4, ptr %ctrl, align 8
+  br label %while.body
+
+while.body:                                       ; preds = %if.end36, %entry
+  %2 = load ptr, ptr %ctrl, align 8
+  %call5 = call noundef i64 @_ZNK4absl12lts_2023080218container_internal9probe_seqILm16EE6offsetEv(ptr noundef nonnull align 8 dereferenceable(24) %seq)
+  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %call5
+  call void @_ZN4absl12lts_2023080218container_internal13GroupSse2ImplC2EPKNS1_6ctrl_tE(ptr noundef nonnull align 16 dereferenceable(16) %g, ptr noundef %add.ptr)
+  %3 = load i64, ptr %hash, align 8
+  %call6 = call noundef zeroext i8 @_ZN4absl12lts_2023080218container_internal2H2Em(i64 noundef %3)
+  %call7 = call i32 @_ZNK4absl12lts_2023080218container_internal13GroupSse2Impl5MatchEh(ptr noundef nonnull align 16 dereferenceable(16) %g, i8 noundef zeroext %call6)
+  %coerce.dive = getelementptr inbounds %"class.absl::lts_20230802::container_internal::BitMask", ptr %ref.tmp, i32 0, i32 0
+  %coerce.dive8 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::NonIterableBitMask", ptr %coerce.dive, i32 0, i32 0
+  store i32 %call7, ptr %coerce.dive8, align 4
+  store ptr %ref.tmp, ptr %__range5, align 8
+  %4 = load ptr, ptr %__range5, align 8
+  %call9 = call i32 @_ZNK4absl12lts_2023080218container_internal7BitMaskIjLi16ELi0EE5beginEv(ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %coerce.dive10 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::BitMask", ptr %__begin0, i32 0, i32 0
+  %coerce.dive11 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::NonIterableBitMask", ptr %coerce.dive10, i32 0, i32 0
+  store i32 %call9, ptr %coerce.dive11, align 4
+  %5 = load ptr, ptr %__range5, align 8
+  %call12 = call i32 @_ZNK4absl12lts_2023080218container_internal7BitMaskIjLi16ELi0EE3endEv(ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %coerce.dive13 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::BitMask", ptr %__end0, i32 0, i32 0
+  %coerce.dive14 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::NonIterableBitMask", ptr %coerce.dive13, i32 0, i32 0
+  store i32 %call12, ptr %coerce.dive14, align 4
+  br label %for.cond
+
+for.cond:                                         ; preds = %for.inc, %while.body
+  %call15 = call noundef zeroext i1 @_ZN4absl12lts_2023080218container_internalneERKNS1_7BitMaskIjLi16ELi0EEES5_(ptr noundef nonnull align 4 dereferenceable(4) %__begin0, ptr noundef nonnull align 4 dereferenceable(4) %__end0)
+  br i1 %call15, label %for.body, label %for.end
+
+for.body:                                         ; preds = %for.cond
+  %call16 = call noundef i32 @_ZNK4absl12lts_2023080218container_internal7BitMaskIjLi16ELi0EEdeEv(ptr noundef nonnull align 4 dereferenceable(4) %__begin0)
+  store i32 %call16, ptr %i, align 4
+  %rhs = getelementptr inbounds %"struct.absl::lts_20230802::container_internal::raw_hash_set<absl::lts_20230802::container_internal::FlatHashMapPolicy<const google::protobuf::FieldDescriptor *, google::protobuf::util::SimpleFieldComparator::Tolerance>, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Hash, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Eq, std::allocator<std::pair<const google::protobuf::FieldDescriptor *const, google::protobuf::util::SimpleFieldComparator::Tolerance>>>::EqualElement", ptr %ref.tmp17, i32 0, i32 0
+  %6 = load ptr, ptr %key.addr, align 8
+  store ptr %6, ptr %rhs, align 8
+  %eq = getelementptr inbounds %"struct.absl::lts_20230802::container_internal::raw_hash_set<absl::lts_20230802::container_internal::FlatHashMapPolicy<const google::protobuf::FieldDescriptor *, google::protobuf::util::SimpleFieldComparator::Tolerance>, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Hash, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Eq, std::allocator<std::pair<const google::protobuf::FieldDescriptor *const, google::protobuf::util::SimpleFieldComparator::Tolerance>>>::EqualElement", ptr %ref.tmp17, i32 0, i32 1
+  %call18 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE6eq_refEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  store ptr %call18, ptr %eq, align 8
+  %call19 = call noundef ptr @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE10slot_arrayEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  %7 = load i32, ptr %i, align 4
+  %conv = zext i32 %7 to i64
+  %call20 = call noundef i64 @_ZNK4absl12lts_2023080218container_internal9probe_seqILm16EE6offsetEm(ptr noundef nonnull align 8 dereferenceable(24) %seq, i64 noundef %conv)
+  %add.ptr21 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %call19, i64 %call20
+  %call22 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEEvE7elementISC_EEDTclsrT_7elementfp_EEPNS1_13map_slot_typeIS8_SB_EE(ptr noundef %add.ptr21)
+  %call23 = call noundef zeroext i1 @_ZN4absl12lts_2023080218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEEvE5applyINS1_12raw_hash_setISC_NS1_6HashEqIS8_vE4HashENSH_2EqESaISt4pairIKS8_SB_EEE12EqualElementIS8_EEJRSM_ESC_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOST_DpOSU_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp17, ptr noundef nonnull align 8 dereferenceable(24) %call22)
+  br i1 %call23, label %if.then, label %if.end
+
+if.then:                                          ; preds = %for.body
+  %8 = load i32, ptr %i, align 4
+  %conv26 = zext i32 %8 to i64
+  %call27 = call noundef i64 @_ZNK4absl12lts_2023080218container_internal9probe_seqILm16EE6offsetEm(ptr noundef nonnull align 8 dereferenceable(24) %seq, i64 noundef %conv26)
+  store i64 %call27, ptr %ref.tmp25, align 8
+  store i8 0, ptr %ref.tmp28, align 1
+  call void @_ZNSt4pairImbEC2ImbTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS3_S4_EEEbE4typeELb1EEEOS3_OS4_(ptr noundef nonnull align 8 dereferenceable(9) %retval, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp25, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp28)
+  br label %return
+
+if.end:                                           ; preds = %for.body
+  br label %for.inc
+
+for.inc:                                          ; preds = %if.end
+  %call29 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4absl12lts_2023080218container_internal7BitMaskIjLi16ELi0EEppEv(ptr noundef nonnull align 4 dereferenceable(4) %__begin0)
+  br label %for.cond
+
+for.end:                                          ; preds = %for.cond
+  %call31 = call i32 @_ZNK4absl12lts_2023080218container_internal13GroupSse2Impl9MaskEmptyEv(ptr noundef nonnull align 16 dereferenceable(16) %g)
+  %coerce.dive32 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::NonIterableBitMask", ptr %ref.tmp30, i32 0, i32 0
+  store i32 %call31, ptr %coerce.dive32, align 4
+  %call33 = call noundef zeroext i1 @_ZNK4absl12lts_2023080218container_internal18NonIterableBitMaskIjLi16ELi0EEcvbEv(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp30)
+  br i1 %call33, label %if.then35, label %if.end36
+
+if.then35:                                        ; preds = %for.end
+  br label %while.end
+
+if.end36:                                         ; preds = %for.end
+  call void @_ZN4absl12lts_2023080218container_internal9probe_seqILm16EE4nextEv(ptr noundef nonnull align 8 dereferenceable(24) %seq)
+  br label %while.body, !llvm.loop !6
+
+while.end:                                        ; preds = %if.then35
+  %9 = load i64, ptr %hash, align 8
+  %call38 = call noundef i64 @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE14prepare_insertEm(ptr noundef nonnull align 8 dereferenceable(32) %this1, i64 noundef %9)
+  store i64 %call38, ptr %ref.tmp37, align 8
+  store i8 1, ptr %ref.tmp39, align 1
+  call void @_ZNSt4pairImbEC2ImbTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS3_S4_EEEbE4typeELb1EEEOS3_OS4_(ptr noundef nonnull align 8 dereferenceable(9) %retval, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp37, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp39)
+  br label %return
+
+return:                                           ; preds = %while.end, %if.then
+  %10 = load { i64, i8 }, ptr %retval, align 8
+  ret { i64, i8 } %10
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE10emplace_atIJRKSt21piecewise_construct_tSt5tupleIJRSI_EESQ_IJEEEEEvmDpOT_(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %i, ptr noundef nonnull align 1 dereferenceable(1) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1, ptr noundef nonnull align 1 dereferenceable(1) %args3) #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %i.addr = alloca i64, align 8
+  %args.addr = alloca ptr, align 8
+  %args.addr2 = alloca ptr, align 8
+  %args.addr4 = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store i64 %i, ptr %i.addr, align 8
+  store ptr %args, ptr %args.addr, align 8
+  store ptr %args1, ptr %args.addr2, align 8
+  store ptr %args3, ptr %args.addr4, align 8
+  %this5 = load ptr, ptr %this.addr, align 8
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE9alloc_refEv(ptr noundef nonnull align 8 dereferenceable(32) %this5)
+  %call6 = call noundef ptr @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE10slot_arrayEv(ptr noundef nonnull align 8 dereferenceable(32) %this5)
+  %0 = load i64, ptr %i.addr, align 8
+  %add.ptr = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %call6, i64 %0
+  %1 = load ptr, ptr %args.addr, align 8
+  %2 = load ptr, ptr %args.addr2, align 8
+  %3 = load ptr, ptr %args.addr4, align 8
+  call void @_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEEvE9constructISaISt4pairIKS8_SB_EEJRKSt21piecewise_construct_tSt5tupleIJRSG_EESM_IJEEEEEvPT_PNS1_13map_slot_typeIS8_SB_EEDpOT0_(ptr noundef %call, ptr noundef %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt16forward_as_tupleIJRKPKN6google8protobuf15FieldDescriptorEEESt5tupleIJDpOT_EESA_(ptr noalias sret(%"class.std::tuple.93") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %__args) #4 comdat {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %__args.addr = alloca ptr, align 8
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store ptr %__args, ptr %__args.addr, align 8
+  %0 = load ptr, ptr %__args.addr, align 8
+  call void @_ZNSt5tupleIJRKPKN6google8protobuf15FieldDescriptorEEEC2ILb1ETnNSt9enable_ifIXclsr4_TCCIXT_EEE29__is_implicitly_constructibleIS6_EEEbE4typeELb1EEES6_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt16forward_as_tupleIJEESt5tupleIJDpOT_EES3_() #4 comdat {
+entry:
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden { ptr, ptr } @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE11iterator_atEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %i) #6 comdat align 2 {
+entry:
+  %retval = alloca %"class.absl::lts_20230802::container_internal::raw_hash_set<absl::lts_20230802::container_internal::FlatHashMapPolicy<const google::protobuf::FieldDescriptor *, google::protobuf::util::SimpleFieldComparator::Tolerance>, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Hash, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Eq, std::allocator<std::pair<const google::protobuf::FieldDescriptor *const, google::protobuf::util::SimpleFieldComparator::Tolerance>>>::iterator", align 8
+  %this.addr = alloca ptr, align 8
+  %i.addr = alloca i64, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store i64 %i, ptr %i.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef ptr @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE7controlEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  %0 = load i64, ptr %i.addr, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %call, i64 %0
+  %call2 = call noundef ptr @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE10slot_arrayEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  %1 = load i64, ptr %i.addr, align 8
+  %add.ptr3 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %call2, i64 %1
+  %call4 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE6commonEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  %call5 = call noundef ptr @_ZNK4absl12lts_2023080218container_internal34CommonFieldsGenerationInfoDisabled14generation_ptrEv(ptr noundef nonnull align 1 dereferenceable(1) %call4)
+  call void @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE8iteratorC2EPNS1_6ctrl_tEPNS1_13map_slot_typeIS8_SB_EEPKh(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef %add.ptr, ptr noundef %add.ptr3, ptr noundef %call5)
+  %2 = load { ptr, ptr }, ptr %retval, align 8
+  ret { ptr, ptr } %2
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt4pairIN4absl12lts_2023080218container_internal12raw_hash_setINS2_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS6_4util21SimpleFieldComparator9ToleranceEEENS2_6HashEqIS9_vE4HashENSF_2EqESaIS_IKS9_SC_EEE8iteratorEbEC2ISM_RbTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISR_SS_EEEbE4typeELb1EEEOSR_OSS_(ptr noundef nonnull align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(16) %__x, ptr noundef nonnull align 1 dereferenceable(1) %__y) unnamed_addr #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__x.addr = alloca ptr, align 8
+  %__y.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__x, ptr %__x.addr, align 8
+  store ptr %__y, ptr %__y.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %first = getelementptr inbounds %"struct.std::pair.87", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %__x.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %first, ptr align 8 %0, i64 16, i1 false)
+  %second = getelementptr inbounds %"struct.std::pair.87", ptr %this1, i32 0, i32 1
+  %1 = load ptr, ptr %__y.addr, align 8
+  %2 = load i8, ptr %1, align 1
+  %tobool = trunc i8 %2 to i1
+  %frombool = zext i1 %tobool to i8
+  store i8 %frombool, ptr %second, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE19prefetch_heap_blockEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef ptr @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE7controlEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  call void @llvm.prefetch.p0(ptr %call, i32 0, i32 1, i32 1)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE8hash_refEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %settings_ = getelementptr inbounds %"class.absl::lts_20230802::container_internal::raw_hash_set", ptr %this1, i32 0, i32 0
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNR4absl12lts_2023080218container_internal15CompressedTupleIJNS1_12CommonFieldsENS1_6HashEqIPKN6google8protobuf15FieldDescriptorEvE4HashENSA_2EqESaISt4pairIKS9_NS6_4util21SimpleFieldComparator9ToleranceEEEEE3getILi1EEERNS1_25internal_compressed_tuple4ElemISK_XT_EE4typeEv(ptr noundef nonnull align 8 dereferenceable(32) %settings_)
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef i64 @_ZNK4absl12lts_2023080218container_internal6HashEqIPKN6google8protobuf15FieldDescriptorEvE4HashclIS7_EEmRKT_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(8) %ptr) #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %ptr.addr = alloca ptr, align 8
+  %ref.tmp = alloca %"struct.absl::lts_20230802::hash_internal::Hash", align 1
+  %ref.tmp2 = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %ptr, ptr %ptr.addr, align 8
+  %0 = load ptr, ptr %ptr.addr, align 8
+  %1 = load ptr, ptr %0, align 8
+  %call = call noundef ptr @_ZN4absl12lts_2023080218container_internal6HashEqIPKN6google8protobuf15FieldDescriptorEvE5ToPtrES7_(ptr noundef %1)
+  store ptr %call, ptr %ref.tmp2, align 8
+  %call3 = call noundef i64 @_ZNK4absl12lts_2023080213hash_internal8HashImplIPKN6google8protobuf15FieldDescriptorEEclERKS7_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2)
+  ret i64 %call3
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal5probeERKNS1_12CommonFieldsEm(ptr noalias sret(%"class.absl::lts_20230802::container_internal::probe_seq") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %common, i64 noundef %hash) #6 comdat {
+entry:
+  %common.addr = alloca ptr, align 8
+  %hash.addr = alloca i64, align 8
+  store ptr %common, ptr %common.addr, align 8
+  store i64 %hash, ptr %hash.addr, align 8
+  %0 = load ptr, ptr %common.addr, align 8
+  %call = call noundef ptr @_ZNK4absl12lts_2023080218container_internal12CommonFields7controlEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
+  %1 = load ptr, ptr %common.addr, align 8
+  %call1 = call noundef i64 @_ZNK4absl12lts_2023080218container_internal12CommonFields8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %2 = load i64, ptr %hash.addr, align 8
+  call void @_ZN4absl12lts_2023080218container_internal5probeEPKNS1_6ctrl_tEmm(ptr sret(%"class.absl::lts_20230802::container_internal::probe_seq") align 8 %agg.result, ptr noundef %call, i64 noundef %call1, i64 noundef %2)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZNK4absl12lts_2023080218container_internal9probe_seqILm16EE6offsetEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %offset_ = getelementptr inbounds %"class.absl::lts_20230802::container_internal::probe_seq", ptr %this1, i32 0, i32 1
+  %0 = load i64, ptr %offset_, align 8
+  ret i64 %0
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal13GroupSse2ImplC2EPKNS1_6ctrl_tE(ptr noundef nonnull align 16 dereferenceable(16) %this, ptr noundef %pos) unnamed_addr #13 comdat align 2 {
+entry:
+  %__p.addr.i = alloca ptr, align 8
+  %this.addr = alloca ptr, align 8
+  %pos.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %pos, ptr %pos.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %pos.addr, align 8
+  store ptr %0, ptr %__p.addr.i, align 8
+  %1 = load ptr, ptr %__p.addr.i, align 8
+  %2 = load <2 x i64>, ptr %1, align 1
+  %ctrl = getelementptr inbounds %"struct.absl::lts_20230802::container_internal::GroupSse2Impl", ptr %this1, i32 0, i32 0
+  store <2 x i64> %2, ptr %ctrl, align 16
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden i32 @_ZNK4absl12lts_2023080218container_internal13GroupSse2Impl5MatchEh(ptr noundef nonnull align 16 dereferenceable(16) %this, i8 noundef zeroext %hash) #13 comdat align 2 {
+entry:
+  %__b15.addr.i = alloca i8, align 1
+  %__b14.addr.i = alloca i8, align 1
+  %__b13.addr.i = alloca i8, align 1
+  %__b12.addr.i = alloca i8, align 1
+  %__b11.addr.i = alloca i8, align 1
+  %__b10.addr.i = alloca i8, align 1
+  %__b9.addr.i = alloca i8, align 1
+  %__b8.addr.i = alloca i8, align 1
+  %__b7.addr.i = alloca i8, align 1
+  %__b6.addr.i = alloca i8, align 1
+  %__b5.addr.i = alloca i8, align 1
+  %__b4.addr.i = alloca i8, align 1
+  %__b3.addr.i = alloca i8, align 1
+  %__b2.addr.i = alloca i8, align 1
+  %__b1.addr.i = alloca i8, align 1
+  %__b0.addr.i = alloca i8, align 1
+  %.compoundliteral.i = alloca <16 x i8>, align 16
+  %__a.addr.i5 = alloca <2 x i64>, align 16
+  %__b.addr.i6 = alloca <2 x i64>, align 16
+  %__a.addr.i = alloca <2 x i64>, align 16
+  %__b.addr.i = alloca i8, align 1
+  %retval = alloca %"class.absl::lts_20230802::container_internal::BitMask", align 4
+  %this.addr = alloca ptr, align 8
+  %hash.addr = alloca i8, align 1
+  %match = alloca <2 x i64>, align 16
+  store ptr %this, ptr %this.addr, align 8
+  store i8 %hash, ptr %hash.addr, align 1
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load i8, ptr %hash.addr, align 1
+  store i8 %0, ptr %__b.addr.i, align 1
+  %1 = load i8, ptr %__b.addr.i, align 1
+  %2 = load i8, ptr %__b.addr.i, align 1
+  %3 = load i8, ptr %__b.addr.i, align 1
+  %4 = load i8, ptr %__b.addr.i, align 1
+  %5 = load i8, ptr %__b.addr.i, align 1
+  %6 = load i8, ptr %__b.addr.i, align 1
+  %7 = load i8, ptr %__b.addr.i, align 1
+  %8 = load i8, ptr %__b.addr.i, align 1
+  %9 = load i8, ptr %__b.addr.i, align 1
+  %10 = load i8, ptr %__b.addr.i, align 1
+  %11 = load i8, ptr %__b.addr.i, align 1
+  %12 = load i8, ptr %__b.addr.i, align 1
+  %13 = load i8, ptr %__b.addr.i, align 1
+  %14 = load i8, ptr %__b.addr.i, align 1
+  %15 = load i8, ptr %__b.addr.i, align 1
+  %16 = load i8, ptr %__b.addr.i, align 1
+  store i8 %1, ptr %__b15.addr.i, align 1
+  store i8 %2, ptr %__b14.addr.i, align 1
+  store i8 %3, ptr %__b13.addr.i, align 1
+  store i8 %4, ptr %__b12.addr.i, align 1
+  store i8 %5, ptr %__b11.addr.i, align 1
+  store i8 %6, ptr %__b10.addr.i, align 1
+  store i8 %7, ptr %__b9.addr.i, align 1
+  store i8 %8, ptr %__b8.addr.i, align 1
+  store i8 %9, ptr %__b7.addr.i, align 1
+  store i8 %10, ptr %__b6.addr.i, align 1
+  store i8 %11, ptr %__b5.addr.i, align 1
+  store i8 %12, ptr %__b4.addr.i, align 1
+  store i8 %13, ptr %__b3.addr.i, align 1
+  store i8 %14, ptr %__b2.addr.i, align 1
+  store i8 %15, ptr %__b1.addr.i, align 1
+  store i8 %16, ptr %__b0.addr.i, align 1
+  %17 = load i8, ptr %__b0.addr.i, align 1
+  %vecinit.i = insertelement <16 x i8> undef, i8 %17, i32 0
+  %18 = load i8, ptr %__b1.addr.i, align 1
+  %vecinit1.i = insertelement <16 x i8> %vecinit.i, i8 %18, i32 1
+  %19 = load i8, ptr %__b2.addr.i, align 1
+  %vecinit2.i = insertelement <16 x i8> %vecinit1.i, i8 %19, i32 2
+  %20 = load i8, ptr %__b3.addr.i, align 1
+  %vecinit3.i = insertelement <16 x i8> %vecinit2.i, i8 %20, i32 3
+  %21 = load i8, ptr %__b4.addr.i, align 1
+  %vecinit4.i = insertelement <16 x i8> %vecinit3.i, i8 %21, i32 4
+  %22 = load i8, ptr %__b5.addr.i, align 1
+  %vecinit5.i = insertelement <16 x i8> %vecinit4.i, i8 %22, i32 5
+  %23 = load i8, ptr %__b6.addr.i, align 1
+  %vecinit6.i = insertelement <16 x i8> %vecinit5.i, i8 %23, i32 6
+  %24 = load i8, ptr %__b7.addr.i, align 1
+  %vecinit7.i = insertelement <16 x i8> %vecinit6.i, i8 %24, i32 7
+  %25 = load i8, ptr %__b8.addr.i, align 1
+  %vecinit8.i = insertelement <16 x i8> %vecinit7.i, i8 %25, i32 8
+  %26 = load i8, ptr %__b9.addr.i, align 1
+  %vecinit9.i = insertelement <16 x i8> %vecinit8.i, i8 %26, i32 9
+  %27 = load i8, ptr %__b10.addr.i, align 1
+  %vecinit10.i = insertelement <16 x i8> %vecinit9.i, i8 %27, i32 10
+  %28 = load i8, ptr %__b11.addr.i, align 1
+  %vecinit11.i = insertelement <16 x i8> %vecinit10.i, i8 %28, i32 11
+  %29 = load i8, ptr %__b12.addr.i, align 1
+  %vecinit12.i = insertelement <16 x i8> %vecinit11.i, i8 %29, i32 12
+  %30 = load i8, ptr %__b13.addr.i, align 1
+  %vecinit13.i = insertelement <16 x i8> %vecinit12.i, i8 %30, i32 13
+  %31 = load i8, ptr %__b14.addr.i, align 1
+  %vecinit14.i = insertelement <16 x i8> %vecinit13.i, i8 %31, i32 14
+  %32 = load i8, ptr %__b15.addr.i, align 1
+  %vecinit15.i = insertelement <16 x i8> %vecinit14.i, i8 %32, i32 15
+  store <16 x i8> %vecinit15.i, ptr %.compoundliteral.i, align 16
+  %33 = load <16 x i8>, ptr %.compoundliteral.i, align 16
+  %34 = bitcast <16 x i8> %33 to <2 x i64>
+  store <2 x i64> %34, ptr %match, align 16
+  %35 = load <2 x i64>, ptr %match, align 16
+  %ctrl = getelementptr inbounds %"struct.absl::lts_20230802::container_internal::GroupSse2Impl", ptr %this1, i32 0, i32 0
+  %36 = load <2 x i64>, ptr %ctrl, align 16
+  store <2 x i64> %35, ptr %__a.addr.i5, align 16
+  store <2 x i64> %36, ptr %__b.addr.i6, align 16
+  %37 = load <2 x i64>, ptr %__a.addr.i5, align 16
+  %38 = bitcast <2 x i64> %37 to <16 x i8>
+  %39 = load <2 x i64>, ptr %__b.addr.i6, align 16
+  %40 = bitcast <2 x i64> %39 to <16 x i8>
+  %cmp.i = icmp eq <16 x i8> %38, %40
+  %sext.i = sext <16 x i1> %cmp.i to <16 x i8>
+  %41 = bitcast <16 x i8> %sext.i to <2 x i64>
+  store <2 x i64> %41, ptr %__a.addr.i, align 16
+  %42 = load <2 x i64>, ptr %__a.addr.i, align 16
+  %43 = bitcast <2 x i64> %42 to <16 x i8>
+  %44 = call noundef i32 @llvm.x86.sse2.pmovmskb.128(<16 x i8> %43)
+  call void @_ZN4absl12lts_2023080218container_internal7BitMaskIjLi16ELi0EEC2Ej(ptr noundef nonnull align 4 dereferenceable(4) %retval, i32 noundef %44)
+  %coerce.dive = getelementptr inbounds %"class.absl::lts_20230802::container_internal::BitMask", ptr %retval, i32 0, i32 0
+  %coerce.dive4 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::NonIterableBitMask", ptr %coerce.dive, i32 0, i32 0
+  %45 = load i32, ptr %coerce.dive4, align 4
+  ret i32 %45
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i8 @_ZN4absl12lts_2023080218container_internal2H2Em(i64 noundef %hash) #4 comdat {
+entry:
+  %hash.addr = alloca i64, align 8
+  store i64 %hash, ptr %hash.addr, align 8
+  %0 = load i64, ptr %hash.addr, align 8
+  %and = and i64 %0, 127
+  %conv = trunc i64 %and to i8
+  ret i8 %conv
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden i32 @_ZNK4absl12lts_2023080218container_internal7BitMaskIjLi16ELi0EE5beginEv(ptr noundef nonnull align 4 dereferenceable(4) %this) #4 comdat align 2 {
+entry:
+  %retval = alloca %"class.absl::lts_20230802::container_internal::BitMask", align 4
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %retval, ptr align 4 %this1, i64 4, i1 false)
+  %coerce.dive = getelementptr inbounds %"class.absl::lts_20230802::container_internal::BitMask", ptr %retval, i32 0, i32 0
+  %coerce.dive2 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::NonIterableBitMask", ptr %coerce.dive, i32 0, i32 0
+  %0 = load i32, ptr %coerce.dive2, align 4
+  ret i32 %0
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden i32 @_ZNK4absl12lts_2023080218container_internal7BitMaskIjLi16ELi0EE3endEv(ptr noundef nonnull align 4 dereferenceable(4) %this) #6 comdat align 2 {
+entry:
+  %retval = alloca %"class.absl::lts_20230802::container_internal::BitMask", align 4
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  call void @_ZN4absl12lts_2023080218container_internal7BitMaskIjLi16ELi0EEC2Ej(ptr noundef nonnull align 4 dereferenceable(4) %retval, i32 noundef 0)
+  %coerce.dive = getelementptr inbounds %"class.absl::lts_20230802::container_internal::BitMask", ptr %retval, i32 0, i32 0
+  %coerce.dive2 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::NonIterableBitMask", ptr %coerce.dive, i32 0, i32 0
+  %0 = load i32, ptr %coerce.dive2, align 4
+  ret i32 %0
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN4absl12lts_2023080218container_internalneERKNS1_7BitMaskIjLi16ELi0EEES5_(ptr noundef nonnull align 4 dereferenceable(4) %a, ptr noundef nonnull align 4 dereferenceable(4) %b) #4 comdat {
+entry:
+  %a.addr = alloca ptr, align 8
+  %b.addr = alloca ptr, align 8
+  store ptr %a, ptr %a.addr, align 8
+  store ptr %b, ptr %b.addr, align 8
+  %0 = load ptr, ptr %a.addr, align 8
+  %mask_ = getelementptr inbounds %"class.absl::lts_20230802::container_internal::NonIterableBitMask", ptr %0, i32 0, i32 0
+  %1 = load i32, ptr %mask_, align 4
+  %2 = load ptr, ptr %b.addr, align 8
+  %mask_1 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::NonIterableBitMask", ptr %2, i32 0, i32 0
+  %3 = load i32, ptr %mask_1, align 4
+  %cmp = icmp ne i32 %1, %3
+  ret i1 %cmp
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef i32 @_ZNK4absl12lts_2023080218container_internal7BitMaskIjLi16ELi0EEdeEv(ptr noundef nonnull align 4 dereferenceable(4) %this) #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef i32 @_ZNK4absl12lts_2023080218container_internal18NonIterableBitMaskIjLi16ELi0EE12LowestBitSetEv(ptr noundef nonnull align 4 dereferenceable(4) %this1)
+  ret i32 %call
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN4absl12lts_2023080218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEEvE5applyINS1_12raw_hash_setISC_NS1_6HashEqIS8_vE4HashENSH_2EqESaISt4pairIKS8_SB_EEE12EqualElementIS8_EEJRSM_ESC_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOST_DpOSU_(ptr noundef nonnull align 8 dereferenceable(16) %f, ptr noundef nonnull align 8 dereferenceable(24) %ts) #6 comdat align 2 {
+entry:
+  %f.addr = alloca ptr, align 8
+  %ts.addr = alloca ptr, align 8
+  store ptr %f, ptr %f.addr, align 8
+  store ptr %ts, ptr %ts.addr, align 8
+  %0 = load ptr, ptr %f.addr, align 8
+  %1 = load ptr, ptr %ts.addr, align 8
+  %call = call noundef zeroext i1 @_ZN4absl12lts_2023080218container_internal17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS4_4util21SimpleFieldComparator9ToleranceEE5applyINS1_12raw_hash_setISB_NS1_6HashEqIS7_vE4HashENSF_2EqESaISt4pairIKS7_SA_EEE12EqualElementIS7_EEJRSK_EEEDTclsr4absl18container_internalE13DecomposePairclsr3stdE7declvalIT_EEspclsr3stdE7declvalIT0_EEEEOSQ_DpOSR_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  ret i1 %call
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE6eq_refEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %settings_ = getelementptr inbounds %"class.absl::lts_20230802::container_internal::raw_hash_set", ptr %this1, i32 0, i32 0
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNR4absl12lts_2023080218container_internal15CompressedTupleIJNS1_12CommonFieldsENS1_6HashEqIPKN6google8protobuf15FieldDescriptorEvE4HashENSA_2EqESaISt4pairIKS9_NS6_4util21SimpleFieldComparator9ToleranceEEEEE3getILi2EEERNS1_25internal_compressed_tuple4ElemISK_XT_EE4typeEv(ptr noundef nonnull align 8 dereferenceable(32) %settings_)
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEEvE7elementISC_EEDTclsrT_7elementfp_EEPNS1_13map_slot_typeIS8_SB_EE(ptr noundef %slot) #6 comdat align 2 {
+entry:
+  %slot.addr = alloca ptr, align 8
+  store ptr %slot, ptr %slot.addr, align 8
+  %0 = load ptr, ptr %slot.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4absl12lts_2023080218container_internal17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS4_4util21SimpleFieldComparator9ToleranceEE7elementEPNS1_13map_slot_typeIS7_SA_EE(ptr noundef %0)
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZNK4absl12lts_2023080218container_internal9probe_seqILm16EE6offsetEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %i) #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %i.addr = alloca i64, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store i64 %i, ptr %i.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %offset_ = getelementptr inbounds %"class.absl::lts_20230802::container_internal::probe_seq", ptr %this1, i32 0, i32 1
+  %0 = load i64, ptr %offset_, align 8
+  %1 = load i64, ptr %i.addr, align 8
+  %add = add i64 %0, %1
+  %mask_ = getelementptr inbounds %"class.absl::lts_20230802::container_internal::probe_seq", ptr %this1, i32 0, i32 0
+  %2 = load i64, ptr %mask_, align 8
+  %and = and i64 %add, %2
+  ret i64 %and
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt4pairImbEC2ImbTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS3_S4_EEEbE4typeELb1EEEOS3_OS4_(ptr noundef nonnull align 8 dereferenceable(9) %this, ptr noundef nonnull align 8 dereferenceable(8) %__x, ptr noundef nonnull align 1 dereferenceable(1) %__y) unnamed_addr #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__x.addr = alloca ptr, align 8
+  %__y.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__x, ptr %__x.addr, align 8
+  store ptr %__y, ptr %__y.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %first = getelementptr inbounds %"struct.std::pair.90", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %__x.addr, align 8
+  %1 = load i64, ptr %0, align 8
+  store i64 %1, ptr %first, align 8
+  %second = getelementptr inbounds %"struct.std::pair.90", ptr %this1, i32 0, i32 1
+  %2 = load ptr, ptr %__y.addr, align 8
+  %3 = load i8, ptr %2, align 1
+  %tobool = trunc i8 %3 to i1
+  %frombool = zext i1 %tobool to i8
+  store i8 %frombool, ptr %second, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN4absl12lts_2023080218container_internal7BitMaskIjLi16ELi0EEppEv(ptr noundef nonnull align 4 dereferenceable(4) %this) #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mask_ = getelementptr inbounds %"class.absl::lts_20230802::container_internal::NonIterableBitMask", ptr %this1, i32 0, i32 0
+  %0 = load i32, ptr %mask_, align 4
+  %sub = sub i32 %0, 1
+  %mask_2 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::NonIterableBitMask", ptr %this1, i32 0, i32 0
+  %1 = load i32, ptr %mask_2, align 4
+  %and = and i32 %1, %sub
+  store i32 %and, ptr %mask_2, align 4
+  ret ptr %this1
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden i32 @_ZNK4absl12lts_2023080218container_internal13GroupSse2Impl9MaskEmptyEv(ptr noundef nonnull align 16 dereferenceable(16) %this) #13 comdat align 2 {
+entry:
+  %__b15.addr.i = alloca i8, align 1
+  %__b14.addr.i = alloca i8, align 1
+  %__b13.addr.i = alloca i8, align 1
+  %__b12.addr.i = alloca i8, align 1
+  %__b11.addr.i = alloca i8, align 1
+  %__b10.addr.i = alloca i8, align 1
+  %__b9.addr.i = alloca i8, align 1
+  %__b8.addr.i = alloca i8, align 1
+  %__b7.addr.i = alloca i8, align 1
+  %__b6.addr.i = alloca i8, align 1
+  %__b5.addr.i = alloca i8, align 1
+  %__b4.addr.i = alloca i8, align 1
+  %__b3.addr.i = alloca i8, align 1
+  %__b2.addr.i = alloca i8, align 1
+  %__b1.addr.i = alloca i8, align 1
+  %__b0.addr.i = alloca i8, align 1
+  %.compoundliteral.i = alloca <16 x i8>, align 16
+  %__a.addr.i4 = alloca <2 x i64>, align 16
+  %__b.addr.i5 = alloca <2 x i64>, align 16
+  %__a.addr.i = alloca <2 x i64>, align 16
+  %__b.addr.i = alloca i8, align 1
+  %retval = alloca %"class.absl::lts_20230802::container_internal::NonIterableBitMask", align 4
+  %this.addr = alloca ptr, align 8
+  %match = alloca <2 x i64>, align 16
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  store i8 -128, ptr %__b.addr.i, align 1
+  %0 = load i8, ptr %__b.addr.i, align 1
+  %1 = load i8, ptr %__b.addr.i, align 1
+  %2 = load i8, ptr %__b.addr.i, align 1
+  %3 = load i8, ptr %__b.addr.i, align 1
+  %4 = load i8, ptr %__b.addr.i, align 1
+  %5 = load i8, ptr %__b.addr.i, align 1
+  %6 = load i8, ptr %__b.addr.i, align 1
+  %7 = load i8, ptr %__b.addr.i, align 1
+  %8 = load i8, ptr %__b.addr.i, align 1
+  %9 = load i8, ptr %__b.addr.i, align 1
+  %10 = load i8, ptr %__b.addr.i, align 1
+  %11 = load i8, ptr %__b.addr.i, align 1
+  %12 = load i8, ptr %__b.addr.i, align 1
+  %13 = load i8, ptr %__b.addr.i, align 1
+  %14 = load i8, ptr %__b.addr.i, align 1
+  %15 = load i8, ptr %__b.addr.i, align 1
+  store i8 %0, ptr %__b15.addr.i, align 1
+  store i8 %1, ptr %__b14.addr.i, align 1
+  store i8 %2, ptr %__b13.addr.i, align 1
+  store i8 %3, ptr %__b12.addr.i, align 1
+  store i8 %4, ptr %__b11.addr.i, align 1
+  store i8 %5, ptr %__b10.addr.i, align 1
+  store i8 %6, ptr %__b9.addr.i, align 1
+  store i8 %7, ptr %__b8.addr.i, align 1
+  store i8 %8, ptr %__b7.addr.i, align 1
+  store i8 %9, ptr %__b6.addr.i, align 1
+  store i8 %10, ptr %__b5.addr.i, align 1
+  store i8 %11, ptr %__b4.addr.i, align 1
+  store i8 %12, ptr %__b3.addr.i, align 1
+  store i8 %13, ptr %__b2.addr.i, align 1
+  store i8 %14, ptr %__b1.addr.i, align 1
+  store i8 %15, ptr %__b0.addr.i, align 1
+  %16 = load i8, ptr %__b0.addr.i, align 1
+  %vecinit.i = insertelement <16 x i8> undef, i8 %16, i32 0
+  %17 = load i8, ptr %__b1.addr.i, align 1
+  %vecinit1.i = insertelement <16 x i8> %vecinit.i, i8 %17, i32 1
+  %18 = load i8, ptr %__b2.addr.i, align 1
+  %vecinit2.i = insertelement <16 x i8> %vecinit1.i, i8 %18, i32 2
+  %19 = load i8, ptr %__b3.addr.i, align 1
+  %vecinit3.i = insertelement <16 x i8> %vecinit2.i, i8 %19, i32 3
+  %20 = load i8, ptr %__b4.addr.i, align 1
+  %vecinit4.i = insertelement <16 x i8> %vecinit3.i, i8 %20, i32 4
+  %21 = load i8, ptr %__b5.addr.i, align 1
+  %vecinit5.i = insertelement <16 x i8> %vecinit4.i, i8 %21, i32 5
+  %22 = load i8, ptr %__b6.addr.i, align 1
+  %vecinit6.i = insertelement <16 x i8> %vecinit5.i, i8 %22, i32 6
+  %23 = load i8, ptr %__b7.addr.i, align 1
+  %vecinit7.i = insertelement <16 x i8> %vecinit6.i, i8 %23, i32 7
+  %24 = load i8, ptr %__b8.addr.i, align 1
+  %vecinit8.i = insertelement <16 x i8> %vecinit7.i, i8 %24, i32 8
+  %25 = load i8, ptr %__b9.addr.i, align 1
+  %vecinit9.i = insertelement <16 x i8> %vecinit8.i, i8 %25, i32 9
+  %26 = load i8, ptr %__b10.addr.i, align 1
+  %vecinit10.i = insertelement <16 x i8> %vecinit9.i, i8 %26, i32 10
+  %27 = load i8, ptr %__b11.addr.i, align 1
+  %vecinit11.i = insertelement <16 x i8> %vecinit10.i, i8 %27, i32 11
+  %28 = load i8, ptr %__b12.addr.i, align 1
+  %vecinit12.i = insertelement <16 x i8> %vecinit11.i, i8 %28, i32 12
+  %29 = load i8, ptr %__b13.addr.i, align 1
+  %vecinit13.i = insertelement <16 x i8> %vecinit12.i, i8 %29, i32 13
+  %30 = load i8, ptr %__b14.addr.i, align 1
+  %vecinit14.i = insertelement <16 x i8> %vecinit13.i, i8 %30, i32 14
+  %31 = load i8, ptr %__b15.addr.i, align 1
+  %vecinit15.i = insertelement <16 x i8> %vecinit14.i, i8 %31, i32 15
+  store <16 x i8> %vecinit15.i, ptr %.compoundliteral.i, align 16
+  %32 = load <16 x i8>, ptr %.compoundliteral.i, align 16
+  %33 = bitcast <16 x i8> %32 to <2 x i64>
+  store <2 x i64> %33, ptr %match, align 16
+  %34 = load <2 x i64>, ptr %match, align 16
+  %ctrl = getelementptr inbounds %"struct.absl::lts_20230802::container_internal::GroupSse2Impl", ptr %this1, i32 0, i32 0
+  %35 = load <2 x i64>, ptr %ctrl, align 16
+  store <2 x i64> %34, ptr %__a.addr.i4, align 16
+  store <2 x i64> %35, ptr %__b.addr.i5, align 16
+  %36 = load <2 x i64>, ptr %__a.addr.i4, align 16
+  %37 = bitcast <2 x i64> %36 to <16 x i8>
+  %38 = load <2 x i64>, ptr %__b.addr.i5, align 16
+  %39 = bitcast <2 x i64> %38 to <16 x i8>
+  %cmp.i = icmp eq <16 x i8> %37, %39
+  %sext.i = sext <16 x i1> %cmp.i to <16 x i8>
+  %40 = bitcast <16 x i8> %sext.i to <2 x i64>
+  store <2 x i64> %40, ptr %__a.addr.i, align 16
+  %41 = load <2 x i64>, ptr %__a.addr.i, align 16
+  %42 = bitcast <2 x i64> %41 to <16 x i8>
+  %43 = call noundef i32 @llvm.x86.sse2.pmovmskb.128(<16 x i8> %42)
+  call void @_ZN4absl12lts_2023080218container_internal18NonIterableBitMaskIjLi16ELi0EEC2Ej(ptr noundef nonnull align 4 dereferenceable(4) %retval, i32 noundef %43)
+  %coerce.dive = getelementptr inbounds %"class.absl::lts_20230802::container_internal::NonIterableBitMask", ptr %retval, i32 0, i32 0
+  %44 = load i32, ptr %coerce.dive, align 4
+  ret i32 %44
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNK4absl12lts_2023080218container_internal18NonIterableBitMaskIjLi16ELi0EEcvbEv(ptr noundef nonnull align 4 dereferenceable(4) %this) #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mask_ = getelementptr inbounds %"class.absl::lts_20230802::container_internal::NonIterableBitMask", ptr %this1, i32 0, i32 0
+  %0 = load i32, ptr %mask_, align 4
+  %cmp = icmp ne i32 %0, 0
+  ret i1 %cmp
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal9probe_seqILm16EE4nextEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %index_ = getelementptr inbounds %"class.absl::lts_20230802::container_internal::probe_seq", ptr %this1, i32 0, i32 2
+  %0 = load i64, ptr %index_, align 8
+  %add = add i64 %0, 16
+  store i64 %add, ptr %index_, align 8
+  %index_2 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::probe_seq", ptr %this1, i32 0, i32 2
+  %1 = load i64, ptr %index_2, align 8
+  %offset_ = getelementptr inbounds %"class.absl::lts_20230802::container_internal::probe_seq", ptr %this1, i32 0, i32 1
+  %2 = load i64, ptr %offset_, align 8
+  %add3 = add i64 %2, %1
+  store i64 %add3, ptr %offset_, align 8
+  %mask_ = getelementptr inbounds %"class.absl::lts_20230802::container_internal::probe_seq", ptr %this1, i32 0, i32 0
+  %3 = load i64, ptr %mask_, align 8
+  %offset_4 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::probe_seq", ptr %this1, i32 0, i32 1
+  %4 = load i64, ptr %offset_4, align 8
+  %and = and i64 %4, %3
+  store i64 %and, ptr %offset_4, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef i64 @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE14prepare_insertEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %hash) #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %hash.addr = alloca i64, align 8
+  %rehash_for_bug_detection = alloca i8, align 1
+  %cap = alloca i64, align 8
+  %target = alloca %"struct.absl::lts_20230802::container_internal::FindInfo", align 8
+  %ref.tmp = alloca %"struct.absl::lts_20230802::container_internal::FindInfo", align 8
+  store ptr %this, ptr %this.addr, align 8
+  store i64 %hash, ptr %hash.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE6commonEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  %call2 = call noundef zeroext i1 @_ZNK4absl12lts_2023080218container_internal12CommonFields41should_rehash_for_bug_detection_on_insertEv(ptr noundef nonnull align 8 dereferenceable(32) %call)
+  %frombool = zext i1 %call2 to i8
+  store i8 %frombool, ptr %rehash_for_bug_detection, align 1
+  %0 = load i8, ptr %rehash_for_bug_detection, align 1
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %call3 = call noundef i64 @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  store i64 %call3, ptr %cap, align 8
+  %call4 = call noundef i64 @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE11growth_leftEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  %cmp = icmp ugt i64 %call4, 0
+  br i1 %cmp, label %cond.true, label %cond.false
+
+cond.true:                                        ; preds = %if.then
+  %1 = load i64, ptr %cap, align 8
+  br label %cond.end
+
+cond.false:                                       ; preds = %if.then
+  %2 = load i64, ptr %cap, align 8
+  %call5 = call noundef i64 @_ZN4absl12lts_2023080218container_internal12NextCapacityEm(i64 noundef %2)
+  br label %cond.end
+
+cond.end:                                         ; preds = %cond.false, %cond.true
+  %cond = phi i64 [ %1, %cond.true ], [ %call5, %cond.false ]
+  call void @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %this1, i64 noundef %cond)
+  br label %if.end
+
+if.end:                                           ; preds = %cond.end, %entry
+  %call6 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE6commonEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  %3 = load i64, ptr %hash.addr, align 8
+  %call7 = call { i64, i64 } @_ZN4absl12lts_2023080218container_internal19find_first_non_fullIvEENS1_8FindInfoERKNS1_12CommonFieldsEm(ptr noundef nonnull align 8 dereferenceable(32) %call6, i64 noundef %3)
+  %4 = getelementptr inbounds { i64, i64 }, ptr %target, i32 0, i32 0
+  %5 = extractvalue { i64, i64 } %call7, 0
+  store i64 %5, ptr %4, align 8
+  %6 = getelementptr inbounds { i64, i64 }, ptr %target, i32 0, i32 1
+  %7 = extractvalue { i64, i64 } %call7, 1
+  store i64 %7, ptr %6, align 8
+  %8 = load i8, ptr %rehash_for_bug_detection, align 1
+  %tobool8 = trunc i8 %8 to i1
+  br i1 %tobool8, label %if.end16, label %land.lhs.true
+
+land.lhs.true:                                    ; preds = %if.end
+  %call9 = call noundef i64 @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE11growth_leftEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  %cmp10 = icmp eq i64 %call9, 0
+  br i1 %cmp10, label %land.rhs, label %land.end
+
+land.rhs:                                         ; preds = %land.lhs.true
+  %call11 = call noundef ptr @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE7controlEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  %offset = getelementptr inbounds %"struct.absl::lts_20230802::container_internal::FindInfo", ptr %target, i32 0, i32 0
+  %9 = load i64, ptr %offset, align 8
+  %arrayidx = getelementptr inbounds i8, ptr %call11, i64 %9
+  %10 = load i8, ptr %arrayidx, align 1
+  %call12 = call noundef zeroext i1 @_ZN4absl12lts_2023080218container_internal9IsDeletedENS1_6ctrl_tE(i8 noundef signext %10)
+  %lnot = xor i1 %call12, true
+  br label %land.end
+
+land.end:                                         ; preds = %land.rhs, %land.lhs.true
+  %11 = phi i1 [ false, %land.lhs.true ], [ %lnot, %land.rhs ]
+  br i1 %11, label %if.then13, label %if.end16
+
+if.then13:                                        ; preds = %land.end
+  call void @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE28rehash_and_grow_if_necessaryEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  %call14 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE6commonEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  %12 = load i64, ptr %hash.addr, align 8
+  %call15 = call { i64, i64 } @_ZN4absl12lts_2023080218container_internal19find_first_non_fullIvEENS1_8FindInfoERKNS1_12CommonFieldsEm(ptr noundef nonnull align 8 dereferenceable(32) %call14, i64 noundef %12)
+  %13 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp, i32 0, i32 0
+  %14 = extractvalue { i64, i64 } %call15, 0
+  store i64 %14, ptr %13, align 8
+  %15 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp, i32 0, i32 1
+  %16 = extractvalue { i64, i64 } %call15, 1
+  store i64 %16, ptr %15, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %target, ptr align 8 %ref.tmp, i64 16, i1 false)
+  br label %if.end16
+
+if.end16:                                         ; preds = %if.then13, %land.end, %if.end
+  %call17 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE6commonEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  %call18 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE6commonEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  %call19 = call noundef i64 @_ZNK4absl12lts_2023080218container_internal12CommonFields4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %call18)
+  %add = add i64 %call19, 1
+  call void @_ZN4absl12lts_2023080218container_internal12CommonFields8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(32) %call17, i64 noundef %add)
+  %call20 = call noundef i64 @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE11growth_leftEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  %call21 = call noundef ptr @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE7controlEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  %offset22 = getelementptr inbounds %"struct.absl::lts_20230802::container_internal::FindInfo", ptr %target, i32 0, i32 0
+  %17 = load i64, ptr %offset22, align 8
+  %arrayidx23 = getelementptr inbounds i8, ptr %call21, i64 %17
+  %18 = load i8, ptr %arrayidx23, align 1
+  %call24 = call noundef zeroext i1 @_ZN4absl12lts_2023080218container_internal7IsEmptyENS1_6ctrl_tE(i8 noundef signext %18)
+  %conv = zext i1 %call24 to i64
+  %sub = sub i64 %call20, %conv
+  call void @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE15set_growth_leftEm(ptr noundef nonnull align 8 dereferenceable(32) %this1, i64 noundef %sub)
+  %call25 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE6commonEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  %offset26 = getelementptr inbounds %"struct.absl::lts_20230802::container_internal::FindInfo", ptr %target, i32 0, i32 0
+  %19 = load i64, ptr %offset26, align 8
+  %20 = load i64, ptr %hash.addr, align 8
+  %call27 = call noundef zeroext i8 @_ZN4absl12lts_2023080218container_internal2H2Em(i64 noundef %20)
+  call void @_ZN4absl12lts_2023080218container_internal7SetCtrlERKNS1_12CommonFieldsEmhm(ptr noundef nonnull align 8 dereferenceable(32) %call25, i64 noundef %19, i8 noundef zeroext %call27, i64 noundef 24)
+  %call28 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE6commonEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  call void @_ZN4absl12lts_2023080218container_internal34CommonFieldsGenerationInfoDisabled36maybe_increment_generation_on_insertEv(ptr noundef nonnull align 1 dereferenceable(1) %call28)
+  %call29 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE5infozEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  %21 = load i64, ptr %hash.addr, align 8
+  %probe_length = getelementptr inbounds %"struct.absl::lts_20230802::container_internal::FindInfo", ptr %target, i32 0, i32 1
+  %22 = load i64, ptr %probe_length, align 8
+  call void @_ZN4absl12lts_2023080218container_internal20HashtablezInfoHandle12RecordInsertEmm(ptr noundef nonnull align 1 dereferenceable(1) %call29, i64 noundef %21, i64 noundef %22)
+  %offset30 = getelementptr inbounds %"struct.absl::lts_20230802::container_internal::FindInfo", ptr %target, i32 0, i32 0
+  %23 = load i64, ptr %offset30, align 8
+  ret i64 %23
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
+declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #14
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNR4absl12lts_2023080218container_internal15CompressedTupleIJNS1_12CommonFieldsENS1_6HashEqIPKN6google8protobuf15FieldDescriptorEvE4HashENSA_2EqESaISt4pairIKS9_NS6_4util21SimpleFieldComparator9ToleranceEEEEE3getILi1EEERNS1_25internal_compressed_tuple4ElemISK_XT_EE4typeEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNR4absl12lts_2023080218container_internal25internal_compressed_tuple7StorageINS1_6HashEqIPKN6google8protobuf15FieldDescriptorEvE4HashELm1ELb1EE3getEv(ptr noundef nonnull align 1 dereferenceable(1) %this1)
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNR4absl12lts_2023080218container_internal25internal_compressed_tuple7StorageINS1_6HashEqIPKN6google8protobuf15FieldDescriptorEvE4HashELm1ELb1EE3getEv(ptr noundef nonnull align 1 dereferenceable(1) %this) #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  ret ptr %this1
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef i64 @_ZNK4absl12lts_2023080213hash_internal8HashImplIPKN6google8protobuf15FieldDescriptorEEclERKS7_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(8) %value) #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %value.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %value, ptr %value.addr, align 8
+  %0 = load ptr, ptr %value.addr, align 8
+  %call = call noundef i64 @_ZN4absl12lts_2023080213hash_internal15MixingHashState4hashIPKN6google8protobuf15FieldDescriptorETnNSt9enable_ifIXntsr16IntegralFastPathIT_EE5valueEiE4typeELi0EEEmRKSA_(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  ret i64 %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN4absl12lts_2023080218container_internal6HashEqIPKN6google8protobuf15FieldDescriptorEvE5ToPtrES7_(ptr noundef %ptr) #4 comdat align 2 {
+entry:
+  %ptr.addr = alloca ptr, align 8
+  store ptr %ptr, ptr %ptr.addr, align 8
+  %0 = load ptr, ptr %ptr.addr, align 8
+  ret ptr %0
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef i64 @_ZN4absl12lts_2023080213hash_internal15MixingHashState4hashIPKN6google8protobuf15FieldDescriptorETnNSt9enable_ifIXntsr16IntegralFastPathIT_EE5valueEiE4typeELi0EEEmRKSA_(ptr noundef nonnull align 8 dereferenceable(8) %value) #6 comdat align 2 {
+entry:
+  %value.addr = alloca ptr, align 8
+  %ref.tmp = alloca %"class.absl::lts_20230802::hash_internal::MixingHashState", align 8
+  %agg.tmp = alloca %"class.absl::lts_20230802::hash_internal::MixingHashState", align 8
+  store ptr %value, ptr %value.addr, align 8
+  call void @_ZN4absl12lts_2023080213hash_internal15MixingHashStateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp)
+  %0 = load ptr, ptr %value.addr, align 8
+  %coerce.dive = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %agg.tmp, i32 0, i32 0
+  %1 = load i64, ptr %coerce.dive, align 8
+  %call = call i64 @_ZN4absl12lts_2023080213hash_internal13HashStateBaseINS1_15MixingHashStateEE7combineIPKN6google8protobuf15FieldDescriptorEJEEES3_S3_RKT_DpRKT0_(i64 %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %coerce.dive1 = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %ref.tmp, i32 0, i32 0
+  store i64 %call, ptr %coerce.dive1, align 8
+  %state_ = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %ref.tmp, i32 0, i32 0
+  %2 = load i64, ptr %state_, align 8
+  ret i64 %2
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden i64 @_ZN4absl12lts_2023080213hash_internal13HashStateBaseINS1_15MixingHashStateEE7combineIPKN6google8protobuf15FieldDescriptorEJEEES3_S3_RKT_DpRKT0_(i64 %state.coerce, ptr noundef nonnull align 8 dereferenceable(8) %value) #6 comdat align 2 {
+entry:
+  %retval = alloca %"class.absl::lts_20230802::hash_internal::MixingHashState", align 8
+  %state = alloca %"class.absl::lts_20230802::hash_internal::MixingHashState", align 8
+  %value.addr = alloca ptr, align 8
+  %agg.tmp = alloca %"class.absl::lts_20230802::hash_internal::MixingHashState", align 8
+  %agg.tmp1 = alloca %"class.absl::lts_20230802::hash_internal::MixingHashState", align 8
+  %coerce.dive = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %state, i32 0, i32 0
+  store i64 %state.coerce, ptr %coerce.dive, align 8
+  store ptr %value, ptr %value.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp1, ptr align 8 %state, i64 8, i1 false)
+  %0 = load ptr, ptr %value.addr, align 8
+  %coerce.dive2 = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %agg.tmp1, i32 0, i32 0
+  %1 = load i64, ptr %coerce.dive2, align 8
+  %call = call i64 @_ZN4absl12lts_2023080213hash_internal10HashSelect14HashValueProbe6InvokeINS1_15MixingHashStateEPKN6google8protobuf15FieldDescriptorEEENSt9enable_ifIXsr3std7is_sameIT_DTcl13AbslHashValueclsr3stdE4movefp_Efp0_EEEE5valueESC_E4typeESC_RKT0_(i64 %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %coerce.dive3 = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %agg.tmp, i32 0, i32 0
+  store i64 %call, ptr %coerce.dive3, align 8
+  %coerce.dive4 = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %agg.tmp, i32 0, i32 0
+  %2 = load i64, ptr %coerce.dive4, align 8
+  %call5 = call i64 @_ZN4absl12lts_2023080213hash_internal13HashStateBaseINS1_15MixingHashStateEE7combineES3_(i64 %2)
+  %coerce.dive6 = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %retval, i32 0, i32 0
+  store i64 %call5, ptr %coerce.dive6, align 8
+  %coerce.dive7 = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %retval, i32 0, i32 0
+  %3 = load i64, ptr %coerce.dive7, align 8
+  ret i64 %3
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080213hash_internal15MixingHashStateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %state_ = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %this1, i32 0, i32 0
+  store i64 ptrtoint (ptr @_ZN4absl12lts_2023080213hash_internal15MixingHashState5kSeedE to i64), ptr %state_, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden i64 @_ZN4absl12lts_2023080213hash_internal13HashStateBaseINS1_15MixingHashStateEE7combineES3_(i64 %state.coerce) #4 comdat align 2 {
+entry:
+  %retval = alloca %"class.absl::lts_20230802::hash_internal::MixingHashState", align 8
+  %state = alloca %"class.absl::lts_20230802::hash_internal::MixingHashState", align 8
+  %coerce.dive = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %state, i32 0, i32 0
+  store i64 %state.coerce, ptr %coerce.dive, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %retval, ptr align 8 %state, i64 8, i1 false)
+  %coerce.dive1 = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %retval, i32 0, i32 0
+  %0 = load i64, ptr %coerce.dive1, align 8
+  ret i64 %0
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden i64 @_ZN4absl12lts_2023080213hash_internal10HashSelect14HashValueProbe6InvokeINS1_15MixingHashStateEPKN6google8protobuf15FieldDescriptorEEENSt9enable_ifIXsr3std7is_sameIT_DTcl13AbslHashValueclsr3stdE4movefp_Efp0_EEEE5valueESC_E4typeESC_RKT0_(i64 %state.coerce, ptr noundef nonnull align 8 dereferenceable(8) %value) #6 comdat align 2 {
+entry:
+  %retval = alloca %"class.absl::lts_20230802::hash_internal::MixingHashState", align 8
+  %state = alloca %"class.absl::lts_20230802::hash_internal::MixingHashState", align 8
+  %value.addr = alloca ptr, align 8
+  %agg.tmp = alloca %"class.absl::lts_20230802::hash_internal::MixingHashState", align 8
+  %coerce.dive = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %state, i32 0, i32 0
+  store i64 %state.coerce, ptr %coerce.dive, align 8
+  store ptr %value, ptr %value.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %state, i64 8, i1 false)
+  %0 = load ptr, ptr %value.addr, align 8
+  %1 = load ptr, ptr %0, align 8
+  %coerce.dive1 = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %agg.tmp, i32 0, i32 0
+  %2 = load i64, ptr %coerce.dive1, align 8
+  %call = call i64 @_ZN4absl12lts_2023080213hash_internal13AbslHashValueINS1_15MixingHashStateEKN6google8protobuf15FieldDescriptorEEET_S8_PT0_(i64 %2, ptr noundef %1)
+  %coerce.dive2 = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %retval, i32 0, i32 0
+  store i64 %call, ptr %coerce.dive2, align 8
+  %coerce.dive3 = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %retval, i32 0, i32 0
+  %3 = load i64, ptr %coerce.dive3, align 8
+  ret i64 %3
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden i64 @_ZN4absl12lts_2023080213hash_internal13AbslHashValueINS1_15MixingHashStateEKN6google8protobuf15FieldDescriptorEEET_S8_PT0_(i64 %hash_state.coerce, ptr noundef %ptr) #6 comdat {
+entry:
+  %retval = alloca %"class.absl::lts_20230802::hash_internal::MixingHashState", align 8
+  %hash_state = alloca %"class.absl::lts_20230802::hash_internal::MixingHashState", align 8
+  %ptr.addr = alloca ptr, align 8
+  %v = alloca i64, align 8
+  %agg.tmp = alloca %"class.absl::lts_20230802::hash_internal::MixingHashState", align 8
+  %coerce.dive = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %hash_state, i32 0, i32 0
+  store i64 %hash_state.coerce, ptr %coerce.dive, align 8
+  store ptr %ptr, ptr %ptr.addr, align 8
+  %0 = load ptr, ptr %ptr.addr, align 8
+  %1 = ptrtoint ptr %0 to i64
+  store i64 %1, ptr %v, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %hash_state, i64 8, i1 false)
+  %coerce.dive1 = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %agg.tmp, i32 0, i32 0
+  %2 = load i64, ptr %coerce.dive1, align 8
+  %call = call i64 @_ZN4absl12lts_2023080213hash_internal13HashStateBaseINS1_15MixingHashStateEE7combineImJmEEES3_S3_RKT_DpRKT0_(i64 %2, ptr noundef nonnull align 8 dereferenceable(8) %v, ptr noundef nonnull align 8 dereferenceable(8) %v)
+  %coerce.dive2 = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %retval, i32 0, i32 0
+  store i64 %call, ptr %coerce.dive2, align 8
+  %coerce.dive3 = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %retval, i32 0, i32 0
+  %3 = load i64, ptr %coerce.dive3, align 8
+  ret i64 %3
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden i64 @_ZN4absl12lts_2023080213hash_internal13HashStateBaseINS1_15MixingHashStateEE7combineImJmEEES3_S3_RKT_DpRKT0_(i64 %state.coerce, ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 8 dereferenceable(8) %values) #6 comdat align 2 {
+entry:
+  %retval = alloca %"class.absl::lts_20230802::hash_internal::MixingHashState", align 8
+  %state = alloca %"class.absl::lts_20230802::hash_internal::MixingHashState", align 8
+  %value.addr = alloca ptr, align 8
+  %values.addr = alloca ptr, align 8
+  %agg.tmp = alloca %"class.absl::lts_20230802::hash_internal::MixingHashState", align 8
+  %agg.tmp1 = alloca %"class.absl::lts_20230802::hash_internal::MixingHashState", align 8
+  %coerce.dive = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %state, i32 0, i32 0
+  store i64 %state.coerce, ptr %coerce.dive, align 8
+  store ptr %value, ptr %value.addr, align 8
+  store ptr %values, ptr %values.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp1, ptr align 8 %state, i64 8, i1 false)
+  %0 = load ptr, ptr %value.addr, align 8
+  %coerce.dive2 = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %agg.tmp1, i32 0, i32 0
+  %1 = load i64, ptr %coerce.dive2, align 8
+  %call = call i64 @_ZN4absl12lts_2023080213hash_internal10HashSelect24UniquelyRepresentedProbe6InvokeINS1_15MixingHashStateEmEENSt9enable_ifIXsr23is_uniquely_representedIT0_EE5valueET_E4typeES8_RKS7_(i64 %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %coerce.dive3 = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %agg.tmp, i32 0, i32 0
+  store i64 %call, ptr %coerce.dive3, align 8
+  %2 = load ptr, ptr %values.addr, align 8
+  %coerce.dive4 = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %agg.tmp, i32 0, i32 0
+  %3 = load i64, ptr %coerce.dive4, align 8
+  %call5 = call i64 @_ZN4absl12lts_2023080213hash_internal13HashStateBaseINS1_15MixingHashStateEE7combineImJEEES3_S3_RKT_DpRKT0_(i64 %3, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  %coerce.dive6 = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %retval, i32 0, i32 0
+  store i64 %call5, ptr %coerce.dive6, align 8
+  %coerce.dive7 = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %retval, i32 0, i32 0
+  %4 = load i64, ptr %coerce.dive7, align 8
+  ret i64 %4
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden i64 @_ZN4absl12lts_2023080213hash_internal13HashStateBaseINS1_15MixingHashStateEE7combineImJEEES3_S3_RKT_DpRKT0_(i64 %state.coerce, ptr noundef nonnull align 8 dereferenceable(8) %value) #6 comdat align 2 {
+entry:
+  %retval = alloca %"class.absl::lts_20230802::hash_internal::MixingHashState", align 8
+  %state = alloca %"class.absl::lts_20230802::hash_internal::MixingHashState", align 8
+  %value.addr = alloca ptr, align 8
+  %agg.tmp = alloca %"class.absl::lts_20230802::hash_internal::MixingHashState", align 8
+  %agg.tmp1 = alloca %"class.absl::lts_20230802::hash_internal::MixingHashState", align 8
+  %coerce.dive = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %state, i32 0, i32 0
+  store i64 %state.coerce, ptr %coerce.dive, align 8
+  store ptr %value, ptr %value.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp1, ptr align 8 %state, i64 8, i1 false)
+  %0 = load ptr, ptr %value.addr, align 8
+  %coerce.dive2 = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %agg.tmp1, i32 0, i32 0
+  %1 = load i64, ptr %coerce.dive2, align 8
+  %call = call i64 @_ZN4absl12lts_2023080213hash_internal10HashSelect24UniquelyRepresentedProbe6InvokeINS1_15MixingHashStateEmEENSt9enable_ifIXsr23is_uniquely_representedIT0_EE5valueET_E4typeES8_RKS7_(i64 %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %coerce.dive3 = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %agg.tmp, i32 0, i32 0
+  store i64 %call, ptr %coerce.dive3, align 8
+  %coerce.dive4 = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %agg.tmp, i32 0, i32 0
+  %2 = load i64, ptr %coerce.dive4, align 8
+  %call5 = call i64 @_ZN4absl12lts_2023080213hash_internal13HashStateBaseINS1_15MixingHashStateEE7combineES3_(i64 %2)
+  %coerce.dive6 = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %retval, i32 0, i32 0
+  store i64 %call5, ptr %coerce.dive6, align 8
+  %coerce.dive7 = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %retval, i32 0, i32 0
+  %3 = load i64, ptr %coerce.dive7, align 8
+  ret i64 %3
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden i64 @_ZN4absl12lts_2023080213hash_internal10HashSelect24UniquelyRepresentedProbe6InvokeINS1_15MixingHashStateEmEENSt9enable_ifIXsr23is_uniquely_representedIT0_EE5valueET_E4typeES8_RKS7_(i64 %state.coerce, ptr noundef nonnull align 8 dereferenceable(8) %value) #6 comdat align 2 {
+entry:
+  %retval = alloca %"class.absl::lts_20230802::hash_internal::MixingHashState", align 8
+  %state = alloca %"class.absl::lts_20230802::hash_internal::MixingHashState", align 8
+  %value.addr = alloca ptr, align 8
+  %agg.tmp = alloca %"class.absl::lts_20230802::hash_internal::MixingHashState", align 8
+  %coerce.dive = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %state, i32 0, i32 0
+  store i64 %state.coerce, ptr %coerce.dive, align 8
+  store ptr %value, ptr %value.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %state, i64 8, i1 false)
+  %0 = load ptr, ptr %value.addr, align 8
+  %coerce.dive1 = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %agg.tmp, i32 0, i32 0
+  %1 = load i64, ptr %coerce.dive1, align 8
+  %call = call i64 @_ZN4absl12lts_2023080213hash_internal10hash_bytesINS1_15MixingHashStateEmEET_S4_RKT0_(i64 %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %coerce.dive2 = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %retval, i32 0, i32 0
+  store i64 %call, ptr %coerce.dive2, align 8
+  %coerce.dive3 = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %retval, i32 0, i32 0
+  %2 = load i64, ptr %coerce.dive3, align 8
+  ret i64 %2
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden i64 @_ZN4absl12lts_2023080213hash_internal10hash_bytesINS1_15MixingHashStateEmEET_S4_RKT0_(i64 %hash_state.coerce, ptr noundef nonnull align 8 dereferenceable(8) %value) #6 comdat {
+entry:
+  %retval = alloca %"class.absl::lts_20230802::hash_internal::MixingHashState", align 8
+  %hash_state = alloca %"class.absl::lts_20230802::hash_internal::MixingHashState", align 8
+  %value.addr = alloca ptr, align 8
+  %start = alloca ptr, align 8
+  %agg.tmp = alloca %"class.absl::lts_20230802::hash_internal::MixingHashState", align 8
+  %coerce.dive = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %hash_state, i32 0, i32 0
+  store i64 %hash_state.coerce, ptr %coerce.dive, align 8
+  store ptr %value, ptr %value.addr, align 8
+  %0 = load ptr, ptr %value.addr, align 8
+  store ptr %0, ptr %start, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %hash_state, i64 8, i1 false)
+  %1 = load ptr, ptr %start, align 8
+  %coerce.dive1 = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %agg.tmp, i32 0, i32 0
+  %2 = load i64, ptr %coerce.dive1, align 8
+  %call = call i64 @_ZN4absl12lts_2023080213hash_internal15MixingHashState18combine_contiguousES2_PKhm(i64 %2, ptr noundef %1, i64 noundef 8)
+  %coerce.dive2 = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %retval, i32 0, i32 0
+  store i64 %call, ptr %coerce.dive2, align 8
+  %coerce.dive3 = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %retval, i32 0, i32 0
+  %3 = load i64, ptr %coerce.dive3, align 8
+  ret i64 %3
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden i64 @_ZN4absl12lts_2023080213hash_internal15MixingHashState18combine_contiguousES2_PKhm(i64 %hash_state.coerce, ptr noundef %first, i64 noundef %size) #6 comdat align 2 {
+entry:
+  %retval = alloca %"class.absl::lts_20230802::hash_internal::MixingHashState", align 8
+  %hash_state = alloca %"class.absl::lts_20230802::hash_internal::MixingHashState", align 8
+  %first.addr = alloca ptr, align 8
+  %size.addr = alloca i64, align 8
+  %coerce.dive = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %hash_state, i32 0, i32 0
+  store i64 %hash_state.coerce, ptr %coerce.dive, align 8
+  store ptr %first, ptr %first.addr, align 8
+  store i64 %size, ptr %size.addr, align 8
+  %state_ = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %hash_state, i32 0, i32 0
+  %0 = load i64, ptr %state_, align 8
+  %1 = load ptr, ptr %first.addr, align 8
+  %2 = load i64, ptr %size.addr, align 8
+  %call = call noundef i64 @_ZN4absl12lts_2023080213hash_internal15MixingHashState21CombineContiguousImplEmPKhmSt17integral_constantIiLi8EE(i64 noundef %0, ptr noundef %1, i64 noundef %2)
+  call void @_ZN4absl12lts_2023080213hash_internal15MixingHashStateC2Em(ptr noundef nonnull align 8 dereferenceable(8) %retval, i64 noundef %call)
+  %coerce.dive1 = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %retval, i32 0, i32 0
+  %3 = load i64, ptr %coerce.dive1, align 8
+  ret i64 %3
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef i64 @_ZN4absl12lts_2023080213hash_internal15MixingHashState21CombineContiguousImplEmPKhmSt17integral_constantIiLi8EE(i64 noundef %state, ptr noundef %first, i64 noundef %len) #6 comdat align 2 {
+entry:
+  %state.addr.i = alloca i64, align 8
+  %v.addr.i = alloca i64, align 8
+  %m.i = alloca i128, align 16
+  %data.addr.i = alloca ptr, align 8
+  %len.addr.i = alloca i64, align 8
+  %retval = alloca i64, align 8
+  %state.addr = alloca i64, align 8
+  %first.addr = alloca ptr, align 8
+  %len.addr = alloca i64, align 8
+  %v = alloca i64, align 8
+  %p = alloca %"struct.std::pair.97", align 8
+  %lo = alloca i64, align 8
+  %hi = alloca i64, align 8
+  %m = alloca i128, align 16
+  store i64 %state, ptr %state.addr, align 8
+  store ptr %first, ptr %first.addr, align 8
+  store i64 %len, ptr %len.addr, align 8
+  %0 = load i64, ptr %len.addr, align 8
+  %cmp = icmp ugt i64 %0, 16
+  br i1 %cmp, label %if.then, label %if.else
+
+if.then:                                          ; preds = %entry
+  %1 = load i64, ptr %len.addr, align 8
+  %call = call noundef i64 @_ZN4absl12lts_2023080213hash_internal18PiecewiseChunkSizeEv()
+  %cmp1 = icmp ugt i64 %1, %call
+  br i1 %cmp1, label %if.then2, label %if.end
+
+if.then2:                                         ; preds = %if.then
+  %2 = load i64, ptr %state.addr, align 8
+  %3 = load ptr, ptr %first.addr, align 8
+  %4 = load i64, ptr %len.addr, align 8
+  %call3 = call noundef i64 @_ZN4absl12lts_2023080213hash_internal15MixingHashState28CombineLargeContiguousImpl64EmPKhm(i64 noundef %2, ptr noundef %3, i64 noundef %4)
+  store i64 %call3, ptr %retval, align 8
+  br label %return
+
+if.end:                                           ; preds = %if.then
+  %5 = load ptr, ptr %first.addr, align 8
+  %6 = load i64, ptr %len.addr, align 8
+  store ptr %5, ptr %data.addr.i, align 8
+  store i64 %6, ptr %len.addr.i, align 8
+  %7 = load ptr, ptr %data.addr.i, align 8
+  %8 = load i64, ptr %len.addr.i, align 8
+  %call.i = call noundef i64 @_ZN4absl12lts_2023080213hash_internal15MixingHashState16LowLevelHashImplEPKhm(ptr noundef %7, i64 noundef %8)
+  store i64 %call.i, ptr %v, align 8
+  br label %if.end27
+
+if.else:                                          ; preds = %entry
+  %9 = load i64, ptr %len.addr, align 8
+  %cmp5 = icmp ugt i64 %9, 8
+  br i1 %cmp5, label %if.then6, label %if.else14
+
+if.then6:                                         ; preds = %if.else
+  %10 = load ptr, ptr %first.addr, align 8
+  %11 = load i64, ptr %len.addr, align 8
+  %call7 = call { i64, i64 } @_ZN4absl12lts_2023080213hash_internal15MixingHashState9Read9To16EPKhm(ptr noundef %10, i64 noundef %11)
+  %12 = getelementptr inbounds { i64, i64 }, ptr %p, i32 0, i32 0
+  %13 = extractvalue { i64, i64 } %call7, 0
+  store i64 %13, ptr %12, align 8
+  %14 = getelementptr inbounds { i64, i64 }, ptr %p, i32 0, i32 1
+  %15 = extractvalue { i64, i64 } %call7, 1
+  store i64 %15, ptr %14, align 8
+  %first8 = getelementptr inbounds %"struct.std::pair.97", ptr %p, i32 0, i32 0
+  %16 = load i64, ptr %first8, align 8
+  store i64 %16, ptr %lo, align 8
+  %second = getelementptr inbounds %"struct.std::pair.97", ptr %p, i32 0, i32 1
+  %17 = load i64, ptr %second, align 8
+  store i64 %17, ptr %hi, align 8
+  %18 = load i64, ptr %lo, align 8
+  %call9 = call noundef i64 @_ZN4absl12lts_202308024rotrImEENSt9enable_ifIXsr3std11is_unsignedIT_EE5valueES3_E4typeES3_i(i64 noundef %18, i32 noundef 53) #3
+  store i64 %call9, ptr %lo, align 8
+  %19 = load i64, ptr %state.addr, align 8
+  %add = add i64 %19, -7070675565921424023
+  store i64 %add, ptr %state.addr, align 8
+  %20 = load i64, ptr %state.addr, align 8
+  %21 = load i64, ptr %lo, align 8
+  %add10 = add i64 %21, %20
+  store i64 %add10, ptr %lo, align 8
+  %22 = load i64, ptr %hi, align 8
+  %23 = load i64, ptr %state.addr, align 8
+  %xor = xor i64 %23, %22
+  store i64 %xor, ptr %state.addr, align 8
+  %24 = load i64, ptr %state.addr, align 8
+  %conv = zext i64 %24 to i128
+  store i128 %conv, ptr %m, align 16
+  %25 = load i64, ptr %lo, align 8
+  %conv11 = zext i64 %25 to i128
+  %26 = load i128, ptr %m, align 16
+  %mul = mul i128 %26, %conv11
+  store i128 %mul, ptr %m, align 16
+  %27 = load i128, ptr %m, align 16
+  %28 = load i128, ptr %m, align 16
+  %shr = lshr i128 %28, 64
+  %xor12 = xor i128 %27, %shr
+  %conv13 = trunc i128 %xor12 to i64
+  store i64 %conv13, ptr %retval, align 8
+  br label %return
+
+if.else14:                                        ; preds = %if.else
+  %29 = load i64, ptr %len.addr, align 8
+  %cmp15 = icmp uge i64 %29, 4
+  br i1 %cmp15, label %if.then16, label %if.else18
+
+if.then16:                                        ; preds = %if.else14
+  %30 = load ptr, ptr %first.addr, align 8
+  %31 = load i64, ptr %len.addr, align 8
+  %call17 = call noundef i64 @_ZN4absl12lts_2023080213hash_internal15MixingHashState8Read4To8EPKhm(ptr noundef %30, i64 noundef %31)
+  store i64 %call17, ptr %v, align 8
+  br label %if.end25
+
+if.else18:                                        ; preds = %if.else14
+  %32 = load i64, ptr %len.addr, align 8
+  %cmp19 = icmp ugt i64 %32, 0
+  br i1 %cmp19, label %if.then20, label %if.else23
+
+if.then20:                                        ; preds = %if.else18
+  %33 = load ptr, ptr %first.addr, align 8
+  %34 = load i64, ptr %len.addr, align 8
+  %call21 = call noundef i32 @_ZN4absl12lts_2023080213hash_internal15MixingHashState8Read1To3EPKhm(ptr noundef %33, i64 noundef %34)
+  %conv22 = zext i32 %call21 to i64
+  store i64 %conv22, ptr %v, align 8
+  br label %if.end24
+
+if.else23:                                        ; preds = %if.else18
+  %35 = load i64, ptr %state.addr, align 8
+  store i64 %35, ptr %retval, align 8
+  br label %return
+
+if.end24:                                         ; preds = %if.then20
+  br label %if.end25
+
+if.end25:                                         ; preds = %if.end24, %if.then16
+  br label %if.end26
+
+if.end26:                                         ; preds = %if.end25
+  br label %if.end27
+
+if.end27:                                         ; preds = %if.end26, %if.end
+  %36 = load i64, ptr %state.addr, align 8
+  %37 = load i64, ptr %v, align 8
+  store i64 %36, ptr %state.addr.i, align 8
+  store i64 %37, ptr %v.addr.i, align 8
+  %38 = load i64, ptr %state.addr.i, align 8
+  %39 = load i64, ptr %v.addr.i, align 8
+  %add.i = add i64 %38, %39
+  %conv.i = zext i64 %add.i to i128
+  store i128 %conv.i, ptr %m.i, align 16
+  %40 = load i128, ptr %m.i, align 16
+  %mul.i = mul i128 %40, 11376068507788127593
+  store i128 %mul.i, ptr %m.i, align 16
+  %41 = load i128, ptr %m.i, align 16
+  %42 = load i128, ptr %m.i, align 16
+  %shr.i = lshr i128 %42, 64
+  %xor.i = xor i128 %41, %shr.i
+  %conv1.i = trunc i128 %xor.i to i64
+  store i64 %conv1.i, ptr %retval, align 8
+  br label %return
+
+return:                                           ; preds = %if.end27, %if.else23, %if.then6, %if.then2
+  %43 = load i64, ptr %retval, align 8
+  ret i64 %43
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080213hash_internal15MixingHashStateC2Em(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef %state) unnamed_addr #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %state.addr = alloca i64, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store i64 %state, ptr %state.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %state_ = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %this1, i32 0, i32 0
+  %0 = load i64, ptr %state.addr, align 8
+  store i64 %0, ptr %state_, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZN4absl12lts_2023080213hash_internal18PiecewiseChunkSizeEv() #4 comdat {
+entry:
+  ret i64 1024
+}
+
+declare noundef i64 @_ZN4absl12lts_2023080213hash_internal15MixingHashState28CombineLargeContiguousImpl64EmPKhm(i64 noundef, ptr noundef, i64 noundef) #1
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden { i64, i64 } @_ZN4absl12lts_2023080213hash_internal15MixingHashState9Read9To16EPKhm(ptr noundef %p, i64 noundef %len) #6 comdat align 2 {
+entry:
+  %retval = alloca %"struct.std::pair.97", align 8
+  %p.addr = alloca ptr, align 8
+  %len.addr = alloca i64, align 8
+  %low_mem = alloca i64, align 8
+  %high_mem = alloca i64, align 8
+  %most_significant = alloca i64, align 8
+  %least_significant = alloca i64, align 8
+  store ptr %p, ptr %p.addr, align 8
+  store i64 %len, ptr %len.addr, align 8
+  %0 = load ptr, ptr %p.addr, align 8
+  %call = call noundef i64 @_ZN4absl12lts_2023080213base_internal15UnalignedLoad64EPKv(ptr noundef %0)
+  store i64 %call, ptr %low_mem, align 8
+  %1 = load ptr, ptr %p.addr, align 8
+  %2 = load i64, ptr %len.addr, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %2
+  %add.ptr1 = getelementptr inbounds i8, ptr %add.ptr, i64 -8
+  %call2 = call noundef i64 @_ZN4absl12lts_2023080213base_internal15UnalignedLoad64EPKv(ptr noundef %add.ptr1)
+  store i64 %call2, ptr %high_mem, align 8
+  %3 = load i64, ptr %high_mem, align 8
+  store i64 %3, ptr %most_significant, align 8
+  %4 = load i64, ptr %low_mem, align 8
+  store i64 %4, ptr %least_significant, align 8
+  call void @_ZNSt4pairImmEC2IRmS2_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS4_S5_EEEbE4typeELb1EEEOS4_OS5_(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef nonnull align 8 dereferenceable(8) %least_significant, ptr noundef nonnull align 8 dereferenceable(8) %most_significant)
+  %5 = load { i64, i64 }, ptr %retval, align 8
+  ret { i64, i64 } %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZN4absl12lts_202308024rotrImEENSt9enable_ifIXsr3std11is_unsignedIT_EE5valueES3_E4typeES3_i(i64 noundef %x, i32 noundef %s) #4 comdat {
+entry:
+  %x.addr.i = alloca i64, align 8
+  %s.addr.i = alloca i32, align 4
+  %x.addr = alloca i64, align 8
+  %s.addr = alloca i32, align 4
+  store i64 %x, ptr %x.addr, align 8
+  store i32 %s, ptr %s.addr, align 4
+  %0 = load i64, ptr %x.addr, align 8
+  %1 = load i32, ptr %s.addr, align 4
+  store i64 %0, ptr %x.addr.i, align 8
+  store i32 %1, ptr %s.addr.i, align 4
+  %2 = load i64, ptr %x.addr.i, align 8
+  %3 = load i32, ptr %s.addr.i, align 4
+  %and.i = and i32 %3, 63
+  %sh_prom.i = zext i32 %and.i to i64
+  %shr.i = lshr i64 %2, %sh_prom.i
+  %4 = load i64, ptr %x.addr.i, align 8
+  %5 = load i32, ptr %s.addr.i, align 4
+  %sub.i = sub nsw i32 0, %5
+  %and1.i = and i32 %sub.i, 63
+  %sh_prom2.i = zext i32 %and1.i to i64
+  %shl.i = shl i64 %4, %sh_prom2.i
+  %or.i = or i64 %shr.i, %shl.i
+  ret i64 %or.i
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef i64 @_ZN4absl12lts_2023080213hash_internal15MixingHashState8Read4To8EPKhm(ptr noundef %p, i64 noundef %len) #6 comdat align 2 {
+entry:
+  %p.addr = alloca ptr, align 8
+  %len.addr = alloca i64, align 8
+  %low_mem = alloca i32, align 4
+  %high_mem = alloca i32, align 4
+  %most_significant = alloca i32, align 4
+  %least_significant = alloca i32, align 4
+  store ptr %p, ptr %p.addr, align 8
+  store i64 %len, ptr %len.addr, align 8
+  %0 = load ptr, ptr %p.addr, align 8
+  %call = call noundef i32 @_ZN4absl12lts_2023080213base_internal15UnalignedLoad32EPKv(ptr noundef %0)
+  store i32 %call, ptr %low_mem, align 4
+  %1 = load ptr, ptr %p.addr, align 8
+  %2 = load i64, ptr %len.addr, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %2
+  %add.ptr1 = getelementptr inbounds i8, ptr %add.ptr, i64 -4
+  %call2 = call noundef i32 @_ZN4absl12lts_2023080213base_internal15UnalignedLoad32EPKv(ptr noundef %add.ptr1)
+  store i32 %call2, ptr %high_mem, align 4
+  %3 = load i32, ptr %high_mem, align 4
+  store i32 %3, ptr %most_significant, align 4
+  %4 = load i32, ptr %low_mem, align 4
+  store i32 %4, ptr %least_significant, align 4
+  %5 = load i32, ptr %most_significant, align 4
+  %conv = zext i32 %5 to i64
+  %6 = load i64, ptr %len.addr, align 8
+  %sub = sub i64 %6, 4
+  %mul = mul i64 %sub, 8
+  %shl = shl i64 %conv, %mul
+  %7 = load i32, ptr %least_significant, align 4
+  %conv3 = zext i32 %7 to i64
+  %or = or i64 %shl, %conv3
+  ret i64 %or
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i32 @_ZN4absl12lts_2023080213hash_internal15MixingHashState8Read1To3EPKhm(ptr noundef %p, i64 noundef %len) #4 comdat align 2 {
+entry:
+  %p.addr = alloca ptr, align 8
+  %len.addr = alloca i64, align 8
+  %mem0 = alloca i8, align 1
+  %mem1 = alloca i8, align 1
+  %mem2 = alloca i8, align 1
+  %significant2 = alloca i8, align 1
+  %significant1 = alloca i8, align 1
+  %significant0 = alloca i8, align 1
+  store ptr %p, ptr %p.addr, align 8
+  store i64 %len, ptr %len.addr, align 8
+  %0 = load ptr, ptr %p.addr, align 8
+  %arrayidx = getelementptr inbounds i8, ptr %0, i64 0
+  %1 = load i8, ptr %arrayidx, align 1
+  store i8 %1, ptr %mem0, align 1
+  %2 = load ptr, ptr %p.addr, align 8
+  %3 = load i64, ptr %len.addr, align 8
+  %div = udiv i64 %3, 2
+  %arrayidx1 = getelementptr inbounds i8, ptr %2, i64 %div
+  %4 = load i8, ptr %arrayidx1, align 1
+  store i8 %4, ptr %mem1, align 1
+  %5 = load ptr, ptr %p.addr, align 8
+  %6 = load i64, ptr %len.addr, align 8
+  %sub = sub i64 %6, 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %5, i64 %sub
+  %7 = load i8, ptr %arrayidx2, align 1
+  store i8 %7, ptr %mem2, align 1
+  %8 = load i8, ptr %mem2, align 1
+  store i8 %8, ptr %significant2, align 1
+  %9 = load i8, ptr %mem1, align 1
+  store i8 %9, ptr %significant1, align 1
+  %10 = load i8, ptr %mem0, align 1
+  store i8 %10, ptr %significant0, align 1
+  %11 = load i8, ptr %significant0, align 1
+  %conv = zext i8 %11 to i32
+  %12 = load i8, ptr %significant1, align 1
+  %conv3 = zext i8 %12 to i32
+  %13 = load i64, ptr %len.addr, align 8
+  %div4 = udiv i64 %13, 2
+  %mul = mul i64 %div4, 8
+  %sh_prom = trunc i64 %mul to i32
+  %shl = shl i32 %conv3, %sh_prom
+  %or = or i32 %conv, %shl
+  %14 = load i8, ptr %significant2, align 1
+  %conv5 = zext i8 %14 to i32
+  %15 = load i64, ptr %len.addr, align 8
+  %sub6 = sub i64 %15, 1
+  %mul7 = mul i64 %sub6, 8
+  %sh_prom8 = trunc i64 %mul7 to i32
+  %shl9 = shl i32 %conv5, %sh_prom8
+  %or10 = or i32 %or, %shl9
+  ret i32 %or10
+}
+
+declare noundef i64 @_ZN4absl12lts_2023080213hash_internal15MixingHashState16LowLevelHashImplEPKhm(ptr noundef, i64 noundef) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZN4absl12lts_2023080213base_internal15UnalignedLoad64EPKv(ptr noundef %p) #4 comdat {
+entry:
+  %p.addr = alloca ptr, align 8
+  %t = alloca i64, align 8
+  store ptr %p, ptr %p.addr, align 8
+  %0 = load ptr, ptr %p.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %t, ptr align 1 %0, i64 8, i1 false)
+  %1 = load i64, ptr %t, align 8
+  ret i64 %1
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt4pairImmEC2IRmS2_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS4_S5_EEEbE4typeELb1EEEOS4_OS5_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(8) %__x, ptr noundef nonnull align 8 dereferenceable(8) %__y) unnamed_addr #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__x.addr = alloca ptr, align 8
+  %__y.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__x, ptr %__x.addr, align 8
+  store ptr %__y, ptr %__y.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %first = getelementptr inbounds %"struct.std::pair.97", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %__x.addr, align 8
+  %1 = load i64, ptr %0, align 8
+  store i64 %1, ptr %first, align 8
+  %second = getelementptr inbounds %"struct.std::pair.97", ptr %this1, i32 0, i32 1
+  %2 = load ptr, ptr %__y.addr, align 8
+  %3 = load i64, ptr %2, align 8
+  store i64 %3, ptr %second, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i32 @_ZN4absl12lts_2023080213base_internal15UnalignedLoad32EPKv(ptr noundef %p) #4 comdat {
+entry:
+  %p.addr = alloca ptr, align 8
+  %t = alloca i32, align 4
+  store ptr %p, ptr %p.addr, align 8
+  %0 = load ptr, ptr %p.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %t, ptr align 1 %0, i64 4, i1 false)
+  %1 = load i32, ptr %t, align 4
+  ret i32 %1
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal5probeEPKNS1_6ctrl_tEmm(ptr noalias sret(%"class.absl::lts_20230802::container_internal::probe_seq") align 8 %agg.result, ptr noundef %ctrl, i64 noundef %capacity, i64 noundef %hash) #6 comdat {
+entry:
+  %ctrl.addr = alloca ptr, align 8
+  %capacity.addr = alloca i64, align 8
+  %hash.addr = alloca i64, align 8
+  store ptr %ctrl, ptr %ctrl.addr, align 8
+  store i64 %capacity, ptr %capacity.addr, align 8
+  store i64 %hash, ptr %hash.addr, align 8
+  %0 = load i64, ptr %hash.addr, align 8
+  %1 = load ptr, ptr %ctrl.addr, align 8
+  %call = call noundef i64 @_ZN4absl12lts_2023080218container_internal2H1EmPKNS1_6ctrl_tE(i64 noundef %0, ptr noundef %1)
+  %2 = load i64, ptr %capacity.addr, align 8
+  call void @_ZN4absl12lts_2023080218container_internal9probe_seqILm16EEC2Emm(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i64 noundef %call, i64 noundef %2)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef i64 @_ZN4absl12lts_2023080218container_internal2H1EmPKNS1_6ctrl_tE(i64 noundef %hash, ptr noundef %ctrl) #6 comdat {
+entry:
+  %hash.addr = alloca i64, align 8
+  %ctrl.addr = alloca ptr, align 8
+  store i64 %hash, ptr %hash.addr, align 8
+  store ptr %ctrl, ptr %ctrl.addr, align 8
+  %0 = load i64, ptr %hash.addr, align 8
+  %shr = lshr i64 %0, 7
+  %1 = load ptr, ptr %ctrl.addr, align 8
+  %call = call noundef i64 @_ZN4absl12lts_2023080218container_internal12PerTableSaltEPKNS1_6ctrl_tE(ptr noundef %1)
+  %xor = xor i64 %shr, %call
+  ret i64 %xor
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal9probe_seqILm16EEC2Emm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %hash, i64 noundef %mask) unnamed_addr #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %hash.addr = alloca i64, align 8
+  %mask.addr = alloca i64, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store i64 %hash, ptr %hash.addr, align 8
+  store i64 %mask, ptr %mask.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %index_ = getelementptr inbounds %"class.absl::lts_20230802::container_internal::probe_seq", ptr %this1, i32 0, i32 2
+  store i64 0, ptr %index_, align 8
+  %0 = load i64, ptr %mask.addr, align 8
+  %mask_ = getelementptr inbounds %"class.absl::lts_20230802::container_internal::probe_seq", ptr %this1, i32 0, i32 0
+  store i64 %0, ptr %mask_, align 8
+  %1 = load i64, ptr %hash.addr, align 8
+  %mask_2 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::probe_seq", ptr %this1, i32 0, i32 0
+  %2 = load i64, ptr %mask_2, align 8
+  %and = and i64 %1, %2
+  %offset_ = getelementptr inbounds %"class.absl::lts_20230802::container_internal::probe_seq", ptr %this1, i32 0, i32 1
+  store i64 %and, ptr %offset_, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZN4absl12lts_2023080218container_internal12PerTableSaltEPKNS1_6ctrl_tE(ptr noundef %ctrl) #4 comdat {
+entry:
+  %ctrl.addr = alloca ptr, align 8
+  store ptr %ctrl, ptr %ctrl.addr, align 8
+  %0 = load ptr, ptr %ctrl.addr, align 8
+  %1 = ptrtoint ptr %0 to i64
+  %shr = lshr i64 %1, 12
+  ret i64 %shr
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal7BitMaskIjLi16ELi0EEC2Ej(ptr noundef nonnull align 4 dereferenceable(4) %this, i32 noundef %mask) unnamed_addr #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %mask.addr = alloca i32, align 4
+  store ptr %this, ptr %this.addr, align 8
+  store i32 %mask, ptr %mask.addr, align 4
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load i32, ptr %mask.addr, align 4
+  call void @_ZN4absl12lts_2023080218container_internal18NonIterableBitMaskIjLi16ELi0EEC2Ej(ptr noundef nonnull align 4 dereferenceable(4) %this1, i32 noundef %0)
+  ret void
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i32 @llvm.x86.sse2.pmovmskb.128(<16 x i8>) #15
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef i32 @_ZNK4absl12lts_2023080218container_internal18NonIterableBitMaskIjLi16ELi0EE12LowestBitSetEv(ptr noundef nonnull align 4 dereferenceable(4) %this) #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mask_ = getelementptr inbounds %"class.absl::lts_20230802::container_internal::NonIterableBitMask", ptr %this1, i32 0, i32 0
+  %0 = load i32, ptr %mask_, align 4
+  %call = call noundef i32 @_ZN4absl12lts_2023080218container_internal13TrailingZerosIjEEjT_(i32 noundef %0)
+  %shr = lshr i32 %call, 0
+  ret i32 %shr
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i32 @_ZN4absl12lts_2023080218container_internal13TrailingZerosIjEEjT_(i32 noundef %x) #4 comdat {
+entry:
+  %x.addr = alloca i32, align 4
+  store i32 %x, ptr %x.addr, align 4
+  %0 = load i32, ptr %x.addr, align 4
+  %cmp = icmp ne i32 %0, 0
+  call void @llvm.assume(i1 %cmp)
+  %1 = load i32, ptr %x.addr, align 4
+  %call = call noundef i32 @_ZN4absl12lts_2023080211countr_zeroIjEENSt9enable_ifIXsr3std11is_unsignedIT_EE5valueEiE4typeES3_(i32 noundef %1) #3
+  ret i32 %call
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #16
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i32 @_ZN4absl12lts_2023080211countr_zeroIjEENSt9enable_ifIXsr3std11is_unsignedIT_EE5valueEiE4typeES3_(i32 noundef %x) #4 comdat personality ptr @__gxx_personality_v0 {
+entry:
+  %x.addr.i1 = alloca i32, align 4
+  %x.addr.i = alloca i32, align 4
+  %x.addr = alloca i32, align 4
+  store i32 %x, ptr %x.addr, align 4
+  %0 = load i32, ptr %x.addr, align 4
+  store i32 %0, ptr %x.addr.i, align 4
+  %1 = load i32, ptr %x.addr.i, align 4
+  %cmp.i = icmp eq i32 %1, 0
+  br i1 %cmp.i, label %cond.true.i, label %cond.false.i
+
+cond.true.i:                                      ; preds = %entry
+  br label %_ZN4absl12lts_2023080216numeric_internal19CountTrailingZeroesIjEEiT_.exit
+
+cond.false.i:                                     ; preds = %entry
+  %2 = load i32, ptr %x.addr.i, align 4
+  store i32 %2, ptr %x.addr.i1, align 4
+  %3 = load i32, ptr %x.addr.i1, align 4
+  %4 = call noundef i32 @llvm.cttz.i32(i32 %3, i1 true)
+  br label %invoke.cont.i
+
+invoke.cont.i:                                    ; preds = %cond.false.i
+  br label %_ZN4absl12lts_2023080216numeric_internal19CountTrailingZeroesIjEEiT_.exit
+
+terminate.lpad.i:                                 ; No predecessors!
+  %5 = landingpad { ptr, i32 }
+          catch ptr null
+  %6 = extractvalue { ptr, i32 } %5, 0
+  call void @__clang_call_terminate(ptr %6) #20
+  unreachable
+
+_ZN4absl12lts_2023080216numeric_internal19CountTrailingZeroesIjEEiT_.exit: ; preds = %invoke.cont.i, %cond.true.i
+  %cond.i = phi i32 [ 32, %cond.true.i ], [ %4, %invoke.cont.i ]
+  ret i32 %cond.i
+}
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #17
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN4absl12lts_2023080218container_internal17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS4_4util21SimpleFieldComparator9ToleranceEE5applyINS1_12raw_hash_setISB_NS1_6HashEqIS7_vE4HashENSF_2EqESaISt4pairIKS7_SA_EEE12EqualElementIS7_EEJRSK_EEEDTclsr4absl18container_internalE13DecomposePairclsr3stdE7declvalIT_EEspclsr3stdE7declvalIT0_EEEEOSQ_DpOSR_(ptr noundef nonnull align 8 dereferenceable(16) %f, ptr noundef nonnull align 8 dereferenceable(24) %args) #6 comdat align 2 {
+entry:
+  %f.addr = alloca ptr, align 8
+  %args.addr = alloca ptr, align 8
+  store ptr %f, ptr %f.addr, align 8
+  store ptr %args, ptr %args.addr, align 8
+  %0 = load ptr, ptr %f.addr, align 8
+  %1 = load ptr, ptr %args.addr, align 8
+  %call = call noundef zeroext i1 @_ZN4absl12lts_2023080218container_internal13DecomposePairINS1_12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS6_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS9_vE4HashENSF_2EqESaISt4pairIKS9_SC_EEE12EqualElementIS9_EEJRSK_EEEDTclsr15memory_internalE17DecomposePairImplclsr3stdE7forwardIT_Efp_Ecl8PairArgsspclsr3stdE7forwardIT0_Efp0_EEEEOSQ_DpOSR_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  ret i1 %call
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN4absl12lts_2023080218container_internal13DecomposePairINS1_12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS6_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS9_vE4HashENSF_2EqESaISt4pairIKS9_SC_EEE12EqualElementIS9_EEJRSK_EEEDTclsr15memory_internalE17DecomposePairImplclsr3stdE7forwardIT_Efp_Ecl8PairArgsspclsr3stdE7forwardIT0_Efp0_EEEEOSQ_DpOSR_(ptr noundef nonnull align 8 dereferenceable(16) %f, ptr noundef nonnull align 8 dereferenceable(24) %args) #6 comdat {
+entry:
+  %f.addr = alloca ptr, align 8
+  %args.addr = alloca ptr, align 8
+  %agg.tmp = alloca %"struct.std::pair.99", align 8
+  store ptr %f, ptr %f.addr, align 8
+  store ptr %args, ptr %args.addr, align 8
+  %0 = load ptr, ptr %f.addr, align 8
+  %1 = load ptr, ptr %args.addr, align 8
+  call void @_ZN4absl12lts_2023080218container_internal8PairArgsIKPKN6google8protobuf15FieldDescriptorENS4_4util21SimpleFieldComparator9ToleranceEEESt4pairISt5tupleIJRKT_EESD_IJRKT0_EEERKSC_ISE_SI_E(ptr sret(%"struct.std::pair.99") align 8 %agg.tmp, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %call = call noundef zeroext i1 @_ZN4absl12lts_2023080218container_internal15memory_internal17DecomposePairImplINS1_12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS7_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqISA_vE4HashENSG_2EqESaISt4pairIKSA_SD_EEE12EqualElementISA_EERSK_St5tupleIJRKSD_EEEEDTclclsr3stdE7declvalIT_EEclsr3stdE7declvalIRKT0_EEL_ZSt19piecewise_constructEclsr3stdE7declvalISR_IJSW_EEEEclsr3stdE7declvalIT1_EEEEOSV_SJ_ISZ_S10_E(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %agg.tmp)
+  ret i1 %call
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN4absl12lts_2023080218container_internal15memory_internal17DecomposePairImplINS1_12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS7_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqISA_vE4HashENSG_2EqESaISt4pairIKSA_SD_EEE12EqualElementISA_EERSK_St5tupleIJRKSD_EEEEDTclclsr3stdE7declvalIT_EEclsr3stdE7declvalIRKT0_EEL_ZSt19piecewise_constructEclsr3stdE7declvalISR_IJSW_EEEEclsr3stdE7declvalIT1_EEEEOSV_SJ_ISZ_S10_E(ptr noundef nonnull align 8 dereferenceable(16) %f, ptr noundef %p) #6 comdat {
+entry:
+  %f.addr = alloca ptr, align 8
+  %p.indirect_addr = alloca ptr, align 8
+  %key = alloca ptr, align 8
+  store ptr %f, ptr %f.addr, align 8
+  store ptr %p, ptr %p.indirect_addr, align 8
+  %first = getelementptr inbounds %"struct.std::pair.99", ptr %p, i32 0, i32 0
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJRKPKN6google8protobuf15FieldDescriptorEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSB_(ptr noundef nonnull align 8 dereferenceable(8) %first) #3
+  store ptr %call, ptr %key, align 8
+  %0 = load ptr, ptr %f.addr, align 8
+  %1 = load ptr, ptr %key, align 8
+  %first1 = getelementptr inbounds %"struct.std::pair.99", ptr %p, i32 0, i32 0
+  %second = getelementptr inbounds %"struct.std::pair.99", ptr %p, i32 0, i32 1
+  %call2 = call noundef zeroext i1 @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE12EqualElementIS8_EclIS8_JRKSt21piecewise_construct_tSt5tupleIJRSI_EESS_IJRKSB_EEEEEbRKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %first1, ptr noundef nonnull align 8 dereferenceable(8) %second)
+  ret i1 %call2
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal8PairArgsIKPKN6google8protobuf15FieldDescriptorENS4_4util21SimpleFieldComparator9ToleranceEEESt4pairISt5tupleIJRKT_EESD_IJRKT0_EEERKSC_ISE_SI_E(ptr noalias sret(%"struct.std::pair.99") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %p) #6 comdat {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %p.addr = alloca ptr, align 8
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store ptr %p, ptr %p.addr, align 8
+  %0 = load ptr, ptr %p.addr, align 8
+  %first = getelementptr inbounds %"struct.std::pair", ptr %0, i32 0, i32 0
+  %1 = load ptr, ptr %p.addr, align 8
+  %second = getelementptr inbounds %"struct.std::pair", ptr %1, i32 0, i32 1
+  call void @_ZN4absl12lts_2023080218container_internal8PairArgsIRKPKN6google8protobuf15FieldDescriptorERKNS4_4util21SimpleFieldComparator9ToleranceEEESt4pairISt5tupleIJOT_EESG_IJOT0_EEESI_SL_(ptr sret(%"struct.std::pair.99") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %first, ptr noundef nonnull align 8 dereferenceable(16) %second)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJRKPKN6google8protobuf15FieldDescriptorEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSB_(ptr noundef nonnull align 8 dereferenceable(8) %__t) #4 comdat {
+entry:
+  %__t.addr = alloca ptr, align 8
+  store ptr %__t, ptr %__t.addr, align 8
+  %0 = load ptr, ptr %__t.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0ERKPKN6google8protobuf15FieldDescriptorEJEERT0_RSt11_Tuple_implIXT_EJS7_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #3
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE12EqualElementIS8_EclIS8_JRKSt21piecewise_construct_tSt5tupleIJRSI_EESS_IJRKSB_EEEEEbRKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(8) %lhs, ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %lhs.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  %.addr1 = alloca ptr, align 8
+  %.addr2 = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %lhs, ptr %lhs.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  store ptr %1, ptr %.addr1, align 8
+  store ptr %2, ptr %.addr2, align 8
+  %this3 = load ptr, ptr %this.addr, align 8
+  %eq = getelementptr inbounds %"struct.absl::lts_20230802::container_internal::raw_hash_set<absl::lts_20230802::container_internal::FlatHashMapPolicy<const google::protobuf::FieldDescriptor *, google::protobuf::util::SimpleFieldComparator::Tolerance>, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Hash, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Eq, std::allocator<std::pair<const google::protobuf::FieldDescriptor *const, google::protobuf::util::SimpleFieldComparator::Tolerance>>>::EqualElement", ptr %this3, i32 0, i32 1
+  %3 = load ptr, ptr %eq, align 8
+  %4 = load ptr, ptr %lhs.addr, align 8
+  %rhs = getelementptr inbounds %"struct.absl::lts_20230802::container_internal::raw_hash_set<absl::lts_20230802::container_internal::FlatHashMapPolicy<const google::protobuf::FieldDescriptor *, google::protobuf::util::SimpleFieldComparator::Tolerance>, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Hash, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Eq, std::allocator<std::pair<const google::protobuf::FieldDescriptor *const, google::protobuf::util::SimpleFieldComparator::Tolerance>>>::EqualElement", ptr %this3, i32 0, i32 0
+  %5 = load ptr, ptr %rhs, align 8
+  %call = call noundef zeroext i1 @_ZNK4absl12lts_2023080218container_internal6HashEqIPKN6google8protobuf15FieldDescriptorEvE2EqclIS7_S7_EEbRKT_RKT0_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  ret i1 %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0ERKPKN6google8protobuf15FieldDescriptorEJEERT0_RSt11_Tuple_implIXT_EJS7_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %__t) #4 comdat {
+entry:
+  %__t.addr = alloca ptr, align 8
+  store ptr %__t, ptr %__t.addr, align 8
+  %0 = load ptr, ptr %__t.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJRKPKN6google8protobuf15FieldDescriptorEEE7_M_headERS7_(ptr noundef nonnull align 8 dereferenceable(8) %0) #3
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJRKPKN6google8protobuf15FieldDescriptorEEE7_M_headERS7_(ptr noundef nonnull align 8 dereferenceable(8) %__t) #4 comdat align 2 {
+entry:
+  %__t.addr = alloca ptr, align 8
+  store ptr %__t, ptr %__t.addr, align 8
+  %0 = load ptr, ptr %__t.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0ERKPKN6google8protobuf15FieldDescriptorELb0EE7_M_headERS7_(ptr noundef nonnull align 8 dereferenceable(8) %0) #3
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0ERKPKN6google8protobuf15FieldDescriptorELb0EE7_M_headERS7_(ptr noundef nonnull align 8 dereferenceable(8) %__b) #4 comdat align 2 {
+entry:
+  %__b.addr = alloca ptr, align 8
+  store ptr %__b, ptr %__b.addr, align 8
+  %0 = load ptr, ptr %__b.addr, align 8
+  %_M_head_impl = getelementptr inbounds %"struct.std::_Head_base.95", ptr %0, i32 0, i32 0
+  %1 = load ptr, ptr %_M_head_impl, align 8
+  ret ptr %1
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNK4absl12lts_2023080218container_internal6HashEqIPKN6google8protobuf15FieldDescriptorEvE2EqclIS7_S7_EEbRKT_RKT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(8) %b) #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %a.addr = alloca ptr, align 8
+  %b.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %a, ptr %a.addr, align 8
+  store ptr %b, ptr %b.addr, align 8
+  %0 = load ptr, ptr %a.addr, align 8
+  %1 = load ptr, ptr %0, align 8
+  %call = call noundef ptr @_ZN4absl12lts_2023080218container_internal6HashEqIPKN6google8protobuf15FieldDescriptorEvE5ToPtrES7_(ptr noundef %1)
+  %2 = load ptr, ptr %b.addr, align 8
+  %3 = load ptr, ptr %2, align 8
+  %call2 = call noundef ptr @_ZN4absl12lts_2023080218container_internal6HashEqIPKN6google8protobuf15FieldDescriptorEvE5ToPtrES7_(ptr noundef %3)
+  %cmp = icmp eq ptr %call, %call2
+  ret i1 %cmp
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal8PairArgsIRKPKN6google8protobuf15FieldDescriptorERKNS4_4util21SimpleFieldComparator9ToleranceEEESt4pairISt5tupleIJOT_EESG_IJOT0_EEESI_SL_(ptr noalias sret(%"struct.std::pair.99") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %f, ptr noundef nonnull align 8 dereferenceable(16) %s) #6 comdat {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %f.addr = alloca ptr, align 8
+  %s.addr = alloca ptr, align 8
+  %agg.tmp1 = alloca %"class.std::tuple.93", align 8
+  %agg.tmp2 = alloca %"class.std::tuple.101", align 8
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store ptr %f, ptr %f.addr, align 8
+  store ptr %s, ptr %s.addr, align 8
+  %0 = load ptr, ptr %f.addr, align 8
+  call void @_ZSt16forward_as_tupleIJRKPKN6google8protobuf15FieldDescriptorEEESt5tupleIJDpOT_EESA_(ptr sret(%"class.std::tuple.93") align 8 %agg.tmp1, ptr noundef nonnull align 8 dereferenceable(8) %0) #3
+  %1 = load ptr, ptr %s.addr, align 8
+  call void @_ZSt16forward_as_tupleIJRKN6google8protobuf4util21SimpleFieldComparator9ToleranceEEESt5tupleIJDpOT_EESA_(ptr sret(%"class.std::tuple.101") align 8 %agg.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %1) #3
+  call void @_ZNSt4pairISt5tupleIJRKPKN6google8protobuf15FieldDescriptorEEES0_IJRKNS2_4util21SimpleFieldComparator9ToleranceEEEEC2IJS7_EJSD_EEESt21piecewise_construct_tS0_IJDpT_EES0_IJDpT0_EE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef %agg.tmp1, ptr noundef %agg.tmp2)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt16forward_as_tupleIJRKN6google8protobuf4util21SimpleFieldComparator9ToleranceEEESt5tupleIJDpOT_EESA_(ptr noalias sret(%"class.std::tuple.101") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %__args) #4 comdat {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %__args.addr = alloca ptr, align 8
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store ptr %__args, ptr %__args.addr, align 8
+  %0 = load ptr, ptr %__args.addr, align 8
+  call void @_ZNSt5tupleIJRKN6google8protobuf4util21SimpleFieldComparator9ToleranceEEEC2ILb1ETnNSt9enable_ifIXclsr4_TCCIXT_EEE29__is_implicitly_constructibleIS6_EEEbE4typeELb1EEES6_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %0) #3
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt4pairISt5tupleIJRKPKN6google8protobuf15FieldDescriptorEEES0_IJRKNS2_4util21SimpleFieldComparator9ToleranceEEEEC2IJS7_EJSD_EEESt21piecewise_construct_tS0_IJDpT_EES0_IJDpT0_EE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__first, ptr noundef %__second) unnamed_addr #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__first.indirect_addr = alloca ptr, align 8
+  %__second.indirect_addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__first, ptr %__first.indirect_addr, align 8
+  store ptr %__second, ptr %__second.indirect_addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZNSt4pairISt5tupleIJRKPKN6google8protobuf15FieldDescriptorEEES0_IJRKNS2_4util21SimpleFieldComparator9ToleranceEEEEC2IJS7_EJLm0EEJSD_EJLm0EEEERS0_IJDpT_EERS0_IJDpT1_EESt12_Index_tupleIJXspT0_EEESP_IJXspT2_EEE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(8) %__first, ptr noundef nonnull align 8 dereferenceable(8) %__second)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt5tupleIJRKN6google8protobuf4util21SimpleFieldComparator9ToleranceEEEC2ILb1ETnNSt9enable_ifIXclsr4_TCCIXT_EEE29__is_implicitly_constructibleIS6_EEEbE4typeELb1EEES6_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(16) %__elements) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__elements.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__elements, ptr %__elements.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %__elements.addr, align 8
+  invoke void @_ZNSt11_Tuple_implILm0EJRKN6google8protobuf4util21SimpleFieldComparator9ToleranceEEEC2ES6_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(16) %0)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %entry
+  ret void
+
+terminate.lpad:                                   ; preds = %entry
+  %1 = landingpad { ptr, i32 }
+          catch ptr null
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #20
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt11_Tuple_implILm0EJRKN6google8protobuf4util21SimpleFieldComparator9ToleranceEEEC2ES6_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(16) %__head) unnamed_addr #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__head.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__head, ptr %__head.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %__head.addr, align 8
+  call void @_ZNSt10_Head_baseILm0ERKN6google8protobuf4util21SimpleFieldComparator9ToleranceELb0EEC2ES6_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(16) %0)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt10_Head_baseILm0ERKN6google8protobuf4util21SimpleFieldComparator9ToleranceELb0EEC2ES6_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(16) %__h) unnamed_addr #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__h.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__h, ptr %__h.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_head_impl = getelementptr inbounds %"struct.std::_Head_base.103", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %__h.addr, align 8
+  store ptr %0, ptr %_M_head_impl, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt4pairISt5tupleIJRKPKN6google8protobuf15FieldDescriptorEEES0_IJRKNS2_4util21SimpleFieldComparator9ToleranceEEEEC2IJS7_EJLm0EEJSD_EJLm0EEEERS0_IJDpT_EERS0_IJDpT1_EESt12_Index_tupleIJXspT0_EEESP_IJXspT2_EEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(8) %__tuple1, ptr noundef nonnull align 8 dereferenceable(8) %__tuple2) unnamed_addr #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__tuple1.addr = alloca ptr, align 8
+  %__tuple2.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__tuple1, ptr %__tuple1.addr, align 8
+  store ptr %__tuple2, ptr %__tuple2.addr, align 8
+  %this2 = load ptr, ptr %this.addr, align 8
+  %first = getelementptr inbounds %"struct.std::pair.99", ptr %this2, i32 0, i32 0
+  %0 = load ptr, ptr %__tuple1.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJRKPKN6google8protobuf15FieldDescriptorEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSB_(ptr noundef nonnull align 8 dereferenceable(8) %0) #3
+  call void @_ZNSt5tupleIJRKPKN6google8protobuf15FieldDescriptorEEEC2ILb1ETnNSt9enable_ifIXclsr4_TCCIXT_EEE29__is_implicitly_constructibleIS6_EEEbE4typeELb1EEES6_(ptr noundef nonnull align 8 dereferenceable(8) %first, ptr noundef nonnull align 8 dereferenceable(8) %call) #3
+  %second = getelementptr inbounds %"struct.std::pair.99", ptr %this2, i32 0, i32 1
+  %1 = load ptr, ptr %__tuple2.addr, align 8
+  %call3 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZSt3getILm0EJRKN6google8protobuf4util21SimpleFieldComparator9ToleranceEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSB_(ptr noundef nonnull align 8 dereferenceable(8) %1) #3
+  call void @_ZNSt5tupleIJRKN6google8protobuf4util21SimpleFieldComparator9ToleranceEEEC2ILb1ETnNSt9enable_ifIXclsr4_TCCIXT_EEE29__is_implicitly_constructibleIS6_EEEbE4typeELb1EEES6_(ptr noundef nonnull align 8 dereferenceable(8) %second, ptr noundef nonnull align 8 dereferenceable(16) %call3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt5tupleIJRKPKN6google8protobuf15FieldDescriptorEEEC2ILb1ETnNSt9enable_ifIXclsr4_TCCIXT_EEE29__is_implicitly_constructibleIS6_EEEbE4typeELb1EEES6_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__elements) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__elements.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__elements, ptr %__elements.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %__elements.addr, align 8
+  invoke void @_ZNSt11_Tuple_implILm0EJRKPKN6google8protobuf15FieldDescriptorEEEC2ES6_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %entry
+  ret void
+
+terminate.lpad:                                   ; preds = %entry
+  %1 = landingpad { ptr, i32 }
+          catch ptr null
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #20
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZSt3getILm0EJRKN6google8protobuf4util21SimpleFieldComparator9ToleranceEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSB_(ptr noundef nonnull align 8 dereferenceable(8) %__t) #4 comdat {
+entry:
+  %__t.addr = alloca ptr, align 8
+  store ptr %__t, ptr %__t.addr, align 8
+  %0 = load ptr, ptr %__t.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(16) ptr @_ZSt12__get_helperILm0ERKN6google8protobuf4util21SimpleFieldComparator9ToleranceEJEERT0_RSt11_Tuple_implIXT_EJS7_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #3
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt11_Tuple_implILm0EJRKPKN6google8protobuf15FieldDescriptorEEEC2ES6_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__head) unnamed_addr #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__head.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__head, ptr %__head.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %__head.addr, align 8
+  call void @_ZNSt10_Head_baseILm0ERKPKN6google8protobuf15FieldDescriptorELb0EEC2ES6_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt10_Head_baseILm0ERKPKN6google8protobuf15FieldDescriptorELb0EEC2ES6_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__h) unnamed_addr #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__h.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__h, ptr %__h.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_head_impl = getelementptr inbounds %"struct.std::_Head_base.95", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %__h.addr, align 8
+  store ptr %0, ptr %_M_head_impl, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZSt12__get_helperILm0ERKN6google8protobuf4util21SimpleFieldComparator9ToleranceEJEERT0_RSt11_Tuple_implIXT_EJS7_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %__t) #4 comdat {
+entry:
+  %__t.addr = alloca ptr, align 8
+  store ptr %__t, ptr %__t.addr, align 8
+  %0 = load ptr, ptr %__t.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt11_Tuple_implILm0EJRKN6google8protobuf4util21SimpleFieldComparator9ToleranceEEE7_M_headERS7_(ptr noundef nonnull align 8 dereferenceable(8) %0) #3
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt11_Tuple_implILm0EJRKN6google8protobuf4util21SimpleFieldComparator9ToleranceEEE7_M_headERS7_(ptr noundef nonnull align 8 dereferenceable(8) %__t) #4 comdat align 2 {
+entry:
+  %__t.addr = alloca ptr, align 8
+  store ptr %__t, ptr %__t.addr, align 8
+  %0 = load ptr, ptr %__t.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10_Head_baseILm0ERKN6google8protobuf4util21SimpleFieldComparator9ToleranceELb0EE7_M_headERS7_(ptr noundef nonnull align 8 dereferenceable(8) %0) #3
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10_Head_baseILm0ERKN6google8protobuf4util21SimpleFieldComparator9ToleranceELb0EE7_M_headERS7_(ptr noundef nonnull align 8 dereferenceable(8) %__b) #4 comdat align 2 {
+entry:
+  %__b.addr = alloca ptr, align 8
+  store ptr %__b, ptr %__b.addr, align 8
+  %0 = load ptr, ptr %__b.addr, align 8
+  %_M_head_impl = getelementptr inbounds %"struct.std::_Head_base.103", ptr %0, i32 0, i32 0
+  %1 = load ptr, ptr %_M_head_impl, align 8
+  ret ptr %1
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNR4absl12lts_2023080218container_internal15CompressedTupleIJNS1_12CommonFieldsENS1_6HashEqIPKN6google8protobuf15FieldDescriptorEvE4HashENSA_2EqESaISt4pairIKS9_NS6_4util21SimpleFieldComparator9ToleranceEEEEE3getILi2EEERNS1_25internal_compressed_tuple4ElemISK_XT_EE4typeEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNR4absl12lts_2023080218container_internal25internal_compressed_tuple7StorageINS1_6HashEqIPKN6google8protobuf15FieldDescriptorEvE2EqELm2ELb1EE3getEv(ptr noundef nonnull align 1 dereferenceable(1) %this1)
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNR4absl12lts_2023080218container_internal25internal_compressed_tuple7StorageINS1_6HashEqIPKN6google8protobuf15FieldDescriptorEvE2EqELm2ELb1EE3getEv(ptr noundef nonnull align 1 dereferenceable(1) %this) #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  ret ptr %this1
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4absl12lts_2023080218container_internal17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS4_4util21SimpleFieldComparator9ToleranceEE7elementEPNS1_13map_slot_typeIS7_SA_EE(ptr noundef %slot) #4 comdat align 2 {
+entry:
+  %slot.addr = alloca ptr, align 8
+  store ptr %slot, ptr %slot.addr, align 8
+  %0 = load ptr, ptr %slot.addr, align 8
+  ret ptr %0
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal18NonIterableBitMaskIjLi16ELi0EEC2Ej(ptr noundef nonnull align 4 dereferenceable(4) %this, i32 noundef %mask) unnamed_addr #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %mask.addr = alloca i32, align 4
+  store ptr %this, ptr %this.addr, align 8
+  store i32 %mask, ptr %mask.addr, align 4
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mask_ = getelementptr inbounds %"class.absl::lts_20230802::container_internal::NonIterableBitMask", ptr %this1, i32 0, i32 0
+  %0 = load i32, ptr %mask.addr, align 4
+  store i32 %0, ptr %mask_, align 4
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNK4absl12lts_2023080218container_internal12CommonFields41should_rehash_for_bug_detection_on_insertEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef ptr @_ZNK4absl12lts_2023080218container_internal12CommonFields7controlEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  %call2 = call noundef i64 @_ZNK4absl12lts_2023080218container_internal12CommonFields8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  %call3 = call noundef zeroext i1 @_ZNK4absl12lts_2023080218container_internal34CommonFieldsGenerationInfoDisabled41should_rehash_for_bug_detection_on_insertEPKNS1_6ctrl_tEm(ptr noundef nonnull align 1 dereferenceable(1) %this1, ptr noundef %call, i64 noundef %call2)
+  ret i1 %call3
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %new_capacity) #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %new_capacity.addr = alloca i64, align 8
+  %old_ctrl = alloca ptr, align 8
+  %old_slots = alloca ptr, align 8
+  %old_capacity = alloca i64, align 8
+  %new_slots = alloca ptr, align 8
+  %total_probe_length = alloca i64, align 8
+  %i = alloca i64, align 8
+  %hash = alloca i64, align 8
+  %ref.tmp = alloca %"struct.absl::lts_20230802::container_internal::raw_hash_set<absl::lts_20230802::container_internal::FlatHashMapPolicy<const google::protobuf::FieldDescriptor *, google::protobuf::util::SimpleFieldComparator::Tolerance>, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Hash, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Eq, std::allocator<std::pair<const google::protobuf::FieldDescriptor *const, google::protobuf::util::SimpleFieldComparator::Tolerance>>>::HashElement", align 8
+  %target = alloca %"struct.absl::lts_20230802::container_internal::FindInfo", align 8
+  %new_i = alloca i64, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store i64 %new_capacity, ptr %new_capacity.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef ptr @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE7controlEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  store ptr %call, ptr %old_ctrl, align 8
+  %call2 = call noundef ptr @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE10slot_arrayEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  store ptr %call2, ptr %old_slots, align 8
+  %call3 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE6commonEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  %call4 = call noundef i64 @_ZNK4absl12lts_2023080218container_internal12CommonFields8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %call3)
+  store i64 %call4, ptr %old_capacity, align 8
+  %call5 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE6commonEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  %0 = load i64, ptr %new_capacity.addr, align 8
+  call void @_ZN4absl12lts_2023080218container_internal12CommonFields12set_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %call5, i64 noundef %0)
+  call void @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE16initialize_slotsEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  %call6 = call noundef ptr @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE10slot_arrayEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  store ptr %call6, ptr %new_slots, align 8
+  store i64 0, ptr %total_probe_length, align 8
+  store i64 0, ptr %i, align 8
+  br label %for.cond
+
+for.cond:                                         ; preds = %for.inc, %entry
+  %1 = load i64, ptr %i, align 8
+  %2 = load i64, ptr %old_capacity, align 8
+  %cmp = icmp ne i64 %1, %2
+  br i1 %cmp, label %for.body, label %for.end
+
+for.body:                                         ; preds = %for.cond
+  %3 = load ptr, ptr %old_ctrl, align 8
+  %4 = load i64, ptr %i, align 8
+  %arrayidx = getelementptr inbounds i8, ptr %3, i64 %4
+  %5 = load i8, ptr %arrayidx, align 1
+  %call7 = call noundef zeroext i1 @_ZN4absl12lts_2023080218container_internal6IsFullENS1_6ctrl_tE(i8 noundef signext %5)
+  br i1 %call7, label %if.then, label %if.end
+
+if.then:                                          ; preds = %for.body
+  %h = getelementptr inbounds %"struct.absl::lts_20230802::container_internal::raw_hash_set<absl::lts_20230802::container_internal::FlatHashMapPolicy<const google::protobuf::FieldDescriptor *, google::protobuf::util::SimpleFieldComparator::Tolerance>, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Hash, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Eq, std::allocator<std::pair<const google::protobuf::FieldDescriptor *const, google::protobuf::util::SimpleFieldComparator::Tolerance>>>::HashElement", ptr %ref.tmp, i32 0, i32 0
+  %call8 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE8hash_refEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  store ptr %call8, ptr %h, align 8
+  %6 = load ptr, ptr %old_slots, align 8
+  %7 = load i64, ptr %i, align 8
+  %add.ptr = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %6, i64 %7
+  %call9 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEEvE7elementISC_EEDTclsrT_7elementfp_EEPNS1_13map_slot_typeIS8_SB_EE(ptr noundef %add.ptr)
+  %call10 = call noundef i64 @_ZN4absl12lts_2023080218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEEvE5applyINS1_12raw_hash_setISC_NS1_6HashEqIS8_vE4HashENSH_2EqESaISt4pairIKS8_SB_EEE11HashElementEJRSM_ESC_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSS_DpOST_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %call9)
+  store i64 %call10, ptr %hash, align 8
+  %call11 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE6commonEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  %8 = load i64, ptr %hash, align 8
+  %call12 = call { i64, i64 } @_ZN4absl12lts_2023080218container_internal19find_first_non_fullIvEENS1_8FindInfoERKNS1_12CommonFieldsEm(ptr noundef nonnull align 8 dereferenceable(32) %call11, i64 noundef %8)
+  %9 = getelementptr inbounds { i64, i64 }, ptr %target, i32 0, i32 0
+  %10 = extractvalue { i64, i64 } %call12, 0
+  store i64 %10, ptr %9, align 8
+  %11 = getelementptr inbounds { i64, i64 }, ptr %target, i32 0, i32 1
+  %12 = extractvalue { i64, i64 } %call12, 1
+  store i64 %12, ptr %11, align 8
+  %offset = getelementptr inbounds %"struct.absl::lts_20230802::container_internal::FindInfo", ptr %target, i32 0, i32 0
+  %13 = load i64, ptr %offset, align 8
+  store i64 %13, ptr %new_i, align 8
+  %probe_length = getelementptr inbounds %"struct.absl::lts_20230802::container_internal::FindInfo", ptr %target, i32 0, i32 1
+  %14 = load i64, ptr %probe_length, align 8
+  %15 = load i64, ptr %total_probe_length, align 8
+  %add = add i64 %15, %14
+  store i64 %add, ptr %total_probe_length, align 8
+  %call13 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE6commonEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  %16 = load i64, ptr %new_i, align 8
+  %17 = load i64, ptr %hash, align 8
+  %call14 = call noundef zeroext i8 @_ZN4absl12lts_2023080218container_internal2H2Em(i64 noundef %17)
+  call void @_ZN4absl12lts_2023080218container_internal7SetCtrlERKNS1_12CommonFieldsEmhm(ptr noundef nonnull align 8 dereferenceable(32) %call13, i64 noundef %16, i8 noundef zeroext %call14, i64 noundef 24)
+  %call15 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE9alloc_refEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  %18 = load ptr, ptr %new_slots, align 8
+  %19 = load i64, ptr %new_i, align 8
+  %add.ptr16 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %18, i64 %19
+  %20 = load ptr, ptr %old_slots, align 8
+  %21 = load i64, ptr %i, align 8
+  %add.ptr17 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %20, i64 %21
+  call void @_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEEvE8transferISaISt4pairIKS8_SB_EEEEvPT_PNS1_13map_slot_typeIS8_SB_EESN_(ptr noundef %call15, ptr noundef %add.ptr16, ptr noundef %add.ptr17)
+  br label %if.end
+
+if.end:                                           ; preds = %if.then, %for.body
+  br label %for.inc
+
+for.inc:                                          ; preds = %if.end
+  %22 = load i64, ptr %i, align 8
+  %inc = add i64 %22, 1
+  store i64 %inc, ptr %i, align 8
+  br label %for.cond, !llvm.loop !7
+
+for.end:                                          ; preds = %for.cond
+  %23 = load i64, ptr %old_capacity, align 8
+  %tobool = icmp ne i64 %23, 0
+  br i1 %tobool, label %if.then18, label %if.end23
+
+if.then18:                                        ; preds = %for.end
+  %24 = load ptr, ptr %old_slots, align 8
+  %25 = load i64, ptr %old_capacity, align 8
+  %mul = mul i64 24, %25
+  call void @_ZN4absl12lts_2023080218container_internal29SanitizerUnpoisonMemoryRegionEPKvm(ptr noundef %24, i64 noundef %mul)
+  %call19 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE9alloc_refEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  %26 = load ptr, ptr %old_ctrl, align 8
+  %call20 = call noundef i64 @_ZN4absl12lts_2023080218container_internal13ControlOffsetEv()
+  %idx.neg = sub i64 0, %call20
+  %add.ptr21 = getelementptr inbounds i8, ptr %26, i64 %idx.neg
+  %27 = load i64, ptr %old_capacity, align 8
+  %call22 = call noundef i64 @_ZN4absl12lts_2023080218container_internal9AllocSizeEmmm(i64 noundef %27, i64 noundef 24, i64 noundef 8)
+  call void @_ZN4absl12lts_2023080218container_internal10DeallocateILm8ESaISt4pairIKPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEEEEvPT0_Pvm(ptr noundef %call19, ptr noundef %add.ptr21, i64 noundef %call22)
+  br label %if.end23
+
+if.end23:                                         ; preds = %if.then18, %for.end
+  %call24 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE5infozEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  %28 = load i64, ptr %total_probe_length, align 8
+  call void @_ZN4absl12lts_2023080218container_internal20HashtablezInfoHandle12RecordRehashEm(ptr noundef nonnull align 1 dereferenceable(1) %call24, i64 noundef %28)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef i64 @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE11growth_leftEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE6commonEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  %call2 = call noundef i64 @_ZNK4absl12lts_2023080218container_internal12CommonFields11growth_leftEv(ptr noundef nonnull align 8 dereferenceable(32) %call)
+  ret i64 %call2
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZN4absl12lts_2023080218container_internal12NextCapacityEm(i64 noundef %n) #4 comdat {
+entry:
+  %n.addr = alloca i64, align 8
+  store i64 %n, ptr %n.addr, align 8
+  %0 = load i64, ptr %n.addr, align 8
+  %mul = mul i64 %0, 2
+  %add = add i64 %mul, 1
+  ret i64 %add
+}
+
+declare { i64, i64 } @_ZN4absl12lts_2023080218container_internal19find_first_non_fullIvEENS1_8FindInfoERKNS1_12CommonFieldsEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN4absl12lts_2023080218container_internal9IsDeletedENS1_6ctrl_tE(i8 noundef signext %c) #4 comdat {
+entry:
+  %c.addr = alloca i8, align 1
+  store i8 %c, ptr %c.addr, align 1
+  %0 = load i8, ptr %c.addr, align 1
+  %cmp = icmp eq i8 %0, -2
+  ret i1 %cmp
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE28rehash_and_grow_if_necessaryEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %cap = alloca i64, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef i64 @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  store i64 %call, ptr %cap, align 8
+  %0 = load i64, ptr %cap, align 8
+  %cmp = icmp ugt i64 %0, 16
+  br i1 %cmp, label %land.lhs.true, label %if.else
+
+land.lhs.true:                                    ; preds = %entry
+  %call2 = call noundef i64 @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  %mul = mul i64 %call2, 32
+  %1 = load i64, ptr %cap, align 8
+  %mul3 = mul i64 %1, 25
+  %cmp4 = icmp ule i64 %mul, %mul3
+  br i1 %cmp4, label %if.then, label %if.else
+
+if.then:                                          ; preds = %land.lhs.true
+  call void @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE27drop_deletes_without_resizeEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  br label %if.end
+
+if.else:                                          ; preds = %land.lhs.true, %entry
+  %2 = load i64, ptr %cap, align 8
+  %call5 = call noundef i64 @_ZN4absl12lts_2023080218container_internal12NextCapacityEm(i64 noundef %2)
+  call void @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %this1, i64 noundef %call5)
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE15set_growth_leftEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %gl) #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %gl.addr = alloca i64, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store i64 %gl, ptr %gl.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE6commonEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  %0 = load i64, ptr %gl.addr, align 8
+  call void @_ZN4absl12lts_2023080218container_internal12CommonFields15set_growth_leftEm(ptr noundef nonnull align 8 dereferenceable(32) %call, i64 noundef %0)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN4absl12lts_2023080218container_internal7IsEmptyENS1_6ctrl_tE(i8 noundef signext %c) #4 comdat {
+entry:
+  %c.addr = alloca i8, align 1
+  store i8 %c, ptr %c.addr, align 1
+  %0 = load i8, ptr %c.addr, align 1
+  %cmp = icmp eq i8 %0, -128
+  ret i1 %cmp
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal7SetCtrlERKNS1_12CommonFieldsEmhm(ptr noundef nonnull align 8 dereferenceable(32) %common, i64 noundef %i, i8 noundef zeroext %h, i64 noundef %slot_size) #6 comdat {
+entry:
+  %common.addr = alloca ptr, align 8
+  %i.addr = alloca i64, align 8
+  %h.addr = alloca i8, align 1
+  %slot_size.addr = alloca i64, align 8
+  store ptr %common, ptr %common.addr, align 8
+  store i64 %i, ptr %i.addr, align 8
+  store i8 %h, ptr %h.addr, align 1
+  store i64 %slot_size, ptr %slot_size.addr, align 8
+  %0 = load ptr, ptr %common.addr, align 8
+  %1 = load i64, ptr %i.addr, align 8
+  %2 = load i8, ptr %h.addr, align 1
+  %3 = load i64, ptr %slot_size.addr, align 8
+  call void @_ZN4absl12lts_2023080218container_internal7SetCtrlERKNS1_12CommonFieldsEmNS1_6ctrl_tEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i8 noundef signext %2, i64 noundef %3)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal34CommonFieldsGenerationInfoDisabled36maybe_increment_generation_on_insertEv(ptr noundef nonnull align 1 dereferenceable(1) %this) #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal20HashtablezInfoHandle12RecordInsertEmm(ptr noundef nonnull align 1 dereferenceable(1) %this, i64 noundef %0, i64 noundef %1) #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca i64, align 8
+  %.addr1 = alloca i64, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store i64 %0, ptr %.addr, align 8
+  store i64 %1, ptr %.addr1, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNK4absl12lts_2023080218container_internal34CommonFieldsGenerationInfoDisabled41should_rehash_for_bug_detection_on_insertEPKNS1_6ctrl_tEm(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %0, i64 noundef %1) #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  %.addr1 = alloca i64, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  store i64 %1, ptr %.addr1, align 8
+  ret i1 false
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE16initialize_slotsEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %agg.tmp = alloca %"class.std::allocator.11", align 1
+  %exn.slot = alloca ptr, align 8
+  %ehselector.slot = alloca i32, align 4
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE6commonEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  %call2 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE9alloc_refEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  call void @_ZNSaIcEC2ISt4pairIKPKN6google8protobuf15FieldDescriptorENS3_4util21SimpleFieldComparator9ToleranceEEEERKSaIT_E(ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp, ptr noundef nonnull align 1 dereferenceable(1) %call2) #3
+  invoke void @_ZN4absl12lts_2023080218container_internal15InitializeSlotsISaIcELm24ELm8EEEvRNS1_12CommonFieldsET_(ptr noundef nonnull align 8 dereferenceable(32) %call, ptr noundef %agg.tmp)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %entry
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp) #3
+  ret void
+
+lpad:                                             ; preds = %entry
+  %0 = landingpad { ptr, i32 }
+          cleanup
+  %1 = extractvalue { ptr, i32 } %0, 0
+  store ptr %1, ptr %exn.slot, align 8
+  %2 = extractvalue { ptr, i32 } %0, 1
+  store i32 %2, ptr %ehselector.slot, align 4
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp) #3
+  br label %eh.resume
+
+eh.resume:                                        ; preds = %lpad
+  %exn = load ptr, ptr %exn.slot, align 8
+  %sel = load i32, ptr %ehselector.slot, align 4
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
+  %lpad.val3 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
+  resume { ptr, i32 } %lpad.val3
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef i64 @_ZN4absl12lts_2023080218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEEvE5applyINS1_12raw_hash_setISC_NS1_6HashEqIS8_vE4HashENSH_2EqESaISt4pairIKS8_SB_EEE11HashElementEJRSM_ESC_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSS_DpOST_(ptr noundef nonnull align 8 dereferenceable(8) %f, ptr noundef nonnull align 8 dereferenceable(24) %ts) #6 comdat align 2 {
+entry:
+  %f.addr = alloca ptr, align 8
+  %ts.addr = alloca ptr, align 8
+  store ptr %f, ptr %f.addr, align 8
+  store ptr %ts, ptr %ts.addr, align 8
+  %0 = load ptr, ptr %f.addr, align 8
+  %1 = load ptr, ptr %ts.addr, align 8
+  %call = call noundef i64 @_ZN4absl12lts_2023080218container_internal17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS4_4util21SimpleFieldComparator9ToleranceEE5applyINS1_12raw_hash_setISB_NS1_6HashEqIS7_vE4HashENSF_2EqESaISt4pairIKS7_SA_EEE11HashElementEJRSK_EEEDTclsr4absl18container_internalE13DecomposePairclsr3stdE7declvalIT_EEspclsr3stdE7declvalIT0_EEEEOSP_DpOSQ_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  ret i64 %call
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEEvE8transferISaISt4pairIKS8_SB_EEEEvPT_PNS1_13map_slot_typeIS8_SB_EESN_(ptr noundef %alloc, ptr noundef %new_slot, ptr noundef %old_slot) #6 comdat align 2 {
+entry:
+  %alloc.addr = alloca ptr, align 8
+  %new_slot.addr = alloca ptr, align 8
+  %old_slot.addr = alloca ptr, align 8
+  store ptr %alloc, ptr %alloc.addr, align 8
+  store ptr %new_slot, ptr %new_slot.addr, align 8
+  store ptr %old_slot, ptr %old_slot.addr, align 8
+  %0 = load ptr, ptr %alloc.addr, align 8
+  %1 = load ptr, ptr %new_slot.addr, align 8
+  %2 = load ptr, ptr %old_slot.addr, align 8
+  call void @_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEEvE13transfer_implISaISt4pairIKS8_SB_EESC_EEDTcvvclsrT0_8transferfp_fp0_fp1_EEPT_PNS1_13map_slot_typeIS8_SB_EESP_NSD_5Rank0E(ptr noundef %0, ptr noundef %1, ptr noundef %2)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal20HashtablezInfoHandle12RecordRehashEm(ptr noundef nonnull align 1 dereferenceable(1) %this, i64 noundef %0) #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca i64, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store i64 %0, ptr %.addr, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal15InitializeSlotsISaIcELm24ELm8EEEvRNS1_12CommonFieldsET_(ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef %alloc) #6 comdat {
+entry:
+  %c.addr = alloca ptr, align 8
+  %alloc.indirect_addr = alloca ptr, align 8
+  %sample_size = alloca i64, align 8
+  %cap = alloca i64, align 8
+  %alloc_size = alloca i64, align 8
+  %mem = alloca ptr, align 8
+  %old_generation = alloca i8, align 1
+  store ptr %c, ptr %c.addr, align 8
+  store ptr %alloc, ptr %alloc.indirect_addr, align 8
+  %0 = load ptr, ptr %c.addr, align 8
+  %call = call noundef ptr @_ZNK4absl12lts_2023080218container_internal12CommonFields10slot_arrayEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
+  %cmp = icmp eq ptr %call, null
+  %cond = select i1 %cmp, i64 24, i64 0
+  store i64 %cond, ptr %sample_size, align 8
+  %1 = load ptr, ptr %c.addr, align 8
+  %call1 = call noundef i64 @_ZNK4absl12lts_2023080218container_internal12CommonFields8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
+  store i64 %call1, ptr %cap, align 8
+  %2 = load i64, ptr %cap, align 8
+  %call2 = call noundef i64 @_ZN4absl12lts_2023080218container_internal9AllocSizeEmmm(i64 noundef %2, i64 noundef 24, i64 noundef 8)
+  store i64 %call2, ptr %alloc_size, align 8
+  %3 = load i64, ptr %alloc_size, align 8
+  %call3 = call noundef ptr @_ZN4absl12lts_2023080218container_internal8AllocateILm8ESaIcEEEPvPT0_m(ptr noundef %alloc, i64 noundef %3)
+  store ptr %call3, ptr %mem, align 8
+  %4 = load ptr, ptr %c.addr, align 8
+  %call4 = call noundef zeroext i8 @_ZNK4absl12lts_2023080218container_internal34CommonFieldsGenerationInfoDisabled10generationEv(ptr noundef nonnull align 1 dereferenceable(1) %4)
+  store i8 %call4, ptr %old_generation, align 1
+  %5 = load ptr, ptr %c.addr, align 8
+  %6 = load ptr, ptr %mem, align 8
+  %7 = load i64, ptr %cap, align 8
+  %call5 = call noundef i64 @_ZN4absl12lts_2023080218container_internal16GenerationOffsetEm(i64 noundef %7)
+  %add.ptr = getelementptr inbounds i8, ptr %6, i64 %call5
+  call void @_ZN4absl12lts_2023080218container_internal34CommonFieldsGenerationInfoDisabled18set_generation_ptrEPh(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %add.ptr)
+  %8 = load ptr, ptr %c.addr, align 8
+  %9 = load i8, ptr %old_generation, align 1
+  %call6 = call noundef zeroext i8 @_ZN4absl12lts_2023080218container_internal14NextGenerationEh(i8 noundef zeroext %9)
+  call void @_ZN4absl12lts_2023080218container_internal34CommonFieldsGenerationInfoDisabled14set_generationEh(ptr noundef nonnull align 1 dereferenceable(1) %8, i8 noundef zeroext %call6)
+  %10 = load ptr, ptr %c.addr, align 8
+  %11 = load ptr, ptr %mem, align 8
+  %call7 = call noundef i64 @_ZN4absl12lts_2023080218container_internal13ControlOffsetEv()
+  %add.ptr8 = getelementptr inbounds i8, ptr %11, i64 %call7
+  call void @_ZN4absl12lts_2023080218container_internal12CommonFields11set_controlEPNS1_6ctrl_tE(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %add.ptr8)
+  %12 = load ptr, ptr %c.addr, align 8
+  %13 = load ptr, ptr %mem, align 8
+  %14 = load i64, ptr %cap, align 8
+  %call9 = call noundef i64 @_ZN4absl12lts_2023080218container_internal10SlotOffsetEmm(i64 noundef %14, i64 noundef 8)
+  %add.ptr10 = getelementptr inbounds i8, ptr %13, i64 %call9
+  call void @_ZN4absl12lts_2023080218container_internal12CommonFields9set_slotsEPv(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef %add.ptr10)
+  %15 = load ptr, ptr %c.addr, align 8
+  call void @_ZN4absl12lts_2023080218container_internal9ResetCtrlERNS1_12CommonFieldsEm(ptr noundef nonnull align 8 dereferenceable(32) %15, i64 noundef 24)
+  %16 = load i64, ptr %sample_size, align 8
+  %tobool = icmp ne i64 %16, 0
+  br i1 %tobool, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %17 = load i64, ptr %sample_size, align 8
+  call void @_ZN4absl12lts_2023080218container_internal6SampleEm(i64 noundef %17)
+  %18 = load ptr, ptr %c.addr, align 8
+  %call11 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN4absl12lts_2023080218container_internal12CommonFields5infozEv(ptr noundef nonnull align 8 dereferenceable(32) %18)
+  br label %if.end
+
+if.end:                                           ; preds = %if.then, %entry
+  %19 = load ptr, ptr %c.addr, align 8
+  %call12 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN4absl12lts_2023080218container_internal12CommonFields5infozEv(ptr noundef nonnull align 8 dereferenceable(32) %19)
+  %20 = load ptr, ptr %c.addr, align 8
+  %call13 = call noundef i64 @_ZNK4absl12lts_2023080218container_internal12CommonFields4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %20)
+  %21 = load i64, ptr %cap, align 8
+  call void @_ZN4absl12lts_2023080218container_internal20HashtablezInfoHandle20RecordStorageChangedEmm(ptr noundef nonnull align 1 dereferenceable(1) %call12, i64 noundef %call13, i64 noundef %21)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSaIcEC2ISt4pairIKPKN6google8protobuf15FieldDescriptorENS3_4util21SimpleFieldComparator9ToleranceEEEERKSaIT_E(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZNSt15__new_allocatorIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1) #3
+  ret void
+}
+
+; Function Attrs: nounwind
+declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef ptr @_ZN4absl12lts_2023080218container_internal8AllocateILm8ESaIcEEEPvPT0_m(ptr noundef %alloc, i64 noundef %n) #6 comdat personality ptr @__gxx_personality_v0 {
+entry:
+  %alloc.addr = alloca ptr, align 8
+  %n.addr = alloca i64, align 8
+  %my_mem_alloc = alloca %"class.std::allocator.84", align 1
+  %p = alloca ptr, align 8
+  %exn.slot = alloca ptr, align 8
+  %ehselector.slot = alloca i32, align 4
+  store ptr %alloc, ptr %alloc.addr, align 8
+  store i64 %n, ptr %n.addr, align 8
+  %0 = load ptr, ptr %alloc.addr, align 8
+  call void @_ZNSaIN4absl12lts_2023080218container_internal11AlignedTypeILm8EEEEC2IcEERKSaIT_E(ptr noundef nonnull align 1 dereferenceable(1) %my_mem_alloc, ptr noundef nonnull align 1 dereferenceable(1) %0) #3
+  %1 = load i64, ptr %n.addr, align 8
+  %add = add i64 %1, 8
+  %sub = sub i64 %add, 1
+  %div = udiv i64 %sub, 8
+  %call = invoke noundef ptr @_ZNSt16allocator_traitsISaIN4absl12lts_2023080218container_internal11AlignedTypeILm8EEEEE8allocateERS5_m(ptr noundef nonnull align 1 dereferenceable(1) %my_mem_alloc, i64 noundef %div)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %entry
+  store ptr %call, ptr %p, align 8
+  %2 = load ptr, ptr %p, align 8
+  call void @_ZNSaIN4absl12lts_2023080218container_internal11AlignedTypeILm8EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %my_mem_alloc) #3
+  ret ptr %2
+
+lpad:                                             ; preds = %entry
+  %3 = landingpad { ptr, i32 }
+          cleanup
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
+  call void @_ZNSaIN4absl12lts_2023080218container_internal11AlignedTypeILm8EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %my_mem_alloc) #3
+  br label %eh.resume
+
+eh.resume:                                        ; preds = %lpad
+  %exn = load ptr, ptr %exn.slot, align 8
+  %sel = load i32, ptr %ehselector.slot, align 4
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
+  %lpad.val1 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
+  resume { ptr, i32 } %lpad.val1
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i8 @_ZNK4absl12lts_2023080218container_internal34CommonFieldsGenerationInfoDisabled10generationEv(ptr noundef nonnull align 1 dereferenceable(1) %this) #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  ret i8 0
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal34CommonFieldsGenerationInfoDisabled18set_generation_ptrEPh(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %0) #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal34CommonFieldsGenerationInfoDisabled14set_generationEh(ptr noundef nonnull align 1 dereferenceable(1) %this, i8 noundef zeroext %0) #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca i8, align 1
+  store ptr %this, ptr %this.addr, align 8
+  store i8 %0, ptr %.addr, align 1
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef zeroext i8 @_ZN4absl12lts_2023080218container_internal14NextGenerationEh(i8 noundef zeroext %generation) #6 comdat {
+entry:
+  %generation.addr = alloca i8, align 1
+  store i8 %generation, ptr %generation.addr, align 1
+  %0 = load i8, ptr %generation.addr, align 1
+  %inc = add i8 %0, 1
+  store i8 %inc, ptr %generation.addr, align 1
+  %conv = zext i8 %inc to i32
+  %call = call noundef zeroext i8 @_ZN4absl12lts_2023080218container_internal23SentinelEmptyGenerationEv()
+  %conv1 = zext i8 %call to i32
+  %cmp = icmp eq i32 %conv, %conv1
+  br i1 %cmp, label %cond.true, label %cond.false
+
+cond.true:                                        ; preds = %entry
+  %1 = load i8, ptr %generation.addr, align 1
+  %inc2 = add i8 %1, 1
+  store i8 %inc2, ptr %generation.addr, align 1
+  br label %cond.end
+
+cond.false:                                       ; preds = %entry
+  %2 = load i8, ptr %generation.addr, align 1
+  br label %cond.end
+
+cond.end:                                         ; preds = %cond.false, %cond.true
+  %cond = phi i8 [ %inc2, %cond.true ], [ %2, %cond.false ]
+  ret i8 %cond
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal9ResetCtrlERNS1_12CommonFieldsEm(ptr noundef nonnull align 8 dereferenceable(32) %common, i64 noundef %slot_size) #6 comdat {
+entry:
+  %common.addr = alloca ptr, align 8
+  %slot_size.addr = alloca i64, align 8
+  %capacity = alloca i64, align 8
+  %ctrl = alloca ptr, align 8
+  store ptr %common, ptr %common.addr, align 8
+  store i64 %slot_size, ptr %slot_size.addr, align 8
+  %0 = load ptr, ptr %common.addr, align 8
+  %call = call noundef i64 @_ZNK4absl12lts_2023080218container_internal12CommonFields8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
+  store i64 %call, ptr %capacity, align 8
+  %1 = load ptr, ptr %common.addr, align 8
+  %call1 = call noundef ptr @_ZNK4absl12lts_2023080218container_internal12CommonFields7controlEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
+  store ptr %call1, ptr %ctrl, align 8
+  %2 = load ptr, ptr %ctrl, align 8
+  %3 = load i64, ptr %capacity, align 8
+  %add = add i64 %3, 1
+  %call2 = call noundef i64 @_ZN4absl12lts_2023080218container_internal14NumClonedBytesEv()
+  %add3 = add i64 %add, %call2
+  call void @llvm.memset.p0.i64(ptr align 1 %2, i8 -128, i64 %add3, i1 false)
+  %4 = load ptr, ptr %ctrl, align 8
+  %5 = load i64, ptr %capacity, align 8
+  %arrayidx = getelementptr inbounds i8, ptr %4, i64 %5
+  store i8 -1, ptr %arrayidx, align 1
+  %6 = load ptr, ptr %common.addr, align 8
+  %call4 = call noundef ptr @_ZNK4absl12lts_2023080218container_internal12CommonFields10slot_arrayEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
+  %7 = load i64, ptr %slot_size.addr, align 8
+  %8 = load i64, ptr %capacity, align 8
+  %mul = mul i64 %7, %8
+  call void @_ZN4absl12lts_2023080218container_internal27SanitizerPoisonMemoryRegionEPKvm(ptr noundef %call4, i64 noundef %mul)
+  %9 = load ptr, ptr %common.addr, align 8
+  call void @_ZN4absl12lts_2023080218container_internal15ResetGrowthLeftERNS1_12CommonFieldsE(ptr noundef nonnull align 8 dereferenceable(32) %9)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal6SampleEm(i64 noundef %inline_element_size) #6 comdat {
+entry:
+  %retval = alloca %"class.absl::lts_20230802::container_internal::HashtablezInfoHandle", align 1
+  %inline_element_size.addr = alloca i64, align 8
+  store i64 %inline_element_size, ptr %inline_element_size.addr, align 8
+  call void @_ZN4absl12lts_2023080218container_internal20HashtablezInfoHandleC2EDn(ptr noundef nonnull align 1 dereferenceable(1) %retval, ptr null)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal20HashtablezInfoHandle20RecordStorageChangedEmm(ptr noundef nonnull align 1 dereferenceable(1) %this, i64 noundef %0, i64 noundef %1) #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca i64, align 8
+  %.addr1 = alloca i64, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store i64 %0, ptr %.addr, align 8
+  store i64 %1, ptr %.addr1, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSaIN4absl12lts_2023080218container_internal11AlignedTypeILm8EEEEC2IcEERKSaIT_E(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZNSt15__new_allocatorIN4absl12lts_2023080218container_internal11AlignedTypeILm8EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1) #3
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef ptr @_ZNSt16allocator_traitsISaIN4absl12lts_2023080218container_internal11AlignedTypeILm8EEEEE8allocateERS5_m(ptr noundef nonnull align 1 dereferenceable(1) %__a, i64 noundef %__n) #6 comdat align 2 {
+entry:
+  %__a.addr = alloca ptr, align 8
+  %__n.addr = alloca i64, align 8
+  store ptr %__a, ptr %__a.addr, align 8
+  store i64 %__n, ptr %__n.addr, align 8
+  %0 = load ptr, ptr %__a.addr, align 8
+  %1 = load i64, ptr %__n.addr, align 8
+  %call = call noundef ptr @_ZNSt15__new_allocatorIN4absl12lts_2023080218container_internal11AlignedTypeILm8EEEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1, ptr noundef null)
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef ptr @_ZNSt15__new_allocatorIN4absl12lts_2023080218container_internal11AlignedTypeILm8EEEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %this, i64 noundef %__n, ptr noundef %0) #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__n.addr = alloca i64, align 8
+  %.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store i64 %__n, ptr %__n.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %1 = load i64, ptr %__n.addr, align 8
+  %call = call noundef i64 @_ZNKSt15__new_allocatorIN4absl12lts_2023080218container_internal11AlignedTypeILm8EEEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %this1) #3
+  %cmp = icmp ugt i64 %1, %call
+  br i1 %cmp, label %if.then, label %if.end4
+
+if.then:                                          ; preds = %entry
+  %2 = load i64, ptr %__n.addr, align 8
+  %cmp2 = icmp ugt i64 %2, 2305843009213693951
+  br i1 %cmp2, label %if.then3, label %if.end
+
+if.then3:                                         ; preds = %if.then
+  call void @_ZSt28__throw_bad_array_new_lengthv() #23
+  unreachable
+
+if.end:                                           ; preds = %if.then
+  call void @_ZSt17__throw_bad_allocv() #23
+  unreachable
+
+if.end4:                                          ; preds = %entry
+  %3 = load i64, ptr %__n.addr, align 8
+  %mul = mul i64 %3, 8
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
+  ret ptr %call5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZNKSt15__new_allocatorIN4absl12lts_2023080218container_internal11AlignedTypeILm8EEEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %this) #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  ret i64 1152921504606846975
+}
+
+; Function Attrs: noreturn
+declare void @_ZSt28__throw_bad_array_new_lengthv() #18
+
+; Function Attrs: noreturn
+declare void @_ZSt17__throw_bad_allocv() #18
+
+; Function Attrs: nobuiltin allocsize(0)
+declare noundef nonnull ptr @_Znwm(i64 noundef) #19
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i8 @_ZN4absl12lts_2023080218container_internal23SentinelEmptyGenerationEv() #4 comdat {
+entry:
+  ret i8 0
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal27SanitizerPoisonMemoryRegionEPKvm(ptr noundef %m, i64 noundef %s) #4 comdat {
+entry:
+  %m.addr = alloca ptr, align 8
+  %s.addr = alloca i64, align 8
+  store ptr %m, ptr %m.addr, align 8
+  store i64 %s, ptr %s.addr, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal15ResetGrowthLeftERNS1_12CommonFieldsE(ptr noundef nonnull align 8 dereferenceable(32) %common) #6 comdat {
+entry:
+  %common.addr = alloca ptr, align 8
+  store ptr %common, ptr %common.addr, align 8
+  %0 = load ptr, ptr %common.addr, align 8
+  %1 = load ptr, ptr %common.addr, align 8
+  %call = call noundef i64 @_ZNK4absl12lts_2023080218container_internal12CommonFields8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %call1 = call noundef i64 @_ZN4absl12lts_2023080218container_internal16CapacityToGrowthEm(i64 noundef %call)
+  %2 = load ptr, ptr %common.addr, align 8
+  %call2 = call noundef i64 @_ZNK4absl12lts_2023080218container_internal12CommonFields4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %2)
+  %sub = sub i64 %call1, %call2
+  call void @_ZN4absl12lts_2023080218container_internal12CommonFields15set_growth_leftEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %sub)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal12CommonFields15set_growth_leftEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %gl) #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %gl.addr = alloca i64, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store i64 %gl, ptr %gl.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load i64, ptr %gl.addr, align 8
+  %call = call noundef ptr @_ZNK4absl12lts_2023080218container_internal12CommonFields19backing_array_startEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  store i64 %0, ptr %call, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZN4absl12lts_2023080218container_internal16CapacityToGrowthEm(i64 noundef %capacity) #4 comdat {
+entry:
+  %capacity.addr = alloca i64, align 8
+  store i64 %capacity, ptr %capacity.addr, align 8
+  %0 = load i64, ptr %capacity.addr, align 8
+  %1 = load i64, ptr %capacity.addr, align 8
+  %div = udiv i64 %1, 8
+  %sub = sub i64 %0, %div
+  ret i64 %sub
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal20HashtablezInfoHandleC2EDn(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr %0) unnamed_addr #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt15__new_allocatorIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef i64 @_ZN4absl12lts_2023080218container_internal17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS4_4util21SimpleFieldComparator9ToleranceEE5applyINS1_12raw_hash_setISB_NS1_6HashEqIS7_vE4HashENSF_2EqESaISt4pairIKS7_SA_EEE11HashElementEJRSK_EEEDTclsr4absl18container_internalE13DecomposePairclsr3stdE7declvalIT_EEspclsr3stdE7declvalIT0_EEEEOSP_DpOSQ_(ptr noundef nonnull align 8 dereferenceable(8) %f, ptr noundef nonnull align 8 dereferenceable(24) %args) #6 comdat align 2 {
+entry:
+  %f.addr = alloca ptr, align 8
+  %args.addr = alloca ptr, align 8
+  store ptr %f, ptr %f.addr, align 8
+  store ptr %args, ptr %args.addr, align 8
+  %0 = load ptr, ptr %f.addr, align 8
+  %1 = load ptr, ptr %args.addr, align 8
+  %call = call noundef i64 @_ZN4absl12lts_2023080218container_internal13DecomposePairINS1_12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS6_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS9_vE4HashENSF_2EqESaISt4pairIKS9_SC_EEE11HashElementEJRSK_EEEDTclsr15memory_internalE17DecomposePairImplclsr3stdE7forwardIT_Efp_Ecl8PairArgsspclsr3stdE7forwardIT0_Efp0_EEEEOSP_DpOSQ_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  ret i64 %call
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef i64 @_ZN4absl12lts_2023080218container_internal13DecomposePairINS1_12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS6_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS9_vE4HashENSF_2EqESaISt4pairIKS9_SC_EEE11HashElementEJRSK_EEEDTclsr15memory_internalE17DecomposePairImplclsr3stdE7forwardIT_Efp_Ecl8PairArgsspclsr3stdE7forwardIT0_Efp0_EEEEOSP_DpOSQ_(ptr noundef nonnull align 8 dereferenceable(8) %f, ptr noundef nonnull align 8 dereferenceable(24) %args) #6 comdat {
+entry:
+  %f.addr = alloca ptr, align 8
+  %args.addr = alloca ptr, align 8
+  %agg.tmp = alloca %"struct.std::pair.99", align 8
+  store ptr %f, ptr %f.addr, align 8
+  store ptr %args, ptr %args.addr, align 8
+  %0 = load ptr, ptr %f.addr, align 8
+  %1 = load ptr, ptr %args.addr, align 8
+  call void @_ZN4absl12lts_2023080218container_internal8PairArgsIKPKN6google8protobuf15FieldDescriptorENS4_4util21SimpleFieldComparator9ToleranceEEESt4pairISt5tupleIJRKT_EESD_IJRKT0_EEERKSC_ISE_SI_E(ptr sret(%"struct.std::pair.99") align 8 %agg.tmp, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %call = call noundef i64 @_ZN4absl12lts_2023080218container_internal15memory_internal17DecomposePairImplINS1_12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS7_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqISA_vE4HashENSG_2EqESaISt4pairIKSA_SD_EEE11HashElementERSK_St5tupleIJRKSD_EEEEDTclclsr3stdE7declvalIT_EEclsr3stdE7declvalIRKT0_EEL_ZSt19piecewise_constructEclsr3stdE7declvalISQ_IJSV_EEEEclsr3stdE7declvalIT1_EEEEOSU_SJ_ISY_SZ_E(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %agg.tmp)
+  ret i64 %call
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef i64 @_ZN4absl12lts_2023080218container_internal15memory_internal17DecomposePairImplINS1_12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS7_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqISA_vE4HashENSG_2EqESaISt4pairIKSA_SD_EEE11HashElementERSK_St5tupleIJRKSD_EEEEDTclclsr3stdE7declvalIT_EEclsr3stdE7declvalIRKT0_EEL_ZSt19piecewise_constructEclsr3stdE7declvalISQ_IJSV_EEEEclsr3stdE7declvalIT1_EEEEOSU_SJ_ISY_SZ_E(ptr noundef nonnull align 8 dereferenceable(8) %f, ptr noundef %p) #6 comdat {
+entry:
+  %f.addr = alloca ptr, align 8
+  %p.indirect_addr = alloca ptr, align 8
+  %key = alloca ptr, align 8
+  store ptr %f, ptr %f.addr, align 8
+  store ptr %p, ptr %p.indirect_addr, align 8
+  %first = getelementptr inbounds %"struct.std::pair.99", ptr %p, i32 0, i32 0
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJRKPKN6google8protobuf15FieldDescriptorEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSB_(ptr noundef nonnull align 8 dereferenceable(8) %first) #3
+  store ptr %call, ptr %key, align 8
+  %0 = load ptr, ptr %f.addr, align 8
+  %1 = load ptr, ptr %key, align 8
+  %first1 = getelementptr inbounds %"struct.std::pair.99", ptr %p, i32 0, i32 0
+  %second = getelementptr inbounds %"struct.std::pair.99", ptr %p, i32 0, i32 1
+  %call2 = call noundef i64 @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE11HashElementclIS8_JRKSt21piecewise_construct_tSt5tupleIJRSI_EESR_IJRKSB_EEEEEmRKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %first1, ptr noundef nonnull align 8 dereferenceable(8) %second)
+  ret i64 %call2
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef i64 @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE11HashElementclIS8_JRKSt21piecewise_construct_tSt5tupleIJRSI_EESR_IJRKSB_EEEEEmRKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %key, ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %key.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  %.addr1 = alloca ptr, align 8
+  %.addr2 = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %key, ptr %key.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  store ptr %1, ptr %.addr1, align 8
+  store ptr %2, ptr %.addr2, align 8
+  %this3 = load ptr, ptr %this.addr, align 8
+  %h = getelementptr inbounds %"struct.absl::lts_20230802::container_internal::raw_hash_set<absl::lts_20230802::container_internal::FlatHashMapPolicy<const google::protobuf::FieldDescriptor *, google::protobuf::util::SimpleFieldComparator::Tolerance>, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Hash, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Eq, std::allocator<std::pair<const google::protobuf::FieldDescriptor *const, google::protobuf::util::SimpleFieldComparator::Tolerance>>>::HashElement", ptr %this3, i32 0, i32 0
+  %3 = load ptr, ptr %h, align 8
+  %4 = load ptr, ptr %key.addr, align 8
+  %call = call noundef i64 @_ZNK4absl12lts_2023080218container_internal6HashEqIPKN6google8protobuf15FieldDescriptorEvE4HashclIS7_EEmRKT_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  ret i64 %call
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEEvE13transfer_implISaISt4pairIKS8_SB_EESC_EEDTcvvclsrT0_8transferfp_fp0_fp1_EEPT_PNS1_13map_slot_typeIS8_SB_EESP_NSD_5Rank0E(ptr noundef %alloc, ptr noundef %new_slot, ptr noundef %old_slot) #6 comdat align 2 {
+entry:
+  %alloc.addr = alloca ptr, align 8
+  %new_slot.addr = alloca ptr, align 8
+  %old_slot.addr = alloca ptr, align 8
+  store ptr %alloc, ptr %alloc.addr, align 8
+  store ptr %new_slot, ptr %new_slot.addr, align 8
+  store ptr %old_slot, ptr %old_slot.addr, align 8
+  %0 = load ptr, ptr %alloc.addr, align 8
+  %1 = load ptr, ptr %new_slot.addr, align 8
+  %2 = load ptr, ptr %old_slot.addr, align 8
+  call void @_ZN4absl12lts_2023080218container_internal17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS4_4util21SimpleFieldComparator9ToleranceEE8transferISaISt4pairIKS7_SA_EEEEvPT_PNS1_13map_slot_typeIS7_SA_EESL_(ptr noundef %0, ptr noundef %1, ptr noundef %2)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS4_4util21SimpleFieldComparator9ToleranceEE8transferISaISt4pairIKS7_SA_EEEEvPT_PNS1_13map_slot_typeIS7_SA_EESL_(ptr noundef %alloc, ptr noundef %new_slot, ptr noundef %old_slot) #6 comdat align 2 {
+entry:
+  %alloc.addr = alloca ptr, align 8
+  %new_slot.addr = alloca ptr, align 8
+  %old_slot.addr = alloca ptr, align 8
+  store ptr %alloc, ptr %alloc.addr, align 8
+  store ptr %new_slot, ptr %new_slot.addr, align 8
+  store ptr %old_slot, ptr %old_slot.addr, align 8
+  %0 = load ptr, ptr %alloc.addr, align 8
+  %1 = load ptr, ptr %new_slot.addr, align 8
+  %2 = load ptr, ptr %old_slot.addr, align 8
+  call void @_ZN4absl12lts_2023080218container_internal15map_slot_policyIPKN6google8protobuf15FieldDescriptorENS4_4util21SimpleFieldComparator9ToleranceEE8transferISaISt4pairIKS7_SA_EEEEvPT_PNS1_13map_slot_typeIS7_SA_EESL_(ptr noundef %0, ptr noundef %1, ptr noundef %2)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal15map_slot_policyIPKN6google8protobuf15FieldDescriptorENS4_4util21SimpleFieldComparator9ToleranceEE8transferISaISt4pairIKS7_SA_EEEEvPT_PNS1_13map_slot_typeIS7_SA_EESL_(ptr noundef %alloc, ptr noundef %new_slot, ptr noundef %old_slot) #6 comdat align 2 {
+entry:
+  %alloc.addr = alloca ptr, align 8
+  %new_slot.addr = alloca ptr, align 8
+  %old_slot.addr = alloca ptr, align 8
+  store ptr %alloc, ptr %alloc.addr, align 8
+  store ptr %new_slot, ptr %new_slot.addr, align 8
+  store ptr %old_slot, ptr %old_slot.addr, align 8
+  %0 = load ptr, ptr %new_slot.addr, align 8
+  call void @_ZN4absl12lts_2023080218container_internal15map_slot_policyIPKN6google8protobuf15FieldDescriptorENS4_4util21SimpleFieldComparator9ToleranceEE7emplaceEPNS1_13map_slot_typeIS7_SA_EE(ptr noundef %0)
+  %1 = load ptr, ptr %new_slot.addr, align 8
+  %call = call noundef ptr @_ZSt7launderISt4pairIKPKN6google8protobuf15FieldDescriptorENS2_4util21SimpleFieldComparator9ToleranceEEEPT_SC_(ptr noundef %1) #3
+  %2 = load ptr, ptr %old_slot.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call, ptr align 1 %2, i64 24, i1 false)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal15map_slot_policyIPKN6google8protobuf15FieldDescriptorENS4_4util21SimpleFieldComparator9ToleranceEE7emplaceEPNS1_13map_slot_typeIS7_SA_EE(ptr noundef %slot) #6 comdat align 2 {
+entry:
+  %slot.addr = alloca ptr, align 8
+  store ptr %slot, ptr %slot.addr, align 8
+  %0 = load ptr, ptr %slot.addr, align 8
+  call void @_ZN4absl12lts_2023080218container_internal13map_slot_typeIPKN6google8protobuf15FieldDescriptorENS4_4util21SimpleFieldComparator9ToleranceEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt7launderISt4pairIKPKN6google8protobuf15FieldDescriptorENS2_4util21SimpleFieldComparator9ToleranceEEEPT_SC_(ptr noundef %__p) #4 comdat {
+entry:
+  %__p.addr = alloca ptr, align 8
+  store ptr %__p, ptr %__p.addr, align 8
+  %0 = load ptr, ptr %__p.addr, align 8
+  ret ptr %0
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal13map_slot_typeIPKN6google8protobuf15FieldDescriptorENS4_4util21SimpleFieldComparator9ToleranceEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZNK4absl12lts_2023080218container_internal12CommonFields11growth_leftEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef ptr @_ZNK4absl12lts_2023080218container_internal12CommonFields19backing_array_startEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  %0 = load i64, ptr %call, align 8
+  ret i64 %0
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef i64 @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE6commonEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  %call2 = call noundef i64 @_ZNK4absl12lts_2023080218container_internal12CommonFields4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %call)
+  ret i64 %call2
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE27drop_deletes_without_resizeEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %tmp = alloca [24 x i8], align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE6commonEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  %call2 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE18GetPolicyFunctionsEv()
+  %arraydecay = getelementptr inbounds [24 x i8], ptr %tmp, i64 0, i64 0
+  call void @_ZN4absl12lts_2023080218container_internal24DropDeletesWithoutResizeERNS1_12CommonFieldsERKNS1_15PolicyFunctionsEPv(ptr noundef nonnull align 8 dereferenceable(32) %call, ptr noundef nonnull align 8 dereferenceable(32) %call2, ptr noundef %arraydecay)
+  ret void
+}
+
+declare void @_ZN4absl12lts_2023080218container_internal24DropDeletesWithoutResizeERNS1_12CommonFieldsERKNS1_15PolicyFunctionsEPv(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE18GetPolicyFunctionsEv() #4 comdat align 2 {
+entry:
+  ret ptr @_ZZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE18GetPolicyFunctionsEvE5value
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef i64 @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE12hash_slot_fnEPvSM_(ptr noundef %set, ptr noundef %slot) #6 comdat align 2 {
+entry:
+  %set.addr = alloca ptr, align 8
+  %slot.addr = alloca ptr, align 8
+  %h = alloca ptr, align 8
+  %ref.tmp = alloca %"struct.absl::lts_20230802::container_internal::raw_hash_set<absl::lts_20230802::container_internal::FlatHashMapPolicy<const google::protobuf::FieldDescriptor *, google::protobuf::util::SimpleFieldComparator::Tolerance>, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Hash, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Eq, std::allocator<std::pair<const google::protobuf::FieldDescriptor *const, google::protobuf::util::SimpleFieldComparator::Tolerance>>>::HashElement", align 8
+  store ptr %set, ptr %set.addr, align 8
+  store ptr %slot, ptr %slot.addr, align 8
+  %0 = load ptr, ptr %set.addr, align 8
+  store ptr %0, ptr %h, align 8
+  %h1 = getelementptr inbounds %"struct.absl::lts_20230802::container_internal::raw_hash_set<absl::lts_20230802::container_internal::FlatHashMapPolicy<const google::protobuf::FieldDescriptor *, google::protobuf::util::SimpleFieldComparator::Tolerance>, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Hash, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Eq, std::allocator<std::pair<const google::protobuf::FieldDescriptor *const, google::protobuf::util::SimpleFieldComparator::Tolerance>>>::HashElement", ptr %ref.tmp, i32 0, i32 0
+  %1 = load ptr, ptr %h, align 8
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE8hash_refEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
+  store ptr %call, ptr %h1, align 8
+  %2 = load ptr, ptr %slot.addr, align 8
+  %call2 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEEvE7elementISC_EEDTclsrT_7elementfp_EEPNS1_13map_slot_typeIS8_SB_EE(ptr noundef %2)
+  %call3 = call noundef i64 @_ZN4absl12lts_2023080218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEEvE5applyINS1_12raw_hash_setISC_NS1_6HashEqIS8_vE4HashENSH_2EqESaISt4pairIKS8_SB_EEE11HashElementEJRSM_ESC_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSS_DpOST_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %call2)
+  ret i64 %call3
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE16transfer_slot_fnEPvSM_SM_(ptr noundef %set, ptr noundef %dst, ptr noundef %src) #6 comdat align 2 {
+entry:
+  %set.addr = alloca ptr, align 8
+  %dst.addr = alloca ptr, align 8
+  %src.addr = alloca ptr, align 8
+  %h = alloca ptr, align 8
+  store ptr %set, ptr %set.addr, align 8
+  store ptr %dst, ptr %dst.addr, align 8
+  store ptr %src, ptr %src.addr, align 8
+  %0 = load ptr, ptr %set.addr, align 8
+  store ptr %0, ptr %h, align 8
+  %1 = load ptr, ptr %h, align 8
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE9alloc_refEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %2 = load ptr, ptr %dst.addr, align 8
+  %3 = load ptr, ptr %src.addr, align 8
+  call void @_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEEvE8transferISaISt4pairIKS8_SB_EEEEvPT_PNS1_13map_slot_typeIS8_SB_EESN_(ptr noundef %call, ptr noundef %2, ptr noundef %3)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal18DeallocateStandardILm8EEEvRNS1_12CommonFieldsERKNS1_15PolicyFunctionsE(ptr noundef nonnull align 8 dereferenceable(32) %common, ptr noundef nonnull align 8 dereferenceable(32) %policy) #6 comdat personality ptr @__gxx_personality_v0 {
+entry:
+  %common.addr = alloca ptr, align 8
+  %policy.addr = alloca ptr, align 8
+  %alloc = alloca %"class.std::allocator.11", align 1
+  %exn.slot = alloca ptr, align 8
+  %ehselector.slot = alloca i32, align 4
+  store ptr %common, ptr %common.addr, align 8
+  store ptr %policy, ptr %policy.addr, align 8
+  %0 = load ptr, ptr %common.addr, align 8
+  %call = call noundef ptr @_ZNK4absl12lts_2023080218container_internal12CommonFields10slot_arrayEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
+  %1 = load ptr, ptr %policy.addr, align 8
+  %slot_size = getelementptr inbounds %"struct.absl::lts_20230802::container_internal::PolicyFunctions", ptr %1, i32 0, i32 0
+  %2 = load i64, ptr %slot_size, align 8
+  %3 = load ptr, ptr %common.addr, align 8
+  %call1 = call noundef i64 @_ZNK4absl12lts_2023080218container_internal12CommonFields8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  %mul = mul i64 %2, %call1
+  call void @_ZN4absl12lts_2023080218container_internal29SanitizerUnpoisonMemoryRegionEPKvm(ptr noundef %call, i64 noundef %mul)
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %alloc) #3
+  %4 = load ptr, ptr %common.addr, align 8
+  %call2 = call noundef ptr @_ZNK4absl12lts_2023080218container_internal12CommonFields19backing_array_startEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %5 = load ptr, ptr %common.addr, align 8
+  %6 = load ptr, ptr %policy.addr, align 8
+  %slot_size3 = getelementptr inbounds %"struct.absl::lts_20230802::container_internal::PolicyFunctions", ptr %6, i32 0, i32 0
+  %7 = load i64, ptr %slot_size3, align 8
+  %call4 = invoke noundef i64 @_ZNK4absl12lts_2023080218container_internal12CommonFields10alloc_sizeEmm(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef %7, i64 noundef 8)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %entry
+  invoke void @_ZN4absl12lts_2023080218container_internal10DeallocateILm8ESaIcEEEvPT0_Pvm(ptr noundef %alloc, ptr noundef %call2, i64 noundef %call4)
+          to label %invoke.cont5 unwind label %lpad
+
+invoke.cont5:                                     ; preds = %invoke.cont
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %alloc) #3
+  ret void
+
+lpad:                                             ; preds = %invoke.cont, %entry
+  %8 = landingpad { ptr, i32 }
+          cleanup
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %alloc) #3
+  br label %eh.resume
+
+eh.resume:                                        ; preds = %lpad
+  %exn = load ptr, ptr %exn.slot, align 8
+  %sel = load i32, ptr %ehselector.slot, align 4
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
+  %lpad.val6 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
+  resume { ptr, i32 } %lpad.val6
+}
+
+; Function Attrs: nounwind
+declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal10DeallocateILm8ESaIcEEEvPT0_Pvm(ptr noundef %alloc, ptr noundef %p, i64 noundef %n) #6 comdat personality ptr @__gxx_personality_v0 {
+entry:
+  %alloc.addr = alloca ptr, align 8
+  %p.addr = alloca ptr, align 8
+  %n.addr = alloca i64, align 8
+  %my_mem_alloc = alloca %"class.std::allocator.84", align 1
+  %exn.slot = alloca ptr, align 8
+  %ehselector.slot = alloca i32, align 4
+  store ptr %alloc, ptr %alloc.addr, align 8
+  store ptr %p, ptr %p.addr, align 8
+  store i64 %n, ptr %n.addr, align 8
+  %0 = load ptr, ptr %alloc.addr, align 8
+  call void @_ZNSaIN4absl12lts_2023080218container_internal11AlignedTypeILm8EEEEC2IcEERKSaIT_E(ptr noundef nonnull align 1 dereferenceable(1) %my_mem_alloc, ptr noundef nonnull align 1 dereferenceable(1) %0) #3
+  %1 = load ptr, ptr %p.addr, align 8
+  %2 = load i64, ptr %n.addr, align 8
+  %add = add i64 %2, 8
+  %sub = sub i64 %add, 1
+  %div = udiv i64 %sub, 8
+  invoke void @_ZNSt16allocator_traitsISaIN4absl12lts_2023080218container_internal11AlignedTypeILm8EEEEE10deallocateERS5_PS4_m(ptr noundef nonnull align 1 dereferenceable(1) %my_mem_alloc, ptr noundef %1, i64 noundef %div)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %entry
+  call void @_ZNSaIN4absl12lts_2023080218container_internal11AlignedTypeILm8EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %my_mem_alloc) #3
+  ret void
+
+lpad:                                             ; preds = %entry
+  %3 = landingpad { ptr, i32 }
+          cleanup
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
+  call void @_ZNSaIN4absl12lts_2023080218container_internal11AlignedTypeILm8EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %my_mem_alloc) #3
+  br label %eh.resume
+
+eh.resume:                                        ; preds = %lpad
+  %exn = load ptr, ptr %exn.slot, align 8
+  %sel = load i32, ptr %ehselector.slot, align 4
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
+  %lpad.val1 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
+  resume { ptr, i32 } %lpad.val1
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef i64 @_ZNK4absl12lts_2023080218container_internal12CommonFields10alloc_sizeEmm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %slot_size, i64 noundef %slot_align) #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %slot_size.addr = alloca i64, align 8
+  %slot_align.addr = alloca i64, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store i64 %slot_size, ptr %slot_size.addr, align 8
+  store i64 %slot_align, ptr %slot_align.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef i64 @_ZNK4absl12lts_2023080218container_internal12CommonFields8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  %0 = load i64, ptr %slot_size.addr, align 8
+  %1 = load i64, ptr %slot_align.addr, align 8
+  %call2 = call noundef i64 @_ZN4absl12lts_2023080218container_internal9AllocSizeEmmm(i64 noundef %call, i64 noundef %0, i64 noundef %1)
+  ret i64 %call2
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal7SetCtrlERKNS1_12CommonFieldsEmNS1_6ctrl_tEm(ptr noundef nonnull align 8 dereferenceable(32) %common, i64 noundef %i, i8 noundef signext %h, i64 noundef %slot_size) #4 comdat {
+entry:
+  %common.addr = alloca ptr, align 8
+  %i.addr = alloca i64, align 8
+  %h.addr = alloca i8, align 1
+  %slot_size.addr = alloca i64, align 8
+  %capacity = alloca i64, align 8
+  %slot_i = alloca ptr, align 8
+  %ctrl = alloca ptr, align 8
+  store ptr %common, ptr %common.addr, align 8
+  store i64 %i, ptr %i.addr, align 8
+  store i8 %h, ptr %h.addr, align 1
+  store i64 %slot_size, ptr %slot_size.addr, align 8
+  %0 = load ptr, ptr %common.addr, align 8
+  %call = call noundef i64 @_ZNK4absl12lts_2023080218container_internal12CommonFields8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
+  store i64 %call, ptr %capacity, align 8
+  %1 = load ptr, ptr %common.addr, align 8
+  %call1 = call noundef ptr @_ZNK4absl12lts_2023080218container_internal12CommonFields10slot_arrayEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %2 = load i64, ptr %i.addr, align 8
+  %3 = load i64, ptr %slot_size.addr, align 8
+  %mul = mul i64 %2, %3
+  %add.ptr = getelementptr inbounds i8, ptr %call1, i64 %mul
+  store ptr %add.ptr, ptr %slot_i, align 8
+  %4 = load i8, ptr %h.addr, align 1
+  %call2 = call noundef zeroext i1 @_ZN4absl12lts_2023080218container_internal6IsFullENS1_6ctrl_tE(i8 noundef signext %4)
+  br i1 %call2, label %if.then, label %if.else
+
+if.then:                                          ; preds = %entry
+  %5 = load ptr, ptr %slot_i, align 8
+  %6 = load i64, ptr %slot_size.addr, align 8
+  call void @_ZN4absl12lts_2023080218container_internal29SanitizerUnpoisonMemoryRegionEPKvm(ptr noundef %5, i64 noundef %6)
+  br label %if.end
+
+if.else:                                          ; preds = %entry
+  %7 = load ptr, ptr %slot_i, align 8
+  %8 = load i64, ptr %slot_size.addr, align 8
+  call void @_ZN4absl12lts_2023080218container_internal27SanitizerPoisonMemoryRegionEPKvm(ptr noundef %7, i64 noundef %8)
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then
+  %9 = load ptr, ptr %common.addr, align 8
+  %call3 = call noundef ptr @_ZNK4absl12lts_2023080218container_internal12CommonFields7controlEv(ptr noundef nonnull align 8 dereferenceable(32) %9)
+  store ptr %call3, ptr %ctrl, align 8
+  %10 = load i8, ptr %h.addr, align 1
+  %11 = load ptr, ptr %ctrl, align 8
+  %12 = load i64, ptr %i.addr, align 8
+  %arrayidx = getelementptr inbounds i8, ptr %11, i64 %12
+  store i8 %10, ptr %arrayidx, align 1
+  %13 = load i8, ptr %h.addr, align 1
+  %14 = load ptr, ptr %ctrl, align 8
+  %15 = load i64, ptr %i.addr, align 8
+  %call4 = call noundef i64 @_ZN4absl12lts_2023080218container_internal14NumClonedBytesEv()
+  %sub = sub i64 %15, %call4
+  %16 = load i64, ptr %capacity, align 8
+  %and = and i64 %sub, %16
+  %call5 = call noundef i64 @_ZN4absl12lts_2023080218container_internal14NumClonedBytesEv()
+  %17 = load i64, ptr %capacity, align 8
+  %and6 = and i64 %call5, %17
+  %add = add i64 %and, %and6
+  %arrayidx7 = getelementptr inbounds i8, ptr %14, i64 %add
+  store i8 %13, ptr %arrayidx7, align 1
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEEvE9constructISaISt4pairIKS8_SB_EEJRKSt21piecewise_construct_tSt5tupleIJRSG_EESM_IJEEEEEvPT_PNS1_13map_slot_typeIS8_SB_EEDpOT0_(ptr noundef %alloc, ptr noundef %slot, ptr noundef nonnull align 1 dereferenceable(1) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1, ptr noundef nonnull align 1 dereferenceable(1) %args3) #6 comdat align 2 {
+entry:
+  %alloc.addr = alloca ptr, align 8
+  %slot.addr = alloca ptr, align 8
+  %args.addr = alloca ptr, align 8
+  %args.addr2 = alloca ptr, align 8
+  %args.addr4 = alloca ptr, align 8
+  store ptr %alloc, ptr %alloc.addr, align 8
+  store ptr %slot, ptr %slot.addr, align 8
+  store ptr %args, ptr %args.addr, align 8
+  store ptr %args1, ptr %args.addr2, align 8
+  store ptr %args3, ptr %args.addr4, align 8
+  %0 = load ptr, ptr %alloc.addr, align 8
+  %1 = load ptr, ptr %slot.addr, align 8
+  %2 = load ptr, ptr %args.addr, align 8
+  %3 = load ptr, ptr %args.addr2, align 8
+  %4 = load ptr, ptr %args.addr4, align 8
+  call void @_ZN4absl12lts_2023080218container_internal17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS4_4util21SimpleFieldComparator9ToleranceEE9constructISaISt4pairIKS7_SA_EEJRKSt21piecewise_construct_tSt5tupleIJRSE_EESK_IJEEEEEvPT_PNS1_13map_slot_typeIS7_SA_EEDpOT0_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS4_4util21SimpleFieldComparator9ToleranceEE9constructISaISt4pairIKS7_SA_EEJRKSt21piecewise_construct_tSt5tupleIJRSE_EESK_IJEEEEEvPT_PNS1_13map_slot_typeIS7_SA_EEDpOT0_(ptr noundef %alloc, ptr noundef %slot, ptr noundef nonnull align 1 dereferenceable(1) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1, ptr noundef nonnull align 1 dereferenceable(1) %args3) #6 comdat align 2 {
+entry:
+  %alloc.addr = alloca ptr, align 8
+  %slot.addr = alloca ptr, align 8
+  %args.addr = alloca ptr, align 8
+  %args.addr2 = alloca ptr, align 8
+  %args.addr4 = alloca ptr, align 8
+  store ptr %alloc, ptr %alloc.addr, align 8
+  store ptr %slot, ptr %slot.addr, align 8
+  store ptr %args, ptr %args.addr, align 8
+  store ptr %args1, ptr %args.addr2, align 8
+  store ptr %args3, ptr %args.addr4, align 8
+  %0 = load ptr, ptr %alloc.addr, align 8
+  %1 = load ptr, ptr %slot.addr, align 8
+  %2 = load ptr, ptr %args.addr, align 8
+  %3 = load ptr, ptr %args.addr2, align 8
+  %4 = load ptr, ptr %args.addr4, align 8
+  call void @_ZN4absl12lts_2023080218container_internal15map_slot_policyIPKN6google8protobuf15FieldDescriptorENS4_4util21SimpleFieldComparator9ToleranceEE9constructISaISt4pairIKS7_SA_EEJRKSt21piecewise_construct_tSt5tupleIJRSE_EESK_IJEEEEEvPT_PNS1_13map_slot_typeIS7_SA_EEDpOT0_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal15map_slot_policyIPKN6google8protobuf15FieldDescriptorENS4_4util21SimpleFieldComparator9ToleranceEE9constructISaISt4pairIKS7_SA_EEJRKSt21piecewise_construct_tSt5tupleIJRSE_EESK_IJEEEEEvPT_PNS1_13map_slot_typeIS7_SA_EEDpOT0_(ptr noundef %alloc, ptr noundef %slot, ptr noundef nonnull align 1 dereferenceable(1) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1, ptr noundef nonnull align 1 dereferenceable(1) %args3) #6 comdat align 2 {
+entry:
+  %alloc.addr = alloca ptr, align 8
+  %slot.addr = alloca ptr, align 8
+  %args.addr = alloca ptr, align 8
+  %args.addr2 = alloca ptr, align 8
+  %args.addr4 = alloca ptr, align 8
+  store ptr %alloc, ptr %alloc.addr, align 8
+  store ptr %slot, ptr %slot.addr, align 8
+  store ptr %args, ptr %args.addr, align 8
+  store ptr %args1, ptr %args.addr2, align 8
+  store ptr %args3, ptr %args.addr4, align 8
+  %0 = load ptr, ptr %slot.addr, align 8
+  call void @_ZN4absl12lts_2023080218container_internal15map_slot_policyIPKN6google8protobuf15FieldDescriptorENS4_4util21SimpleFieldComparator9ToleranceEE7emplaceEPNS1_13map_slot_typeIS7_SA_EE(ptr noundef %0)
+  %1 = load ptr, ptr %alloc.addr, align 8
+  %2 = load ptr, ptr %slot.addr, align 8
+  %3 = load ptr, ptr %args.addr, align 8
+  %4 = load ptr, ptr %args.addr2, align 8
+  %5 = load ptr, ptr %args.addr4, align 8
+  call void @_ZNSt16allocator_traitsISaISt4pairIKPKN6google8protobuf15FieldDescriptorENS2_4util21SimpleFieldComparator9ToleranceEEEE9constructIS0_IS5_S9_EJRKSt21piecewise_construct_tSt5tupleIJRS6_EESI_IJEEEEEvRSB_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt16allocator_traitsISaISt4pairIKPKN6google8protobuf15FieldDescriptorENS2_4util21SimpleFieldComparator9ToleranceEEEE9constructIS0_IS5_S9_EJRKSt21piecewise_construct_tSt5tupleIJRS6_EESI_IJEEEEEvRSB_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %__p, ptr noundef nonnull align 1 dereferenceable(1) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1, ptr noundef nonnull align 1 dereferenceable(1) %__args3) #6 comdat align 2 {
+entry:
+  %__a.addr = alloca ptr, align 8
+  %__p.addr = alloca ptr, align 8
+  %__args.addr = alloca ptr, align 8
+  %__args.addr2 = alloca ptr, align 8
+  %__args.addr4 = alloca ptr, align 8
+  store ptr %__a, ptr %__a.addr, align 8
+  store ptr %__p, ptr %__p.addr, align 8
+  store ptr %__args, ptr %__args.addr, align 8
+  store ptr %__args1, ptr %__args.addr2, align 8
+  store ptr %__args3, ptr %__args.addr4, align 8
+  %0 = load ptr, ptr %__a.addr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  %2 = load ptr, ptr %__args.addr, align 8
+  %3 = load ptr, ptr %__args.addr2, align 8
+  %4 = load ptr, ptr %__args.addr4, align 8
+  call void @_ZNSt15__new_allocatorISt4pairIKPKN6google8protobuf15FieldDescriptorENS2_4util21SimpleFieldComparator9ToleranceEEE9constructIS0_IS5_S9_EJRKSt21piecewise_construct_tSt5tupleIJRS6_EESH_IJEEEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt15__new_allocatorISt4pairIKPKN6google8protobuf15FieldDescriptorENS2_4util21SimpleFieldComparator9ToleranceEEE9constructIS0_IS5_S9_EJRKSt21piecewise_construct_tSt5tupleIJRS6_EESH_IJEEEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %__p, ptr noundef nonnull align 1 dereferenceable(1) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1, ptr noundef nonnull align 1 dereferenceable(1) %__args3) #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__p.addr = alloca ptr, align 8
+  %__args.addr = alloca ptr, align 8
+  %__args.addr2 = alloca ptr, align 8
+  %__args.addr4 = alloca ptr, align 8
+  %agg.tmp6 = alloca %"class.std::tuple.93", align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__p, ptr %__p.addr, align 8
+  store ptr %__args, ptr %__args.addr, align 8
+  store ptr %__args1, ptr %__args.addr2, align 8
+  store ptr %__args3, ptr %__args.addr4, align 8
+  %0 = load ptr, ptr %__p.addr, align 8
+  %1 = load ptr, ptr %__args.addr2, align 8
+  call void @_ZNSt5tupleIJRKPKN6google8protobuf15FieldDescriptorEEEC2EOS7_(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp6, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
+  call void @_ZNSt4pairIPKN6google8protobuf15FieldDescriptorENS1_4util21SimpleFieldComparator9ToleranceEEC2IJRKS4_EJEEESt21piecewise_construct_tSt5tupleIJDpT_EESD_IJDpT0_EE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %agg.tmp6)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt5tupleIJRKPKN6google8protobuf15FieldDescriptorEEEC2EOS7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %1 = load ptr, ptr %.addr, align 8
+  call void @_ZNSt11_Tuple_implILm0EJRKPKN6google8protobuf15FieldDescriptorEEEC2EOS7_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt4pairIPKN6google8protobuf15FieldDescriptorENS1_4util21SimpleFieldComparator9ToleranceEEC2IJRKS4_EJEEESt21piecewise_construct_tSt5tupleIJDpT_EESD_IJDpT0_EE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %__first) unnamed_addr #6 comdat align 2 {
+entry:
+  %__second = alloca %"class.std::tuple.96", align 1
+  %this.addr = alloca ptr, align 8
+  %__first.indirect_addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__first, ptr %__first.indirect_addr, align 8
+  %this2 = load ptr, ptr %this.addr, align 8
+  call void @_ZNSt4pairIPKN6google8protobuf15FieldDescriptorENS1_4util21SimpleFieldComparator9ToleranceEEC2IJRKS4_EJLm0EEJETpTnmJEEERSt5tupleIJDpT_EERSC_IJDpT1_EESt12_Index_tupleIJXspT0_EEESL_IJXspT2_EEE(ptr noundef nonnull align 8 dereferenceable(24) %this2, ptr noundef nonnull align 8 dereferenceable(8) %__first, ptr noundef nonnull align 1 dereferenceable(1) %__second)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt11_Tuple_implILm0EJRKPKN6google8protobuf15FieldDescriptorEEEC2EOS7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__in) unnamed_addr #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__in.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__in, ptr %__in.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %__in.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1, ptr align 8 %0, i64 8, i1 false)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt4pairIPKN6google8protobuf15FieldDescriptorENS1_4util21SimpleFieldComparator9ToleranceEEC2IJRKS4_EJLm0EEJETpTnmJEEERSt5tupleIJDpT_EERSC_IJDpT1_EESt12_Index_tupleIJXspT0_EEESL_IJXspT2_EEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %__tuple1, ptr noundef nonnull align 1 dereferenceable(1) %__tuple2) unnamed_addr #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__tuple1.addr = alloca ptr, align 8
+  %__tuple2.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__tuple1, ptr %__tuple1.addr, align 8
+  store ptr %__tuple2, ptr %__tuple2.addr, align 8
+  %this2 = load ptr, ptr %this.addr, align 8
+  %first = getelementptr inbounds %"struct.std::pair.82", ptr %this2, i32 0, i32 0
+  %0 = load ptr, ptr %__tuple1.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJRKPKN6google8protobuf15FieldDescriptorEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSB_(ptr noundef nonnull align 8 dereferenceable(8) %0) #3
+  %1 = load ptr, ptr %call, align 8
+  store ptr %1, ptr %first, align 8
+  %second = getelementptr inbounds %"struct.std::pair.82", ptr %this2, i32 0, i32 1
+  call void @_ZN6google8protobuf4util21SimpleFieldComparator9ToleranceC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %second)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNK4absl12lts_2023080218container_internal34CommonFieldsGenerationInfoDisabled14generation_ptrEv(ptr noundef nonnull align 1 dereferenceable(1) %this) #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  ret ptr null
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE8iteratorC2EPNS1_6ctrl_tEPNS1_13map_slot_typeIS8_SB_EEPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %ctrl, ptr noundef %slot, ptr noundef %generation_ptr) unnamed_addr #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %ctrl.addr = alloca ptr, align 8
+  %slot.addr = alloca ptr, align 8
+  %generation_ptr.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %ctrl, ptr %ctrl.addr, align 8
+  store ptr %slot, ptr %slot.addr, align 8
+  store ptr %generation_ptr, ptr %generation_ptr.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %generation_ptr.addr, align 8
+  call void @_ZN4absl12lts_2023080218container_internal37HashSetIteratorGenerationInfoDisabledC2EPKh(ptr noundef nonnull align 1 dereferenceable(1) %this1, ptr noundef %0)
+  %ctrl_ = getelementptr inbounds %"class.absl::lts_20230802::container_internal::raw_hash_set<absl::lts_20230802::container_internal::FlatHashMapPolicy<const google::protobuf::FieldDescriptor *, google::protobuf::util::SimpleFieldComparator::Tolerance>, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Hash, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Eq, std::allocator<std::pair<const google::protobuf::FieldDescriptor *const, google::protobuf::util::SimpleFieldComparator::Tolerance>>>::iterator", ptr %this1, i32 0, i32 0
+  %1 = load ptr, ptr %ctrl.addr, align 8
+  store ptr %1, ptr %ctrl_, align 8
+  %2 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::raw_hash_set<absl::lts_20230802::container_internal::FlatHashMapPolicy<const google::protobuf::FieldDescriptor *, google::protobuf::util::SimpleFieldComparator::Tolerance>, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Hash, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Eq, std::allocator<std::pair<const google::protobuf::FieldDescriptor *const, google::protobuf::util::SimpleFieldComparator::Tolerance>>>::iterator", ptr %this1, i32 0, i32 1
+  %3 = load ptr, ptr %slot.addr, align 8
+  store ptr %3, ptr %2, align 8
+  %4 = load ptr, ptr %ctrl.addr, align 8
+  %cmp = icmp ne ptr %4, null
+  call void @llvm.assume(i1 %cmp)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal37HashSetIteratorGenerationInfoDisabledC2EPKh(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %0) unnamed_addr #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal12AssertIsFullEPKNS1_6ctrl_tEhPKhPKc(ptr noundef %ctrl, i8 noundef zeroext %generation, ptr noundef %generation_ptr, ptr noundef %operation) #4 comdat {
+entry:
+  %ctrl.addr = alloca ptr, align 8
+  %generation.addr = alloca i8, align 1
+  %generation_ptr.addr = alloca ptr, align 8
+  %operation.addr = alloca ptr, align 8
+  store ptr %ctrl, ptr %ctrl.addr, align 8
+  store i8 %generation, ptr %generation.addr, align 1
+  store ptr %generation_ptr, ptr %generation_ptr.addr, align 8
+  store ptr %operation, ptr %operation.addr, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i8 @_ZNK4absl12lts_2023080218container_internal37HashSetIteratorGenerationInfoDisabled10generationEv(ptr noundef nonnull align 1 dereferenceable(1) %this) #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  ret i8 0
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNK4absl12lts_2023080218container_internal37HashSetIteratorGenerationInfoDisabled14generation_ptrEv(ptr noundef nonnull align 1 dereferenceable(1) %this) #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  ret ptr null
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZSt5isnand(double noundef %__x) #4 comdat {
+entry:
+  %__x.addr = alloca double, align 8
+  store double %__x, ptr %__x.addr, align 8
+  %0 = load double, ptr %__x.addr, align 8
+  %1 = call i1 @llvm.is.fpclass.f64(double %0, i32 3)
+  ret i1 %1
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden { ptr, ptr } @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE4findIS8_EENSL_8iteratorERKT_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(8) %key) #6 comdat align 2 {
+entry:
+  %retval = alloca %"class.absl::lts_20230802::container_internal::raw_hash_set<absl::lts_20230802::container_internal::FlatHashMapPolicy<const google::protobuf::FieldDescriptor *, google::protobuf::util::SimpleFieldComparator::Tolerance>, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Hash, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Eq, std::allocator<std::pair<const google::protobuf::FieldDescriptor *const, google::protobuf::util::SimpleFieldComparator::Tolerance>>>::iterator", align 8
+  %this.addr = alloca ptr, align 8
+  %key.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %key, ptr %key.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE19prefetch_heap_blockEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  %0 = load ptr, ptr %key.addr, align 8
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE8hash_refEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  %1 = load ptr, ptr %key.addr, align 8
+  %call2 = call noundef i64 @_ZNK4absl12lts_2023080218container_internal6HashEqIPKN6google8protobuf15FieldDescriptorEvE4HashclIS7_EEmRKT_(ptr noundef nonnull align 1 dereferenceable(1) %call, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %call3 = call { ptr, ptr } @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE4findIS8_EENSL_8iteratorERKT_m(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %call2)
+  %2 = getelementptr inbounds { ptr, ptr }, ptr %retval, i32 0, i32 0
+  %3 = extractvalue { ptr, ptr } %call3, 0
+  store ptr %3, ptr %2, align 8
+  %4 = getelementptr inbounds { ptr, ptr }, ptr %retval, i32 0, i32 1
+  %5 = extractvalue { ptr, ptr } %call3, 1
+  store ptr %5, ptr %4, align 8
+  %6 = load { ptr, ptr }, ptr %retval, align 8
+  ret { ptr, ptr } %6
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN4absl12lts_2023080218container_internalneERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE8iteratorESO_(ptr noundef nonnull align 8 dereferenceable(16) %a, ptr noundef nonnull align 8 dereferenceable(16) %b) #6 comdat {
+entry:
+  %a.addr = alloca ptr, align 8
+  %b.addr = alloca ptr, align 8
+  store ptr %a, ptr %a.addr, align 8
+  store ptr %b, ptr %b.addr, align 8
+  %0 = load ptr, ptr %a.addr, align 8
+  %1 = load ptr, ptr %b.addr, align 8
+  %call = call noundef zeroext i1 @_ZN4absl12lts_2023080218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE8iteratorESO_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %lnot = xor i1 %call, true
+  ret i1 %lnot
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden { ptr, ptr } @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #6 comdat align 2 {
+entry:
+  %retval = alloca %"class.absl::lts_20230802::container_internal::raw_hash_set<absl::lts_20230802::container_internal::FlatHashMapPolicy<const google::protobuf::FieldDescriptor *, google::protobuf::util::SimpleFieldComparator::Tolerance>, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Hash, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Eq, std::allocator<std::pair<const google::protobuf::FieldDescriptor *const, google::protobuf::util::SimpleFieldComparator::Tolerance>>>::iterator", align 8
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE6commonEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  %call2 = call noundef ptr @_ZNK4absl12lts_2023080218container_internal34CommonFieldsGenerationInfoDisabled14generation_ptrEv(ptr noundef nonnull align 1 dereferenceable(1) %call)
+  call void @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE8iteratorC2EPKh(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef %call2)
+  %0 = load { ptr, ptr }, ptr %retval, align 8
+  ret { ptr, ptr } %0
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef ptr @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE8iteratorptEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #6 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %ctrl_ = getelementptr inbounds %"class.absl::lts_20230802::container_internal::raw_hash_set<absl::lts_20230802::container_internal::FlatHashMapPolicy<const google::protobuf::FieldDescriptor *, google::protobuf::util::SimpleFieldComparator::Tolerance>, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Hash, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Eq, std::allocator<std::pair<const google::protobuf::FieldDescriptor *const, google::protobuf::util::SimpleFieldComparator::Tolerance>>>::iterator", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %ctrl_, align 8
+  %call = call noundef zeroext i8 @_ZNK4absl12lts_2023080218container_internal37HashSetIteratorGenerationInfoDisabled10generationEv(ptr noundef nonnull align 1 dereferenceable(1) %this1)
+  %call2 = call noundef ptr @_ZNK4absl12lts_2023080218container_internal37HashSetIteratorGenerationInfoDisabled14generation_ptrEv(ptr noundef nonnull align 1 dereferenceable(1) %this1)
+  call void @_ZN4absl12lts_2023080218container_internal12AssertIsFullEPKNS1_6ctrl_tEhPKhPKc(ptr noundef %0, i8 noundef zeroext %call, ptr noundef %call2, ptr noundef @.str.6)
+  %call3 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE8iteratordeEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
+  ret ptr %call3
+}
+
+; Function Attrs: mustprogress uwtable
+define internal noundef zeroext i1 @_ZN6google8protobuf4util12_GLOBAL__N_122WithinFractionOrMarginIdEEbT_S4_S4_S4_(double noundef %x, double noundef %y, double noundef %fraction, double noundef %margin) #6 {
+entry:
+  %retval = alloca i1, align 1
+  %x.addr = alloca double, align 8
+  %y.addr = alloca double, align 8
+  %fraction.addr = alloca double, align 8
+  %margin.addr = alloca double, align 8
+  %relative_margin = alloca double, align 8
+  %ref.tmp = alloca double, align 8
+  %ref.tmp2 = alloca double, align 8
+  store double %x, ptr %x.addr, align 8
+  store double %y, ptr %y.addr, align 8
+  store double %fraction, ptr %fraction.addr, align 8
+  store double %margin, ptr %margin.addr, align 8
+  %0 = load double, ptr %x.addr, align 8
+  %call = call noundef zeroext i1 @_ZSt8isfinited(double noundef %0)
+  br i1 %call, label %lor.lhs.false, label %if.then
+
+lor.lhs.false:                                    ; preds = %entry
+  %1 = load double, ptr %y.addr, align 8
+  %call1 = call noundef zeroext i1 @_ZSt8isfinited(double noundef %1)
+  br i1 %call1, label %if.end, label %if.then
+
+if.then:                                          ; preds = %lor.lhs.false, %entry
+  store i1 false, ptr %retval, align 1
+  br label %return
+
+if.end:                                           ; preds = %lor.lhs.false
+  %2 = load double, ptr %fraction.addr, align 8
+  %3 = load double, ptr %x.addr, align 8
+  %4 = call double @llvm.fabs.f64(double %3)
+  store double %4, ptr %ref.tmp, align 8
+  %5 = load double, ptr %y.addr, align 8
+  %6 = call double @llvm.fabs.f64(double %5)
+  store double %6, ptr %ref.tmp2, align 8
+  %call3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxIdERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2)
+  %7 = load double, ptr %call3, align 8
+  %mul = fmul double %2, %7
+  store double %mul, ptr %relative_margin, align 8
+  %8 = load double, ptr %x.addr, align 8
+  %9 = load double, ptr %y.addr, align 8
+  %sub = fsub double %8, %9
+  %10 = call double @llvm.fabs.f64(double %sub)
+  %call4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxIdERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %margin.addr, ptr noundef nonnull align 8 dereferenceable(8) %relative_margin)
+  %11 = load double, ptr %call4, align 8
+  %cmp = fcmp ole double %10, %11
+  store i1 %cmp, ptr %retval, align 1
+  br label %return
+
+return:                                           ; preds = %if.end, %if.then
+  %12 = load i1, ptr %retval, align 1
+  ret i1 %12
+}
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fabs.f64(double) #17
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #17
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden { ptr, ptr } @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE4findIS8_EENSL_8iteratorERKT_m(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(8) %key, i64 noundef %hash) #6 comdat align 2 {
+entry:
+  %retval = alloca %"class.absl::lts_20230802::container_internal::raw_hash_set<absl::lts_20230802::container_internal::FlatHashMapPolicy<const google::protobuf::FieldDescriptor *, google::protobuf::util::SimpleFieldComparator::Tolerance>, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Hash, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Eq, std::allocator<std::pair<const google::protobuf::FieldDescriptor *const, google::protobuf::util::SimpleFieldComparator::Tolerance>>>::iterator", align 8
+  %this.addr = alloca ptr, align 8
+  %key.addr = alloca ptr, align 8
+  %hash.addr = alloca i64, align 8
+  %seq = alloca %"class.absl::lts_20230802::container_internal::probe_seq", align 8
+  %slot_ptr = alloca ptr, align 8
+  %ctrl = alloca ptr, align 8
+  %g = alloca %"struct.absl::lts_20230802::container_internal::GroupSse2Impl", align 16
+  %__range5 = alloca ptr, align 8
+  %ref.tmp = alloca %"class.absl::lts_20230802::container_internal::BitMask", align 4
+  %__begin5 = alloca %"class.absl::lts_20230802::container_internal::BitMask", align 4
+  %__end5 = alloca %"class.absl::lts_20230802::container_internal::BitMask", align 4
+  %i = alloca i32, align 4
+  %ref.tmp16 = alloca %"struct.absl::lts_20230802::container_internal::raw_hash_set<absl::lts_20230802::container_internal::FlatHashMapPolicy<const google::protobuf::FieldDescriptor *, google::protobuf::util::SimpleFieldComparator::Tolerance>, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Hash, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Eq, std::allocator<std::pair<const google::protobuf::FieldDescriptor *const, google::protobuf::util::SimpleFieldComparator::Tolerance>>>::EqualElement", align 8
+  %ref.tmp27 = alloca %"class.absl::lts_20230802::container_internal::NonIterableBitMask", align 4
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %key, ptr %key.addr, align 8
+  store i64 %hash, ptr %hash.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE6commonEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  %0 = load i64, ptr %hash.addr, align 8
+  call void @_ZN4absl12lts_2023080218container_internal5probeERKNS1_12CommonFieldsEm(ptr sret(%"class.absl::lts_20230802::container_internal::probe_seq") align 8 %seq, ptr noundef nonnull align 8 dereferenceable(32) %call, i64 noundef %0)
+  %call2 = call noundef ptr @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE10slot_arrayEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  store ptr %call2, ptr %slot_ptr, align 8
+  %call3 = call noundef ptr @_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE7controlEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  store ptr %call3, ptr %ctrl, align 8
+  br label %while.body
+
+while.body:                                       ; preds = %if.end34, %entry
+  %1 = load ptr, ptr %ctrl, align 8
+  %call4 = call noundef i64 @_ZNK4absl12lts_2023080218container_internal9probe_seqILm16EE6offsetEv(ptr noundef nonnull align 8 dereferenceable(24) %seq)
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %call4
+  call void @_ZN4absl12lts_2023080218container_internal13GroupSse2ImplC2EPKNS1_6ctrl_tE(ptr noundef nonnull align 16 dereferenceable(16) %g, ptr noundef %add.ptr)
+  %2 = load i64, ptr %hash.addr, align 8
+  %call5 = call noundef zeroext i8 @_ZN4absl12lts_2023080218container_internal2H2Em(i64 noundef %2)
+  %call6 = call i32 @_ZNK4absl12lts_2023080218container_internal13GroupSse2Impl5MatchEh(ptr noundef nonnull align 16 dereferenceable(16) %g, i8 noundef zeroext %call5)
+  %coerce.dive = getelementptr inbounds %"class.absl::lts_20230802::container_internal::BitMask", ptr %ref.tmp, i32 0, i32 0
+  %coerce.dive7 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::NonIterableBitMask", ptr %coerce.dive, i32 0, i32 0
+  store i32 %call6, ptr %coerce.dive7, align 4
+  store ptr %ref.tmp, ptr %__range5, align 8
+  %3 = load ptr, ptr %__range5, align 8
+  %call8 = call i32 @_ZNK4absl12lts_2023080218container_internal7BitMaskIjLi16ELi0EE5beginEv(ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %coerce.dive9 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::BitMask", ptr %__begin5, i32 0, i32 0
+  %coerce.dive10 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::NonIterableBitMask", ptr %coerce.dive9, i32 0, i32 0
+  store i32 %call8, ptr %coerce.dive10, align 4
+  %4 = load ptr, ptr %__range5, align 8
+  %call11 = call i32 @_ZNK4absl12lts_2023080218container_internal7BitMaskIjLi16ELi0EE3endEv(ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %coerce.dive12 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::BitMask", ptr %__end5, i32 0, i32 0
+  %coerce.dive13 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::NonIterableBitMask", ptr %coerce.dive12, i32 0, i32 0
+  store i32 %call11, ptr %coerce.dive13, align 4
+  br label %for.cond
+
+for.cond:                                         ; preds = %for.inc, %while.body
+  %call14 = call noundef zeroext i1 @_ZN4absl12lts_2023080218container_internalneERKNS1_7BitMaskIjLi16ELi0EEES5_(ptr noundef nonnull align 4 dereferenceable(4) %__begin5, ptr noundef nonnull align 4 dereferenceable(4) %__end5)
+  br i1 %call14, label %for.body, label %for.end
+
+for.body:                                         ; preds = %for.cond
+  %call15 = call noundef i32 @_ZNK4absl12lts_2023080218container_internal7BitMaskIjLi16ELi0EEdeEv(ptr noundef nonnull align 4 dereferenceable(4) %__begin5)
+  store i32 %call15, ptr %i, align 4
+  %rhs = getelementptr inbounds %"struct.absl::lts_20230802::container_internal::raw_hash_set<absl::lts_20230802::container_internal::FlatHashMapPolicy<const google::protobuf::FieldDescriptor *, google::protobuf::util::SimpleFieldComparator::Tolerance>, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Hash, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Eq, std::allocator<std::pair<const google::protobuf::FieldDescriptor *const, google::protobuf::util::SimpleFieldComparator::Tolerance>>>::EqualElement", ptr %ref.tmp16, i32 0, i32 0
+  %5 = load ptr, ptr %key.addr, align 8
+  store ptr %5, ptr %rhs, align 8
+  %eq = getelementptr inbounds %"struct.absl::lts_20230802::container_internal::raw_hash_set<absl::lts_20230802::container_internal::FlatHashMapPolicy<const google::protobuf::FieldDescriptor *, google::protobuf::util::SimpleFieldComparator::Tolerance>, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Hash, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Eq, std::allocator<std::pair<const google::protobuf::FieldDescriptor *const, google::protobuf::util::SimpleFieldComparator::Tolerance>>>::EqualElement", ptr %ref.tmp16, i32 0, i32 1
+  %call17 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE6eq_refEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  store ptr %call17, ptr %eq, align 8
+  %6 = load ptr, ptr %slot_ptr, align 8
+  %7 = load i32, ptr %i, align 4
+  %conv = zext i32 %7 to i64
+  %call18 = call noundef i64 @_ZNK4absl12lts_2023080218container_internal9probe_seqILm16EE6offsetEm(ptr noundef nonnull align 8 dereferenceable(24) %seq, i64 noundef %conv)
+  %add.ptr19 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %6, i64 %call18
+  %call20 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEEvE7elementISC_EEDTclsrT_7elementfp_EEPNS1_13map_slot_typeIS8_SB_EE(ptr noundef %add.ptr19)
+  %call21 = call noundef zeroext i1 @_ZN4absl12lts_2023080218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEEvE5applyINS1_12raw_hash_setISC_NS1_6HashEqIS8_vE4HashENSH_2EqESaISt4pairIKS8_SB_EEE12EqualElementIS8_EEJRSM_ESC_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOST_DpOSU_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp16, ptr noundef nonnull align 8 dereferenceable(24) %call20)
+  br i1 %call21, label %if.then, label %if.end
+
+if.then:                                          ; preds = %for.body
+  %8 = load i32, ptr %i, align 4
+  %conv23 = zext i32 %8 to i64
+  %call24 = call noundef i64 @_ZNK4absl12lts_2023080218container_internal9probe_seqILm16EE6offsetEm(ptr noundef nonnull align 8 dereferenceable(24) %seq, i64 noundef %conv23)
+  %call25 = call { ptr, ptr } @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE11iterator_atEm(ptr noundef nonnull align 8 dereferenceable(32) %this1, i64 noundef %call24)
+  %9 = getelementptr inbounds { ptr, ptr }, ptr %retval, i32 0, i32 0
+  %10 = extractvalue { ptr, ptr } %call25, 0
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds { ptr, ptr }, ptr %retval, i32 0, i32 1
+  %12 = extractvalue { ptr, ptr } %call25, 1
+  store ptr %12, ptr %11, align 8
+  br label %return
+
+if.end:                                           ; preds = %for.body
+  br label %for.inc
+
+for.inc:                                          ; preds = %if.end
+  %call26 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4absl12lts_2023080218container_internal7BitMaskIjLi16ELi0EEppEv(ptr noundef nonnull align 4 dereferenceable(4) %__begin5)
+  br label %for.cond
+
+for.end:                                          ; preds = %for.cond
+  %call28 = call i32 @_ZNK4absl12lts_2023080218container_internal13GroupSse2Impl9MaskEmptyEv(ptr noundef nonnull align 16 dereferenceable(16) %g)
+  %coerce.dive29 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::NonIterableBitMask", ptr %ref.tmp27, i32 0, i32 0
+  store i32 %call28, ptr %coerce.dive29, align 4
+  %call30 = call noundef zeroext i1 @_ZNK4absl12lts_2023080218container_internal18NonIterableBitMaskIjLi16ELi0EEcvbEv(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp27)
+  br i1 %call30, label %if.then32, label %if.end34
+
+if.then32:                                        ; preds = %for.end
+  %call33 = call { ptr, ptr } @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  %13 = getelementptr inbounds { ptr, ptr }, ptr %retval, i32 0, i32 0
+  %14 = extractvalue { ptr, ptr } %call33, 0
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds { ptr, ptr }, ptr %retval, i32 0, i32 1
+  %16 = extractvalue { ptr, ptr } %call33, 1
+  store ptr %16, ptr %15, align 8
+  br label %return
+
+if.end34:                                         ; preds = %for.end
+  call void @_ZN4absl12lts_2023080218container_internal9probe_seqILm16EE4nextEv(ptr noundef nonnull align 8 dereferenceable(24) %seq)
+  br label %while.body, !llvm.loop !8
+
+return:                                           ; preds = %if.then32, %if.then
+  %17 = load { ptr, ptr }, ptr %retval, align 8
+  ret { ptr, ptr } %17
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN4absl12lts_2023080218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE8iteratorESO_(ptr noundef nonnull align 8 dereferenceable(16) %a, ptr noundef nonnull align 8 dereferenceable(16) %b) #6 comdat {
+entry:
+  %a.addr = alloca ptr, align 8
+  %b.addr = alloca ptr, align 8
+  %ref.tmp = alloca ptr, align 8
+  %ref.tmp7 = alloca ptr, align 8
+  store ptr %a, ptr %a.addr, align 8
+  store ptr %b, ptr %b.addr, align 8
+  %0 = load ptr, ptr %a.addr, align 8
+  %ctrl_ = getelementptr inbounds %"class.absl::lts_20230802::container_internal::raw_hash_set<absl::lts_20230802::container_internal::FlatHashMapPolicy<const google::protobuf::FieldDescriptor *, google::protobuf::util::SimpleFieldComparator::Tolerance>, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Hash, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Eq, std::allocator<std::pair<const google::protobuf::FieldDescriptor *const, google::protobuf::util::SimpleFieldComparator::Tolerance>>>::iterator", ptr %0, i32 0, i32 0
+  %1 = load ptr, ptr %ctrl_, align 8
+  %2 = load ptr, ptr %a.addr, align 8
+  %call = call noundef zeroext i8 @_ZNK4absl12lts_2023080218container_internal37HashSetIteratorGenerationInfoDisabled10generationEv(ptr noundef nonnull align 1 dereferenceable(1) %2)
+  %3 = load ptr, ptr %a.addr, align 8
+  %call1 = call noundef ptr @_ZNK4absl12lts_2023080218container_internal37HashSetIteratorGenerationInfoDisabled14generation_ptrEv(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  call void @_ZN4absl12lts_2023080218container_internal26AssertIsValidForComparisonEPKNS1_6ctrl_tEhPKh(ptr noundef %1, i8 noundef zeroext %call, ptr noundef %call1)
+  %4 = load ptr, ptr %b.addr, align 8
+  %ctrl_2 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::raw_hash_set<absl::lts_20230802::container_internal::FlatHashMapPolicy<const google::protobuf::FieldDescriptor *, google::protobuf::util::SimpleFieldComparator::Tolerance>, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Hash, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Eq, std::allocator<std::pair<const google::protobuf::FieldDescriptor *const, google::protobuf::util::SimpleFieldComparator::Tolerance>>>::iterator", ptr %4, i32 0, i32 0
+  %5 = load ptr, ptr %ctrl_2, align 8
+  %6 = load ptr, ptr %b.addr, align 8
+  %call3 = call noundef zeroext i8 @_ZNK4absl12lts_2023080218container_internal37HashSetIteratorGenerationInfoDisabled10generationEv(ptr noundef nonnull align 1 dereferenceable(1) %6)
+  %7 = load ptr, ptr %b.addr, align 8
+  %call4 = call noundef ptr @_ZNK4absl12lts_2023080218container_internal37HashSetIteratorGenerationInfoDisabled14generation_ptrEv(ptr noundef nonnull align 1 dereferenceable(1) %7)
+  call void @_ZN4absl12lts_2023080218container_internal26AssertIsValidForComparisonEPKNS1_6ctrl_tEhPKh(ptr noundef %5, i8 noundef zeroext %call3, ptr noundef %call4)
+  %8 = load ptr, ptr %a.addr, align 8
+  %ctrl_5 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::raw_hash_set<absl::lts_20230802::container_internal::FlatHashMapPolicy<const google::protobuf::FieldDescriptor *, google::protobuf::util::SimpleFieldComparator::Tolerance>, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Hash, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Eq, std::allocator<std::pair<const google::protobuf::FieldDescriptor *const, google::protobuf::util::SimpleFieldComparator::Tolerance>>>::iterator", ptr %8, i32 0, i32 0
+  %9 = load ptr, ptr %ctrl_5, align 8
+  %10 = load ptr, ptr %b.addr, align 8
+  %ctrl_6 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::raw_hash_set<absl::lts_20230802::container_internal::FlatHashMapPolicy<const google::protobuf::FieldDescriptor *, google::protobuf::util::SimpleFieldComparator::Tolerance>, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Hash, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Eq, std::allocator<std::pair<const google::protobuf::FieldDescriptor *const, google::protobuf::util::SimpleFieldComparator::Tolerance>>>::iterator", ptr %10, i32 0, i32 0
+  %11 = load ptr, ptr %ctrl_6, align 8
+  %12 = load ptr, ptr %a.addr, align 8
+  %13 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::raw_hash_set<absl::lts_20230802::container_internal::FlatHashMapPolicy<const google::protobuf::FieldDescriptor *, google::protobuf::util::SimpleFieldComparator::Tolerance>, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Hash, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Eq, std::allocator<std::pair<const google::protobuf::FieldDescriptor *const, google::protobuf::util::SimpleFieldComparator::Tolerance>>>::iterator", ptr %12, i32 0, i32 1
+  %14 = load ptr, ptr %13, align 8
+  store ptr %14, ptr %ref.tmp, align 8
+  %15 = load ptr, ptr %b.addr, align 8
+  %16 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::raw_hash_set<absl::lts_20230802::container_internal::FlatHashMapPolicy<const google::protobuf::FieldDescriptor *, google::protobuf::util::SimpleFieldComparator::Tolerance>, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Hash, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Eq, std::allocator<std::pair<const google::protobuf::FieldDescriptor *const, google::protobuf::util::SimpleFieldComparator::Tolerance>>>::iterator", ptr %15, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8
+  store ptr %17, ptr %ref.tmp7, align 8
+  %18 = load ptr, ptr %a.addr, align 8
+  %call8 = call noundef ptr @_ZNK4absl12lts_2023080218container_internal37HashSetIteratorGenerationInfoDisabled14generation_ptrEv(ptr noundef nonnull align 1 dereferenceable(1) %18)
+  %19 = load ptr, ptr %b.addr, align 8
+  %call9 = call noundef ptr @_ZNK4absl12lts_2023080218container_internal37HashSetIteratorGenerationInfoDisabled14generation_ptrEv(ptr noundef nonnull align 1 dereferenceable(1) %19)
+  call void @_ZN4absl12lts_2023080218container_internal19AssertSameContainerEPKNS1_6ctrl_tES4_RKPKvS8_PKhSA_(ptr noundef %9, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr noundef %call8, ptr noundef %call9)
+  %20 = load ptr, ptr %a.addr, align 8
+  %ctrl_10 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::raw_hash_set<absl::lts_20230802::container_internal::FlatHashMapPolicy<const google::protobuf::FieldDescriptor *, google::protobuf::util::SimpleFieldComparator::Tolerance>, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Hash, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Eq, std::allocator<std::pair<const google::protobuf::FieldDescriptor *const, google::protobuf::util::SimpleFieldComparator::Tolerance>>>::iterator", ptr %20, i32 0, i32 0
+  %21 = load ptr, ptr %ctrl_10, align 8
+  %22 = load ptr, ptr %b.addr, align 8
+  %ctrl_11 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::raw_hash_set<absl::lts_20230802::container_internal::FlatHashMapPolicy<const google::protobuf::FieldDescriptor *, google::protobuf::util::SimpleFieldComparator::Tolerance>, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Hash, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Eq, std::allocator<std::pair<const google::protobuf::FieldDescriptor *const, google::protobuf::util::SimpleFieldComparator::Tolerance>>>::iterator", ptr %22, i32 0, i32 0
+  %23 = load ptr, ptr %ctrl_11, align 8
+  %cmp = icmp eq ptr %21, %23
+  ret i1 %cmp
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal26AssertIsValidForComparisonEPKNS1_6ctrl_tEhPKh(ptr noundef %ctrl, i8 noundef zeroext %generation, ptr noundef %generation_ptr) #4 comdat {
+entry:
+  %ctrl.addr = alloca ptr, align 8
+  %generation.addr = alloca i8, align 1
+  %generation_ptr.addr = alloca ptr, align 8
+  store ptr %ctrl, ptr %ctrl.addr, align 8
+  store i8 %generation, ptr %generation.addr, align 1
+  store ptr %generation_ptr, ptr %generation_ptr.addr, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal19AssertSameContainerEPKNS1_6ctrl_tES4_RKPKvS8_PKhSA_(ptr noundef %ctrl_a, ptr noundef %ctrl_b, ptr noundef nonnull align 8 dereferenceable(8) %slot_a, ptr noundef nonnull align 8 dereferenceable(8) %slot_b, ptr noundef %generation_ptr_a, ptr noundef %generation_ptr_b) #4 comdat {
+entry:
+  %ctrl_a.addr = alloca ptr, align 8
+  %ctrl_b.addr = alloca ptr, align 8
+  %slot_a.addr = alloca ptr, align 8
+  %slot_b.addr = alloca ptr, align 8
+  %generation_ptr_a.addr = alloca ptr, align 8
+  %generation_ptr_b.addr = alloca ptr, align 8
+  store ptr %ctrl_a, ptr %ctrl_a.addr, align 8
+  store ptr %ctrl_b, ptr %ctrl_b.addr, align 8
+  store ptr %slot_a, ptr %slot_a.addr, align 8
+  store ptr %slot_b, ptr %slot_b.addr, align 8
+  store ptr %generation_ptr_a, ptr %generation_ptr_a.addr, align 8
+  store ptr %generation_ptr_b, ptr %generation_ptr_b.addr, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE8iteratorC2EPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %generation_ptr) unnamed_addr #4 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %generation_ptr.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %generation_ptr, ptr %generation_ptr.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %generation_ptr.addr, align 8
+  call void @_ZN4absl12lts_2023080218container_internal37HashSetIteratorGenerationInfoDisabledC2EPKh(ptr noundef nonnull align 1 dereferenceable(1) %this1, ptr noundef %0)
+  %ctrl_ = getelementptr inbounds %"class.absl::lts_20230802::container_internal::raw_hash_set<absl::lts_20230802::container_internal::FlatHashMapPolicy<const google::protobuf::FieldDescriptor *, google::protobuf::util::SimpleFieldComparator::Tolerance>, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Hash, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FieldDescriptor *>::Eq, std::allocator<std::pair<const google::protobuf::FieldDescriptor *const, google::protobuf::util::SimpleFieldComparator::Tolerance>>>::iterator", ptr %this1, i32 0, i32 0
+  store ptr null, ptr %ctrl_, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZSt8isfinited(double noundef %__x) #4 comdat {
+entry:
+  %__x.addr = alloca double, align 8
+  store double %__x, ptr %__x.addr, align 8
+  %0 = load double, ptr %__x.addr, align 8
+  %1 = call i1 @llvm.is.fpclass.f64(double %0, i32 504)
+  ret i1 %1
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxIdERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %__a, ptr noundef nonnull align 8 dereferenceable(8) %__b) #4 comdat {
+entry:
+  %retval = alloca ptr, align 8
+  %__a.addr = alloca ptr, align 8
+  %__b.addr = alloca ptr, align 8
+  store ptr %__a, ptr %__a.addr, align 8
+  store ptr %__b, ptr %__b.addr, align 8
+  %0 = load ptr, ptr %__a.addr, align 8
+  %1 = load double, ptr %0, align 8
+  %2 = load ptr, ptr %__b.addr, align 8
+  %3 = load double, ptr %2, align 8
+  %cmp = fcmp olt double %1, %3
+  br i1 %cmp, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %4 = load ptr, ptr %__b.addr, align 8
+  store ptr %4, ptr %retval, align 8
+  br label %return
+
+if.end:                                           ; preds = %entry
+  %5 = load ptr, ptr %__a.addr, align 8
+  store ptr %5, ptr %retval, align 8
+  br label %return
+
+return:                                           ; preds = %if.end, %if.then
+  %6 = load ptr, ptr %retval, align 8
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZSt5isnanf(float noundef %__x) #4 comdat {
+entry:
+  %__x.addr = alloca float, align 4
+  store float %__x, ptr %__x.addr, align 4
+  %0 = load float, ptr %__x.addr, align 4
+  %1 = call i1 @llvm.is.fpclass.f32(float %0, i32 3)
+  ret i1 %1
+}
+
+; Function Attrs: mustprogress uwtable
+define internal noundef zeroext i1 @_ZN6google8protobuf4util12_GLOBAL__N_122WithinFractionOrMarginIfEEbT_S4_S4_S4_(float noundef %x, float noundef %y, float noundef %fraction, float noundef %margin) #6 {
+entry:
+  %retval = alloca i1, align 1
+  %x.addr = alloca float, align 4
+  %y.addr = alloca float, align 4
+  %fraction.addr = alloca float, align 4
+  %margin.addr = alloca float, align 4
+  %relative_margin = alloca float, align 4
+  %ref.tmp = alloca float, align 4
+  %ref.tmp3 = alloca float, align 4
+  store float %x, ptr %x.addr, align 4
+  store float %y, ptr %y.addr, align 4
+  store float %fraction, ptr %fraction.addr, align 4
+  store float %margin, ptr %margin.addr, align 4
+  %0 = load float, ptr %x.addr, align 4
+  %call = call noundef zeroext i1 @_ZSt8isfinitef(float noundef %0)
+  br i1 %call, label %lor.lhs.false, label %if.then
+
+lor.lhs.false:                                    ; preds = %entry
+  %1 = load float, ptr %y.addr, align 4
+  %call1 = call noundef zeroext i1 @_ZSt8isfinitef(float noundef %1)
+  br i1 %call1, label %if.end, label %if.then
+
+if.then:                                          ; preds = %lor.lhs.false, %entry
+  store i1 false, ptr %retval, align 1
+  br label %return
+
+if.end:                                           ; preds = %lor.lhs.false
+  %2 = load float, ptr %fraction.addr, align 4
+  %3 = load float, ptr %x.addr, align 4
+  %call2 = call noundef float @_ZSt4fabsf(float noundef %3)
+  store float %call2, ptr %ref.tmp, align 4
+  %4 = load float, ptr %y.addr, align 4
+  %call4 = call noundef float @_ZSt4fabsf(float noundef %4)
+  store float %call4, ptr %ref.tmp3, align 4
+  %call5 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3maxIfERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp3)
+  %5 = load float, ptr %call5, align 4
+  %mul = fmul float %2, %5
+  store float %mul, ptr %relative_margin, align 4
+  %6 = load float, ptr %x.addr, align 4
+  %7 = load float, ptr %y.addr, align 4
+  %sub = fsub float %6, %7
+  %call6 = call noundef float @_ZSt4fabsf(float noundef %sub)
+  %call7 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3maxIfERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %margin.addr, ptr noundef nonnull align 4 dereferenceable(4) %relative_margin)
+  %8 = load float, ptr %call7, align 4
+  %cmp = fcmp ole float %call6, %8
+  store i1 %cmp, ptr %retval, align 1
+  br label %return
+
+return:                                           ; preds = %if.end, %if.then
+  %9 = load i1, ptr %retval, align 1
+  ret i1 %9
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef float @_ZSt4fabsf(float noundef %__x) #4 comdat {
+entry:
+  %__x.addr = alloca float, align 4
+  store float %__x, ptr %__x.addr, align 4
+  %0 = load float, ptr %__x.addr, align 4
+  %1 = call float @llvm.fabs.f32(float %0)
+  ret float %1
+}
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i1 @llvm.is.fpclass.f32(float, i32 immarg) #17
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZSt8isfinitef(float noundef %__x) #4 comdat {
+entry:
+  %__x.addr = alloca float, align 4
+  store float %__x, ptr %__x.addr, align 4
+  %0 = load float, ptr %__x.addr, align 4
+  %1 = call i1 @llvm.is.fpclass.f32(float %0, i32 504)
+  ret i1 %1
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3maxIfERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %__a, ptr noundef nonnull align 4 dereferenceable(4) %__b) #4 comdat {
+entry:
+  %retval = alloca ptr, align 8
+  %__a.addr = alloca ptr, align 8
+  %__b.addr = alloca ptr, align 8
+  store ptr %__a, ptr %__a.addr, align 8
+  store ptr %__b, ptr %__b.addr, align 8
+  %0 = load ptr, ptr %__a.addr, align 8
+  %1 = load float, ptr %0, align 4
+  %2 = load ptr, ptr %__b.addr, align 8
+  %3 = load float, ptr %2, align 4
+  %cmp = fcmp olt float %1, %3
+  br i1 %cmp, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %4 = load ptr, ptr %__b.addr, align 8
+  store ptr %4, ptr %retval, align 8
+  br label %return
+
+if.end:                                           ; preds = %entry
+  %5 = load ptr, ptr %__a.addr, align 8
+  store ptr %5, ptr %retval, align 8
+  br label %return
+
+return:                                           ; preds = %if.end, %if.then
+  %6 = load ptr, ptr %retval, align 8
+  ret ptr %6
+}
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.fabs.f32(float) #17
+
+; Function Attrs: uwtable
+define internal void @_GLOBAL__sub_I_field_comparator.cc() #0 section ".text.startup" {
+entry:
+  call void @__cxx_global_var_init()
+  ret void
+}
+
+attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind }
+attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #6 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) }
+attributes #15 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { noreturn nounwind }
+attributes #21 = { cold }
+attributes #22 = { builtin nounwind }
+attributes #23 = { noreturn }
+attributes #24 = { builtin allocsize(0) }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{i32 7, !"frame-pointer", i32 2}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
