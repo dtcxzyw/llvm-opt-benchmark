@@ -145,3 +145,6 @@
 [submodule "bench/lodepng/lodepng"]
 	path = bench/lodepng/lodepng
 	url = git@github.com:lvandeve/lodepng.git
+[submodule "bench/openexr/openexr"]
+	path = bench/openexr/openexr
+	url = git@github.com:AcademySoftwareFoundation/openexr.git
