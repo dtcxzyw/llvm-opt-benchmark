@@ -127,3 +127,6 @@
 [submodule "bench/cppfront/cppfront"]
 	path = bench/cppfront/cppfront
 	url = git@github.com:hsutter/cppfront.git
+[submodule "bench/re2/re2"]
+	path = bench/re2/re2
+	url = git@github.com:google/re2.git
