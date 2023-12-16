@@ -1,0 +1,68 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index f4c55ba4a..c902375d5 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -456,7 +456,7 @@ if(${VELOX_BUILD_PYTHON_PACKAGE})
+ endif()
+ 
+ set_source(simdjson)
+-resolve_dependency(simdjson 3.1.5)
++resolve_dependency(simdjson 1.0.2)
+ 
+ # Locate or build folly.
+ add_compile_definitions(FOLLY_HAVE_INT128_T=1)
+diff --git a/velox/common/base/Exceptions.h b/velox/common/base/Exceptions.h
+index 1a96c5e59..79a9e8612 100644
+--- a/velox/common/base/Exceptions.h
++++ b/velox/common/base/Exceptions.h
+@@ -159,21 +159,7 @@ std::string errorMessage(fmt::string_view fmt, const Args&... args) {
+ #define _VELOX_THROW_IMPL(                                               \
+     exception, expr_str, errorSource, errorCode, isRetriable, ...)       \
+   {                                                                      \
+-    /* GCC 9.2.1 doesn't accept this code with constexpr. */             \
+-    static const ::facebook::velox::detail::VeloxCheckFailArgs           \
+-        veloxCheckFailArgs = {                                           \
+-            __FILE__,                                                    \
+-            __LINE__,                                                    \
+-            __FUNCTION__,                                                \
+-            expr_str,                                                    \
+-            errorSource,                                                 \
+-            errorCode,                                                   \
+-            isRetriable};                                                \
+-    auto message = ::facebook::velox::detail::errorMessage(__VA_ARGS__); \
+-    ::facebook::velox::detail::veloxCheckFail<                           \
+-        exception,                                                       \
+-        typename ::facebook::velox::detail::VeloxCheckFailStringType<    \
+-            decltype(message)>::type>(veloxCheckFailArgs, message);      \
++    __builtin_trap();                                                    \
+   }
+ 
+ #define _VELOX_CHECK_AND_THROW_IMPL(                                     \
+@@ -261,13 +247,7 @@ DECLARE_CHECK_FAIL_TEMPLATES(::facebook::velox::VeloxRuntimeError);
+ #define VELOX_CHECK_NULL(e, ...) VELOX_CHECK(e == nullptr, ##__VA_ARGS__)
+ #define VELOX_CHECK_NOT_NULL(e, ...) VELOX_CHECK(e != nullptr, ##__VA_ARGS__)
+ 
+-#define VELOX_UNSUPPORTED(...)                                   \
+-  _VELOX_THROW(                                                  \
+-      ::facebook::velox::VeloxUserError,                         \
+-      ::facebook::velox::error_source::kErrorSourceUser.c_str(), \
+-      ::facebook::velox::error_code::kUnsupported.c_str(),       \
+-      /* isRetriable */ false,                                   \
+-      ##__VA_ARGS__)
++#define VELOX_UNSUPPORTED(...) __builtin_unreachable();
+ 
+ #define VELOX_ARITHMETIC_ERROR(...)                              \
+   _VELOX_THROW(                                                  \
+diff --git a/velox/common/base/RuntimeMetrics.cpp b/velox/common/base/RuntimeMetrics.cpp
+index f1150292b..047ef3b08 100644
+--- a/velox/common/base/RuntimeMetrics.cpp
++++ b/velox/common/base/RuntimeMetrics.cpp
+@@ -35,7 +35,7 @@ void RuntimeMetric::aggregate() {
+ }
+ 
+ void RuntimeMetric::merge(const RuntimeMetric& other) {
+-  VELOX_CHECK_EQ(unit, other.unit);
++  // VELOX_CHECK_EQ(unit, other.unit);
+   sum += other.sum;
+   count += other.count;
+   min = std::min(min, other.min);

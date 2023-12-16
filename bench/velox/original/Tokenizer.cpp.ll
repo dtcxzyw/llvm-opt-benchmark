@@ -1,0 +1,7966 @@
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-unknown-linux-gnu"
+
+%"class.facebook::velox::common::Tokenizer" = type { %"class.std::__cxx11::basic_string", %"class.std::shared_ptr", i32, i32, i8, %"class.std::unique_ptr" }
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon = type { i64, [8 x i8] }
+%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
+%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
+%"class.std::__shared_count" = type { ptr }
+%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
+%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
+%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
+%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
+%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
+%"struct.std::_Head_base.1" = type { ptr }
+%"struct.facebook::velox::common::Separators" = type { i8, i8, i8, i8, i8, i8, i8 }
+%"class.std::unique_ptr.2" = type { %"struct.std::__uniq_ptr_data.3" }
+%"struct.std::__uniq_ptr_data.3" = type { %"class.std::__uniq_ptr_impl.4" }
+%"class.std::__uniq_ptr_impl.4" = type { %"class.std::tuple.5" }
+%"class.std::tuple.5" = type { %"struct.std::_Tuple_impl.6" }
+%"struct.std::_Tuple_impl.6" = type { %"struct.std::_Head_base.9" }
+%"struct.std::_Head_base.9" = type { ptr }
+%"class.std::unique_ptr.18" = type { %"struct.std::__uniq_ptr_data.19" }
+%"struct.std::__uniq_ptr_data.19" = type { %"class.std::__uniq_ptr_impl.20" }
+%"class.std::__uniq_ptr_impl.20" = type { %"class.std::tuple.21" }
+%"class.std::tuple.21" = type { %"struct.std::_Tuple_impl.22" }
+%"struct.std::_Tuple_impl.22" = type { %"struct.std::_Head_base.25" }
+%"struct.std::_Head_base.25" = type { ptr }
+%"class.std::unique_ptr.26" = type { %"struct.std::__uniq_ptr_data.27" }
+%"struct.std::__uniq_ptr_data.27" = type { %"class.std::__uniq_ptr_impl.28" }
+%"class.std::__uniq_ptr_impl.28" = type { %"class.std::tuple.29" }
+%"class.std::tuple.29" = type { %"struct.std::_Tuple_impl.30" }
+%"struct.std::_Tuple_impl.30" = type { %"struct.std::_Head_base.33" }
+%"struct.std::_Head_base.33" = type { ptr }
+%"class.std::unique_ptr.10" = type { %"struct.std::__uniq_ptr_data.11" }
+%"struct.std::__uniq_ptr_data.11" = type { %"class.std::__uniq_ptr_impl.12" }
+%"class.std::__uniq_ptr_impl.12" = type { %"class.std::tuple.13" }
+%"class.std::tuple.13" = type { %"struct.std::_Tuple_impl.14" }
+%"struct.std::_Tuple_impl.14" = type { %"struct.std::_Head_base.17" }
+%"struct.std::_Head_base.17" = type { ptr }
+%"class.std::_Sp_counted_base" = type { ptr, i32, i32 }
+%struct._Save_errno = type { i32 }
+%"class.std::allocator" = type { i8 }
+%struct._Guard = type { ptr }
+%"class.facebook::velox::common::Subfield::NestedField" = type { %"class.facebook::velox::common::Subfield::PathElement", %"class.std::__cxx11::basic_string" }
+%"class.facebook::velox::common::Subfield::PathElement" = type { ptr }
+%"class.facebook::velox::common::Subfield::StringSubscript" = type { %"class.facebook::velox::common::Subfield::PathElement", %"class.std::__cxx11::basic_string" }
+%"struct.std::hash" = type { i8 }
+%"class.facebook::velox::common::Subfield::LongSubscript" = type { %"class.facebook::velox::common::Subfield::PathElement", i64 }
+%"struct.std::hash.42" = type { i8 }
+%"struct.boost::algorithm::detail::first_finderF" = type <{ %"class.boost::iterator_range", %"struct.boost::algorithm::is_equal", [7 x i8] }>
+%"class.boost::iterator_range" = type { %"class.boost::iterator_range_detail::iterator_range_base" }
+%"class.boost::iterator_range_detail::iterator_range_base" = type { %"class.boost::iterator_range_detail::iterator_range_base.44" }
+%"class.boost::iterator_range_detail::iterator_range_base.44" = type { %"class.boost::iterator_range_detail::iterator_range_base.45" }
+%"class.boost::iterator_range_detail::iterator_range_base.45" = type { ptr, ptr }
+%"struct.boost::algorithm::is_equal" = type { i8 }
+%"struct.boost::algorithm::detail::const_formatF" = type { %"class.boost::iterator_range" }
+%"class.boost::iterator_range.46" = type { %"class.boost::iterator_range_detail::iterator_range_base.47" }
+%"class.boost::iterator_range_detail::iterator_range_base.47" = type { %"class.boost::iterator_range_detail::iterator_range_base.48" }
+%"class.boost::iterator_range_detail::iterator_range_base.48" = type { %"class.boost::iterator_range_detail::iterator_range_base.49" }
+%"class.boost::iterator_range_detail::iterator_range_base.49" = type { %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator" }
+%"class.__gnu_cxx::__normal_iterator" = type { ptr }
+%"class.boost::algorithm::detail::find_format_store" = type { %"class.boost::iterator_range.46", %"class.boost::iterator_range", ptr }
+%"class.__gnu_cxx::__normal_iterator.50" = type { ptr }
+
+$_ZNSt10shared_ptrIN8facebook5velox6common10SeparatorsEEC2ERKS4_ = comdat any
+
+$_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEC2IS6_vEEv = comdat any
+
+$_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEC2EOS7_ = comdat any
+
+$_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEC2IS6_vEEDn = comdat any
+
+$_ZNKSt19__shared_ptr_accessIN8facebook5velox6common10SeparatorsELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv = comdat any
+
+$_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EED2Ev = comdat any
+
+$_ZNK8facebook5velox6common10Separators11isSeparatorEc = comdat any
+
+$_ZSt11make_uniqueIN8facebook5velox6common8Subfield11NestedFieldEJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_ = comdat any
+
+$_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEC2INS3_11NestedFieldES5_IS9_EvEEOS_IT_T0_E = comdat any
+
+$_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11NestedFieldESt14default_deleteIS4_EED2Ev = comdat any
+
+$_ZNSt7__cxx114stolERKNS_12basic_stringIcSt11char_traitsIcESaIcEEEPmi = comdat any
+
+$_ZSt11make_uniqueIN8facebook5velox6common8Subfield13LongSubscriptEJRlEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_ = comdat any
+
+$_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEC2INS3_13LongSubscriptES5_IS9_EvEEOS_IT_T0_E = comdat any
+
+$_ZNSt10unique_ptrIN8facebook5velox6common8Subfield13LongSubscriptESt14default_deleteIS4_EED2Ev = comdat any
+
+$_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_ = comdat any
+
+$_ZSt11make_uniqueIN8facebook5velox6common8Subfield13AllSubscriptsEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_ = comdat any
+
+$_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEC2INS3_13AllSubscriptsES5_IS9_EvEEOS_IT_T0_E = comdat any
+
+$_ZNSt10unique_ptrIN8facebook5velox6common8Subfield13AllSubscriptsESt14default_deleteIS4_EED2Ev = comdat any
+
+$_ZSt11make_uniqueIN8facebook5velox6common8Subfield15StringSubscriptEJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_ = comdat any
+
+$_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEC2INS3_15StringSubscriptES5_IS9_EvEEOS_IT_T0_E = comdat any
+
+$_ZNSt10unique_ptrIN8facebook5velox6common8Subfield15StringSubscriptESt14default_deleteIS4_EED2Ev = comdat any
+
+$_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_ = comdat any
+
+$_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S5_ = comdat any
+
+$_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEaSEOS7_ = comdat any
+
+$_ZNSt12__shared_ptrIN8facebook5velox6common10SeparatorsELN9__gnu_cxx12_Lock_policyE2EEC2ERKS6_ = comdat any
+
+$_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2ERKS2_ = comdat any
+
+$_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv = comdat any
+
+$__clang_call_terminate = comdat any
+
+$_ZNSt15__uniq_ptr_dataIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_ELb1ELb1EEC2Ev = comdat any
+
+$_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEC2Ev = comdat any
+
+$_ZNSt5tupleIJPN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES5_S7_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv = comdat any
+
+$_ZNSt11_Tuple_implILm0EJPN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEEC2Ev = comdat any
+
+$_ZNSt11_Tuple_implILm1EJSt14default_deleteIN8facebook5velox6common8Subfield11PathElementEEEEC2Ev = comdat any
+
+$_ZNSt10_Head_baseILm0EPN8facebook5velox6common8Subfield11PathElementELb0EEC2Ev = comdat any
+
+$_ZNSt10_Head_baseILm1ESt14default_deleteIN8facebook5velox6common8Subfield11PathElementEELb1EEC2Ev = comdat any
+
+$_ZNSt15__uniq_ptr_dataIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_ELb1ELb1EEC2EOS7_ = comdat any
+
+$_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEC2EOS7_ = comdat any
+
+$_ZNSt5tupleIJPN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEEC2EOS8_ = comdat any
+
+$_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EE6_M_ptrEv = comdat any
+
+$_ZNSt11_Tuple_implILm0EJPN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEEC2EOS8_ = comdat any
+
+$_ZNSt11_Tuple_implILm1EJSt14default_deleteIN8facebook5velox6common8Subfield11PathElementEEEEC2EOS7_ = comdat any
+
+$_ZSt3getILm0EJPN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSC_ = comdat any
+
+$_ZSt12__get_helperILm0EPN8facebook5velox6common8Subfield11PathElementEJSt14default_deleteIS4_EEERT0_RSt11_Tuple_implIXT_EJS8_DpT1_EE = comdat any
+
+$_ZNSt11_Tuple_implILm0EJPN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEE7_M_headERS8_ = comdat any
+
+$_ZNSt10_Head_baseILm0EPN8facebook5velox6common8Subfield11PathElementELb0EE7_M_headERS6_ = comdat any
+
+$_ZN9__gnu_cxx6__stoaIllcJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_ = comdat any
+
+$_ZZN9__gnu_cxx6__stoaIllcJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoC2Ev = comdat any
+
+$_ZZN9__gnu_cxx6__stoaIllcJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN10_Range_chk6_S_chkElSt17integral_constantIbLb0EE = comdat any
+
+$_ZZN9__gnu_cxx6__stoaIllcJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD2Ev = comdat any
+
+$_ZNSt15__uniq_ptr_dataIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_ELb1ELb1EEaSEOS7_ = comdat any
+
+$_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEaSEOS7_ = comdat any
+
+$_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EE5resetEPS4_ = comdat any
+
+$_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EE7releaseEv = comdat any
+
+$_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EE10_M_deleterEv = comdat any
+
+$_ZNKSt14default_deleteIN8facebook5velox6common8Subfield11PathElementEEclEPS4_ = comdat any
+
+$_ZSt3getILm1EJPN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSC_ = comdat any
+
+$_ZSt12__get_helperILm1ESt14default_deleteIN8facebook5velox6common8Subfield11PathElementEEJEERT0_RSt11_Tuple_implIXT_EJS7_DpT1_EE = comdat any
+
+$_ZNSt11_Tuple_implILm1EJSt14default_deleteIN8facebook5velox6common8Subfield11PathElementEEEE7_M_headERS7_ = comdat any
+
+$_ZNSt10_Head_baseILm1ESt14default_deleteIN8facebook5velox6common8Subfield11PathElementEELb1EE7_M_headERS7_ = comdat any
+
+$_ZN8facebook5velox6common8Subfield13AllSubscriptsC2Ev = comdat any
+
+$_ZNSt10unique_ptrIN8facebook5velox6common8Subfield13AllSubscriptsESt14default_deleteIS4_EEC2IS6_vEEPS4_ = comdat any
+
+$_ZN8facebook5velox6common8Subfield11PathElementC2Ev = comdat any
+
+$_ZN8facebook5velox6common8Subfield13AllSubscriptsD2Ev = comdat any
+
+$_ZN8facebook5velox6common8Subfield13AllSubscriptsD0Ev = comdat any
+
+$_ZNK8facebook5velox6common8Subfield13AllSubscripts4kindEv = comdat any
+
+$_ZNK8facebook5velox6common8Subfield13AllSubscripts11isSubscriptEv = comdat any
+
+$_ZNK8facebook5velox6common8Subfield13AllSubscripts8toStringB5cxx11Ev = comdat any
+
+$_ZNK8facebook5velox6common8Subfield13AllSubscripts4hashEv = comdat any
+
+$_ZNK8facebook5velox6common8Subfield13AllSubscriptseqERKNS2_11PathElementE = comdat any
+
+$_ZN8facebook5velox6common8Subfield13AllSubscripts5cloneEv = comdat any
+
+$_ZN8facebook5velox6common8Subfield11PathElementD2Ev = comdat any
+
+$_ZN8facebook5velox6common8Subfield11PathElementD0Ev = comdat any
+
+$_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_ = comdat any
+
+$_ZNSt11char_traitsIcE6lengthEPKc = comdat any
+
+$_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag = comdat any
+
+$_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderD2Ev = comdat any
+
+$_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_ = comdat any
+
+$_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardC2EPS4_ = comdat any
+
+$_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev = comdat any
+
+$_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag = comdat any
+
+$_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_ = comdat any
+
+$_ZNSt15__uniq_ptr_dataIN8facebook5velox6common8Subfield13AllSubscriptsESt14default_deleteIS4_ELb1ELb1EECI2St15__uniq_ptr_implIS4_S6_EEPS4_ = comdat any
+
+$_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield13AllSubscriptsESt14default_deleteIS4_EEC2EPS4_ = comdat any
+
+$_ZNSt5tupleIJPN8facebook5velox6common8Subfield13AllSubscriptsESt14default_deleteIS4_EEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES5_S7_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv = comdat any
+
+$_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield13AllSubscriptsESt14default_deleteIS4_EE6_M_ptrEv = comdat any
+
+$_ZNSt11_Tuple_implILm0EJPN8facebook5velox6common8Subfield13AllSubscriptsESt14default_deleteIS4_EEEC2Ev = comdat any
+
+$_ZNSt11_Tuple_implILm1EJSt14default_deleteIN8facebook5velox6common8Subfield13AllSubscriptsEEEEC2Ev = comdat any
+
+$_ZNSt10_Head_baseILm0EPN8facebook5velox6common8Subfield13AllSubscriptsELb0EEC2Ev = comdat any
+
+$_ZNSt10_Head_baseILm1ESt14default_deleteIN8facebook5velox6common8Subfield13AllSubscriptsEELb1EEC2Ev = comdat any
+
+$_ZSt3getILm0EJPN8facebook5velox6common8Subfield13AllSubscriptsESt14default_deleteIS4_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSC_ = comdat any
+
+$_ZSt12__get_helperILm0EPN8facebook5velox6common8Subfield13AllSubscriptsEJSt14default_deleteIS4_EEERT0_RSt11_Tuple_implIXT_EJS8_DpT1_EE = comdat any
+
+$_ZNSt11_Tuple_implILm0EJPN8facebook5velox6common8Subfield13AllSubscriptsESt14default_deleteIS4_EEE7_M_headERS8_ = comdat any
+
+$_ZNSt10_Head_baseILm0EPN8facebook5velox6common8Subfield13AllSubscriptsELb0EE7_M_headERS6_ = comdat any
+
+$_ZNSt10unique_ptrIN8facebook5velox6common8Subfield13AllSubscriptsESt14default_deleteIS4_EE11get_deleterEv = comdat any
+
+$_ZNKSt14default_deleteIN8facebook5velox6common8Subfield13AllSubscriptsEEclEPS4_ = comdat any
+
+$_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield13AllSubscriptsESt14default_deleteIS4_EE10_M_deleterEv = comdat any
+
+$_ZSt3getILm1EJPN8facebook5velox6common8Subfield13AllSubscriptsESt14default_deleteIS4_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSC_ = comdat any
+
+$_ZSt12__get_helperILm1ESt14default_deleteIN8facebook5velox6common8Subfield13AllSubscriptsEEJEERT0_RSt11_Tuple_implIXT_EJS7_DpT1_EE = comdat any
+
+$_ZNSt11_Tuple_implILm1EJSt14default_deleteIN8facebook5velox6common8Subfield13AllSubscriptsEEEE7_M_headERS7_ = comdat any
+
+$_ZNSt10_Head_baseILm1ESt14default_deleteIN8facebook5velox6common8Subfield13AllSubscriptsEELb1EE7_M_headERS7_ = comdat any
+
+$_ZNSt10unique_ptrIN8facebook5velox6common8Subfield13AllSubscriptsESt14default_deleteIS4_EE7releaseEv = comdat any
+
+$_ZNSt15__uniq_ptr_dataIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_ELb1ELb1EECI2St15__uniq_ptr_implIS4_S6_EIS5_INS3_13AllSubscriptsEEEEPS4_OT_ = comdat any
+
+$_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield13AllSubscriptsESt14default_deleteIS4_EE7releaseEv = comdat any
+
+$_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEC2IS5_INS3_13AllSubscriptsEEEEPS4_OT_ = comdat any
+
+$_ZNSt5tupleIJPN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEEC2IRS5_S6_INS3_13AllSubscriptsEETnNSt9enable_ifIXclsr4_TCCIXntcl14__is_alloc_argIT_EEEEE29__is_implicitly_constructibleISE_T0_EEEbE4typeELb1EEEOSE_OSF_ = comdat any
+
+$_ZNSt11_Tuple_implILm0EJPN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEEC2IRS5_JS6_INS3_13AllSubscriptsEEEvEEOT_DpOT0_ = comdat any
+
+$_ZNSt11_Tuple_implILm1EJSt14default_deleteIN8facebook5velox6common8Subfield11PathElementEEEEC2IS0_INS4_13AllSubscriptsEEEEOT_ = comdat any
+
+$_ZNSt10_Head_baseILm0EPN8facebook5velox6common8Subfield11PathElementELb0EEC2IRS5_EEOT_ = comdat any
+
+$_ZNSt10_Head_baseILm1ESt14default_deleteIN8facebook5velox6common8Subfield11PathElementEELb1EEC2IS0_INS4_13AllSubscriptsEEEEOT_ = comdat any
+
+$_ZNSt14default_deleteIN8facebook5velox6common8Subfield11PathElementEEC2INS3_13AllSubscriptsEvEERKS_IT_E = comdat any
+
+$_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11NestedFieldESt14default_deleteIS4_EE6_M_ptrEv = comdat any
+
+$_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11NestedFieldESt14default_deleteIS4_EE11get_deleterEv = comdat any
+
+$_ZNKSt14default_deleteIN8facebook5velox6common8Subfield11NestedFieldEEclEPS4_ = comdat any
+
+$_ZSt3getILm0EJPN8facebook5velox6common8Subfield11NestedFieldESt14default_deleteIS4_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSC_ = comdat any
+
+$_ZSt12__get_helperILm0EPN8facebook5velox6common8Subfield11NestedFieldEJSt14default_deleteIS4_EEERT0_RSt11_Tuple_implIXT_EJS8_DpT1_EE = comdat any
+
+$_ZNSt11_Tuple_implILm0EJPN8facebook5velox6common8Subfield11NestedFieldESt14default_deleteIS4_EEE7_M_headERS8_ = comdat any
+
+$_ZNSt10_Head_baseILm0EPN8facebook5velox6common8Subfield11NestedFieldELb0EE7_M_headERS6_ = comdat any
+
+$_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11NestedFieldESt14default_deleteIS4_EE10_M_deleterEv = comdat any
+
+$_ZSt3getILm1EJPN8facebook5velox6common8Subfield11NestedFieldESt14default_deleteIS4_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSC_ = comdat any
+
+$_ZSt12__get_helperILm1ESt14default_deleteIN8facebook5velox6common8Subfield11NestedFieldEEJEERT0_RSt11_Tuple_implIXT_EJS7_DpT1_EE = comdat any
+
+$_ZNSt11_Tuple_implILm1EJSt14default_deleteIN8facebook5velox6common8Subfield11NestedFieldEEEE7_M_headERS7_ = comdat any
+
+$_ZNSt10_Head_baseILm1ESt14default_deleteIN8facebook5velox6common8Subfield11NestedFieldEELb1EE7_M_headERS7_ = comdat any
+
+$_ZN8facebook5velox6common8Subfield11NestedFieldD2Ev = comdat any
+
+$_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11NestedFieldESt14default_deleteIS4_EE7releaseEv = comdat any
+
+$_ZNSt15__uniq_ptr_dataIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_ELb1ELb1EECI2St15__uniq_ptr_implIS4_S6_EIS5_INS3_11NestedFieldEEEEPS4_OT_ = comdat any
+
+$_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11NestedFieldESt14default_deleteIS4_EE7releaseEv = comdat any
+
+$_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEC2IS5_INS3_11NestedFieldEEEEPS4_OT_ = comdat any
+
+$_ZNSt5tupleIJPN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEEC2IRS5_S6_INS3_11NestedFieldEETnNSt9enable_ifIXclsr4_TCCIXntcl14__is_alloc_argIT_EEEEE29__is_implicitly_constructibleISE_T0_EEEbE4typeELb1EEEOSE_OSF_ = comdat any
+
+$_ZNSt11_Tuple_implILm0EJPN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEEC2IRS5_JS6_INS3_11NestedFieldEEEvEEOT_DpOT0_ = comdat any
+
+$_ZNSt11_Tuple_implILm1EJSt14default_deleteIN8facebook5velox6common8Subfield11PathElementEEEEC2IS0_INS4_11NestedFieldEEEEOT_ = comdat any
+
+$_ZNSt10_Head_baseILm1ESt14default_deleteIN8facebook5velox6common8Subfield11PathElementEELb1EEC2IS0_INS4_11NestedFieldEEEEOT_ = comdat any
+
+$_ZNSt14default_deleteIN8facebook5velox6common8Subfield11PathElementEEC2INS3_11NestedFieldEvEERKS_IT_E = comdat any
+
+$_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield13LongSubscriptESt14default_deleteIS4_EE6_M_ptrEv = comdat any
+
+$_ZNSt10unique_ptrIN8facebook5velox6common8Subfield13LongSubscriptESt14default_deleteIS4_EE11get_deleterEv = comdat any
+
+$_ZNKSt14default_deleteIN8facebook5velox6common8Subfield13LongSubscriptEEclEPS4_ = comdat any
+
+$_ZSt3getILm0EJPN8facebook5velox6common8Subfield13LongSubscriptESt14default_deleteIS4_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSC_ = comdat any
+
+$_ZSt12__get_helperILm0EPN8facebook5velox6common8Subfield13LongSubscriptEJSt14default_deleteIS4_EEERT0_RSt11_Tuple_implIXT_EJS8_DpT1_EE = comdat any
+
+$_ZNSt11_Tuple_implILm0EJPN8facebook5velox6common8Subfield13LongSubscriptESt14default_deleteIS4_EEE7_M_headERS8_ = comdat any
+
+$_ZNSt10_Head_baseILm0EPN8facebook5velox6common8Subfield13LongSubscriptELb0EE7_M_headERS6_ = comdat any
+
+$_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield13LongSubscriptESt14default_deleteIS4_EE10_M_deleterEv = comdat any
+
+$_ZSt3getILm1EJPN8facebook5velox6common8Subfield13LongSubscriptESt14default_deleteIS4_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSC_ = comdat any
+
+$_ZSt12__get_helperILm1ESt14default_deleteIN8facebook5velox6common8Subfield13LongSubscriptEEJEERT0_RSt11_Tuple_implIXT_EJS7_DpT1_EE = comdat any
+
+$_ZNSt11_Tuple_implILm1EJSt14default_deleteIN8facebook5velox6common8Subfield13LongSubscriptEEEE7_M_headERS7_ = comdat any
+
+$_ZNSt10_Head_baseILm1ESt14default_deleteIN8facebook5velox6common8Subfield13LongSubscriptEELb1EE7_M_headERS7_ = comdat any
+
+$_ZN8facebook5velox6common8Subfield13LongSubscriptD2Ev = comdat any
+
+$_ZNSt10unique_ptrIN8facebook5velox6common8Subfield13LongSubscriptESt14default_deleteIS4_EE7releaseEv = comdat any
+
+$_ZNSt15__uniq_ptr_dataIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_ELb1ELb1EECI2St15__uniq_ptr_implIS4_S6_EIS5_INS3_13LongSubscriptEEEEPS4_OT_ = comdat any
+
+$_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield13LongSubscriptESt14default_deleteIS4_EE7releaseEv = comdat any
+
+$_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEC2IS5_INS3_13LongSubscriptEEEEPS4_OT_ = comdat any
+
+$_ZNSt5tupleIJPN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEEC2IRS5_S6_INS3_13LongSubscriptEETnNSt9enable_ifIXclsr4_TCCIXntcl14__is_alloc_argIT_EEEEE29__is_implicitly_constructibleISE_T0_EEEbE4typeELb1EEEOSE_OSF_ = comdat any
+
+$_ZNSt11_Tuple_implILm0EJPN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEEC2IRS5_JS6_INS3_13LongSubscriptEEEvEEOT_DpOT0_ = comdat any
+
+$_ZNSt11_Tuple_implILm1EJSt14default_deleteIN8facebook5velox6common8Subfield11PathElementEEEEC2IS0_INS4_13LongSubscriptEEEEOT_ = comdat any
+
+$_ZNSt10_Head_baseILm1ESt14default_deleteIN8facebook5velox6common8Subfield11PathElementEELb1EEC2IS0_INS4_13LongSubscriptEEEEOT_ = comdat any
+
+$_ZNSt14default_deleteIN8facebook5velox6common8Subfield11PathElementEEC2INS3_13LongSubscriptEvEERKS_IT_E = comdat any
+
+$_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield15StringSubscriptESt14default_deleteIS4_EE6_M_ptrEv = comdat any
+
+$_ZNSt10unique_ptrIN8facebook5velox6common8Subfield15StringSubscriptESt14default_deleteIS4_EE11get_deleterEv = comdat any
+
+$_ZNKSt14default_deleteIN8facebook5velox6common8Subfield15StringSubscriptEEclEPS4_ = comdat any
+
+$_ZSt3getILm0EJPN8facebook5velox6common8Subfield15StringSubscriptESt14default_deleteIS4_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSC_ = comdat any
+
+$_ZSt12__get_helperILm0EPN8facebook5velox6common8Subfield15StringSubscriptEJSt14default_deleteIS4_EEERT0_RSt11_Tuple_implIXT_EJS8_DpT1_EE = comdat any
+
+$_ZNSt11_Tuple_implILm0EJPN8facebook5velox6common8Subfield15StringSubscriptESt14default_deleteIS4_EEE7_M_headERS8_ = comdat any
+
+$_ZNSt10_Head_baseILm0EPN8facebook5velox6common8Subfield15StringSubscriptELb0EE7_M_headERS6_ = comdat any
+
+$_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield15StringSubscriptESt14default_deleteIS4_EE10_M_deleterEv = comdat any
+
+$_ZSt3getILm1EJPN8facebook5velox6common8Subfield15StringSubscriptESt14default_deleteIS4_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSC_ = comdat any
+
+$_ZSt12__get_helperILm1ESt14default_deleteIN8facebook5velox6common8Subfield15StringSubscriptEEJEERT0_RSt11_Tuple_implIXT_EJS7_DpT1_EE = comdat any
+
+$_ZNSt11_Tuple_implILm1EJSt14default_deleteIN8facebook5velox6common8Subfield15StringSubscriptEEEE7_M_headERS7_ = comdat any
+
+$_ZNSt10_Head_baseILm1ESt14default_deleteIN8facebook5velox6common8Subfield15StringSubscriptEELb1EE7_M_headERS7_ = comdat any
+
+$_ZN8facebook5velox6common8Subfield15StringSubscriptD2Ev = comdat any
+
+$_ZNSt10unique_ptrIN8facebook5velox6common8Subfield15StringSubscriptESt14default_deleteIS4_EE7releaseEv = comdat any
+
+$_ZNSt15__uniq_ptr_dataIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_ELb1ELb1EECI2St15__uniq_ptr_implIS4_S6_EIS5_INS3_15StringSubscriptEEEEPS4_OT_ = comdat any
+
+$_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield15StringSubscriptESt14default_deleteIS4_EE7releaseEv = comdat any
+
+$_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEC2IS5_INS3_15StringSubscriptEEEEPS4_OT_ = comdat any
+
+$_ZNSt5tupleIJPN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEEC2IRS5_S6_INS3_15StringSubscriptEETnNSt9enable_ifIXclsr4_TCCIXntcl14__is_alloc_argIT_EEEEE29__is_implicitly_constructibleISE_T0_EEEbE4typeELb1EEEOSE_OSF_ = comdat any
+
+$_ZNSt11_Tuple_implILm0EJPN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEEC2IRS5_JS6_INS3_15StringSubscriptEEEvEEOT_DpOT0_ = comdat any
+
+$_ZNSt11_Tuple_implILm1EJSt14default_deleteIN8facebook5velox6common8Subfield11PathElementEEEEC2IS0_INS4_15StringSubscriptEEEEOT_ = comdat any
+
+$_ZNSt10_Head_baseILm1ESt14default_deleteIN8facebook5velox6common8Subfield11PathElementEELb1EEC2IS0_INS4_15StringSubscriptEEEEOT_ = comdat any
+
+$_ZNSt14default_deleteIN8facebook5velox6common8Subfield11PathElementEEC2INS3_15StringSubscriptEvEERKS_IT_E = comdat any
+
+$_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EE11get_deleterEv = comdat any
+
+$_ZNKSt19__shared_ptr_accessIN8facebook5velox6common10SeparatorsELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EE6_M_getEv = comdat any
+
+$_ZNKSt12__shared_ptrIN8facebook5velox6common10SeparatorsELN9__gnu_cxx12_Lock_policyE2EE3getEv = comdat any
+
+$_ZN8facebook5velox6common8Subfield11NestedFieldC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE = comdat any
+
+$_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11NestedFieldESt14default_deleteIS4_EEC2IS6_vEEPS4_ = comdat any
+
+$_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_ = comdat any
+
+$_ZN8facebook5velox6common8Subfield11NestedFieldD0Ev = comdat any
+
+$_ZNK8facebook5velox6common8Subfield11NestedField4kindEv = comdat any
+
+$_ZNK8facebook5velox6common8Subfield11NestedField11isSubscriptEv = comdat any
+
+$_ZNK8facebook5velox6common8Subfield11NestedField8toStringB5cxx11Ev = comdat any
+
+$_ZNK8facebook5velox6common8Subfield11NestedField4hashEv = comdat any
+
+$_ZNK8facebook5velox6common8Subfield11NestedFieldeqERKNS2_11PathElementE = comdat any
+
+$_ZN8facebook5velox6common8Subfield11NestedField5cloneEv = comdat any
+
+$_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_ = comdat any
+
+$_ZN9__gnu_cxx14__alloc_traitsISaIcEcE17_S_select_on_copyERKS1_ = comdat any
+
+$_ZNSt16allocator_traitsISaIcEE37select_on_container_copy_constructionERKS0_ = comdat any
+
+$_ZNKSt4hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_ = comdat any
+
+$_ZNSt10_Hash_impl4hashEPKvmm = comdat any
+
+$_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_ = comdat any
+
+$_ZNSt11char_traitsIcE7compareEPKcS2_m = comdat any
+
+$_ZSt11make_uniqueIN8facebook5velox6common8Subfield11NestedFieldEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_ = comdat any
+
+$_ZNSt15__uniq_ptr_dataIN8facebook5velox6common8Subfield11NestedFieldESt14default_deleteIS4_ELb1ELb1EECI2St15__uniq_ptr_implIS4_S6_EEPS4_ = comdat any
+
+$_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11NestedFieldESt14default_deleteIS4_EEC2EPS4_ = comdat any
+
+$_ZNSt5tupleIJPN8facebook5velox6common8Subfield11NestedFieldESt14default_deleteIS4_EEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES5_S7_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv = comdat any
+
+$_ZNSt11_Tuple_implILm0EJPN8facebook5velox6common8Subfield11NestedFieldESt14default_deleteIS4_EEEC2Ev = comdat any
+
+$_ZNSt11_Tuple_implILm1EJSt14default_deleteIN8facebook5velox6common8Subfield11NestedFieldEEEEC2Ev = comdat any
+
+$_ZNSt10_Head_baseILm0EPN8facebook5velox6common8Subfield11NestedFieldELb0EEC2Ev = comdat any
+
+$_ZNSt10_Head_baseILm1ESt14default_deleteIN8facebook5velox6common8Subfield11NestedFieldEELb1EEC2Ev = comdat any
+
+$_ZN8facebook5velox6common8Subfield13LongSubscriptC2El = comdat any
+
+$_ZNSt10unique_ptrIN8facebook5velox6common8Subfield13LongSubscriptESt14default_deleteIS4_EEC2IS6_vEEPS4_ = comdat any
+
+$_ZN8facebook5velox6common8Subfield13LongSubscriptD0Ev = comdat any
+
+$_ZNK8facebook5velox6common8Subfield13LongSubscript4kindEv = comdat any
+
+$_ZNK8facebook5velox6common8Subfield13LongSubscript11isSubscriptEv = comdat any
+
+$_ZNK8facebook5velox6common8Subfield13LongSubscript8toStringB5cxx11Ev = comdat any
+
+$_ZNK8facebook5velox6common8Subfield13LongSubscript4hashEv = comdat any
+
+$_ZNK8facebook5velox6common8Subfield13LongSubscripteqERKNS2_11PathElementE = comdat any
+
+$_ZN8facebook5velox6common8Subfield13LongSubscript5cloneEv = comdat any
+
+$_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_ = comdat any
+
+$_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_ = comdat any
+
+$_ZNSt7__cxx119to_stringEl = comdat any
+
+$_ZNSt8__detail14__to_chars_lenImEEjT_i = comdat any
+
+$_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_ = comdat any
+
+$_ZNSt8__detail18__to_chars_10_implImEEvPcjT_ = comdat any
+
+$_ZNKSt4hashIlEclEl = comdat any
+
+$_ZSt11make_uniqueIN8facebook5velox6common8Subfield13LongSubscriptEJRKlEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_ = comdat any
+
+$_ZNSt15__uniq_ptr_dataIN8facebook5velox6common8Subfield13LongSubscriptESt14default_deleteIS4_ELb1ELb1EECI2St15__uniq_ptr_implIS4_S6_EEPS4_ = comdat any
+
+$_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield13LongSubscriptESt14default_deleteIS4_EEC2EPS4_ = comdat any
+
+$_ZNSt5tupleIJPN8facebook5velox6common8Subfield13LongSubscriptESt14default_deleteIS4_EEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES5_S7_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv = comdat any
+
+$_ZNSt11_Tuple_implILm0EJPN8facebook5velox6common8Subfield13LongSubscriptESt14default_deleteIS4_EEEC2Ev = comdat any
+
+$_ZNSt11_Tuple_implILm1EJSt14default_deleteIN8facebook5velox6common8Subfield13LongSubscriptEEEEC2Ev = comdat any
+
+$_ZNSt10_Head_baseILm0EPN8facebook5velox6common8Subfield13LongSubscriptELb0EEC2Ev = comdat any
+
+$_ZNSt10_Head_baseILm1ESt14default_deleteIN8facebook5velox6common8Subfield13LongSubscriptEELb1EEC2Ev = comdat any
+
+$_ZN8facebook5velox6common8Subfield15StringSubscriptC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE = comdat any
+
+$_ZNSt10unique_ptrIN8facebook5velox6common8Subfield15StringSubscriptESt14default_deleteIS4_EEC2IS6_vEEPS4_ = comdat any
+
+$_ZN8facebook5velox6common8Subfield15StringSubscriptD0Ev = comdat any
+
+$_ZNK8facebook5velox6common8Subfield15StringSubscript4kindEv = comdat any
+
+$_ZNK8facebook5velox6common8Subfield15StringSubscript11isSubscriptEv = comdat any
+
+$_ZNK8facebook5velox6common8Subfield15StringSubscript8toStringB5cxx11Ev = comdat any
+
+$_ZNK8facebook5velox6common8Subfield15StringSubscript4hashEv = comdat any
+
+$_ZNK8facebook5velox6common8Subfield15StringSubscripteqERKNS2_11PathElementE = comdat any
+
+$_ZN8facebook5velox6common8Subfield15StringSubscript5cloneEv = comdat any
+
+$_ZN5boost9algorithm16replace_all_copyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA2_cA3_cEET_RKSA_RKT0_RKT1_ = comdat any
+
+$_ZN5boost9algorithm20find_format_all_copyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_6detail13first_finderFIPKcNS0_8is_equalEEENS8_13const_formatFINS_14iterator_rangeISB_EEEEEET_RKSI_T0_T1_ = comdat any
+
+$_ZN5boost9algorithm12first_finderIA2_cEENS0_6detail13first_finderFINS_20range_const_iteratorIT_vE4typeENS0_8is_equalEEERKS6_ = comdat any
+
+$_ZN5boost9algorithm15const_formatterIA3_cEENS0_6detail13const_formatFINS_14iterator_rangeINS_20range_const_iteratorIT_vE4typeEEEEERKS7_ = comdat any
+
+$_ZN5boost9algorithm6detail25find_format_all_copy_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_13first_finderFIPKcNS0_8is_equalEEENS1_13const_formatFINS_14iterator_rangeISB_EEEENSF_IN9__gnu_cxx17__normal_iteratorISB_S8_EEEEEET_RKSM_T0_T1_RKT2_ = comdat any
+
+$_ZNK5boost9algorithm6detail13first_finderFIPKcNS0_8is_equalEEclIN9__gnu_cxx17__normal_iteratorIS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS_14iterator_rangeIT_EESI_SI_ = comdat any
+
+$_ZN5boost17range_adl_barrier5beginINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_14range_iteratorIKT_vE4typeERSA_ = comdat any
+
+$_ZN5boost17range_adl_barrier3endINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_14range_iteratorIKT_vE4typeERSA_ = comdat any
+
+$_ZN5boost9algorithm6detail17check_find_resultIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKNS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPKcS8_EEEEEEbRT_RT0_ = comdat any
+
+$_ZN5boost9algorithm6detail26find_format_all_copy_impl2INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_13first_finderFIPKcNS0_8is_equalEEENS1_13const_formatFINS_14iterator_rangeISB_EEEENSF_IN9__gnu_cxx17__normal_iteratorISB_S8_EEEESG_EET_RKSM_T0_T1_RKT2_RKT3_ = comdat any
+
+$_ZNK5boost9algorithm6detail13const_formatFINS_14iterator_rangeIPKcEEEclINS3_IN9__gnu_cxx17__normal_iteratorIS5_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEEERKS6_RKT_ = comdat any
+
+$_ZNK5boost21iterator_range_detail19iterator_range_baseIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_9iterators27incrementable_traversal_tagEE5emptyEv = comdat any
+
+$_ZN9__gnu_cxxeqIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_17__normal_iteratorIT_T0_EESE_ = comdat any
+
+$_ZNK9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4baseEv = comdat any
+
+$_ZN5boost9algorithm6detail17find_format_storeIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_13const_formatFINS_14iterator_rangeIS6_EEEESG_EC2ERKNSF_ISD_EERKSG_RKSH_ = comdat any
+
+$_ZNK5boost21iterator_range_detail19iterator_range_baseIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_9iterators27incrementable_traversal_tagEEcvMSF_SC_Ev = comdat any
+
+$_ZN5boost9algorithm6detail6insertINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9__gnu_cxx17__normal_iteratorIPKcS8_EEEEvRT_NSE_8iteratorET0_SH_ = comdat any
+
+$_ZN5boost17range_adl_barrier3endINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_14range_iteratorIT_vE4typeERS9_ = comdat any
+
+$_ZNK5boost21iterator_range_detail19iterator_range_baseIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_9iterators27incrementable_traversal_tagEE5beginEv = comdat any
+
+$_ZN5boost9algorithm6detail6insertINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_14iterator_rangeIPKcEEEEvRT_NSD_8iteratorERKT0_ = comdat any
+
+$_ZN5boost9algorithm6detail17find_format_storeIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_13const_formatFINS_14iterator_rangeIS6_EEEESG_E13format_resultEv = comdat any
+
+$_ZNK5boost21iterator_range_detail19iterator_range_baseIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_9iterators27incrementable_traversal_tagEE3endEv = comdat any
+
+$_ZN5boost9algorithm6detail17find_format_storeIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_13const_formatFINS_14iterator_rangeIS6_EEEESG_EaSINSF_ISD_EEEERSI_T_ = comdat any
+
+$_ZN5boost12range_detail9safe_boolIMNS_21iterator_range_detail19iterator_range_baseIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_9iterators27incrementable_traversal_tagEEESE_E19to_unspecified_boolEbSI_ = comdat any
+
+$_ZN9__gnu_cxxneIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_17__normal_iteratorIT_T0_EESE_ = comdat any
+
+$_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertIN9__gnu_cxx17__normal_iteratorIPKcS4_EEvEENS7_IPcS4_EESA_T_SD_ = comdat any
+
+$_ZN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IPcvEERKNS0_IT_S8_EE = comdat any
+
+$_ZN9__gnu_cxxmiIPKcPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDTmicldtfp_4baseEcldtfp0_4baseEERKNS_17__normal_iteratorIT_T1_EERKNSB_IT0_SD_EE = comdat any
+
+$_ZN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS1_ = comdat any
+
+$_ZNK9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4baseEv = comdat any
+
+$_ZN5boost12range_detail9range_endINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_14range_iteratorIT_vE4typeERS9_ = comdat any
+
+$_ZN5boost9algorithm6detail6insertINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEEvRT_NSB_8iteratorET0_SE_ = comdat any
+
+$_ZN5boost17range_adl_barrier5beginINS_14iterator_rangeIPKcEEEENS_14range_iteratorIKT_vE4typeERS8_ = comdat any
+
+$_ZN5boost17range_adl_barrier3endINS_14iterator_rangeIPKcEEEENS_14range_iteratorIKT_vE4typeERS8_ = comdat any
+
+$_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertIPKcvEEN9__gnu_cxx17__normal_iteratorIPcS4_EENS9_IS7_S4_EET_SD_ = comdat any
+
+$_ZN5boost12range_detail11range_beginIKNS_14iterator_rangeIPKcEEEENS_14range_iteratorIT_vE4typeERS8_ = comdat any
+
+$_ZNK5boost21iterator_range_detail19iterator_range_baseIPKcNS_9iterators27incrementable_traversal_tagEE5beginEv = comdat any
+
+$_ZN5boost12range_detail9range_endIKNS_14iterator_rangeIPKcEEEENS_14range_iteratorIT_vE4typeERS8_ = comdat any
+
+$_ZNK5boost21iterator_range_detail19iterator_range_baseIPKcNS_9iterators27incrementable_traversal_tagEE3endEv = comdat any
+
+$_ZN5boost14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEaSISB_EERSC_RNS0_IT_EE = comdat any
+
+$_ZN5boost21iterator_range_detail19iterator_range_baseIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_9iterators27incrementable_traversal_tagEE6assignISC_EEvT_SH_ = comdat any
+
+$_ZN5boost5emptyINS_14iterator_rangeIPKcEEEEbRKT_ = comdat any
+
+$_ZN5boost14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEC2ISB_EET_SE_ = comdat any
+
+$_ZNK5boost9algorithm8is_equalclIccEEbRKT_RKT0_ = comdat any
+
+$_ZNK9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv = comdat any
+
+$_ZN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEppEv = comdat any
+
+$_ZN5boost21iterator_range_detail19iterator_range_baseIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_9iterators27random_access_traversal_tagEEC2ISC_EET_SH_ = comdat any
+
+$_ZN5boost21iterator_range_detail19iterator_range_baseIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_9iterators27bidirectional_traversal_tagEEC2ISC_EET_SH_ = comdat any
+
+$_ZN5boost21iterator_range_detail19iterator_range_baseIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_9iterators27incrementable_traversal_tagEEC2ISC_EET_SH_ = comdat any
+
+$_ZN5boost12range_detail11range_beginIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_14range_iteratorIT_vE4typeERSA_ = comdat any
+
+$_ZN5boost12range_detail9range_endIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_14range_iteratorIT_vE4typeERSA_ = comdat any
+
+$_ZN5boost10as_literalIcLm2EEENS_14iterator_rangeIPKT_EERAT0__S3_ = comdat any
+
+$_ZN5boost9algorithm6detail13first_finderFIPKcNS0_8is_equalEEC2INS_14iterator_rangeIS4_EEEERKT_S5_ = comdat any
+
+$_ZN5boost12range_detail10make_rangeIKcEENS_14iterator_rangeIPT_EES5_b = comdat any
+
+$_ZN5boost12range_detail11is_char_ptrEPKc = comdat any
+
+$_ZN5boost12range_detail6lengthEPKc = comdat any
+
+$_ZN5boost14iterator_rangeIPKcEC2IS2_EET_S5_ = comdat any
+
+$_ZN5boost21iterator_range_detail19iterator_range_baseIPKcNS_9iterators27random_access_traversal_tagEEC2IS3_EET_S8_ = comdat any
+
+$_ZN5boost21iterator_range_detail19iterator_range_baseIPKcNS_9iterators27bidirectional_traversal_tagEEC2IS3_EET_S8_ = comdat any
+
+$_ZN5boost21iterator_range_detail19iterator_range_baseIPKcNS_9iterators27incrementable_traversal_tagEEC2IS3_EET_S8_ = comdat any
+
+$_ZN5boost10as_literalIcLm3EEENS_14iterator_rangeIPKT_EERAT0__S3_ = comdat any
+
+$_ZN5boost9algorithm6detail13const_formatFINS_14iterator_rangeIPKcEEEC2ERKS6_ = comdat any
+
+$_ZSt11make_uniqueIN8facebook5velox6common8Subfield15StringSubscriptEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_ = comdat any
+
+$_ZNSt15__uniq_ptr_dataIN8facebook5velox6common8Subfield15StringSubscriptESt14default_deleteIS4_ELb1ELb1EECI2St15__uniq_ptr_implIS4_S6_EEPS4_ = comdat any
+
+$_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield15StringSubscriptESt14default_deleteIS4_EEC2EPS4_ = comdat any
+
+$_ZNSt5tupleIJPN8facebook5velox6common8Subfield15StringSubscriptESt14default_deleteIS4_EEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES5_S7_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv = comdat any
+
+$_ZNSt11_Tuple_implILm0EJPN8facebook5velox6common8Subfield15StringSubscriptESt14default_deleteIS4_EEEC2Ev = comdat any
+
+$_ZNSt11_Tuple_implILm1EJSt14default_deleteIN8facebook5velox6common8Subfield15StringSubscriptEEEEC2Ev = comdat any
+
+$_ZNSt10_Head_baseILm0EPN8facebook5velox6common8Subfield15StringSubscriptELb0EEC2Ev = comdat any
+
+$_ZNSt10_Head_baseILm1ESt14default_deleteIN8facebook5velox6common8Subfield15StringSubscriptEELb1EEC2Ev = comdat any
+
+$_ZTVN8facebook5velox6common8Subfield13AllSubscriptsE = comdat any
+
+$_ZTSN8facebook5velox6common8Subfield13AllSubscriptsE = comdat any
+
+$_ZTSN8facebook5velox6common8Subfield11PathElementE = comdat any
+
+$_ZTIN8facebook5velox6common8Subfield11PathElementE = comdat any
+
+$_ZTIN8facebook5velox6common8Subfield13AllSubscriptsE = comdat any
+
+$_ZTVN8facebook5velox6common8Subfield11PathElementE = comdat any
+
+$_ZTVN8facebook5velox6common8Subfield11NestedFieldE = comdat any
+
+$_ZTSN8facebook5velox6common8Subfield11NestedFieldE = comdat any
+
+$_ZTIN8facebook5velox6common8Subfield11NestedFieldE = comdat any
+
+$_ZTVN8facebook5velox6common8Subfield13LongSubscriptE = comdat any
+
+$_ZTSN8facebook5velox6common8Subfield13LongSubscriptE = comdat any
+
+$_ZTIN8facebook5velox6common8Subfield13LongSubscriptE = comdat any
+
+$_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits = comdat any
+
+$_ZTVN8facebook5velox6common8Subfield15StringSubscriptE = comdat any
+
+$_ZTSN8facebook5velox6common8Subfield15StringSubscriptE = comdat any
+
+$_ZTIN8facebook5velox6common8Subfield15StringSubscriptE = comdat any
+
+@.str = private unnamed_addr constant [2 x i8] c"*\00", align 1
+@__libc_single_threaded = external global i8, align 1
+@.str.1 = private unnamed_addr constant [5 x i8] c"stol\00", align 1
+@_ZTVN8facebook5velox6common8Subfield13AllSubscriptsE = linkonce_odr unnamed_addr constant { [10 x ptr] } { [10 x ptr] [ptr null, ptr @_ZTIN8facebook5velox6common8Subfield13AllSubscriptsE, ptr @_ZN8facebook5velox6common8Subfield13AllSubscriptsD2Ev, ptr @_ZN8facebook5velox6common8Subfield13AllSubscriptsD0Ev, ptr @_ZNK8facebook5velox6common8Subfield13AllSubscripts4kindEv, ptr @_ZNK8facebook5velox6common8Subfield13AllSubscripts11isSubscriptEv, ptr @_ZNK8facebook5velox6common8Subfield13AllSubscripts8toStringB5cxx11Ev, ptr @_ZNK8facebook5velox6common8Subfield13AllSubscripts4hashEv, ptr @_ZNK8facebook5velox6common8Subfield13AllSubscriptseqERKNS2_11PathElementE, ptr @_ZN8facebook5velox6common8Subfield13AllSubscripts5cloneEv] }, comdat, align 8
+@_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
+@_ZTSN8facebook5velox6common8Subfield13AllSubscriptsE = linkonce_odr constant [49 x i8] c"N8facebook5velox6common8Subfield13AllSubscriptsE\00", comdat, align 1
+@_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
+@_ZTSN8facebook5velox6common8Subfield11PathElementE = linkonce_odr constant [47 x i8] c"N8facebook5velox6common8Subfield11PathElementE\00", comdat, align 1
+@_ZTIN8facebook5velox6common8Subfield11PathElementE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN8facebook5velox6common8Subfield11PathElementE }, comdat, align 8
+@_ZTIN8facebook5velox6common8Subfield13AllSubscriptsE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN8facebook5velox6common8Subfield13AllSubscriptsE, ptr @_ZTIN8facebook5velox6common8Subfield11PathElementE }, comdat, align 8
+@_ZTVN8facebook5velox6common8Subfield11PathElementE = linkonce_odr unnamed_addr constant { [10 x ptr] } { [10 x ptr] [ptr null, ptr @_ZTIN8facebook5velox6common8Subfield11PathElementE, ptr @_ZN8facebook5velox6common8Subfield11PathElementD2Ev, ptr @_ZN8facebook5velox6common8Subfield11PathElementD0Ev, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual] }, comdat, align 8
+@.str.2 = private unnamed_addr constant [4 x i8] c"[*]\00", align 1
+@.str.3 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
+@_ZTVN8facebook5velox6common8Subfield11NestedFieldE = linkonce_odr unnamed_addr constant { [10 x ptr] } { [10 x ptr] [ptr null, ptr @_ZTIN8facebook5velox6common8Subfield11NestedFieldE, ptr @_ZN8facebook5velox6common8Subfield11NestedFieldD2Ev, ptr @_ZN8facebook5velox6common8Subfield11NestedFieldD0Ev, ptr @_ZNK8facebook5velox6common8Subfield11NestedField4kindEv, ptr @_ZNK8facebook5velox6common8Subfield11NestedField11isSubscriptEv, ptr @_ZNK8facebook5velox6common8Subfield11NestedField8toStringB5cxx11Ev, ptr @_ZNK8facebook5velox6common8Subfield11NestedField4hashEv, ptr @_ZNK8facebook5velox6common8Subfield11NestedFieldeqERKNS2_11PathElementE, ptr @_ZN8facebook5velox6common8Subfield11NestedField5cloneEv] }, comdat, align 8
+@.str.4 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@_ZTSN8facebook5velox6common8Subfield11NestedFieldE = linkonce_odr constant [47 x i8] c"N8facebook5velox6common8Subfield11NestedFieldE\00", comdat, align 1
+@_ZTIN8facebook5velox6common8Subfield11NestedFieldE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN8facebook5velox6common8Subfield11NestedFieldE, ptr @_ZTIN8facebook5velox6common8Subfield11PathElementE }, comdat, align 8
+@.str.5 = private unnamed_addr constant [2 x i8] c".\00", align 1
+@_ZTVN8facebook5velox6common8Subfield13LongSubscriptE = linkonce_odr unnamed_addr constant { [10 x ptr] } { [10 x ptr] [ptr null, ptr @_ZTIN8facebook5velox6common8Subfield13LongSubscriptE, ptr @_ZN8facebook5velox6common8Subfield13LongSubscriptD2Ev, ptr @_ZN8facebook5velox6common8Subfield13LongSubscriptD0Ev, ptr @_ZNK8facebook5velox6common8Subfield13LongSubscript4kindEv, ptr @_ZNK8facebook5velox6common8Subfield13LongSubscript11isSubscriptEv, ptr @_ZNK8facebook5velox6common8Subfield13LongSubscript8toStringB5cxx11Ev, ptr @_ZNK8facebook5velox6common8Subfield13LongSubscript4hashEv, ptr @_ZNK8facebook5velox6common8Subfield13LongSubscripteqERKNS2_11PathElementE, ptr @_ZN8facebook5velox6common8Subfield13LongSubscript5cloneEv] }, comdat, align 8
+@_ZTSN8facebook5velox6common8Subfield13LongSubscriptE = linkonce_odr constant [49 x i8] c"N8facebook5velox6common8Subfield13LongSubscriptE\00", comdat, align 1
+@_ZTIN8facebook5velox6common8Subfield13LongSubscriptE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN8facebook5velox6common8Subfield13LongSubscriptE, ptr @_ZTIN8facebook5velox6common8Subfield11PathElementE }, comdat, align 8
+@.str.6 = private unnamed_addr constant [2 x i8] c"[\00", align 1
+@.str.7 = private unnamed_addr constant [2 x i8] c"]\00", align 1
+@_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits = linkonce_odr constant [201 x i8] c"00010203040506070809101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899\00", comdat, align 16
+@_ZTVN8facebook5velox6common8Subfield15StringSubscriptE = linkonce_odr unnamed_addr constant { [10 x ptr] } { [10 x ptr] [ptr null, ptr @_ZTIN8facebook5velox6common8Subfield15StringSubscriptE, ptr @_ZN8facebook5velox6common8Subfield15StringSubscriptD2Ev, ptr @_ZN8facebook5velox6common8Subfield15StringSubscriptD0Ev, ptr @_ZNK8facebook5velox6common8Subfield15StringSubscript4kindEv, ptr @_ZNK8facebook5velox6common8Subfield15StringSubscript11isSubscriptEv, ptr @_ZNK8facebook5velox6common8Subfield15StringSubscript8toStringB5cxx11Ev, ptr @_ZNK8facebook5velox6common8Subfield15StringSubscript4hashEv, ptr @_ZNK8facebook5velox6common8Subfield15StringSubscripteqERKNS2_11PathElementE, ptr @_ZN8facebook5velox6common8Subfield15StringSubscript5cloneEv] }, comdat, align 8
+@_ZTSN8facebook5velox6common8Subfield15StringSubscriptE = linkonce_odr constant [51 x i8] c"N8facebook5velox6common8Subfield15StringSubscriptE\00", comdat, align 1
+@_ZTIN8facebook5velox6common8Subfield15StringSubscriptE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN8facebook5velox6common8Subfield15StringSubscriptE, ptr @_ZTIN8facebook5velox6common8Subfield11PathElementE }, comdat, align 8
+@.str.8 = private unnamed_addr constant [3 x i8] c"[\22\00", align 1
+@.str.9 = private unnamed_addr constant [2 x i8] c"\22\00", align 1
+@.str.10 = private unnamed_addr constant [3 x i8] c"\\\22\00", align 1
+@.str.11 = private unnamed_addr constant [3 x i8] c"\22]\00", align 1
+
+@_ZN8facebook5velox6common9TokenizerC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS1_10SeparatorsEE = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN8facebook5velox6common9TokenizerC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS1_10SeparatorsEE
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN8facebook5velox6common9TokenizerC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS1_10SeparatorsEE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 dereferenceable(16) %separators) unnamed_addr #0 align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %path.addr = alloca ptr, align 8
+  %separators.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %path, ptr %path.addr, align 8
+  store ptr %separators, ptr %separators.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %path_ = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %path.addr, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %path_, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  %separators_ = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this1, i32 0, i32 1
+  %1 = load ptr, ptr %separators.addr, align 8
+  call void @_ZNSt10shared_ptrIN8facebook5velox6common10SeparatorsEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(16) %separators_, ptr noundef nonnull align 8 dereferenceable(16) %1) #13
+  %firstSegment = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this1, i32 0, i32 4
+  store i8 1, ptr %firstSegment, align 8
+  %next_ = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this1, i32 0, i32 5
+  call void @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEC2IS6_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %next_) #13
+  %state = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this1, i32 0, i32 3
+  store i32 1, ptr %state, align 4
+  %index_ = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this1, i32 0, i32 2
+  store i32 0, ptr %index_, align 8
+  ret void
+}
+
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10shared_ptrIN8facebook5velox6common10SeparatorsEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %1 = load ptr, ptr %.addr, align 8
+  call void @_ZNSt12__shared_ptrIN8facebook5velox6common10SeparatorsELN9__gnu_cxx12_Lock_policyE2EEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEC2IS6_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_t = getelementptr inbounds %"class.std::unique_ptr", ptr %this1, i32 0, i32 0
+  call void @llvm.memset.p0.i64(ptr align 8 %_M_t, i8 0, i64 8, i1 false)
+  call void @_ZNSt15__uniq_ptr_dataIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_ELb1ELb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #13
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define noundef zeroext i1 @_ZN8facebook5velox6common9Tokenizer7hasNextEv(ptr noundef nonnull align 8 dereferenceable(72) %this) #0 align 2 {
+entry:
+  %retval = alloca i1, align 1
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %state = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this1, i32 0, i32 3
+  %0 = load i32, ptr %state, align 4
+  switch i32 %0, label %sw.epilog [
+    i32 2, label %sw.bb
+    i32 0, label %sw.bb2
+    i32 1, label %sw.bb3
+    i32 3, label %sw.bb4
+  ]
+
+sw.bb:                                            ; preds = %entry
+  store i1 false, ptr %retval, align 1
+  br label %return
+
+sw.bb2:                                           ; preds = %entry
+  store i1 true, ptr %retval, align 1
+  br label %return
+
+sw.bb3:                                           ; preds = %entry
+  br label %sw.epilog
+
+sw.bb4:                                           ; preds = %entry
+  call void @llvm.trap()
+  br label %sw.epilog
+
+sw.epilog:                                        ; preds = %sw.bb4, %sw.bb3, %entry
+  %call = call noundef zeroext i1 @_ZN8facebook5velox6common9Tokenizer16tryToComputeNextEv(ptr noundef nonnull align 8 dereferenceable(72) %this1)
+  store i1 %call, ptr %retval, align 1
+  br label %return
+
+return:                                           ; preds = %sw.epilog, %sw.bb2, %sw.bb
+  %1 = load i1, ptr %retval, align 1
+  ret i1 %1
+}
+
+; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
+declare void @llvm.trap() #3
+
+; Function Attrs: mustprogress uwtable
+define noundef zeroext i1 @_ZN8facebook5velox6common9Tokenizer16tryToComputeNextEv(ptr noundef nonnull align 8 dereferenceable(72) %this) #0 align 2 {
+entry:
+  %retval = alloca i1, align 1
+  %this.addr = alloca ptr, align 8
+  %ref.tmp = alloca %"class.std::unique_ptr", align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %state = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this1, i32 0, i32 3
+  store i32 3, ptr %state, align 4
+  call void @_ZN8facebook5velox6common9Tokenizer11computeNextEv(ptr sret(%"class.std::unique_ptr") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(72) %this1)
+  %next_ = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this1, i32 0, i32 5
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEaSEOS7_(ptr noundef nonnull align 8 dereferenceable(8) %next_, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #13
+  call void @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #13
+  %state2 = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this1, i32 0, i32 3
+  %0 = load i32, ptr %state2, align 4
+  %cmp = icmp ne i32 %0, 2
+  br i1 %cmp, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %state3 = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this1, i32 0, i32 3
+  store i32 0, ptr %state3, align 4
+  store i1 true, ptr %retval, align 1
+  br label %return
+
+if.end:                                           ; preds = %entry
+  store i1 false, ptr %retval, align 1
+  br label %return
+
+return:                                           ; preds = %if.end, %if.then
+  %1 = load i1, ptr %retval, align 1
+  ret i1 %1
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN8facebook5velox6common9Tokenizer4nextEv(ptr noalias sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this) #0 align 2 {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %this.addr = alloca ptr, align 8
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef zeroext i1 @_ZN8facebook5velox6common9Tokenizer7hasNextEv(ptr noundef nonnull align 8 dereferenceable(72) %this1)
+  br i1 %call, label %if.end, label %if.then
+
+if.then:                                          ; preds = %entry
+  call void @llvm.trap()
+  br label %if.end
+
+if.end:                                           ; preds = %if.then, %entry
+  %state = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this1, i32 0, i32 3
+  store i32 1, ptr %state, align 4
+  %next_ = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this1, i32 0, i32 5
+  call void @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEC2EOS7_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %next_) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEC2EOS7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_t = getelementptr inbounds %"class.std::unique_ptr", ptr %this1, i32 0, i32 0
+  %1 = load ptr, ptr %.addr, align 8
+  %_M_t2 = getelementptr inbounds %"class.std::unique_ptr", ptr %1, i32 0, i32 0
+  call void @_ZNSt15__uniq_ptr_dataIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_ELb1ELb1EEC2EOS7_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t, ptr noundef nonnull align 8 dereferenceable(8) %_M_t2) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define noundef zeroext i1 @_ZN8facebook5velox6common9Tokenizer16hasNextCharacterEv(ptr noundef nonnull align 8 dereferenceable(72) %this) #2 align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %index_ = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this1, i32 0, i32 2
+  %0 = load i32, ptr %index_, align 8
+  %conv = sext i32 %0 to i64
+  %path_ = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this1, i32 0, i32 0
+  %call = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %path_) #13
+  %cmp = icmp ult i64 %conv, %call
+  ret i1 %cmp
+}
+
+; Function Attrs: nounwind
+declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32)) #4
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN8facebook5velox6common9Tokenizer11computeNextEv(ptr noalias sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this) #0 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %this.addr = alloca ptr, align 8
+  %nrvo = alloca i1, align 1
+  %nrvo10 = alloca i1, align 1
+  %exn.slot = alloca ptr, align 8
+  %ehselector.slot = alloca i32, align 4
+  %nrvo29 = alloca i1, align 1
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef zeroext i1 @_ZN8facebook5velox6common9Tokenizer16hasNextCharacterEv(ptr noundef nonnull align 8 dereferenceable(72) %this1)
+  br i1 %call, label %if.end, label %if.then
+
+if.then:                                          ; preds = %entry
+  %state = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this1, i32 0, i32 3
+  store i32 2, ptr %state, align 4
+  call void @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEC2IS6_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr null) #13
+  br label %return
+
+if.end:                                           ; preds = %entry
+  %separators_ = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this1, i32 0, i32 1
+  %call2 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN8facebook5velox6common10SeparatorsELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %separators_) #13
+  %dot = getelementptr inbounds %"struct.facebook::velox::common::Separators", ptr %call2, i32 0, i32 2
+  %0 = load i8, ptr %dot, align 1
+  %call3 = call noundef zeroext i1 @_ZN8facebook5velox6common9Tokenizer17tryMatchSeparatorEc(ptr noundef nonnull align 8 dereferenceable(72) %this1, i8 noundef signext %0)
+  br i1 %call3, label %if.then4, label %if.end5
+
+if.then4:                                         ; preds = %if.end
+  store i1 false, ptr %nrvo, align 1
+  call void @_ZN8facebook5velox6common9Tokenizer16matchPathSegmentEv(ptr sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this1)
+  %firstSegment = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this1, i32 0, i32 4
+  store i8 0, ptr %firstSegment, align 8
+  store i1 true, ptr %nrvo, align 1
+  %nrvo.val = load i1, ptr %nrvo, align 1
+  br i1 %nrvo.val, label %nrvo.skipdtor, label %nrvo.unused
+
+nrvo.unused:                                      ; preds = %if.then4
+  call void @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #13
+  br label %nrvo.skipdtor
+
+nrvo.skipdtor:                                    ; preds = %nrvo.unused, %if.then4
+  br label %return
+
+if.end5:                                          ; preds = %if.end
+  %separators_6 = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this1, i32 0, i32 1
+  %call7 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN8facebook5velox6common10SeparatorsELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %separators_6) #13
+  %openBracket = getelementptr inbounds %"struct.facebook::velox::common::Separators", ptr %call7, i32 0, i32 3
+  %1 = load i8, ptr %openBracket, align 1
+  %call8 = call noundef zeroext i1 @_ZN8facebook5velox6common9Tokenizer17tryMatchSeparatorEc(ptr noundef nonnull align 8 dereferenceable(72) %this1, i8 noundef signext %1)
+  br i1 %call8, label %if.then9, label %if.end26
+
+if.then9:                                         ; preds = %if.end5
+  store i1 false, ptr %nrvo10, align 1
+  %separators_11 = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this1, i32 0, i32 1
+  %call12 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN8facebook5velox6common10SeparatorsELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %separators_11) #13
+  %quote = getelementptr inbounds %"struct.facebook::velox::common::Separators", ptr %call12, i32 0, i32 4
+  %2 = load i8, ptr %quote, align 1
+  %call13 = call noundef zeroext i1 @_ZN8facebook5velox6common9Tokenizer17tryMatchSeparatorEc(ptr noundef nonnull align 8 dereferenceable(72) %this1, i8 noundef signext %2)
+  br i1 %call13, label %cond.true, label %cond.false
+
+cond.true:                                        ; preds = %if.then9
+  call void @_ZN8facebook5velox6common9Tokenizer20matchQuotedSubscriptEv(ptr sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this1)
+  br label %cond.end19
+
+cond.false:                                       ; preds = %if.then9
+  %separators_14 = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this1, i32 0, i32 1
+  %call15 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN8facebook5velox6common10SeparatorsELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %separators_14) #13
+  %wildCard = getelementptr inbounds %"struct.facebook::velox::common::Separators", ptr %call15, i32 0, i32 5
+  %3 = load i8, ptr %wildCard, align 1
+  %call16 = call noundef zeroext i1 @_ZN8facebook5velox6common9Tokenizer17tryMatchSeparatorEc(ptr noundef nonnull align 8 dereferenceable(72) %this1, i8 noundef signext %3)
+  br i1 %call16, label %cond.true17, label %cond.false18
+
+cond.true17:                                      ; preds = %cond.false
+  call void @_ZN8facebook5velox6common9Tokenizer22matchWildcardSubscriptEv(ptr sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this1)
+  br label %cond.end
+
+cond.false18:                                     ; preds = %cond.false
+  call void @_ZN8facebook5velox6common9Tokenizer22matchUnquotedSubscriptEv(ptr sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this1)
+  br label %cond.end
+
+cond.end:                                         ; preds = %cond.false18, %cond.true17
+  br label %cond.end19
+
+cond.end19:                                       ; preds = %cond.end, %cond.true
+  %separators_20 = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this1, i32 0, i32 1
+  %call21 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN8facebook5velox6common10SeparatorsELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %separators_20) #13
+  %closeBracket = getelementptr inbounds %"struct.facebook::velox::common::Separators", ptr %call21, i32 0, i32 1
+  %4 = load i8, ptr %closeBracket, align 1
+  invoke void @_ZN8facebook5velox6common9Tokenizer5matchEc(ptr noundef nonnull align 8 dereferenceable(72) %this1, i8 noundef signext %4)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %cond.end19
+  %firstSegment22 = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this1, i32 0, i32 4
+  store i8 0, ptr %firstSegment22, align 8
+  store i1 true, ptr %nrvo10, align 1
+  %nrvo.val23 = load i1, ptr %nrvo10, align 1
+  br i1 %nrvo.val23, label %nrvo.skipdtor25, label %nrvo.unused24
+
+lpad:                                             ; preds = %cond.end19
+  %5 = landingpad { ptr, i32 }
+          cleanup
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
+  call void @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #13
+  br label %eh.resume
+
+nrvo.unused24:                                    ; preds = %invoke.cont
+  call void @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #13
+  br label %nrvo.skipdtor25
+
+nrvo.skipdtor25:                                  ; preds = %nrvo.unused24, %invoke.cont
+  br label %return
+
+if.end26:                                         ; preds = %if.end5
+  %firstSegment27 = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this1, i32 0, i32 4
+  %8 = load i8, ptr %firstSegment27, align 8
+  %tobool = trunc i8 %8 to i1
+  br i1 %tobool, label %if.then28, label %if.end34
+
+if.then28:                                        ; preds = %if.end26
+  store i1 false, ptr %nrvo29, align 1
+  call void @_ZN8facebook5velox6common9Tokenizer16matchPathSegmentEv(ptr sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this1)
+  %firstSegment30 = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this1, i32 0, i32 4
+  store i8 0, ptr %firstSegment30, align 8
+  store i1 true, ptr %nrvo29, align 1
+  %nrvo.val31 = load i1, ptr %nrvo29, align 1
+  br i1 %nrvo.val31, label %nrvo.skipdtor33, label %nrvo.unused32
+
+nrvo.unused32:                                    ; preds = %if.then28
+  call void @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #13
+  br label %nrvo.skipdtor33
+
+nrvo.skipdtor33:                                  ; preds = %nrvo.unused32, %if.then28
+  br label %return
+
+if.end34:                                         ; preds = %if.end26
+  call void @llvm.trap()
+  call void @llvm.trap()
+  unreachable
+
+return:                                           ; preds = %nrvo.skipdtor33, %nrvo.skipdtor25, %nrvo.skipdtor, %if.then
+  ret void
+
+eh.resume:                                        ; preds = %lpad
+  %exn = load ptr, ptr %exn.slot, align 8
+  %sel = load i32, ptr %ehselector.slot, align 4
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
+  %lpad.val35 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
+  resume { ptr, i32 } %lpad.val35
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEC2IS6_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr %0) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_t = getelementptr inbounds %"class.std::unique_ptr", ptr %this1, i32 0, i32 0
+  call void @llvm.memset.p0.i64(ptr align 8 %_M_t, i8 0, i64 8, i1 false)
+  call void @_ZNSt15__uniq_ptr_dataIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_ELb1ELb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #13
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define noundef zeroext i1 @_ZN8facebook5velox6common9Tokenizer17tryMatchSeparatorEc(ptr noundef nonnull align 8 dereferenceable(72) %this, i8 noundef signext %expected) #0 align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %expected.addr = alloca i8, align 1
+  store ptr %this, ptr %this.addr, align 8
+  store i8 %expected, ptr %expected.addr, align 1
+  %this1 = load ptr, ptr %this.addr, align 8
+  %separators_ = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this1, i32 0, i32 1
+  %call = call noundef ptr @_ZNKSt19__shared_ptr_accessIN8facebook5velox6common10SeparatorsELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %separators_) #13
+  %0 = load i8, ptr %expected.addr, align 1
+  %call2 = call noundef zeroext i1 @_ZNK8facebook5velox6common10Separators11isSeparatorEc(ptr noundef nonnull align 1 dereferenceable(7) %call, i8 noundef signext %0)
+  br i1 %call2, label %land.rhs, label %land.end
+
+land.rhs:                                         ; preds = %entry
+  %1 = load i8, ptr %expected.addr, align 1
+  %call3 = call noundef zeroext i1 @_ZN8facebook5velox6common9Tokenizer8tryMatchEc(ptr noundef nonnull align 8 dereferenceable(72) %this1, i8 noundef signext %1)
+  br label %land.end
+
+land.end:                                         ; preds = %land.rhs, %entry
+  %2 = phi i1 [ false, %entry ], [ %call3, %land.rhs ]
+  ret i1 %2
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNKSt19__shared_ptr_accessIN8facebook5velox6common10SeparatorsELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %this) #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef ptr @_ZNKSt19__shared_ptr_accessIN8facebook5velox6common10SeparatorsELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EE6_M_getEv(ptr noundef nonnull align 1 dereferenceable(1) %this1) #13
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN8facebook5velox6common9Tokenizer16matchPathSegmentEv(ptr noalias sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this) #0 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %this.addr = alloca ptr, align 8
+  %start = alloca i32, align 4
+  %end = alloca i32, align 4
+  %token = alloca %"class.std::__cxx11::basic_string", align 8
+  %exn.slot = alloca ptr, align 8
+  %ehselector.slot = alloca i32, align 4
+  %ref.tmp = alloca %"class.std::unique_ptr.2", align 8
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %index_ = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this1, i32 0, i32 2
+  %0 = load i32, ptr %index_, align 8
+  store i32 %0, ptr %start, align 4
+  br label %while.cond
+
+while.cond:                                       ; preds = %while.body, %entry
+  %call = call noundef zeroext i1 @_ZN8facebook5velox6common9Tokenizer16hasNextCharacterEv(ptr noundef nonnull align 8 dereferenceable(72) %this1)
+  br i1 %call, label %land.lhs.true, label %land.end
+
+land.lhs.true:                                    ; preds = %while.cond
+  %separators_ = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this1, i32 0, i32 1
+  %call2 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN8facebook5velox6common10SeparatorsELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %separators_) #13
+  %call3 = call noundef signext i8 @_ZN8facebook5velox6common9Tokenizer13peekCharacterEv(ptr noundef nonnull align 8 dereferenceable(72) %this1)
+  %call4 = call noundef zeroext i1 @_ZNK8facebook5velox6common10Separators11isSeparatorEc(ptr noundef nonnull align 1 dereferenceable(7) %call2, i8 noundef signext %call3)
+  br i1 %call4, label %land.end, label %land.rhs
+
+land.rhs:                                         ; preds = %land.lhs.true
+  %call5 = call noundef signext i8 @_ZN8facebook5velox6common9Tokenizer13peekCharacterEv(ptr noundef nonnull align 8 dereferenceable(72) %this1)
+  %call6 = call noundef zeroext i1 @_ZN8facebook5velox6common9Tokenizer23isUnquotedPathCharacterEc(ptr noundef nonnull align 8 dereferenceable(72) %this1, i8 noundef signext %call5)
+  br label %land.end
+
+land.end:                                         ; preds = %land.rhs, %land.lhs.true, %while.cond
+  %1 = phi i1 [ false, %land.lhs.true ], [ false, %while.cond ], [ %call6, %land.rhs ]
+  br i1 %1, label %while.body, label %while.end
+
+while.body:                                       ; preds = %land.end
+  call void @_ZN8facebook5velox6common9Tokenizer13nextCharacterEv(ptr noundef nonnull align 8 dereferenceable(72) %this1)
+  br label %while.cond, !llvm.loop !4
+
+while.end:                                        ; preds = %land.end
+  %index_7 = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this1, i32 0, i32 2
+  %2 = load i32, ptr %index_7, align 8
+  store i32 %2, ptr %end, align 4
+  %path_ = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this1, i32 0, i32 0
+  %3 = load i32, ptr %start, align 4
+  %conv = sext i32 %3 to i64
+  %4 = load i32, ptr %end, align 4
+  %5 = load i32, ptr %start, align 4
+  %sub = sub nsw i32 %4, %5
+  %conv8 = sext i32 %sub to i64
+  call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr sret(%"class.std::__cxx11::basic_string") align 8 %token, ptr noundef nonnull align 8 dereferenceable(32) %path_, i64 noundef %conv, i64 noundef %conv8)
+  %call9 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %token) #13
+  br i1 %call9, label %if.then, label %if.end
+
+if.then:                                          ; preds = %while.end
+  invoke void @_ZN8facebook5velox6common9Tokenizer19invalidSubfieldPathEv(ptr noundef nonnull align 8 dereferenceable(72) %this1)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %if.then
+  br label %if.end
+
+lpad:                                             ; preds = %if.end, %if.then
+  %6 = landingpad { ptr, i32 }
+          cleanup
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %token) #13
+  br label %eh.resume
+
+if.end:                                           ; preds = %invoke.cont, %while.end
+  invoke void @_ZSt11make_uniqueIN8facebook5velox6common8Subfield11NestedFieldEJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr sret(%"class.std::unique_ptr.2") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %token)
+          to label %invoke.cont10 unwind label %lpad
+
+invoke.cont10:                                    ; preds = %if.end
+  call void @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEC2INS3_11NestedFieldES5_IS9_EvEEOS_IT_T0_E(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #13
+  call void @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11NestedFieldESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %token) #13
+  ret void
+
+eh.resume:                                        ; preds = %lpad
+  %exn = load ptr, ptr %exn.slot, align 8
+  %sel = load i32, ptr %ehselector.slot, align 4
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
+  %lpad.val11 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
+  resume { ptr, i32 } %lpad.val11
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__ptr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_t = getelementptr inbounds %"class.std::unique_ptr", ptr %this1, i32 0, i32 0
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #13
+  store ptr %call, ptr %__ptr, align 8
+  %0 = load ptr, ptr %__ptr, align 8
+  %1 = load ptr, ptr %0, align 8
+  %cmp = icmp ne ptr %1, null
+  br i1 %cmp, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %call2 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
+  %2 = load ptr, ptr %__ptr, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNKSt14default_deleteIN8facebook5velox6common8Subfield11PathElementEEclEPS4_(ptr noundef nonnull align 1 dereferenceable(1) %call2, ptr noundef %3)
+  br label %if.end
+
+if.end:                                           ; preds = %if.then, %entry
+  %4 = load ptr, ptr %__ptr, align 8
+  store ptr null, ptr %4, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN8facebook5velox6common9Tokenizer20matchQuotedSubscriptEv(ptr noalias sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this) #0 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %this.addr = alloca ptr, align 8
+  %token = alloca %"class.std::__cxx11::basic_string", align 8
+  %escaped = alloca i8, align 1
+  %exn.slot = alloca ptr, align 8
+  %ehselector.slot = alloca i32, align 4
+  %ref.tmp = alloca %"class.std::unique_ptr.18", align 8
+  %cleanup.dest.slot = alloca i32, align 4
+  %ref.tmp36 = alloca %"class.std::unique_ptr.26", align 8
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %token) #13
+  store i8 0, ptr %escaped, align 1
+  br label %while.cond
+
+while.cond:                                       ; preds = %if.end22, %entry
+  %call = call noundef zeroext i1 @_ZN8facebook5velox6common9Tokenizer16hasNextCharacterEv(ptr noundef nonnull align 8 dereferenceable(72) %this1)
+  br i1 %call, label %land.rhs, label %land.end
+
+land.rhs:                                         ; preds = %while.cond
+  %0 = load i8, ptr %escaped, align 1
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %lor.end, label %lor.rhs
+
+lor.rhs:                                          ; preds = %land.rhs
+  %call2 = call noundef signext i8 @_ZN8facebook5velox6common9Tokenizer13peekCharacterEv(ptr noundef nonnull align 8 dereferenceable(72) %this1)
+  %conv = sext i8 %call2 to i32
+  %separators_ = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this1, i32 0, i32 1
+  %call3 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN8facebook5velox6common10SeparatorsELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %separators_) #13
+  %quote = getelementptr inbounds %"struct.facebook::velox::common::Separators", ptr %call3, i32 0, i32 4
+  %1 = load i8, ptr %quote, align 1
+  %conv4 = sext i8 %1 to i32
+  %cmp = icmp ne i32 %conv, %conv4
+  br label %lor.end
+
+lor.end:                                          ; preds = %lor.rhs, %land.rhs
+  %2 = phi i1 [ true, %land.rhs ], [ %cmp, %lor.rhs ]
+  br label %land.end
+
+land.end:                                         ; preds = %lor.end, %while.cond
+  %3 = phi i1 [ false, %while.cond ], [ %2, %lor.end ]
+  br i1 %3, label %while.body, label %while.end
+
+while.body:                                       ; preds = %land.end
+  %4 = load i8, ptr %escaped, align 1
+  %tobool5 = trunc i8 %4 to i1
+  br i1 %tobool5, label %if.then, label %if.else
+
+if.then:                                          ; preds = %while.body
+  %call6 = call noundef signext i8 @_ZN8facebook5velox6common9Tokenizer13peekCharacterEv(ptr noundef nonnull align 8 dereferenceable(72) %this1)
+  %conv7 = sext i8 %call6 to i32
+  switch i32 %conv7, label %sw.default [
+    i32 34, label %sw.bb
+    i32 92, label %sw.bb
+  ]
+
+sw.bb:                                            ; preds = %if.then, %if.then
+  %call8 = call noundef signext i8 @_ZN8facebook5velox6common9Tokenizer13peekCharacterEv(ptr noundef nonnull align 8 dereferenceable(72) %this1)
+  %call9 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %token, i8 noundef signext %call8)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %sw.bb
+  br label %sw.epilog
+
+lpad:                                             ; preds = %if.end35, %if.then33, %invoke.cont30, %if.end26, %if.then24, %if.else18, %sw.default, %sw.bb
+  %5 = landingpad { ptr, i32 }
+          cleanup
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %token) #13
+  br label %eh.resume
+
+sw.default:                                       ; preds = %if.then
+  invoke void @_ZN8facebook5velox6common9Tokenizer19invalidSubfieldPathEv(ptr noundef nonnull align 8 dereferenceable(72) %this1)
+          to label %invoke.cont10 unwind label %lpad
+
+invoke.cont10:                                    ; preds = %sw.default
+  br label %sw.epilog
+
+sw.epilog:                                        ; preds = %invoke.cont10, %invoke.cont
+  store i8 0, ptr %escaped, align 1
+  br label %if.end22
+
+if.else:                                          ; preds = %while.body
+  %call11 = call noundef signext i8 @_ZN8facebook5velox6common9Tokenizer13peekCharacterEv(ptr noundef nonnull align 8 dereferenceable(72) %this1)
+  %conv12 = sext i8 %call11 to i32
+  %separators_13 = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this1, i32 0, i32 1
+  %call14 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN8facebook5velox6common10SeparatorsELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %separators_13) #13
+  %backSlash = getelementptr inbounds %"struct.facebook::velox::common::Separators", ptr %call14, i32 0, i32 0
+  %8 = load i8, ptr %backSlash, align 1
+  %conv15 = sext i8 %8 to i32
+  %cmp16 = icmp eq i32 %conv12, %conv15
+  br i1 %cmp16, label %if.then17, label %if.else18
+
+if.then17:                                        ; preds = %if.else
+  store i8 1, ptr %escaped, align 1
+  br label %if.end
+
+if.else18:                                        ; preds = %if.else
+  %call19 = call noundef signext i8 @_ZN8facebook5velox6common9Tokenizer13peekCharacterEv(ptr noundef nonnull align 8 dereferenceable(72) %this1)
+  %call21 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %token, i8 noundef signext %call19)
+          to label %invoke.cont20 unwind label %lpad
+
+invoke.cont20:                                    ; preds = %if.else18
+  br label %if.end
+
+if.end:                                           ; preds = %invoke.cont20, %if.then17
+  br label %if.end22
+
+if.end22:                                         ; preds = %if.end, %sw.epilog
+  call void @_ZN8facebook5velox6common9Tokenizer13nextCharacterEv(ptr noundef nonnull align 8 dereferenceable(72) %this1)
+  br label %while.cond, !llvm.loop !6
+
+while.end:                                        ; preds = %land.end
+  %9 = load i8, ptr %escaped, align 1
+  %tobool23 = trunc i8 %9 to i1
+  br i1 %tobool23, label %if.then24, label %if.end26
+
+if.then24:                                        ; preds = %while.end
+  invoke void @_ZN8facebook5velox6common9Tokenizer19invalidSubfieldPathEv(ptr noundef nonnull align 8 dereferenceable(72) %this1)
+          to label %invoke.cont25 unwind label %lpad
+
+invoke.cont25:                                    ; preds = %if.then24
+  br label %if.end26
+
+if.end26:                                         ; preds = %invoke.cont25, %while.end
+  %separators_27 = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this1, i32 0, i32 1
+  %call28 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN8facebook5velox6common10SeparatorsELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %separators_27) #13
+  %quote29 = getelementptr inbounds %"struct.facebook::velox::common::Separators", ptr %call28, i32 0, i32 4
+  %10 = load i8, ptr %quote29, align 1
+  invoke void @_ZN8facebook5velox6common9Tokenizer5matchEc(ptr noundef nonnull align 8 dereferenceable(72) %this1, i8 noundef signext %10)
+          to label %invoke.cont30 unwind label %lpad
+
+invoke.cont30:                                    ; preds = %if.end26
+  %call32 = invoke noundef zeroext i1 @_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_(ptr noundef nonnull align 8 dereferenceable(32) %token, ptr noundef @.str)
+          to label %invoke.cont31 unwind label %lpad
+
+invoke.cont31:                                    ; preds = %invoke.cont30
+  br i1 %call32, label %if.then33, label %if.end35
+
+if.then33:                                        ; preds = %invoke.cont31
+  invoke void @_ZSt11make_uniqueIN8facebook5velox6common8Subfield13AllSubscriptsEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr sret(%"class.std::unique_ptr.18") align 8 %ref.tmp)
+          to label %invoke.cont34 unwind label %lpad
+
+invoke.cont34:                                    ; preds = %if.then33
+  call void @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEC2INS3_13AllSubscriptsES5_IS9_EvEEOS_IT_T0_E(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #13
+  call void @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield13AllSubscriptsESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #13
+  store i32 1, ptr %cleanup.dest.slot, align 4
+  br label %cleanup
+
+if.end35:                                         ; preds = %invoke.cont31
+  invoke void @_ZSt11make_uniqueIN8facebook5velox6common8Subfield15StringSubscriptEJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr sret(%"class.std::unique_ptr.26") align 8 %ref.tmp36, ptr noundef nonnull align 8 dereferenceable(32) %token)
+          to label %invoke.cont37 unwind label %lpad
+
+invoke.cont37:                                    ; preds = %if.end35
+  call void @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEC2INS3_15StringSubscriptES5_IS9_EvEEOS_IT_T0_E(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp36) #13
+  call void @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield15StringSubscriptESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp36) #13
+  store i32 1, ptr %cleanup.dest.slot, align 4
+  br label %cleanup
+
+cleanup:                                          ; preds = %invoke.cont37, %invoke.cont34
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %token) #13
+  ret void
+
+eh.resume:                                        ; preds = %lpad
+  %exn = load ptr, ptr %exn.slot, align 8
+  %sel = load i32, ptr %ehselector.slot, align 4
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
+  %lpad.val38 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
+  resume { ptr, i32 } %lpad.val38
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN8facebook5velox6common9Tokenizer22matchWildcardSubscriptEv(ptr noalias sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this) #0 align 2 {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %this.addr = alloca ptr, align 8
+  %ref.tmp = alloca %"class.std::unique_ptr.18", align 8
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  call void @_ZSt11make_uniqueIN8facebook5velox6common8Subfield13AllSubscriptsEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr sret(%"class.std::unique_ptr.18") align 8 %ref.tmp)
+  call void @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEC2INS3_13AllSubscriptsES5_IS9_EvEEOS_IT_T0_E(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #13
+  call void @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield13AllSubscriptsESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #13
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN8facebook5velox6common9Tokenizer22matchUnquotedSubscriptEv(ptr noalias sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this) #0 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %this.addr = alloca ptr, align 8
+  %start = alloca i32, align 4
+  %end = alloca i32, align 4
+  %token = alloca %"class.std::__cxx11::basic_string", align 8
+  %exn.slot = alloca ptr, align 8
+  %ehselector.slot = alloca i32, align 4
+  %index = alloca i64, align 8
+  %ref.tmp = alloca %"class.std::unique_ptr.10", align 8
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %index_ = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this1, i32 0, i32 2
+  %0 = load i32, ptr %index_, align 8
+  store i32 %0, ptr %start, align 4
+  br label %while.cond
+
+while.cond:                                       ; preds = %while.body, %entry
+  %call = call noundef zeroext i1 @_ZN8facebook5velox6common9Tokenizer16hasNextCharacterEv(ptr noundef nonnull align 8 dereferenceable(72) %this1)
+  br i1 %call, label %land.rhs, label %land.end
+
+land.rhs:                                         ; preds = %while.cond
+  %call2 = call noundef signext i8 @_ZN8facebook5velox6common9Tokenizer13peekCharacterEv(ptr noundef nonnull align 8 dereferenceable(72) %this1)
+  %call3 = call noundef zeroext i1 @_ZN8facebook5velox6common9Tokenizer28isUnquotedSubscriptCharacterEc(ptr noundef nonnull align 8 dereferenceable(72) %this1, i8 noundef signext %call2)
+  br label %land.end
+
+land.end:                                         ; preds = %land.rhs, %while.cond
+  %1 = phi i1 [ false, %while.cond ], [ %call3, %land.rhs ]
+  br i1 %1, label %while.body, label %while.end
+
+while.body:                                       ; preds = %land.end
+  call void @_ZN8facebook5velox6common9Tokenizer13nextCharacterEv(ptr noundef nonnull align 8 dereferenceable(72) %this1)
+  br label %while.cond, !llvm.loop !7
+
+while.end:                                        ; preds = %land.end
+  %index_4 = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this1, i32 0, i32 2
+  %2 = load i32, ptr %index_4, align 8
+  store i32 %2, ptr %end, align 4
+  %path_ = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this1, i32 0, i32 0
+  %3 = load i32, ptr %start, align 4
+  %conv = sext i32 %3 to i64
+  %4 = load i32, ptr %end, align 4
+  %conv5 = sext i32 %4 to i64
+  call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr sret(%"class.std::__cxx11::basic_string") align 8 %token, ptr noundef nonnull align 8 dereferenceable(32) %path_, i64 noundef %conv, i64 noundef %conv5)
+  %call6 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %token) #13
+  br i1 %call6, label %if.then, label %if.end
+
+if.then:                                          ; preds = %while.end
+  invoke void @_ZN8facebook5velox6common9Tokenizer19invalidSubfieldPathEv(ptr noundef nonnull align 8 dereferenceable(72) %this1)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %if.then
+  br label %if.end
+
+lpad:                                             ; preds = %try.cont, %catch, %if.then
+  %5 = landingpad { ptr, i32 }
+          cleanup
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %token) #13
+  br label %eh.resume
+
+if.end:                                           ; preds = %invoke.cont, %while.end
+  store i64 0, ptr %index, align 8
+  %call9 = invoke noundef i64 @_ZNSt7__cxx114stolERKNS_12basic_stringIcSt11char_traitsIcESaIcEEEPmi(ptr noundef nonnull align 8 dereferenceable(32) %token, ptr noundef null, i32 noundef 10)
+          to label %invoke.cont8 unwind label %lpad7
+
+invoke.cont8:                                     ; preds = %if.end
+  store i64 %call9, ptr %index, align 8
+  br label %try.cont
+
+lpad7:                                            ; preds = %if.end
+  %8 = landingpad { ptr, i32 }
+          catch ptr null
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
+  br label %catch
+
+catch:                                            ; preds = %lpad7
+  %exn = load ptr, ptr %exn.slot, align 8
+  %11 = call ptr @__cxa_begin_catch(ptr %exn) #13
+  call void @llvm.trap()
+  invoke void @__cxa_end_catch()
+          to label %invoke.cont10 unwind label %lpad
+
+invoke.cont10:                                    ; preds = %catch
+  br label %try.cont
+
+try.cont:                                         ; preds = %invoke.cont10, %invoke.cont8
+  invoke void @_ZSt11make_uniqueIN8facebook5velox6common8Subfield13LongSubscriptEJRlEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr sret(%"class.std::unique_ptr.10") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %index)
+          to label %invoke.cont11 unwind label %lpad
+
+invoke.cont11:                                    ; preds = %try.cont
+  call void @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEC2INS3_13LongSubscriptES5_IS9_EvEEOS_IT_T0_E(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #13
+  call void @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield13LongSubscriptESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %token) #13
+  ret void
+
+eh.resume:                                        ; preds = %lpad
+  %exn12 = load ptr, ptr %exn.slot, align 8
+  %sel = load i32, ptr %ehselector.slot, align 4
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn12, 0
+  %lpad.val13 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
+  resume { ptr, i32 } %lpad.val13
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN8facebook5velox6common9Tokenizer5matchEc(ptr noundef nonnull align 8 dereferenceable(72) %this, i8 noundef signext %expected) #0 align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %expected.addr = alloca i8, align 1
+  store ptr %this, ptr %this.addr, align 8
+  store i8 %expected, ptr %expected.addr, align 1
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load i8, ptr %expected.addr, align 1
+  %call = call noundef zeroext i1 @_ZN8facebook5velox6common9Tokenizer8tryMatchEc(ptr noundef nonnull align 8 dereferenceable(72) %this1, i8 noundef signext %0)
+  br i1 %call, label %if.end, label %if.then
+
+if.then:                                          ; preds = %entry
+  call void @_ZN8facebook5velox6common9Tokenizer19invalidSubfieldPathEv(ptr noundef nonnull align 8 dereferenceable(72) %this1)
+  br label %if.end
+
+if.end:                                           ; preds = %if.then, %entry
+  ret void
+}
+
+declare i32 @__gxx_personality_v0(...)
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZNK8facebook5velox6common10Separators11isSeparatorEc(ptr noundef nonnull align 1 dereferenceable(7) %this, i8 noundef signext %c) #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %c.addr = alloca i8, align 1
+  store ptr %this, ptr %this.addr, align 8
+  store i8 %c, ptr %c.addr, align 1
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load i8, ptr %c.addr, align 1
+  %conv = sext i8 %0 to i32
+  %closeBracket = getelementptr inbounds %"struct.facebook::velox::common::Separators", ptr %this1, i32 0, i32 1
+  %1 = load i8, ptr %closeBracket, align 1
+  %conv2 = sext i8 %1 to i32
+  %cmp = icmp eq i32 %conv, %conv2
+  br i1 %cmp, label %lor.end, label %lor.lhs.false
+
+lor.lhs.false:                                    ; preds = %entry
+  %2 = load i8, ptr %c.addr, align 1
+  %conv3 = sext i8 %2 to i32
+  %dot = getelementptr inbounds %"struct.facebook::velox::common::Separators", ptr %this1, i32 0, i32 2
+  %3 = load i8, ptr %dot, align 1
+  %conv4 = sext i8 %3 to i32
+  %cmp5 = icmp eq i32 %conv3, %conv4
+  br i1 %cmp5, label %lor.end, label %lor.lhs.false6
+
+lor.lhs.false6:                                   ; preds = %lor.lhs.false
+  %4 = load i8, ptr %c.addr, align 1
+  %conv7 = sext i8 %4 to i32
+  %openBracket = getelementptr inbounds %"struct.facebook::velox::common::Separators", ptr %this1, i32 0, i32 3
+  %5 = load i8, ptr %openBracket, align 1
+  %conv8 = sext i8 %5 to i32
+  %cmp9 = icmp eq i32 %conv7, %conv8
+  br i1 %cmp9, label %lor.end, label %lor.lhs.false10
+
+lor.lhs.false10:                                  ; preds = %lor.lhs.false6
+  %6 = load i8, ptr %c.addr, align 1
+  %conv11 = sext i8 %6 to i32
+  %quote = getelementptr inbounds %"struct.facebook::velox::common::Separators", ptr %this1, i32 0, i32 4
+  %7 = load i8, ptr %quote, align 1
+  %conv12 = sext i8 %7 to i32
+  %cmp13 = icmp eq i32 %conv11, %conv12
+  br i1 %cmp13, label %lor.end, label %lor.rhs
+
+lor.rhs:                                          ; preds = %lor.lhs.false10
+  %8 = load i8, ptr %c.addr, align 1
+  %conv14 = sext i8 %8 to i32
+  %wildCard = getelementptr inbounds %"struct.facebook::velox::common::Separators", ptr %this1, i32 0, i32 5
+  %9 = load i8, ptr %wildCard, align 1
+  %conv15 = sext i8 %9 to i32
+  %cmp16 = icmp eq i32 %conv14, %conv15
+  br label %lor.end
+
+lor.end:                                          ; preds = %lor.rhs, %lor.lhs.false10, %lor.lhs.false6, %lor.lhs.false, %entry
+  %10 = phi i1 [ true, %lor.lhs.false10 ], [ true, %lor.lhs.false6 ], [ true, %lor.lhs.false ], [ true, %entry ], [ %cmp16, %lor.rhs ]
+  ret i1 %10
+}
+
+; Function Attrs: mustprogress uwtable
+define noundef zeroext i1 @_ZN8facebook5velox6common9Tokenizer8tryMatchEc(ptr noundef nonnull align 8 dereferenceable(72) %this, i8 noundef signext %expected) #0 align 2 {
+entry:
+  %retval = alloca i1, align 1
+  %this.addr = alloca ptr, align 8
+  %expected.addr = alloca i8, align 1
+  store ptr %this, ptr %this.addr, align 8
+  store i8 %expected, ptr %expected.addr, align 1
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef zeroext i1 @_ZN8facebook5velox6common9Tokenizer16hasNextCharacterEv(ptr noundef nonnull align 8 dereferenceable(72) %this1)
+  br i1 %call, label %lor.lhs.false, label %if.then
+
+lor.lhs.false:                                    ; preds = %entry
+  %call2 = call noundef signext i8 @_ZN8facebook5velox6common9Tokenizer13peekCharacterEv(ptr noundef nonnull align 8 dereferenceable(72) %this1)
+  %conv = sext i8 %call2 to i32
+  %0 = load i8, ptr %expected.addr, align 1
+  %conv3 = sext i8 %0 to i32
+  %cmp = icmp ne i32 %conv, %conv3
+  br i1 %cmp, label %if.then, label %if.end
+
+if.then:                                          ; preds = %lor.lhs.false, %entry
+  store i1 false, ptr %retval, align 1
+  br label %return
+
+if.end:                                           ; preds = %lor.lhs.false
+  %index_ = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this1, i32 0, i32 2
+  %1 = load i32, ptr %index_, align 8
+  %inc = add nsw i32 %1, 1
+  store i32 %inc, ptr %index_, align 8
+  store i1 true, ptr %retval, align 1
+  br label %return
+
+return:                                           ; preds = %if.end, %if.then
+  %2 = load i1, ptr %retval, align 1
+  ret i1 %2
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN8facebook5velox6common9Tokenizer19invalidSubfieldPathEv(ptr noundef nonnull align 8 dereferenceable(72) %this) #2 align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  call void @llvm.trap()
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define noundef signext i8 @_ZN8facebook5velox6common9Tokenizer13peekCharacterEv(ptr noundef nonnull align 8 dereferenceable(72) %this) #2 align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %path_ = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this1, i32 0, i32 0
+  %index_ = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this1, i32 0, i32 2
+  %0 = load i32, ptr %index_, align 8
+  %conv = sext i32 %0 to i64
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %path_, i64 noundef %conv) #13
+  %1 = load i8, ptr %call, align 1
+  ret i8 %1
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN8facebook5velox6common9Tokenizer13nextCharacterEv(ptr noundef nonnull align 8 dereferenceable(72) %this) #2 align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %index_ = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this1, i32 0, i32 2
+  %0 = load i32, ptr %index_, align 8
+  %inc = add nsw i32 %0, 1
+  store i32 %inc, ptr %index_, align 8
+  ret void
+}
+
+; Function Attrs: nounwind
+declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) #4
+
+; Function Attrs: mustprogress uwtable
+define noundef zeroext i1 @_ZN8facebook5velox6common9Tokenizer23isUnquotedPathCharacterEc(ptr noundef nonnull align 8 dereferenceable(72) %this, i8 noundef signext %c) #0 align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %c.addr = alloca i8, align 1
+  store ptr %this, ptr %this.addr, align 8
+  store i8 %c, ptr %c.addr, align 1
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load i8, ptr %c.addr, align 1
+  %conv = sext i8 %0 to i32
+  %cmp = icmp eq i32 %conv, 58
+  br i1 %cmp, label %lor.end, label %lor.lhs.false
+
+lor.lhs.false:                                    ; preds = %entry
+  %1 = load i8, ptr %c.addr, align 1
+  %conv2 = sext i8 %1 to i32
+  %cmp3 = icmp eq i32 %conv2, 36
+  br i1 %cmp3, label %lor.end, label %lor.lhs.false4
+
+lor.lhs.false4:                                   ; preds = %lor.lhs.false
+  %2 = load i8, ptr %c.addr, align 1
+  %conv5 = sext i8 %2 to i32
+  %cmp6 = icmp eq i32 %conv5, 45
+  br i1 %cmp6, label %lor.end, label %lor.lhs.false7
+
+lor.lhs.false7:                                   ; preds = %lor.lhs.false4
+  %3 = load i8, ptr %c.addr, align 1
+  %conv8 = sext i8 %3 to i32
+  %cmp9 = icmp eq i32 %conv8, 47
+  br i1 %cmp9, label %lor.end, label %lor.lhs.false10
+
+lor.lhs.false10:                                  ; preds = %lor.lhs.false7
+  %4 = load i8, ptr %c.addr, align 1
+  %conv11 = sext i8 %4 to i32
+  %cmp12 = icmp eq i32 %conv11, 64
+  br i1 %cmp12, label %lor.end, label %lor.lhs.false13
+
+lor.lhs.false13:                                  ; preds = %lor.lhs.false10
+  %5 = load i8, ptr %c.addr, align 1
+  %conv14 = sext i8 %5 to i32
+  %cmp15 = icmp eq i32 %conv14, 124
+  br i1 %cmp15, label %lor.end, label %lor.lhs.false16
+
+lor.lhs.false16:                                  ; preds = %lor.lhs.false13
+  %6 = load i8, ptr %c.addr, align 1
+  %conv17 = sext i8 %6 to i32
+  %cmp18 = icmp eq i32 %conv17, 35
+  br i1 %cmp18, label %lor.end, label %lor.lhs.false19
+
+lor.lhs.false19:                                  ; preds = %lor.lhs.false16
+  %7 = load i8, ptr %c.addr, align 1
+  %conv20 = sext i8 %7 to i32
+  %cmp21 = icmp eq i32 %conv20, 46
+  br i1 %cmp21, label %lor.end, label %lor.rhs
+
+lor.rhs:                                          ; preds = %lor.lhs.false19
+  %8 = load i8, ptr %c.addr, align 1
+  %call = call noundef zeroext i1 @_ZN8facebook5velox6common9Tokenizer28isUnquotedSubscriptCharacterEc(ptr noundef nonnull align 8 dereferenceable(72) %this1, i8 noundef signext %8)
+  br label %lor.end
+
+lor.end:                                          ; preds = %lor.rhs, %lor.lhs.false19, %lor.lhs.false16, %lor.lhs.false13, %lor.lhs.false10, %lor.lhs.false7, %lor.lhs.false4, %lor.lhs.false, %entry
+  %9 = phi i1 [ true, %lor.lhs.false19 ], [ true, %lor.lhs.false16 ], [ true, %lor.lhs.false13 ], [ true, %lor.lhs.false10 ], [ true, %lor.lhs.false7 ], [ true, %lor.lhs.false4 ], [ true, %lor.lhs.false ], [ true, %entry ], [ %call, %lor.rhs ]
+  ret i1 %9
+}
+
+declare void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef) #1
+
+; Function Attrs: nounwind
+declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32)) #4
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZSt11make_uniqueIN8facebook5velox6common8Subfield11NestedFieldEJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr noalias sret(%"class.std::unique_ptr.2") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %__args) #0 comdat personality ptr @__gxx_personality_v0 {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %__args.addr = alloca ptr, align 8
+  %exn.slot = alloca ptr, align 8
+  %ehselector.slot = alloca i32, align 4
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store ptr %__args, ptr %__args.addr, align 8
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #14
+  %0 = load ptr, ptr %__args.addr, align 8
+  invoke void @_ZN8facebook5velox6common8Subfield11NestedFieldC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %call, ptr noundef nonnull align 8 dereferenceable(32) %0)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %entry
+  call void @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11NestedFieldESt14default_deleteIS4_EEC2IS6_vEEPS4_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call) #13
+  ret void
+
+lpad:                                             ; preds = %entry
+  %1 = landingpad { ptr, i32 }
+          cleanup
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
+  call void @_ZdlPv(ptr noundef %call) #15
+  br label %eh.resume
+
+eh.resume:                                        ; preds = %lpad
+  %exn = load ptr, ptr %exn.slot, align 8
+  %sel = load i32, ptr %ehselector.slot, align 4
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
+  %lpad.val1 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
+  resume { ptr, i32 } %lpad.val1
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEC2INS3_11NestedFieldES5_IS9_EvEEOS_IT_T0_E(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__u) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__u.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__u, ptr %__u.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_t = getelementptr inbounds %"class.std::unique_ptr", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %__u.addr, align 8
+  %call = call noundef ptr @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11NestedFieldESt14default_deleteIS4_EE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  %1 = load ptr, ptr %__u.addr, align 8
+  %call2 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11NestedFieldESt14default_deleteIS4_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #13
+  invoke void @_ZNSt15__uniq_ptr_dataIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_ELb1ELb1EECI2St15__uniq_ptr_implIS4_S6_EIS5_INS3_11NestedFieldEEEEPS4_OT_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t, ptr noundef %call, ptr noundef nonnull align 1 dereferenceable(1) %call2)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %entry
+  ret void
+
+terminate.lpad:                                   ; preds = %entry
+  %2 = landingpad { ptr, i32 }
+          catch ptr null
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #16
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11NestedFieldESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__ptr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_t = getelementptr inbounds %"class.std::unique_ptr.2", ptr %this1, i32 0, i32 0
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11NestedFieldESt14default_deleteIS4_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #13
+  store ptr %call, ptr %__ptr, align 8
+  %0 = load ptr, ptr %__ptr, align 8
+  %1 = load ptr, ptr %0, align 8
+  %cmp = icmp ne ptr %1, null
+  br i1 %cmp, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %call2 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11NestedFieldESt14default_deleteIS4_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
+  %2 = load ptr, ptr %__ptr, align 8
+  %3 = load ptr, ptr %2, align 8
+  invoke void @_ZNKSt14default_deleteIN8facebook5velox6common8Subfield11NestedFieldEEclEPS4_(ptr noundef nonnull align 1 dereferenceable(1) %call2, ptr noundef %3)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %if.then
+  br label %if.end
+
+if.end:                                           ; preds = %invoke.cont, %entry
+  %4 = load ptr, ptr %__ptr, align 8
+  store ptr null, ptr %4, align 8
+  ret void
+
+terminate.lpad:                                   ; preds = %if.then
+  %5 = landingpad { ptr, i32 }
+          catch ptr null
+  %6 = extractvalue { ptr, i32 } %5, 0
+  call void @__clang_call_terminate(ptr %6) #16
+  unreachable
+}
+
+; Function Attrs: nounwind
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
+
+; Function Attrs: mustprogress nounwind uwtable
+define noundef zeroext i1 @_ZN8facebook5velox6common9Tokenizer28isUnquotedSubscriptCharacterEc(ptr noundef nonnull align 8 dereferenceable(72) %this, i8 noundef signext %c) #2 align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %c.addr = alloca i8, align 1
+  store ptr %this, ptr %this.addr, align 8
+  store i8 %c, ptr %c.addr, align 1
+  %0 = load i8, ptr %c.addr, align 1
+  %conv = sext i8 %0 to i32
+  %cmp = icmp eq i32 %conv, 45
+  br i1 %cmp, label %lor.end, label %lor.lhs.false
+
+lor.lhs.false:                                    ; preds = %entry
+  %1 = load i8, ptr %c.addr, align 1
+  %conv2 = sext i8 %1 to i32
+  %cmp3 = icmp eq i32 %conv2, 95
+  br i1 %cmp3, label %lor.end, label %lor.rhs
+
+lor.rhs:                                          ; preds = %lor.lhs.false
+  %2 = load i8, ptr %c.addr, align 1
+  %conv4 = sext i8 %2 to i32
+  %call = call i32 @isalnum(i32 noundef %conv4) #17
+  %tobool = icmp ne i32 %call, 0
+  br label %lor.end
+
+lor.end:                                          ; preds = %lor.rhs, %lor.lhs.false, %entry
+  %3 = phi i1 [ true, %lor.lhs.false ], [ true, %entry ], [ %tobool, %lor.rhs ]
+  ret i1 %3
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef i64 @_ZNSt7__cxx114stolERKNS_12basic_stringIcSt11char_traitsIcESaIcEEEPmi(ptr noundef nonnull align 8 dereferenceable(32) %__str, ptr noundef %__idx, i32 noundef %__base) #0 comdat {
+entry:
+  %__str.addr = alloca ptr, align 8
+  %__idx.addr = alloca ptr, align 8
+  %__base.addr = alloca i32, align 4
+  store ptr %__str, ptr %__str.addr, align 8
+  store ptr %__idx, ptr %__idx.addr, align 8
+  store i32 %__base, ptr %__base.addr, align 4
+  %0 = load ptr, ptr %__str.addr, align 8
+  %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #13
+  %1 = load ptr, ptr %__idx.addr, align 8
+  %2 = load i32, ptr %__base.addr, align 4
+  %call1 = call noundef i64 @_ZN9__gnu_cxx6__stoaIllcJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_(ptr noundef @strtol, ptr noundef @.str.1, ptr noundef %call, ptr noundef %1, i32 noundef %2)
+  ret i64 %call1
+}
+
+declare ptr @__cxa_begin_catch(ptr)
+
+declare void @__cxa_end_catch()
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZSt11make_uniqueIN8facebook5velox6common8Subfield13LongSubscriptEJRlEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr noalias sret(%"class.std::unique_ptr.10") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %__args) #0 comdat personality ptr @__gxx_personality_v0 {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %__args.addr = alloca ptr, align 8
+  %exn.slot = alloca ptr, align 8
+  %ehselector.slot = alloca i32, align 4
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store ptr %__args, ptr %__args.addr, align 8
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #14
+  %0 = load ptr, ptr %__args.addr, align 8
+  %1 = load i64, ptr %0, align 8
+  invoke void @_ZN8facebook5velox6common8Subfield13LongSubscriptC2El(ptr noundef nonnull align 8 dereferenceable(16) %call, i64 noundef %1)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %entry
+  call void @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield13LongSubscriptESt14default_deleteIS4_EEC2IS6_vEEPS4_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call) #13
+  ret void
+
+lpad:                                             ; preds = %entry
+  %2 = landingpad { ptr, i32 }
+          cleanup
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
+  call void @_ZdlPv(ptr noundef %call) #15
+  br label %eh.resume
+
+eh.resume:                                        ; preds = %lpad
+  %exn = load ptr, ptr %exn.slot, align 8
+  %sel = load i32, ptr %ehselector.slot, align 4
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
+  %lpad.val1 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
+  resume { ptr, i32 } %lpad.val1
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEC2INS3_13LongSubscriptES5_IS9_EvEEOS_IT_T0_E(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__u) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__u.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__u, ptr %__u.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_t = getelementptr inbounds %"class.std::unique_ptr", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %__u.addr, align 8
+  %call = call noundef ptr @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield13LongSubscriptESt14default_deleteIS4_EE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  %1 = load ptr, ptr %__u.addr, align 8
+  %call2 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield13LongSubscriptESt14default_deleteIS4_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #13
+  invoke void @_ZNSt15__uniq_ptr_dataIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_ELb1ELb1EECI2St15__uniq_ptr_implIS4_S6_EIS5_INS3_13LongSubscriptEEEEPS4_OT_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t, ptr noundef %call, ptr noundef nonnull align 1 dereferenceable(1) %call2)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %entry
+  ret void
+
+terminate.lpad:                                   ; preds = %entry
+  %2 = landingpad { ptr, i32 }
+          catch ptr null
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #16
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield13LongSubscriptESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__ptr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_t = getelementptr inbounds %"class.std::unique_ptr.10", ptr %this1, i32 0, i32 0
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield13LongSubscriptESt14default_deleteIS4_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #13
+  store ptr %call, ptr %__ptr, align 8
+  %0 = load ptr, ptr %__ptr, align 8
+  %1 = load ptr, ptr %0, align 8
+  %cmp = icmp ne ptr %1, null
+  br i1 %cmp, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %call2 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield13LongSubscriptESt14default_deleteIS4_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
+  %2 = load ptr, ptr %__ptr, align 8
+  %3 = load ptr, ptr %2, align 8
+  invoke void @_ZNKSt14default_deleteIN8facebook5velox6common8Subfield13LongSubscriptEEclEPS4_(ptr noundef nonnull align 1 dereferenceable(1) %call2, ptr noundef %3)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %if.then
+  br label %if.end
+
+if.end:                                           ; preds = %invoke.cont, %entry
+  %4 = load ptr, ptr %__ptr, align 8
+  store ptr null, ptr %4, align 8
+  ret void
+
+terminate.lpad:                                   ; preds = %if.then
+  %5 = landingpad { ptr, i32 }
+          catch ptr null
+  %6 = extractvalue { ptr, i32 } %5, 0
+  call void @__clang_call_terminate(ptr %6) #16
+  unreachable
+}
+
+; Function Attrs: nounwind willreturn memory(read)
+declare i32 @isalnum(i32 noundef) #5
+
+; Function Attrs: nounwind
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
+
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32), i8 noundef signext) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_(ptr noundef nonnull align 8 dereferenceable(32) %__lhs, ptr noundef %__rhs) #2 comdat {
+entry:
+  %__lhs.addr = alloca ptr, align 8
+  %__rhs.addr = alloca ptr, align 8
+  store ptr %__lhs, ptr %__lhs.addr, align 8
+  store ptr %__rhs, ptr %__rhs.addr, align 8
+  %0 = load ptr, ptr %__lhs.addr, align 8
+  %1 = load ptr, ptr %__rhs.addr, align 8
+  %call = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) #13
+  %cmp = icmp eq i32 %call, 0
+  ret i1 %cmp
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZSt11make_uniqueIN8facebook5velox6common8Subfield13AllSubscriptsEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr noalias sret(%"class.std::unique_ptr.18") align 8 %agg.result) #0 comdat {
+entry:
+  %result.ptr = alloca ptr, align 8
+  store ptr %agg.result, ptr %result.ptr, align 8
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #14
+  call void @llvm.memset.p0.i64(ptr align 8 %call, i8 0, i64 8, i1 false)
+  call void @_ZN8facebook5velox6common8Subfield13AllSubscriptsC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %call) #13
+  call void @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield13AllSubscriptsESt14default_deleteIS4_EEC2IS6_vEEPS4_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEC2INS3_13AllSubscriptsES5_IS9_EvEEOS_IT_T0_E(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__u) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__u.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__u, ptr %__u.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_t = getelementptr inbounds %"class.std::unique_ptr", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %__u.addr, align 8
+  %call = call noundef ptr @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield13AllSubscriptsESt14default_deleteIS4_EE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  %1 = load ptr, ptr %__u.addr, align 8
+  %call2 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield13AllSubscriptsESt14default_deleteIS4_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #13
+  invoke void @_ZNSt15__uniq_ptr_dataIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_ELb1ELb1EECI2St15__uniq_ptr_implIS4_S6_EIS5_INS3_13AllSubscriptsEEEEPS4_OT_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t, ptr noundef %call, ptr noundef nonnull align 1 dereferenceable(1) %call2)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %entry
+  ret void
+
+terminate.lpad:                                   ; preds = %entry
+  %2 = landingpad { ptr, i32 }
+          catch ptr null
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #16
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield13AllSubscriptsESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__ptr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_t = getelementptr inbounds %"class.std::unique_ptr.18", ptr %this1, i32 0, i32 0
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield13AllSubscriptsESt14default_deleteIS4_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #13
+  store ptr %call, ptr %__ptr, align 8
+  %0 = load ptr, ptr %__ptr, align 8
+  %1 = load ptr, ptr %0, align 8
+  %cmp = icmp ne ptr %1, null
+  br i1 %cmp, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %call2 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield13AllSubscriptsESt14default_deleteIS4_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
+  %2 = load ptr, ptr %__ptr, align 8
+  %3 = load ptr, ptr %2, align 8
+  invoke void @_ZNKSt14default_deleteIN8facebook5velox6common8Subfield13AllSubscriptsEEclEPS4_(ptr noundef nonnull align 1 dereferenceable(1) %call2, ptr noundef %3)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %if.then
+  br label %if.end
+
+if.end:                                           ; preds = %invoke.cont, %entry
+  %4 = load ptr, ptr %__ptr, align 8
+  store ptr null, ptr %4, align 8
+  ret void
+
+terminate.lpad:                                   ; preds = %if.then
+  %5 = landingpad { ptr, i32 }
+          catch ptr null
+  %6 = extractvalue { ptr, i32 } %5, 0
+  call void @__clang_call_terminate(ptr %6) #16
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZSt11make_uniqueIN8facebook5velox6common8Subfield15StringSubscriptEJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr noalias sret(%"class.std::unique_ptr.26") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %__args) #0 comdat personality ptr @__gxx_personality_v0 {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %__args.addr = alloca ptr, align 8
+  %exn.slot = alloca ptr, align 8
+  %ehselector.slot = alloca i32, align 4
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store ptr %__args, ptr %__args.addr, align 8
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #14
+  %0 = load ptr, ptr %__args.addr, align 8
+  invoke void @_ZN8facebook5velox6common8Subfield15StringSubscriptC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %call, ptr noundef nonnull align 8 dereferenceable(32) %0)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %entry
+  call void @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield15StringSubscriptESt14default_deleteIS4_EEC2IS6_vEEPS4_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call) #13
+  ret void
+
+lpad:                                             ; preds = %entry
+  %1 = landingpad { ptr, i32 }
+          cleanup
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
+  call void @_ZdlPv(ptr noundef %call) #15
+  br label %eh.resume
+
+eh.resume:                                        ; preds = %lpad
+  %exn = load ptr, ptr %exn.slot, align 8
+  %sel = load i32, ptr %ehselector.slot, align 4
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
+  %lpad.val1 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
+  resume { ptr, i32 } %lpad.val1
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEC2INS3_15StringSubscriptES5_IS9_EvEEOS_IT_T0_E(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__u) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__u.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__u, ptr %__u.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_t = getelementptr inbounds %"class.std::unique_ptr", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %__u.addr, align 8
+  %call = call noundef ptr @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield15StringSubscriptESt14default_deleteIS4_EE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  %1 = load ptr, ptr %__u.addr, align 8
+  %call2 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield15StringSubscriptESt14default_deleteIS4_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #13
+  invoke void @_ZNSt15__uniq_ptr_dataIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_ELb1ELb1EECI2St15__uniq_ptr_implIS4_S6_EIS5_INS3_15StringSubscriptEEEEPS4_OT_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t, ptr noundef %call, ptr noundef nonnull align 1 dereferenceable(1) %call2)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %entry
+  ret void
+
+terminate.lpad:                                   ; preds = %entry
+  %2 = landingpad { ptr, i32 }
+          catch ptr null
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #16
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield15StringSubscriptESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__ptr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_t = getelementptr inbounds %"class.std::unique_ptr.26", ptr %this1, i32 0, i32 0
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield15StringSubscriptESt14default_deleteIS4_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #13
+  store ptr %call, ptr %__ptr, align 8
+  %0 = load ptr, ptr %__ptr, align 8
+  %1 = load ptr, ptr %0, align 8
+  %cmp = icmp ne ptr %1, null
+  br i1 %cmp, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %call2 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield15StringSubscriptESt14default_deleteIS4_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
+  %2 = load ptr, ptr %__ptr, align 8
+  %3 = load ptr, ptr %2, align 8
+  invoke void @_ZNKSt14default_deleteIN8facebook5velox6common8Subfield15StringSubscriptEEclEPS4_(ptr noundef nonnull align 1 dereferenceable(1) %call2, ptr noundef %3)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %if.then
+  br label %if.end
+
+if.end:                                           ; preds = %invoke.cont, %entry
+  %4 = load ptr, ptr %__ptr, align 8
+  store ptr null, ptr %4, align 8
+  ret void
+
+terminate.lpad:                                   ; preds = %if.then
+  %5 = landingpad { ptr, i32 }
+          catch ptr null
+  %6 = extractvalue { ptr, i32 } %5, 0
+  call void @__clang_call_terminate(ptr %6) #16
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN8facebook5velox6common9Tokenizer8toStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this) #0 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %this.addr = alloca ptr, align 8
+  %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
+  %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
+  %exn.slot = alloca ptr, align 8
+  %ehselector.slot = alloca i32, align 4
+  %ref.tmp3 = alloca %"class.std::__cxx11::basic_string", align 8
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %path_ = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this1, i32 0, i32 0
+  %index_ = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this1, i32 0, i32 2
+  %0 = load i32, ptr %index_, align 8
+  %conv = sext i32 %0 to i64
+  call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(32) %path_, i64 noundef 0, i64 noundef %conv)
+  %separators_ = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this1, i32 0, i32 1
+  %call = call noundef ptr @_ZNKSt19__shared_ptr_accessIN8facebook5velox6common10SeparatorsELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %separators_) #13
+  %unicodeCaret = getelementptr inbounds %"struct.facebook::velox::common::Separators", ptr %call, i32 0, i32 6
+  %1 = load i8, ptr %unicodeCaret, align 1
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S5_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, i8 noundef signext %1)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %entry
+  %path_4 = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this1, i32 0, i32 0
+  %index_5 = getelementptr inbounds %"class.facebook::velox::common::Tokenizer", ptr %this1, i32 0, i32 2
+  %2 = load i32, ptr %index_5, align 8
+  %conv6 = sext i32 %2 to i64
+  invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(32) %path_4, i64 noundef %conv6, i64 noundef -1)
+          to label %invoke.cont8 unwind label %lpad7
+
+invoke.cont8:                                     ; preds = %invoke.cont
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3)
+          to label %invoke.cont10 unwind label %lpad9
+
+invoke.cont10:                                    ; preds = %invoke.cont8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #13
+  ret void
+
+lpad:                                             ; preds = %entry
+  %3 = landingpad { ptr, i32 }
+          cleanup
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
+  br label %ehcleanup11
+
+lpad7:                                            ; preds = %invoke.cont
+  %6 = landingpad { ptr, i32 }
+          cleanup
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
+  br label %ehcleanup
+
+lpad9:                                            ; preds = %invoke.cont8
+  %9 = landingpad { ptr, i32 }
+          cleanup
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #13
+  br label %ehcleanup
+
+ehcleanup:                                        ; preds = %lpad9, %lpad7
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
+  br label %ehcleanup11
+
+ehcleanup11:                                      ; preds = %ehcleanup, %lpad
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #13
+  br label %eh.resume
+
+eh.resume:                                        ; preds = %ehcleanup11
+  %exn = load ptr, ptr %exn.slot, align 8
+  %sel = load i32, ptr %ehselector.slot, align 4
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
+  %lpad.val12 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
+  resume { ptr, i32 } %lpad.val12
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %__lhs, ptr noundef nonnull align 8 dereferenceable(32) %__rhs) #0 comdat {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %__lhs.addr = alloca ptr, align 8
+  %__rhs.addr = alloca ptr, align 8
+  %__use_rhs = alloca i8, align 1
+  %__size = alloca i64, align 8
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store ptr %__lhs, ptr %__lhs.addr, align 8
+  store ptr %__rhs, ptr %__rhs.addr, align 8
+  store i8 0, ptr %__use_rhs, align 1
+  store i8 1, ptr %__use_rhs, align 1
+  %0 = load i8, ptr %__use_rhs, align 1
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end7
+
+if.then:                                          ; preds = %entry
+  %1 = load ptr, ptr %__lhs.addr, align 8
+  %call = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #13
+  %2 = load ptr, ptr %__rhs.addr, align 8
+  %call1 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #13
+  %add = add i64 %call, %call1
+  store i64 %add, ptr %__size, align 8
+  %3 = load i64, ptr %__size, align 8
+  %4 = load ptr, ptr %__lhs.addr, align 8
+  %call2 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
+  %cmp = icmp ugt i64 %3, %call2
+  br i1 %cmp, label %land.lhs.true, label %if.end
+
+land.lhs.true:                                    ; preds = %if.then
+  %5 = load i64, ptr %__size, align 8
+  %6 = load ptr, ptr %__rhs.addr, align 8
+  %call3 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #13
+  %cmp4 = icmp ule i64 %5, %call3
+  br i1 %cmp4, label %if.then5, label %if.end
+
+if.then5:                                         ; preds = %land.lhs.true
+  %7 = load ptr, ptr %__rhs.addr, align 8
+  %8 = load ptr, ptr %__lhs.addr, align 8
+  %call6 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmRKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %call6) #13
+  br label %return
+
+if.end:                                           ; preds = %land.lhs.true, %if.then
+  br label %if.end7
+
+if.end7:                                          ; preds = %if.end, %entry
+  %9 = load ptr, ptr %__lhs.addr, align 8
+  %10 = load ptr, ptr %__rhs.addr, align 8
+  %call8 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %call8) #13
+  br label %return
+
+return:                                           ; preds = %if.end7, %if.then5
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S5_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %__lhs, i8 noundef signext %__rhs) #0 comdat {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %__lhs.addr = alloca ptr, align 8
+  %__rhs.addr = alloca i8, align 1
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store ptr %__lhs, ptr %__lhs.addr, align 8
+  store i8 %__rhs, ptr %__rhs.addr, align 1
+  %0 = load ptr, ptr %__lhs.addr, align 8
+  %1 = load i8, ptr %__rhs.addr, align 1
+  %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 1, i8 noundef signext %1)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %call) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEaSEOS7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_t = getelementptr inbounds %"class.std::unique_ptr", ptr %this1, i32 0, i32 0
+  %1 = load ptr, ptr %.addr, align 8
+  %_M_t2 = getelementptr inbounds %"class.std::unique_ptr", ptr %1, i32 0, i32 0
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_dataIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_ELb1ELb1EEaSEOS7_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t, ptr noundef nonnull align 8 dereferenceable(8) %_M_t2) #13
+  ret ptr %this1
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt12__shared_ptrIN8facebook5velox6common10SeparatorsELN9__gnu_cxx12_Lock_policyE2EEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_ptr = getelementptr inbounds %"class.std::__shared_ptr", ptr %this1, i32 0, i32 0
+  %1 = load ptr, ptr %.addr, align 8
+  %_M_ptr2 = getelementptr inbounds %"class.std::__shared_ptr", ptr %1, i32 0, i32 0
+  %2 = load ptr, ptr %_M_ptr2, align 8
+  store ptr %2, ptr %_M_ptr, align 8
+  %_M_refcount = getelementptr inbounds %"class.std::__shared_ptr", ptr %this1, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %_M_refcount3 = getelementptr inbounds %"class.std::__shared_ptr", ptr %3, i32 0, i32 1
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount, ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__r) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__r.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__r, ptr %__r.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_pi = getelementptr inbounds %"class.std::__shared_count", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %__r.addr, align 8
+  %_M_pi2 = getelementptr inbounds %"class.std::__shared_count", ptr %0, i32 0, i32 0
+  %1 = load ptr, ptr %_M_pi2, align 8
+  store ptr %1, ptr %_M_pi, align 8
+  %_M_pi3 = getelementptr inbounds %"class.std::__shared_count", ptr %this1, i32 0, i32 0
+  %2 = load ptr, ptr %_M_pi3, align 8
+  %cmp = icmp ne ptr %2, null
+  br i1 %cmp, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %_M_pi4 = getelementptr inbounds %"class.std::__shared_count", ptr %this1, i32 0, i32 0
+  %3 = load ptr, ptr %_M_pi4, align 8
+  invoke void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %if.then
+  br label %if.end
+
+if.end:                                           ; preds = %invoke.cont, %entry
+  ret void
+
+terminate.lpad:                                   ; preds = %if.then
+  %4 = landingpad { ptr, i32 }
+          catch ptr null
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #16
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #0 comdat align 2 {
+entry:
+  %__mem.addr.i4 = alloca ptr, align 8
+  %__val.addr.i5 = alloca i32, align 4
+  %.atomictmp.i = alloca i32, align 4
+  %atomic-temp.i = alloca i32, align 4
+  %__mem.addr.i2 = alloca ptr, align 8
+  %__val.addr.i3 = alloca i32, align 4
+  %__mem.addr.i = alloca ptr, align 8
+  %__val.addr.i = alloca i32, align 4
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
+  store ptr %_M_use_count, ptr %__mem.addr.i, align 8
+  store i32 1, ptr %__val.addr.i, align 4
+  %0 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i = icmp ne i8 %0, 0
+  br i1 %tobool.i, label %if.then.i, label %if.else.i
+
+if.then.i:                                        ; preds = %entry
+  %1 = load ptr, ptr %__mem.addr.i, align 8
+  %2 = load i32, ptr %__val.addr.i, align 4
+  store ptr %1, ptr %__mem.addr.i2, align 8
+  store i32 %2, ptr %__val.addr.i3, align 4
+  %3 = load i32, ptr %__val.addr.i3, align 4
+  %4 = load ptr, ptr %__mem.addr.i2, align 8
+  %5 = load i32, ptr %4, align 4
+  %add.i = add nsw i32 %5, %3
+  store i32 %add.i, ptr %4, align 4
+  br label %_ZN9__gnu_cxx21__atomic_add_dispatchEPii.exit
+
+if.else.i:                                        ; preds = %entry
+  %6 = load ptr, ptr %__mem.addr.i, align 8
+  %7 = load i32, ptr %__val.addr.i, align 4
+  store ptr %6, ptr %__mem.addr.i4, align 8
+  store i32 %7, ptr %__val.addr.i5, align 4
+  %8 = load ptr, ptr %__mem.addr.i4, align 8
+  %9 = load i32, ptr %__val.addr.i5, align 4
+  store i32 %9, ptr %.atomictmp.i, align 4
+  %10 = load i32, ptr %.atomictmp.i, align 4
+  %11 = atomicrmw volatile add ptr %8, i32 %10 acq_rel, align 4
+  store i32 %11, ptr %atomic-temp.i, align 4
+  br label %_ZN9__gnu_cxx21__atomic_add_dispatchEPii.exit
+
+_ZN9__gnu_cxx21__atomic_add_dispatchEPii.exit:    ; preds = %if.else.i, %if.then.i
+  ret void
+}
+
+; Function Attrs: noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #6 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #13
+  call void @_ZSt9terminatev() #16
+  unreachable
+}
+
+declare void @_ZSt9terminatev()
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__uniq_ptr_dataIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_ELb1ELb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_t = getelementptr inbounds %"class.std::__uniq_ptr_impl", ptr %this1, i32 0, i32 0
+  call void @_ZNSt5tupleIJPN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES5_S7_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt5tupleIJPN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES5_S7_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  invoke void @_ZNSt11_Tuple_implILm0EJPN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %entry
+  ret void
+
+terminate.lpad:                                   ; preds = %entry
+  %0 = landingpad { ptr, i32 }
+          catch ptr null
+  %1 = extractvalue { ptr, i32 } %0, 0
+  call void @__clang_call_terminate(ptr %1) #16
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt11_Tuple_implILm0EJPN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN8facebook5velox6common8Subfield11PathElementEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1)
+  call void @_ZNSt10_Head_baseILm0EPN8facebook5velox6common8Subfield11PathElementELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN8facebook5velox6common8Subfield11PathElementEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZNSt10_Head_baseILm1ESt14default_deleteIN8facebook5velox6common8Subfield11PathElementEELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10_Head_baseILm0EPN8facebook5velox6common8Subfield11PathElementELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_head_impl = getelementptr inbounds %"struct.std::_Head_base.1", ptr %this1, i32 0, i32 0
+  store ptr null, ptr %_M_head_impl, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10_Head_baseILm1ESt14default_deleteIN8facebook5velox6common8Subfield11PathElementEELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__uniq_ptr_dataIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_ELb1ELb1EEC2EOS7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %1 = load ptr, ptr %.addr, align 8
+  call void @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEC2EOS7_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEC2EOS7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__u) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__u.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__u, ptr %__u.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_t = getelementptr inbounds %"class.std::__uniq_ptr_impl", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %__u.addr, align 8
+  %_M_t2 = getelementptr inbounds %"class.std::__uniq_ptr_impl", ptr %0, i32 0, i32 0
+  call void @_ZNSt5tupleIJPN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEEC2EOS8_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t, ptr noundef nonnull align 8 dereferenceable(8) %_M_t2) #13
+  %1 = load ptr, ptr %__u.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #13
+  store ptr null, ptr %call, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt5tupleIJPN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEEC2EOS8_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %1 = load ptr, ptr %.addr, align 8
+  call void @_ZNSt11_Tuple_implILm0EJPN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEEC2EOS8_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_t = getelementptr inbounds %"class.std::__uniq_ptr_impl", ptr %this1, i32 0, i32 0
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSC_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #13
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt11_Tuple_implILm0EJPN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEEC2EOS8_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %1 = load ptr, ptr %.addr, align 8
+  call void @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN8facebook5velox6common8Subfield11PathElementEEEEC2EOS7_(ptr noundef nonnull align 1 dereferenceable(1) %this1, ptr noundef nonnull align 1 dereferenceable(1) %1) #13
+  %2 = load ptr, ptr %.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1, ptr align 8 %2, i64 8, i1 false)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN8facebook5velox6common8Subfield11PathElementEEEEC2EOS7_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 1 dereferenceable(1) %__in) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__in.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__in, ptr %__in.addr, align 8
+  ret void
+}
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSC_(ptr noundef nonnull align 8 dereferenceable(8) %__t) #2 comdat {
+entry:
+  %__t.addr = alloca ptr, align 8
+  store ptr %__t, ptr %__t.addr, align 8
+  %0 = load ptr, ptr %__t.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN8facebook5velox6common8Subfield11PathElementEJSt14default_deleteIS4_EEERT0_RSt11_Tuple_implIXT_EJS8_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN8facebook5velox6common8Subfield11PathElementEJSt14default_deleteIS4_EEERT0_RSt11_Tuple_implIXT_EJS8_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %__t) #2 comdat {
+entry:
+  %__t.addr = alloca ptr, align 8
+  store ptr %__t, ptr %__t.addr, align 8
+  %0 = load ptr, ptr %__t.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEE7_M_headERS8_(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEE7_M_headERS8_(ptr noundef nonnull align 8 dereferenceable(8) %__t) #2 comdat align 2 {
+entry:
+  %__t.addr = alloca ptr, align 8
+  store ptr %__t, ptr %__t.addr, align 8
+  %0 = load ptr, ptr %__t.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN8facebook5velox6common8Subfield11PathElementELb0EE7_M_headERS6_(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN8facebook5velox6common8Subfield11PathElementELb0EE7_M_headERS6_(ptr noundef nonnull align 8 dereferenceable(8) %__b) #2 comdat align 2 {
+entry:
+  %__b.addr = alloca ptr, align 8
+  store ptr %__b, ptr %__b.addr, align 8
+  %0 = load ptr, ptr %__b.addr, align 8
+  %_M_head_impl = getelementptr inbounds %"struct.std::_Head_base.1", ptr %0, i32 0, i32 0
+  ret ptr %_M_head_impl
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef i64 @_ZN9__gnu_cxx6__stoaIllcJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_(ptr noundef %__convf, ptr noundef %__name, ptr noundef %__str, ptr noundef %__idx, i32 noundef %__base) #0 comdat personality ptr @__gxx_personality_v0 {
+entry:
+  %__convf.addr = alloca ptr, align 8
+  %__name.addr = alloca ptr, align 8
+  %__str.addr = alloca ptr, align 8
+  %__idx.addr = alloca ptr, align 8
+  %__base.addr = alloca i32, align 4
+  %__ret = alloca i64, align 8
+  %__endptr = alloca ptr, align 8
+  %__save_errno = alloca %struct._Save_errno, align 4
+  %__tmp = alloca i64, align 8
+  %exn.slot = alloca ptr, align 8
+  %ehselector.slot = alloca i32, align 4
+  store ptr %__convf, ptr %__convf.addr, align 8
+  store ptr %__name, ptr %__name.addr, align 8
+  store ptr %__str, ptr %__str.addr, align 8
+  store ptr %__idx, ptr %__idx.addr, align 8
+  store i32 %__base, ptr %__base.addr, align 4
+  call void @_ZZN9__gnu_cxx6__stoaIllcJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %__save_errno)
+  %0 = load ptr, ptr %__convf.addr, align 8
+  %1 = load ptr, ptr %__str.addr, align 8
+  %2 = load i32, ptr %__base.addr, align 4
+  %call = invoke noundef i64 %0(ptr noundef %1, ptr noundef %__endptr, i32 noundef %2)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %entry
+  store i64 %call, ptr %__tmp, align 8
+  %3 = load ptr, ptr %__endptr, align 8
+  %4 = load ptr, ptr %__str.addr, align 8
+  %cmp = icmp eq ptr %3, %4
+  br i1 %cmp, label %if.then, label %if.else
+
+if.then:                                          ; preds = %invoke.cont
+  %5 = load ptr, ptr %__name.addr, align 8
+  invoke void @_ZSt24__throw_invalid_argumentPKc(ptr noundef %5) #18
+          to label %invoke.cont1 unwind label %lpad
+
+invoke.cont1:                                     ; preds = %if.then
+  unreachable
+
+lpad:                                             ; preds = %if.then6, %lor.rhs, %if.then, %entry
+  %6 = landingpad { ptr, i32 }
+          cleanup
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
+  call void @_ZZN9__gnu_cxx6__stoaIllcJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %__save_errno) #13
+  br label %eh.resume
+
+if.else:                                          ; preds = %invoke.cont
+  %call2 = call ptr @__errno_location() #19
+  %9 = load i32, ptr %call2, align 4
+  %cmp3 = icmp eq i32 %9, 34
+  br i1 %cmp3, label %lor.end, label %lor.rhs
+
+lor.rhs:                                          ; preds = %if.else
+  %10 = load i64, ptr %__tmp, align 8
+  %call5 = invoke noundef zeroext i1 @_ZZN9__gnu_cxx6__stoaIllcJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN10_Range_chk6_S_chkElSt17integral_constantIbLb0EE(i64 noundef %10)
+          to label %invoke.cont4 unwind label %lpad
+
+invoke.cont4:                                     ; preds = %lor.rhs
+  br label %lor.end
+
+lor.end:                                          ; preds = %invoke.cont4, %if.else
+  %11 = phi i1 [ true, %if.else ], [ %call5, %invoke.cont4 ]
+  br i1 %11, label %if.then6, label %if.else8
+
+if.then6:                                         ; preds = %lor.end
+  %12 = load ptr, ptr %__name.addr, align 8
+  invoke void @_ZSt20__throw_out_of_rangePKc(ptr noundef %12) #18
+          to label %invoke.cont7 unwind label %lpad
+
+invoke.cont7:                                     ; preds = %if.then6
+  unreachable
+
+if.else8:                                         ; preds = %lor.end
+  %13 = load i64, ptr %__tmp, align 8
+  store i64 %13, ptr %__ret, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.else8
+  br label %if.end9
+
+if.end9:                                          ; preds = %if.end
+  %14 = load ptr, ptr %__idx.addr, align 8
+  %tobool = icmp ne ptr %14, null
+  br i1 %tobool, label %if.then10, label %if.end11
+
+if.then10:                                        ; preds = %if.end9
+  %15 = load ptr, ptr %__endptr, align 8
+  %16 = load ptr, ptr %__str.addr, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %15 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %16 to i64
+  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
+  %17 = load ptr, ptr %__idx.addr, align 8
+  store i64 %sub.ptr.sub, ptr %17, align 8
+  br label %if.end11
+
+if.end11:                                         ; preds = %if.then10, %if.end9
+  %18 = load i64, ptr %__ret, align 8
+  call void @_ZZN9__gnu_cxx6__stoaIllcJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %__save_errno) #13
+  ret i64 %18
+
+eh.resume:                                        ; preds = %lpad
+  %exn = load ptr, ptr %exn.slot, align 8
+  %sel = load i32, ptr %ehselector.slot, align 4
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
+  %lpad.val12 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
+  resume { ptr, i32 } %lpad.val12
+}
+
+; Function Attrs: nounwind
+declare i64 @strtol(ptr noundef, ptr noundef, i32 noundef) #4
+
+; Function Attrs: nounwind
+declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) #4
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZZN9__gnu_cxx6__stoaIllcJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %this) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_errno = getelementptr inbounds %struct._Save_errno, ptr %this1, i32 0, i32 0
+  %call = call ptr @__errno_location() #19
+  %0 = load i32, ptr %call, align 4
+  store i32 %0, ptr %_M_errno, align 4
+  %call2 = call ptr @__errno_location() #19
+  store i32 0, ptr %call2, align 4
+  ret void
+}
+
+; Function Attrs: noreturn
+declare void @_ZSt24__throw_invalid_argumentPKc(ptr noundef) #9
+
+; Function Attrs: nounwind willreturn memory(none)
+declare ptr @__errno_location() #10
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZZN9__gnu_cxx6__stoaIllcJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN10_Range_chk6_S_chkElSt17integral_constantIbLb0EE(i64 noundef %0) #2 comdat align 2 {
+entry:
+  %.addr = alloca i64, align 8
+  store i64 %0, ptr %.addr, align 8
+  ret i1 false
+}
+
+; Function Attrs: noreturn
+declare void @_ZSt20__throw_out_of_rangePKc(ptr noundef) #9
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZZN9__gnu_cxx6__stoaIllcJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %this) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call ptr @__errno_location() #19
+  %0 = load i32, ptr %call, align 4
+  %cmp = icmp eq i32 %0, 0
+  br i1 %cmp, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %_M_errno = getelementptr inbounds %struct._Save_errno, ptr %this1, i32 0, i32 0
+  %1 = load i32, ptr %_M_errno, align 4
+  %call2 = call ptr @__errno_location() #19
+  store i32 %1, ptr %call2, align 4
+  br label %if.end
+
+if.end:                                           ; preds = %if.then, %entry
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_dataIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_ELb1ELb1EEaSEOS7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %1 = load ptr, ptr %.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEaSEOS7_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #13
+  ret ptr %this1
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEaSEOS7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__u) #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__u.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__u, ptr %__u.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %__u.addr, align 8
+  %call = call noundef ptr @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  call void @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EE5resetEPS4_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef %call) #13
+  %1 = load ptr, ptr %__u.addr, align 8
+  %call2 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #13
+  %call3 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
+  ret ptr %this1
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EE5resetEPS4_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %__p) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__p.addr = alloca ptr, align 8
+  %__old_p = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__p, ptr %__p.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
+  %0 = load ptr, ptr %call, align 8
+  store ptr %0, ptr %__old_p, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  %call2 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
+  store ptr %1, ptr %call2, align 8
+  %2 = load ptr, ptr %__old_p, align 8
+  %tobool = icmp ne ptr %2, null
+  br i1 %tobool, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %call3 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
+  %3 = load ptr, ptr %__old_p, align 8
+  invoke void @_ZNKSt14default_deleteIN8facebook5velox6common8Subfield11PathElementEEclEPS4_(ptr noundef nonnull align 1 dereferenceable(1) %call3, ptr noundef %3)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %if.then
+  br label %if.end
+
+if.end:                                           ; preds = %invoke.cont, %entry
+  ret void
+
+terminate.lpad:                                   ; preds = %if.then
+  %4 = landingpad { ptr, i32 }
+          catch ptr null
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #16
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__p = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
+  %0 = load ptr, ptr %call, align 8
+  store ptr %0, ptr %__p, align 8
+  %call2 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
+  store ptr null, ptr %call2, align 8
+  %1 = load ptr, ptr %__p, align 8
+  ret ptr %1
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_t = getelementptr inbounds %"class.std::__uniq_ptr_impl", ptr %this1, i32 0, i32 0
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJPN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSC_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #13
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNKSt14default_deleteIN8facebook5velox6common8Subfield11PathElementEEclEPS4_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %__ptr) #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__ptr.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__ptr, ptr %__ptr.addr, align 8
+  %0 = load ptr, ptr %__ptr.addr, align 8
+  %isnull = icmp eq ptr %0, null
+  br i1 %isnull, label %delete.end, label %delete.notnull
+
+delete.notnull:                                   ; preds = %entry
+  %vtable = load ptr, ptr %0, align 8
+  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %1 = load ptr, ptr %vfn, align 8
+  call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  br label %delete.end
+
+delete.end:                                       ; preds = %delete.notnull, %entry
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJPN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSC_(ptr noundef nonnull align 8 dereferenceable(8) %__t) #2 comdat {
+entry:
+  %__t.addr = alloca ptr, align 8
+  store ptr %__t, ptr %__t.addr, align 8
+  %0 = load ptr, ptr %__t.addr, align 8
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1ESt14default_deleteIN8facebook5velox6common8Subfield11PathElementEEJEERT0_RSt11_Tuple_implIXT_EJS7_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0) #13
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1ESt14default_deleteIN8facebook5velox6common8Subfield11PathElementEEJEERT0_RSt11_Tuple_implIXT_EJS7_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %__t) #2 comdat {
+entry:
+  %__t.addr = alloca ptr, align 8
+  store ptr %__t, ptr %__t.addr, align 8
+  %0 = load ptr, ptr %__t.addr, align 8
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN8facebook5velox6common8Subfield11PathElementEEEE7_M_headERS7_(ptr noundef nonnull align 1 dereferenceable(1) %0) #13
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN8facebook5velox6common8Subfield11PathElementEEEE7_M_headERS7_(ptr noundef nonnull align 1 dereferenceable(1) %__t) #2 comdat align 2 {
+entry:
+  %__t.addr = alloca ptr, align 8
+  store ptr %__t, ptr %__t.addr, align 8
+  %0 = load ptr, ptr %__t.addr, align 8
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1ESt14default_deleteIN8facebook5velox6common8Subfield11PathElementEELb1EE7_M_headERS7_(ptr noundef nonnull align 1 dereferenceable(1) %0) #13
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1ESt14default_deleteIN8facebook5velox6common8Subfield11PathElementEELb1EE7_M_headERS7_(ptr noundef nonnull align 1 dereferenceable(1) %__b) #2 comdat align 2 {
+entry:
+  %__b.addr = alloca ptr, align 8
+  store ptr %__b, ptr %__b.addr, align 8
+  %0 = load ptr, ptr %__b.addr, align 8
+  ret ptr %0
+}
+
+; Function Attrs: nounwind
+declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) #4
+
+; Function Attrs: nounwind
+declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32)) #4
+
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmRKS4_(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, ptr noundef nonnull align 8 dereferenceable(32)) #1
+
+; Function Attrs: nounwind
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
+
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) #1
+
+; Function Attrs: nobuiltin allocsize(0)
+declare noundef nonnull ptr @_Znwm(i64 noundef) #11
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN8facebook5velox6common8Subfield13AllSubscriptsC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZN8facebook5velox6common8Subfield11PathElementC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8facebook5velox6common8Subfield13AllSubscriptsE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield13AllSubscriptsESt14default_deleteIS4_EEC2IS6_vEEPS4_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %__p) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__p.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__p, ptr %__p.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_t = getelementptr inbounds %"class.std::unique_ptr.18", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %__p.addr, align 8
+  invoke void @_ZNSt15__uniq_ptr_dataIN8facebook5velox6common8Subfield13AllSubscriptsESt14default_deleteIS4_ELb1ELb1EECI2St15__uniq_ptr_implIS4_S6_EEPS4_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t, ptr noundef %0)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %entry
+  ret void
+
+terminate.lpad:                                   ; preds = %entry
+  %1 = landingpad { ptr, i32 }
+          catch ptr null
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #16
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN8facebook5velox6common8Subfield11PathElementC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8facebook5velox6common8Subfield11PathElementE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN8facebook5velox6common8Subfield13AllSubscriptsD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZN8facebook5velox6common8Subfield11PathElementD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN8facebook5velox6common8Subfield13AllSubscriptsD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZN8facebook5velox6common8Subfield13AllSubscriptsD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
+  call void @_ZdlPv(ptr noundef %this1) #15
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZNK8facebook5velox6common8Subfield13AllSubscripts4kindEv(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  ret i32 0
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZNK8facebook5velox6common8Subfield13AllSubscripts11isSubscriptEv(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  ret i1 true
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNK8facebook5velox6common8Subfield13AllSubscripts8toStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %this.addr = alloca ptr, align 8
+  %ref.tmp = alloca %"class.std::allocator", align 1
+  %exn.slot = alloca ptr, align 8
+  %ehselector.slot = alloca i32, align 4
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %entry
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
+  ret void
+
+lpad:                                             ; preds = %entry
+  %0 = landingpad { ptr, i32 }
+          cleanup
+  %1 = extractvalue { ptr, i32 } %0, 0
+  store ptr %1, ptr %exn.slot, align 8
+  %2 = extractvalue { ptr, i32 } %0, 1
+  store i32 %2, ptr %ehselector.slot, align 4
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
+  br label %eh.resume
+
+eh.resume:                                        ; preds = %lpad
+  %exn = load ptr, ptr %exn.slot, align 8
+  %sel = load i32, ptr %ehselector.slot, align 4
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
+  %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
+  resume { ptr, i32 } %lpad.val2
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNK8facebook5velox6common8Subfield13AllSubscripts4hashEv(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  ret i64 0
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef zeroext i1 @_ZNK8facebook5velox6common8Subfield13AllSubscriptseqERKNS2_11PathElementE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %other.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %other, ptr %other.addr, align 8
+  %0 = load ptr, ptr %other.addr, align 8
+  %vtable = load ptr, ptr %0, align 8
+  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %1 = load ptr, ptr %vfn, align 8
+  %call = call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %cmp = icmp eq i32 %call, 0
+  ret i1 %cmp
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN8facebook5velox6common8Subfield13AllSubscripts5cloneEv(ptr noalias sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #0 comdat align 2 {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %this.addr = alloca ptr, align 8
+  %ref.tmp = alloca %"class.std::unique_ptr.18", align 8
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  call void @_ZSt11make_uniqueIN8facebook5velox6common8Subfield13AllSubscriptsEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr sret(%"class.std::unique_ptr.18") align 8 %ref.tmp)
+  call void @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEC2INS3_13AllSubscriptsES5_IS9_EvEEOS_IT_T0_E(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #13
+  call void @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield13AllSubscriptsESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN8facebook5velox6common8Subfield11PathElementD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN8facebook5velox6common8Subfield11PathElementD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  call void @llvm.trap() #16
+  unreachable
+}
+
+declare void @__cxa_pure_virtual() unnamed_addr
+
+; Function Attrs: nobuiltin nounwind
+declare void @_ZdlPv(ptr noundef) #12
+
+; Function Attrs: nounwind
+declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__s, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__s.addr = alloca ptr, align 8
+  %__a.addr = alloca ptr, align 8
+  %exn.slot = alloca ptr, align 8
+  %ehselector.slot = alloca i32, align 4
+  %__end = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__s, ptr %__s.addr, align 8
+  store ptr %__a, ptr %__a.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_dataplus = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this1, i32 0, i32 0
+  %call = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  %0 = load ptr, ptr %__a.addr, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %_M_dataplus, ptr noundef %call, ptr noundef nonnull align 1 dereferenceable(1) %0)
+  %1 = load ptr, ptr %__s.addr, align 8
+  %cmp = icmp eq ptr %1, null
+  br i1 %cmp, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef @.str.3) #18
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %if.then
+  unreachable
+
+lpad:                                             ; preds = %invoke.cont2, %if.end, %if.then
+  %2 = landingpad { ptr, i32 }
+          cleanup
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_dataplus) #13
+  br label %eh.resume
+
+if.end:                                           ; preds = %entry
+  %5 = load ptr, ptr %__s.addr, align 8
+  %6 = load ptr, ptr %__s.addr, align 8
+  %call3 = invoke noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %6)
+          to label %invoke.cont2 unwind label %lpad
+
+invoke.cont2:                                     ; preds = %if.end
+  %add.ptr = getelementptr inbounds i8, ptr %5, i64 %call3
+  store ptr %add.ptr, ptr %__end, align 8
+  %7 = load ptr, ptr %__s.addr, align 8
+  %8 = load ptr, ptr %__end, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %7, ptr noundef %8)
+          to label %invoke.cont4 unwind label %lpad
+
+invoke.cont4:                                     ; preds = %invoke.cont2
+  ret void
+
+eh.resume:                                        ; preds = %lpad
+  %exn = load ptr, ptr %exn.slot, align 8
+  %sel = load i32, ptr %ehselector.slot, align 4
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
+  %lpad.val5 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
+  resume { ptr, i32 } %lpad.val5
+}
+
+; Function Attrs: nounwind
+declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
+
+declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) #1
+
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
+
+; Function Attrs: noreturn
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #9
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %__s) #2 comdat align 2 {
+entry:
+  %__s.addr = alloca ptr, align 8
+  store ptr %__s, ptr %__s.addr, align 8
+  %0 = load ptr, ptr %__s.addr, align 8
+  %call = call i64 @strlen(ptr noundef %0) #13
+  ret i64 %call
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__beg, ptr noundef %__end) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr.i = alloca ptr, align 8
+  %this.addr = alloca ptr, align 8
+  %__beg.addr = alloca ptr, align 8
+  %__end.addr = alloca ptr, align 8
+  %__dnew = alloca i64, align 8
+  %__guard = alloca %struct._Guard, align 8
+  %exn.slot = alloca ptr, align 8
+  %ehselector.slot = alloca i32, align 4
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__beg, ptr %__beg.addr, align 8
+  store ptr %__end, ptr %__end.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %__beg.addr, align 8
+  %1 = load ptr, ptr %__end.addr, align 8
+  %call = call noundef i64 @_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_(ptr noundef %0, ptr noundef %1)
+  store i64 %call, ptr %__dnew, align 8
+  %2 = load i64, ptr %__dnew, align 8
+  %cmp = icmp ugt i64 %2, 15
+  br i1 %cmp, label %if.then, label %if.else
+
+if.then:                                          ; preds = %entry
+  %call2 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(8) %__dnew, i64 noundef 0)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %call2)
+  %3 = load i64, ptr %__dnew, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %this1, i64 noundef %3)
+  br label %if.end
+
+if.else:                                          ; preds = %entry
+  store ptr %this1, ptr %this.addr.i, align 8
+  %this1.i = load ptr, ptr %this.addr.i, align 8
+  %call.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this1.i)
+          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_M_use_local_dataEv.exit unwind label %terminate.lpad.i
+
+terminate.lpad.i:                                 ; preds = %if.else
+  %4 = landingpad { ptr, i32 }
+          catch ptr null
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #16
+  unreachable
+
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_M_use_local_dataEv.exit: ; preds = %if.else
+  br label %if.end
+
+if.end:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_M_use_local_dataEv.exit, %if.then
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %__guard, ptr noundef %this1)
+  %call4 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %if.end
+  %6 = load ptr, ptr %__beg.addr, align 8
+  %7 = load ptr, ptr %__end.addr, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4, ptr noundef %6, ptr noundef %7) #13
+  %_M_guarded = getelementptr inbounds %struct._Guard, ptr %__guard, i32 0, i32 0
+  store ptr null, ptr %_M_guarded, align 8
+  %8 = load i64, ptr %__dnew, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %this1, i64 noundef %8)
+          to label %invoke.cont5 unwind label %lpad
+
+invoke.cont5:                                     ; preds = %invoke.cont
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard) #13
+  ret void
+
+lpad:                                             ; preds = %invoke.cont, %if.end
+  %9 = landingpad { ptr, i32 }
+          cleanup
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard) #13
+  br label %eh.resume
+
+eh.resume:                                        ; preds = %lpad
+  %exn = load ptr, ptr %exn.slot, align 8
+  %sel = load i32, ptr %ehselector.slot, align 4
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
+  %lpad.val6 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
+  resume { ptr, i32 } %lpad.val6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1) #13
+  ret void
+}
+
+; Function Attrs: nounwind
+declare i64 @strlen(ptr noundef) #4
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef i64 @_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_(ptr noundef %__first, ptr noundef %__last) #0 comdat {
+entry:
+  %__first.addr = alloca ptr, align 8
+  %__last.addr = alloca ptr, align 8
+  store ptr %__first, ptr %__first.addr, align 8
+  store ptr %__last, ptr %__last.addr, align 8
+  %0 = load ptr, ptr %__first.addr, align 8
+  %1 = load ptr, ptr %__last.addr, align 8
+  call void @_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %__first.addr)
+  %call = call noundef i64 @_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag(ptr noundef %0, ptr noundef %1)
+  ret i64 %call
+}
+
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) #1
+
+declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) #1
+
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %__s) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__s.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__s, ptr %__s.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_guarded = getelementptr inbounds %struct._Guard, ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %__s.addr, align 8
+  store ptr %0, ptr %_M_guarded, align 8
+  ret void
+}
+
+; Function Attrs: nounwind
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef, ptr noundef, ptr noundef) #4
+
+declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) #1
+
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_guarded = getelementptr inbounds %struct._Guard, ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %_M_guarded, align 8
+  %tobool = icmp ne ptr %0, null
+  br i1 %tobool, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %_M_guarded2 = getelementptr inbounds %struct._Guard, ptr %this1, i32 0, i32 0
+  %1 = load ptr, ptr %_M_guarded2, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %if.then
+  br label %if.end
+
+if.end:                                           ; preds = %invoke.cont, %entry
+  ret void
+
+terminate.lpad:                                   ; preds = %if.then
+  %2 = landingpad { ptr, i32 }
+          catch ptr null
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #16
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag(ptr noundef %__first, ptr noundef %__last) #2 comdat {
+entry:
+  %__first.addr = alloca ptr, align 8
+  %__last.addr = alloca ptr, align 8
+  store ptr %__first, ptr %__first.addr, align 8
+  store ptr %__last, ptr %__last.addr, align 8
+  %0 = load ptr, ptr %__last.addr, align 8
+  %1 = load ptr, ptr %__first.addr, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
+  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
+  ret i64 %sub.ptr.sub
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat {
+entry:
+  %.addr = alloca ptr, align 8
+  store ptr %0, ptr %.addr, align 8
+  ret void
+}
+
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32)) #1
+
+; Function Attrs: nounwind
+declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt15__uniq_ptr_dataIN8facebook5velox6common8Subfield13AllSubscriptsESt14default_deleteIS4_ELb1ELb1EECI2St15__uniq_ptr_implIS4_S6_EEPS4_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %0) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %1 = load ptr, ptr %.addr, align 8
+  call void @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield13AllSubscriptsESt14default_deleteIS4_EEC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef %1)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield13AllSubscriptsESt14default_deleteIS4_EEC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %__p) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__p.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__p, ptr %__p.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_t = getelementptr inbounds %"class.std::__uniq_ptr_impl.20", ptr %this1, i32 0, i32 0
+  call void @_ZNSt5tupleIJPN8facebook5velox6common8Subfield13AllSubscriptsESt14default_deleteIS4_EEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES5_S7_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #13
+  %0 = load ptr, ptr %__p.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield13AllSubscriptsESt14default_deleteIS4_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
+  store ptr %0, ptr %call, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt5tupleIJPN8facebook5velox6common8Subfield13AllSubscriptsESt14default_deleteIS4_EEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES5_S7_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  invoke void @_ZNSt11_Tuple_implILm0EJPN8facebook5velox6common8Subfield13AllSubscriptsESt14default_deleteIS4_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %entry
+  ret void
+
+terminate.lpad:                                   ; preds = %entry
+  %0 = landingpad { ptr, i32 }
+          catch ptr null
+  %1 = extractvalue { ptr, i32 } %0, 0
+  call void @__clang_call_terminate(ptr %1) #16
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield13AllSubscriptsESt14default_deleteIS4_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_t = getelementptr inbounds %"class.std::__uniq_ptr_impl.20", ptr %this1, i32 0, i32 0
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN8facebook5velox6common8Subfield13AllSubscriptsESt14default_deleteIS4_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSC_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #13
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt11_Tuple_implILm0EJPN8facebook5velox6common8Subfield13AllSubscriptsESt14default_deleteIS4_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN8facebook5velox6common8Subfield13AllSubscriptsEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1)
+  call void @_ZNSt10_Head_baseILm0EPN8facebook5velox6common8Subfield13AllSubscriptsELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN8facebook5velox6common8Subfield13AllSubscriptsEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZNSt10_Head_baseILm1ESt14default_deleteIN8facebook5velox6common8Subfield13AllSubscriptsEELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10_Head_baseILm0EPN8facebook5velox6common8Subfield13AllSubscriptsELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_head_impl = getelementptr inbounds %"struct.std::_Head_base.25", ptr %this1, i32 0, i32 0
+  store ptr null, ptr %_M_head_impl, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10_Head_baseILm1ESt14default_deleteIN8facebook5velox6common8Subfield13AllSubscriptsEELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN8facebook5velox6common8Subfield13AllSubscriptsESt14default_deleteIS4_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSC_(ptr noundef nonnull align 8 dereferenceable(8) %__t) #2 comdat {
+entry:
+  %__t.addr = alloca ptr, align 8
+  store ptr %__t, ptr %__t.addr, align 8
+  %0 = load ptr, ptr %__t.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN8facebook5velox6common8Subfield13AllSubscriptsEJSt14default_deleteIS4_EEERT0_RSt11_Tuple_implIXT_EJS8_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN8facebook5velox6common8Subfield13AllSubscriptsEJSt14default_deleteIS4_EEERT0_RSt11_Tuple_implIXT_EJS8_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %__t) #2 comdat {
+entry:
+  %__t.addr = alloca ptr, align 8
+  store ptr %__t, ptr %__t.addr, align 8
+  %0 = load ptr, ptr %__t.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN8facebook5velox6common8Subfield13AllSubscriptsESt14default_deleteIS4_EEE7_M_headERS8_(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN8facebook5velox6common8Subfield13AllSubscriptsESt14default_deleteIS4_EEE7_M_headERS8_(ptr noundef nonnull align 8 dereferenceable(8) %__t) #2 comdat align 2 {
+entry:
+  %__t.addr = alloca ptr, align 8
+  store ptr %__t, ptr %__t.addr, align 8
+  %0 = load ptr, ptr %__t.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN8facebook5velox6common8Subfield13AllSubscriptsELb0EE7_M_headERS6_(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN8facebook5velox6common8Subfield13AllSubscriptsELb0EE7_M_headERS6_(ptr noundef nonnull align 8 dereferenceable(8) %__b) #2 comdat align 2 {
+entry:
+  %__b.addr = alloca ptr, align 8
+  store ptr %__b, ptr %__b.addr, align 8
+  %0 = load ptr, ptr %__b.addr, align 8
+  %_M_head_impl = getelementptr inbounds %"struct.std::_Head_base.25", ptr %0, i32 0, i32 0
+  ret ptr %_M_head_impl
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield13AllSubscriptsESt14default_deleteIS4_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_t = getelementptr inbounds %"class.std::unique_ptr.18", ptr %this1, i32 0, i32 0
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield13AllSubscriptsESt14default_deleteIS4_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #13
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNKSt14default_deleteIN8facebook5velox6common8Subfield13AllSubscriptsEEclEPS4_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %__ptr) #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__ptr.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__ptr, ptr %__ptr.addr, align 8
+  %0 = load ptr, ptr %__ptr.addr, align 8
+  %isnull = icmp eq ptr %0, null
+  br i1 %isnull, label %delete.end, label %delete.notnull
+
+delete.notnull:                                   ; preds = %entry
+  call void @_ZN8facebook5velox6common8Subfield13AllSubscriptsD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  call void @_ZdlPv(ptr noundef %0) #15
+  br label %delete.end
+
+delete.end:                                       ; preds = %delete.notnull, %entry
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield13AllSubscriptsESt14default_deleteIS4_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_t = getelementptr inbounds %"class.std::__uniq_ptr_impl.20", ptr %this1, i32 0, i32 0
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJPN8facebook5velox6common8Subfield13AllSubscriptsESt14default_deleteIS4_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSC_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #13
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJPN8facebook5velox6common8Subfield13AllSubscriptsESt14default_deleteIS4_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSC_(ptr noundef nonnull align 8 dereferenceable(8) %__t) #2 comdat {
+entry:
+  %__t.addr = alloca ptr, align 8
+  store ptr %__t, ptr %__t.addr, align 8
+  %0 = load ptr, ptr %__t.addr, align 8
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1ESt14default_deleteIN8facebook5velox6common8Subfield13AllSubscriptsEEJEERT0_RSt11_Tuple_implIXT_EJS7_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0) #13
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1ESt14default_deleteIN8facebook5velox6common8Subfield13AllSubscriptsEEJEERT0_RSt11_Tuple_implIXT_EJS7_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %__t) #2 comdat {
+entry:
+  %__t.addr = alloca ptr, align 8
+  store ptr %__t, ptr %__t.addr, align 8
+  %0 = load ptr, ptr %__t.addr, align 8
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN8facebook5velox6common8Subfield13AllSubscriptsEEEE7_M_headERS7_(ptr noundef nonnull align 1 dereferenceable(1) %0) #13
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN8facebook5velox6common8Subfield13AllSubscriptsEEEE7_M_headERS7_(ptr noundef nonnull align 1 dereferenceable(1) %__t) #2 comdat align 2 {
+entry:
+  %__t.addr = alloca ptr, align 8
+  store ptr %__t, ptr %__t.addr, align 8
+  %0 = load ptr, ptr %__t.addr, align 8
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1ESt14default_deleteIN8facebook5velox6common8Subfield13AllSubscriptsEELb1EE7_M_headERS7_(ptr noundef nonnull align 1 dereferenceable(1) %0) #13
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1ESt14default_deleteIN8facebook5velox6common8Subfield13AllSubscriptsEELb1EE7_M_headERS7_(ptr noundef nonnull align 1 dereferenceable(1) %__b) #2 comdat align 2 {
+entry:
+  %__b.addr = alloca ptr, align 8
+  store ptr %__b, ptr %__b.addr, align 8
+  %0 = load ptr, ptr %__b.addr, align 8
+  ret ptr %0
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield13AllSubscriptsESt14default_deleteIS4_EE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_t = getelementptr inbounds %"class.std::unique_ptr.18", ptr %this1, i32 0, i32 0
+  %call = call noundef ptr @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield13AllSubscriptsESt14default_deleteIS4_EE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #13
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt15__uniq_ptr_dataIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_ELb1ELb1EECI2St15__uniq_ptr_implIS4_S6_EIS5_INS3_13AllSubscriptsEEEEPS4_OT_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  %.addr1 = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  store ptr %1, ptr %.addr1, align 8
+  %this2 = load ptr, ptr %this.addr, align 8
+  %2 = load ptr, ptr %.addr, align 8
+  %3 = load ptr, ptr %.addr1, align 8
+  call void @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEC2IS5_INS3_13AllSubscriptsEEEEPS4_OT_(ptr noundef nonnull align 8 dereferenceable(8) %this2, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield13AllSubscriptsESt14default_deleteIS4_EE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__p = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield13AllSubscriptsESt14default_deleteIS4_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
+  %0 = load ptr, ptr %call, align 8
+  store ptr %0, ptr %__p, align 8
+  %call2 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield13AllSubscriptsESt14default_deleteIS4_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
+  store ptr null, ptr %call2, align 8
+  %1 = load ptr, ptr %__p, align 8
+  ret ptr %1
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEC2IS5_INS3_13AllSubscriptsEEEEPS4_OT_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %__p, ptr noundef nonnull align 1 dereferenceable(1) %__d) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__p.addr = alloca ptr, align 8
+  %__d.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__p, ptr %__p.addr, align 8
+  store ptr %__d, ptr %__d.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_t = getelementptr inbounds %"class.std::__uniq_ptr_impl", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %__d.addr, align 8
+  call void @_ZNSt5tupleIJPN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEEC2IRS5_S6_INS3_13AllSubscriptsEETnNSt9enable_ifIXclsr4_TCCIXntcl14__is_alloc_argIT_EEEEE29__is_implicitly_constructibleISE_T0_EEEbE4typeELb1EEEOSE_OSF_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t, ptr noundef nonnull align 8 dereferenceable(8) %__p.addr, ptr noundef nonnull align 1 dereferenceable(1) %0) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt5tupleIJPN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEEC2IRS5_S6_INS3_13AllSubscriptsEETnNSt9enable_ifIXclsr4_TCCIXntcl14__is_alloc_argIT_EEEEE29__is_implicitly_constructibleISE_T0_EEEbE4typeELb1EEEOSE_OSF_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__a1, ptr noundef nonnull align 1 dereferenceable(1) %__a2) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__a1.addr = alloca ptr, align 8
+  %__a2.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__a1, ptr %__a1.addr, align 8
+  store ptr %__a2, ptr %__a2.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %__a1.addr, align 8
+  %1 = load ptr, ptr %__a2.addr, align 8
+  invoke void @_ZNSt11_Tuple_implILm0EJPN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEEC2IRS5_JS6_INS3_13AllSubscriptsEEEvEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(1) %1)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %entry
+  ret void
+
+terminate.lpad:                                   ; preds = %entry
+  %2 = landingpad { ptr, i32 }
+          catch ptr null
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #16
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt11_Tuple_implILm0EJPN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEEC2IRS5_JS6_INS3_13AllSubscriptsEEEvEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__head, ptr noundef nonnull align 1 dereferenceable(1) %__tail) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__head.addr = alloca ptr, align 8
+  %__tail.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__head, ptr %__head.addr, align 8
+  store ptr %__tail, ptr %__tail.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %__tail.addr, align 8
+  call void @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN8facebook5velox6common8Subfield11PathElementEEEEC2IS0_INS4_13AllSubscriptsEEEEOT_(ptr noundef nonnull align 1 dereferenceable(1) %this1, ptr noundef nonnull align 1 dereferenceable(1) %0)
+  %1 = load ptr, ptr %__head.addr, align 8
+  call void @_ZNSt10_Head_baseILm0EPN8facebook5velox6common8Subfield11PathElementELb0EEC2IRS5_EEOT_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN8facebook5velox6common8Subfield11PathElementEEEEC2IS0_INS4_13AllSubscriptsEEEEOT_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 1 dereferenceable(1) %__head) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__head.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__head, ptr %__head.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %__head.addr, align 8
+  call void @_ZNSt10_Head_baseILm1ESt14default_deleteIN8facebook5velox6common8Subfield11PathElementEELb1EEC2IS0_INS4_13AllSubscriptsEEEEOT_(ptr noundef nonnull align 1 dereferenceable(1) %this1, ptr noundef nonnull align 1 dereferenceable(1) %0)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10_Head_baseILm0EPN8facebook5velox6common8Subfield11PathElementELb0EEC2IRS5_EEOT_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__h) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__h.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__h, ptr %__h.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_head_impl = getelementptr inbounds %"struct.std::_Head_base.1", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %__h.addr, align 8
+  %1 = load ptr, ptr %0, align 8
+  store ptr %1, ptr %_M_head_impl, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10_Head_baseILm1ESt14default_deleteIN8facebook5velox6common8Subfield11PathElementEELb1EEC2IS0_INS4_13AllSubscriptsEEEEOT_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 1 dereferenceable(1) %__h) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__h.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__h, ptr %__h.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %__h.addr, align 8
+  call void @_ZNSt14default_deleteIN8facebook5velox6common8Subfield11PathElementEEC2INS3_13AllSubscriptsEvEERKS_IT_E(ptr noundef nonnull align 1 dereferenceable(1) %this1, ptr noundef nonnull align 1 dereferenceable(1) %0) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt14default_deleteIN8facebook5velox6common8Subfield11PathElementEEC2INS3_13AllSubscriptsEvEERKS_IT_E(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11NestedFieldESt14default_deleteIS4_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_t = getelementptr inbounds %"class.std::__uniq_ptr_impl.4", ptr %this1, i32 0, i32 0
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN8facebook5velox6common8Subfield11NestedFieldESt14default_deleteIS4_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSC_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #13
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11NestedFieldESt14default_deleteIS4_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_t = getelementptr inbounds %"class.std::unique_ptr.2", ptr %this1, i32 0, i32 0
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11NestedFieldESt14default_deleteIS4_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #13
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNKSt14default_deleteIN8facebook5velox6common8Subfield11NestedFieldEEclEPS4_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %__ptr) #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__ptr.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__ptr, ptr %__ptr.addr, align 8
+  %0 = load ptr, ptr %__ptr.addr, align 8
+  %isnull = icmp eq ptr %0, null
+  br i1 %isnull, label %delete.end, label %delete.notnull
+
+delete.notnull:                                   ; preds = %entry
+  call void @_ZN8facebook5velox6common8Subfield11NestedFieldD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #13
+  call void @_ZdlPv(ptr noundef %0) #15
+  br label %delete.end
+
+delete.end:                                       ; preds = %delete.notnull, %entry
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN8facebook5velox6common8Subfield11NestedFieldESt14default_deleteIS4_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSC_(ptr noundef nonnull align 8 dereferenceable(8) %__t) #2 comdat {
+entry:
+  %__t.addr = alloca ptr, align 8
+  store ptr %__t, ptr %__t.addr, align 8
+  %0 = load ptr, ptr %__t.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN8facebook5velox6common8Subfield11NestedFieldEJSt14default_deleteIS4_EEERT0_RSt11_Tuple_implIXT_EJS8_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN8facebook5velox6common8Subfield11NestedFieldEJSt14default_deleteIS4_EEERT0_RSt11_Tuple_implIXT_EJS8_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %__t) #2 comdat {
+entry:
+  %__t.addr = alloca ptr, align 8
+  store ptr %__t, ptr %__t.addr, align 8
+  %0 = load ptr, ptr %__t.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN8facebook5velox6common8Subfield11NestedFieldESt14default_deleteIS4_EEE7_M_headERS8_(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN8facebook5velox6common8Subfield11NestedFieldESt14default_deleteIS4_EEE7_M_headERS8_(ptr noundef nonnull align 8 dereferenceable(8) %__t) #2 comdat align 2 {
+entry:
+  %__t.addr = alloca ptr, align 8
+  store ptr %__t, ptr %__t.addr, align 8
+  %0 = load ptr, ptr %__t.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN8facebook5velox6common8Subfield11NestedFieldELb0EE7_M_headERS6_(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN8facebook5velox6common8Subfield11NestedFieldELb0EE7_M_headERS6_(ptr noundef nonnull align 8 dereferenceable(8) %__b) #2 comdat align 2 {
+entry:
+  %__b.addr = alloca ptr, align 8
+  store ptr %__b, ptr %__b.addr, align 8
+  %0 = load ptr, ptr %__b.addr, align 8
+  %_M_head_impl = getelementptr inbounds %"struct.std::_Head_base.9", ptr %0, i32 0, i32 0
+  ret ptr %_M_head_impl
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11NestedFieldESt14default_deleteIS4_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_t = getelementptr inbounds %"class.std::__uniq_ptr_impl.4", ptr %this1, i32 0, i32 0
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJPN8facebook5velox6common8Subfield11NestedFieldESt14default_deleteIS4_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSC_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #13
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJPN8facebook5velox6common8Subfield11NestedFieldESt14default_deleteIS4_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSC_(ptr noundef nonnull align 8 dereferenceable(8) %__t) #2 comdat {
+entry:
+  %__t.addr = alloca ptr, align 8
+  store ptr %__t, ptr %__t.addr, align 8
+  %0 = load ptr, ptr %__t.addr, align 8
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1ESt14default_deleteIN8facebook5velox6common8Subfield11NestedFieldEEJEERT0_RSt11_Tuple_implIXT_EJS7_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0) #13
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1ESt14default_deleteIN8facebook5velox6common8Subfield11NestedFieldEEJEERT0_RSt11_Tuple_implIXT_EJS7_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %__t) #2 comdat {
+entry:
+  %__t.addr = alloca ptr, align 8
+  store ptr %__t, ptr %__t.addr, align 8
+  %0 = load ptr, ptr %__t.addr, align 8
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN8facebook5velox6common8Subfield11NestedFieldEEEE7_M_headERS7_(ptr noundef nonnull align 1 dereferenceable(1) %0) #13
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN8facebook5velox6common8Subfield11NestedFieldEEEE7_M_headERS7_(ptr noundef nonnull align 1 dereferenceable(1) %__t) #2 comdat align 2 {
+entry:
+  %__t.addr = alloca ptr, align 8
+  store ptr %__t, ptr %__t.addr, align 8
+  %0 = load ptr, ptr %__t.addr, align 8
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1ESt14default_deleteIN8facebook5velox6common8Subfield11NestedFieldEELb1EE7_M_headERS7_(ptr noundef nonnull align 1 dereferenceable(1) %0) #13
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1ESt14default_deleteIN8facebook5velox6common8Subfield11NestedFieldEELb1EE7_M_headERS7_(ptr noundef nonnull align 1 dereferenceable(1) %__b) #2 comdat align 2 {
+entry:
+  %__b.addr = alloca ptr, align 8
+  store ptr %__b, ptr %__b.addr, align 8
+  %0 = load ptr, ptr %__b.addr, align 8
+  ret ptr %0
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN8facebook5velox6common8Subfield11NestedFieldD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %name_ = getelementptr inbounds %"class.facebook::velox::common::Subfield::NestedField", ptr %this1, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name_) #13
+  call void @_ZN8facebook5velox6common8Subfield11PathElementD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11NestedFieldESt14default_deleteIS4_EE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_t = getelementptr inbounds %"class.std::unique_ptr.2", ptr %this1, i32 0, i32 0
+  %call = call noundef ptr @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11NestedFieldESt14default_deleteIS4_EE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #13
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt15__uniq_ptr_dataIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_ELb1ELb1EECI2St15__uniq_ptr_implIS4_S6_EIS5_INS3_11NestedFieldEEEEPS4_OT_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  %.addr1 = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  store ptr %1, ptr %.addr1, align 8
+  %this2 = load ptr, ptr %this.addr, align 8
+  %2 = load ptr, ptr %.addr, align 8
+  %3 = load ptr, ptr %.addr1, align 8
+  call void @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEC2IS5_INS3_11NestedFieldEEEEPS4_OT_(ptr noundef nonnull align 8 dereferenceable(8) %this2, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11NestedFieldESt14default_deleteIS4_EE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__p = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11NestedFieldESt14default_deleteIS4_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
+  %0 = load ptr, ptr %call, align 8
+  store ptr %0, ptr %__p, align 8
+  %call2 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11NestedFieldESt14default_deleteIS4_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
+  store ptr null, ptr %call2, align 8
+  %1 = load ptr, ptr %__p, align 8
+  ret ptr %1
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEC2IS5_INS3_11NestedFieldEEEEPS4_OT_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %__p, ptr noundef nonnull align 1 dereferenceable(1) %__d) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__p.addr = alloca ptr, align 8
+  %__d.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__p, ptr %__p.addr, align 8
+  store ptr %__d, ptr %__d.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_t = getelementptr inbounds %"class.std::__uniq_ptr_impl", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %__d.addr, align 8
+  call void @_ZNSt5tupleIJPN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEEC2IRS5_S6_INS3_11NestedFieldEETnNSt9enable_ifIXclsr4_TCCIXntcl14__is_alloc_argIT_EEEEE29__is_implicitly_constructibleISE_T0_EEEbE4typeELb1EEEOSE_OSF_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t, ptr noundef nonnull align 8 dereferenceable(8) %__p.addr, ptr noundef nonnull align 1 dereferenceable(1) %0) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt5tupleIJPN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEEC2IRS5_S6_INS3_11NestedFieldEETnNSt9enable_ifIXclsr4_TCCIXntcl14__is_alloc_argIT_EEEEE29__is_implicitly_constructibleISE_T0_EEEbE4typeELb1EEEOSE_OSF_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__a1, ptr noundef nonnull align 1 dereferenceable(1) %__a2) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__a1.addr = alloca ptr, align 8
+  %__a2.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__a1, ptr %__a1.addr, align 8
+  store ptr %__a2, ptr %__a2.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %__a1.addr, align 8
+  %1 = load ptr, ptr %__a2.addr, align 8
+  invoke void @_ZNSt11_Tuple_implILm0EJPN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEEC2IRS5_JS6_INS3_11NestedFieldEEEvEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(1) %1)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %entry
+  ret void
+
+terminate.lpad:                                   ; preds = %entry
+  %2 = landingpad { ptr, i32 }
+          catch ptr null
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #16
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt11_Tuple_implILm0EJPN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEEC2IRS5_JS6_INS3_11NestedFieldEEEvEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__head, ptr noundef nonnull align 1 dereferenceable(1) %__tail) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__head.addr = alloca ptr, align 8
+  %__tail.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__head, ptr %__head.addr, align 8
+  store ptr %__tail, ptr %__tail.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %__tail.addr, align 8
+  call void @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN8facebook5velox6common8Subfield11PathElementEEEEC2IS0_INS4_11NestedFieldEEEEOT_(ptr noundef nonnull align 1 dereferenceable(1) %this1, ptr noundef nonnull align 1 dereferenceable(1) %0)
+  %1 = load ptr, ptr %__head.addr, align 8
+  call void @_ZNSt10_Head_baseILm0EPN8facebook5velox6common8Subfield11PathElementELb0EEC2IRS5_EEOT_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN8facebook5velox6common8Subfield11PathElementEEEEC2IS0_INS4_11NestedFieldEEEEOT_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 1 dereferenceable(1) %__head) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__head.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__head, ptr %__head.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %__head.addr, align 8
+  call void @_ZNSt10_Head_baseILm1ESt14default_deleteIN8facebook5velox6common8Subfield11PathElementEELb1EEC2IS0_INS4_11NestedFieldEEEEOT_(ptr noundef nonnull align 1 dereferenceable(1) %this1, ptr noundef nonnull align 1 dereferenceable(1) %0)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10_Head_baseILm1ESt14default_deleteIN8facebook5velox6common8Subfield11PathElementEELb1EEC2IS0_INS4_11NestedFieldEEEEOT_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 1 dereferenceable(1) %__h) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__h.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__h, ptr %__h.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %__h.addr, align 8
+  call void @_ZNSt14default_deleteIN8facebook5velox6common8Subfield11PathElementEEC2INS3_11NestedFieldEvEERKS_IT_E(ptr noundef nonnull align 1 dereferenceable(1) %this1, ptr noundef nonnull align 1 dereferenceable(1) %0) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt14default_deleteIN8facebook5velox6common8Subfield11PathElementEEC2INS3_11NestedFieldEvEERKS_IT_E(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield13LongSubscriptESt14default_deleteIS4_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_t = getelementptr inbounds %"class.std::__uniq_ptr_impl.12", ptr %this1, i32 0, i32 0
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN8facebook5velox6common8Subfield13LongSubscriptESt14default_deleteIS4_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSC_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #13
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield13LongSubscriptESt14default_deleteIS4_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_t = getelementptr inbounds %"class.std::unique_ptr.10", ptr %this1, i32 0, i32 0
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield13LongSubscriptESt14default_deleteIS4_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #13
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNKSt14default_deleteIN8facebook5velox6common8Subfield13LongSubscriptEEclEPS4_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %__ptr) #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__ptr.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__ptr, ptr %__ptr.addr, align 8
+  %0 = load ptr, ptr %__ptr.addr, align 8
+  %isnull = icmp eq ptr %0, null
+  br i1 %isnull, label %delete.end, label %delete.notnull
+
+delete.notnull:                                   ; preds = %entry
+  call void @_ZN8facebook5velox6common8Subfield13LongSubscriptD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
+  call void @_ZdlPv(ptr noundef %0) #15
+  br label %delete.end
+
+delete.end:                                       ; preds = %delete.notnull, %entry
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN8facebook5velox6common8Subfield13LongSubscriptESt14default_deleteIS4_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSC_(ptr noundef nonnull align 8 dereferenceable(8) %__t) #2 comdat {
+entry:
+  %__t.addr = alloca ptr, align 8
+  store ptr %__t, ptr %__t.addr, align 8
+  %0 = load ptr, ptr %__t.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN8facebook5velox6common8Subfield13LongSubscriptEJSt14default_deleteIS4_EEERT0_RSt11_Tuple_implIXT_EJS8_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN8facebook5velox6common8Subfield13LongSubscriptEJSt14default_deleteIS4_EEERT0_RSt11_Tuple_implIXT_EJS8_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %__t) #2 comdat {
+entry:
+  %__t.addr = alloca ptr, align 8
+  store ptr %__t, ptr %__t.addr, align 8
+  %0 = load ptr, ptr %__t.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN8facebook5velox6common8Subfield13LongSubscriptESt14default_deleteIS4_EEE7_M_headERS8_(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN8facebook5velox6common8Subfield13LongSubscriptESt14default_deleteIS4_EEE7_M_headERS8_(ptr noundef nonnull align 8 dereferenceable(8) %__t) #2 comdat align 2 {
+entry:
+  %__t.addr = alloca ptr, align 8
+  store ptr %__t, ptr %__t.addr, align 8
+  %0 = load ptr, ptr %__t.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN8facebook5velox6common8Subfield13LongSubscriptELb0EE7_M_headERS6_(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN8facebook5velox6common8Subfield13LongSubscriptELb0EE7_M_headERS6_(ptr noundef nonnull align 8 dereferenceable(8) %__b) #2 comdat align 2 {
+entry:
+  %__b.addr = alloca ptr, align 8
+  store ptr %__b, ptr %__b.addr, align 8
+  %0 = load ptr, ptr %__b.addr, align 8
+  %_M_head_impl = getelementptr inbounds %"struct.std::_Head_base.17", ptr %0, i32 0, i32 0
+  ret ptr %_M_head_impl
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield13LongSubscriptESt14default_deleteIS4_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_t = getelementptr inbounds %"class.std::__uniq_ptr_impl.12", ptr %this1, i32 0, i32 0
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJPN8facebook5velox6common8Subfield13LongSubscriptESt14default_deleteIS4_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSC_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #13
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJPN8facebook5velox6common8Subfield13LongSubscriptESt14default_deleteIS4_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSC_(ptr noundef nonnull align 8 dereferenceable(8) %__t) #2 comdat {
+entry:
+  %__t.addr = alloca ptr, align 8
+  store ptr %__t, ptr %__t.addr, align 8
+  %0 = load ptr, ptr %__t.addr, align 8
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1ESt14default_deleteIN8facebook5velox6common8Subfield13LongSubscriptEEJEERT0_RSt11_Tuple_implIXT_EJS7_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0) #13
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1ESt14default_deleteIN8facebook5velox6common8Subfield13LongSubscriptEEJEERT0_RSt11_Tuple_implIXT_EJS7_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %__t) #2 comdat {
+entry:
+  %__t.addr = alloca ptr, align 8
+  store ptr %__t, ptr %__t.addr, align 8
+  %0 = load ptr, ptr %__t.addr, align 8
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN8facebook5velox6common8Subfield13LongSubscriptEEEE7_M_headERS7_(ptr noundef nonnull align 1 dereferenceable(1) %0) #13
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN8facebook5velox6common8Subfield13LongSubscriptEEEE7_M_headERS7_(ptr noundef nonnull align 1 dereferenceable(1) %__t) #2 comdat align 2 {
+entry:
+  %__t.addr = alloca ptr, align 8
+  store ptr %__t, ptr %__t.addr, align 8
+  %0 = load ptr, ptr %__t.addr, align 8
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1ESt14default_deleteIN8facebook5velox6common8Subfield13LongSubscriptEELb1EE7_M_headERS7_(ptr noundef nonnull align 1 dereferenceable(1) %0) #13
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1ESt14default_deleteIN8facebook5velox6common8Subfield13LongSubscriptEELb1EE7_M_headERS7_(ptr noundef nonnull align 1 dereferenceable(1) %__b) #2 comdat align 2 {
+entry:
+  %__b.addr = alloca ptr, align 8
+  store ptr %__b, ptr %__b.addr, align 8
+  %0 = load ptr, ptr %__b.addr, align 8
+  ret ptr %0
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN8facebook5velox6common8Subfield13LongSubscriptD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZN8facebook5velox6common8Subfield11PathElementD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield13LongSubscriptESt14default_deleteIS4_EE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_t = getelementptr inbounds %"class.std::unique_ptr.10", ptr %this1, i32 0, i32 0
+  %call = call noundef ptr @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield13LongSubscriptESt14default_deleteIS4_EE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #13
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt15__uniq_ptr_dataIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_ELb1ELb1EECI2St15__uniq_ptr_implIS4_S6_EIS5_INS3_13LongSubscriptEEEEPS4_OT_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  %.addr1 = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  store ptr %1, ptr %.addr1, align 8
+  %this2 = load ptr, ptr %this.addr, align 8
+  %2 = load ptr, ptr %.addr, align 8
+  %3 = load ptr, ptr %.addr1, align 8
+  call void @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEC2IS5_INS3_13LongSubscriptEEEEPS4_OT_(ptr noundef nonnull align 8 dereferenceable(8) %this2, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield13LongSubscriptESt14default_deleteIS4_EE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__p = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield13LongSubscriptESt14default_deleteIS4_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
+  %0 = load ptr, ptr %call, align 8
+  store ptr %0, ptr %__p, align 8
+  %call2 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield13LongSubscriptESt14default_deleteIS4_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
+  store ptr null, ptr %call2, align 8
+  %1 = load ptr, ptr %__p, align 8
+  ret ptr %1
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEC2IS5_INS3_13LongSubscriptEEEEPS4_OT_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %__p, ptr noundef nonnull align 1 dereferenceable(1) %__d) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__p.addr = alloca ptr, align 8
+  %__d.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__p, ptr %__p.addr, align 8
+  store ptr %__d, ptr %__d.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_t = getelementptr inbounds %"class.std::__uniq_ptr_impl", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %__d.addr, align 8
+  call void @_ZNSt5tupleIJPN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEEC2IRS5_S6_INS3_13LongSubscriptEETnNSt9enable_ifIXclsr4_TCCIXntcl14__is_alloc_argIT_EEEEE29__is_implicitly_constructibleISE_T0_EEEbE4typeELb1EEEOSE_OSF_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t, ptr noundef nonnull align 8 dereferenceable(8) %__p.addr, ptr noundef nonnull align 1 dereferenceable(1) %0) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt5tupleIJPN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEEC2IRS5_S6_INS3_13LongSubscriptEETnNSt9enable_ifIXclsr4_TCCIXntcl14__is_alloc_argIT_EEEEE29__is_implicitly_constructibleISE_T0_EEEbE4typeELb1EEEOSE_OSF_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__a1, ptr noundef nonnull align 1 dereferenceable(1) %__a2) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__a1.addr = alloca ptr, align 8
+  %__a2.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__a1, ptr %__a1.addr, align 8
+  store ptr %__a2, ptr %__a2.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %__a1.addr, align 8
+  %1 = load ptr, ptr %__a2.addr, align 8
+  invoke void @_ZNSt11_Tuple_implILm0EJPN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEEC2IRS5_JS6_INS3_13LongSubscriptEEEvEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(1) %1)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %entry
+  ret void
+
+terminate.lpad:                                   ; preds = %entry
+  %2 = landingpad { ptr, i32 }
+          catch ptr null
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #16
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt11_Tuple_implILm0EJPN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEEC2IRS5_JS6_INS3_13LongSubscriptEEEvEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__head, ptr noundef nonnull align 1 dereferenceable(1) %__tail) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__head.addr = alloca ptr, align 8
+  %__tail.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__head, ptr %__head.addr, align 8
+  store ptr %__tail, ptr %__tail.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %__tail.addr, align 8
+  call void @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN8facebook5velox6common8Subfield11PathElementEEEEC2IS0_INS4_13LongSubscriptEEEEOT_(ptr noundef nonnull align 1 dereferenceable(1) %this1, ptr noundef nonnull align 1 dereferenceable(1) %0)
+  %1 = load ptr, ptr %__head.addr, align 8
+  call void @_ZNSt10_Head_baseILm0EPN8facebook5velox6common8Subfield11PathElementELb0EEC2IRS5_EEOT_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN8facebook5velox6common8Subfield11PathElementEEEEC2IS0_INS4_13LongSubscriptEEEEOT_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 1 dereferenceable(1) %__head) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__head.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__head, ptr %__head.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %__head.addr, align 8
+  call void @_ZNSt10_Head_baseILm1ESt14default_deleteIN8facebook5velox6common8Subfield11PathElementEELb1EEC2IS0_INS4_13LongSubscriptEEEEOT_(ptr noundef nonnull align 1 dereferenceable(1) %this1, ptr noundef nonnull align 1 dereferenceable(1) %0)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10_Head_baseILm1ESt14default_deleteIN8facebook5velox6common8Subfield11PathElementEELb1EEC2IS0_INS4_13LongSubscriptEEEEOT_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 1 dereferenceable(1) %__h) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__h.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__h, ptr %__h.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %__h.addr, align 8
+  call void @_ZNSt14default_deleteIN8facebook5velox6common8Subfield11PathElementEEC2INS3_13LongSubscriptEvEERKS_IT_E(ptr noundef nonnull align 1 dereferenceable(1) %this1, ptr noundef nonnull align 1 dereferenceable(1) %0) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt14default_deleteIN8facebook5velox6common8Subfield11PathElementEEC2INS3_13LongSubscriptEvEERKS_IT_E(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield15StringSubscriptESt14default_deleteIS4_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_t = getelementptr inbounds %"class.std::__uniq_ptr_impl.28", ptr %this1, i32 0, i32 0
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN8facebook5velox6common8Subfield15StringSubscriptESt14default_deleteIS4_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSC_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #13
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield15StringSubscriptESt14default_deleteIS4_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_t = getelementptr inbounds %"class.std::unique_ptr.26", ptr %this1, i32 0, i32 0
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield15StringSubscriptESt14default_deleteIS4_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #13
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNKSt14default_deleteIN8facebook5velox6common8Subfield15StringSubscriptEEclEPS4_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %__ptr) #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__ptr.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__ptr, ptr %__ptr.addr, align 8
+  %0 = load ptr, ptr %__ptr.addr, align 8
+  %isnull = icmp eq ptr %0, null
+  br i1 %isnull, label %delete.end, label %delete.notnull
+
+delete.notnull:                                   ; preds = %entry
+  call void @_ZN8facebook5velox6common8Subfield15StringSubscriptD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #13
+  call void @_ZdlPv(ptr noundef %0) #15
+  br label %delete.end
+
+delete.end:                                       ; preds = %delete.notnull, %entry
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN8facebook5velox6common8Subfield15StringSubscriptESt14default_deleteIS4_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSC_(ptr noundef nonnull align 8 dereferenceable(8) %__t) #2 comdat {
+entry:
+  %__t.addr = alloca ptr, align 8
+  store ptr %__t, ptr %__t.addr, align 8
+  %0 = load ptr, ptr %__t.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN8facebook5velox6common8Subfield15StringSubscriptEJSt14default_deleteIS4_EEERT0_RSt11_Tuple_implIXT_EJS8_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN8facebook5velox6common8Subfield15StringSubscriptEJSt14default_deleteIS4_EEERT0_RSt11_Tuple_implIXT_EJS8_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %__t) #2 comdat {
+entry:
+  %__t.addr = alloca ptr, align 8
+  store ptr %__t, ptr %__t.addr, align 8
+  %0 = load ptr, ptr %__t.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN8facebook5velox6common8Subfield15StringSubscriptESt14default_deleteIS4_EEE7_M_headERS8_(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN8facebook5velox6common8Subfield15StringSubscriptESt14default_deleteIS4_EEE7_M_headERS8_(ptr noundef nonnull align 8 dereferenceable(8) %__t) #2 comdat align 2 {
+entry:
+  %__t.addr = alloca ptr, align 8
+  store ptr %__t, ptr %__t.addr, align 8
+  %0 = load ptr, ptr %__t.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN8facebook5velox6common8Subfield15StringSubscriptELb0EE7_M_headERS6_(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN8facebook5velox6common8Subfield15StringSubscriptELb0EE7_M_headERS6_(ptr noundef nonnull align 8 dereferenceable(8) %__b) #2 comdat align 2 {
+entry:
+  %__b.addr = alloca ptr, align 8
+  store ptr %__b, ptr %__b.addr, align 8
+  %0 = load ptr, ptr %__b.addr, align 8
+  %_M_head_impl = getelementptr inbounds %"struct.std::_Head_base.33", ptr %0, i32 0, i32 0
+  ret ptr %_M_head_impl
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield15StringSubscriptESt14default_deleteIS4_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_t = getelementptr inbounds %"class.std::__uniq_ptr_impl.28", ptr %this1, i32 0, i32 0
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJPN8facebook5velox6common8Subfield15StringSubscriptESt14default_deleteIS4_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSC_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #13
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJPN8facebook5velox6common8Subfield15StringSubscriptESt14default_deleteIS4_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSC_(ptr noundef nonnull align 8 dereferenceable(8) %__t) #2 comdat {
+entry:
+  %__t.addr = alloca ptr, align 8
+  store ptr %__t, ptr %__t.addr, align 8
+  %0 = load ptr, ptr %__t.addr, align 8
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1ESt14default_deleteIN8facebook5velox6common8Subfield15StringSubscriptEEJEERT0_RSt11_Tuple_implIXT_EJS7_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0) #13
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1ESt14default_deleteIN8facebook5velox6common8Subfield15StringSubscriptEEJEERT0_RSt11_Tuple_implIXT_EJS7_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %__t) #2 comdat {
+entry:
+  %__t.addr = alloca ptr, align 8
+  store ptr %__t, ptr %__t.addr, align 8
+  %0 = load ptr, ptr %__t.addr, align 8
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN8facebook5velox6common8Subfield15StringSubscriptEEEE7_M_headERS7_(ptr noundef nonnull align 1 dereferenceable(1) %0) #13
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN8facebook5velox6common8Subfield15StringSubscriptEEEE7_M_headERS7_(ptr noundef nonnull align 1 dereferenceable(1) %__t) #2 comdat align 2 {
+entry:
+  %__t.addr = alloca ptr, align 8
+  store ptr %__t, ptr %__t.addr, align 8
+  %0 = load ptr, ptr %__t.addr, align 8
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1ESt14default_deleteIN8facebook5velox6common8Subfield15StringSubscriptEELb1EE7_M_headERS7_(ptr noundef nonnull align 1 dereferenceable(1) %0) #13
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1ESt14default_deleteIN8facebook5velox6common8Subfield15StringSubscriptEELb1EE7_M_headERS7_(ptr noundef nonnull align 1 dereferenceable(1) %__b) #2 comdat align 2 {
+entry:
+  %__b.addr = alloca ptr, align 8
+  store ptr %__b, ptr %__b.addr, align 8
+  %0 = load ptr, ptr %__b.addr, align 8
+  ret ptr %0
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN8facebook5velox6common8Subfield15StringSubscriptD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %index_ = getelementptr inbounds %"class.facebook::velox::common::Subfield::StringSubscript", ptr %this1, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %index_) #13
+  call void @_ZN8facebook5velox6common8Subfield11PathElementD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield15StringSubscriptESt14default_deleteIS4_EE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_t = getelementptr inbounds %"class.std::unique_ptr.26", ptr %this1, i32 0, i32 0
+  %call = call noundef ptr @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield15StringSubscriptESt14default_deleteIS4_EE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #13
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt15__uniq_ptr_dataIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_ELb1ELb1EECI2St15__uniq_ptr_implIS4_S6_EIS5_INS3_15StringSubscriptEEEEPS4_OT_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  %.addr1 = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  store ptr %1, ptr %.addr1, align 8
+  %this2 = load ptr, ptr %this.addr, align 8
+  %2 = load ptr, ptr %.addr, align 8
+  %3 = load ptr, ptr %.addr1, align 8
+  call void @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEC2IS5_INS3_15StringSubscriptEEEEPS4_OT_(ptr noundef nonnull align 8 dereferenceable(8) %this2, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield15StringSubscriptESt14default_deleteIS4_EE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__p = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield15StringSubscriptESt14default_deleteIS4_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
+  %0 = load ptr, ptr %call, align 8
+  store ptr %0, ptr %__p, align 8
+  %call2 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield15StringSubscriptESt14default_deleteIS4_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
+  store ptr null, ptr %call2, align 8
+  %1 = load ptr, ptr %__p, align 8
+  ret ptr %1
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEC2IS5_INS3_15StringSubscriptEEEEPS4_OT_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %__p, ptr noundef nonnull align 1 dereferenceable(1) %__d) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__p.addr = alloca ptr, align 8
+  %__d.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__p, ptr %__p.addr, align 8
+  store ptr %__d, ptr %__d.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_t = getelementptr inbounds %"class.std::__uniq_ptr_impl", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %__d.addr, align 8
+  call void @_ZNSt5tupleIJPN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEEC2IRS5_S6_INS3_15StringSubscriptEETnNSt9enable_ifIXclsr4_TCCIXntcl14__is_alloc_argIT_EEEEE29__is_implicitly_constructibleISE_T0_EEEbE4typeELb1EEEOSE_OSF_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t, ptr noundef nonnull align 8 dereferenceable(8) %__p.addr, ptr noundef nonnull align 1 dereferenceable(1) %0) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt5tupleIJPN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEEC2IRS5_S6_INS3_15StringSubscriptEETnNSt9enable_ifIXclsr4_TCCIXntcl14__is_alloc_argIT_EEEEE29__is_implicitly_constructibleISE_T0_EEEbE4typeELb1EEEOSE_OSF_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__a1, ptr noundef nonnull align 1 dereferenceable(1) %__a2) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__a1.addr = alloca ptr, align 8
+  %__a2.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__a1, ptr %__a1.addr, align 8
+  store ptr %__a2, ptr %__a2.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %__a1.addr, align 8
+  %1 = load ptr, ptr %__a2.addr, align 8
+  invoke void @_ZNSt11_Tuple_implILm0EJPN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEEC2IRS5_JS6_INS3_15StringSubscriptEEEvEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(1) %1)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %entry
+  ret void
+
+terminate.lpad:                                   ; preds = %entry
+  %2 = landingpad { ptr, i32 }
+          catch ptr null
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #16
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt11_Tuple_implILm0EJPN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEEC2IRS5_JS6_INS3_15StringSubscriptEEEvEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__head, ptr noundef nonnull align 1 dereferenceable(1) %__tail) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__head.addr = alloca ptr, align 8
+  %__tail.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__head, ptr %__head.addr, align 8
+  store ptr %__tail, ptr %__tail.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %__tail.addr, align 8
+  call void @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN8facebook5velox6common8Subfield11PathElementEEEEC2IS0_INS4_15StringSubscriptEEEEOT_(ptr noundef nonnull align 1 dereferenceable(1) %this1, ptr noundef nonnull align 1 dereferenceable(1) %0)
+  %1 = load ptr, ptr %__head.addr, align 8
+  call void @_ZNSt10_Head_baseILm0EPN8facebook5velox6common8Subfield11PathElementELb0EEC2IRS5_EEOT_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN8facebook5velox6common8Subfield11PathElementEEEEC2IS0_INS4_15StringSubscriptEEEEOT_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 1 dereferenceable(1) %__head) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__head.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__head, ptr %__head.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %__head.addr, align 8
+  call void @_ZNSt10_Head_baseILm1ESt14default_deleteIN8facebook5velox6common8Subfield11PathElementEELb1EEC2IS0_INS4_15StringSubscriptEEEEOT_(ptr noundef nonnull align 1 dereferenceable(1) %this1, ptr noundef nonnull align 1 dereferenceable(1) %0)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10_Head_baseILm1ESt14default_deleteIN8facebook5velox6common8Subfield11PathElementEELb1EEC2IS0_INS4_15StringSubscriptEEEEOT_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 1 dereferenceable(1) %__h) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__h.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__h, ptr %__h.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %__h.addr, align 8
+  call void @_ZNSt14default_deleteIN8facebook5velox6common8Subfield11PathElementEEC2INS3_15StringSubscriptEvEERKS_IT_E(ptr noundef nonnull align 1 dereferenceable(1) %this1, ptr noundef nonnull align 1 dereferenceable(1) %0) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt14default_deleteIN8facebook5velox6common8Subfield11PathElementEEC2INS3_15StringSubscriptEvEERKS_IT_E(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_t = getelementptr inbounds %"class.std::unique_ptr", ptr %this1, i32 0, i32 0
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #13
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNKSt19__shared_ptr_accessIN8facebook5velox6common10SeparatorsELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EE6_M_getEv(ptr noundef nonnull align 1 dereferenceable(1) %this) #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef ptr @_ZNKSt12__shared_ptrIN8facebook5velox6common10SeparatorsELN9__gnu_cxx12_Lock_policyE2EE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %this1) #13
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNKSt12__shared_ptrIN8facebook5velox6common10SeparatorsELN9__gnu_cxx12_Lock_policyE2EE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_ptr = getelementptr inbounds %"class.std::__shared_ptr", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %_M_ptr, align 8
+  ret ptr %0
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN8facebook5velox6common8Subfield11NestedFieldC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %name) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %name.addr = alloca ptr, align 8
+  %exn.slot = alloca ptr, align 8
+  %ehselector.slot = alloca i32, align 4
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %name, ptr %name.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZN8facebook5velox6common8Subfield11PathElementC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8facebook5velox6common8Subfield11NestedFieldE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  %name_ = getelementptr inbounds %"class.facebook::velox::common::Subfield::NestedField", ptr %this1, i32 0, i32 1
+  %0 = load ptr, ptr %name.addr, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %name_, ptr noundef nonnull align 8 dereferenceable(32) %0)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %entry
+  %1 = load ptr, ptr %name.addr, align 8
+  %call = invoke noundef zeroext i1 @_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef @.str.4)
+          to label %invoke.cont3 unwind label %lpad2
+
+invoke.cont3:                                     ; preds = %invoke.cont
+  %lnot = xor i1 %call, true
+  br i1 %lnot, label %if.then, label %if.end
+
+if.then:                                          ; preds = %invoke.cont3
+  call void @llvm.trap()
+  br label %if.end
+
+lpad:                                             ; preds = %entry
+  %2 = landingpad { ptr, i32 }
+          cleanup
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
+  br label %ehcleanup
+
+lpad2:                                            ; preds = %invoke.cont
+  %5 = landingpad { ptr, i32 }
+          cleanup
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name_) #13
+  br label %ehcleanup
+
+if.end:                                           ; preds = %if.then, %invoke.cont3
+  ret void
+
+ehcleanup:                                        ; preds = %lpad2, %lpad
+  call void @_ZN8facebook5velox6common8Subfield11PathElementD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
+  br label %eh.resume
+
+eh.resume:                                        ; preds = %ehcleanup
+  %exn = load ptr, ptr %exn.slot, align 8
+  %sel = load i32, ptr %ehselector.slot, align 4
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
+  %lpad.val4 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
+  resume { ptr, i32 } %lpad.val4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11NestedFieldESt14default_deleteIS4_EEC2IS6_vEEPS4_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %__p) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__p.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__p, ptr %__p.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_t = getelementptr inbounds %"class.std::unique_ptr.2", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %__p.addr, align 8
+  invoke void @_ZNSt15__uniq_ptr_dataIN8facebook5velox6common8Subfield11NestedFieldESt14default_deleteIS4_ELb1ELb1EECI2St15__uniq_ptr_implIS4_S6_EEPS4_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t, ptr noundef %0)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %entry
+  ret void
+
+terminate.lpad:                                   ; preds = %entry
+  %1 = landingpad { ptr, i32 }
+          catch ptr null
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #16
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef zeroext i1 @_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_(ptr noundef nonnull align 8 dereferenceable(32) %__lhs, ptr noundef %__rhs) #0 comdat {
+entry:
+  %__lhs.addr = alloca ptr, align 8
+  %__rhs.addr = alloca ptr, align 8
+  store ptr %__lhs, ptr %__lhs.addr, align 8
+  store ptr %__rhs, ptr %__rhs.addr, align 8
+  %0 = load ptr, ptr %__lhs.addr, align 8
+  %1 = load ptr, ptr %__rhs.addr, align 8
+  %call = call noundef zeroext i1 @_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1)
+  %lnot = xor i1 %call, true
+  ret i1 %lnot
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN8facebook5velox6common8Subfield11NestedFieldD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZN8facebook5velox6common8Subfield11NestedFieldD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #13
+  call void @_ZdlPv(ptr noundef %this1) #15
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZNK8facebook5velox6common8Subfield11NestedField4kindEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  ret i32 1
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZNK8facebook5velox6common8Subfield11NestedField11isSubscriptEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  ret i1 false
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNK8facebook5velox6common8Subfield11NestedField8toStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #0 comdat align 2 {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %this.addr = alloca ptr, align 8
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %name_ = getelementptr inbounds %"class.facebook::velox::common::Subfield::NestedField", ptr %this1, i32 0, i32 1
+  call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef @.str.5, ptr noundef nonnull align 8 dereferenceable(32) %name_)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNK8facebook5velox6common8Subfield11NestedField4hashEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %hash = alloca %"struct.std::hash", align 1
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %name_ = getelementptr inbounds %"class.facebook::velox::common::Subfield::NestedField", ptr %this1, i32 0, i32 1
+  %call = call noundef i64 @_ZNKSt4hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_(ptr noundef nonnull align 1 dereferenceable(1) %hash, ptr noundef nonnull align 8 dereferenceable(32) %name_) #13
+  ret i64 %call
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef zeroext i1 @_ZNK8facebook5velox6common8Subfield11NestedFieldeqERKNS2_11PathElementE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %other) unnamed_addr #0 comdat align 2 {
+entry:
+  %retval = alloca i1, align 1
+  %this.addr = alloca ptr, align 8
+  %other.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %other, ptr %other.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %other.addr, align 8
+  %cmp = icmp eq ptr %this1, %0
+  br i1 %cmp, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  store i1 true, ptr %retval, align 1
+  br label %return
+
+if.end:                                           ; preds = %entry
+  %1 = load ptr, ptr %other.addr, align 8
+  %vtable = load ptr, ptr %1, align 8
+  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %2 = load ptr, ptr %vfn, align 8
+  %call = call noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %cmp2 = icmp eq i32 %call, 1
+  br i1 %cmp2, label %land.rhs, label %land.end
+
+land.rhs:                                         ; preds = %if.end
+  %3 = load ptr, ptr %other.addr, align 8
+  %name_ = getelementptr inbounds %"class.facebook::velox::common::Subfield::NestedField", ptr %3, i32 0, i32 1
+  %name_3 = getelementptr inbounds %"class.facebook::velox::common::Subfield::NestedField", ptr %this1, i32 0, i32 1
+  %call4 = call noundef zeroext i1 @_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_(ptr noundef nonnull align 8 dereferenceable(32) %name_, ptr noundef nonnull align 8 dereferenceable(32) %name_3) #13
+  br label %land.end
+
+land.end:                                         ; preds = %land.rhs, %if.end
+  %4 = phi i1 [ false, %if.end ], [ %call4, %land.rhs ]
+  store i1 %4, ptr %retval, align 1
+  br label %return
+
+return:                                           ; preds = %land.end, %if.then
+  %5 = load i1, ptr %retval, align 1
+  ret i1 %5
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN8facebook5velox6common8Subfield11NestedField5cloneEv(ptr noalias sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #0 comdat align 2 {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %this.addr = alloca ptr, align 8
+  %ref.tmp = alloca %"class.std::unique_ptr.2", align 8
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %name_ = getelementptr inbounds %"class.facebook::velox::common::Subfield::NestedField", ptr %this1, i32 0, i32 1
+  call void @_ZSt11make_uniqueIN8facebook5velox6common8Subfield11NestedFieldEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr sret(%"class.std::unique_ptr.2") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %name_)
+  call void @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEC2INS3_11NestedFieldES5_IS9_EvEEOS_IT_T0_E(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #13
+  call void @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11NestedFieldESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #13
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %__lhs, ptr noundef nonnull align 8 dereferenceable(32) %__rhs) #0 comdat personality ptr @__gxx_personality_v0 {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %__lhs.addr = alloca ptr, align 8
+  %__rhs.addr = alloca ptr, align 8
+  %__len = alloca i64, align 8
+  %nrvo = alloca i1, align 1
+  %ref.tmp = alloca %"class.std::allocator", align 1
+  %ref.tmp1 = alloca %"class.std::allocator", align 1
+  %exn.slot = alloca ptr, align 8
+  %ehselector.slot = alloca i32, align 4
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store ptr %__lhs, ptr %__lhs.addr, align 8
+  store ptr %__rhs, ptr %__rhs.addr, align 8
+  %0 = load ptr, ptr %__lhs.addr, align 8
+  %call = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %0)
+  store i64 %call, ptr %__len, align 8
+  store i1 false, ptr %nrvo, align 1
+  %1 = load ptr, ptr %__rhs.addr, align 8
+  call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13get_allocatorEv(ptr sret(%"class.std::allocator") align 1 %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(32) %1) #13
+  invoke void @_ZN9__gnu_cxx14__alloc_traitsISaIcEcE17_S_select_on_copyERKS1_(ptr sret(%"class.std::allocator") align 1 %ref.tmp, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %entry
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #13
+  %2 = load i64, ptr %__len, align 8
+  %3 = load ptr, ptr %__rhs.addr, align 8
+  %call2 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
+  %add = add i64 %2, %call2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %add)
+          to label %invoke.cont4 unwind label %lpad3
+
+invoke.cont4:                                     ; preds = %invoke.cont
+  %4 = load ptr, ptr %__lhs.addr, align 8
+  %5 = load i64, ptr %__len, align 8
+  %call6 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %4, i64 noundef %5)
+          to label %invoke.cont5 unwind label %lpad3
+
+invoke.cont5:                                     ; preds = %invoke.cont4
+  %6 = load ptr, ptr %__rhs.addr, align 8
+  %call8 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %invoke.cont7 unwind label %lpad3
+
+invoke.cont7:                                     ; preds = %invoke.cont5
+  store i1 true, ptr %nrvo, align 1
+  %nrvo.val = load i1, ptr %nrvo, align 1
+  br i1 %nrvo.val, label %nrvo.skipdtor, label %nrvo.unused
+
+lpad:                                             ; preds = %entry
+  %7 = landingpad { ptr, i32 }
+          cleanup
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #13
+  br label %eh.resume
+
+lpad3:                                            ; preds = %invoke.cont5, %invoke.cont4, %invoke.cont
+  %10 = landingpad { ptr, i32 }
+          cleanup
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #13
+  br label %eh.resume
+
+nrvo.unused:                                      ; preds = %invoke.cont7
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #13
+  br label %nrvo.skipdtor
+
+nrvo.skipdtor:                                    ; preds = %nrvo.unused, %invoke.cont7
+  ret void
+
+eh.resume:                                        ; preds = %lpad3, %lpad
+  %exn = load ptr, ptr %exn.slot, align 8
+  %sel = load i32, ptr %ehselector.slot, align 4
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
+  %lpad.val9 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
+  resume { ptr, i32 } %lpad.val9
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN9__gnu_cxx14__alloc_traitsISaIcEcE17_S_select_on_copyERKS1_(ptr noalias sret(%"class.std::allocator") align 1 %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %__a) #0 comdat align 2 {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %__a.addr = alloca ptr, align 8
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store ptr %__a, ptr %__a.addr, align 8
+  %0 = load ptr, ptr %__a.addr, align 8
+  call void @_ZNSt16allocator_traitsISaIcEE37select_on_container_copy_constructionERKS0_(ptr sret(%"class.std::allocator") align 1 %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %0)
+  ret void
+}
+
+; Function Attrs: nounwind
+declare void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13get_allocatorEv(ptr sret(%"class.std::allocator") align 1, ptr noundef nonnull align 8 dereferenceable(32)) #4
+
+; Function Attrs: nounwind
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS3_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
+
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) #1
+
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaIcEE37select_on_container_copy_constructionERKS0_(ptr noalias sret(%"class.std::allocator") align 1 %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %__rhs) #2 comdat align 2 {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %__rhs.addr = alloca ptr, align 8
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store ptr %__rhs, ptr %__rhs.addr, align 8
+  %0 = load ptr, ptr %__rhs.addr, align 8
+  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %0) #13
+  ret void
+}
+
+; Function Attrs: nounwind
+declare void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNKSt4hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(32) %__s) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__s.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__s, ptr %__s.addr, align 8
+  %0 = load ptr, ptr %__s.addr, align 8
+  %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #13
+  %1 = load ptr, ptr %__s.addr, align 8
+  %call2 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #13
+  %call3 = invoke noundef i64 @_ZNSt10_Hash_impl4hashEPKvmm(ptr noundef %call, i64 noundef %call2, i64 noundef 3339675911)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %entry
+  ret i64 %call3
+
+terminate.lpad:                                   ; preds = %entry
+  %2 = landingpad { ptr, i32 }
+          catch ptr null
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #16
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef i64 @_ZNSt10_Hash_impl4hashEPKvmm(ptr noundef %__ptr, i64 noundef %__clength, i64 noundef %__seed) #0 comdat align 2 {
+entry:
+  %__ptr.addr = alloca ptr, align 8
+  %__clength.addr = alloca i64, align 8
+  %__seed.addr = alloca i64, align 8
+  store ptr %__ptr, ptr %__ptr.addr, align 8
+  store i64 %__clength, ptr %__clength.addr, align 8
+  store i64 %__seed, ptr %__seed.addr, align 8
+  %0 = load ptr, ptr %__ptr.addr, align 8
+  %1 = load i64, ptr %__clength.addr, align 8
+  %2 = load i64, ptr %__seed.addr, align 8
+  %call = call noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef %0, i64 noundef %1, i64 noundef %2)
+  ret i64 %call
+}
+
+; Function Attrs: nounwind
+declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) #4
+
+declare noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef, i64 noundef, i64 noundef) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_(ptr noundef nonnull align 8 dereferenceable(32) %__lhs, ptr noundef nonnull align 8 dereferenceable(32) %__rhs) #2 comdat personality ptr @__gxx_personality_v0 {
+entry:
+  %__lhs.addr = alloca ptr, align 8
+  %__rhs.addr = alloca ptr, align 8
+  store ptr %__lhs, ptr %__lhs.addr, align 8
+  store ptr %__rhs, ptr %__rhs.addr, align 8
+  %0 = load ptr, ptr %__lhs.addr, align 8
+  %call = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #13
+  %1 = load ptr, ptr %__rhs.addr, align 8
+  %call1 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #13
+  %cmp = icmp eq i64 %call, %call1
+  br i1 %cmp, label %land.rhs, label %land.end
+
+land.rhs:                                         ; preds = %entry
+  %2 = load ptr, ptr %__lhs.addr, align 8
+  %call2 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #13
+  %3 = load ptr, ptr %__rhs.addr, align 8
+  %call3 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
+  %4 = load ptr, ptr %__lhs.addr, align 8
+  %call4 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
+  %call5 = invoke noundef i32 @_ZNSt11char_traitsIcE7compareEPKcS2_m(ptr noundef %call2, ptr noundef %call3, i64 noundef %call4)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %land.rhs
+  %tobool = icmp ne i32 %call5, 0
+  %lnot = xor i1 %tobool, true
+  br label %land.end
+
+land.end:                                         ; preds = %invoke.cont, %entry
+  %5 = phi i1 [ false, %entry ], [ %lnot, %invoke.cont ]
+  ret i1 %5
+
+terminate.lpad:                                   ; preds = %land.rhs
+  %6 = landingpad { ptr, i32 }
+          catch ptr null
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #16
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZNSt11char_traitsIcE7compareEPKcS2_m(ptr noundef %__s1, ptr noundef %__s2, i64 noundef %__n) #2 comdat align 2 {
+entry:
+  %retval = alloca i32, align 4
+  %__s1.addr = alloca ptr, align 8
+  %__s2.addr = alloca ptr, align 8
+  %__n.addr = alloca i64, align 8
+  store ptr %__s1, ptr %__s1.addr, align 8
+  store ptr %__s2, ptr %__s2.addr, align 8
+  store i64 %__n, ptr %__n.addr, align 8
+  %0 = load i64, ptr %__n.addr, align 8
+  %cmp = icmp eq i64 %0, 0
+  br i1 %cmp, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  store i32 0, ptr %retval, align 4
+  br label %return
+
+if.end:                                           ; preds = %entry
+  %1 = load ptr, ptr %__s1.addr, align 8
+  %2 = load ptr, ptr %__s2.addr, align 8
+  %3 = load i64, ptr %__n.addr, align 8
+  %call = call i32 @memcmp(ptr noundef %1, ptr noundef %2, i64 noundef %3) #13
+  store i32 %call, ptr %retval, align 4
+  br label %return
+
+return:                                           ; preds = %if.end, %if.then
+  %4 = load i32, ptr %retval, align 4
+  ret i32 %4
+}
+
+; Function Attrs: nounwind
+declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #4
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZSt11make_uniqueIN8facebook5velox6common8Subfield11NestedFieldEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr noalias sret(%"class.std::unique_ptr.2") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %__args) #0 comdat personality ptr @__gxx_personality_v0 {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %__args.addr = alloca ptr, align 8
+  %exn.slot = alloca ptr, align 8
+  %ehselector.slot = alloca i32, align 4
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store ptr %__args, ptr %__args.addr, align 8
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #14
+  %0 = load ptr, ptr %__args.addr, align 8
+  invoke void @_ZN8facebook5velox6common8Subfield11NestedFieldC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %call, ptr noundef nonnull align 8 dereferenceable(32) %0)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %entry
+  call void @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11NestedFieldESt14default_deleteIS4_EEC2IS6_vEEPS4_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call) #13
+  ret void
+
+lpad:                                             ; preds = %entry
+  %1 = landingpad { ptr, i32 }
+          cleanup
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
+  call void @_ZdlPv(ptr noundef %call) #15
+  br label %eh.resume
+
+eh.resume:                                        ; preds = %lpad
+  %exn = load ptr, ptr %exn.slot, align 8
+  %sel = load i32, ptr %ehselector.slot, align 4
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
+  %lpad.val1 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
+  resume { ptr, i32 } %lpad.val1
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt15__uniq_ptr_dataIN8facebook5velox6common8Subfield11NestedFieldESt14default_deleteIS4_ELb1ELb1EECI2St15__uniq_ptr_implIS4_S6_EEPS4_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %0) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %1 = load ptr, ptr %.addr, align 8
+  call void @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11NestedFieldESt14default_deleteIS4_EEC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef %1)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11NestedFieldESt14default_deleteIS4_EEC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %__p) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__p.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__p, ptr %__p.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_t = getelementptr inbounds %"class.std::__uniq_ptr_impl.4", ptr %this1, i32 0, i32 0
+  call void @_ZNSt5tupleIJPN8facebook5velox6common8Subfield11NestedFieldESt14default_deleteIS4_EEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES5_S7_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #13
+  %0 = load ptr, ptr %__p.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield11NestedFieldESt14default_deleteIS4_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
+  store ptr %0, ptr %call, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt5tupleIJPN8facebook5velox6common8Subfield11NestedFieldESt14default_deleteIS4_EEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES5_S7_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  invoke void @_ZNSt11_Tuple_implILm0EJPN8facebook5velox6common8Subfield11NestedFieldESt14default_deleteIS4_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %entry
+  ret void
+
+terminate.lpad:                                   ; preds = %entry
+  %0 = landingpad { ptr, i32 }
+          catch ptr null
+  %1 = extractvalue { ptr, i32 } %0, 0
+  call void @__clang_call_terminate(ptr %1) #16
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt11_Tuple_implILm0EJPN8facebook5velox6common8Subfield11NestedFieldESt14default_deleteIS4_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN8facebook5velox6common8Subfield11NestedFieldEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1)
+  call void @_ZNSt10_Head_baseILm0EPN8facebook5velox6common8Subfield11NestedFieldELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN8facebook5velox6common8Subfield11NestedFieldEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZNSt10_Head_baseILm1ESt14default_deleteIN8facebook5velox6common8Subfield11NestedFieldEELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10_Head_baseILm0EPN8facebook5velox6common8Subfield11NestedFieldELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_head_impl = getelementptr inbounds %"struct.std::_Head_base.9", ptr %this1, i32 0, i32 0
+  store ptr null, ptr %_M_head_impl, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10_Head_baseILm1ESt14default_deleteIN8facebook5velox6common8Subfield11NestedFieldEELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN8facebook5velox6common8Subfield13LongSubscriptC2El(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %index) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %index.addr = alloca i64, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store i64 %index, ptr %index.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZN8facebook5velox6common8Subfield11PathElementC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8facebook5velox6common8Subfield13LongSubscriptE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  %index_ = getelementptr inbounds %"class.facebook::velox::common::Subfield::LongSubscript", ptr %this1, i32 0, i32 1
+  %0 = load i64, ptr %index.addr, align 8
+  store i64 %0, ptr %index_, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield13LongSubscriptESt14default_deleteIS4_EEC2IS6_vEEPS4_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %__p) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__p.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__p, ptr %__p.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_t = getelementptr inbounds %"class.std::unique_ptr.10", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %__p.addr, align 8
+  invoke void @_ZNSt15__uniq_ptr_dataIN8facebook5velox6common8Subfield13LongSubscriptESt14default_deleteIS4_ELb1ELb1EECI2St15__uniq_ptr_implIS4_S6_EEPS4_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t, ptr noundef %0)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %entry
+  ret void
+
+terminate.lpad:                                   ; preds = %entry
+  %1 = landingpad { ptr, i32 }
+          catch ptr null
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #16
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN8facebook5velox6common8Subfield13LongSubscriptD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZN8facebook5velox6common8Subfield13LongSubscriptD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #13
+  call void @_ZdlPv(ptr noundef %this1) #15
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZNK8facebook5velox6common8Subfield13LongSubscript4kindEv(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  ret i32 3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZNK8facebook5velox6common8Subfield13LongSubscript11isSubscriptEv(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  ret i1 true
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNK8facebook5velox6common8Subfield13LongSubscript8toStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %this.addr = alloca ptr, align 8
+  %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
+  %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
+  %exn.slot = alloca ptr, align 8
+  %ehselector.slot = alloca i32, align 4
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %index_ = getelementptr inbounds %"class.facebook::velox::common::Subfield::LongSubscript", ptr %this1, i32 0, i32 1
+  %0 = load i64, ptr %index_, align 8
+  call void @_ZNSt7__cxx119to_stringEl(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2, i64 noundef %0)
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef @.str.6, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %entry
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef @.str.7)
+          to label %invoke.cont4 unwind label %lpad3
+
+invoke.cont4:                                     ; preds = %invoke.cont
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #13
+  ret void
+
+lpad:                                             ; preds = %entry
+  %1 = landingpad { ptr, i32 }
+          cleanup
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
+  br label %ehcleanup
+
+lpad3:                                            ; preds = %invoke.cont
+  %4 = landingpad { ptr, i32 }
+          cleanup
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
+  br label %ehcleanup
+
+ehcleanup:                                        ; preds = %lpad3, %lpad
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #13
+  br label %eh.resume
+
+eh.resume:                                        ; preds = %ehcleanup
+  %exn = load ptr, ptr %exn.slot, align 8
+  %sel = load i32, ptr %ehselector.slot, align 4
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
+  %lpad.val5 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
+  resume { ptr, i32 } %lpad.val5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNK8facebook5velox6common8Subfield13LongSubscript4hashEv(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %hash = alloca %"struct.std::hash.42", align 1
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %index_ = getelementptr inbounds %"class.facebook::velox::common::Subfield::LongSubscript", ptr %this1, i32 0, i32 1
+  %0 = load i64, ptr %index_, align 8
+  %call = call noundef i64 @_ZNKSt4hashIlEclEl(ptr noundef nonnull align 1 dereferenceable(1) %hash, i64 noundef %0) #13
+  ret i64 %call
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef zeroext i1 @_ZNK8facebook5velox6common8Subfield13LongSubscripteqERKNS2_11PathElementE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(8) %other) unnamed_addr #0 comdat align 2 {
+entry:
+  %retval = alloca i1, align 1
+  %this.addr = alloca ptr, align 8
+  %other.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %other, ptr %other.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %other.addr, align 8
+  %cmp = icmp eq ptr %this1, %0
+  br i1 %cmp, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  store i1 true, ptr %retval, align 1
+  br label %return
+
+if.end:                                           ; preds = %entry
+  %1 = load ptr, ptr %other.addr, align 8
+  %vtable = load ptr, ptr %1, align 8
+  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %2 = load ptr, ptr %vfn, align 8
+  %call = call noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %cmp2 = icmp eq i32 %call, 3
+  br i1 %cmp2, label %land.rhs, label %land.end
+
+land.rhs:                                         ; preds = %if.end
+  %3 = load ptr, ptr %other.addr, align 8
+  %index_ = getelementptr inbounds %"class.facebook::velox::common::Subfield::LongSubscript", ptr %3, i32 0, i32 1
+  %4 = load i64, ptr %index_, align 8
+  %index_3 = getelementptr inbounds %"class.facebook::velox::common::Subfield::LongSubscript", ptr %this1, i32 0, i32 1
+  %5 = load i64, ptr %index_3, align 8
+  %cmp4 = icmp eq i64 %4, %5
+  br label %land.end
+
+land.end:                                         ; preds = %land.rhs, %if.end
+  %6 = phi i1 [ false, %if.end ], [ %cmp4, %land.rhs ]
+  store i1 %6, ptr %retval, align 1
+  br label %return
+
+return:                                           ; preds = %land.end, %if.then
+  %7 = load i1, ptr %retval, align 1
+  ret i1 %7
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN8facebook5velox6common8Subfield13LongSubscript5cloneEv(ptr noalias sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 comdat align 2 {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %this.addr = alloca ptr, align 8
+  %ref.tmp = alloca %"class.std::unique_ptr.10", align 8
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %index_ = getelementptr inbounds %"class.facebook::velox::common::Subfield::LongSubscript", ptr %this1, i32 0, i32 1
+  call void @_ZSt11make_uniqueIN8facebook5velox6common8Subfield13LongSubscriptEJRKlEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr sret(%"class.std::unique_ptr.10") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %index_)
+  call void @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEC2INS3_13LongSubscriptES5_IS9_EvEEOS_IT_T0_E(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #13
+  call void @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield13LongSubscriptESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #13
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %__lhs, ptr noundef %__rhs) #0 comdat {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %__lhs.addr = alloca ptr, align 8
+  %__rhs.addr = alloca ptr, align 8
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store ptr %__lhs, ptr %__lhs.addr, align 8
+  store ptr %__rhs, ptr %__rhs.addr, align 8
+  %0 = load ptr, ptr %__lhs.addr, align 8
+  %1 = load ptr, ptr %__rhs.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %call) #13
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %__lhs, ptr noundef nonnull align 8 dereferenceable(32) %__rhs) #0 comdat {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %__lhs.addr = alloca ptr, align 8
+  %__rhs.addr = alloca ptr, align 8
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store ptr %__lhs, ptr %__lhs.addr, align 8
+  store ptr %__rhs, ptr %__rhs.addr, align 8
+  %0 = load ptr, ptr %__rhs.addr, align 8
+  %1 = load ptr, ptr %__lhs.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 0, ptr noundef %1)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %call) #13
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt7__cxx119to_stringEl(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i64 noundef %__val) #0 comdat personality ptr @__gxx_personality_v0 {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %__val.addr = alloca i64, align 8
+  %__neg = alloca i8, align 1
+  %__uval = alloca i64, align 8
+  %__len = alloca i32, align 4
+  %nrvo = alloca i1, align 1
+  %ref.tmp = alloca %"class.std::allocator", align 1
+  %exn.slot = alloca ptr, align 8
+  %ehselector.slot = alloca i32, align 4
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store i64 %__val, ptr %__val.addr, align 8
+  %0 = load i64, ptr %__val.addr, align 8
+  %cmp = icmp slt i64 %0, 0
+  %frombool = zext i1 %cmp to i8
+  store i8 %frombool, ptr %__neg, align 1
+  %1 = load i8, ptr %__neg, align 1
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %cond.true, label %cond.false
+
+cond.true:                                        ; preds = %entry
+  %2 = load i64, ptr %__val.addr, align 8
+  %not = xor i64 %2, -1
+  %add = add i64 %not, 1
+  br label %cond.end
+
+cond.false:                                       ; preds = %entry
+  %3 = load i64, ptr %__val.addr, align 8
+  br label %cond.end
+
+cond.end:                                         ; preds = %cond.false, %cond.true
+  %cond = phi i64 [ %add, %cond.true ], [ %3, %cond.false ]
+  store i64 %cond, ptr %__uval, align 8
+  %4 = load i64, ptr %__uval, align 8
+  %call = call noundef i32 @_ZNSt8__detail14__to_chars_lenImEEjT_i(i64 noundef %4, i32 noundef 10) #13
+  store i32 %call, ptr %__len, align 4
+  store i1 false, ptr %nrvo, align 1
+  %5 = load i8, ptr %__neg, align 1
+  %tobool1 = trunc i8 %5 to i1
+  %conv = zext i1 %tobool1 to i32
+  %6 = load i32, ptr %__len, align 4
+  %add2 = add i32 %conv, %6
+  %conv3 = zext i32 %add2 to i64
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %conv3, i8 noundef signext 45, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %cond.end
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
+  %7 = load i8, ptr %__neg, align 1
+  %tobool4 = trunc i8 %7 to i1
+  %conv5 = zext i1 %tobool4 to i64
+  %call8 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %conv5)
+          to label %invoke.cont7 unwind label %lpad6
+
+invoke.cont7:                                     ; preds = %invoke.cont
+  %8 = load i32, ptr %__len, align 4
+  %9 = load i64, ptr %__uval, align 8
+  call void @_ZNSt8__detail18__to_chars_10_implImEEvPcjT_(ptr noundef %call8, i32 noundef %8, i64 noundef %9) #13
+  store i1 true, ptr %nrvo, align 1
+  %nrvo.val = load i1, ptr %nrvo, align 1
+  br i1 %nrvo.val, label %nrvo.skipdtor, label %nrvo.unused
+
+lpad:                                             ; preds = %cond.end
+  %10 = landingpad { ptr, i32 }
+          cleanup
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
+  br label %eh.resume
+
+lpad6:                                            ; preds = %invoke.cont
+  %13 = landingpad { ptr, i32 }
+          cleanup
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #13
+  br label %eh.resume
+
+nrvo.unused:                                      ; preds = %invoke.cont7
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #13
+  br label %nrvo.skipdtor
+
+nrvo.skipdtor:                                    ; preds = %nrvo.unused, %invoke.cont7
+  ret void
+
+eh.resume:                                        ; preds = %lpad6, %lpad
+  %exn = load ptr, ptr %exn.slot, align 8
+  %sel = load i32, ptr %ehselector.slot, align 4
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
+  %lpad.val9 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
+  resume { ptr, i32 } %lpad.val9
+}
+
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) #1
+
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, ptr noundef) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZNSt8__detail14__to_chars_lenImEEjT_i(i64 noundef %__value, i32 noundef %__base) #2 comdat {
+entry:
+  %retval = alloca i32, align 4
+  %__value.addr = alloca i64, align 8
+  %__base.addr = alloca i32, align 4
+  %__n = alloca i32, align 4
+  %__b2 = alloca i32, align 4
+  %__b3 = alloca i32, align 4
+  %__b4 = alloca i64, align 8
+  store i64 %__value, ptr %__value.addr, align 8
+  store i32 %__base, ptr %__base.addr, align 4
+  store i32 1, ptr %__n, align 4
+  %0 = load i32, ptr %__base.addr, align 4
+  %1 = load i32, ptr %__base.addr, align 4
+  %mul = mul nsw i32 %0, %1
+  store i32 %mul, ptr %__b2, align 4
+  %2 = load i32, ptr %__b2, align 4
+  %3 = load i32, ptr %__base.addr, align 4
+  %mul1 = mul i32 %2, %3
+  store i32 %mul1, ptr %__b3, align 4
+  %4 = load i32, ptr %__b3, align 4
+  %5 = load i32, ptr %__base.addr, align 4
+  %mul2 = mul i32 %4, %5
+  %conv = zext i32 %mul2 to i64
+  store i64 %conv, ptr %__b4, align 8
+  br label %for.cond
+
+for.cond:                                         ; preds = %if.end16, %entry
+  %6 = load i64, ptr %__value.addr, align 8
+  %7 = load i32, ptr %__base.addr, align 4
+  %conv3 = zext i32 %7 to i64
+  %cmp = icmp ult i64 %6, %conv3
+  br i1 %cmp, label %if.then, label %if.end
+
+if.then:                                          ; preds = %for.cond
+  %8 = load i32, ptr %__n, align 4
+  store i32 %8, ptr %retval, align 4
+  br label %return
+
+if.end:                                           ; preds = %for.cond
+  %9 = load i64, ptr %__value.addr, align 8
+  %10 = load i32, ptr %__b2, align 4
+  %conv4 = zext i32 %10 to i64
+  %cmp5 = icmp ult i64 %9, %conv4
+  br i1 %cmp5, label %if.then6, label %if.end7
+
+if.then6:                                         ; preds = %if.end
+  %11 = load i32, ptr %__n, align 4
+  %add = add i32 %11, 1
+  store i32 %add, ptr %retval, align 4
+  br label %return
+
+if.end7:                                          ; preds = %if.end
+  %12 = load i64, ptr %__value.addr, align 8
+  %13 = load i32, ptr %__b3, align 4
+  %conv8 = zext i32 %13 to i64
+  %cmp9 = icmp ult i64 %12, %conv8
+  br i1 %cmp9, label %if.then10, label %if.end12
+
+if.then10:                                        ; preds = %if.end7
+  %14 = load i32, ptr %__n, align 4
+  %add11 = add i32 %14, 2
+  store i32 %add11, ptr %retval, align 4
+  br label %return
+
+if.end12:                                         ; preds = %if.end7
+  %15 = load i64, ptr %__value.addr, align 8
+  %16 = load i64, ptr %__b4, align 8
+  %cmp13 = icmp ult i64 %15, %16
+  br i1 %cmp13, label %if.then14, label %if.end16
+
+if.then14:                                        ; preds = %if.end12
+  %17 = load i32, ptr %__n, align 4
+  %add15 = add i32 %17, 3
+  store i32 %add15, ptr %retval, align 4
+  br label %return
+
+if.end16:                                         ; preds = %if.end12
+  %18 = load i64, ptr %__b4, align 8
+  %19 = load i64, ptr %__value.addr, align 8
+  %div = udiv i64 %19, %18
+  store i64 %div, ptr %__value.addr, align 8
+  %20 = load i32, ptr %__n, align 4
+  %add17 = add i32 %20, 4
+  store i32 %add17, ptr %__n, align 4
+  br label %for.cond, !llvm.loop !8
+
+return:                                           ; preds = %if.then14, %if.then10, %if.then6, %if.then
+  %21 = load i32, ptr %retval, align 4
+  ret i32 %21
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %__n, i8 noundef signext %__c, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__n.addr = alloca i64, align 8
+  %__c.addr = alloca i8, align 1
+  %__a.addr = alloca ptr, align 8
+  %exn.slot = alloca ptr, align 8
+  %ehselector.slot = alloca i32, align 4
+  store ptr %this, ptr %this.addr, align 8
+  store i64 %__n, ptr %__n.addr, align 8
+  store i8 %__c, ptr %__c.addr, align 1
+  store ptr %__a, ptr %__a.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_dataplus = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this1, i32 0, i32 0
+  %call = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  %0 = load ptr, ptr %__a.addr, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %_M_dataplus, ptr noundef %call, ptr noundef nonnull align 1 dereferenceable(1) %0)
+  %1 = load i64, ptr %__n.addr, align 8
+  %2 = load i8, ptr %__c.addr, align 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %this1, i64 noundef %1, i8 noundef signext %2)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %entry
+  ret void
+
+lpad:                                             ; preds = %entry
+  %3 = landingpad { ptr, i32 }
+          cleanup
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_dataplus) #13
+  br label %eh.resume
+
+eh.resume:                                        ; preds = %lpad
+  %exn = load ptr, ptr %exn.slot, align 8
+  %sel = load i32, ptr %ehselector.slot, align 4
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
+  %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
+  resume { ptr, i32 } %lpad.val2
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8__detail18__to_chars_10_implImEEvPcjT_(ptr noundef %__first, i32 noundef %__len, i64 noundef %__val) #2 comdat {
+entry:
+  %__first.addr = alloca ptr, align 8
+  %__len.addr = alloca i32, align 4
+  %__val.addr = alloca i64, align 8
+  %__pos = alloca i32, align 4
+  %__num = alloca i64, align 8
+  %__num8 = alloca i64, align 8
+  store ptr %__first, ptr %__first.addr, align 8
+  store i32 %__len, ptr %__len.addr, align 4
+  store i64 %__val, ptr %__val.addr, align 8
+  %0 = load i32, ptr %__len.addr, align 4
+  %sub = sub i32 %0, 1
+  store i32 %sub, ptr %__pos, align 4
+  br label %while.cond
+
+while.cond:                                       ; preds = %while.body, %entry
+  %1 = load i64, ptr %__val.addr, align 8
+  %cmp = icmp uge i64 %1, 100
+  br i1 %cmp, label %while.body, label %while.end
+
+while.body:                                       ; preds = %while.cond
+  %2 = load i64, ptr %__val.addr, align 8
+  %rem = urem i64 %2, 100
+  %mul = mul i64 %rem, 2
+  store i64 %mul, ptr %__num, align 8
+  %3 = load i64, ptr %__val.addr, align 8
+  %div = udiv i64 %3, 100
+  store i64 %div, ptr %__val.addr, align 8
+  %4 = load i64, ptr %__num, align 8
+  %add = add i64 %4, 1
+  %arrayidx = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %add
+  %5 = load i8, ptr %arrayidx, align 1
+  %6 = load ptr, ptr %__first.addr, align 8
+  %7 = load i32, ptr %__pos, align 4
+  %idxprom = zext i32 %7 to i64
+  %arrayidx1 = getelementptr inbounds i8, ptr %6, i64 %idxprom
+  store i8 %5, ptr %arrayidx1, align 1
+  %8 = load i64, ptr %__num, align 8
+  %arrayidx2 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %8
+  %9 = load i8, ptr %arrayidx2, align 1
+  %10 = load ptr, ptr %__first.addr, align 8
+  %11 = load i32, ptr %__pos, align 4
+  %sub3 = sub i32 %11, 1
+  %idxprom4 = zext i32 %sub3 to i64
+  %arrayidx5 = getelementptr inbounds i8, ptr %10, i64 %idxprom4
+  store i8 %9, ptr %arrayidx5, align 1
+  %12 = load i32, ptr %__pos, align 4
+  %sub6 = sub i32 %12, 2
+  store i32 %sub6, ptr %__pos, align 4
+  br label %while.cond, !llvm.loop !9
+
+while.end:                                        ; preds = %while.cond
+  %13 = load i64, ptr %__val.addr, align 8
+  %cmp7 = icmp uge i64 %13, 10
+  br i1 %cmp7, label %if.then, label %if.else
+
+if.then:                                          ; preds = %while.end
+  %14 = load i64, ptr %__val.addr, align 8
+  %mul9 = mul i64 %14, 2
+  store i64 %mul9, ptr %__num8, align 8
+  %15 = load i64, ptr %__num8, align 8
+  %add10 = add i64 %15, 1
+  %arrayidx11 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %add10
+  %16 = load i8, ptr %arrayidx11, align 1
+  %17 = load ptr, ptr %__first.addr, align 8
+  %arrayidx12 = getelementptr inbounds i8, ptr %17, i64 1
+  store i8 %16, ptr %arrayidx12, align 1
+  %18 = load i64, ptr %__num8, align 8
+  %arrayidx13 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %18
+  %19 = load i8, ptr %arrayidx13, align 1
+  %20 = load ptr, ptr %__first.addr, align 8
+  %arrayidx14 = getelementptr inbounds i8, ptr %20, i64 0
+  store i8 %19, ptr %arrayidx14, align 1
+  br label %if.end
+
+if.else:                                          ; preds = %while.end
+  %21 = load i64, ptr %__val.addr, align 8
+  %add15 = add i64 48, %21
+  %conv = trunc i64 %add15 to i8
+  %22 = load ptr, ptr %__first.addr, align 8
+  %arrayidx16 = getelementptr inbounds i8, ptr %22, i64 0
+  store i8 %conv, ptr %arrayidx16, align 1
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then
+  ret void
+}
+
+declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) #1
+
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNKSt4hashIlEclEl(ptr noundef nonnull align 1 dereferenceable(1) %this, i64 noundef %__val) #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__val.addr = alloca i64, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store i64 %__val, ptr %__val.addr, align 8
+  %0 = load i64, ptr %__val.addr, align 8
+  ret i64 %0
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZSt11make_uniqueIN8facebook5velox6common8Subfield13LongSubscriptEJRKlEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr noalias sret(%"class.std::unique_ptr.10") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %__args) #0 comdat personality ptr @__gxx_personality_v0 {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %__args.addr = alloca ptr, align 8
+  %exn.slot = alloca ptr, align 8
+  %ehselector.slot = alloca i32, align 4
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store ptr %__args, ptr %__args.addr, align 8
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #14
+  %0 = load ptr, ptr %__args.addr, align 8
+  %1 = load i64, ptr %0, align 8
+  invoke void @_ZN8facebook5velox6common8Subfield13LongSubscriptC2El(ptr noundef nonnull align 8 dereferenceable(16) %call, i64 noundef %1)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %entry
+  call void @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield13LongSubscriptESt14default_deleteIS4_EEC2IS6_vEEPS4_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call) #13
+  ret void
+
+lpad:                                             ; preds = %entry
+  %2 = landingpad { ptr, i32 }
+          cleanup
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
+  call void @_ZdlPv(ptr noundef %call) #15
+  br label %eh.resume
+
+eh.resume:                                        ; preds = %lpad
+  %exn = load ptr, ptr %exn.slot, align 8
+  %sel = load i32, ptr %ehselector.slot, align 4
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
+  %lpad.val1 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
+  resume { ptr, i32 } %lpad.val1
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt15__uniq_ptr_dataIN8facebook5velox6common8Subfield13LongSubscriptESt14default_deleteIS4_ELb1ELb1EECI2St15__uniq_ptr_implIS4_S6_EEPS4_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %0) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %1 = load ptr, ptr %.addr, align 8
+  call void @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield13LongSubscriptESt14default_deleteIS4_EEC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef %1)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield13LongSubscriptESt14default_deleteIS4_EEC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %__p) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__p.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__p, ptr %__p.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_t = getelementptr inbounds %"class.std::__uniq_ptr_impl.12", ptr %this1, i32 0, i32 0
+  call void @_ZNSt5tupleIJPN8facebook5velox6common8Subfield13LongSubscriptESt14default_deleteIS4_EEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES5_S7_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #13
+  %0 = load ptr, ptr %__p.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield13LongSubscriptESt14default_deleteIS4_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
+  store ptr %0, ptr %call, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt5tupleIJPN8facebook5velox6common8Subfield13LongSubscriptESt14default_deleteIS4_EEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES5_S7_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  invoke void @_ZNSt11_Tuple_implILm0EJPN8facebook5velox6common8Subfield13LongSubscriptESt14default_deleteIS4_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %entry
+  ret void
+
+terminate.lpad:                                   ; preds = %entry
+  %0 = landingpad { ptr, i32 }
+          catch ptr null
+  %1 = extractvalue { ptr, i32 } %0, 0
+  call void @__clang_call_terminate(ptr %1) #16
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt11_Tuple_implILm0EJPN8facebook5velox6common8Subfield13LongSubscriptESt14default_deleteIS4_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN8facebook5velox6common8Subfield13LongSubscriptEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1)
+  call void @_ZNSt10_Head_baseILm0EPN8facebook5velox6common8Subfield13LongSubscriptELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN8facebook5velox6common8Subfield13LongSubscriptEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZNSt10_Head_baseILm1ESt14default_deleteIN8facebook5velox6common8Subfield13LongSubscriptEELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10_Head_baseILm0EPN8facebook5velox6common8Subfield13LongSubscriptELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_head_impl = getelementptr inbounds %"struct.std::_Head_base.17", ptr %this1, i32 0, i32 0
+  store ptr null, ptr %_M_head_impl, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10_Head_baseILm1ESt14default_deleteIN8facebook5velox6common8Subfield13LongSubscriptEELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  ret void
+}
+
+; Function Attrs: nounwind
+declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) #4
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN8facebook5velox6common8Subfield15StringSubscriptC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %index) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %index.addr = alloca ptr, align 8
+  %exn.slot = alloca ptr, align 8
+  %ehselector.slot = alloca i32, align 4
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %index, ptr %index.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZN8facebook5velox6common8Subfield11PathElementC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8facebook5velox6common8Subfield15StringSubscriptE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  %index_ = getelementptr inbounds %"class.facebook::velox::common::Subfield::StringSubscript", ptr %this1, i32 0, i32 1
+  %0 = load ptr, ptr %index.addr, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %index_, ptr noundef nonnull align 8 dereferenceable(32) %0)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %entry
+  ret void
+
+lpad:                                             ; preds = %entry
+  %1 = landingpad { ptr, i32 }
+          cleanup
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
+  call void @_ZN8facebook5velox6common8Subfield11PathElementD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
+  br label %eh.resume
+
+eh.resume:                                        ; preds = %lpad
+  %exn = load ptr, ptr %exn.slot, align 8
+  %sel = load i32, ptr %ehselector.slot, align 4
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
+  %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
+  resume { ptr, i32 } %lpad.val2
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield15StringSubscriptESt14default_deleteIS4_EEC2IS6_vEEPS4_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %__p) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__p.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__p, ptr %__p.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_t = getelementptr inbounds %"class.std::unique_ptr.26", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %__p.addr, align 8
+  invoke void @_ZNSt15__uniq_ptr_dataIN8facebook5velox6common8Subfield15StringSubscriptESt14default_deleteIS4_ELb1ELb1EECI2St15__uniq_ptr_implIS4_S6_EEPS4_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t, ptr noundef %0)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %entry
+  ret void
+
+terminate.lpad:                                   ; preds = %entry
+  %1 = landingpad { ptr, i32 }
+          catch ptr null
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #16
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN8facebook5velox6common8Subfield15StringSubscriptD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZN8facebook5velox6common8Subfield15StringSubscriptD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #13
+  call void @_ZdlPv(ptr noundef %this1) #15
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZNK8facebook5velox6common8Subfield15StringSubscript4kindEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  ret i32 2
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZNK8facebook5velox6common8Subfield15StringSubscript11isSubscriptEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  ret i1 true
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNK8facebook5velox6common8Subfield15StringSubscript8toStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %this.addr = alloca ptr, align 8
+  %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
+  %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
+  %exn.slot = alloca ptr, align 8
+  %ehselector.slot = alloca i32, align 4
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %index_ = getelementptr inbounds %"class.facebook::velox::common::Subfield::StringSubscript", ptr %this1, i32 0, i32 1
+  call void @_ZN5boost9algorithm16replace_all_copyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA2_cA3_cEET_RKSA_RKT0_RKT1_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(32) %index_, ptr noundef nonnull align 1 dereferenceable(2) @.str.9, ptr noundef nonnull align 1 dereferenceable(3) @.str.10)
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef @.str.8, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %entry
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef @.str.11)
+          to label %invoke.cont4 unwind label %lpad3
+
+invoke.cont4:                                     ; preds = %invoke.cont
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #13
+  ret void
+
+lpad:                                             ; preds = %entry
+  %0 = landingpad { ptr, i32 }
+          cleanup
+  %1 = extractvalue { ptr, i32 } %0, 0
+  store ptr %1, ptr %exn.slot, align 8
+  %2 = extractvalue { ptr, i32 } %0, 1
+  store i32 %2, ptr %ehselector.slot, align 4
+  br label %ehcleanup
+
+lpad3:                                            ; preds = %invoke.cont
+  %3 = landingpad { ptr, i32 }
+          cleanup
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
+  br label %ehcleanup
+
+ehcleanup:                                        ; preds = %lpad3, %lpad
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #13
+  br label %eh.resume
+
+eh.resume:                                        ; preds = %ehcleanup
+  %exn = load ptr, ptr %exn.slot, align 8
+  %sel = load i32, ptr %ehselector.slot, align 4
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
+  %lpad.val5 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
+  resume { ptr, i32 } %lpad.val5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNK8facebook5velox6common8Subfield15StringSubscript4hashEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %hash = alloca %"struct.std::hash", align 1
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %index_ = getelementptr inbounds %"class.facebook::velox::common::Subfield::StringSubscript", ptr %this1, i32 0, i32 1
+  %call = call noundef i64 @_ZNKSt4hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_(ptr noundef nonnull align 1 dereferenceable(1) %hash, ptr noundef nonnull align 8 dereferenceable(32) %index_) #13
+  ret i64 %call
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef zeroext i1 @_ZNK8facebook5velox6common8Subfield15StringSubscripteqERKNS2_11PathElementE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %other) unnamed_addr #0 comdat align 2 {
+entry:
+  %retval = alloca i1, align 1
+  %this.addr = alloca ptr, align 8
+  %other.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %other, ptr %other.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %other.addr, align 8
+  %cmp = icmp eq ptr %this1, %0
+  br i1 %cmp, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  store i1 true, ptr %retval, align 1
+  br label %return
+
+if.end:                                           ; preds = %entry
+  %1 = load ptr, ptr %other.addr, align 8
+  %vtable = load ptr, ptr %1, align 8
+  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %2 = load ptr, ptr %vfn, align 8
+  %call = call noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %cmp2 = icmp eq i32 %call, 2
+  br i1 %cmp2, label %land.rhs, label %land.end
+
+land.rhs:                                         ; preds = %if.end
+  %3 = load ptr, ptr %other.addr, align 8
+  %index_ = getelementptr inbounds %"class.facebook::velox::common::Subfield::StringSubscript", ptr %3, i32 0, i32 1
+  %index_3 = getelementptr inbounds %"class.facebook::velox::common::Subfield::StringSubscript", ptr %this1, i32 0, i32 1
+  %call4 = call noundef zeroext i1 @_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_(ptr noundef nonnull align 8 dereferenceable(32) %index_, ptr noundef nonnull align 8 dereferenceable(32) %index_3) #13
+  br label %land.end
+
+land.end:                                         ; preds = %land.rhs, %if.end
+  %4 = phi i1 [ false, %if.end ], [ %call4, %land.rhs ]
+  store i1 %4, ptr %retval, align 1
+  br label %return
+
+return:                                           ; preds = %land.end, %if.then
+  %5 = load i1, ptr %retval, align 1
+  ret i1 %5
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN8facebook5velox6common8Subfield15StringSubscript5cloneEv(ptr noalias sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #0 comdat align 2 {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %this.addr = alloca ptr, align 8
+  %ref.tmp = alloca %"class.std::unique_ptr.26", align 8
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %index_ = getelementptr inbounds %"class.facebook::velox::common::Subfield::StringSubscript", ptr %this1, i32 0, i32 1
+  call void @_ZSt11make_uniqueIN8facebook5velox6common8Subfield15StringSubscriptEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr sret(%"class.std::unique_ptr.26") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %index_)
+  call void @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield11PathElementESt14default_deleteIS4_EEC2INS3_15StringSubscriptES5_IS9_EvEEOS_IT_T0_E(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #13
+  call void @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield15StringSubscriptESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #13
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5boost9algorithm16replace_all_copyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA2_cA3_cEET_RKSA_RKT0_RKT1_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %Input, ptr noundef nonnull align 1 dereferenceable(2) %Search, ptr noundef nonnull align 1 dereferenceable(3) %Format) #0 comdat {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %Input.addr = alloca ptr, align 8
+  %Search.addr = alloca ptr, align 8
+  %Format.addr = alloca ptr, align 8
+  %agg.tmp = alloca %"struct.boost::algorithm::detail::first_finderF", align 8
+  %agg.tmp1 = alloca %"struct.boost::algorithm::detail::const_formatF", align 8
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store ptr %Input, ptr %Input.addr, align 8
+  store ptr %Search, ptr %Search.addr, align 8
+  store ptr %Format, ptr %Format.addr, align 8
+  %0 = load ptr, ptr %Input.addr, align 8
+  %1 = load ptr, ptr %Search.addr, align 8
+  call void @_ZN5boost9algorithm12first_finderIA2_cEENS0_6detail13first_finderFINS_20range_const_iteratorIT_vE4typeENS0_8is_equalEEERKS6_(ptr sret(%"struct.boost::algorithm::detail::first_finderF") align 8 %agg.tmp, ptr noundef nonnull align 1 dereferenceable(2) %1)
+  %2 = load ptr, ptr %Format.addr, align 8
+  %call = call { ptr, ptr } @_ZN5boost9algorithm15const_formatterIA3_cEENS0_6detail13const_formatFINS_14iterator_rangeINS_20range_const_iteratorIT_vE4typeEEEEERKS7_(ptr noundef nonnull align 1 dereferenceable(3) %2)
+  %coerce.dive = getelementptr inbounds %"struct.boost::algorithm::detail::const_formatF", ptr %agg.tmp1, i32 0, i32 0
+  %coerce.dive2 = getelementptr inbounds %"class.boost::iterator_range", ptr %coerce.dive, i32 0, i32 0
+  %coerce.dive3 = getelementptr inbounds %"class.boost::iterator_range_detail::iterator_range_base", ptr %coerce.dive2, i32 0, i32 0
+  %coerce.dive4 = getelementptr inbounds %"class.boost::iterator_range_detail::iterator_range_base.44", ptr %coerce.dive3, i32 0, i32 0
+  %3 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive4, i32 0, i32 0
+  %4 = extractvalue { ptr, ptr } %call, 0
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive4, i32 0, i32 1
+  %6 = extractvalue { ptr, ptr } %call, 1
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp1, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp1, i32 0, i32 1
+  %10 = load ptr, ptr %9, align 8
+  call void @_ZN5boost9algorithm20find_format_all_copyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_6detail13first_finderFIPKcNS0_8is_equalEEENS8_13const_formatFINS_14iterator_rangeISB_EEEEEET_RKSI_T0_T1_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef byval(%"struct.boost::algorithm::detail::first_finderF") align 8 %agg.tmp, ptr %8, ptr %10)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5boost9algorithm20find_format_all_copyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_6detail13first_finderFIPKcNS0_8is_equalEEENS8_13const_formatFINS_14iterator_rangeISB_EEEEEET_RKSI_T0_T1_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %Input, ptr noundef byval(%"struct.boost::algorithm::detail::first_finderF") align 8 %Finder, ptr %Formatter.coerce0, ptr %Formatter.coerce1) #0 comdat {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %Formatter = alloca %"struct.boost::algorithm::detail::const_formatF", align 8
+  %Input.addr = alloca ptr, align 8
+  %agg.tmp = alloca %"struct.boost::algorithm::detail::first_finderF", align 8
+  %agg.tmp1 = alloca %"struct.boost::algorithm::detail::const_formatF", align 8
+  %ref.tmp = alloca %"class.boost::iterator_range.46", align 8
+  %agg.tmp2 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %agg.tmp3 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  store ptr %agg.result, ptr %result.ptr, align 8
+  %0 = getelementptr inbounds { ptr, ptr }, ptr %Formatter, i32 0, i32 0
+  store ptr %Formatter.coerce0, ptr %0, align 8
+  %1 = getelementptr inbounds { ptr, ptr }, ptr %Formatter, i32 0, i32 1
+  store ptr %Formatter.coerce1, ptr %1, align 8
+  store ptr %Input, ptr %Input.addr, align 8
+  %2 = load ptr, ptr %Input.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %Finder, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp1, ptr align 8 %Formatter, i64 16, i1 false)
+  %3 = load ptr, ptr %Input.addr, align 8
+  %call = call ptr @_ZN5boost17range_adl_barrier5beginINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_14range_iteratorIKT_vE4typeERSA_(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp2, i32 0, i32 0
+  store ptr %call, ptr %coerce.dive, align 8
+  %4 = load ptr, ptr %Input.addr, align 8
+  %call4 = call ptr @_ZN5boost17range_adl_barrier3endINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_14range_iteratorIKT_vE4typeERSA_(ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %coerce.dive5 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp3, i32 0, i32 0
+  store ptr %call4, ptr %coerce.dive5, align 8
+  %coerce.dive6 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp2, i32 0, i32 0
+  %5 = load ptr, ptr %coerce.dive6, align 8
+  %coerce.dive7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp3, i32 0, i32 0
+  %6 = load ptr, ptr %coerce.dive7, align 8
+  %call8 = call { ptr, ptr } @_ZNK5boost9algorithm6detail13first_finderFIPKcNS0_8is_equalEEclIN9__gnu_cxx17__normal_iteratorIS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS_14iterator_rangeIT_EESI_SI_(ptr noundef nonnull align 8 dereferenceable(17) %Finder, ptr %5, ptr %6)
+  %coerce.dive9 = getelementptr inbounds %"class.boost::iterator_range.46", ptr %ref.tmp, i32 0, i32 0
+  %coerce.dive10 = getelementptr inbounds %"class.boost::iterator_range_detail::iterator_range_base.47", ptr %coerce.dive9, i32 0, i32 0
+  %coerce.dive11 = getelementptr inbounds %"class.boost::iterator_range_detail::iterator_range_base.48", ptr %coerce.dive10, i32 0, i32 0
+  %7 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive11, i32 0, i32 0
+  %8 = extractvalue { ptr, ptr } %call8, 0
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive11, i32 0, i32 1
+  %10 = extractvalue { ptr, ptr } %call8, 1
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp1, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp1, i32 0, i32 1
+  %14 = load ptr, ptr %13, align 8
+  call void @_ZN5boost9algorithm6detail25find_format_all_copy_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_13first_finderFIPKcNS0_8is_equalEEENS1_13const_formatFINS_14iterator_rangeISB_EEEENSF_IN9__gnu_cxx17__normal_iteratorISB_S8_EEEEEET_RKSM_T0_T1_RKT2_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef byval(%"struct.boost::algorithm::detail::first_finderF") align 8 %agg.tmp, ptr %12, ptr %14, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5boost9algorithm12first_finderIA2_cEENS0_6detail13first_finderFINS_20range_const_iteratorIT_vE4typeENS0_8is_equalEEERKS6_(ptr noalias sret(%"struct.boost::algorithm::detail::first_finderF") align 8 %agg.result, ptr noundef nonnull align 1 dereferenceable(2) %Search) #0 comdat {
+entry:
+  %Search.addr = alloca ptr, align 8
+  %ref.tmp = alloca %"class.boost::iterator_range", align 8
+  store ptr %Search, ptr %Search.addr, align 8
+  %0 = load ptr, ptr %Search.addr, align 8
+  %call = call { ptr, ptr } @_ZN5boost10as_literalIcLm2EEENS_14iterator_rangeIPKT_EERAT0__S3_(ptr noundef nonnull align 1 dereferenceable(2) %0)
+  %coerce.dive = getelementptr inbounds %"class.boost::iterator_range", ptr %ref.tmp, i32 0, i32 0
+  %coerce.dive1 = getelementptr inbounds %"class.boost::iterator_range_detail::iterator_range_base", ptr %coerce.dive, i32 0, i32 0
+  %coerce.dive2 = getelementptr inbounds %"class.boost::iterator_range_detail::iterator_range_base.44", ptr %coerce.dive1, i32 0, i32 0
+  %1 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive2, i32 0, i32 0
+  %2 = extractvalue { ptr, ptr } %call, 0
+  store ptr %2, ptr %1, align 8
+  %3 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive2, i32 0, i32 1
+  %4 = extractvalue { ptr, ptr } %call, 1
+  store ptr %4, ptr %3, align 8
+  call void @_ZN5boost9algorithm6detail13first_finderFIPKcNS0_8is_equalEEC2INS_14iterator_rangeIS4_EEEERKT_S5_(ptr noundef nonnull align 8 dereferenceable(17) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr { ptr, ptr } @_ZN5boost9algorithm15const_formatterIA3_cEENS0_6detail13const_formatFINS_14iterator_rangeINS_20range_const_iteratorIT_vE4typeEEEEERKS7_(ptr noundef nonnull align 1 dereferenceable(3) %Format) #0 comdat {
+entry:
+  %retval = alloca %"struct.boost::algorithm::detail::const_formatF", align 8
+  %Format.addr = alloca ptr, align 8
+  %ref.tmp = alloca %"class.boost::iterator_range", align 8
+  store ptr %Format, ptr %Format.addr, align 8
+  %0 = load ptr, ptr %Format.addr, align 8
+  %call = call { ptr, ptr } @_ZN5boost10as_literalIcLm3EEENS_14iterator_rangeIPKT_EERAT0__S3_(ptr noundef nonnull align 1 dereferenceable(3) %0)
+  %coerce.dive = getelementptr inbounds %"class.boost::iterator_range", ptr %ref.tmp, i32 0, i32 0
+  %coerce.dive1 = getelementptr inbounds %"class.boost::iterator_range_detail::iterator_range_base", ptr %coerce.dive, i32 0, i32 0
+  %coerce.dive2 = getelementptr inbounds %"class.boost::iterator_range_detail::iterator_range_base.44", ptr %coerce.dive1, i32 0, i32 0
+  %1 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive2, i32 0, i32 0
+  %2 = extractvalue { ptr, ptr } %call, 0
+  store ptr %2, ptr %1, align 8
+  %3 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive2, i32 0, i32 1
+  %4 = extractvalue { ptr, ptr } %call, 1
+  store ptr %4, ptr %3, align 8
+  call void @_ZN5boost9algorithm6detail13const_formatFINS_14iterator_rangeIPKcEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
+  %coerce.dive3 = getelementptr inbounds %"struct.boost::algorithm::detail::const_formatF", ptr %retval, i32 0, i32 0
+  %coerce.dive4 = getelementptr inbounds %"class.boost::iterator_range", ptr %coerce.dive3, i32 0, i32 0
+  %coerce.dive5 = getelementptr inbounds %"class.boost::iterator_range_detail::iterator_range_base", ptr %coerce.dive4, i32 0, i32 0
+  %coerce.dive6 = getelementptr inbounds %"class.boost::iterator_range_detail::iterator_range_base.44", ptr %coerce.dive5, i32 0, i32 0
+  %5 = load { ptr, ptr }, ptr %coerce.dive6, align 8
+  ret { ptr, ptr } %5
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5boost9algorithm6detail25find_format_all_copy_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_13first_finderFIPKcNS0_8is_equalEEENS1_13const_formatFINS_14iterator_rangeISB_EEEENSF_IN9__gnu_cxx17__normal_iteratorISB_S8_EEEEEET_RKSM_T0_T1_RKT2_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %Input, ptr noundef byval(%"struct.boost::algorithm::detail::first_finderF") align 8 %Finder, ptr %Formatter.coerce0, ptr %Formatter.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %FindResult) #0 comdat {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %Formatter = alloca %"struct.boost::algorithm::detail::const_formatF", align 8
+  %Input.addr = alloca ptr, align 8
+  %FindResult.addr = alloca ptr, align 8
+  %agg.tmp = alloca %"struct.boost::algorithm::detail::first_finderF", align 8
+  %agg.tmp1 = alloca %"struct.boost::algorithm::detail::const_formatF", align 8
+  store ptr %agg.result, ptr %result.ptr, align 8
+  %0 = getelementptr inbounds { ptr, ptr }, ptr %Formatter, i32 0, i32 0
+  store ptr %Formatter.coerce0, ptr %0, align 8
+  %1 = getelementptr inbounds { ptr, ptr }, ptr %Formatter, i32 0, i32 1
+  store ptr %Formatter.coerce1, ptr %1, align 8
+  store ptr %Input, ptr %Input.addr, align 8
+  store ptr %FindResult, ptr %FindResult.addr, align 8
+  %2 = load ptr, ptr %Input.addr, align 8
+  %3 = load ptr, ptr %FindResult.addr, align 8
+  %call = call noundef zeroext i1 @_ZN5boost9algorithm6detail17check_find_resultIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKNS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPKcS8_EEEEEEbRT_RT0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
+  br i1 %call, label %if.then, label %if.else
+
+if.then:                                          ; preds = %entry
+  %4 = load ptr, ptr %Input.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %Finder, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp1, ptr align 8 %Formatter, i64 16, i1 false)
+  %5 = load ptr, ptr %FindResult.addr, align 8
+  %6 = load ptr, ptr %FindResult.addr, align 8
+  %call2 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5boost9algorithm6detail13const_formatFINS_14iterator_rangeIPKcEEEclINS3_IN9__gnu_cxx17__normal_iteratorIS5_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEEERKS6_RKT_(ptr noundef nonnull align 8 dereferenceable(16) %Formatter, ptr noundef nonnull align 8 dereferenceable(16) %6)
+  %7 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp1, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp1, i32 0, i32 1
+  %10 = load ptr, ptr %9, align 8
+  call void @_ZN5boost9algorithm6detail26find_format_all_copy_impl2INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_13first_finderFIPKcNS0_8is_equalEEENS1_13const_formatFINS_14iterator_rangeISB_EEEENSF_IN9__gnu_cxx17__normal_iteratorISB_S8_EEEESG_EET_RKSM_T0_T1_RKT2_RKT3_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef byval(%"struct.boost::algorithm::detail::first_finderF") align 8 %agg.tmp, ptr %8, ptr %10, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %call2)
+  br label %return
+
+if.else:                                          ; preds = %entry
+  %11 = load ptr, ptr %Input.addr, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %11)
+  br label %return
+
+return:                                           ; preds = %if.else, %if.then
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr { ptr, ptr } @_ZNK5boost9algorithm6detail13first_finderFIPKcNS0_8is_equalEEclIN9__gnu_cxx17__normal_iteratorIS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS_14iterator_rangeIT_EESI_SI_(ptr noundef nonnull align 8 dereferenceable(17) %this, ptr %Begin.coerce, ptr %End.coerce) #0 comdat align 2 {
+entry:
+  %retval = alloca %"class.boost::iterator_range.46", align 8
+  %Begin = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %End = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %this.addr = alloca ptr, align 8
+  %OuterIt = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %agg.tmp = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %agg.tmp4 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %InnerIt = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %SubstrIt = alloca ptr, align 8
+  %agg.tmp23 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %agg.tmp24 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %agg.tmp31 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %agg.tmp32 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %Begin, i32 0, i32 0
+  store ptr %Begin.coerce, ptr %coerce.dive, align 8
+  %coerce.dive1 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %End, i32 0, i32 0
+  store ptr %End.coerce, ptr %coerce.dive1, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this2 = load ptr, ptr %this.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %OuterIt, ptr align 8 %Begin, i64 8, i1 false)
+  br label %for.cond
+
+for.cond:                                         ; preds = %for.inc28, %entry
+  %call = call noundef zeroext i1 @_ZN9__gnu_cxxneIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_17__normal_iteratorIT_T0_EESE_(ptr noundef nonnull align 8 dereferenceable(8) %OuterIt, ptr noundef nonnull align 8 dereferenceable(8) %End) #13
+  br i1 %call, label %for.body, label %for.end30
+
+for.body:                                         ; preds = %for.cond
+  %m_Search = getelementptr inbounds %"struct.boost::algorithm::detail::first_finderF", ptr %this2, i32 0, i32 0
+  %call3 = call noundef zeroext i1 @_ZN5boost5emptyINS_14iterator_rangeIPKcEEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(16) %m_Search)
+  br i1 %call3, label %if.then, label %if.end
+
+if.then:                                          ; preds = %for.body
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %End, i64 8, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp4, ptr align 8 %End, i64 8, i1 false)
+  %coerce.dive5 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp, i32 0, i32 0
+  %0 = load ptr, ptr %coerce.dive5, align 8
+  %coerce.dive6 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp4, i32 0, i32 0
+  %1 = load ptr, ptr %coerce.dive6, align 8
+  call void @_ZN5boost14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEC2ISB_EET_SE_(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr %0, ptr %1)
+  br label %return
+
+if.end:                                           ; preds = %for.body
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %InnerIt, ptr align 8 %OuterIt, i64 8, i1 false)
+  %m_Search7 = getelementptr inbounds %"struct.boost::algorithm::detail::first_finderF", ptr %this2, i32 0, i32 0
+  %call8 = call noundef ptr @_ZNK5boost21iterator_range_detail19iterator_range_baseIPKcNS_9iterators27incrementable_traversal_tagEE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %m_Search7)
+  store ptr %call8, ptr %SubstrIt, align 8
+  br label %for.cond9
+
+for.cond9:                                        ; preds = %for.inc, %if.end
+  %call10 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_17__normal_iteratorIT_T0_EESE_(ptr noundef nonnull align 8 dereferenceable(8) %InnerIt, ptr noundef nonnull align 8 dereferenceable(8) %End) #13
+  br i1 %call10, label %land.rhs, label %land.end
+
+land.rhs:                                         ; preds = %for.cond9
+  %2 = load ptr, ptr %SubstrIt, align 8
+  %m_Search11 = getelementptr inbounds %"struct.boost::algorithm::detail::first_finderF", ptr %this2, i32 0, i32 0
+  %call12 = call noundef ptr @_ZNK5boost21iterator_range_detail19iterator_range_baseIPKcNS_9iterators27incrementable_traversal_tagEE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %m_Search11)
+  %cmp = icmp ne ptr %2, %call12
+  br label %land.end
+
+land.end:                                         ; preds = %land.rhs, %for.cond9
+  %3 = phi i1 [ false, %for.cond9 ], [ %cmp, %land.rhs ]
+  br i1 %3, label %for.body13, label %for.end
+
+for.body13:                                       ; preds = %land.end
+  %m_Comp = getelementptr inbounds %"struct.boost::algorithm::detail::first_finderF", ptr %this2, i32 0, i32 1
+  %call14 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %InnerIt) #13
+  %4 = load ptr, ptr %SubstrIt, align 8
+  %call15 = call noundef zeroext i1 @_ZNK5boost9algorithm8is_equalclIccEEbRKT_RKT0_(ptr noundef nonnull align 1 dereferenceable(1) %m_Comp, ptr noundef nonnull align 1 dereferenceable(1) %call14, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  br i1 %call15, label %if.end17, label %if.then16
+
+if.then16:                                        ; preds = %for.body13
+  br label %for.end
+
+if.end17:                                         ; preds = %for.body13
+  br label %for.inc
+
+for.inc:                                          ; preds = %if.end17
+  %call18 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %InnerIt) #13
+  %5 = load ptr, ptr %SubstrIt, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %5, i32 1
+  store ptr %incdec.ptr, ptr %SubstrIt, align 8
+  br label %for.cond9, !llvm.loop !10
+
+for.end:                                          ; preds = %if.then16, %land.end
+  %6 = load ptr, ptr %SubstrIt, align 8
+  %m_Search19 = getelementptr inbounds %"struct.boost::algorithm::detail::first_finderF", ptr %this2, i32 0, i32 0
+  %call20 = call noundef ptr @_ZNK5boost21iterator_range_detail19iterator_range_baseIPKcNS_9iterators27incrementable_traversal_tagEE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %m_Search19)
+  %cmp21 = icmp eq ptr %6, %call20
+  br i1 %cmp21, label %if.then22, label %if.end27
+
+if.then22:                                        ; preds = %for.end
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp23, ptr align 8 %OuterIt, i64 8, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp24, ptr align 8 %InnerIt, i64 8, i1 false)
+  %coerce.dive25 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp23, i32 0, i32 0
+  %7 = load ptr, ptr %coerce.dive25, align 8
+  %coerce.dive26 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp24, i32 0, i32 0
+  %8 = load ptr, ptr %coerce.dive26, align 8
+  call void @_ZN5boost14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEC2ISB_EET_SE_(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr %7, ptr %8)
+  br label %return
+
+if.end27:                                         ; preds = %for.end
+  br label %for.inc28
+
+for.inc28:                                        ; preds = %if.end27
+  %call29 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %OuterIt) #13
+  br label %for.cond, !llvm.loop !11
+
+for.end30:                                        ; preds = %for.cond
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp31, ptr align 8 %End, i64 8, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp32, ptr align 8 %End, i64 8, i1 false)
+  %coerce.dive33 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp31, i32 0, i32 0
+  %9 = load ptr, ptr %coerce.dive33, align 8
+  %coerce.dive34 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp32, i32 0, i32 0
+  %10 = load ptr, ptr %coerce.dive34, align 8
+  call void @_ZN5boost14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEC2ISB_EET_SE_(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr %9, ptr %10)
+  br label %return
+
+return:                                           ; preds = %for.end30, %if.then22, %if.then
+  %coerce.dive35 = getelementptr inbounds %"class.boost::iterator_range.46", ptr %retval, i32 0, i32 0
+  %coerce.dive36 = getelementptr inbounds %"class.boost::iterator_range_detail::iterator_range_base.47", ptr %coerce.dive35, i32 0, i32 0
+  %coerce.dive37 = getelementptr inbounds %"class.boost::iterator_range_detail::iterator_range_base.48", ptr %coerce.dive36, i32 0, i32 0
+  %11 = load { ptr, ptr }, ptr %coerce.dive37, align 8
+  ret { ptr, ptr } %11
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr ptr @_ZN5boost17range_adl_barrier5beginINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_14range_iteratorIKT_vE4typeERSA_(ptr noundef nonnull align 8 dereferenceable(32) %r) #0 comdat {
+entry:
+  %retval = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %r.addr = alloca ptr, align 8
+  store ptr %r, ptr %r.addr, align 8
+  %0 = load ptr, ptr %r.addr, align 8
+  %call = call ptr @_ZN5boost12range_detail11range_beginIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_14range_iteratorIT_vE4typeERSA_(ptr noundef nonnull align 8 dereferenceable(32) %0)
+  %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %retval, i32 0, i32 0
+  store ptr %call, ptr %coerce.dive, align 8
+  %coerce.dive1 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %retval, i32 0, i32 0
+  %1 = load ptr, ptr %coerce.dive1, align 8
+  ret ptr %1
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr ptr @_ZN5boost17range_adl_barrier3endINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_14range_iteratorIKT_vE4typeERSA_(ptr noundef nonnull align 8 dereferenceable(32) %r) #0 comdat {
+entry:
+  %retval = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %r.addr = alloca ptr, align 8
+  store ptr %r, ptr %r.addr, align 8
+  %0 = load ptr, ptr %r.addr, align 8
+  %call = call ptr @_ZN5boost12range_detail9range_endIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_14range_iteratorIT_vE4typeERSA_(ptr noundef nonnull align 8 dereferenceable(32) %0)
+  %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %retval, i32 0, i32 0
+  store ptr %call, ptr %coerce.dive, align 8
+  %coerce.dive1 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %retval, i32 0, i32 0
+  %1 = load ptr, ptr %coerce.dive1, align 8
+  ret ptr %1
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef zeroext i1 @_ZN5boost9algorithm6detail17check_find_resultIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKNS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPKcS8_EEEEEEbRT_RT0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %FindResult) #0 comdat {
+entry:
+  %.addr = alloca ptr, align 8
+  %FindResult.addr = alloca ptr, align 8
+  %ResultRange = alloca %"class.boost::iterator_range.46", align 8
+  store ptr %0, ptr %.addr, align 8
+  store ptr %FindResult, ptr %FindResult.addr, align 8
+  %1 = load ptr, ptr %FindResult.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %ResultRange, ptr align 8 %1, i64 16, i1 false)
+  %call = call noundef zeroext i1 @_ZNK5boost21iterator_range_detail19iterator_range_baseIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_9iterators27incrementable_traversal_tagEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %ResultRange)
+  %lnot = xor i1 %call, true
+  ret i1 %lnot
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5boost9algorithm6detail26find_format_all_copy_impl2INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_13first_finderFIPKcNS0_8is_equalEEENS1_13const_formatFINS_14iterator_rangeISB_EEEENSF_IN9__gnu_cxx17__normal_iteratorISB_S8_EEEESG_EET_RKSM_T0_T1_RKT2_RKT3_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %Input, ptr noundef byval(%"struct.boost::algorithm::detail::first_finderF") align 8 %Finder, ptr %Formatter.coerce0, ptr %Formatter.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %FindResult, ptr noundef nonnull align 8 dereferenceable(16) %FormatResult) #0 comdat personality ptr @__gxx_personality_v0 {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %Formatter = alloca %"struct.boost::algorithm::detail::const_formatF", align 8
+  %Input.addr = alloca ptr, align 8
+  %FindResult.addr = alloca ptr, align 8
+  %FormatResult.addr = alloca ptr, align 8
+  %M = alloca %"class.boost::algorithm::detail::find_format_store", align 8
+  %LastMatch = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %nrvo = alloca i1, align 1
+  %exn.slot = alloca ptr, align 8
+  %ehselector.slot = alloca i32, align 4
+  %agg.tmp = alloca %"class.__gnu_cxx::__normal_iterator.50", align 8
+  %agg.tmp5 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %agg.tmp6 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %agg.tmp14 = alloca %"class.__gnu_cxx::__normal_iterator.50", align 8
+  %ref.tmp = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %agg.tmp25 = alloca %"class.boost::iterator_range.46", align 8
+  %agg.tmp26 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %agg.tmp27 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %agg.tmp40 = alloca %"class.__gnu_cxx::__normal_iterator.50", align 8
+  %agg.tmp44 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %agg.tmp45 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  store ptr %agg.result, ptr %result.ptr, align 8
+  %0 = getelementptr inbounds { ptr, ptr }, ptr %Formatter, i32 0, i32 0
+  store ptr %Formatter.coerce0, ptr %0, align 8
+  %1 = getelementptr inbounds { ptr, ptr }, ptr %Formatter, i32 0, i32 1
+  store ptr %Formatter.coerce1, ptr %1, align 8
+  store ptr %Input, ptr %Input.addr, align 8
+  store ptr %FindResult, ptr %FindResult.addr, align 8
+  store ptr %FormatResult, ptr %FormatResult.addr, align 8
+  %2 = load ptr, ptr %FindResult.addr, align 8
+  %3 = load ptr, ptr %FormatResult.addr, align 8
+  call void @_ZN5boost9algorithm6detail17find_format_storeIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_13const_formatFINS_14iterator_rangeIS6_EEEESG_EC2ERKNSF_ISD_EERKSG_RKSH_(ptr noundef nonnull align 8 dereferenceable(40) %M, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %Formatter)
+  %4 = load ptr, ptr %Input.addr, align 8
+  %call = call ptr @_ZN5boost17range_adl_barrier5beginINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_14range_iteratorIKT_vE4typeERSA_(ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %LastMatch, i32 0, i32 0
+  store ptr %call, ptr %coerce.dive, align 8
+  store i1 false, ptr %nrvo, align 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #13
+  br label %while.cond
+
+while.cond:                                       ; preds = %invoke.cont38, %entry
+  %call1 = invoke i64 @_ZNK5boost21iterator_range_detail19iterator_range_baseIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_9iterators27incrementable_traversal_tagEEcvMSF_SC_Ev(ptr noundef nonnull align 8 dereferenceable(16) %M)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %while.cond
+  %memptr.tobool = icmp ne i64 %call1, -1
+  br i1 %memptr.tobool, label %while.body, label %while.end
+
+while.body:                                       ; preds = %invoke.cont
+  %call3 = invoke ptr @_ZN5boost17range_adl_barrier3endINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_14range_iteratorIT_vE4typeERS9_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
+          to label %invoke.cont2 unwind label %lpad
+
+invoke.cont2:                                     ; preds = %while.body
+  %coerce.dive4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.50", ptr %agg.tmp, i32 0, i32 0
+  store ptr %call3, ptr %coerce.dive4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp5, ptr align 8 %LastMatch, i64 8, i1 false)
+  %call8 = invoke ptr @_ZNK5boost21iterator_range_detail19iterator_range_baseIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_9iterators27incrementable_traversal_tagEE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %M)
+          to label %invoke.cont7 unwind label %lpad
+
+invoke.cont7:                                     ; preds = %invoke.cont2
+  %coerce.dive9 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp6, i32 0, i32 0
+  store ptr %call8, ptr %coerce.dive9, align 8
+  %coerce.dive10 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.50", ptr %agg.tmp, i32 0, i32 0
+  %5 = load ptr, ptr %coerce.dive10, align 8
+  %coerce.dive11 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp5, i32 0, i32 0
+  %6 = load ptr, ptr %coerce.dive11, align 8
+  %coerce.dive12 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp6, i32 0, i32 0
+  %7 = load ptr, ptr %coerce.dive12, align 8
+  invoke void @_ZN5boost9algorithm6detail6insertINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9__gnu_cxx17__normal_iteratorIPKcS8_EEEEvRT_NSE_8iteratorET0_SH_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr %5, ptr %6, ptr %7)
+          to label %invoke.cont13 unwind label %lpad
+
+invoke.cont13:                                    ; preds = %invoke.cont7
+  %call16 = invoke ptr @_ZN5boost17range_adl_barrier3endINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_14range_iteratorIT_vE4typeERS9_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
+          to label %invoke.cont15 unwind label %lpad
+
+invoke.cont15:                                    ; preds = %invoke.cont13
+  %coerce.dive17 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.50", ptr %agg.tmp14, i32 0, i32 0
+  store ptr %call16, ptr %coerce.dive17, align 8
+  %call19 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5boost9algorithm6detail17find_format_storeIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_13const_formatFINS_14iterator_rangeIS6_EEEESG_E13format_resultEv(ptr noundef nonnull align 8 dereferenceable(40) %M)
+          to label %invoke.cont18 unwind label %lpad
+
+invoke.cont18:                                    ; preds = %invoke.cont15
+  %coerce.dive20 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.50", ptr %agg.tmp14, i32 0, i32 0
+  %8 = load ptr, ptr %coerce.dive20, align 8
+  invoke void @_ZN5boost9algorithm6detail6insertINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_14iterator_rangeIPKcEEEEvRT_NSD_8iteratorERKT0_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr %8, ptr noundef nonnull align 8 dereferenceable(16) %call19)
+          to label %invoke.cont21 unwind label %lpad
+
+invoke.cont21:                                    ; preds = %invoke.cont18
+  %call23 = invoke ptr @_ZNK5boost21iterator_range_detail19iterator_range_baseIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_9iterators27incrementable_traversal_tagEE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %M)
+          to label %invoke.cont22 unwind label %lpad
+
+invoke.cont22:                                    ; preds = %invoke.cont21
+  %coerce.dive24 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %ref.tmp, i32 0, i32 0
+  store ptr %call23, ptr %coerce.dive24, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %LastMatch, ptr align 8 %ref.tmp, i64 8, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp26, ptr align 8 %LastMatch, i64 8, i1 false)
+  %9 = load ptr, ptr %Input.addr, align 8
+  %call29 = invoke ptr @_ZN5boost17range_adl_barrier3endINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_14range_iteratorIKT_vE4typeERSA_(ptr noundef nonnull align 8 dereferenceable(32) %9)
+          to label %invoke.cont28 unwind label %lpad
+
+invoke.cont28:                                    ; preds = %invoke.cont22
+  %coerce.dive30 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp27, i32 0, i32 0
+  store ptr %call29, ptr %coerce.dive30, align 8
+  %coerce.dive31 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp26, i32 0, i32 0
+  %10 = load ptr, ptr %coerce.dive31, align 8
+  %coerce.dive32 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp27, i32 0, i32 0
+  %11 = load ptr, ptr %coerce.dive32, align 8
+  %call34 = invoke { ptr, ptr } @_ZNK5boost9algorithm6detail13first_finderFIPKcNS0_8is_equalEEclIN9__gnu_cxx17__normal_iteratorIS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS_14iterator_rangeIT_EESI_SI_(ptr noundef nonnull align 8 dereferenceable(17) %Finder, ptr %10, ptr %11)
+          to label %invoke.cont33 unwind label %lpad
+
+invoke.cont33:                                    ; preds = %invoke.cont28
+  %coerce.dive35 = getelementptr inbounds %"class.boost::iterator_range.46", ptr %agg.tmp25, i32 0, i32 0
+  %coerce.dive36 = getelementptr inbounds %"class.boost::iterator_range_detail::iterator_range_base.47", ptr %coerce.dive35, i32 0, i32 0
+  %coerce.dive37 = getelementptr inbounds %"class.boost::iterator_range_detail::iterator_range_base.48", ptr %coerce.dive36, i32 0, i32 0
+  %12 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive37, i32 0, i32 0
+  %13 = extractvalue { ptr, ptr } %call34, 0
+  store ptr %13, ptr %12, align 8
+  %14 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive37, i32 0, i32 1
+  %15 = extractvalue { ptr, ptr } %call34, 1
+  store ptr %15, ptr %14, align 8
+  %16 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp25, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp25, i32 0, i32 1
+  %19 = load ptr, ptr %18, align 8
+  %call39 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5boost9algorithm6detail17find_format_storeIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_13const_formatFINS_14iterator_rangeIS6_EEEESG_EaSINSF_ISD_EEEERSI_T_(ptr noundef nonnull align 8 dereferenceable(40) %M, ptr %17, ptr %19)
+          to label %invoke.cont38 unwind label %lpad
+
+invoke.cont38:                                    ; preds = %invoke.cont33
+  br label %while.cond, !llvm.loop !12
+
+lpad:                                             ; preds = %invoke.cont46, %invoke.cont41, %while.end, %invoke.cont33, %invoke.cont28, %invoke.cont22, %invoke.cont21, %invoke.cont18, %invoke.cont15, %invoke.cont13, %invoke.cont7, %invoke.cont2, %while.body, %while.cond
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %exn.slot, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %ehselector.slot, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #13
+  br label %eh.resume
+
+while.end:                                        ; preds = %invoke.cont
+  %call42 = invoke ptr @_ZN5boost17range_adl_barrier3endINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_14range_iteratorIT_vE4typeERS9_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
+          to label %invoke.cont41 unwind label %lpad
+
+invoke.cont41:                                    ; preds = %while.end
+  %coerce.dive43 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.50", ptr %agg.tmp40, i32 0, i32 0
+  store ptr %call42, ptr %coerce.dive43, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp44, ptr align 8 %LastMatch, i64 8, i1 false)
+  %23 = load ptr, ptr %Input.addr, align 8
+  %call47 = invoke ptr @_ZN5boost17range_adl_barrier3endINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_14range_iteratorIKT_vE4typeERSA_(ptr noundef nonnull align 8 dereferenceable(32) %23)
+          to label %invoke.cont46 unwind label %lpad
+
+invoke.cont46:                                    ; preds = %invoke.cont41
+  %coerce.dive48 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp45, i32 0, i32 0
+  store ptr %call47, ptr %coerce.dive48, align 8
+  %coerce.dive49 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.50", ptr %agg.tmp40, i32 0, i32 0
+  %24 = load ptr, ptr %coerce.dive49, align 8
+  %coerce.dive50 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp44, i32 0, i32 0
+  %25 = load ptr, ptr %coerce.dive50, align 8
+  %coerce.dive51 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp45, i32 0, i32 0
+  %26 = load ptr, ptr %coerce.dive51, align 8
+  invoke void @_ZN5boost9algorithm6detail6insertINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9__gnu_cxx17__normal_iteratorIPKcS8_EEEEvRT_NSE_8iteratorET0_SH_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr %24, ptr %25, ptr %26)
+          to label %invoke.cont52 unwind label %lpad
+
+invoke.cont52:                                    ; preds = %invoke.cont46
+  store i1 true, ptr %nrvo, align 1
+  %nrvo.val = load i1, ptr %nrvo, align 1
+  br i1 %nrvo.val, label %nrvo.skipdtor, label %nrvo.unused
+
+nrvo.unused:                                      ; preds = %invoke.cont52
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #13
+  br label %nrvo.skipdtor
+
+nrvo.skipdtor:                                    ; preds = %nrvo.unused, %invoke.cont52
+  ret void
+
+eh.resume:                                        ; preds = %lpad
+  %exn = load ptr, ptr %exn.slot, align 8
+  %sel = load i32, ptr %ehselector.slot, align 4
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
+  %lpad.val53 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
+  resume { ptr, i32 } %lpad.val53
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5boost9algorithm6detail13const_formatFINS_14iterator_rangeIPKcEEEclINS3_IN9__gnu_cxx17__normal_iteratorIS5_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEEERKS6_RKT_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_Format = getelementptr inbounds %"struct.boost::algorithm::detail::const_formatF", ptr %this1, i32 0, i32 0
+  ret ptr %m_Format
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZNK5boost21iterator_range_detail19iterator_range_baseIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_9iterators27incrementable_traversal_tagEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_Begin = getelementptr inbounds %"class.boost::iterator_range_detail::iterator_range_base.49", ptr %this1, i32 0, i32 0
+  %m_End = getelementptr inbounds %"class.boost::iterator_range_detail::iterator_range_base.49", ptr %this1, i32 0, i32 1
+  %call = call noundef zeroext i1 @_ZN9__gnu_cxxeqIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_17__normal_iteratorIT_T0_EESE_(ptr noundef nonnull align 8 dereferenceable(8) %m_Begin, ptr noundef nonnull align 8 dereferenceable(8) %m_End) #13
+  ret i1 %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZN9__gnu_cxxeqIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_17__normal_iteratorIT_T0_EESE_(ptr noundef nonnull align 8 dereferenceable(8) %__lhs, ptr noundef nonnull align 8 dereferenceable(8) %__rhs) #2 comdat {
+entry:
+  %__lhs.addr = alloca ptr, align 8
+  %__rhs.addr = alloca ptr, align 8
+  store ptr %__lhs, ptr %__lhs.addr, align 8
+  store ptr %__rhs, ptr %__rhs.addr, align 8
+  %0 = load ptr, ptr %__lhs.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  %1 = load ptr, ptr %call, align 8
+  %2 = load ptr, ptr %__rhs.addr, align 8
+  %call1 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #13
+  %3 = load ptr, ptr %call1, align 8
+  %cmp = icmp eq ptr %1, %3
+  ret i1 %cmp
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_current = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %this1, i32 0, i32 0
+  ret ptr %_M_current
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5boost9algorithm6detail17find_format_storeIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_13const_formatFINS_14iterator_rangeIS6_EEEESG_EC2ERKNSF_ISD_EERKSG_RKSH_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(16) %FindResult, ptr noundef nonnull align 8 dereferenceable(16) %FormatResult, ptr noundef nonnull align 8 dereferenceable(16) %Formatter) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %FindResult.addr = alloca ptr, align 8
+  %FormatResult.addr = alloca ptr, align 8
+  %Formatter.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %FindResult, ptr %FindResult.addr, align 8
+  store ptr %FormatResult, ptr %FormatResult.addr, align 8
+  store ptr %Formatter, ptr %Formatter.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %FindResult.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1, ptr align 8 %0, i64 16, i1 false)
+  %m_FormatResult = getelementptr inbounds %"class.boost::algorithm::detail::find_format_store", ptr %this1, i32 0, i32 1
+  %1 = load ptr, ptr %FormatResult.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_FormatResult, ptr align 8 %1, i64 16, i1 false)
+  %m_Formatter = getelementptr inbounds %"class.boost::algorithm::detail::find_format_store", ptr %this1, i32 0, i32 2
+  %2 = load ptr, ptr %Formatter.addr, align 8
+  store ptr %2, ptr %m_Formatter, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr i64 @_ZNK5boost21iterator_range_detail19iterator_range_baseIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_9iterators27incrementable_traversal_tagEEcvMSF_SC_Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_Begin = getelementptr inbounds %"class.boost::iterator_range_detail::iterator_range_base.49", ptr %this1, i32 0, i32 0
+  %m_End = getelementptr inbounds %"class.boost::iterator_range_detail::iterator_range_base.49", ptr %this1, i32 0, i32 1
+  %call = call noundef zeroext i1 @_ZN9__gnu_cxxneIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_17__normal_iteratorIT_T0_EESE_(ptr noundef nonnull align 8 dereferenceable(8) %m_Begin, ptr noundef nonnull align 8 dereferenceable(8) %m_End) #13
+  %call2 = call i64 @_ZN5boost12range_detail9safe_boolIMNS_21iterator_range_detail19iterator_range_baseIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_9iterators27incrementable_traversal_tagEEESE_E19to_unspecified_boolEbSI_(i1 noundef zeroext %call, i64 0)
+  ret i64 %call2
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5boost9algorithm6detail6insertINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9__gnu_cxx17__normal_iteratorIPKcS8_EEEEvRT_NSE_8iteratorET0_SH_(ptr noundef nonnull align 8 dereferenceable(32) %Input, ptr %At.coerce, ptr %Begin.coerce, ptr %End.coerce) #0 comdat {
+entry:
+  %At = alloca %"class.__gnu_cxx::__normal_iterator.50", align 8
+  %Begin = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %End = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %Input.addr = alloca ptr, align 8
+  %agg.tmp = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %agg.tmp3 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %agg.tmp4 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %coerce = alloca %"class.__gnu_cxx::__normal_iterator.50", align 8
+  %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.50", ptr %At, i32 0, i32 0
+  store ptr %At.coerce, ptr %coerce.dive, align 8
+  %coerce.dive1 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %Begin, i32 0, i32 0
+  store ptr %Begin.coerce, ptr %coerce.dive1, align 8
+  %coerce.dive2 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %End, i32 0, i32 0
+  store ptr %End.coerce, ptr %coerce.dive2, align 8
+  store ptr %Input, ptr %Input.addr, align 8
+  %0 = load ptr, ptr %Input.addr, align 8
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IPcvEERKNS0_IT_S8_EE(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %At) #13
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp3, ptr align 8 %Begin, i64 8, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp4, ptr align 8 %End, i64 8, i1 false)
+  %coerce.dive5 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp, i32 0, i32 0
+  %1 = load ptr, ptr %coerce.dive5, align 8
+  %coerce.dive6 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp3, i32 0, i32 0
+  %2 = load ptr, ptr %coerce.dive6, align 8
+  %coerce.dive7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp4, i32 0, i32 0
+  %3 = load ptr, ptr %coerce.dive7, align 8
+  %call = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertIN9__gnu_cxx17__normal_iteratorIPKcS4_EEvEENS7_IPcS4_EESA_T_SD_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, ptr %2, ptr %3)
+  %coerce.dive8 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.50", ptr %coerce, i32 0, i32 0
+  store ptr %call, ptr %coerce.dive8, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr ptr @_ZN5boost17range_adl_barrier3endINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_14range_iteratorIT_vE4typeERS9_(ptr noundef nonnull align 8 dereferenceable(32) %r) #0 comdat {
+entry:
+  %retval = alloca %"class.__gnu_cxx::__normal_iterator.50", align 8
+  %r.addr = alloca ptr, align 8
+  store ptr %r, ptr %r.addr, align 8
+  %0 = load ptr, ptr %r.addr, align 8
+  %call = call ptr @_ZN5boost12range_detail9range_endINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_14range_iteratorIT_vE4typeERS9_(ptr noundef nonnull align 8 dereferenceable(32) %0)
+  %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.50", ptr %retval, i32 0, i32 0
+  store ptr %call, ptr %coerce.dive, align 8
+  %coerce.dive1 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.50", ptr %retval, i32 0, i32 0
+  %1 = load ptr, ptr %coerce.dive1, align 8
+  ret ptr %1
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZNK5boost21iterator_range_detail19iterator_range_baseIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_9iterators27incrementable_traversal_tagEE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #2 comdat align 2 {
+entry:
+  %retval = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_Begin = getelementptr inbounds %"class.boost::iterator_range_detail::iterator_range_base.49", ptr %this1, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %retval, ptr align 8 %m_Begin, i64 8, i1 false)
+  %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %retval, i32 0, i32 0
+  %0 = load ptr, ptr %coerce.dive, align 8
+  ret ptr %0
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5boost9algorithm6detail6insertINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_14iterator_rangeIPKcEEEEvRT_NSD_8iteratorERKT0_(ptr noundef nonnull align 8 dereferenceable(32) %Input, ptr %At.coerce, ptr noundef nonnull align 8 dereferenceable(16) %Insert) #0 comdat {
+entry:
+  %At = alloca %"class.__gnu_cxx::__normal_iterator.50", align 8
+  %Input.addr = alloca ptr, align 8
+  %Insert.addr = alloca ptr, align 8
+  %agg.tmp = alloca %"class.__gnu_cxx::__normal_iterator.50", align 8
+  %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.50", ptr %At, i32 0, i32 0
+  store ptr %At.coerce, ptr %coerce.dive, align 8
+  store ptr %Input, ptr %Input.addr, align 8
+  store ptr %Insert, ptr %Insert.addr, align 8
+  %0 = load ptr, ptr %Input.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %At, i64 8, i1 false)
+  %1 = load ptr, ptr %Insert.addr, align 8
+  %call = call noundef ptr @_ZN5boost17range_adl_barrier5beginINS_14iterator_rangeIPKcEEEENS_14range_iteratorIKT_vE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %2 = load ptr, ptr %Insert.addr, align 8
+  %call1 = call noundef ptr @_ZN5boost17range_adl_barrier3endINS_14iterator_rangeIPKcEEEENS_14range_iteratorIKT_vE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(16) %2)
+  %coerce.dive2 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.50", ptr %agg.tmp, i32 0, i32 0
+  %3 = load ptr, ptr %coerce.dive2, align 8
+  call void @_ZN5boost9algorithm6detail6insertINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEEvRT_NSB_8iteratorET0_SE_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %3, ptr noundef %call, ptr noundef %call1)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN5boost9algorithm6detail17find_format_storeIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_13const_formatFINS_14iterator_rangeIS6_EEEESG_E13format_resultEv(ptr noundef nonnull align 8 dereferenceable(40) %this) #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_FormatResult = getelementptr inbounds %"class.boost::algorithm::detail::find_format_store", ptr %this1, i32 0, i32 1
+  ret ptr %m_FormatResult
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZNK5boost21iterator_range_detail19iterator_range_baseIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_9iterators27incrementable_traversal_tagEE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #2 comdat align 2 {
+entry:
+  %retval = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_End = getelementptr inbounds %"class.boost::iterator_range_detail::iterator_range_base.49", ptr %this1, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %retval, ptr align 8 %m_End, i64 8, i1 false)
+  %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %retval, i32 0, i32 0
+  %0 = load ptr, ptr %coerce.dive, align 8
+  ret ptr %0
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN5boost9algorithm6detail17find_format_storeIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_13const_formatFINS_14iterator_rangeIS6_EEEESG_EaSINSF_ISD_EEEERSI_T_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr %FindResult.coerce0, ptr %FindResult.coerce1) #0 comdat align 2 {
+entry:
+  %FindResult = alloca %"class.boost::iterator_range.46", align 8
+  %this.addr = alloca ptr, align 8
+  %0 = getelementptr inbounds { ptr, ptr }, ptr %FindResult, i32 0, i32 0
+  store ptr %FindResult.coerce0, ptr %0, align 8
+  %1 = getelementptr inbounds { ptr, ptr }, ptr %FindResult, i32 0, i32 1
+  store ptr %FindResult.coerce1, ptr %1, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5boost14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEaSISB_EERSC_RNS0_IT_EE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %FindResult)
+  %call2 = call noundef zeroext i1 @_ZNK5boost21iterator_range_detail19iterator_range_baseIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_9iterators27incrementable_traversal_tagEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
+  br i1 %call2, label %if.end, label %if.then
+
+if.then:                                          ; preds = %entry
+  %m_Formatter = getelementptr inbounds %"class.boost::algorithm::detail::find_format_store", ptr %this1, i32 0, i32 2
+  %2 = load ptr, ptr %m_Formatter, align 8
+  %call3 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5boost9algorithm6detail13const_formatFINS_14iterator_rangeIPKcEEEclINS3_IN9__gnu_cxx17__normal_iteratorIS5_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEEERKS6_RKT_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %FindResult)
+  %m_FormatResult = getelementptr inbounds %"class.boost::algorithm::detail::find_format_store", ptr %this1, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_FormatResult, ptr align 8 %call3, i64 16, i1 false)
+  br label %if.end
+
+if.end:                                           ; preds = %if.then, %entry
+  ret ptr %this1
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr i64 @_ZN5boost12range_detail9safe_boolIMNS_21iterator_range_detail19iterator_range_baseIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_9iterators27incrementable_traversal_tagEEESE_E19to_unspecified_boolEbSI_(i1 noundef zeroext %x, i64 %p) #2 comdat align 2 {
+entry:
+  %x.addr = alloca i8, align 1
+  %p.addr = alloca i64, align 8
+  %frombool = zext i1 %x to i8
+  store i8 %frombool, ptr %x.addr, align 1
+  store i64 %p, ptr %p.addr, align 8
+  %0 = load i8, ptr %x.addr, align 1
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %cond.true, label %cond.false
+
+cond.true:                                        ; preds = %entry
+  %1 = load i64, ptr %p.addr, align 8
+  br label %cond.end
+
+cond.false:                                       ; preds = %entry
+  br label %cond.end
+
+cond.end:                                         ; preds = %cond.false, %cond.true
+  %cond = phi i64 [ %1, %cond.true ], [ -1, %cond.false ]
+  ret i64 %cond
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZN9__gnu_cxxneIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_17__normal_iteratorIT_T0_EESE_(ptr noundef nonnull align 8 dereferenceable(8) %__lhs, ptr noundef nonnull align 8 dereferenceable(8) %__rhs) #2 comdat {
+entry:
+  %__lhs.addr = alloca ptr, align 8
+  %__rhs.addr = alloca ptr, align 8
+  store ptr %__lhs, ptr %__lhs.addr, align 8
+  store ptr %__rhs, ptr %__rhs.addr, align 8
+  %0 = load ptr, ptr %__lhs.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  %1 = load ptr, ptr %call, align 8
+  %2 = load ptr, ptr %__rhs.addr, align 8
+  %call1 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #13
+  %3 = load ptr, ptr %call1, align 8
+  %cmp = icmp ne ptr %1, %3
+  ret i1 %cmp
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertIN9__gnu_cxx17__normal_iteratorIPKcS4_EEvEENS7_IPcS4_EESA_T_SD_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr %__p.coerce, ptr %__beg.coerce, ptr %__end.coerce) #0 comdat align 2 {
+entry:
+  %retval = alloca %"class.__gnu_cxx::__normal_iterator.50", align 8
+  %__p = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %__beg = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %__end = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %this.addr = alloca ptr, align 8
+  %__pos = alloca i64, align 8
+  %ref.tmp = alloca %"class.__gnu_cxx::__normal_iterator.50", align 8
+  %agg.tmp = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %agg.tmp6 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %agg.tmp7 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %agg.tmp8 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %ref.tmp14 = alloca ptr, align 8
+  %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %__p, i32 0, i32 0
+  store ptr %__p.coerce, ptr %coerce.dive, align 8
+  %coerce.dive1 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %__beg, i32 0, i32 0
+  store ptr %__beg.coerce, ptr %coerce.dive1, align 8
+  %coerce.dive2 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %__end, i32 0, i32 0
+  store ptr %__end.coerce, ptr %coerce.dive2, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this3 = load ptr, ptr %this.addr, align 8
+  %call = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %this3) #13
+  %coerce.dive4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.50", ptr %ref.tmp, i32 0, i32 0
+  store ptr %call, ptr %coerce.dive4, align 8
+  %call5 = call noundef i64 @_ZN9__gnu_cxxmiIPKcPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDTmicldtfp_4baseEcldtfp0_4baseEERKNS_17__normal_iteratorIT_T1_EERKNSB_IT0_SD_EE(ptr noundef nonnull align 8 dereferenceable(8) %__p, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #13
+  store i64 %call5, ptr %__pos, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %__p, i64 8, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp6, ptr align 8 %__p, i64 8, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp7, ptr align 8 %__beg, i64 8, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp8, ptr align 8 %__end, i64 8, i1 false)
+  %coerce.dive9 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp, i32 0, i32 0
+  %0 = load ptr, ptr %coerce.dive9, align 8
+  %coerce.dive10 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp6, i32 0, i32 0
+  %1 = load ptr, ptr %coerce.dive10, align 8
+  %coerce.dive11 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp7, i32 0, i32 0
+  %2 = load ptr, ptr %coerce.dive11, align 8
+  %coerce.dive12 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp8, i32 0, i32 0
+  %3 = load ptr, ptr %coerce.dive12, align 8
+  %call13 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEN9__gnu_cxx17__normal_iteratorIPKcS4_EES9_S9_S9_(ptr noundef nonnull align 8 dereferenceable(32) %this3, ptr %0, ptr %1, ptr %2, ptr %3)
+  %call15 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this3)
+  %4 = load i64, ptr %__pos, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %call15, i64 %4
+  store ptr %add.ptr, ptr %ref.tmp14, align 8
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %retval, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp14) #13
+  %coerce.dive16 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.50", ptr %retval, i32 0, i32 0
+  %5 = load ptr, ptr %coerce.dive16, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IPcvEERKNS0_IT_S8_EE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__i) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__i.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__i, ptr %__i.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_current = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %__i.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  %1 = load ptr, ptr %call, align 8
+  store ptr %1, ptr %_M_current, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZN9__gnu_cxxmiIPKcPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDTmicldtfp_4baseEcldtfp0_4baseEERKNS_17__normal_iteratorIT_T1_EERKNSB_IT0_SD_EE(ptr noundef nonnull align 8 dereferenceable(8) %__lhs, ptr noundef nonnull align 8 dereferenceable(8) %__rhs) #2 comdat {
+entry:
+  %__lhs.addr = alloca ptr, align 8
+  %__rhs.addr = alloca ptr, align 8
+  store ptr %__lhs, ptr %__lhs.addr, align 8
+  store ptr %__rhs, ptr %__rhs.addr, align 8
+  %0 = load ptr, ptr %__lhs.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  %1 = load ptr, ptr %call, align 8
+  %2 = load ptr, ptr %__rhs.addr, align 8
+  %call1 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #13
+  %3 = load ptr, ptr %call1, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %1 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %3 to i64
+  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
+  ret i64 %sub.ptr.sub
+}
+
+; Function Attrs: nounwind
+declare ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32)) #4
+
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEN9__gnu_cxx17__normal_iteratorIPKcS4_EES9_S9_S9_(ptr noundef nonnull align 8 dereferenceable(32), ptr, ptr, ptr, ptr) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__i) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__i.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__i, ptr %__i.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_current = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.50", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %__i.addr, align 8
+  %1 = load ptr, ptr %0, align 8
+  store ptr %1, ptr %_M_current, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_current = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.50", ptr %this1, i32 0, i32 0
+  ret ptr %_M_current
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZN5boost12range_detail9range_endINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_14range_iteratorIT_vE4typeERS9_(ptr noundef nonnull align 8 dereferenceable(32) %c) #2 comdat {
+entry:
+  %retval = alloca %"class.__gnu_cxx::__normal_iterator.50", align 8
+  %c.addr = alloca ptr, align 8
+  store ptr %c, ptr %c.addr, align 8
+  %0 = load ptr, ptr %c.addr, align 8
+  %call = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #13
+  %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.50", ptr %retval, i32 0, i32 0
+  store ptr %call, ptr %coerce.dive, align 8
+  %coerce.dive1 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.50", ptr %retval, i32 0, i32 0
+  %1 = load ptr, ptr %coerce.dive1, align 8
+  ret ptr %1
+}
+
+; Function Attrs: nounwind
+declare ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32)) #4
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5boost9algorithm6detail6insertINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEEvRT_NSB_8iteratorET0_SE_(ptr noundef nonnull align 8 dereferenceable(32) %Input, ptr %At.coerce, ptr noundef %Begin, ptr noundef %End) #0 comdat {
+entry:
+  %At = alloca %"class.__gnu_cxx::__normal_iterator.50", align 8
+  %Input.addr = alloca ptr, align 8
+  %Begin.addr = alloca ptr, align 8
+  %End.addr = alloca ptr, align 8
+  %agg.tmp = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %coerce = alloca %"class.__gnu_cxx::__normal_iterator.50", align 8
+  %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.50", ptr %At, i32 0, i32 0
+  store ptr %At.coerce, ptr %coerce.dive, align 8
+  store ptr %Input, ptr %Input.addr, align 8
+  store ptr %Begin, ptr %Begin.addr, align 8
+  store ptr %End, ptr %End.addr, align 8
+  %0 = load ptr, ptr %Input.addr, align 8
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IPcvEERKNS0_IT_S8_EE(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %At) #13
+  %1 = load ptr, ptr %Begin.addr, align 8
+  %2 = load ptr, ptr %End.addr, align 8
+  %coerce.dive1 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp, i32 0, i32 0
+  %3 = load ptr, ptr %coerce.dive1, align 8
+  %call = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertIPKcvEEN9__gnu_cxx17__normal_iteratorIPcS4_EENS9_IS7_S4_EET_SD_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %3, ptr noundef %1, ptr noundef %2)
+  %coerce.dive2 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.50", ptr %coerce, i32 0, i32 0
+  store ptr %call, ptr %coerce.dive2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZN5boost17range_adl_barrier5beginINS_14iterator_rangeIPKcEEEENS_14range_iteratorIKT_vE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(16) %r) #0 comdat {
+entry:
+  %r.addr = alloca ptr, align 8
+  store ptr %r, ptr %r.addr, align 8
+  %0 = load ptr, ptr %r.addr, align 8
+  %call = call noundef ptr @_ZN5boost12range_detail11range_beginIKNS_14iterator_rangeIPKcEEEENS_14range_iteratorIT_vE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZN5boost17range_adl_barrier3endINS_14iterator_rangeIPKcEEEENS_14range_iteratorIKT_vE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(16) %r) #0 comdat {
+entry:
+  %r.addr = alloca ptr, align 8
+  store ptr %r, ptr %r.addr, align 8
+  %0 = load ptr, ptr %r.addr, align 8
+  %call = call noundef ptr @_ZN5boost12range_detail9range_endIKNS_14iterator_rangeIPKcEEEENS_14range_iteratorIT_vE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertIPKcvEEN9__gnu_cxx17__normal_iteratorIPcS4_EENS9_IS7_S4_EET_SD_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr %__p.coerce, ptr noundef %__beg, ptr noundef %__end) #0 comdat align 2 {
+entry:
+  %retval = alloca %"class.__gnu_cxx::__normal_iterator.50", align 8
+  %__p = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %this.addr = alloca ptr, align 8
+  %__beg.addr = alloca ptr, align 8
+  %__end.addr = alloca ptr, align 8
+  %__pos = alloca i64, align 8
+  %ref.tmp = alloca %"class.__gnu_cxx::__normal_iterator.50", align 8
+  %agg.tmp = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %agg.tmp4 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %ref.tmp8 = alloca ptr, align 8
+  %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %__p, i32 0, i32 0
+  store ptr %__p.coerce, ptr %coerce.dive, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__beg, ptr %__beg.addr, align 8
+  store ptr %__end, ptr %__end.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #13
+  %coerce.dive2 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.50", ptr %ref.tmp, i32 0, i32 0
+  store ptr %call, ptr %coerce.dive2, align 8
+  %call3 = call noundef i64 @_ZN9__gnu_cxxmiIPKcPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDTmicldtfp_4baseEcldtfp0_4baseEERKNS_17__normal_iteratorIT_T1_EERKNSB_IT0_SD_EE(ptr noundef nonnull align 8 dereferenceable(8) %__p, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #13
+  store i64 %call3, ptr %__pos, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %__p, i64 8, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp4, ptr align 8 %__p, i64 8, i1 false)
+  %0 = load ptr, ptr %__beg.addr, align 8
+  %1 = load ptr, ptr %__end.addr, align 8
+  %coerce.dive5 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp, i32 0, i32 0
+  %2 = load ptr, ptr %coerce.dive5, align 8
+  %coerce.dive6 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp4, i32 0, i32 0
+  %3 = load ptr, ptr %coerce.dive6, align 8
+  %call7 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEN9__gnu_cxx17__normal_iteratorIPKcS4_EES9_S8_S8_(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr %2, ptr %3, ptr noundef %0, ptr noundef %1)
+  %call9 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+  %4 = load i64, ptr %__pos, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %call9, i64 %4
+  store ptr %add.ptr, ptr %ref.tmp8, align 8
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %retval, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8) #13
+  %coerce.dive10 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.50", ptr %retval, i32 0, i32 0
+  %5 = load ptr, ptr %coerce.dive10, align 8
+  ret ptr %5
+}
+
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEN9__gnu_cxx17__normal_iteratorIPKcS4_EES9_S8_S8_(ptr noundef nonnull align 8 dereferenceable(32), ptr, ptr, ptr noundef, ptr noundef) #1
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZN5boost12range_detail11range_beginIKNS_14iterator_rangeIPKcEEEENS_14range_iteratorIT_vE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(16) %c) #0 comdat {
+entry:
+  %c.addr = alloca ptr, align 8
+  store ptr %c, ptr %c.addr, align 8
+  %0 = load ptr, ptr %c.addr, align 8
+  %call = call noundef ptr @_ZNK5boost21iterator_range_detail19iterator_range_baseIPKcNS_9iterators27incrementable_traversal_tagEE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNK5boost21iterator_range_detail19iterator_range_baseIPKcNS_9iterators27incrementable_traversal_tagEE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_Begin = getelementptr inbounds %"class.boost::iterator_range_detail::iterator_range_base.45", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %m_Begin, align 8
+  ret ptr %0
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZN5boost12range_detail9range_endIKNS_14iterator_rangeIPKcEEEENS_14range_iteratorIT_vE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(16) %c) #0 comdat {
+entry:
+  %c.addr = alloca ptr, align 8
+  store ptr %c, ptr %c.addr, align 8
+  %0 = load ptr, ptr %c.addr, align 8
+  %call = call noundef ptr @_ZNK5boost21iterator_range_detail19iterator_range_baseIPKcNS_9iterators27incrementable_traversal_tagEE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNK5boost21iterator_range_detail19iterator_range_baseIPKcNS_9iterators27incrementable_traversal_tagEE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_End = getelementptr inbounds %"class.boost::iterator_range_detail::iterator_range_base.45", ptr %this1, i32 0, i32 1
+  %0 = load ptr, ptr %m_End, align 8
+  ret ptr %0
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN5boost14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEaSISB_EERSC_RNS0_IT_EE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %other) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %other.addr = alloca ptr, align 8
+  %agg.tmp = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %agg.tmp2 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %other, ptr %other.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %other.addr, align 8
+  %call = call ptr @_ZNK5boost21iterator_range_detail19iterator_range_baseIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_9iterators27incrementable_traversal_tagEE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp, i32 0, i32 0
+  store ptr %call, ptr %coerce.dive, align 8
+  %1 = load ptr, ptr %other.addr, align 8
+  %call3 = call ptr @_ZNK5boost21iterator_range_detail19iterator_range_baseIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_9iterators27incrementable_traversal_tagEE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %coerce.dive4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp2, i32 0, i32 0
+  store ptr %call3, ptr %coerce.dive4, align 8
+  %coerce.dive5 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp, i32 0, i32 0
+  %2 = load ptr, ptr %coerce.dive5, align 8
+  %coerce.dive6 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp2, i32 0, i32 0
+  %3 = load ptr, ptr %coerce.dive6, align 8
+  call void @_ZN5boost21iterator_range_detail19iterator_range_baseIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_9iterators27incrementable_traversal_tagEE6assignISC_EEvT_SH_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr %2, ptr %3)
+  ret ptr %this1
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5boost21iterator_range_detail19iterator_range_baseIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_9iterators27incrementable_traversal_tagEE6assignISC_EEvT_SH_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr %first.coerce, ptr %last.coerce) #2 comdat align 2 {
+entry:
+  %first = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %last = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %this.addr = alloca ptr, align 8
+  %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %first, i32 0, i32 0
+  store ptr %first.coerce, ptr %coerce.dive, align 8
+  %coerce.dive1 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %last, i32 0, i32 0
+  store ptr %last.coerce, ptr %coerce.dive1, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this2 = load ptr, ptr %this.addr, align 8
+  %m_Begin = getelementptr inbounds %"class.boost::iterator_range_detail::iterator_range_base.49", ptr %this2, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_Begin, ptr align 8 %first, i64 8, i1 false)
+  %m_End = getelementptr inbounds %"class.boost::iterator_range_detail::iterator_range_base.49", ptr %this2, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_End, ptr align 8 %last, i64 8, i1 false)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef zeroext i1 @_ZN5boost5emptyINS_14iterator_rangeIPKcEEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(16) %r) #0 comdat {
+entry:
+  %r.addr = alloca ptr, align 8
+  store ptr %r, ptr %r.addr, align 8
+  %0 = load ptr, ptr %r.addr, align 8
+  %call = call noundef ptr @_ZN5boost17range_adl_barrier5beginINS_14iterator_rangeIPKcEEEENS_14range_iteratorIKT_vE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %1 = load ptr, ptr %r.addr, align 8
+  %call1 = call noundef ptr @_ZN5boost17range_adl_barrier3endINS_14iterator_rangeIPKcEEEENS_14range_iteratorIKT_vE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %cmp = icmp eq ptr %call, %call1
+  ret i1 %cmp
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5boost14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEC2ISB_EET_SE_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr %first.coerce, ptr %last.coerce) unnamed_addr #0 comdat align 2 {
+entry:
+  %first = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %last = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %this.addr = alloca ptr, align 8
+  %agg.tmp = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %agg.tmp3 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %first, i32 0, i32 0
+  store ptr %first.coerce, ptr %coerce.dive, align 8
+  %coerce.dive1 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %last, i32 0, i32 0
+  store ptr %last.coerce, ptr %coerce.dive1, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this2 = load ptr, ptr %this.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %first, i64 8, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp3, ptr align 8 %last, i64 8, i1 false)
+  %coerce.dive4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp, i32 0, i32 0
+  %0 = load ptr, ptr %coerce.dive4, align 8
+  %coerce.dive5 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp3, i32 0, i32 0
+  %1 = load ptr, ptr %coerce.dive5, align 8
+  call void @_ZN5boost21iterator_range_detail19iterator_range_baseIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_9iterators27random_access_traversal_tagEEC2ISC_EET_SH_(ptr noundef nonnull align 8 dereferenceable(16) %this2, ptr %0, ptr %1)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZNK5boost9algorithm8is_equalclIccEEbRKT_RKT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 1 dereferenceable(1) %Arg1, ptr noundef nonnull align 1 dereferenceable(1) %Arg2) #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %Arg1.addr = alloca ptr, align 8
+  %Arg2.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %Arg1, ptr %Arg1.addr, align 8
+  store ptr %Arg2, ptr %Arg2.addr, align 8
+  %0 = load ptr, ptr %Arg1.addr, align 8
+  %1 = load i8, ptr %0, align 1
+  %conv = sext i8 %1 to i32
+  %2 = load ptr, ptr %Arg2.addr, align 8
+  %3 = load i8, ptr %2, align 1
+  %conv2 = sext i8 %3 to i32
+  %cmp = icmp eq i32 %conv, %conv2
+  ret i1 %cmp
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_current = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %_M_current, align 8
+  ret ptr %0
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_current = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %_M_current, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %0, i32 1
+  store ptr %incdec.ptr, ptr %_M_current, align 8
+  ret ptr %this1
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5boost21iterator_range_detail19iterator_range_baseIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_9iterators27random_access_traversal_tagEEC2ISC_EET_SH_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr %first.coerce, ptr %last.coerce) unnamed_addr #0 comdat align 2 {
+entry:
+  %first = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %last = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %this.addr = alloca ptr, align 8
+  %agg.tmp = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %agg.tmp3 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %first, i32 0, i32 0
+  store ptr %first.coerce, ptr %coerce.dive, align 8
+  %coerce.dive1 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %last, i32 0, i32 0
+  store ptr %last.coerce, ptr %coerce.dive1, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this2 = load ptr, ptr %this.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %first, i64 8, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp3, ptr align 8 %last, i64 8, i1 false)
+  %coerce.dive4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp, i32 0, i32 0
+  %0 = load ptr, ptr %coerce.dive4, align 8
+  %coerce.dive5 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp3, i32 0, i32 0
+  %1 = load ptr, ptr %coerce.dive5, align 8
+  call void @_ZN5boost21iterator_range_detail19iterator_range_baseIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_9iterators27bidirectional_traversal_tagEEC2ISC_EET_SH_(ptr noundef nonnull align 8 dereferenceable(16) %this2, ptr %0, ptr %1)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5boost21iterator_range_detail19iterator_range_baseIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_9iterators27bidirectional_traversal_tagEEC2ISC_EET_SH_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr %first.coerce, ptr %last.coerce) unnamed_addr #0 comdat align 2 {
+entry:
+  %first = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %last = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %this.addr = alloca ptr, align 8
+  %agg.tmp = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %agg.tmp3 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %first, i32 0, i32 0
+  store ptr %first.coerce, ptr %coerce.dive, align 8
+  %coerce.dive1 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %last, i32 0, i32 0
+  store ptr %last.coerce, ptr %coerce.dive1, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this2 = load ptr, ptr %this.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %first, i64 8, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp3, ptr align 8 %last, i64 8, i1 false)
+  %coerce.dive4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp, i32 0, i32 0
+  %0 = load ptr, ptr %coerce.dive4, align 8
+  %coerce.dive5 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp3, i32 0, i32 0
+  %1 = load ptr, ptr %coerce.dive5, align 8
+  call void @_ZN5boost21iterator_range_detail19iterator_range_baseIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_9iterators27incrementable_traversal_tagEEC2ISC_EET_SH_(ptr noundef nonnull align 8 dereferenceable(16) %this2, ptr %0, ptr %1)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5boost21iterator_range_detail19iterator_range_baseIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_9iterators27incrementable_traversal_tagEEC2ISC_EET_SH_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr %Begin.coerce, ptr %End.coerce) unnamed_addr #2 comdat align 2 {
+entry:
+  %Begin = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %End = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %this.addr = alloca ptr, align 8
+  %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %Begin, i32 0, i32 0
+  store ptr %Begin.coerce, ptr %coerce.dive, align 8
+  %coerce.dive1 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %End, i32 0, i32 0
+  store ptr %End.coerce, ptr %coerce.dive1, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this2 = load ptr, ptr %this.addr, align 8
+  %m_Begin = getelementptr inbounds %"class.boost::iterator_range_detail::iterator_range_base.49", ptr %this2, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_Begin, ptr align 8 %Begin, i64 8, i1 false)
+  %m_End = getelementptr inbounds %"class.boost::iterator_range_detail::iterator_range_base.49", ptr %this2, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_End, ptr align 8 %End, i64 8, i1 false)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZN5boost12range_detail11range_beginIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_14range_iteratorIT_vE4typeERSA_(ptr noundef nonnull align 8 dereferenceable(32) %c) #2 comdat {
+entry:
+  %retval = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %c.addr = alloca ptr, align 8
+  store ptr %c, ptr %c.addr, align 8
+  %0 = load ptr, ptr %c.addr, align 8
+  %call = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #13
+  %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %retval, i32 0, i32 0
+  store ptr %call, ptr %coerce.dive, align 8
+  %coerce.dive1 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %retval, i32 0, i32 0
+  %1 = load ptr, ptr %coerce.dive1, align 8
+  ret ptr %1
+}
+
+; Function Attrs: nounwind
+declare ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32)) #4
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZN5boost12range_detail9range_endIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_14range_iteratorIT_vE4typeERSA_(ptr noundef nonnull align 8 dereferenceable(32) %c) #2 comdat {
+entry:
+  %retval = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %c.addr = alloca ptr, align 8
+  store ptr %c, ptr %c.addr, align 8
+  %0 = load ptr, ptr %c.addr, align 8
+  %call = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #13
+  %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %retval, i32 0, i32 0
+  store ptr %call, ptr %coerce.dive, align 8
+  %coerce.dive1 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %retval, i32 0, i32 0
+  %1 = load ptr, ptr %coerce.dive1, align 8
+  ret ptr %1
+}
+
+; Function Attrs: nounwind
+declare ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32)) #4
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr { ptr, ptr } @_ZN5boost10as_literalIcLm2EEENS_14iterator_rangeIPKT_EERAT0__S3_(ptr noundef nonnull align 1 dereferenceable(2) %arr) #0 comdat {
+entry:
+  %retval = alloca %"class.boost::iterator_range", align 8
+  %arr.addr = alloca ptr, align 8
+  store ptr %arr, ptr %arr.addr, align 8
+  %0 = load ptr, ptr %arr.addr, align 8
+  %arraydecay = getelementptr inbounds [2 x i8], ptr %0, i64 0, i64 0
+  %1 = load ptr, ptr %arr.addr, align 8
+  %arraydecay1 = getelementptr inbounds [2 x i8], ptr %1, i64 0, i64 0
+  %call = call noundef zeroext i1 @_ZN5boost12range_detail11is_char_ptrEPKc(ptr noundef %arraydecay1)
+  %call2 = call { ptr, ptr } @_ZN5boost12range_detail10make_rangeIKcEENS_14iterator_rangeIPT_EES5_b(ptr noundef %arraydecay, i1 noundef zeroext %call)
+  %coerce.dive = getelementptr inbounds %"class.boost::iterator_range", ptr %retval, i32 0, i32 0
+  %coerce.dive3 = getelementptr inbounds %"class.boost::iterator_range_detail::iterator_range_base", ptr %coerce.dive, i32 0, i32 0
+  %coerce.dive4 = getelementptr inbounds %"class.boost::iterator_range_detail::iterator_range_base.44", ptr %coerce.dive3, i32 0, i32 0
+  %2 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive4, i32 0, i32 0
+  %3 = extractvalue { ptr, ptr } %call2, 0
+  store ptr %3, ptr %2, align 8
+  %4 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive4, i32 0, i32 1
+  %5 = extractvalue { ptr, ptr } %call2, 1
+  store ptr %5, ptr %4, align 8
+  %coerce.dive5 = getelementptr inbounds %"class.boost::iterator_range", ptr %retval, i32 0, i32 0
+  %coerce.dive6 = getelementptr inbounds %"class.boost::iterator_range_detail::iterator_range_base", ptr %coerce.dive5, i32 0, i32 0
+  %coerce.dive7 = getelementptr inbounds %"class.boost::iterator_range_detail::iterator_range_base.44", ptr %coerce.dive6, i32 0, i32 0
+  %6 = load { ptr, ptr }, ptr %coerce.dive7, align 8
+  ret { ptr, ptr } %6
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5boost9algorithm6detail13first_finderFIPKcNS0_8is_equalEEC2INS_14iterator_rangeIS4_EEEERKT_S5_(ptr noundef nonnull align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(16) %Search) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %Search.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %Search, ptr %Search.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_Search = getelementptr inbounds %"struct.boost::algorithm::detail::first_finderF", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %Search.addr, align 8
+  %call = call noundef ptr @_ZN5boost17range_adl_barrier5beginINS_14iterator_rangeIPKcEEEENS_14range_iteratorIKT_vE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %1 = load ptr, ptr %Search.addr, align 8
+  %call2 = call noundef ptr @_ZN5boost17range_adl_barrier3endINS_14iterator_rangeIPKcEEEENS_14range_iteratorIKT_vE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  call void @_ZN5boost14iterator_rangeIPKcEC2IS2_EET_S5_(ptr noundef nonnull align 8 dereferenceable(16) %m_Search, ptr noundef %call, ptr noundef %call2)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr { ptr, ptr } @_ZN5boost12range_detail10make_rangeIKcEENS_14iterator_rangeIPT_EES5_b(ptr noundef %r, i1 noundef zeroext %0) #0 comdat {
+entry:
+  %retval = alloca %"class.boost::iterator_range", align 8
+  %r.addr = alloca ptr, align 8
+  %.addr = alloca i8, align 1
+  store ptr %r, ptr %r.addr, align 8
+  %frombool = zext i1 %0 to i8
+  store i8 %frombool, ptr %.addr, align 1
+  %1 = load ptr, ptr %r.addr, align 8
+  %2 = load ptr, ptr %r.addr, align 8
+  %3 = load ptr, ptr %r.addr, align 8
+  %call = call noundef i64 @_ZN5boost12range_detail6lengthEPKc(ptr noundef %3)
+  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %call
+  call void @_ZN5boost14iterator_rangeIPKcEC2IS2_EET_S5_(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef %1, ptr noundef %add.ptr)
+  %coerce.dive = getelementptr inbounds %"class.boost::iterator_range", ptr %retval, i32 0, i32 0
+  %coerce.dive1 = getelementptr inbounds %"class.boost::iterator_range_detail::iterator_range_base", ptr %coerce.dive, i32 0, i32 0
+  %coerce.dive2 = getelementptr inbounds %"class.boost::iterator_range_detail::iterator_range_base.44", ptr %coerce.dive1, i32 0, i32 0
+  %4 = load { ptr, ptr }, ptr %coerce.dive2, align 8
+  ret { ptr, ptr } %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZN5boost12range_detail11is_char_ptrEPKc(ptr noundef %0) #2 comdat {
+entry:
+  %.addr = alloca ptr, align 8
+  store ptr %0, ptr %.addr, align 8
+  ret i1 true
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZN5boost12range_detail6lengthEPKc(ptr noundef %s) #2 comdat {
+entry:
+  %s.addr = alloca ptr, align 8
+  store ptr %s, ptr %s.addr, align 8
+  %0 = load ptr, ptr %s.addr, align 8
+  %call = call i64 @strlen(ptr noundef %0) #17
+  ret i64 %call
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5boost14iterator_rangeIPKcEC2IS2_EET_S5_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %first, ptr noundef %last) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %first.addr = alloca ptr, align 8
+  %last.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %first, ptr %first.addr, align 8
+  store ptr %last, ptr %last.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %first.addr, align 8
+  %1 = load ptr, ptr %last.addr, align 8
+  call void @_ZN5boost21iterator_range_detail19iterator_range_baseIPKcNS_9iterators27random_access_traversal_tagEEC2IS3_EET_S8_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0, ptr noundef %1)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5boost21iterator_range_detail19iterator_range_baseIPKcNS_9iterators27random_access_traversal_tagEEC2IS3_EET_S8_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %first, ptr noundef %last) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %first.addr = alloca ptr, align 8
+  %last.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %first, ptr %first.addr, align 8
+  store ptr %last, ptr %last.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %first.addr, align 8
+  %1 = load ptr, ptr %last.addr, align 8
+  call void @_ZN5boost21iterator_range_detail19iterator_range_baseIPKcNS_9iterators27bidirectional_traversal_tagEEC2IS3_EET_S8_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0, ptr noundef %1)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5boost21iterator_range_detail19iterator_range_baseIPKcNS_9iterators27bidirectional_traversal_tagEEC2IS3_EET_S8_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %first, ptr noundef %last) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %first.addr = alloca ptr, align 8
+  %last.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %first, ptr %first.addr, align 8
+  store ptr %last, ptr %last.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %first.addr, align 8
+  %1 = load ptr, ptr %last.addr, align 8
+  call void @_ZN5boost21iterator_range_detail19iterator_range_baseIPKcNS_9iterators27incrementable_traversal_tagEEC2IS3_EET_S8_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0, ptr noundef %1)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5boost21iterator_range_detail19iterator_range_baseIPKcNS_9iterators27incrementable_traversal_tagEEC2IS3_EET_S8_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %Begin, ptr noundef %End) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %Begin.addr = alloca ptr, align 8
+  %End.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %Begin, ptr %Begin.addr, align 8
+  store ptr %End, ptr %End.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_Begin = getelementptr inbounds %"class.boost::iterator_range_detail::iterator_range_base.45", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %Begin.addr, align 8
+  store ptr %0, ptr %m_Begin, align 8
+  %m_End = getelementptr inbounds %"class.boost::iterator_range_detail::iterator_range_base.45", ptr %this1, i32 0, i32 1
+  %1 = load ptr, ptr %End.addr, align 8
+  store ptr %1, ptr %m_End, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr { ptr, ptr } @_ZN5boost10as_literalIcLm3EEENS_14iterator_rangeIPKT_EERAT0__S3_(ptr noundef nonnull align 1 dereferenceable(3) %arr) #0 comdat {
+entry:
+  %retval = alloca %"class.boost::iterator_range", align 8
+  %arr.addr = alloca ptr, align 8
+  store ptr %arr, ptr %arr.addr, align 8
+  %0 = load ptr, ptr %arr.addr, align 8
+  %arraydecay = getelementptr inbounds [3 x i8], ptr %0, i64 0, i64 0
+  %1 = load ptr, ptr %arr.addr, align 8
+  %arraydecay1 = getelementptr inbounds [3 x i8], ptr %1, i64 0, i64 0
+  %call = call noundef zeroext i1 @_ZN5boost12range_detail11is_char_ptrEPKc(ptr noundef %arraydecay1)
+  %call2 = call { ptr, ptr } @_ZN5boost12range_detail10make_rangeIKcEENS_14iterator_rangeIPT_EES5_b(ptr noundef %arraydecay, i1 noundef zeroext %call)
+  %coerce.dive = getelementptr inbounds %"class.boost::iterator_range", ptr %retval, i32 0, i32 0
+  %coerce.dive3 = getelementptr inbounds %"class.boost::iterator_range_detail::iterator_range_base", ptr %coerce.dive, i32 0, i32 0
+  %coerce.dive4 = getelementptr inbounds %"class.boost::iterator_range_detail::iterator_range_base.44", ptr %coerce.dive3, i32 0, i32 0
+  %2 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive4, i32 0, i32 0
+  %3 = extractvalue { ptr, ptr } %call2, 0
+  store ptr %3, ptr %2, align 8
+  %4 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive4, i32 0, i32 1
+  %5 = extractvalue { ptr, ptr } %call2, 1
+  store ptr %5, ptr %4, align 8
+  %coerce.dive5 = getelementptr inbounds %"class.boost::iterator_range", ptr %retval, i32 0, i32 0
+  %coerce.dive6 = getelementptr inbounds %"class.boost::iterator_range_detail::iterator_range_base", ptr %coerce.dive5, i32 0, i32 0
+  %coerce.dive7 = getelementptr inbounds %"class.boost::iterator_range_detail::iterator_range_base.44", ptr %coerce.dive6, i32 0, i32 0
+  %6 = load { ptr, ptr }, ptr %coerce.dive7, align 8
+  ret { ptr, ptr } %6
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5boost9algorithm6detail13const_formatFINS_14iterator_rangeIPKcEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %Format) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %Format.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %Format, ptr %Format.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_Format = getelementptr inbounds %"struct.boost::algorithm::detail::const_formatF", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %Format.addr, align 8
+  %call = call noundef ptr @_ZN5boost17range_adl_barrier5beginINS_14iterator_rangeIPKcEEEENS_14range_iteratorIKT_vE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %1 = load ptr, ptr %Format.addr, align 8
+  %call2 = call noundef ptr @_ZN5boost17range_adl_barrier3endINS_14iterator_rangeIPKcEEEENS_14range_iteratorIKT_vE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  call void @_ZN5boost14iterator_rangeIPKcEC2IS2_EET_S5_(ptr noundef nonnull align 8 dereferenceable(16) %m_Format, ptr noundef %call, ptr noundef %call2)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZSt11make_uniqueIN8facebook5velox6common8Subfield15StringSubscriptEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr noalias sret(%"class.std::unique_ptr.26") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %__args) #0 comdat personality ptr @__gxx_personality_v0 {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %__args.addr = alloca ptr, align 8
+  %exn.slot = alloca ptr, align 8
+  %ehselector.slot = alloca i32, align 4
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store ptr %__args, ptr %__args.addr, align 8
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #14
+  %0 = load ptr, ptr %__args.addr, align 8
+  invoke void @_ZN8facebook5velox6common8Subfield15StringSubscriptC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %call, ptr noundef nonnull align 8 dereferenceable(32) %0)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %entry
+  call void @_ZNSt10unique_ptrIN8facebook5velox6common8Subfield15StringSubscriptESt14default_deleteIS4_EEC2IS6_vEEPS4_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call) #13
+  ret void
+
+lpad:                                             ; preds = %entry
+  %1 = landingpad { ptr, i32 }
+          cleanup
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
+  call void @_ZdlPv(ptr noundef %call) #15
+  br label %eh.resume
+
+eh.resume:                                        ; preds = %lpad
+  %exn = load ptr, ptr %exn.slot, align 8
+  %sel = load i32, ptr %ehselector.slot, align 4
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
+  %lpad.val1 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
+  resume { ptr, i32 } %lpad.val1
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt15__uniq_ptr_dataIN8facebook5velox6common8Subfield15StringSubscriptESt14default_deleteIS4_ELb1ELb1EECI2St15__uniq_ptr_implIS4_S6_EEPS4_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %0) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %1 = load ptr, ptr %.addr, align 8
+  call void @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield15StringSubscriptESt14default_deleteIS4_EEC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef %1)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield15StringSubscriptESt14default_deleteIS4_EEC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %__p) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__p.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %__p, ptr %__p.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_t = getelementptr inbounds %"class.std::__uniq_ptr_impl.28", ptr %this1, i32 0, i32 0
+  call void @_ZNSt5tupleIJPN8facebook5velox6common8Subfield15StringSubscriptESt14default_deleteIS4_EEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES5_S7_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #13
+  %0 = load ptr, ptr %__p.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN8facebook5velox6common8Subfield15StringSubscriptESt14default_deleteIS4_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
+  store ptr %0, ptr %call, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt5tupleIJPN8facebook5velox6common8Subfield15StringSubscriptESt14default_deleteIS4_EEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES5_S7_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  invoke void @_ZNSt11_Tuple_implILm0EJPN8facebook5velox6common8Subfield15StringSubscriptESt14default_deleteIS4_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %entry
+  ret void
+
+terminate.lpad:                                   ; preds = %entry
+  %0 = landingpad { ptr, i32 }
+          catch ptr null
+  %1 = extractvalue { ptr, i32 } %0, 0
+  call void @__clang_call_terminate(ptr %1) #16
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt11_Tuple_implILm0EJPN8facebook5velox6common8Subfield15StringSubscriptESt14default_deleteIS4_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN8facebook5velox6common8Subfield15StringSubscriptEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1)
+  call void @_ZNSt10_Head_baseILm0EPN8facebook5velox6common8Subfield15StringSubscriptELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN8facebook5velox6common8Subfield15StringSubscriptEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZNSt10_Head_baseILm1ESt14default_deleteIN8facebook5velox6common8Subfield15StringSubscriptEELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10_Head_baseILm0EPN8facebook5velox6common8Subfield15StringSubscriptELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_head_impl = getelementptr inbounds %"struct.std::_Head_base.33", ptr %this1, i32 0, i32 0
+  store ptr null, ptr %_M_head_impl, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10_Head_baseILm1ESt14default_deleteIN8facebook5velox6common8Subfield15StringSubscriptEELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #2 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  ret void
+}
+
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) #1
+
+attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #3 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #5 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #10 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #11 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #12 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #13 = { nounwind }
+attributes #14 = { builtin allocsize(0) }
+attributes #15 = { builtin nounwind }
+attributes #16 = { noreturn nounwind }
+attributes #17 = { nounwind willreturn memory(read) }
+attributes #18 = { noreturn }
+attributes #19 = { nounwind willreturn memory(none) }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{i32 7, !"frame-pointer", i32 2}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}

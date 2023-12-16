@@ -76,3 +76,6 @@
 [submodule "bench/entt/entt"]
 	path = bench/entt/entt
 	url = git@github.com:skypjack/entt.git
+[submodule "bench/velox/velox"]
+	path = bench/velox/velox
+	url = git@github.com:facebookincubator/velox.git
