@@ -22,3 +22,6 @@
 [submodule "bench/mimalloc/mimalloc"]
 	path = bench/mimalloc/mimalloc
 	url = git@github.com:microsoft/mimalloc.git
+[submodule "bench/spdlog/spdlog"]
+	path = bench/spdlog/spdlog
+	url = git@github.com:gabime/spdlog.git
