@@ -16,3 +16,6 @@
 [submodule "bench/snappy/snappy"]
 	path = bench/snappy/snappy
 	url = git@github.com:google/snappy.git
+[submodule "bench/readerwriterqueue/readerwriterqueue"]
+	path = bench/readerwriterqueue/readerwriterqueue
+	url = git@github.com:cameron314/readerwriterqueue.git
