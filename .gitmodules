@@ -154,3 +154,6 @@
 [submodule "bench/openvdb/openvdb"]
 	path = bench/openvdb/openvdb
 	url = git@github.com:AcademySoftwareFoundation/openvdb.git
+[submodule "bench/jemalloc/jemalloc"]
+	path = bench/jemalloc/jemalloc
+	url = git@github.com:jemalloc/jemalloc.git
