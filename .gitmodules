@@ -58,3 +58,6 @@
 [submodule "bench/nuklear/Nuklear"]
 	path = bench/nuklear/Nuklear
 	url = git@github.com:Immediate-Mode-UI/Nuklear.git
+[submodule "bench/stb/stb"]
+	path = bench/stb/stb
+	url = git@github.com:nothings/stb.git
