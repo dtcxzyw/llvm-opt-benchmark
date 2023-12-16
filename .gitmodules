@@ -49,3 +49,6 @@
 [submodule "bench/duckdb/duckdb"]
 	path = bench/duckdb/duckdb
 	url = git@github.com:duckdb/duckdb.git
+[submodule "bench/cxxopts/cxxopts"]
+	path = bench/cxxopts/cxxopts
+	url = git@github.com:jarro2783/cxxopts.git
