@@ -4,3 +4,6 @@
 [submodule "bench/zlib/zlib"]
 	path = bench/zlib/zlib
 	url = git@github.com:madler/zlib.git
+[submodule "bench/zstd/zstd"]
+	path = bench/zstd/zstd
+	url = git@github.com:facebook/zstd.git
