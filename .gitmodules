@@ -31,3 +31,6 @@
 [submodule "bench/nlohmann_json/json"]
 	path = bench/nlohmann_json/json
 	url = git@github.com:nlohmann/json.git
+[submodule "bench/taskflow/taskflow"]
+	path = bench/taskflow/taskflow
+	url = git@github.com:taskflow/taskflow.git
