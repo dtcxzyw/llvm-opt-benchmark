@@ -55,3 +55,6 @@
 [submodule "bench/yaml-cpp/yaml-cpp"]
 	path = bench/yaml-cpp/yaml-cpp
 	url = git@github.com:jbeder/yaml-cpp.git
+[submodule "bench/nuklear/Nuklear"]
+	path = bench/nuklear/Nuklear
+	url = git@github.com:Immediate-Mode-UI/Nuklear.git
