@@ -46,3 +46,6 @@
 [submodule "bench/coremark/coremark"]
 	path = bench/coremark/coremark
 	url = git@github.com:eembc/coremark.git
+[submodule "bench/duckdb/duckdb"]
+	path = bench/duckdb/duckdb
+	url = git@github.com:duckdb/duckdb.git
