@@ -37,3 +37,6 @@
 [submodule "bench/assimp/assimp"]
 	path = bench/assimp/assimp
 	url = git@github.com:assimp/assimp.git
+[submodule "bench/meshoptimizer/meshoptimizer"]
+	path = bench/meshoptimizer/meshoptimizer
+	url = git@github.com:zeux/meshoptimizer.git
