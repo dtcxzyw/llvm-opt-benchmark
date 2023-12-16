@@ -91,3 +91,6 @@
 [submodule "bench/libevent/libevent"]
 	path = bench/libevent/libevent
 	url = git@github.com:libevent/libevent.git
+[submodule "bench/pcg-cpp/pcg-cpp"]
+	path = bench/pcg-cpp/pcg-cpp
+	url = git@github.com:imneme/pcg-cpp.git
