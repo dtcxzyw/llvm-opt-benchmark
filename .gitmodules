@@ -61,3 +61,6 @@
 [submodule "bench/stb/stb"]
 	path = bench/stb/stb
 	url = git@github.com:nothings/stb.git
+[submodule "bench/yyjson/yyjson"]
+	path = bench/yyjson/yyjson
+	url = git@github.com:ibireme/yyjson.git
