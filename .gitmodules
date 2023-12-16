@@ -97,3 +97,6 @@
 [submodule "bench/pbrt-v4/pbrt-v4"]
 	path = bench/pbrt-v4/pbrt-v4
 	url = git@github.com:mmp/pbrt-v4.git
+[submodule "bench/double_conversion/double-conversion"]
+	path = bench/double_conversion/double-conversion
+	url = git@github.com:google/double-conversion.git
