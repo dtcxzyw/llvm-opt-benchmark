@@ -34,3 +34,6 @@
 [submodule "bench/taskflow/taskflow"]
 	path = bench/taskflow/taskflow
 	url = git@github.com:taskflow/taskflow.git
+[submodule "bench/assimp/assimp"]
+	path = bench/assimp/assimp
+	url = git@github.com:assimp/assimp.git
