@@ -88,3 +88,6 @@
 [submodule "bench/libuv/libuv"]
 	path = bench/libuv/libuv
 	url = git@github.com:libuv/libuv.git
+[submodule "bench/libevent/libevent"]
+	path = bench/libevent/libevent
+	url = git@github.com:libevent/libevent.git
