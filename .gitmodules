@@ -118,3 +118,6 @@
 [submodule "bench/protobuf/protobuf"]
 	path = bench/protobuf/protobuf
 	url = git@github.com:protocolbuffers/protobuf.git
+[submodule "bench/redis/redis"]
+	path = bench/redis/redis
+	url = git@github.com:redis/redis.git

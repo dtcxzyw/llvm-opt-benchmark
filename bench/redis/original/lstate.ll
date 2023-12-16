@@ -1,0 +1,483 @@
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-unknown-linux-gnu"
+
+%struct.lua_State = type { ptr, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i16, i16, i8, i8, i32, i32, ptr, %struct.lua_TValue, %struct.lua_TValue, ptr, ptr, ptr, i64 }
+%struct.lua_TValue = type { %union.Value, i32 }
+%union.Value = type { ptr }
+%struct.CallInfo = type { ptr, ptr, ptr, ptr, i32, i32 }
+%struct.LG = type { %struct.lua_State, %struct.global_State }
+%struct.global_State = type { %struct.stringtable, ptr, ptr, i8, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, %struct.Mbuffer, i64, i64, i64, i64, i32, i32, ptr, %struct.lua_TValue, ptr, %struct.UpVal, [9 x ptr], [17 x ptr] }
+%struct.stringtable = type { ptr, i32, i32 }
+%struct.Mbuffer = type { ptr, i64, i64 }
+%struct.UpVal = type { ptr, i8, i8, ptr, %union.anon }
+%union.anon = type { %struct.lua_TValue }
+%struct.anon.0 = type { ptr, i8, i8, i8, i32, i64 }
+
+@.str = private unnamed_addr constant [18 x i8] c"not enough memory\00", align 1
+
+; Function Attrs: nounwind uwtable
+define hidden ptr @luaE_newthread(ptr noundef %L) local_unnamed_addr #0 {
+entry:
+  %call = tail call ptr @luaM_realloc_(ptr noundef %L, ptr noundef null, i64 noundef 0, i64 noundef 184) #3
+  tail call void @luaC_link(ptr noundef %L, ptr noundef %call, i8 noundef zeroext 8) #3
+  %l_G = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 6
+  %0 = load ptr, ptr %l_G, align 8, !tbaa !4
+  %l_G.i = getelementptr inbounds %struct.lua_State, ptr %call, i64 0, i32 6
+  store ptr %0, ptr %l_G.i, align 8, !tbaa !4
+  %stack.i = getelementptr inbounds %struct.lua_State, ptr %call, i64 0, i32 10
+  store ptr null, ptr %stack.i, align 8, !tbaa !13
+  %stacksize.i = getelementptr inbounds %struct.lua_State, ptr %call, i64 0, i32 13
+  store i32 0, ptr %stacksize.i, align 8, !tbaa !14
+  %errorJmp.i = getelementptr inbounds %struct.lua_State, ptr %call, i64 0, i32 26
+  store ptr null, ptr %errorJmp.i, align 8, !tbaa !15
+  %hook.i = getelementptr inbounds %struct.lua_State, ptr %call, i64 0, i32 21
+  store ptr null, ptr %hook.i, align 8, !tbaa !16
+  %hookmask.i = getelementptr inbounds %struct.lua_State, ptr %call, i64 0, i32 17
+  store i8 0, ptr %hookmask.i, align 4, !tbaa !17
+  %basehookcount.i = getelementptr inbounds %struct.lua_State, ptr %call, i64 0, i32 19
+  store i32 0, ptr %basehookcount.i, align 8, !tbaa !18
+  %allowhook.i = getelementptr inbounds %struct.lua_State, ptr %call, i64 0, i32 18
+  store i8 1, ptr %allowhook.i, align 1, !tbaa !19
+  %hookcount.i = getelementptr inbounds %struct.lua_State, ptr %call, i64 0, i32 20
+  store i32 0, ptr %hookcount.i, align 4, !tbaa !20
+  %openupval.i = getelementptr inbounds %struct.lua_State, ptr %call, i64 0, i32 24
+  store ptr null, ptr %openupval.i, align 8, !tbaa !21
+  %size_ci.i = getelementptr inbounds %struct.lua_State, ptr %call, i64 0, i32 14
+  %status.i = getelementptr inbounds %struct.lua_State, ptr %call, i64 0, i32 3
+  store i8 0, ptr %status.i, align 2, !tbaa !22
+  %ci.i = getelementptr inbounds %struct.lua_State, ptr %call, i64 0, i32 7
+  %base_ci.i = getelementptr inbounds %struct.lua_State, ptr %call, i64 0, i32 12
+  store ptr null, ptr %base_ci.i, align 8, !tbaa !23
+  %errfunc.i = getelementptr inbounds %struct.lua_State, ptr %call, i64 0, i32 27
+  store i64 0, ptr %errfunc.i, align 8, !tbaa !24
+  %tt.i = getelementptr inbounds %struct.lua_State, ptr %call, i64 0, i32 22, i32 1
+  store i32 0, ptr %tt.i, align 8, !tbaa !25
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ci.i, i8 0, i64 16, i1 false)
+  store i64 0, ptr %size_ci.i, align 4
+  %call.i = tail call ptr @luaM_realloc_(ptr noundef %L, ptr noundef null, i64 noundef 0, i64 noundef 320) #3
+  store ptr %call.i, ptr %base_ci.i, align 8, !tbaa !23
+  store ptr %call.i, ptr %ci.i, align 8, !tbaa !26
+  store i32 8, ptr %size_ci.i, align 4, !tbaa !27
+  %add.ptr4.i = getelementptr inbounds %struct.CallInfo, ptr %call.i, i64 7
+  %end_ci.i = getelementptr inbounds %struct.lua_State, ptr %call, i64 0, i32 11
+  store ptr %add.ptr4.i, ptr %end_ci.i, align 8, !tbaa !28
+  %call5.i = tail call ptr @luaM_realloc_(ptr noundef %L, ptr noundef null, i64 noundef 0, i64 noundef 720) #3
+  store ptr %call5.i, ptr %stack.i, align 8, !tbaa !13
+  store i32 45, ptr %stacksize.i, align 8, !tbaa !14
+  %top.i = getelementptr inbounds %struct.lua_State, ptr %call, i64 0, i32 4
+  %add.ptr11.i = getelementptr inbounds %struct.lua_TValue, ptr %call5.i, i64 39
+  %stack_last.i = getelementptr inbounds %struct.lua_State, ptr %call, i64 0, i32 9
+  store ptr %add.ptr11.i, ptr %stack_last.i, align 8, !tbaa !29
+  %1 = load ptr, ptr %ci.i, align 8, !tbaa !26
+  %func.i = getelementptr inbounds %struct.CallInfo, ptr %1, i64 0, i32 1
+  store ptr %call5.i, ptr %func.i, align 8, !tbaa !30
+  %incdec.ptr.i = getelementptr inbounds %struct.lua_TValue, ptr %call5.i, i64 1
+  store ptr %incdec.ptr.i, ptr %top.i, align 8, !tbaa !32
+  %tt.i31 = getelementptr inbounds %struct.lua_TValue, ptr %call5.i, i64 0, i32 1
+  store i32 0, ptr %tt.i31, align 8, !tbaa !33
+  store ptr %incdec.ptr.i, ptr %1, align 8, !tbaa !34
+  %base17.i = getelementptr inbounds %struct.lua_State, ptr %call, i64 0, i32 5
+  store ptr %incdec.ptr.i, ptr %base17.i, align 8, !tbaa !35
+  %add.ptr19.i = getelementptr inbounds %struct.lua_TValue, ptr %call5.i, i64 21
+  %top21.i = getelementptr inbounds %struct.CallInfo, ptr %1, i64 0, i32 2
+  store ptr %add.ptr19.i, ptr %top21.i, align 8, !tbaa !36
+  %l_gt = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 22
+  %l_gt1 = getelementptr inbounds %struct.lua_State, ptr %call, i64 0, i32 22
+  %2 = load i64, ptr %l_gt, align 8
+  store i64 %2, ptr %l_gt1, align 8
+  %tt = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 22, i32 1
+  %3 = load i32, ptr %tt, align 8, !tbaa !33
+  store i32 %3, ptr %tt.i, align 8, !tbaa !33
+  %hookmask = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 17
+  %4 = load i8, ptr %hookmask, align 4, !tbaa !17
+  store i8 %4, ptr %hookmask.i, align 4, !tbaa !17
+  %basehookcount = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 19
+  %5 = load i32, ptr %basehookcount, align 8, !tbaa !18
+  store i32 %5, ptr %basehookcount.i, align 8, !tbaa !18
+  %hook = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 21
+  %6 = load ptr, ptr %hook, align 8, !tbaa !16
+  store ptr %6, ptr %hook.i, align 8, !tbaa !16
+  store i32 %5, ptr %hookcount.i, align 4, !tbaa !20
+  ret ptr %call
+}
+
+declare hidden ptr @luaM_realloc_(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
+
+declare hidden void @luaC_link(ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define hidden void @luaE_freethread(ptr noundef %L, ptr noundef %L1) local_unnamed_addr #0 {
+entry:
+  %stack = getelementptr inbounds %struct.lua_State, ptr %L1, i64 0, i32 10
+  %0 = load ptr, ptr %stack, align 8, !tbaa !13
+  tail call void @luaF_close(ptr noundef %L1, ptr noundef %0) #3
+  %base_ci.i = getelementptr inbounds %struct.lua_State, ptr %L1, i64 0, i32 12
+  %1 = load ptr, ptr %base_ci.i, align 8, !tbaa !23
+  %size_ci.i = getelementptr inbounds %struct.lua_State, ptr %L1, i64 0, i32 14
+  %2 = load i32, ptr %size_ci.i, align 4, !tbaa !27
+  %conv.i = sext i32 %2 to i64
+  %mul.i = mul nsw i64 %conv.i, 40
+  %call.i = tail call ptr @luaM_realloc_(ptr noundef %L, ptr noundef %1, i64 noundef %mul.i, i64 noundef 0) #3
+  %3 = load ptr, ptr %stack, align 8, !tbaa !13
+  %stacksize.i = getelementptr inbounds %struct.lua_State, ptr %L1, i64 0, i32 13
+  %4 = load i32, ptr %stacksize.i, align 8, !tbaa !14
+  %conv1.i = sext i32 %4 to i64
+  %mul2.i = shl nsw i64 %conv1.i, 4
+  %call3.i = tail call ptr @luaM_realloc_(ptr noundef %L, ptr noundef %3, i64 noundef %mul2.i, i64 noundef 0) #3
+  %call = tail call ptr @luaM_realloc_(ptr noundef %L, ptr noundef %L1, i64 noundef 184, i64 noundef 0) #3
+  ret void
+}
+
+declare hidden void @luaF_close(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define dso_local ptr @lua_newstate(ptr noundef %f, ptr noundef %ud) local_unnamed_addr #0 {
+entry:
+  %call = tail call ptr %f(ptr noundef %ud, ptr noundef null, i64 noundef 0, i64 noundef 616) #3
+  %cmp = icmp eq ptr %call, null
+  br i1 %cmp, label %cleanup, label %if.end
+
+if.end:                                           ; preds = %entry
+  %g1 = getelementptr inbounds %struct.LG, ptr %call, i64 0, i32 1
+  store ptr null, ptr %call, align 8, !tbaa !37
+  %tt = getelementptr inbounds %struct.lua_State, ptr %call, i64 0, i32 1
+  store i8 8, ptr %tt, align 8, !tbaa !38
+  %currentwhite = getelementptr inbounds %struct.LG, ptr %call, i64 0, i32 1, i32 3
+  store i8 33, ptr %currentwhite, align 8, !tbaa !39
+  %marked = getelementptr inbounds %struct.lua_State, ptr %call, i64 0, i32 2
+  store i8 97, ptr %marked, align 1, !tbaa !44
+  %l_G.i = getelementptr inbounds %struct.lua_State, ptr %call, i64 0, i32 6
+  store ptr %g1, ptr %l_G.i, align 8, !tbaa !4
+  %stack.i = getelementptr inbounds %struct.lua_State, ptr %call, i64 0, i32 10
+  store ptr null, ptr %stack.i, align 8, !tbaa !13
+  %stacksize.i = getelementptr inbounds %struct.lua_State, ptr %call, i64 0, i32 13
+  store i32 0, ptr %stacksize.i, align 8, !tbaa !14
+  %errorJmp.i = getelementptr inbounds %struct.lua_State, ptr %call, i64 0, i32 26
+  store ptr null, ptr %errorJmp.i, align 8, !tbaa !15
+  %hook.i = getelementptr inbounds %struct.lua_State, ptr %call, i64 0, i32 21
+  store ptr null, ptr %hook.i, align 8, !tbaa !16
+  %hookmask.i = getelementptr inbounds %struct.lua_State, ptr %call, i64 0, i32 17
+  store i8 0, ptr %hookmask.i, align 4, !tbaa !17
+  %basehookcount.i = getelementptr inbounds %struct.lua_State, ptr %call, i64 0, i32 19
+  store i32 0, ptr %basehookcount.i, align 8, !tbaa !18
+  %allowhook.i = getelementptr inbounds %struct.lua_State, ptr %call, i64 0, i32 18
+  store i8 1, ptr %allowhook.i, align 1, !tbaa !19
+  %hookcount.i = getelementptr inbounds %struct.lua_State, ptr %call, i64 0, i32 20
+  store i32 0, ptr %hookcount.i, align 4, !tbaa !20
+  %openupval.i = getelementptr inbounds %struct.lua_State, ptr %call, i64 0, i32 24
+  store ptr null, ptr %openupval.i, align 8, !tbaa !21
+  %size_ci.i = getelementptr inbounds %struct.lua_State, ptr %call, i64 0, i32 14
+  %status.i = getelementptr inbounds %struct.lua_State, ptr %call, i64 0, i32 3
+  store i8 0, ptr %status.i, align 2, !tbaa !22
+  %ci.i = getelementptr inbounds %struct.lua_State, ptr %call, i64 0, i32 7
+  %base_ci.i = getelementptr inbounds %struct.lua_State, ptr %call, i64 0, i32 12
+  store ptr null, ptr %base_ci.i, align 8, !tbaa !23
+  %errfunc.i = getelementptr inbounds %struct.lua_State, ptr %call, i64 0, i32 27
+  store i64 0, ptr %errfunc.i, align 8, !tbaa !24
+  %tt.i = getelementptr inbounds %struct.lua_State, ptr %call, i64 0, i32 22, i32 1
+  store i32 0, ptr %tt.i, align 8, !tbaa !25
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ci.i, i8 0, i64 16, i1 false)
+  store i64 0, ptr %size_ci.i, align 4
+  %frealloc = getelementptr inbounds %struct.LG, ptr %call, i64 0, i32 1, i32 1
+  store ptr %f, ptr %frealloc, align 8, !tbaa !45
+  %ud7 = getelementptr inbounds %struct.LG, ptr %call, i64 0, i32 1, i32 2
+  store ptr %ud, ptr %ud7, align 8, !tbaa !46
+  %mainthread = getelementptr inbounds %struct.LG, ptr %call, i64 0, i32 1, i32 21
+  store ptr %call, ptr %mainthread, align 8, !tbaa !47
+  %uvhead = getelementptr inbounds %struct.LG, ptr %call, i64 0, i32 1, i32 22
+  %u = getelementptr inbounds %struct.LG, ptr %call, i64 0, i32 1, i32 22, i32 4
+  store ptr %uvhead, ptr %u, align 8, !tbaa !48
+  %next12 = getelementptr inbounds %struct.LG, ptr %call, i64 0, i32 1, i32 22, i32 4, i32 0, i32 1
+  store ptr %uvhead, ptr %next12, align 8, !tbaa !48
+  %tt15 = getelementptr inbounds %struct.LG, ptr %call, i64 0, i32 1, i32 20, i32 1
+  store i32 0, ptr %tt15, align 8, !tbaa !49
+  %buff = getelementptr inbounds %struct.LG, ptr %call, i64 0, i32 1, i32 12
+  store ptr null, ptr %buff, align 8, !tbaa !50
+  %buffsize = getelementptr inbounds %struct.LG, ptr %call, i64 0, i32 1, i32 12, i32 2
+  %panic = getelementptr inbounds %struct.LG, ptr %call, i64 0, i32 1, i32 19
+  store ptr null, ptr %panic, align 8, !tbaa !51
+  %gcstate = getelementptr inbounds %struct.LG, ptr %call, i64 0, i32 1, i32 4
+  store i8 0, ptr %gcstate, align 1, !tbaa !52
+  %rootgc = getelementptr inbounds %struct.LG, ptr %call, i64 0, i32 1, i32 6
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %g1, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %buffsize, i8 0, i64 16, i1 false)
+  store ptr %call, ptr %rootgc, align 8, !tbaa !53
+  %sweepstrgc = getelementptr inbounds %struct.LG, ptr %call, i64 0, i32 1, i32 5
+  store i32 0, ptr %sweepstrgc, align 4, !tbaa !54
+  %sweepgc = getelementptr inbounds %struct.LG, ptr %call, i64 0, i32 1, i32 7
+  store ptr %rootgc, ptr %sweepgc, align 8, !tbaa !55
+  %gray = getelementptr inbounds %struct.LG, ptr %call, i64 0, i32 1, i32 8
+  %totalbytes = getelementptr inbounds %struct.LG, ptr %call, i64 0, i32 1, i32 14
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %gray, i8 0, i64 32, i1 false)
+  store i64 616, ptr %totalbytes, align 8, !tbaa !56
+  %gcpause = getelementptr inbounds %struct.LG, ptr %call, i64 0, i32 1, i32 17
+  store i32 200, ptr %gcpause, align 8, !tbaa !57
+  %gcstepmul = getelementptr inbounds %struct.LG, ptr %call, i64 0, i32 1, i32 18
+  store i32 200, ptr %gcstepmul, align 4, !tbaa !58
+  %gcdept = getelementptr inbounds %struct.LG, ptr %call, i64 0, i32 1, i32 16
+  store i64 0, ptr %gcdept, align 8, !tbaa !59
+  %scevgep = getelementptr i8, ptr %call, i64 408
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %scevgep, i8 0, i64 72, i1 false), !tbaa !60
+  %call20 = tail call i32 @luaD_rawrunprotected(ptr noundef nonnull %call, ptr noundef nonnull @f_luaopen, ptr noundef null) #3
+  %cmp21.not = icmp eq i32 %call20, 0
+  br i1 %cmp21.not, label %cleanup, label %if.then23
+
+if.then23:                                        ; preds = %if.end
+  tail call fastcc void @close_state(ptr noundef nonnull %call)
+  br label %cleanup
+
+cleanup:                                          ; preds = %if.then23, %if.end, %entry
+  %retval.0 = phi ptr [ null, %entry ], [ null, %if.then23 ], [ %call, %if.end ]
+  ret ptr %retval.0
+}
+
+declare hidden i32 @luaD_rawrunprotected(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define internal void @f_luaopen(ptr noundef %L, ptr nocapture readnone %ud) #0 {
+entry:
+  %l_G = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 6
+  %0 = load ptr, ptr %l_G, align 8, !tbaa !4
+  %call.i = tail call ptr @luaM_realloc_(ptr noundef %L, ptr noundef null, i64 noundef 0, i64 noundef 320) #3
+  %base_ci.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
+  store ptr %call.i, ptr %base_ci.i, align 8, !tbaa !23
+  %ci.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
+  store ptr %call.i, ptr %ci.i, align 8, !tbaa !26
+  %size_ci.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 14
+  store i32 8, ptr %size_ci.i, align 4, !tbaa !27
+  %add.ptr4.i = getelementptr inbounds %struct.CallInfo, ptr %call.i, i64 7
+  %end_ci.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 11
+  store ptr %add.ptr4.i, ptr %end_ci.i, align 8, !tbaa !28
+  %call5.i = tail call ptr @luaM_realloc_(ptr noundef %L, ptr noundef null, i64 noundef 0, i64 noundef 720) #3
+  %stack.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 10
+  store ptr %call5.i, ptr %stack.i, align 8, !tbaa !13
+  %stacksize.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 13
+  store i32 45, ptr %stacksize.i, align 8, !tbaa !14
+  %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 4
+  %add.ptr11.i = getelementptr inbounds %struct.lua_TValue, ptr %call5.i, i64 39
+  %stack_last.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 9
+  store ptr %add.ptr11.i, ptr %stack_last.i, align 8, !tbaa !29
+  %1 = load ptr, ptr %ci.i, align 8, !tbaa !26
+  %func.i = getelementptr inbounds %struct.CallInfo, ptr %1, i64 0, i32 1
+  store ptr %call5.i, ptr %func.i, align 8, !tbaa !30
+  %incdec.ptr.i = getelementptr inbounds %struct.lua_TValue, ptr %call5.i, i64 1
+  store ptr %incdec.ptr.i, ptr %top.i, align 8, !tbaa !32
+  %tt.i = getelementptr inbounds %struct.lua_TValue, ptr %call5.i, i64 0, i32 1
+  store i32 0, ptr %tt.i, align 8, !tbaa !33
+  store ptr %incdec.ptr.i, ptr %1, align 8, !tbaa !34
+  %base17.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
+  store ptr %incdec.ptr.i, ptr %base17.i, align 8, !tbaa !35
+  %add.ptr19.i = getelementptr inbounds %struct.lua_TValue, ptr %call5.i, i64 21
+  %top21.i = getelementptr inbounds %struct.CallInfo, ptr %1, i64 0, i32 2
+  store ptr %add.ptr19.i, ptr %top21.i, align 8, !tbaa !36
+  %l_gt = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 22
+  %call = tail call ptr @luaH_new(ptr noundef %L, i32 noundef 0, i32 noundef 2) #3
+  store ptr %call, ptr %l_gt, align 8, !tbaa !48
+  %tt = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 22, i32 1
+  store i32 5, ptr %tt, align 8, !tbaa !33
+  %2 = load ptr, ptr %l_G, align 8, !tbaa !4
+  %l_registry = getelementptr inbounds %struct.global_State, ptr %2, i64 0, i32 20
+  %call3 = tail call ptr @luaH_new(ptr noundef %L, i32 noundef 0, i32 noundef 2) #3
+  store ptr %call3, ptr %l_registry, align 8, !tbaa !48
+  %tt5 = getelementptr inbounds %struct.global_State, ptr %2, i64 0, i32 20, i32 1
+  store i32 5, ptr %tt5, align 8, !tbaa !33
+  tail call void @luaS_resize(ptr noundef %L, i32 noundef 32) #3
+  tail call void @luaT_init(ptr noundef %L) #3
+  tail call void @luaX_init(ptr noundef %L) #3
+  %call6 = tail call ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull @.str, i64 noundef 17) #3
+  %marked = getelementptr inbounds %struct.anon.0, ptr %call6, i64 0, i32 2
+  %3 = load i8, ptr %marked, align 1, !tbaa !48
+  %4 = or i8 %3, 32
+  store i8 %4, ptr %marked, align 1, !tbaa !48
+  %totalbytes = getelementptr inbounds %struct.global_State, ptr %0, i64 0, i32 14
+  %5 = load i64, ptr %totalbytes, align 8, !tbaa !56
+  %mul = shl i64 %5, 2
+  %GCthreshold = getelementptr inbounds %struct.global_State, ptr %0, i64 0, i32 13
+  store i64 %mul, ptr %GCthreshold, align 8, !tbaa !61
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal fastcc void @close_state(ptr noundef %L) unnamed_addr #0 {
+entry:
+  %l_G = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 6
+  %0 = load ptr, ptr %l_G, align 8, !tbaa !4
+  %stack = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 10
+  %1 = load ptr, ptr %stack, align 8, !tbaa !13
+  tail call void @luaF_close(ptr noundef %L, ptr noundef %1) #3
+  tail call void @luaC_freeall(ptr noundef %L) #3
+  %2 = load ptr, ptr %l_G, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !62
+  %size = getelementptr inbounds %struct.stringtable, ptr %2, i64 0, i32 2
+  %4 = load i32, ptr %size, align 4, !tbaa !63
+  %conv = sext i32 %4 to i64
+  %mul = shl nsw i64 %conv, 3
+  %call = tail call ptr @luaM_realloc_(ptr noundef %L, ptr noundef %3, i64 noundef %mul, i64 noundef 0) #3
+  %buff = getelementptr inbounds %struct.global_State, ptr %0, i64 0, i32 12
+  %5 = load ptr, ptr %buff, align 8, !tbaa !50
+  %buffsize = getelementptr inbounds %struct.global_State, ptr %0, i64 0, i32 12, i32 2
+  %6 = load i64, ptr %buffsize, align 8, !tbaa !64
+  %call6 = tail call ptr @luaM_realloc_(ptr noundef %L, ptr noundef %5, i64 noundef %6, i64 noundef 0) #3
+  store ptr %call6, ptr %buff, align 8, !tbaa !50
+  store i64 0, ptr %buffsize, align 8, !tbaa !64
+  %base_ci.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
+  %7 = load ptr, ptr %base_ci.i, align 8, !tbaa !23
+  %size_ci.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 14
+  %8 = load i32, ptr %size_ci.i, align 4, !tbaa !27
+  %conv.i = sext i32 %8 to i64
+  %mul.i = mul nsw i64 %conv.i, 40
+  %call.i = tail call ptr @luaM_realloc_(ptr noundef %L, ptr noundef %7, i64 noundef %mul.i, i64 noundef 0) #3
+  %9 = load ptr, ptr %stack, align 8, !tbaa !13
+  %stacksize.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 13
+  %10 = load i32, ptr %stacksize.i, align 8, !tbaa !14
+  %conv1.i = sext i32 %10 to i64
+  %mul2.i = shl nsw i64 %conv1.i, 4
+  %call3.i = tail call ptr @luaM_realloc_(ptr noundef %L, ptr noundef %9, i64 noundef %mul2.i, i64 noundef 0) #3
+  %frealloc = getelementptr inbounds %struct.global_State, ptr %0, i64 0, i32 1
+  %11 = load ptr, ptr %frealloc, align 8, !tbaa !45
+  %ud = getelementptr inbounds %struct.global_State, ptr %0, i64 0, i32 2
+  %12 = load ptr, ptr %ud, align 8, !tbaa !46
+  %call11 = tail call ptr %11(ptr noundef %12, ptr noundef %L, i64 noundef 616, i64 noundef 0) #3
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define dso_local void @lua_close(ptr nocapture noundef readonly %L) local_unnamed_addr #0 {
+entry:
+  %l_G = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 6
+  %0 = load ptr, ptr %l_G, align 8, !tbaa !4
+  %mainthread = getelementptr inbounds %struct.global_State, ptr %0, i64 0, i32 21
+  %1 = load ptr, ptr %mainthread, align 8, !tbaa !47
+  %stack = getelementptr inbounds %struct.lua_State, ptr %1, i64 0, i32 10
+  %2 = load ptr, ptr %stack, align 8, !tbaa !13
+  tail call void @luaF_close(ptr noundef %1, ptr noundef %2) #3
+  %call = tail call i64 @luaC_separateudata(ptr noundef %1, i32 noundef 1) #3
+  %errfunc = getelementptr inbounds %struct.lua_State, ptr %1, i64 0, i32 27
+  store i64 0, ptr %errfunc, align 8, !tbaa !24
+  %base_ci = getelementptr inbounds %struct.lua_State, ptr %1, i64 0, i32 12
+  %ci = getelementptr inbounds %struct.lua_State, ptr %1, i64 0, i32 7
+  %top = getelementptr inbounds %struct.lua_State, ptr %1, i64 0, i32 4
+  %base2 = getelementptr inbounds %struct.lua_State, ptr %1, i64 0, i32 5
+  %baseCcalls = getelementptr inbounds %struct.lua_State, ptr %1, i64 0, i32 16
+  %nCcalls = getelementptr inbounds %struct.lua_State, ptr %1, i64 0, i32 15
+  br label %do.body
+
+do.body:                                          ; preds = %do.body, %entry
+  %3 = load ptr, ptr %base_ci, align 8, !tbaa !23
+  store ptr %3, ptr %ci, align 8, !tbaa !26
+  %4 = load ptr, ptr %3, align 8, !tbaa !34
+  store ptr %4, ptr %top, align 8, !tbaa !32
+  store ptr %4, ptr %base2, align 8, !tbaa !35
+  store i16 0, ptr %baseCcalls, align 2, !tbaa !65
+  store i16 0, ptr %nCcalls, align 8, !tbaa !66
+  %call3 = tail call i32 @luaD_rawrunprotected(ptr noundef nonnull %1, ptr noundef nonnull @callallgcTM, ptr noundef null) #3
+  %cmp.not = icmp eq i32 %call3, 0
+  br i1 %cmp.not, label %do.end, label %do.body, !llvm.loop !67
+
+do.end:                                           ; preds = %do.body
+  tail call fastcc void @close_state(ptr noundef nonnull %1)
+  ret void
+}
+
+declare hidden i64 @luaC_separateudata(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define internal void @callallgcTM(ptr noundef %L, ptr nocapture readnone %ud) #0 {
+entry:
+  tail call void @luaC_callGCTM(ptr noundef %L) #3
+  ret void
+}
+
+declare hidden ptr @luaH_new(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+declare hidden void @luaS_resize(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare hidden void @luaT_init(ptr noundef) local_unnamed_addr #1
+
+declare hidden void @luaX_init(ptr noundef) local_unnamed_addr #1
+
+declare hidden ptr @luaS_newlstr(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+
+declare hidden void @luaC_freeall(ptr noundef) local_unnamed_addr #1
+
+declare hidden void @luaC_callGCTM(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"PIE Level", i32 2}
+!3 = !{i32 7, !"uwtable", i32 2}
+!4 = !{!5, !6, i64 32}
+!5 = !{!"lua_State", !6, i64 0, !7, i64 8, !7, i64 9, !7, i64 10, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !9, i64 88, !9, i64 92, !10, i64 96, !10, i64 98, !7, i64 100, !7, i64 101, !9, i64 104, !9, i64 108, !6, i64 112, !11, i64 120, !11, i64 136, !6, i64 152, !6, i64 160, !6, i64 168, !12, i64 176}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!"int", !7, i64 0}
+!10 = !{!"short", !7, i64 0}
+!11 = !{!"lua_TValue", !7, i64 0, !9, i64 8}
+!12 = !{!"long", !7, i64 0}
+!13 = !{!5, !6, i64 64}
+!14 = !{!5, !9, i64 88}
+!15 = !{!5, !6, i64 168}
+!16 = !{!5, !6, i64 112}
+!17 = !{!5, !7, i64 100}
+!18 = !{!5, !9, i64 104}
+!19 = !{!5, !7, i64 101}
+!20 = !{!5, !9, i64 108}
+!21 = !{!5, !6, i64 152}
+!22 = !{!5, !7, i64 10}
+!23 = !{!5, !6, i64 80}
+!24 = !{!5, !12, i64 176}
+!25 = !{!5, !9, i64 128}
+!26 = !{!5, !6, i64 40}
+!27 = !{!5, !9, i64 92}
+!28 = !{!5, !6, i64 72}
+!29 = !{!5, !6, i64 56}
+!30 = !{!31, !6, i64 8}
+!31 = !{!"CallInfo", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !9, i64 32, !9, i64 36}
+!32 = !{!5, !6, i64 16}
+!33 = !{!11, !9, i64 8}
+!34 = !{!31, !6, i64 0}
+!35 = !{!5, !6, i64 24}
+!36 = !{!31, !6, i64 16}
+!37 = !{!5, !6, i64 0}
+!38 = !{!5, !7, i64 8}
+!39 = !{!40, !7, i64 32}
+!40 = !{!"global_State", !41, i64 0, !6, i64 16, !6, i64 24, !7, i64 32, !7, i64 33, !9, i64 36, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !42, i64 88, !12, i64 112, !12, i64 120, !12, i64 128, !12, i64 136, !9, i64 144, !9, i64 148, !6, i64 152, !11, i64 160, !6, i64 176, !43, i64 184, !7, i64 224, !7, i64 296}
+!41 = !{!"stringtable", !6, i64 0, !9, i64 8, !9, i64 12}
+!42 = !{!"Mbuffer", !6, i64 0, !12, i64 8, !12, i64 16}
+!43 = !{!"UpVal", !6, i64 0, !7, i64 8, !7, i64 9, !6, i64 16, !7, i64 24}
+!44 = !{!5, !7, i64 9}
+!45 = !{!40, !6, i64 16}
+!46 = !{!40, !6, i64 24}
+!47 = !{!40, !6, i64 176}
+!48 = !{!7, !7, i64 0}
+!49 = !{!40, !9, i64 168}
+!50 = !{!40, !6, i64 88}
+!51 = !{!40, !6, i64 152}
+!52 = !{!40, !7, i64 33}
+!53 = !{!40, !6, i64 40}
+!54 = !{!40, !9, i64 36}
+!55 = !{!40, !6, i64 48}
+!56 = !{!40, !12, i64 120}
+!57 = !{!40, !9, i64 144}
+!58 = !{!40, !9, i64 148}
+!59 = !{!40, !12, i64 136}
+!60 = !{!6, !6, i64 0}
+!61 = !{!40, !12, i64 112}
+!62 = !{!40, !6, i64 0}
+!63 = !{!40, !9, i64 12}
+!64 = !{!40, !12, i64 104}
+!65 = !{!5, !10, i64 98}
+!66 = !{!5, !10, i64 96}
+!67 = distinct !{!67, !68}
+!68 = !{!"llvm.loop.mustprogress"}
