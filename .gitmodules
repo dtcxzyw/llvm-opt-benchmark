@@ -130,3 +130,6 @@
 [submodule "bench/re2/re2"]
 	path = bench/re2/re2
 	url = git@github.com:google/re2.git
+[submodule "bench/arrow/arrow"]
+	path = bench/arrow/arrow
+	url = git@github.com:apache/arrow.git
