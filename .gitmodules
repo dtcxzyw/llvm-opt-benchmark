@@ -148,3 +148,6 @@
 [submodule "bench/openexr/openexr"]
 	path = bench/openexr/openexr
 	url = git@github.com:AcademySoftwareFoundation/openexr.git
+[submodule "bench/oiio/OpenImageIO"]
+	path = bench/oiio/OpenImageIO
+	url = git@github.com:AcademySoftwareFoundation/OpenImageIO.git
