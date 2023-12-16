@@ -109,3 +109,6 @@
 [submodule "bench/cvc5/cvc5"]
 	path = bench/cvc5/cvc5
 	url = git@github.com:cvc5/cvc5.git
+[submodule "bench/z3/z3"]
+	path = bench/z3/z3
+	url = git@github.com:Z3Prover/z3.git
