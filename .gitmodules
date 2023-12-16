@@ -139,3 +139,6 @@
 [submodule "bench/grpc/grpc"]
 	path = bench/grpc/grpc
 	url = git@github.com:grpc/grpc.git
+[submodule "bench/libdeflate/libdeflate"]
+	path = bench/libdeflate/libdeflate
+	url = git@github.com:ebiggers/libdeflate.git
