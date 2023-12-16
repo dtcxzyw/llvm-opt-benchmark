@@ -10,3 +10,6 @@
 [submodule "bench/brotli/brotli"]
 	path = bench/brotli/brotli
 	url = git@github.com:google/brotli.git
+[submodule "bench/lz4/lz4"]
+	path = bench/lz4/lz4
+	url = git@github.com:lz4/lz4.git
