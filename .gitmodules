@@ -85,3 +85,6 @@
 [submodule "bench/miniaudio/miniaudio"]
 	path = bench/miniaudio/miniaudio
 	url = git@github.com:mackron/miniaudio.git
+[submodule "bench/libuv/libuv"]
+	path = bench/libuv/libuv
+	url = git@github.com:libuv/libuv.git
