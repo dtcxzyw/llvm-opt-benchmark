@@ -151,3 +151,6 @@
 [submodule "bench/oiio/OpenImageIO"]
 	path = bench/oiio/OpenImageIO
 	url = git@github.com:AcademySoftwareFoundation/OpenImageIO.git
+[submodule "bench/openvdb/openvdb"]
+	path = bench/openvdb/openvdb
+	url = git@github.com:AcademySoftwareFoundation/openvdb.git
