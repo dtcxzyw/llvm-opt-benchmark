@@ -40,3 +40,6 @@
 [submodule "bench/meshoptimizer/meshoptimizer"]
 	path = bench/meshoptimizer/meshoptimizer
 	url = git@github.com:zeux/meshoptimizer.git
+[submodule "bench/ocio/OpenColorIO"]
+	path = bench/ocio/OpenColorIO
+	url = git@github.com:AcademySoftwareFoundation/OpenColorIO.git
