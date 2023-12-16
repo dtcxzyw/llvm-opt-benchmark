@@ -19,3 +19,6 @@
 [submodule "bench/readerwriterqueue/readerwriterqueue"]
 	path = bench/readerwriterqueue/readerwriterqueue
 	url = git@github.com:cameron314/readerwriterqueue.git
+[submodule "bench/mimalloc/mimalloc"]
+	path = bench/mimalloc/mimalloc
+	url = git@github.com:microsoft/mimalloc.git
