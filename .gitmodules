@@ -13,3 +13,6 @@
 [submodule "bench/lz4/lz4"]
 	path = bench/lz4/lz4
 	url = git@github.com:lz4/lz4.git
+[submodule "bench/snappy/snappy"]
+	path = bench/snappy/snappy
+	url = git@github.com:google/snappy.git
