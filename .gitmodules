@@ -7,3 +7,6 @@
 [submodule "bench/zstd/zstd"]
 	path = bench/zstd/zstd
 	url = git@github.com:facebook/zstd.git
+[submodule "bench/brotli/brotli"]
+	path = bench/brotli/brotli
+	url = git@github.com:google/brotli.git
