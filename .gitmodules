@@ -121,3 +121,6 @@
 [submodule "bench/redis/redis"]
 	path = bench/redis/redis
 	url = git@github.com:redis/redis.git
+[submodule "bench/icu/icu"]
+	path = bench/icu/icu
+	url = git@github.com:unicode-org/icu.git

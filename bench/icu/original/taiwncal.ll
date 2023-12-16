@@ -1,0 +1,844 @@
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-unknown-linux-gnu"
+
+%"class.icu_75::Calendar" = type <{ %"class.icu_75::UObject", i8, i8, i8, i8, [24 x i32], [24 x i8], [24 x i32], i32, double, i8, [7 x i8], ptr, i32, i32, i32, i8, [3 x i8], i32, i32, i32, i32, i32, i32, i32, i32, [157 x i8], [157 x i8], [6 x i8] }>
+%"class.icu_75::UObject" = type { ptr }
+%"struct.icu_75::UInitOnce" = type { %"struct.std::atomic", i32 }
+%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
+%"struct.std::__atomic_base" = type { i32 }
+%"class.icu_75::TaiwanCalendar" = type { %"class.icu_75::GregorianCalendar.base", [2 x i8] }
+%"class.icu_75::GregorianCalendar.base" = type <{ %"class.icu_75::Calendar.base", [6 x i8], double, i32, [4 x i8], double, i32, i8, i8 }>
+%"class.icu_75::Calendar.base" = type <{ %"class.icu_75::UObject", i8, i8, i8, i8, [24 x i32], [24 x i8], [24 x i32], i32, double, i8, [7 x i8], ptr, i32, i32, i32, i8, [3 x i8], i32, i32, i32, i32, i32, i32, i32, i32, [157 x i8], [157 x i8] }>
+%"class.icu_75::Locale" = type <{ %"class.icu_75::UObject", [12 x i8], [6 x i8], [4 x i8], [2 x i8], i32, [4 x i8], ptr, [157 x i8], [3 x i8], ptr, i8, [7 x i8] }>
+
+$_ZNK6icu_758Calendar11internalGetE19UCalendarDateFieldsi = comdat any
+
+$_ZNK6icu_758Calendar11internalGetE19UCalendarDateFields = comdat any
+
+$_ZN6icu_758Calendar11internalSetE19UCalendarDateFieldsi = comdat any
+
+$_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvvE = comdat any
+
+$_ZN6icu_7516umtx_loadAcquireERSt6atomicIiE = comdat any
+
+$_ZStanSt12memory_orderSt23__memory_order_modifier = comdat any
+
+$__clang_call_terminate = comdat any
+
+$_ZN6icu_758Calendar7setTimeEdR10UErrorCode = comdat any
+
+$_ZNK6icu_758Calendar7getTimeER10UErrorCode = comdat any
+
+@_ZZN6icu_7514TaiwanCalendar16getStaticClassIDEvE7classID = internal global i8 0, align 1
+@_ZTVN6icu_7514TaiwanCalendarE = unnamed_addr constant { [61 x ptr] } { [61 x ptr] [ptr null, ptr @_ZTIN6icu_7514TaiwanCalendarE, ptr @_ZN6icu_7514TaiwanCalendarD1Ev, ptr @_ZN6icu_7514TaiwanCalendarD0Ev, ptr @_ZNK6icu_7514TaiwanCalendar17getDynamicClassIDEv, ptr @_ZNK6icu_7514TaiwanCalendar5cloneEv, ptr @_ZNK6icu_758CalendareqERKS0_, ptr @_ZNK6icu_7517GregorianCalendar14isEquivalentToERKNS_8CalendarE, ptr @_ZN6icu_758Calendar3addENS0_11EDateFieldsEiR10UErrorCode, ptr @_ZN6icu_758Calendar3addE19UCalendarDateFieldsiR10UErrorCode, ptr @_ZN6icu_7517GregorianCalendar4rollENS_8Calendar11EDateFieldsEiR10UErrorCode, ptr @_ZN6icu_7517GregorianCalendar4rollE19UCalendarDateFieldsiR10UErrorCode, ptr @_ZN6icu_758Calendar15fieldDifferenceEdNS0_11EDateFieldsER10UErrorCode, ptr @_ZN6icu_758Calendar15fieldDifferenceEd19UCalendarDateFieldsR10UErrorCode, ptr @_ZNK6icu_758Calendar14inDaylightTimeER10UErrorCode, ptr @_ZNK6icu_758Calendar10getMinimumENS0_11EDateFieldsE, ptr @_ZNK6icu_758Calendar10getMinimumE19UCalendarDateFields, ptr @_ZNK6icu_758Calendar10getMaximumENS0_11EDateFieldsE, ptr @_ZNK6icu_758Calendar10getMaximumE19UCalendarDateFields, ptr @_ZNK6icu_758Calendar18getGreatestMinimumENS0_11EDateFieldsE, ptr @_ZNK6icu_758Calendar18getGreatestMinimumE19UCalendarDateFields, ptr @_ZNK6icu_758Calendar15getLeastMaximumENS0_11EDateFieldsE, ptr @_ZNK6icu_758Calendar15getLeastMaximumE19UCalendarDateFields, ptr @_ZNK6icu_7517GregorianCalendar16getActualMinimumE19UCalendarDateFieldsR10UErrorCode, ptr @_ZNK6icu_7517GregorianCalendar16getActualMaximumE19UCalendarDateFieldsR10UErrorCode, ptr @_ZNK6icu_7514TaiwanCalendar7getTypeEv, ptr @_ZNK6icu_758Calendar16getDayOfWeekTypeE19UCalendarDaysOfWeekR10UErrorCode, ptr @_ZNK6icu_758Calendar20getWeekendTransitionE19UCalendarDaysOfWeekR10UErrorCode, ptr @_ZNK6icu_758Calendar9isWeekendEdR10UErrorCode, ptr @_ZNK6icu_758Calendar9isWeekendEv, ptr @_ZNK6icu_758Calendar18inTemporalLeapYearER10UErrorCode, ptr @_ZNK6icu_758Calendar20getTemporalMonthCodeER10UErrorCode, ptr @_ZN6icu_758Calendar20setTemporalMonthCodeEPKcR10UErrorCode, ptr @_ZN6icu_758Calendar11computeTimeER10UErrorCode, ptr @_ZN6icu_758Calendar13computeFieldsER10UErrorCode, ptr @_ZNK6icu_758Calendar16internalGetMonthEv, ptr @_ZNK6icu_758Calendar16internalGetMonthEi, ptr @_ZN6icu_758Calendar16prepareGetActualE19UCalendarDateFieldsaR10UErrorCode, ptr @_ZNK6icu_7514TaiwanCalendar14handleGetLimitE19UCalendarDateFieldsNS_8Calendar10ELimitTypeE, ptr @_ZNK6icu_758Calendar8getLimitE19UCalendarDateFieldsNS0_10ELimitTypeE, ptr @_ZNK6icu_7517GregorianCalendar23handleComputeMonthStartEiia, ptr @_ZNK6icu_7517GregorianCalendar20handleGetMonthLengthEii, ptr @_ZNK6icu_7517GregorianCalendar19handleGetYearLengthEi, ptr @_ZN6icu_7514TaiwanCalendar21handleGetExtendedYearEv, ptr @_ZN6icu_7517GregorianCalendar22handleComputeJulianDayE19UCalendarDateFieldsR10UErrorCode, ptr @_ZN6icu_7517GregorianCalendar35handleGetExtendedYearFromWeekFieldsEii, ptr @_ZN6icu_758Calendar13validateFieldE19UCalendarDateFieldsR10UErrorCode, ptr @_ZNK6icu_758Calendar23getFieldResolutionTableEv, ptr @_ZN6icu_7514TaiwanCalendar19handleComputeFieldsEiR10UErrorCode, ptr @_ZN6icu_758Calendar21getDefaultMonthInYearEi, ptr @_ZN6icu_758Calendar20getDefaultDayInMonthEii, ptr @_ZN6icu_758Calendar8pinFieldE19UCalendarDateFieldsR10UErrorCode, ptr @_ZNK6icu_7514TaiwanCalendar18haveDefaultCenturyEv, ptr @_ZNK6icu_7514TaiwanCalendar19defaultCenturyStartEv, ptr @_ZNK6icu_7514TaiwanCalendar23defaultCenturyStartYearEv, ptr @_ZNK6icu_758Calendar14getRelatedYearER10UErrorCode, ptr @_ZN6icu_758Calendar14setRelatedYearEi, ptr @_ZNK6icu_7517GregorianCalendar14internalGetEraEv, ptr @_ZNK6icu_7517GregorianCalendar11monthLengthEi, ptr @_ZNK6icu_7517GregorianCalendar11monthLengthEii, ptr @_ZN6icu_7517GregorianCalendar11getEpochDayER10UErrorCode] }, align 8
+@.str = private unnamed_addr constant [4 x i8] c"roc\00", align 1
+@_ZN6icu_75L26gSystemDefaultCenturyStartE = internal global double 0x10000000000000, align 8
+@_ZN6icu_75L30gSystemDefaultCenturyStartYearE = internal global i32 -1, align 4
+@_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
+@_ZTSN6icu_7514TaiwanCalendarE = constant [26 x i8] c"N6icu_7514TaiwanCalendarE\00", align 1
+@_ZTIN6icu_7517GregorianCalendarE = external constant ptr
+@_ZTIN6icu_7514TaiwanCalendarE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN6icu_7514TaiwanCalendarE, ptr @_ZTIN6icu_7517GregorianCalendarE }, align 8
+@_ZN6icu_75L25gSystemDefaultCenturyInitE = internal global { { i32 }, i32 } zeroinitializer, align 4
+@.str.2 = private unnamed_addr constant [14 x i8] c"@calendar=roc\00", align 1
+
+@_ZN6icu_7514TaiwanCalendarC1ERKNS_6LocaleER10UErrorCode = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN6icu_7514TaiwanCalendarC2ERKNS_6LocaleER10UErrorCode
+@_ZN6icu_7514TaiwanCalendarD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7514TaiwanCalendarD2Ev
+@_ZN6icu_7514TaiwanCalendarC1ERKS0_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN6icu_7514TaiwanCalendarC2ERKS0_
+
+; Function Attrs: mustprogress nounwind uwtable
+define noundef ptr @_ZN6icu_7514TaiwanCalendar16getStaticClassIDEv() #0 align 2 {
+entry:
+  ret ptr @_ZZN6icu_7514TaiwanCalendar16getStaticClassIDEvE7classID
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define noundef ptr @_ZNK6icu_7514TaiwanCalendar17getDynamicClassIDEv(ptr noundef nonnull align 8 dereferenceable(654) %this) unnamed_addr #0 align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %call = call noundef ptr @_ZN6icu_7514TaiwanCalendar16getStaticClassIDEv()
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN6icu_7514TaiwanCalendarC2ERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(654) %this, ptr noundef nonnull align 8 dereferenceable(217) %aLocale, ptr noundef nonnull align 4 dereferenceable(4) %success) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %aLocale.addr = alloca ptr, align 8
+  %success.addr = alloca ptr, align 8
+  %exn.slot = alloca ptr, align 8
+  %ehselector.slot = alloca i32, align 4
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %aLocale, ptr %aLocale.addr, align 8
+  store ptr %success, ptr %success.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %aLocale.addr, align 8
+  %1 = load ptr, ptr %success.addr, align 8
+  call void @_ZN6icu_7517GregorianCalendarC2ERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(654) %this1, ptr noundef nonnull align 8 dereferenceable(217) %0, ptr noundef nonnull align 4 dereferenceable(4) %1)
+  store ptr getelementptr inbounds ({ [61 x ptr] }, ptr @_ZTVN6icu_7514TaiwanCalendarE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  %call = invoke noundef double @_ZN6icu_758Calendar6getNowEv()
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %entry
+  %2 = load ptr, ptr %success.addr, align 8
+  invoke void @_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this1, double noundef %call, ptr noundef nonnull align 4 dereferenceable(4) %2)
+          to label %invoke.cont2 unwind label %lpad
+
+invoke.cont2:                                     ; preds = %invoke.cont
+  ret void
+
+lpad:                                             ; preds = %invoke.cont, %entry
+  %3 = landingpad { ptr, i32 }
+          cleanup
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
+  call void @_ZN6icu_7517GregorianCalendarD2Ev(ptr noundef nonnull align 8 dereferenceable(654) %this1) #5
+  br label %eh.resume
+
+eh.resume:                                        ; preds = %lpad
+  %exn = load ptr, ptr %exn.slot, align 8
+  %sel = load i32, ptr %ehselector.slot, align 4
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
+  %lpad.val3 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
+  resume { ptr, i32 } %lpad.val3
+}
+
+declare void @_ZN6icu_7517GregorianCalendarC2ERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(654), ptr noundef nonnull align 8 dereferenceable(217), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
+
+declare void @_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), double noundef, ptr noundef nonnull align 4 dereferenceable(4)) #2
+
+declare noundef double @_ZN6icu_758Calendar6getNowEv() #2
+
+declare i32 @__gxx_personality_v0(...)
+
+; Function Attrs: nounwind
+declare void @_ZN6icu_7517GregorianCalendarD2Ev(ptr noundef nonnull align 8 dereferenceable(654)) unnamed_addr #3
+
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN6icu_7514TaiwanCalendarD2Ev(ptr noundef nonnull align 8 dereferenceable(654) %this) unnamed_addr #0 align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZN6icu_7517GregorianCalendarD2Ev(ptr noundef nonnull align 8 dereferenceable(654) %this1) #5
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN6icu_7514TaiwanCalendarD0Ev(ptr noundef nonnull align 8 dereferenceable(654) %this) unnamed_addr #0 align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZN6icu_7514TaiwanCalendarD1Ev(ptr noundef nonnull align 8 dereferenceable(654) %this1) #5
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %this1) #5
+  ret void
+}
+
+; Function Attrs: nounwind
+declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) #3
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN6icu_7514TaiwanCalendarC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(654) %this, ptr noundef nonnull align 8 dereferenceable(654) %source) unnamed_addr #1 align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %source.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %source, ptr %source.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %source.addr, align 8
+  call void @_ZN6icu_7517GregorianCalendarC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(654) %this1, ptr noundef nonnull align 8 dereferenceable(654) %0)
+  store ptr getelementptr inbounds ({ [61 x ptr] }, ptr @_ZTVN6icu_7514TaiwanCalendarE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  ret void
+}
+
+declare void @_ZN6icu_7517GregorianCalendarC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(654), ptr noundef nonnull align 8 dereferenceable(654)) unnamed_addr #2
+
+; Function Attrs: mustprogress uwtable
+define noundef nonnull align 8 dereferenceable(654) ptr @_ZN6icu_7514TaiwanCalendaraSERKS0_(ptr noundef nonnull align 8 dereferenceable(654) %this, ptr noundef nonnull align 8 dereferenceable(654) %right) #1 align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %right.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %right, ptr %right.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %right.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(654) ptr @_ZN6icu_7517GregorianCalendaraSERKS0_(ptr noundef nonnull align 8 dereferenceable(654) %this1, ptr noundef nonnull align 8 dereferenceable(654) %0)
+  ret ptr %this1
+}
+
+declare noundef nonnull align 8 dereferenceable(654) ptr @_ZN6icu_7517GregorianCalendaraSERKS0_(ptr noundef nonnull align 8 dereferenceable(654), ptr noundef nonnull align 8 dereferenceable(654)) #2
+
+; Function Attrs: mustprogress uwtable
+define noundef ptr @_ZNK6icu_7514TaiwanCalendar5cloneEv(ptr noundef nonnull align 8 dereferenceable(654) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %cleanup.cond = alloca i1, align 1
+  %exn.slot = alloca ptr, align 8
+  %ehselector.slot = alloca i32, align 4
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 656) #5
+  %new.isnull = icmp eq ptr %call, null
+  store i1 false, ptr %cleanup.cond, align 1
+  br i1 %new.isnull, label %new.cont, label %new.notnull
+
+new.notnull:                                      ; preds = %entry
+  store i1 true, ptr %cleanup.cond, align 1
+  invoke void @_ZN6icu_7514TaiwanCalendarC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(654) %call, ptr noundef nonnull align 8 dereferenceable(654) %this1)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %new.notnull
+  br label %new.cont
+
+new.cont:                                         ; preds = %invoke.cont, %entry
+  %0 = phi ptr [ %call, %invoke.cont ], [ null, %entry ]
+  ret ptr %0
+
+lpad:                                             ; preds = %new.notnull
+  %1 = landingpad { ptr, i32 }
+          cleanup
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
+  %cleanup.is_active = load i1, ptr %cleanup.cond, align 1
+  br i1 %cleanup.is_active, label %cleanup.action, label %cleanup.done
+
+cleanup.action:                                   ; preds = %lpad
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %call) #5
+  br label %cleanup.done
+
+cleanup.done:                                     ; preds = %cleanup.action, %lpad
+  br label %eh.resume
+
+eh.resume:                                        ; preds = %cleanup.done
+  %exn = load ptr, ptr %exn.slot, align 8
+  %sel = load i32, ptr %ehselector.slot, align 4
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
+  %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
+  resume { ptr, i32 } %lpad.val2
+}
+
+; Function Attrs: nounwind
+declare noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef) #3
+
+; Function Attrs: mustprogress nounwind uwtable
+define noundef ptr @_ZNK6icu_7514TaiwanCalendar7getTypeEv(ptr noundef nonnull align 8 dereferenceable(654) %this) unnamed_addr #0 align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  ret ptr @.str
+}
+
+; Function Attrs: mustprogress uwtable
+define noundef i32 @_ZN6icu_7514TaiwanCalendar21handleGetExtendedYearEv(ptr noundef nonnull align 8 dereferenceable(654) %this) unnamed_addr #1 align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %year = alloca i32, align 4
+  %era = alloca i32, align 4
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  store i32 1970, ptr %year, align 4
+  %call = call noundef i32 @_ZNK6icu_758Calendar10newerFieldE19UCalendarDateFieldsS1_(ptr noundef nonnull align 8 dereferenceable(618) %this1, i32 noundef 19, i32 noundef 1)
+  %cmp = icmp eq i32 %call, 19
+  br i1 %cmp, label %land.lhs.true, label %if.else
+
+land.lhs.true:                                    ; preds = %entry
+  %call2 = call noundef i32 @_ZNK6icu_758Calendar10newerFieldE19UCalendarDateFieldsS1_(ptr noundef nonnull align 8 dereferenceable(618) %this1, i32 noundef 19, i32 noundef 0)
+  %cmp3 = icmp eq i32 %call2, 19
+  br i1 %cmp3, label %if.then, label %if.else
+
+if.then:                                          ; preds = %land.lhs.true
+  %call4 = call noundef i32 @_ZNK6icu_758Calendar11internalGetE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(618) %this1, i32 noundef 19, i32 noundef 1970)
+  store i32 %call4, ptr %year, align 4
+  br label %if.end15
+
+if.else:                                          ; preds = %land.lhs.true, %entry
+  %call5 = call noundef i32 @_ZNK6icu_758Calendar11internalGetE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(618) %this1, i32 noundef 0, i32 noundef 1)
+  store i32 %call5, ptr %era, align 4
+  %0 = load i32, ptr %era, align 4
+  %cmp6 = icmp eq i32 %0, 1
+  br i1 %cmp6, label %if.then7, label %if.else9
+
+if.then7:                                         ; preds = %if.else
+  %call8 = call noundef i32 @_ZNK6icu_758Calendar11internalGetE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(618) %this1, i32 noundef 1, i32 noundef 1)
+  %add = add nsw i32 %call8, 1911
+  store i32 %add, ptr %year, align 4
+  br label %if.end14
+
+if.else9:                                         ; preds = %if.else
+  %1 = load i32, ptr %era, align 4
+  %cmp10 = icmp eq i32 %1, 0
+  br i1 %cmp10, label %if.then11, label %if.end
+
+if.then11:                                        ; preds = %if.else9
+  %call12 = call noundef i32 @_ZNK6icu_758Calendar11internalGetE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(618) %this1, i32 noundef 1, i32 noundef 1)
+  %sub = sub nsw i32 1, %call12
+  %add13 = add nsw i32 %sub, 1911
+  store i32 %add13, ptr %year, align 4
+  br label %if.end
+
+if.end:                                           ; preds = %if.then11, %if.else9
+  br label %if.end14
+
+if.end14:                                         ; preds = %if.end, %if.then7
+  br label %if.end15
+
+if.end15:                                         ; preds = %if.end14, %if.then
+  %2 = load i32, ptr %year, align 4
+  ret i32 %2
+}
+
+declare noundef i32 @_ZNK6icu_758Calendar10newerFieldE19UCalendarDateFieldsS1_(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef, i32 noundef) #2
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZNK6icu_758Calendar11internalGetE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field, i32 noundef %defaultValue) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %field.addr = alloca i32, align 4
+  %defaultValue.addr = alloca i32, align 4
+  store ptr %this, ptr %this.addr, align 8
+  store i32 %field, ptr %field.addr, align 4
+  store i32 %defaultValue, ptr %defaultValue.addr, align 4
+  %this1 = load ptr, ptr %this.addr, align 8
+  %fStamp = getelementptr inbounds %"class.icu_75::Calendar", ptr %this1, i32 0, i32 7
+  %0 = load i32, ptr %field.addr, align 4
+  %idxprom = zext i32 %0 to i64
+  %arrayidx = getelementptr inbounds [24 x i32], ptr %fStamp, i64 0, i64 %idxprom
+  %1 = load i32, ptr %arrayidx, align 4
+  %cmp = icmp sgt i32 %1, 0
+  br i1 %cmp, label %cond.true, label %cond.false
+
+cond.true:                                        ; preds = %entry
+  %fFields = getelementptr inbounds %"class.icu_75::Calendar", ptr %this1, i32 0, i32 5
+  %2 = load i32, ptr %field.addr, align 4
+  %idxprom2 = zext i32 %2 to i64
+  %arrayidx3 = getelementptr inbounds [24 x i32], ptr %fFields, i64 0, i64 %idxprom2
+  %3 = load i32, ptr %arrayidx3, align 4
+  br label %cond.end
+
+cond.false:                                       ; preds = %entry
+  %4 = load i32, ptr %defaultValue.addr, align 4
+  br label %cond.end
+
+cond.end:                                         ; preds = %cond.false, %cond.true
+  %cond = phi i32 [ %3, %cond.true ], [ %4, %cond.false ]
+  ret i32 %cond
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN6icu_7514TaiwanCalendar19handleComputeFieldsEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(654) %this, i32 noundef %julianDay, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %julianDay.addr = alloca i32, align 4
+  %status.addr = alloca ptr, align 8
+  %y = alloca i32, align 4
+  store ptr %this, ptr %this.addr, align 8
+  store i32 %julianDay, ptr %julianDay.addr, align 4
+  store ptr %status, ptr %status.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load i32, ptr %julianDay.addr, align 4
+  %1 = load ptr, ptr %status.addr, align 8
+  call void @_ZN6icu_7517GregorianCalendar19handleComputeFieldsEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(654) %this1, i32 noundef %0, ptr noundef nonnull align 4 dereferenceable(4) %1)
+  %call = call noundef i32 @_ZNK6icu_758Calendar11internalGetE19UCalendarDateFields(ptr noundef nonnull align 8 dereferenceable(618) %this1, i32 noundef 19)
+  %sub = sub nsw i32 %call, 1911
+  store i32 %sub, ptr %y, align 4
+  %2 = load i32, ptr %y, align 4
+  %cmp = icmp sgt i32 %2, 0
+  br i1 %cmp, label %if.then, label %if.else
+
+if.then:                                          ; preds = %entry
+  call void @_ZN6icu_758Calendar11internalSetE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(618) %this1, i32 noundef 0, i32 noundef 1)
+  %3 = load i32, ptr %y, align 4
+  call void @_ZN6icu_758Calendar11internalSetE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(618) %this1, i32 noundef 1, i32 noundef %3)
+  br label %if.end
+
+if.else:                                          ; preds = %entry
+  call void @_ZN6icu_758Calendar11internalSetE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(618) %this1, i32 noundef 0, i32 noundef 0)
+  %4 = load i32, ptr %y, align 4
+  %sub2 = sub nsw i32 1, %4
+  call void @_ZN6icu_758Calendar11internalSetE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(618) %this1, i32 noundef 1, i32 noundef %sub2)
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then
+  ret void
+}
+
+declare void @_ZN6icu_7517GregorianCalendar19handleComputeFieldsEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(654), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZNK6icu_758Calendar11internalGetE19UCalendarDateFields(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %field.addr = alloca i32, align 4
+  store ptr %this, ptr %this.addr, align 8
+  store i32 %field, ptr %field.addr, align 4
+  %this1 = load ptr, ptr %this.addr, align 8
+  %fFields = getelementptr inbounds %"class.icu_75::Calendar", ptr %this1, i32 0, i32 5
+  %0 = load i32, ptr %field.addr, align 4
+  %idxprom = zext i32 %0 to i64
+  %arrayidx = getelementptr inbounds [24 x i32], ptr %fFields, i64 0, i64 %idxprom
+  %1 = load i32, ptr %arrayidx, align 4
+  ret i32 %1
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6icu_758Calendar11internalSetE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field, i32 noundef %value) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %field.addr = alloca i32, align 4
+  %value.addr = alloca i32, align 4
+  store ptr %this, ptr %this.addr, align 8
+  store i32 %field, ptr %field.addr, align 4
+  store i32 %value, ptr %value.addr, align 4
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load i32, ptr %value.addr, align 4
+  %fFields = getelementptr inbounds %"class.icu_75::Calendar", ptr %this1, i32 0, i32 5
+  %1 = load i32, ptr %field.addr, align 4
+  %idxprom = zext i32 %1 to i64
+  %arrayidx = getelementptr inbounds [24 x i32], ptr %fFields, i64 0, i64 %idxprom
+  store i32 %0, ptr %arrayidx, align 4
+  %fStamp = getelementptr inbounds %"class.icu_75::Calendar", ptr %this1, i32 0, i32 7
+  %2 = load i32, ptr %field.addr, align 4
+  %idxprom2 = zext i32 %2 to i64
+  %arrayidx3 = getelementptr inbounds [24 x i32], ptr %fStamp, i64 0, i64 %idxprom2
+  store i32 1, ptr %arrayidx3, align 4
+  %fIsSet = getelementptr inbounds %"class.icu_75::Calendar", ptr %this1, i32 0, i32 6
+  %3 = load i32, ptr %field.addr, align 4
+  %idxprom4 = zext i32 %3 to i64
+  %arrayidx5 = getelementptr inbounds [24 x i8], ptr %fIsSet, i64 0, i64 %idxprom4
+  store i8 1, ptr %arrayidx5, align 1
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define noundef i32 @_ZNK6icu_7514TaiwanCalendar14handleGetLimitE19UCalendarDateFieldsNS_8Calendar10ELimitTypeE(ptr noundef nonnull align 8 dereferenceable(654) %this, i32 noundef %field, i32 noundef %limitType) unnamed_addr #1 align 2 {
+entry:
+  %retval = alloca i32, align 4
+  %this.addr = alloca ptr, align 8
+  %field.addr = alloca i32, align 4
+  %limitType.addr = alloca i32, align 4
+  store ptr %this, ptr %this.addr, align 8
+  store i32 %field, ptr %field.addr, align 4
+  store i32 %limitType, ptr %limitType.addr, align 4
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load i32, ptr %field.addr, align 4
+  %cmp = icmp eq i32 %0, 0
+  br i1 %cmp, label %if.then, label %if.else5
+
+if.then:                                          ; preds = %entry
+  %1 = load i32, ptr %limitType.addr, align 4
+  %cmp2 = icmp eq i32 %1, 0
+  br i1 %cmp2, label %if.then4, label %lor.lhs.false
+
+lor.lhs.false:                                    ; preds = %if.then
+  %2 = load i32, ptr %limitType.addr, align 4
+  %cmp3 = icmp eq i32 %2, 1
+  br i1 %cmp3, label %if.then4, label %if.else
+
+if.then4:                                         ; preds = %lor.lhs.false, %if.then
+  store i32 0, ptr %retval, align 4
+  br label %return
+
+if.else:                                          ; preds = %lor.lhs.false
+  store i32 1, ptr %retval, align 4
+  br label %return
+
+if.else5:                                         ; preds = %entry
+  %3 = load i32, ptr %field.addr, align 4
+  %4 = load i32, ptr %limitType.addr, align 4
+  %call = call noundef i32 @_ZNK6icu_7517GregorianCalendar14handleGetLimitE19UCalendarDateFieldsNS_8Calendar10ELimitTypeE(ptr noundef nonnull align 8 dereferenceable(654) %this1, i32 noundef %3, i32 noundef %4)
+  store i32 %call, ptr %retval, align 4
+  br label %return
+
+return:                                           ; preds = %if.else5, %if.else, %if.then4
+  %5 = load i32, ptr %retval, align 4
+  ret i32 %5
+}
+
+declare noundef i32 @_ZNK6icu_7517GregorianCalendar14handleGetLimitE19UCalendarDateFieldsNS_8Calendar10ELimitTypeE(ptr noundef nonnull align 8 dereferenceable(654), i32 noundef, i32 noundef) unnamed_addr #2
+
+; Function Attrs: mustprogress nounwind uwtable
+define noundef signext i8 @_ZNK6icu_7514TaiwanCalendar18haveDefaultCenturyEv(ptr noundef nonnull align 8 dereferenceable(654) %this) unnamed_addr #0 align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  ret i8 1
+}
+
+; Function Attrs: mustprogress uwtable
+define noundef double @_ZNK6icu_7514TaiwanCalendar19defaultCenturyStartEv(ptr noundef nonnull align 8 dereferenceable(654) %this) unnamed_addr #1 align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  call void @_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvvE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN6icu_75L25gSystemDefaultCenturyInitE, ptr noundef @_ZN6icu_75L30initializeSystemDefaultCenturyEv)
+  %0 = load double, ptr @_ZN6icu_75L26gSystemDefaultCenturyStartE, align 8
+  ret double %0
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvvE(ptr noundef nonnull align 4 dereferenceable(8) %uio, ptr noundef %fp) #1 comdat {
+entry:
+  %uio.addr = alloca ptr, align 8
+  %fp.addr = alloca ptr, align 8
+  store ptr %uio, ptr %uio.addr, align 8
+  store ptr %fp, ptr %fp.addr, align 8
+  %0 = load ptr, ptr %uio.addr, align 8
+  %fState = getelementptr inbounds %"struct.icu_75::UInitOnce", ptr %0, i32 0, i32 0
+  %call = call noundef i32 @_ZN6icu_7516umtx_loadAcquireERSt6atomicIiE(ptr noundef nonnull align 4 dereferenceable(4) %fState)
+  %cmp = icmp eq i32 %call, 2
+  br i1 %cmp, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  br label %if.end3
+
+if.end:                                           ; preds = %entry
+  %1 = load ptr, ptr %uio.addr, align 8
+  %call1 = call noundef signext i8 @_ZN6icu_7520umtx_initImplPreInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) %1)
+  %tobool = icmp ne i8 %call1, 0
+  br i1 %tobool, label %if.then2, label %if.end3
+
+if.then2:                                         ; preds = %if.end
+  %2 = load ptr, ptr %fp.addr, align 8
+  call void %2()
+  %3 = load ptr, ptr %uio.addr, align 8
+  call void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) %3)
+  br label %if.end3
+
+if.end3:                                          ; preds = %if.then2, %if.end, %if.then
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @_ZN6icu_75L30initializeSystemDefaultCenturyEv() #1 personality ptr @__gxx_personality_v0 {
+entry:
+  %status = alloca i32, align 4
+  %calendar = alloca %"class.icu_75::TaiwanCalendar", align 8
+  %ref.tmp = alloca %"class.icu_75::Locale", align 8
+  %exn.slot = alloca ptr, align 8
+  %ehselector.slot = alloca i32, align 4
+  store i32 0, ptr %status, align 4
+  call void @_ZN6icu_756LocaleC1EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(217) %ref.tmp, ptr noundef @.str.2, ptr noundef null, ptr noundef null, ptr noundef null)
+  invoke void @_ZN6icu_7514TaiwanCalendarC1ERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(654) %calendar, ptr noundef nonnull align 8 dereferenceable(217) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %status)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %entry
+  call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %ref.tmp) #5
+  %0 = load i32, ptr %status, align 4
+  %call = invoke noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %0)
+          to label %invoke.cont2 unwind label %lpad1
+
+invoke.cont2:                                     ; preds = %invoke.cont
+  %tobool = icmp ne i8 %call, 0
+  br i1 %tobool, label %if.then, label %if.end
+
+if.then:                                          ; preds = %invoke.cont2
+  %call4 = invoke noundef double @_ZN6icu_758Calendar6getNowEv()
+          to label %invoke.cont3 unwind label %lpad1
+
+invoke.cont3:                                     ; preds = %if.then
+  invoke void @_ZN6icu_758Calendar7setTimeEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %calendar, double noundef %call4, ptr noundef nonnull align 4 dereferenceable(4) %status)
+          to label %invoke.cont5 unwind label %lpad1
+
+invoke.cont5:                                     ; preds = %invoke.cont3
+  invoke void @_ZN6icu_758Calendar3addE19UCalendarDateFieldsiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %calendar, i32 noundef 1, i32 noundef -80, ptr noundef nonnull align 4 dereferenceable(4) %status)
+          to label %invoke.cont6 unwind label %lpad1
+
+invoke.cont6:                                     ; preds = %invoke.cont5
+  %call8 = invoke noundef double @_ZNK6icu_758Calendar7getTimeER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %calendar, ptr noundef nonnull align 4 dereferenceable(4) %status)
+          to label %invoke.cont7 unwind label %lpad1
+
+invoke.cont7:                                     ; preds = %invoke.cont6
+  store double %call8, ptr @_ZN6icu_75L26gSystemDefaultCenturyStartE, align 8
+  %call10 = invoke noundef i32 @_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %calendar, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %status)
+          to label %invoke.cont9 unwind label %lpad1
+
+invoke.cont9:                                     ; preds = %invoke.cont7
+  store i32 %call10, ptr @_ZN6icu_75L30gSystemDefaultCenturyStartYearE, align 4
+  br label %if.end
+
+lpad:                                             ; preds = %entry
+  %1 = landingpad { ptr, i32 }
+          cleanup
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
+  call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %ref.tmp) #5
+  br label %eh.resume
+
+lpad1:                                            ; preds = %invoke.cont7, %invoke.cont6, %invoke.cont5, %invoke.cont3, %if.then, %invoke.cont
+  %4 = landingpad { ptr, i32 }
+          cleanup
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
+  call void @_ZN6icu_7514TaiwanCalendarD1Ev(ptr noundef nonnull align 8 dereferenceable(654) %calendar) #5
+  br label %eh.resume
+
+if.end:                                           ; preds = %invoke.cont9, %invoke.cont2
+  call void @_ZN6icu_7514TaiwanCalendarD1Ev(ptr noundef nonnull align 8 dereferenceable(654) %calendar) #5
+  ret void
+
+eh.resume:                                        ; preds = %lpad1, %lpad
+  %exn = load ptr, ptr %exn.slot, align 8
+  %sel = load i32, ptr %ehselector.slot, align 4
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
+  %lpad.val11 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
+  resume { ptr, i32 } %lpad.val11
+}
+
+; Function Attrs: mustprogress uwtable
+define noundef i32 @_ZNK6icu_7514TaiwanCalendar23defaultCenturyStartYearEv(ptr noundef nonnull align 8 dereferenceable(654) %this) unnamed_addr #1 align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  call void @_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvvE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN6icu_75L25gSystemDefaultCenturyInitE, ptr noundef @_ZN6icu_75L30initializeSystemDefaultCenturyEv)
+  %0 = load i32, ptr @_ZN6icu_75L30gSystemDefaultCenturyStartYearE, align 4
+  ret i32 %0
+}
+
+declare noundef zeroext i1 @_ZNK6icu_758CalendareqERKS0_(ptr noundef nonnull align 8 dereferenceable(618), ptr noundef nonnull align 8 dereferenceable(618)) unnamed_addr #2
+
+declare noundef signext i8 @_ZNK6icu_7517GregorianCalendar14isEquivalentToERKNS_8CalendarE(ptr noundef nonnull align 8 dereferenceable(654), ptr noundef nonnull align 8 dereferenceable(618)) unnamed_addr #2
+
+declare void @_ZN6icu_758Calendar3addENS0_11EDateFieldsEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
+
+declare void @_ZN6icu_758Calendar3addE19UCalendarDateFieldsiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
+
+declare void @_ZN6icu_7517GregorianCalendar4rollENS_8Calendar11EDateFieldsEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(654), i32 noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
+
+declare void @_ZN6icu_7517GregorianCalendar4rollE19UCalendarDateFieldsiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(654), i32 noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
+
+declare noundef i32 @_ZN6icu_758Calendar15fieldDifferenceEdNS0_11EDateFieldsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), double noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
+
+declare noundef i32 @_ZN6icu_758Calendar15fieldDifferenceEd19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), double noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
+
+declare noundef signext i8 @_ZNK6icu_758Calendar14inDaylightTimeER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
+
+declare noundef i32 @_ZNK6icu_758Calendar10getMinimumENS0_11EDateFieldsE(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef) unnamed_addr #2
+
+declare noundef i32 @_ZNK6icu_758Calendar10getMinimumE19UCalendarDateFields(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef) unnamed_addr #2
+
+declare noundef i32 @_ZNK6icu_758Calendar10getMaximumENS0_11EDateFieldsE(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef) unnamed_addr #2
+
+declare noundef i32 @_ZNK6icu_758Calendar10getMaximumE19UCalendarDateFields(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef) unnamed_addr #2
+
+declare noundef i32 @_ZNK6icu_758Calendar18getGreatestMinimumENS0_11EDateFieldsE(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef) unnamed_addr #2
+
+declare noundef i32 @_ZNK6icu_758Calendar18getGreatestMinimumE19UCalendarDateFields(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef) unnamed_addr #2
+
+declare noundef i32 @_ZNK6icu_758Calendar15getLeastMaximumENS0_11EDateFieldsE(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef) unnamed_addr #2
+
+declare noundef i32 @_ZNK6icu_758Calendar15getLeastMaximumE19UCalendarDateFields(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef) unnamed_addr #2
+
+declare noundef i32 @_ZNK6icu_7517GregorianCalendar16getActualMinimumE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(654), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
+
+declare noundef i32 @_ZNK6icu_7517GregorianCalendar16getActualMaximumE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(654), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
+
+declare noundef i32 @_ZNK6icu_758Calendar16getDayOfWeekTypeE19UCalendarDaysOfWeekR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
+
+declare noundef i32 @_ZNK6icu_758Calendar20getWeekendTransitionE19UCalendarDaysOfWeekR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
+
+declare noundef signext i8 @_ZNK6icu_758Calendar9isWeekendEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), double noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
+
+declare noundef signext i8 @_ZNK6icu_758Calendar9isWeekendEv(ptr noundef nonnull align 8 dereferenceable(618)) unnamed_addr #2
+
+declare noundef zeroext i1 @_ZNK6icu_758Calendar18inTemporalLeapYearER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
+
+declare noundef ptr @_ZNK6icu_758Calendar20getTemporalMonthCodeER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
+
+declare void @_ZN6icu_758Calendar20setTemporalMonthCodeEPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
+
+declare void @_ZN6icu_758Calendar11computeTimeER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
+
+declare void @_ZN6icu_758Calendar13computeFieldsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
+
+declare noundef i32 @_ZNK6icu_758Calendar16internalGetMonthEv(ptr noundef nonnull align 8 dereferenceable(618)) unnamed_addr #2
+
+declare noundef i32 @_ZNK6icu_758Calendar16internalGetMonthEi(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef) unnamed_addr #2
+
+declare void @_ZN6icu_758Calendar16prepareGetActualE19UCalendarDateFieldsaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef, i8 noundef signext, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
+
+declare noundef i32 @_ZNK6icu_758Calendar8getLimitE19UCalendarDateFieldsNS0_10ELimitTypeE(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef, i32 noundef) unnamed_addr #2
+
+declare noundef i32 @_ZNK6icu_7517GregorianCalendar23handleComputeMonthStartEiia(ptr noundef nonnull align 8 dereferenceable(654), i32 noundef, i32 noundef, i8 noundef signext) unnamed_addr #2
+
+declare noundef i32 @_ZNK6icu_7517GregorianCalendar20handleGetMonthLengthEii(ptr noundef nonnull align 8 dereferenceable(654), i32 noundef, i32 noundef) unnamed_addr #2
+
+declare noundef i32 @_ZNK6icu_7517GregorianCalendar19handleGetYearLengthEi(ptr noundef nonnull align 8 dereferenceable(654), i32 noundef) unnamed_addr #2
+
+declare noundef i32 @_ZN6icu_7517GregorianCalendar22handleComputeJulianDayE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(654), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
+
+declare noundef i32 @_ZN6icu_7517GregorianCalendar35handleGetExtendedYearFromWeekFieldsEii(ptr noundef nonnull align 8 dereferenceable(654), i32 noundef, i32 noundef) unnamed_addr #2
+
+declare void @_ZN6icu_758Calendar13validateFieldE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
+
+declare noundef ptr @_ZNK6icu_758Calendar23getFieldResolutionTableEv(ptr noundef nonnull align 8 dereferenceable(618)) unnamed_addr #2
+
+declare noundef i32 @_ZN6icu_758Calendar21getDefaultMonthInYearEi(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef) unnamed_addr #2
+
+declare noundef i32 @_ZN6icu_758Calendar20getDefaultDayInMonthEii(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef, i32 noundef) unnamed_addr #2
+
+declare void @_ZN6icu_758Calendar8pinFieldE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
+
+declare noundef i32 @_ZNK6icu_758Calendar14getRelatedYearER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
+
+declare void @_ZN6icu_758Calendar14setRelatedYearEi(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef) unnamed_addr #2
+
+declare noundef i32 @_ZNK6icu_7517GregorianCalendar14internalGetEraEv(ptr noundef nonnull align 8 dereferenceable(654)) unnamed_addr #2
+
+declare noundef i32 @_ZNK6icu_7517GregorianCalendar11monthLengthEi(ptr noundef nonnull align 8 dereferenceable(654), i32 noundef) unnamed_addr #2
+
+declare noundef i32 @_ZNK6icu_7517GregorianCalendar11monthLengthEii(ptr noundef nonnull align 8 dereferenceable(654), i32 noundef, i32 noundef) unnamed_addr #2
+
+declare noundef double @_ZN6icu_7517GregorianCalendar11getEpochDayER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(654), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZN6icu_7516umtx_loadAcquireERSt6atomicIiE(ptr noundef nonnull align 4 dereferenceable(4) %var) #0 comdat personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr.i = alloca ptr, align 8
+  %__m.addr.i = alloca i32, align 4
+  %__b.i = alloca i32, align 4
+  %atomic-temp.i = alloca i32, align 4
+  %var.addr = alloca ptr, align 8
+  store ptr %var, ptr %var.addr, align 8
+  %0 = load ptr, ptr %var.addr, align 8
+  store ptr %0, ptr %this.addr.i, align 8
+  store i32 2, ptr %__m.addr.i, align 4
+  %this1.i = load ptr, ptr %this.addr.i, align 8
+  %1 = load i32, ptr %__m.addr.i, align 4
+  %call.i = invoke noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %1, i32 noundef 65535)
+          to label %invoke.cont.i unwind label %terminate.lpad.i
+
+invoke.cont.i:                                    ; preds = %entry
+  store i32 %call.i, ptr %__b.i, align 4
+  %2 = load i32, ptr %__m.addr.i, align 4
+  switch i32 %2, label %monotonic.i [
+    i32 1, label %acquire.i
+    i32 2, label %acquire.i
+    i32 5, label %seqcst.i
+  ]
+
+monotonic.i:                                      ; preds = %invoke.cont.i
+  %3 = load atomic i32, ptr %this1.i monotonic, align 4
+  store i32 %3, ptr %atomic-temp.i, align 4
+  br label %_ZNKSt13__atomic_baseIiE4loadESt12memory_order.exit
+
+acquire.i:                                        ; preds = %invoke.cont.i, %invoke.cont.i
+  %4 = load atomic i32, ptr %this1.i acquire, align 4
+  store i32 %4, ptr %atomic-temp.i, align 4
+  br label %_ZNKSt13__atomic_baseIiE4loadESt12memory_order.exit
+
+seqcst.i:                                         ; preds = %invoke.cont.i
+  %5 = load atomic i32, ptr %this1.i seq_cst, align 4
+  store i32 %5, ptr %atomic-temp.i, align 4
+  br label %_ZNKSt13__atomic_baseIiE4loadESt12memory_order.exit
+
+terminate.lpad.i:                                 ; preds = %entry
+  %6 = landingpad { ptr, i32 }
+          catch ptr null
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #6
+  unreachable
+
+_ZNKSt13__atomic_baseIiE4loadESt12memory_order.exit: ; preds = %seqcst.i, %acquire.i, %monotonic.i
+  %8 = load i32, ptr %atomic-temp.i, align 4
+  ret i32 %8
+}
+
+declare noundef signext i8 @_ZN6icu_7520umtx_initImplPreInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8)) #2
+
+declare void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8)) #2
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %__m, i32 noundef %__mod) #0 comdat {
+entry:
+  %__m.addr = alloca i32, align 4
+  %__mod.addr = alloca i32, align 4
+  store i32 %__m, ptr %__m.addr, align 4
+  store i32 %__mod, ptr %__mod.addr, align 4
+  %0 = load i32, ptr %__m.addr, align 4
+  %1 = load i32, ptr %__mod.addr, align 4
+  %and = and i32 %0, %1
+  ret i32 %and
+}
+
+; Function Attrs: noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #4 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #5
+  call void @_ZSt9terminatev() #6
+  unreachable
+}
+
+declare ptr @__cxa_begin_catch(ptr)
+
+declare void @_ZSt9terminatev()
+
+declare void @_ZN6icu_756LocaleC1EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef, ptr noundef, ptr noundef, ptr noundef) unnamed_addr #2
+
+; Function Attrs: nounwind
+declare void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217)) unnamed_addr #3
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %code) #0 {
+entry:
+  %code.addr = alloca i32, align 4
+  store i32 %code, ptr %code.addr, align 4
+  %0 = load i32, ptr %code.addr, align 4
+  %cmp = icmp sle i32 %0, 0
+  %conv = zext i1 %cmp to i8
+  ret i8 %conv
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6icu_758Calendar7setTimeEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, double noundef %date, ptr noundef nonnull align 4 dereferenceable(4) %status) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %date.addr = alloca double, align 8
+  %status.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store double %date, ptr %date.addr, align 8
+  store ptr %status, ptr %status.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load double, ptr %date.addr, align 8
+  %1 = load ptr, ptr %status.addr, align 8
+  call void @_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this1, double noundef %0, ptr noundef nonnull align 4 dereferenceable(4) %1)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef double @_ZNK6icu_758Calendar7getTimeER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %status.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %status, ptr %status.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %status.addr, align 8
+  %call = call noundef double @_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this1, ptr noundef nonnull align 4 dereferenceable(4) %0)
+  ret double %call
+}
+
+declare noundef i32 @_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) #2
+
+declare noundef double @_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), ptr noundef nonnull align 4 dereferenceable(4)) #2
+
+attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
+attributes #6 = { noreturn nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{i32 7, !"frame-pointer", i32 2}
