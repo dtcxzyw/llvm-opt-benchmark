@@ -82,3 +82,6 @@
 [submodule "bench/yalantinglibs/yalantinglibs"]
 	path = bench/yalantinglibs/yalantinglibs
 	url = git@github.com:alibaba/yalantinglibs.git
+[submodule "bench/miniaudio/miniaudio"]
+	path = bench/miniaudio/miniaudio
+	url = git@github.com:mackron/miniaudio.git
