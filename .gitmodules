@@ -103,3 +103,6 @@
 [submodule "bench/box2d/box2d"]
 	path = bench/box2d/box2d
 	url = git@github.com:erincatto/box2d.git
+[submodule "bench/bullet3/bullet3"]
+	path = bench/bullet3/bullet3
+	url = git@github.com:bulletphysics/bullet3.git
