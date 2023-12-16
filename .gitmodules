@@ -73,3 +73,6 @@
 [submodule "bench/simdjson/simdjson"]
 	path = bench/simdjson/simdjson
 	url = git@github.com:simdjson/simdjson.git
+[submodule "bench/entt/entt"]
+	path = bench/entt/entt
+	url = git@github.com:skypjack/entt.git
