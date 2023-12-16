@@ -100,3 +100,6 @@
 [submodule "bench/double_conversion/double-conversion"]
 	path = bench/double_conversion/double-conversion
 	url = git@github.com:google/double-conversion.git
+[submodule "bench/box2d/box2d"]
+	path = bench/box2d/box2d
+	url = git@github.com:erincatto/box2d.git
