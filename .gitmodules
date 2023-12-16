@@ -67,3 +67,6 @@
 [submodule "bench/tomlplusplus/tomlplusplus"]
 	path = bench/tomlplusplus/tomlplusplus
 	url = git@github.com:marzer/tomlplusplus.git
+[submodule "bench/fmt/fmt"]
+	path = bench/fmt/fmt
+	url = git@github.com:fmtlib/fmt.git
