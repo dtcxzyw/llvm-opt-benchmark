@@ -43,3 +43,6 @@
 [submodule "bench/ocio/OpenColorIO"]
 	path = bench/ocio/OpenColorIO
 	url = git@github.com:AcademySoftwareFoundation/OpenColorIO.git
+[submodule "bench/coremark/coremark"]
+	path = bench/coremark/coremark
+	url = git@github.com:eembc/coremark.git
