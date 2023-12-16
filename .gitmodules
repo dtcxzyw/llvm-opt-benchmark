@@ -52,3 +52,6 @@
 [submodule "bench/cxxopts/cxxopts"]
 	path = bench/cxxopts/cxxopts
 	url = git@github.com:jarro2783/cxxopts.git
+[submodule "bench/yaml-cpp/yaml-cpp"]
+	path = bench/yaml-cpp/yaml-cpp
+	url = git@github.com:jbeder/yaml-cpp.git
