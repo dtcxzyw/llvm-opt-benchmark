@@ -79,3 +79,6 @@
 [submodule "bench/velox/velox"]
 	path = bench/velox/velox
 	url = git@github.com:facebookincubator/velox.git
+[submodule "bench/yalantinglibs/yalantinglibs"]
+	path = bench/yalantinglibs/yalantinglibs
+	url = git@github.com:alibaba/yalantinglibs.git
