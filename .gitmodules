@@ -28,3 +28,6 @@
 [submodule "bench/imgui/imgui"]
 	path = bench/imgui/imgui
 	url = git@github.com:ocornut/imgui.git
+[submodule "bench/nlohmann_json/json"]
+	path = bench/nlohmann_json/json
+	url = git@github.com:nlohmann/json.git
