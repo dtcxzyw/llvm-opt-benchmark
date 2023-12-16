@@ -133,3 +133,6 @@
 [submodule "bench/arrow/arrow"]
 	path = bench/arrow/arrow
 	url = git@github.com:apache/arrow.git
+[submodule "bench/memcached/memcached"]
+	path = bench/memcached/memcached
+	url = git@github.com:memcached/memcached.git
