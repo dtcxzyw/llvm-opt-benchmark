@@ -136,3 +136,6 @@
 [submodule "bench/memcached/memcached"]
 	path = bench/memcached/memcached
 	url = git@github.com:memcached/memcached.git
+[submodule "bench/grpc/grpc"]
+	path = bench/grpc/grpc
+	url = git@github.com:grpc/grpc.git
