@@ -94,3 +94,6 @@
 [submodule "bench/pcg-cpp/pcg-cpp"]
 	path = bench/pcg-cpp/pcg-cpp
 	url = git@github.com:imneme/pcg-cpp.git
+[submodule "bench/pbrt-v4/pbrt-v4"]
+	path = bench/pbrt-v4/pbrt-v4
+	url = git@github.com:mmp/pbrt-v4.git
