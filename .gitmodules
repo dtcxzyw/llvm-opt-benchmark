@@ -142,3 +142,6 @@
 [submodule "bench/libdeflate/libdeflate"]
 	path = bench/libdeflate/libdeflate
 	url = git@github.com:ebiggers/libdeflate.git
+[submodule "bench/lodepng/lodepng"]
+	path = bench/lodepng/lodepng
+	url = git@github.com:lvandeve/lodepng.git
