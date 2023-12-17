@@ -178,3 +178,6 @@
 [submodule "bench/ms-gsl/GSL"]
 	path = bench/ms-gsl/GSL
 	url = git@github.com:microsoft/GSL.git
+[submodule "bench/rocksdb/rocksdb"]
+	path = bench/rocksdb/rocksdb
+	url = git@github.com:facebook/rocksdb.git
