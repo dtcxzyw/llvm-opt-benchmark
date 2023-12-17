@@ -193,3 +193,6 @@
 [submodule "bench/flatbuffers/flatbuffers"]
 	path = bench/flatbuffers/flatbuffers
 	url = git@github.com:google/flatbuffers.git
+[submodule "bench/openssl/openssl"]
+	path = bench/openssl/openssl
+	url = git@github.com:openssl/openssl.git
