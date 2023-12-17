@@ -211,3 +211,6 @@
 [submodule "bench/lua/lua"]
 	path = bench/lua/lua
 	url = git@github.com:lua/lua.git
+[submodule "bench/luajit/LuaJIT"]
+	path = bench/luajit/LuaJIT
+	url = git@github.com:LuaJIT/LuaJIT.git
