@@ -157,3 +157,6 @@
 [submodule "bench/jemalloc/jemalloc"]
 	path = bench/jemalloc/jemalloc
 	url = git@github.com:jemalloc/jemalloc.git
+[submodule "bench/qemu/qemu"]
+	path = bench/qemu/qemu
+	url = https://gitlab.com/qemu-project/qemu.git

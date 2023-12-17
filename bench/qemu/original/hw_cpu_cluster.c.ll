@@ -1,0 +1,238 @@
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-unknown-linux-gnu"
+
+%struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
+%struct.Property = type { ptr, ptr, i64, i8, i64, i8, %union.anon, i32, ptr, i32, ptr }
+%union.anon = type { i64 }
+%struct.PropertyInfo = type { ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
+%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
+%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
+%struct.CallbackData = type { ptr, i32 }
+%struct.CPUClusterState = type { %struct.DeviceState, i32 }
+%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
+%struct.Object = type { ptr, ptr, ptr, i32, ptr }
+%struct.NamedGPIOListHead = type { ptr }
+%struct.NamedClockListHead = type { ptr }
+%struct.BusStateHead = type { ptr }
+%struct.ResettableState = type { i32, i8, i8 }
+%struct.MemReentrancyGuard = type { i8 }
+%struct.CPUState = type { %struct.DeviceState, ptr, i32, i32, ptr, i32, i8, i8, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i32, i32, i64, i64, i64, [1 x %struct.__jmp_buf_tag], %struct.QemuMutex, %struct.anon, ptr, i32, ptr, ptr, ptr, ptr, i32, i32, %union.anon.0, %union.anon.1, %union.anon.2, ptr, ptr, i64, i32, ptr, ptr, ptr, i32, i64, i32, %struct.QemuLockCnt, [1 x i64], ptr, i32, i32, i32, i32, i32, ptr, i8, i8, i64, i8, i8, ptr, [8 x i8], [0 x i8], %struct.CPUNegativeOffsetState }
+%struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
+%struct.__sigset_t = type { [16 x i64] }
+%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
+%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
+%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
+%struct.__pthread_internal_list = type { ptr, ptr }
+%struct.anon = type { ptr, ptr }
+%union.anon.0 = type { %struct.QTailQLink }
+%struct.QTailQLink = type { ptr, ptr }
+%union.anon.1 = type { %struct.QTailQLink }
+%union.anon.2 = type { %struct.QTailQLink }
+%struct.QemuLockCnt = type { i32 }
+%struct.CPUNegativeOffsetState = type { %struct.CPUTLB, %union.IcountDecr, i8, [11 x i8] }
+%struct.CPUTLB = type { %struct.CPUTLBCommon, [16 x %struct.CPUTLBDesc], [16 x %struct.CPUTLBDescFast] }
+%struct.CPUTLBCommon = type { %struct.QemuSpin, i16, i64, i64, i64 }
+%struct.QemuSpin = type { i32 }
+%struct.CPUTLBDesc = type { i64, i64, i64, i64, i64, i64, [8 x %union.CPUTLBEntry], [8 x %struct.CPUTLBEntryFull], ptr }
+%union.CPUTLBEntry = type { %struct.anon.3 }
+%struct.anon.3 = type { i64, i64, i64, i64 }
+%struct.CPUTLBEntryFull = type { i64, i64, %struct.MemTxAttrs, i8, i8, [3 x i8], %union.anon.4 }
+%struct.MemTxAttrs = type { i32 }
+%union.anon.4 = type { %struct.anon.5 }
+%struct.anon.5 = type { i8, i8, i8 }
+%struct.CPUTLBDescFast = type { i64, ptr }
+%union.IcountDecr = type { i32 }
+
+@cpu_cluster_type_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 168, i64 0, ptr null, ptr null, ptr null, i8 0, i64 0, ptr @cpu_cluster_class_init, ptr null, ptr null, ptr null }, align 8
+@.str = private unnamed_addr constant [12 x i8] c"cpu-cluster\00", align 1
+@.str.1 = private unnamed_addr constant [7 x i8] c"device\00", align 1
+@cpu_cluster_properties = internal global [2 x %struct.Property] [%struct.Property { ptr @.str.3, ptr @qdev_prop_uint32, i64 160, i8 0, i64 0, i8 1, %union.anon zeroinitializer, i32 0, ptr null, i32 0, ptr null }, %struct.Property zeroinitializer], align 16
+@.str.2 = private unnamed_addr constant [101 x i8] c"/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/qemu/qemu/include/hw/qdev-core.h\00", align 1
+@__func__.DEVICE_CLASS = private unnamed_addr constant [13 x i8] c"DEVICE_CLASS\00", align 1
+@.str.3 = private unnamed_addr constant [11 x i8] c"cluster-id\00", align 1
+@qdev_prop_uint32 = external constant %struct.PropertyInfo, align 8
+@.str.4 = private unnamed_addr constant [25 x i8] c"../qemu/hw/cpu/cluster.c\00", align 1
+@__func__.cpu_cluster_realize = private unnamed_addr constant [20 x i8] c"cpu_cluster_realize\00", align 1
+@.str.5 = private unnamed_addr constant [32 x i8] c"cluster-id must be less than %d\00", align 1
+@.str.6 = private unnamed_addr constant [21 x i8] c"cbdata.cpu_count > 0\00", align 1
+@__PRETTY_FUNCTION__.cpu_cluster_realize = private unnamed_addr constant [50 x i8] c"void cpu_cluster_realize(DeviceState *, Error **)\00", align 1
+@.str.7 = private unnamed_addr constant [103 x i8] c"/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/qemu/qemu/include/hw/cpu/cluster.h\00", align 1
+@__func__.CPU_CLUSTER = private unnamed_addr constant [12 x i8] c"CPU_CLUSTER\00", align 1
+@.str.8 = private unnamed_addr constant [4 x i8] c"cpu\00", align 1
+@llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @do_qemu_init_cpu_cluster_register_types, ptr null }]
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @do_qemu_init_cpu_cluster_register_types() #0 {
+entry:
+  call void @register_module_init(ptr noundef @cpu_cluster_register_types, i32 noundef 3)
+  ret void
+}
+
+declare void @register_module_init(ptr noundef, i32 noundef) #1
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @cpu_cluster_register_types() #0 {
+entry:
+  %call = call ptr @type_register_static(ptr noundef @cpu_cluster_type_info)
+  ret void
+}
+
+declare ptr @type_register_static(ptr noundef) #1
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @cpu_cluster_class_init(ptr noundef %klass, ptr noundef %data) #0 {
+entry:
+  %klass.addr = alloca ptr, align 8
+  %data.addr = alloca ptr, align 8
+  %dc = alloca ptr, align 8
+  store ptr %klass, ptr %klass.addr, align 8
+  store ptr %data, ptr %data.addr, align 8
+  %0 = load ptr, ptr %klass.addr, align 8
+  %call = call ptr @DEVICE_CLASS(ptr noundef %0)
+  store ptr %call, ptr %dc, align 8
+  %1 = load ptr, ptr %dc, align 8
+  call void @device_class_set_props(ptr noundef %1, ptr noundef @cpu_cluster_properties)
+  %2 = load ptr, ptr %dc, align 8
+  %realize = getelementptr inbounds %struct.DeviceClass, ptr %2, i32 0, i32 8
+  store ptr @cpu_cluster_realize, ptr %realize, align 8
+  %3 = load ptr, ptr %dc, align 8
+  %user_creatable = getelementptr inbounds %struct.DeviceClass, ptr %3, i32 0, i32 5
+  store i8 0, ptr %user_creatable, align 8
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal ptr @DEVICE_CLASS(ptr noundef %klass) #0 {
+entry:
+  %klass.addr = alloca ptr, align 8
+  store ptr %klass, ptr %klass.addr, align 8
+  %0 = load ptr, ptr %klass.addr, align 8
+  %call = call ptr @object_class_dynamic_cast_assert(ptr noundef %0, ptr noundef @.str.1, ptr noundef @.str.2, i32 noundef 77, ptr noundef @__func__.DEVICE_CLASS)
+  ret ptr %call
+}
+
+declare void @device_class_set_props(ptr noundef, ptr noundef) #1
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @cpu_cluster_realize(ptr noundef %dev, ptr noundef %errp) #0 {
+entry:
+  %dev.addr = alloca ptr, align 8
+  %errp.addr = alloca ptr, align 8
+  %cluster = alloca ptr, align 8
+  %cluster_obj = alloca ptr, align 8
+  %cbdata = alloca %struct.CallbackData, align 8
+  store ptr %dev, ptr %dev.addr, align 8
+  store ptr %errp, ptr %errp.addr, align 8
+  %0 = load ptr, ptr %dev.addr, align 8
+  %call = call ptr @CPU_CLUSTER(ptr noundef %0)
+  store ptr %call, ptr %cluster, align 8
+  %1 = load ptr, ptr %dev.addr, align 8
+  store ptr %1, ptr %cluster_obj, align 8
+  %cluster1 = getelementptr inbounds %struct.CallbackData, ptr %cbdata, i32 0, i32 0
+  %2 = load ptr, ptr %cluster, align 8
+  store ptr %2, ptr %cluster1, align 8
+  %cpu_count = getelementptr inbounds %struct.CallbackData, ptr %cbdata, i32 0, i32 1
+  store i32 0, ptr %cpu_count, align 8
+  %3 = load ptr, ptr %cluster, align 8
+  %cluster_id = getelementptr inbounds %struct.CPUClusterState, ptr %3, i32 0, i32 1
+  %4 = load i32, ptr %cluster_id, align 8
+  %cmp = icmp uge i32 %4, 255
+  br i1 %cmp, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %5 = load ptr, ptr %errp.addr, align 8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %5, ptr noundef @.str.4, i32 noundef 62, ptr noundef @__func__.cpu_cluster_realize, ptr noundef @.str.5, i32 noundef 255)
+  br label %if.end6
+
+if.end:                                           ; preds = %entry
+  %6 = load ptr, ptr %cluster_obj, align 8
+  %call2 = call i32 @object_child_foreach_recursive(ptr noundef %6, ptr noundef @add_cpu_to_cluster, ptr noundef %cbdata)
+  %cpu_count3 = getelementptr inbounds %struct.CallbackData, ptr %cbdata, i32 0, i32 1
+  %7 = load i32, ptr %cpu_count3, align 8
+  %cmp4 = icmp sgt i32 %7, 0
+  br i1 %cmp4, label %if.then5, label %if.else
+
+if.then5:                                         ; preds = %if.end
+  br label %if.end6
+
+if.else:                                          ; preds = %if.end
+  call void @__assert_fail(ptr noundef @.str.6, ptr noundef @.str.4, i32 noundef 74, ptr noundef @__PRETTY_FUNCTION__.cpu_cluster_realize) #3
+  unreachable
+
+if.end6:                                          ; preds = %if.then5, %if.then
+  ret void
+}
+
+declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal ptr @CPU_CLUSTER(ptr noundef %obj) #0 {
+entry:
+  %obj.addr = alloca ptr, align 8
+  store ptr %obj, ptr %obj.addr, align 8
+  %0 = load ptr, ptr %obj.addr, align 8
+  %call = call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef @.str, ptr noundef @.str.7, i32 noundef 58, ptr noundef @__func__.CPU_CLUSTER)
+  ret ptr %call
+}
+
+declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) #1
+
+declare i32 @object_child_foreach_recursive(ptr noundef, ptr noundef, ptr noundef) #1
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i32 @add_cpu_to_cluster(ptr noundef %obj, ptr noundef %opaque) #0 {
+entry:
+  %obj.addr = alloca ptr, align 8
+  %opaque.addr = alloca ptr, align 8
+  %cbdata = alloca ptr, align 8
+  %cpu = alloca ptr, align 8
+  store ptr %obj, ptr %obj.addr, align 8
+  store ptr %opaque, ptr %opaque.addr, align 8
+  %0 = load ptr, ptr %opaque.addr, align 8
+  store ptr %0, ptr %cbdata, align 8
+  %1 = load ptr, ptr %obj.addr, align 8
+  %call = call ptr @object_dynamic_cast(ptr noundef %1, ptr noundef @.str.8)
+  store ptr %call, ptr %cpu, align 8
+  %2 = load ptr, ptr %cpu, align 8
+  %tobool = icmp ne ptr %2, null
+  br i1 %tobool, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %3 = load ptr, ptr %cbdata, align 8
+  %cluster = getelementptr inbounds %struct.CallbackData, ptr %3, i32 0, i32 0
+  %4 = load ptr, ptr %cluster, align 8
+  %cluster_id = getelementptr inbounds %struct.CPUClusterState, ptr %4, i32 0, i32 1
+  %5 = load i32, ptr %cluster_id, align 8
+  %6 = load ptr, ptr %cpu, align 8
+  %cluster_index = getelementptr inbounds %struct.CPUState, ptr %6, i32 0, i32 52
+  store i32 %5, ptr %cluster_index, align 4
+  %7 = load ptr, ptr %cbdata, align 8
+  %cpu_count = getelementptr inbounds %struct.CallbackData, ptr %7, i32 0, i32 1
+  %8 = load i32, ptr %cpu_count, align 8
+  %inc = add i32 %8, 1
+  store i32 %inc, ptr %cpu_count, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.then, %entry
+  ret i32 0
+}
+
+; Function Attrs: noreturn nounwind
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
+
+declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+
+declare ptr @object_dynamic_cast(ptr noundef, ptr noundef) #1
+
+attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { noreturn nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"PIE Level", i32 2}
+!3 = !{i32 7, !"uwtable", i32 2}
+!4 = !{i32 7, !"frame-pointer", i32 2}

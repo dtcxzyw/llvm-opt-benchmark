@@ -1,0 +1,2408 @@
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-unknown-linux-gnu"
+
+%struct.q_obj_nbd_server_start_arg = type { ptr, ptr, ptr, i8, i32 }
+%struct.QDict = type { %struct.QObjectBase_, i64, [512 x %struct.anon] }
+%struct.QObjectBase_ = type { i32, i64 }
+%struct.anon = type { ptr }
+%struct._GString = type { ptr, i64, i64 }
+%struct.NbdServerAddOptions = type { ptr, ptr, ptr, i8, i8, ptr }
+%struct.q_obj_nbd_server_remove_arg = type { ptr, i8, i32 }
+%struct.BlockExportOptions = type { i32, ptr, i8, i8, ptr, ptr, i8, i8, i8, i8, %union.anon }
+%union.anon = type { %struct.BlockExportOptionsNbd }
+%struct.BlockExportOptionsNbd = type { ptr, ptr, i8, ptr, i8, i8 }
+%struct.q_obj_block_export_del_arg = type { ptr, i8, i32 }
+%struct.timeval = type { i64, i64 }
+
+@trace_events_enabled_count = external global i32, align 4
+@_TRACE_QMP_ENTER_NBD_SERVER_START_DSTATE = external global i16, align 2
+@.str = private unnamed_addr constant [3 x i8] c"{}\00", align 1
+@_TRACE_QMP_ENTER_NBD_SERVER_ADD_DSTATE = external global i16, align 2
+@_TRACE_QMP_ENTER_NBD_SERVER_REMOVE_DSTATE = external global i16, align 2
+@_TRACE_QMP_ENTER_NBD_SERVER_STOP_DSTATE = external global i16, align 2
+@_TRACE_QMP_ENTER_BLOCK_EXPORT_ADD_DSTATE = external global i16, align 2
+@_TRACE_QMP_ENTER_BLOCK_EXPORT_DEL_DSTATE = external global i16, align 2
+@_TRACE_QMP_ENTER_QUERY_BLOCK_EXPORTS_DSTATE = external global i16, align 2
+@_TRACE_QMP_EXIT_QUERY_BLOCK_EXPORTS_DSTATE = external global i16, align 2
+@qapi_dummy_qapi_commands_block_export_c = dso_local global i8 0, align 1
+@message_with_timestamp = external global i8, align 1
+@.str.1 = private unnamed_addr constant [44 x i8] c"%d@%zu.%06zu:qmp_enter_nbd_server_start %s\0A\00", align 1
+@.str.2 = private unnamed_addr constant [31 x i8] c"qmp_enter_nbd_server_start %s\0A\00", align 1
+@qemu_loglevel = external global i32, align 4
+@_TRACE_QMP_EXIT_NBD_SERVER_START_DSTATE = external global i16, align 2
+@.str.3 = private unnamed_addr constant [46 x i8] c"%d@%zu.%06zu:qmp_exit_nbd_server_start %s %d\0A\00", align 1
+@.str.4 = private unnamed_addr constant [33 x i8] c"qmp_exit_nbd_server_start %s %d\0A\00", align 1
+@.str.5 = private unnamed_addr constant [42 x i8] c"%d@%zu.%06zu:qmp_enter_nbd_server_add %s\0A\00", align 1
+@.str.6 = private unnamed_addr constant [29 x i8] c"qmp_enter_nbd_server_add %s\0A\00", align 1
+@_TRACE_QMP_EXIT_NBD_SERVER_ADD_DSTATE = external global i16, align 2
+@.str.7 = private unnamed_addr constant [44 x i8] c"%d@%zu.%06zu:qmp_exit_nbd_server_add %s %d\0A\00", align 1
+@.str.8 = private unnamed_addr constant [31 x i8] c"qmp_exit_nbd_server_add %s %d\0A\00", align 1
+@.str.9 = private unnamed_addr constant [45 x i8] c"%d@%zu.%06zu:qmp_enter_nbd_server_remove %s\0A\00", align 1
+@.str.10 = private unnamed_addr constant [32 x i8] c"qmp_enter_nbd_server_remove %s\0A\00", align 1
+@_TRACE_QMP_EXIT_NBD_SERVER_REMOVE_DSTATE = external global i16, align 2
+@.str.11 = private unnamed_addr constant [47 x i8] c"%d@%zu.%06zu:qmp_exit_nbd_server_remove %s %d\0A\00", align 1
+@.str.12 = private unnamed_addr constant [34 x i8] c"qmp_exit_nbd_server_remove %s %d\0A\00", align 1
+@.str.13 = private unnamed_addr constant [43 x i8] c"%d@%zu.%06zu:qmp_enter_nbd_server_stop %s\0A\00", align 1
+@.str.14 = private unnamed_addr constant [30 x i8] c"qmp_enter_nbd_server_stop %s\0A\00", align 1
+@_TRACE_QMP_EXIT_NBD_SERVER_STOP_DSTATE = external global i16, align 2
+@.str.15 = private unnamed_addr constant [45 x i8] c"%d@%zu.%06zu:qmp_exit_nbd_server_stop %s %d\0A\00", align 1
+@.str.16 = private unnamed_addr constant [32 x i8] c"qmp_exit_nbd_server_stop %s %d\0A\00", align 1
+@.str.17 = private unnamed_addr constant [44 x i8] c"%d@%zu.%06zu:qmp_enter_block_export_add %s\0A\00", align 1
+@.str.18 = private unnamed_addr constant [31 x i8] c"qmp_enter_block_export_add %s\0A\00", align 1
+@_TRACE_QMP_EXIT_BLOCK_EXPORT_ADD_DSTATE = external global i16, align 2
+@.str.19 = private unnamed_addr constant [46 x i8] c"%d@%zu.%06zu:qmp_exit_block_export_add %s %d\0A\00", align 1
+@.str.20 = private unnamed_addr constant [33 x i8] c"qmp_exit_block_export_add %s %d\0A\00", align 1
+@.str.21 = private unnamed_addr constant [44 x i8] c"%d@%zu.%06zu:qmp_enter_block_export_del %s\0A\00", align 1
+@.str.22 = private unnamed_addr constant [31 x i8] c"qmp_enter_block_export_del %s\0A\00", align 1
+@_TRACE_QMP_EXIT_BLOCK_EXPORT_DEL_DSTATE = external global i16, align 2
+@.str.23 = private unnamed_addr constant [46 x i8] c"%d@%zu.%06zu:qmp_exit_block_export_del %s %d\0A\00", align 1
+@.str.24 = private unnamed_addr constant [33 x i8] c"qmp_exit_block_export_del %s %d\0A\00", align 1
+@.str.25 = private unnamed_addr constant [47 x i8] c"%d@%zu.%06zu:qmp_enter_query_block_exports %s\0A\00", align 1
+@.str.26 = private unnamed_addr constant [34 x i8] c"qmp_enter_query_block_exports %s\0A\00", align 1
+@.str.27 = private unnamed_addr constant [49 x i8] c"%d@%zu.%06zu:qmp_exit_query_block_exports %s %d\0A\00", align 1
+@.str.28 = private unnamed_addr constant [36 x i8] c"qmp_exit_query_block_exports %s %d\0A\00", align 1
+@.str.29 = private unnamed_addr constant [7 x i8] c"unused\00", align 1
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local void @qmp_marshal_nbd_server_start(ptr noundef %args, ptr noundef %ret, ptr noundef %errp) #0 {
+entry:
+  %args.addr = alloca ptr, align 8
+  %ret.addr = alloca ptr, align 8
+  %errp.addr = alloca ptr, align 8
+  %err = alloca ptr, align 8
+  %ok = alloca i8, align 1
+  %v = alloca ptr, align 8
+  %arg = alloca %struct.q_obj_nbd_server_start_arg, align 8
+  %_obj0 = alloca ptr, align 8
+  %tmp = alloca ptr, align 8
+  %__mptr = alloca ptr, align 8
+  %tmp1 = alloca ptr, align 8
+  %req_json = alloca ptr, align 8
+  %_obj1 = alloca ptr, align 8
+  %tmp16 = alloca ptr, align 8
+  %__mptr19 = alloca ptr, align 8
+  %tmp21 = alloca ptr, align 8
+  store ptr %args, ptr %args.addr, align 8
+  store ptr %ret, ptr %ret.addr, align 8
+  store ptr %errp, ptr %errp.addr, align 8
+  store ptr null, ptr %err, align 8
+  store i8 0, ptr %ok, align 1
+  call void @llvm.memset.p0.i64(ptr align 8 %arg, i8 0, i64 32, i1 false)
+  %0 = load ptr, ptr %args.addr, align 8
+  store ptr %0, ptr %_obj0, align 8
+  %1 = load ptr, ptr %_obj0, align 8
+  %tobool = icmp ne ptr %1, null
+  br i1 %tobool, label %cond.true, label %cond.false
+
+cond.true:                                        ; preds = %entry
+  %2 = load ptr, ptr %_obj0, align 8
+  %base = getelementptr inbounds %struct.QDict, ptr %2, i32 0, i32 0
+  store ptr %base, ptr %__mptr, align 8
+  %3 = load ptr, ptr %__mptr, align 8
+  %add.ptr = getelementptr i8, ptr %3, i64 0
+  store ptr %add.ptr, ptr %tmp1, align 8
+  %4 = load ptr, ptr %tmp1, align 8
+  br label %cond.end
+
+cond.false:                                       ; preds = %entry
+  br label %cond.end
+
+cond.end:                                         ; preds = %cond.false, %cond.true
+  %cond = phi ptr [ %4, %cond.true ], [ null, %cond.false ]
+  store ptr %cond, ptr %tmp, align 8
+  %5 = load ptr, ptr %tmp, align 8
+  %call = call ptr @qobject_input_visitor_new_qmp(ptr noundef %5)
+  store ptr %call, ptr %v, align 8
+  %6 = load ptr, ptr %v, align 8
+  %7 = load ptr, ptr %errp.addr, align 8
+  %call2 = call zeroext i1 @visit_start_struct(ptr noundef %6, ptr noundef null, ptr noundef null, i64 noundef 0, ptr noundef %7)
+  br i1 %call2, label %if.end, label %if.then
+
+if.then:                                          ; preds = %cond.end
+  br label %out
+
+if.end:                                           ; preds = %cond.end
+  %8 = load ptr, ptr %v, align 8
+  %9 = load ptr, ptr %errp.addr, align 8
+  %call3 = call zeroext i1 @visit_type_q_obj_nbd_server_start_arg_members(ptr noundef %8, ptr noundef %arg, ptr noundef %9)
+  br i1 %call3, label %if.then4, label %if.end6
+
+if.then4:                                         ; preds = %if.end
+  %10 = load ptr, ptr %v, align 8
+  %11 = load ptr, ptr %errp.addr, align 8
+  %call5 = call zeroext i1 @visit_check_struct(ptr noundef %10, ptr noundef %11)
+  %frombool = zext i1 %call5 to i8
+  store i8 %frombool, ptr %ok, align 1
+  br label %if.end6
+
+if.end6:                                          ; preds = %if.then4, %if.end
+  %12 = load ptr, ptr %v, align 8
+  call void @visit_end_struct(ptr noundef %12, ptr noundef null)
+  %13 = load i8, ptr %ok, align 1
+  %tobool7 = trunc i8 %13 to i1
+  br i1 %tobool7, label %if.end9, label %if.then8
+
+if.then8:                                         ; preds = %if.end6
+  br label %out
+
+if.end9:                                          ; preds = %if.end6
+  %14 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool10 = icmp ne i32 %14, 0
+  %lnot = xor i1 %tobool10, true
+  %lnot11 = xor i1 %lnot, true
+  %lnot.ext = zext i1 %lnot11 to i32
+  %conv = sext i32 %lnot.ext to i64
+  %tobool12 = icmp ne i64 %conv, 0
+  br i1 %tobool12, label %land.lhs.true, label %if.end27
+
+land.lhs.true:                                    ; preds = %if.end9
+  %15 = load i16, ptr @_TRACE_QMP_ENTER_NBD_SERVER_START_DSTATE, align 2
+  %conv13 = zext i16 %15 to i32
+  %tobool14 = icmp ne i32 %conv13, 0
+  br i1 %tobool14, label %if.then15, label %if.end27
+
+if.then15:                                        ; preds = %land.lhs.true
+  %16 = load ptr, ptr %args.addr, align 8
+  store ptr %16, ptr %_obj1, align 8
+  %17 = load ptr, ptr %_obj1, align 8
+  %tobool17 = icmp ne ptr %17, null
+  br i1 %tobool17, label %cond.true18, label %cond.false23
+
+cond.true18:                                      ; preds = %if.then15
+  %18 = load ptr, ptr %_obj1, align 8
+  %base20 = getelementptr inbounds %struct.QDict, ptr %18, i32 0, i32 0
+  store ptr %base20, ptr %__mptr19, align 8
+  %19 = load ptr, ptr %__mptr19, align 8
+  %add.ptr22 = getelementptr i8, ptr %19, i64 0
+  store ptr %add.ptr22, ptr %tmp21, align 8
+  %20 = load ptr, ptr %tmp21, align 8
+  br label %cond.end24
+
+cond.false23:                                     ; preds = %if.then15
+  br label %cond.end24
+
+cond.end24:                                       ; preds = %cond.false23, %cond.true18
+  %cond25 = phi ptr [ %20, %cond.true18 ], [ null, %cond.false23 ]
+  store ptr %cond25, ptr %tmp16, align 8
+  %21 = load ptr, ptr %tmp16, align 8
+  %call26 = call ptr @qobject_to_json(ptr noundef %21)
+  store ptr %call26, ptr %req_json, align 8
+  %22 = load ptr, ptr %req_json, align 8
+  %str = getelementptr inbounds %struct._GString, ptr %22, i32 0, i32 0
+  %23 = load ptr, ptr %str, align 8
+  call void @trace_qmp_enter_nbd_server_start(ptr noundef %23)
+  call void @glib_autoptr_cleanup_GString(ptr noundef %req_json)
+  br label %if.end27
+
+if.end27:                                         ; preds = %cond.end24, %land.lhs.true, %if.end9
+  %addr = getelementptr inbounds %struct.q_obj_nbd_server_start_arg, ptr %arg, i32 0, i32 0
+  %24 = load ptr, ptr %addr, align 8
+  %tls_creds = getelementptr inbounds %struct.q_obj_nbd_server_start_arg, ptr %arg, i32 0, i32 1
+  %25 = load ptr, ptr %tls_creds, align 8
+  %tls_authz = getelementptr inbounds %struct.q_obj_nbd_server_start_arg, ptr %arg, i32 0, i32 2
+  %26 = load ptr, ptr %tls_authz, align 8
+  %has_max_connections = getelementptr inbounds %struct.q_obj_nbd_server_start_arg, ptr %arg, i32 0, i32 3
+  %27 = load i8, ptr %has_max_connections, align 8
+  %tobool28 = trunc i8 %27 to i1
+  %max_connections = getelementptr inbounds %struct.q_obj_nbd_server_start_arg, ptr %arg, i32 0, i32 4
+  %28 = load i32, ptr %max_connections, align 4
+  call void @qmp_nbd_server_start(ptr noundef %24, ptr noundef %25, ptr noundef %26, i1 noundef zeroext %tobool28, i32 noundef %28, ptr noundef %err)
+  %29 = load ptr, ptr %err, align 8
+  %tobool29 = icmp ne ptr %29, null
+  br i1 %tobool29, label %if.then30, label %if.end32
+
+if.then30:                                        ; preds = %if.end27
+  %30 = load ptr, ptr %err, align 8
+  %call31 = call ptr @error_get_pretty(ptr noundef %30)
+  call void @trace_qmp_exit_nbd_server_start(ptr noundef %call31, i1 noundef zeroext false)
+  %31 = load ptr, ptr %errp.addr, align 8
+  %32 = load ptr, ptr %err, align 8
+  call void @error_propagate(ptr noundef %31, ptr noundef %32)
+  br label %out
+
+if.end32:                                         ; preds = %if.end27
+  call void @trace_qmp_exit_nbd_server_start(ptr noundef @.str, i1 noundef zeroext true)
+  br label %out
+
+out:                                              ; preds = %if.end32, %if.then30, %if.then8, %if.then
+  %33 = load ptr, ptr %v, align 8
+  call void @visit_free(ptr noundef %33)
+  %call33 = call ptr @qapi_dealloc_visitor_new()
+  store ptr %call33, ptr %v, align 8
+  %34 = load ptr, ptr %v, align 8
+  %call34 = call zeroext i1 @visit_start_struct(ptr noundef %34, ptr noundef null, ptr noundef null, i64 noundef 0, ptr noundef null)
+  %35 = load ptr, ptr %v, align 8
+  %call35 = call zeroext i1 @visit_type_q_obj_nbd_server_start_arg_members(ptr noundef %35, ptr noundef %arg, ptr noundef null)
+  %36 = load ptr, ptr %v, align 8
+  call void @visit_end_struct(ptr noundef %36, ptr noundef null)
+  %37 = load ptr, ptr %v, align 8
+  call void @visit_free(ptr noundef %37)
+  ret void
+}
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+
+declare ptr @qobject_input_visitor_new_qmp(ptr noundef) #2
+
+declare zeroext i1 @visit_start_struct(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) #2
+
+declare zeroext i1 @visit_type_q_obj_nbd_server_start_arg_members(ptr noundef, ptr noundef, ptr noundef) #2
+
+declare zeroext i1 @visit_check_struct(ptr noundef, ptr noundef) #2
+
+declare void @visit_end_struct(ptr noundef, ptr noundef) #2
+
+declare ptr @qobject_to_json(ptr noundef) #2
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @glib_autoptr_cleanup_GString(ptr noundef %_ptr) #0 {
+entry:
+  %_ptr.addr = alloca ptr, align 8
+  store ptr %_ptr, ptr %_ptr.addr, align 8
+  %0 = load ptr, ptr %_ptr.addr, align 8
+  %1 = load ptr, ptr %0, align 8
+  call void @glib_autoptr_clear_GString(ptr noundef %1)
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @trace_qmp_enter_nbd_server_start(ptr noundef %json) #0 {
+entry:
+  %json.addr = alloca ptr, align 8
+  store ptr %json, ptr %json.addr, align 8
+  %0 = load ptr, ptr %json.addr, align 8
+  call void @_nocheck__trace_qmp_enter_nbd_server_start(ptr noundef %0)
+  ret void
+}
+
+declare void @qmp_nbd_server_start(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef) #2
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @trace_qmp_exit_nbd_server_start(ptr noundef %result, i1 noundef zeroext %succeeded) #0 {
+entry:
+  %result.addr = alloca ptr, align 8
+  %succeeded.addr = alloca i8, align 1
+  store ptr %result, ptr %result.addr, align 8
+  %frombool = zext i1 %succeeded to i8
+  store i8 %frombool, ptr %succeeded.addr, align 1
+  %0 = load ptr, ptr %result.addr, align 8
+  %1 = load i8, ptr %succeeded.addr, align 1
+  %tobool = trunc i8 %1 to i1
+  call void @_nocheck__trace_qmp_exit_nbd_server_start(ptr noundef %0, i1 noundef zeroext %tobool)
+  ret void
+}
+
+declare ptr @error_get_pretty(ptr noundef) #2
+
+declare void @error_propagate(ptr noundef, ptr noundef) #2
+
+declare void @visit_free(ptr noundef) #2
+
+declare ptr @qapi_dealloc_visitor_new() #2
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local void @qmp_marshal_nbd_server_add(ptr noundef %args, ptr noundef %ret, ptr noundef %errp) #0 {
+entry:
+  %args.addr = alloca ptr, align 8
+  %ret.addr = alloca ptr, align 8
+  %errp.addr = alloca ptr, align 8
+  %err = alloca ptr, align 8
+  %ok = alloca i8, align 1
+  %v = alloca ptr, align 8
+  %arg = alloca %struct.NbdServerAddOptions, align 8
+  %_obj2 = alloca ptr, align 8
+  %tmp = alloca ptr, align 8
+  %__mptr = alloca ptr, align 8
+  %tmp1 = alloca ptr, align 8
+  %req_json = alloca ptr, align 8
+  %_obj3 = alloca ptr, align 8
+  %tmp16 = alloca ptr, align 8
+  %__mptr19 = alloca ptr, align 8
+  %tmp21 = alloca ptr, align 8
+  store ptr %args, ptr %args.addr, align 8
+  store ptr %ret, ptr %ret.addr, align 8
+  store ptr %errp, ptr %errp.addr, align 8
+  store ptr null, ptr %err, align 8
+  store i8 0, ptr %ok, align 1
+  call void @llvm.memset.p0.i64(ptr align 8 %arg, i8 0, i64 40, i1 false)
+  %0 = load ptr, ptr %args.addr, align 8
+  store ptr %0, ptr %_obj2, align 8
+  %1 = load ptr, ptr %_obj2, align 8
+  %tobool = icmp ne ptr %1, null
+  br i1 %tobool, label %cond.true, label %cond.false
+
+cond.true:                                        ; preds = %entry
+  %2 = load ptr, ptr %_obj2, align 8
+  %base = getelementptr inbounds %struct.QDict, ptr %2, i32 0, i32 0
+  store ptr %base, ptr %__mptr, align 8
+  %3 = load ptr, ptr %__mptr, align 8
+  %add.ptr = getelementptr i8, ptr %3, i64 0
+  store ptr %add.ptr, ptr %tmp1, align 8
+  %4 = load ptr, ptr %tmp1, align 8
+  br label %cond.end
+
+cond.false:                                       ; preds = %entry
+  br label %cond.end
+
+cond.end:                                         ; preds = %cond.false, %cond.true
+  %cond = phi ptr [ %4, %cond.true ], [ null, %cond.false ]
+  store ptr %cond, ptr %tmp, align 8
+  %5 = load ptr, ptr %tmp, align 8
+  %call = call ptr @qobject_input_visitor_new_qmp(ptr noundef %5)
+  store ptr %call, ptr %v, align 8
+  %6 = load ptr, ptr %v, align 8
+  %7 = load ptr, ptr %errp.addr, align 8
+  %call2 = call zeroext i1 @visit_start_struct(ptr noundef %6, ptr noundef null, ptr noundef null, i64 noundef 0, ptr noundef %7)
+  br i1 %call2, label %if.end, label %if.then
+
+if.then:                                          ; preds = %cond.end
+  br label %out
+
+if.end:                                           ; preds = %cond.end
+  %8 = load ptr, ptr %v, align 8
+  %9 = load ptr, ptr %errp.addr, align 8
+  %call3 = call zeroext i1 @visit_type_NbdServerAddOptions_members(ptr noundef %8, ptr noundef %arg, ptr noundef %9)
+  br i1 %call3, label %if.then4, label %if.end6
+
+if.then4:                                         ; preds = %if.end
+  %10 = load ptr, ptr %v, align 8
+  %11 = load ptr, ptr %errp.addr, align 8
+  %call5 = call zeroext i1 @visit_check_struct(ptr noundef %10, ptr noundef %11)
+  %frombool = zext i1 %call5 to i8
+  store i8 %frombool, ptr %ok, align 1
+  br label %if.end6
+
+if.end6:                                          ; preds = %if.then4, %if.end
+  %12 = load ptr, ptr %v, align 8
+  call void @visit_end_struct(ptr noundef %12, ptr noundef null)
+  %13 = load i8, ptr %ok, align 1
+  %tobool7 = trunc i8 %13 to i1
+  br i1 %tobool7, label %if.end9, label %if.then8
+
+if.then8:                                         ; preds = %if.end6
+  br label %out
+
+if.end9:                                          ; preds = %if.end6
+  %14 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool10 = icmp ne i32 %14, 0
+  %lnot = xor i1 %tobool10, true
+  %lnot11 = xor i1 %lnot, true
+  %lnot.ext = zext i1 %lnot11 to i32
+  %conv = sext i32 %lnot.ext to i64
+  %tobool12 = icmp ne i64 %conv, 0
+  br i1 %tobool12, label %land.lhs.true, label %if.end27
+
+land.lhs.true:                                    ; preds = %if.end9
+  %15 = load i16, ptr @_TRACE_QMP_ENTER_NBD_SERVER_ADD_DSTATE, align 2
+  %conv13 = zext i16 %15 to i32
+  %tobool14 = icmp ne i32 %conv13, 0
+  br i1 %tobool14, label %if.then15, label %if.end27
+
+if.then15:                                        ; preds = %land.lhs.true
+  %16 = load ptr, ptr %args.addr, align 8
+  store ptr %16, ptr %_obj3, align 8
+  %17 = load ptr, ptr %_obj3, align 8
+  %tobool17 = icmp ne ptr %17, null
+  br i1 %tobool17, label %cond.true18, label %cond.false23
+
+cond.true18:                                      ; preds = %if.then15
+  %18 = load ptr, ptr %_obj3, align 8
+  %base20 = getelementptr inbounds %struct.QDict, ptr %18, i32 0, i32 0
+  store ptr %base20, ptr %__mptr19, align 8
+  %19 = load ptr, ptr %__mptr19, align 8
+  %add.ptr22 = getelementptr i8, ptr %19, i64 0
+  store ptr %add.ptr22, ptr %tmp21, align 8
+  %20 = load ptr, ptr %tmp21, align 8
+  br label %cond.end24
+
+cond.false23:                                     ; preds = %if.then15
+  br label %cond.end24
+
+cond.end24:                                       ; preds = %cond.false23, %cond.true18
+  %cond25 = phi ptr [ %20, %cond.true18 ], [ null, %cond.false23 ]
+  store ptr %cond25, ptr %tmp16, align 8
+  %21 = load ptr, ptr %tmp16, align 8
+  %call26 = call ptr @qobject_to_json(ptr noundef %21)
+  store ptr %call26, ptr %req_json, align 8
+  %22 = load ptr, ptr %req_json, align 8
+  %str = getelementptr inbounds %struct._GString, ptr %22, i32 0, i32 0
+  %23 = load ptr, ptr %str, align 8
+  call void @trace_qmp_enter_nbd_server_add(ptr noundef %23)
+  call void @glib_autoptr_cleanup_GString(ptr noundef %req_json)
+  br label %if.end27
+
+if.end27:                                         ; preds = %cond.end24, %land.lhs.true, %if.end9
+  call void @qmp_nbd_server_add(ptr noundef %arg, ptr noundef %err)
+  %24 = load ptr, ptr %err, align 8
+  %tobool28 = icmp ne ptr %24, null
+  br i1 %tobool28, label %if.then29, label %if.end31
+
+if.then29:                                        ; preds = %if.end27
+  %25 = load ptr, ptr %err, align 8
+  %call30 = call ptr @error_get_pretty(ptr noundef %25)
+  call void @trace_qmp_exit_nbd_server_add(ptr noundef %call30, i1 noundef zeroext false)
+  %26 = load ptr, ptr %errp.addr, align 8
+  %27 = load ptr, ptr %err, align 8
+  call void @error_propagate(ptr noundef %26, ptr noundef %27)
+  br label %out
+
+if.end31:                                         ; preds = %if.end27
+  call void @trace_qmp_exit_nbd_server_add(ptr noundef @.str, i1 noundef zeroext true)
+  br label %out
+
+out:                                              ; preds = %if.end31, %if.then29, %if.then8, %if.then
+  %28 = load ptr, ptr %v, align 8
+  call void @visit_free(ptr noundef %28)
+  %call32 = call ptr @qapi_dealloc_visitor_new()
+  store ptr %call32, ptr %v, align 8
+  %29 = load ptr, ptr %v, align 8
+  %call33 = call zeroext i1 @visit_start_struct(ptr noundef %29, ptr noundef null, ptr noundef null, i64 noundef 0, ptr noundef null)
+  %30 = load ptr, ptr %v, align 8
+  %call34 = call zeroext i1 @visit_type_NbdServerAddOptions_members(ptr noundef %30, ptr noundef %arg, ptr noundef null)
+  %31 = load ptr, ptr %v, align 8
+  call void @visit_end_struct(ptr noundef %31, ptr noundef null)
+  %32 = load ptr, ptr %v, align 8
+  call void @visit_free(ptr noundef %32)
+  ret void
+}
+
+declare zeroext i1 @visit_type_NbdServerAddOptions_members(ptr noundef, ptr noundef, ptr noundef) #2
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @trace_qmp_enter_nbd_server_add(ptr noundef %json) #0 {
+entry:
+  %json.addr = alloca ptr, align 8
+  store ptr %json, ptr %json.addr, align 8
+  %0 = load ptr, ptr %json.addr, align 8
+  call void @_nocheck__trace_qmp_enter_nbd_server_add(ptr noundef %0)
+  ret void
+}
+
+declare void @qmp_nbd_server_add(ptr noundef, ptr noundef) #2
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @trace_qmp_exit_nbd_server_add(ptr noundef %result, i1 noundef zeroext %succeeded) #0 {
+entry:
+  %result.addr = alloca ptr, align 8
+  %succeeded.addr = alloca i8, align 1
+  store ptr %result, ptr %result.addr, align 8
+  %frombool = zext i1 %succeeded to i8
+  store i8 %frombool, ptr %succeeded.addr, align 1
+  %0 = load ptr, ptr %result.addr, align 8
+  %1 = load i8, ptr %succeeded.addr, align 1
+  %tobool = trunc i8 %1 to i1
+  call void @_nocheck__trace_qmp_exit_nbd_server_add(ptr noundef %0, i1 noundef zeroext %tobool)
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local void @qmp_marshal_nbd_server_remove(ptr noundef %args, ptr noundef %ret, ptr noundef %errp) #0 {
+entry:
+  %args.addr = alloca ptr, align 8
+  %ret.addr = alloca ptr, align 8
+  %errp.addr = alloca ptr, align 8
+  %err = alloca ptr, align 8
+  %ok = alloca i8, align 1
+  %v = alloca ptr, align 8
+  %arg = alloca %struct.q_obj_nbd_server_remove_arg, align 8
+  %_obj4 = alloca ptr, align 8
+  %tmp = alloca ptr, align 8
+  %__mptr = alloca ptr, align 8
+  %tmp1 = alloca ptr, align 8
+  %req_json = alloca ptr, align 8
+  %_obj5 = alloca ptr, align 8
+  %tmp16 = alloca ptr, align 8
+  %__mptr19 = alloca ptr, align 8
+  %tmp21 = alloca ptr, align 8
+  store ptr %args, ptr %args.addr, align 8
+  store ptr %ret, ptr %ret.addr, align 8
+  store ptr %errp, ptr %errp.addr, align 8
+  store ptr null, ptr %err, align 8
+  store i8 0, ptr %ok, align 1
+  call void @llvm.memset.p0.i64(ptr align 8 %arg, i8 0, i64 16, i1 false)
+  %0 = load ptr, ptr %args.addr, align 8
+  store ptr %0, ptr %_obj4, align 8
+  %1 = load ptr, ptr %_obj4, align 8
+  %tobool = icmp ne ptr %1, null
+  br i1 %tobool, label %cond.true, label %cond.false
+
+cond.true:                                        ; preds = %entry
+  %2 = load ptr, ptr %_obj4, align 8
+  %base = getelementptr inbounds %struct.QDict, ptr %2, i32 0, i32 0
+  store ptr %base, ptr %__mptr, align 8
+  %3 = load ptr, ptr %__mptr, align 8
+  %add.ptr = getelementptr i8, ptr %3, i64 0
+  store ptr %add.ptr, ptr %tmp1, align 8
+  %4 = load ptr, ptr %tmp1, align 8
+  br label %cond.end
+
+cond.false:                                       ; preds = %entry
+  br label %cond.end
+
+cond.end:                                         ; preds = %cond.false, %cond.true
+  %cond = phi ptr [ %4, %cond.true ], [ null, %cond.false ]
+  store ptr %cond, ptr %tmp, align 8
+  %5 = load ptr, ptr %tmp, align 8
+  %call = call ptr @qobject_input_visitor_new_qmp(ptr noundef %5)
+  store ptr %call, ptr %v, align 8
+  %6 = load ptr, ptr %v, align 8
+  %7 = load ptr, ptr %errp.addr, align 8
+  %call2 = call zeroext i1 @visit_start_struct(ptr noundef %6, ptr noundef null, ptr noundef null, i64 noundef 0, ptr noundef %7)
+  br i1 %call2, label %if.end, label %if.then
+
+if.then:                                          ; preds = %cond.end
+  br label %out
+
+if.end:                                           ; preds = %cond.end
+  %8 = load ptr, ptr %v, align 8
+  %9 = load ptr, ptr %errp.addr, align 8
+  %call3 = call zeroext i1 @visit_type_q_obj_nbd_server_remove_arg_members(ptr noundef %8, ptr noundef %arg, ptr noundef %9)
+  br i1 %call3, label %if.then4, label %if.end6
+
+if.then4:                                         ; preds = %if.end
+  %10 = load ptr, ptr %v, align 8
+  %11 = load ptr, ptr %errp.addr, align 8
+  %call5 = call zeroext i1 @visit_check_struct(ptr noundef %10, ptr noundef %11)
+  %frombool = zext i1 %call5 to i8
+  store i8 %frombool, ptr %ok, align 1
+  br label %if.end6
+
+if.end6:                                          ; preds = %if.then4, %if.end
+  %12 = load ptr, ptr %v, align 8
+  call void @visit_end_struct(ptr noundef %12, ptr noundef null)
+  %13 = load i8, ptr %ok, align 1
+  %tobool7 = trunc i8 %13 to i1
+  br i1 %tobool7, label %if.end9, label %if.then8
+
+if.then8:                                         ; preds = %if.end6
+  br label %out
+
+if.end9:                                          ; preds = %if.end6
+  %14 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool10 = icmp ne i32 %14, 0
+  %lnot = xor i1 %tobool10, true
+  %lnot11 = xor i1 %lnot, true
+  %lnot.ext = zext i1 %lnot11 to i32
+  %conv = sext i32 %lnot.ext to i64
+  %tobool12 = icmp ne i64 %conv, 0
+  br i1 %tobool12, label %land.lhs.true, label %if.end27
+
+land.lhs.true:                                    ; preds = %if.end9
+  %15 = load i16, ptr @_TRACE_QMP_ENTER_NBD_SERVER_REMOVE_DSTATE, align 2
+  %conv13 = zext i16 %15 to i32
+  %tobool14 = icmp ne i32 %conv13, 0
+  br i1 %tobool14, label %if.then15, label %if.end27
+
+if.then15:                                        ; preds = %land.lhs.true
+  %16 = load ptr, ptr %args.addr, align 8
+  store ptr %16, ptr %_obj5, align 8
+  %17 = load ptr, ptr %_obj5, align 8
+  %tobool17 = icmp ne ptr %17, null
+  br i1 %tobool17, label %cond.true18, label %cond.false23
+
+cond.true18:                                      ; preds = %if.then15
+  %18 = load ptr, ptr %_obj5, align 8
+  %base20 = getelementptr inbounds %struct.QDict, ptr %18, i32 0, i32 0
+  store ptr %base20, ptr %__mptr19, align 8
+  %19 = load ptr, ptr %__mptr19, align 8
+  %add.ptr22 = getelementptr i8, ptr %19, i64 0
+  store ptr %add.ptr22, ptr %tmp21, align 8
+  %20 = load ptr, ptr %tmp21, align 8
+  br label %cond.end24
+
+cond.false23:                                     ; preds = %if.then15
+  br label %cond.end24
+
+cond.end24:                                       ; preds = %cond.false23, %cond.true18
+  %cond25 = phi ptr [ %20, %cond.true18 ], [ null, %cond.false23 ]
+  store ptr %cond25, ptr %tmp16, align 8
+  %21 = load ptr, ptr %tmp16, align 8
+  %call26 = call ptr @qobject_to_json(ptr noundef %21)
+  store ptr %call26, ptr %req_json, align 8
+  %22 = load ptr, ptr %req_json, align 8
+  %str = getelementptr inbounds %struct._GString, ptr %22, i32 0, i32 0
+  %23 = load ptr, ptr %str, align 8
+  call void @trace_qmp_enter_nbd_server_remove(ptr noundef %23)
+  call void @glib_autoptr_cleanup_GString(ptr noundef %req_json)
+  br label %if.end27
+
+if.end27:                                         ; preds = %cond.end24, %land.lhs.true, %if.end9
+  %name = getelementptr inbounds %struct.q_obj_nbd_server_remove_arg, ptr %arg, i32 0, i32 0
+  %24 = load ptr, ptr %name, align 8
+  %has_mode = getelementptr inbounds %struct.q_obj_nbd_server_remove_arg, ptr %arg, i32 0, i32 1
+  %25 = load i8, ptr %has_mode, align 8
+  %tobool28 = trunc i8 %25 to i1
+  %mode = getelementptr inbounds %struct.q_obj_nbd_server_remove_arg, ptr %arg, i32 0, i32 2
+  %26 = load i32, ptr %mode, align 4
+  call void @qmp_nbd_server_remove(ptr noundef %24, i1 noundef zeroext %tobool28, i32 noundef %26, ptr noundef %err)
+  %27 = load ptr, ptr %err, align 8
+  %tobool29 = icmp ne ptr %27, null
+  br i1 %tobool29, label %if.then30, label %if.end32
+
+if.then30:                                        ; preds = %if.end27
+  %28 = load ptr, ptr %err, align 8
+  %call31 = call ptr @error_get_pretty(ptr noundef %28)
+  call void @trace_qmp_exit_nbd_server_remove(ptr noundef %call31, i1 noundef zeroext false)
+  %29 = load ptr, ptr %errp.addr, align 8
+  %30 = load ptr, ptr %err, align 8
+  call void @error_propagate(ptr noundef %29, ptr noundef %30)
+  br label %out
+
+if.end32:                                         ; preds = %if.end27
+  call void @trace_qmp_exit_nbd_server_remove(ptr noundef @.str, i1 noundef zeroext true)
+  br label %out
+
+out:                                              ; preds = %if.end32, %if.then30, %if.then8, %if.then
+  %31 = load ptr, ptr %v, align 8
+  call void @visit_free(ptr noundef %31)
+  %call33 = call ptr @qapi_dealloc_visitor_new()
+  store ptr %call33, ptr %v, align 8
+  %32 = load ptr, ptr %v, align 8
+  %call34 = call zeroext i1 @visit_start_struct(ptr noundef %32, ptr noundef null, ptr noundef null, i64 noundef 0, ptr noundef null)
+  %33 = load ptr, ptr %v, align 8
+  %call35 = call zeroext i1 @visit_type_q_obj_nbd_server_remove_arg_members(ptr noundef %33, ptr noundef %arg, ptr noundef null)
+  %34 = load ptr, ptr %v, align 8
+  call void @visit_end_struct(ptr noundef %34, ptr noundef null)
+  %35 = load ptr, ptr %v, align 8
+  call void @visit_free(ptr noundef %35)
+  ret void
+}
+
+declare zeroext i1 @visit_type_q_obj_nbd_server_remove_arg_members(ptr noundef, ptr noundef, ptr noundef) #2
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @trace_qmp_enter_nbd_server_remove(ptr noundef %json) #0 {
+entry:
+  %json.addr = alloca ptr, align 8
+  store ptr %json, ptr %json.addr, align 8
+  %0 = load ptr, ptr %json.addr, align 8
+  call void @_nocheck__trace_qmp_enter_nbd_server_remove(ptr noundef %0)
+  ret void
+}
+
+declare void @qmp_nbd_server_remove(ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef) #2
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @trace_qmp_exit_nbd_server_remove(ptr noundef %result, i1 noundef zeroext %succeeded) #0 {
+entry:
+  %result.addr = alloca ptr, align 8
+  %succeeded.addr = alloca i8, align 1
+  store ptr %result, ptr %result.addr, align 8
+  %frombool = zext i1 %succeeded to i8
+  store i8 %frombool, ptr %succeeded.addr, align 1
+  %0 = load ptr, ptr %result.addr, align 8
+  %1 = load i8, ptr %succeeded.addr, align 1
+  %tobool = trunc i8 %1 to i1
+  call void @_nocheck__trace_qmp_exit_nbd_server_remove(ptr noundef %0, i1 noundef zeroext %tobool)
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local void @qmp_marshal_nbd_server_stop(ptr noundef %args, ptr noundef %ret, ptr noundef %errp) #0 {
+entry:
+  %args.addr = alloca ptr, align 8
+  %ret.addr = alloca ptr, align 8
+  %errp.addr = alloca ptr, align 8
+  %err = alloca ptr, align 8
+  %ok = alloca i8, align 1
+  %v = alloca ptr, align 8
+  %_obj6 = alloca ptr, align 8
+  %tmp = alloca ptr, align 8
+  %__mptr = alloca ptr, align 8
+  %tmp1 = alloca ptr, align 8
+  %req_json = alloca ptr, align 8
+  %_obj7 = alloca ptr, align 8
+  %tmp13 = alloca ptr, align 8
+  %__mptr16 = alloca ptr, align 8
+  %tmp18 = alloca ptr, align 8
+  store ptr %args, ptr %args.addr, align 8
+  store ptr %ret, ptr %ret.addr, align 8
+  store ptr %errp, ptr %errp.addr, align 8
+  store ptr null, ptr %err, align 8
+  store i8 0, ptr %ok, align 1
+  %0 = load ptr, ptr %args.addr, align 8
+  store ptr %0, ptr %_obj6, align 8
+  %1 = load ptr, ptr %_obj6, align 8
+  %tobool = icmp ne ptr %1, null
+  br i1 %tobool, label %cond.true, label %cond.false
+
+cond.true:                                        ; preds = %entry
+  %2 = load ptr, ptr %_obj6, align 8
+  %base = getelementptr inbounds %struct.QDict, ptr %2, i32 0, i32 0
+  store ptr %base, ptr %__mptr, align 8
+  %3 = load ptr, ptr %__mptr, align 8
+  %add.ptr = getelementptr i8, ptr %3, i64 0
+  store ptr %add.ptr, ptr %tmp1, align 8
+  %4 = load ptr, ptr %tmp1, align 8
+  br label %cond.end
+
+cond.false:                                       ; preds = %entry
+  br label %cond.end
+
+cond.end:                                         ; preds = %cond.false, %cond.true
+  %cond = phi ptr [ %4, %cond.true ], [ null, %cond.false ]
+  store ptr %cond, ptr %tmp, align 8
+  %5 = load ptr, ptr %tmp, align 8
+  %call = call ptr @qobject_input_visitor_new_qmp(ptr noundef %5)
+  store ptr %call, ptr %v, align 8
+  %6 = load ptr, ptr %v, align 8
+  %7 = load ptr, ptr %errp.addr, align 8
+  %call2 = call zeroext i1 @visit_start_struct(ptr noundef %6, ptr noundef null, ptr noundef null, i64 noundef 0, ptr noundef %7)
+  br i1 %call2, label %if.end, label %if.then
+
+if.then:                                          ; preds = %cond.end
+  br label %out
+
+if.end:                                           ; preds = %cond.end
+  %8 = load ptr, ptr %v, align 8
+  %9 = load ptr, ptr %errp.addr, align 8
+  %call3 = call zeroext i1 @visit_check_struct(ptr noundef %8, ptr noundef %9)
+  %frombool = zext i1 %call3 to i8
+  store i8 %frombool, ptr %ok, align 1
+  %10 = load ptr, ptr %v, align 8
+  call void @visit_end_struct(ptr noundef %10, ptr noundef null)
+  %11 = load i8, ptr %ok, align 1
+  %tobool4 = trunc i8 %11 to i1
+  br i1 %tobool4, label %if.end6, label %if.then5
+
+if.then5:                                         ; preds = %if.end
+  br label %out
+
+if.end6:                                          ; preds = %if.end
+  %12 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool7 = icmp ne i32 %12, 0
+  %lnot = xor i1 %tobool7, true
+  %lnot8 = xor i1 %lnot, true
+  %lnot.ext = zext i1 %lnot8 to i32
+  %conv = sext i32 %lnot.ext to i64
+  %tobool9 = icmp ne i64 %conv, 0
+  br i1 %tobool9, label %land.lhs.true, label %if.end24
+
+land.lhs.true:                                    ; preds = %if.end6
+  %13 = load i16, ptr @_TRACE_QMP_ENTER_NBD_SERVER_STOP_DSTATE, align 2
+  %conv10 = zext i16 %13 to i32
+  %tobool11 = icmp ne i32 %conv10, 0
+  br i1 %tobool11, label %if.then12, label %if.end24
+
+if.then12:                                        ; preds = %land.lhs.true
+  %14 = load ptr, ptr %args.addr, align 8
+  store ptr %14, ptr %_obj7, align 8
+  %15 = load ptr, ptr %_obj7, align 8
+  %tobool14 = icmp ne ptr %15, null
+  br i1 %tobool14, label %cond.true15, label %cond.false20
+
+cond.true15:                                      ; preds = %if.then12
+  %16 = load ptr, ptr %_obj7, align 8
+  %base17 = getelementptr inbounds %struct.QDict, ptr %16, i32 0, i32 0
+  store ptr %base17, ptr %__mptr16, align 8
+  %17 = load ptr, ptr %__mptr16, align 8
+  %add.ptr19 = getelementptr i8, ptr %17, i64 0
+  store ptr %add.ptr19, ptr %tmp18, align 8
+  %18 = load ptr, ptr %tmp18, align 8
+  br label %cond.end21
+
+cond.false20:                                     ; preds = %if.then12
+  br label %cond.end21
+
+cond.end21:                                       ; preds = %cond.false20, %cond.true15
+  %cond22 = phi ptr [ %18, %cond.true15 ], [ null, %cond.false20 ]
+  store ptr %cond22, ptr %tmp13, align 8
+  %19 = load ptr, ptr %tmp13, align 8
+  %call23 = call ptr @qobject_to_json(ptr noundef %19)
+  store ptr %call23, ptr %req_json, align 8
+  %20 = load ptr, ptr %req_json, align 8
+  %str = getelementptr inbounds %struct._GString, ptr %20, i32 0, i32 0
+  %21 = load ptr, ptr %str, align 8
+  call void @trace_qmp_enter_nbd_server_stop(ptr noundef %21)
+  call void @glib_autoptr_cleanup_GString(ptr noundef %req_json)
+  br label %if.end24
+
+if.end24:                                         ; preds = %cond.end21, %land.lhs.true, %if.end6
+  call void @qmp_nbd_server_stop(ptr noundef %err)
+  %22 = load ptr, ptr %err, align 8
+  %tobool25 = icmp ne ptr %22, null
+  br i1 %tobool25, label %if.then26, label %if.end28
+
+if.then26:                                        ; preds = %if.end24
+  %23 = load ptr, ptr %err, align 8
+  %call27 = call ptr @error_get_pretty(ptr noundef %23)
+  call void @trace_qmp_exit_nbd_server_stop(ptr noundef %call27, i1 noundef zeroext false)
+  %24 = load ptr, ptr %errp.addr, align 8
+  %25 = load ptr, ptr %err, align 8
+  call void @error_propagate(ptr noundef %24, ptr noundef %25)
+  br label %out
+
+if.end28:                                         ; preds = %if.end24
+  call void @trace_qmp_exit_nbd_server_stop(ptr noundef @.str, i1 noundef zeroext true)
+  br label %out
+
+out:                                              ; preds = %if.end28, %if.then26, %if.then5, %if.then
+  %26 = load ptr, ptr %v, align 8
+  call void @visit_free(ptr noundef %26)
+  %call29 = call ptr @qapi_dealloc_visitor_new()
+  store ptr %call29, ptr %v, align 8
+  %27 = load ptr, ptr %v, align 8
+  %call30 = call zeroext i1 @visit_start_struct(ptr noundef %27, ptr noundef null, ptr noundef null, i64 noundef 0, ptr noundef null)
+  %28 = load ptr, ptr %v, align 8
+  call void @visit_end_struct(ptr noundef %28, ptr noundef null)
+  %29 = load ptr, ptr %v, align 8
+  call void @visit_free(ptr noundef %29)
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @trace_qmp_enter_nbd_server_stop(ptr noundef %json) #0 {
+entry:
+  %json.addr = alloca ptr, align 8
+  store ptr %json, ptr %json.addr, align 8
+  %0 = load ptr, ptr %json.addr, align 8
+  call void @_nocheck__trace_qmp_enter_nbd_server_stop(ptr noundef %0)
+  ret void
+}
+
+declare void @qmp_nbd_server_stop(ptr noundef) #2
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @trace_qmp_exit_nbd_server_stop(ptr noundef %result, i1 noundef zeroext %succeeded) #0 {
+entry:
+  %result.addr = alloca ptr, align 8
+  %succeeded.addr = alloca i8, align 1
+  store ptr %result, ptr %result.addr, align 8
+  %frombool = zext i1 %succeeded to i8
+  store i8 %frombool, ptr %succeeded.addr, align 1
+  %0 = load ptr, ptr %result.addr, align 8
+  %1 = load i8, ptr %succeeded.addr, align 1
+  %tobool = trunc i8 %1 to i1
+  call void @_nocheck__trace_qmp_exit_nbd_server_stop(ptr noundef %0, i1 noundef zeroext %tobool)
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local void @qmp_marshal_block_export_add(ptr noundef %args, ptr noundef %ret, ptr noundef %errp) #0 {
+entry:
+  %args.addr = alloca ptr, align 8
+  %ret.addr = alloca ptr, align 8
+  %errp.addr = alloca ptr, align 8
+  %err = alloca ptr, align 8
+  %ok = alloca i8, align 1
+  %v = alloca ptr, align 8
+  %arg = alloca %struct.BlockExportOptions, align 8
+  %_obj8 = alloca ptr, align 8
+  %tmp = alloca ptr, align 8
+  %__mptr = alloca ptr, align 8
+  %tmp1 = alloca ptr, align 8
+  %req_json = alloca ptr, align 8
+  %_obj9 = alloca ptr, align 8
+  %tmp16 = alloca ptr, align 8
+  %__mptr19 = alloca ptr, align 8
+  %tmp21 = alloca ptr, align 8
+  store ptr %args, ptr %args.addr, align 8
+  store ptr %ret, ptr %ret.addr, align 8
+  store ptr %errp, ptr %errp.addr, align 8
+  store ptr null, ptr %err, align 8
+  store i8 0, ptr %ok, align 1
+  call void @llvm.memset.p0.i64(ptr align 8 %arg, i8 0, i64 88, i1 false)
+  %0 = load ptr, ptr %args.addr, align 8
+  store ptr %0, ptr %_obj8, align 8
+  %1 = load ptr, ptr %_obj8, align 8
+  %tobool = icmp ne ptr %1, null
+  br i1 %tobool, label %cond.true, label %cond.false
+
+cond.true:                                        ; preds = %entry
+  %2 = load ptr, ptr %_obj8, align 8
+  %base = getelementptr inbounds %struct.QDict, ptr %2, i32 0, i32 0
+  store ptr %base, ptr %__mptr, align 8
+  %3 = load ptr, ptr %__mptr, align 8
+  %add.ptr = getelementptr i8, ptr %3, i64 0
+  store ptr %add.ptr, ptr %tmp1, align 8
+  %4 = load ptr, ptr %tmp1, align 8
+  br label %cond.end
+
+cond.false:                                       ; preds = %entry
+  br label %cond.end
+
+cond.end:                                         ; preds = %cond.false, %cond.true
+  %cond = phi ptr [ %4, %cond.true ], [ null, %cond.false ]
+  store ptr %cond, ptr %tmp, align 8
+  %5 = load ptr, ptr %tmp, align 8
+  %call = call ptr @qobject_input_visitor_new_qmp(ptr noundef %5)
+  store ptr %call, ptr %v, align 8
+  %6 = load ptr, ptr %v, align 8
+  %7 = load ptr, ptr %errp.addr, align 8
+  %call2 = call zeroext i1 @visit_start_struct(ptr noundef %6, ptr noundef null, ptr noundef null, i64 noundef 0, ptr noundef %7)
+  br i1 %call2, label %if.end, label %if.then
+
+if.then:                                          ; preds = %cond.end
+  br label %out
+
+if.end:                                           ; preds = %cond.end
+  %8 = load ptr, ptr %v, align 8
+  %9 = load ptr, ptr %errp.addr, align 8
+  %call3 = call zeroext i1 @visit_type_BlockExportOptions_members(ptr noundef %8, ptr noundef %arg, ptr noundef %9)
+  br i1 %call3, label %if.then4, label %if.end6
+
+if.then4:                                         ; preds = %if.end
+  %10 = load ptr, ptr %v, align 8
+  %11 = load ptr, ptr %errp.addr, align 8
+  %call5 = call zeroext i1 @visit_check_struct(ptr noundef %10, ptr noundef %11)
+  %frombool = zext i1 %call5 to i8
+  store i8 %frombool, ptr %ok, align 1
+  br label %if.end6
+
+if.end6:                                          ; preds = %if.then4, %if.end
+  %12 = load ptr, ptr %v, align 8
+  call void @visit_end_struct(ptr noundef %12, ptr noundef null)
+  %13 = load i8, ptr %ok, align 1
+  %tobool7 = trunc i8 %13 to i1
+  br i1 %tobool7, label %if.end9, label %if.then8
+
+if.then8:                                         ; preds = %if.end6
+  br label %out
+
+if.end9:                                          ; preds = %if.end6
+  %14 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool10 = icmp ne i32 %14, 0
+  %lnot = xor i1 %tobool10, true
+  %lnot11 = xor i1 %lnot, true
+  %lnot.ext = zext i1 %lnot11 to i32
+  %conv = sext i32 %lnot.ext to i64
+  %tobool12 = icmp ne i64 %conv, 0
+  br i1 %tobool12, label %land.lhs.true, label %if.end27
+
+land.lhs.true:                                    ; preds = %if.end9
+  %15 = load i16, ptr @_TRACE_QMP_ENTER_BLOCK_EXPORT_ADD_DSTATE, align 2
+  %conv13 = zext i16 %15 to i32
+  %tobool14 = icmp ne i32 %conv13, 0
+  br i1 %tobool14, label %if.then15, label %if.end27
+
+if.then15:                                        ; preds = %land.lhs.true
+  %16 = load ptr, ptr %args.addr, align 8
+  store ptr %16, ptr %_obj9, align 8
+  %17 = load ptr, ptr %_obj9, align 8
+  %tobool17 = icmp ne ptr %17, null
+  br i1 %tobool17, label %cond.true18, label %cond.false23
+
+cond.true18:                                      ; preds = %if.then15
+  %18 = load ptr, ptr %_obj9, align 8
+  %base20 = getelementptr inbounds %struct.QDict, ptr %18, i32 0, i32 0
+  store ptr %base20, ptr %__mptr19, align 8
+  %19 = load ptr, ptr %__mptr19, align 8
+  %add.ptr22 = getelementptr i8, ptr %19, i64 0
+  store ptr %add.ptr22, ptr %tmp21, align 8
+  %20 = load ptr, ptr %tmp21, align 8
+  br label %cond.end24
+
+cond.false23:                                     ; preds = %if.then15
+  br label %cond.end24
+
+cond.end24:                                       ; preds = %cond.false23, %cond.true18
+  %cond25 = phi ptr [ %20, %cond.true18 ], [ null, %cond.false23 ]
+  store ptr %cond25, ptr %tmp16, align 8
+  %21 = load ptr, ptr %tmp16, align 8
+  %call26 = call ptr @qobject_to_json(ptr noundef %21)
+  store ptr %call26, ptr %req_json, align 8
+  %22 = load ptr, ptr %req_json, align 8
+  %str = getelementptr inbounds %struct._GString, ptr %22, i32 0, i32 0
+  %23 = load ptr, ptr %str, align 8
+  call void @trace_qmp_enter_block_export_add(ptr noundef %23)
+  call void @glib_autoptr_cleanup_GString(ptr noundef %req_json)
+  br label %if.end27
+
+if.end27:                                         ; preds = %cond.end24, %land.lhs.true, %if.end9
+  call void @qmp_block_export_add(ptr noundef %arg, ptr noundef %err)
+  %24 = load ptr, ptr %err, align 8
+  %tobool28 = icmp ne ptr %24, null
+  br i1 %tobool28, label %if.then29, label %if.end31
+
+if.then29:                                        ; preds = %if.end27
+  %25 = load ptr, ptr %err, align 8
+  %call30 = call ptr @error_get_pretty(ptr noundef %25)
+  call void @trace_qmp_exit_block_export_add(ptr noundef %call30, i1 noundef zeroext false)
+  %26 = load ptr, ptr %errp.addr, align 8
+  %27 = load ptr, ptr %err, align 8
+  call void @error_propagate(ptr noundef %26, ptr noundef %27)
+  br label %out
+
+if.end31:                                         ; preds = %if.end27
+  call void @trace_qmp_exit_block_export_add(ptr noundef @.str, i1 noundef zeroext true)
+  br label %out
+
+out:                                              ; preds = %if.end31, %if.then29, %if.then8, %if.then
+  %28 = load ptr, ptr %v, align 8
+  call void @visit_free(ptr noundef %28)
+  %call32 = call ptr @qapi_dealloc_visitor_new()
+  store ptr %call32, ptr %v, align 8
+  %29 = load ptr, ptr %v, align 8
+  %call33 = call zeroext i1 @visit_start_struct(ptr noundef %29, ptr noundef null, ptr noundef null, i64 noundef 0, ptr noundef null)
+  %30 = load ptr, ptr %v, align 8
+  %call34 = call zeroext i1 @visit_type_BlockExportOptions_members(ptr noundef %30, ptr noundef %arg, ptr noundef null)
+  %31 = load ptr, ptr %v, align 8
+  call void @visit_end_struct(ptr noundef %31, ptr noundef null)
+  %32 = load ptr, ptr %v, align 8
+  call void @visit_free(ptr noundef %32)
+  ret void
+}
+
+declare zeroext i1 @visit_type_BlockExportOptions_members(ptr noundef, ptr noundef, ptr noundef) #2
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @trace_qmp_enter_block_export_add(ptr noundef %json) #0 {
+entry:
+  %json.addr = alloca ptr, align 8
+  store ptr %json, ptr %json.addr, align 8
+  %0 = load ptr, ptr %json.addr, align 8
+  call void @_nocheck__trace_qmp_enter_block_export_add(ptr noundef %0)
+  ret void
+}
+
+declare void @qmp_block_export_add(ptr noundef, ptr noundef) #2
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @trace_qmp_exit_block_export_add(ptr noundef %result, i1 noundef zeroext %succeeded) #0 {
+entry:
+  %result.addr = alloca ptr, align 8
+  %succeeded.addr = alloca i8, align 1
+  store ptr %result, ptr %result.addr, align 8
+  %frombool = zext i1 %succeeded to i8
+  store i8 %frombool, ptr %succeeded.addr, align 1
+  %0 = load ptr, ptr %result.addr, align 8
+  %1 = load i8, ptr %succeeded.addr, align 1
+  %tobool = trunc i8 %1 to i1
+  call void @_nocheck__trace_qmp_exit_block_export_add(ptr noundef %0, i1 noundef zeroext %tobool)
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local void @qmp_marshal_block_export_del(ptr noundef %args, ptr noundef %ret, ptr noundef %errp) #0 {
+entry:
+  %args.addr = alloca ptr, align 8
+  %ret.addr = alloca ptr, align 8
+  %errp.addr = alloca ptr, align 8
+  %err = alloca ptr, align 8
+  %ok = alloca i8, align 1
+  %v = alloca ptr, align 8
+  %arg = alloca %struct.q_obj_block_export_del_arg, align 8
+  %_obj10 = alloca ptr, align 8
+  %tmp = alloca ptr, align 8
+  %__mptr = alloca ptr, align 8
+  %tmp1 = alloca ptr, align 8
+  %req_json = alloca ptr, align 8
+  %_obj11 = alloca ptr, align 8
+  %tmp16 = alloca ptr, align 8
+  %__mptr19 = alloca ptr, align 8
+  %tmp21 = alloca ptr, align 8
+  store ptr %args, ptr %args.addr, align 8
+  store ptr %ret, ptr %ret.addr, align 8
+  store ptr %errp, ptr %errp.addr, align 8
+  store ptr null, ptr %err, align 8
+  store i8 0, ptr %ok, align 1
+  call void @llvm.memset.p0.i64(ptr align 8 %arg, i8 0, i64 16, i1 false)
+  %0 = load ptr, ptr %args.addr, align 8
+  store ptr %0, ptr %_obj10, align 8
+  %1 = load ptr, ptr %_obj10, align 8
+  %tobool = icmp ne ptr %1, null
+  br i1 %tobool, label %cond.true, label %cond.false
+
+cond.true:                                        ; preds = %entry
+  %2 = load ptr, ptr %_obj10, align 8
+  %base = getelementptr inbounds %struct.QDict, ptr %2, i32 0, i32 0
+  store ptr %base, ptr %__mptr, align 8
+  %3 = load ptr, ptr %__mptr, align 8
+  %add.ptr = getelementptr i8, ptr %3, i64 0
+  store ptr %add.ptr, ptr %tmp1, align 8
+  %4 = load ptr, ptr %tmp1, align 8
+  br label %cond.end
+
+cond.false:                                       ; preds = %entry
+  br label %cond.end
+
+cond.end:                                         ; preds = %cond.false, %cond.true
+  %cond = phi ptr [ %4, %cond.true ], [ null, %cond.false ]
+  store ptr %cond, ptr %tmp, align 8
+  %5 = load ptr, ptr %tmp, align 8
+  %call = call ptr @qobject_input_visitor_new_qmp(ptr noundef %5)
+  store ptr %call, ptr %v, align 8
+  %6 = load ptr, ptr %v, align 8
+  %7 = load ptr, ptr %errp.addr, align 8
+  %call2 = call zeroext i1 @visit_start_struct(ptr noundef %6, ptr noundef null, ptr noundef null, i64 noundef 0, ptr noundef %7)
+  br i1 %call2, label %if.end, label %if.then
+
+if.then:                                          ; preds = %cond.end
+  br label %out
+
+if.end:                                           ; preds = %cond.end
+  %8 = load ptr, ptr %v, align 8
+  %9 = load ptr, ptr %errp.addr, align 8
+  %call3 = call zeroext i1 @visit_type_q_obj_block_export_del_arg_members(ptr noundef %8, ptr noundef %arg, ptr noundef %9)
+  br i1 %call3, label %if.then4, label %if.end6
+
+if.then4:                                         ; preds = %if.end
+  %10 = load ptr, ptr %v, align 8
+  %11 = load ptr, ptr %errp.addr, align 8
+  %call5 = call zeroext i1 @visit_check_struct(ptr noundef %10, ptr noundef %11)
+  %frombool = zext i1 %call5 to i8
+  store i8 %frombool, ptr %ok, align 1
+  br label %if.end6
+
+if.end6:                                          ; preds = %if.then4, %if.end
+  %12 = load ptr, ptr %v, align 8
+  call void @visit_end_struct(ptr noundef %12, ptr noundef null)
+  %13 = load i8, ptr %ok, align 1
+  %tobool7 = trunc i8 %13 to i1
+  br i1 %tobool7, label %if.end9, label %if.then8
+
+if.then8:                                         ; preds = %if.end6
+  br label %out
+
+if.end9:                                          ; preds = %if.end6
+  %14 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool10 = icmp ne i32 %14, 0
+  %lnot = xor i1 %tobool10, true
+  %lnot11 = xor i1 %lnot, true
+  %lnot.ext = zext i1 %lnot11 to i32
+  %conv = sext i32 %lnot.ext to i64
+  %tobool12 = icmp ne i64 %conv, 0
+  br i1 %tobool12, label %land.lhs.true, label %if.end27
+
+land.lhs.true:                                    ; preds = %if.end9
+  %15 = load i16, ptr @_TRACE_QMP_ENTER_BLOCK_EXPORT_DEL_DSTATE, align 2
+  %conv13 = zext i16 %15 to i32
+  %tobool14 = icmp ne i32 %conv13, 0
+  br i1 %tobool14, label %if.then15, label %if.end27
+
+if.then15:                                        ; preds = %land.lhs.true
+  %16 = load ptr, ptr %args.addr, align 8
+  store ptr %16, ptr %_obj11, align 8
+  %17 = load ptr, ptr %_obj11, align 8
+  %tobool17 = icmp ne ptr %17, null
+  br i1 %tobool17, label %cond.true18, label %cond.false23
+
+cond.true18:                                      ; preds = %if.then15
+  %18 = load ptr, ptr %_obj11, align 8
+  %base20 = getelementptr inbounds %struct.QDict, ptr %18, i32 0, i32 0
+  store ptr %base20, ptr %__mptr19, align 8
+  %19 = load ptr, ptr %__mptr19, align 8
+  %add.ptr22 = getelementptr i8, ptr %19, i64 0
+  store ptr %add.ptr22, ptr %tmp21, align 8
+  %20 = load ptr, ptr %tmp21, align 8
+  br label %cond.end24
+
+cond.false23:                                     ; preds = %if.then15
+  br label %cond.end24
+
+cond.end24:                                       ; preds = %cond.false23, %cond.true18
+  %cond25 = phi ptr [ %20, %cond.true18 ], [ null, %cond.false23 ]
+  store ptr %cond25, ptr %tmp16, align 8
+  %21 = load ptr, ptr %tmp16, align 8
+  %call26 = call ptr @qobject_to_json(ptr noundef %21)
+  store ptr %call26, ptr %req_json, align 8
+  %22 = load ptr, ptr %req_json, align 8
+  %str = getelementptr inbounds %struct._GString, ptr %22, i32 0, i32 0
+  %23 = load ptr, ptr %str, align 8
+  call void @trace_qmp_enter_block_export_del(ptr noundef %23)
+  call void @glib_autoptr_cleanup_GString(ptr noundef %req_json)
+  br label %if.end27
+
+if.end27:                                         ; preds = %cond.end24, %land.lhs.true, %if.end9
+  %id = getelementptr inbounds %struct.q_obj_block_export_del_arg, ptr %arg, i32 0, i32 0
+  %24 = load ptr, ptr %id, align 8
+  %has_mode = getelementptr inbounds %struct.q_obj_block_export_del_arg, ptr %arg, i32 0, i32 1
+  %25 = load i8, ptr %has_mode, align 8
+  %tobool28 = trunc i8 %25 to i1
+  %mode = getelementptr inbounds %struct.q_obj_block_export_del_arg, ptr %arg, i32 0, i32 2
+  %26 = load i32, ptr %mode, align 4
+  call void @qmp_block_export_del(ptr noundef %24, i1 noundef zeroext %tobool28, i32 noundef %26, ptr noundef %err)
+  %27 = load ptr, ptr %err, align 8
+  %tobool29 = icmp ne ptr %27, null
+  br i1 %tobool29, label %if.then30, label %if.end32
+
+if.then30:                                        ; preds = %if.end27
+  %28 = load ptr, ptr %err, align 8
+  %call31 = call ptr @error_get_pretty(ptr noundef %28)
+  call void @trace_qmp_exit_block_export_del(ptr noundef %call31, i1 noundef zeroext false)
+  %29 = load ptr, ptr %errp.addr, align 8
+  %30 = load ptr, ptr %err, align 8
+  call void @error_propagate(ptr noundef %29, ptr noundef %30)
+  br label %out
+
+if.end32:                                         ; preds = %if.end27
+  call void @trace_qmp_exit_block_export_del(ptr noundef @.str, i1 noundef zeroext true)
+  br label %out
+
+out:                                              ; preds = %if.end32, %if.then30, %if.then8, %if.then
+  %31 = load ptr, ptr %v, align 8
+  call void @visit_free(ptr noundef %31)
+  %call33 = call ptr @qapi_dealloc_visitor_new()
+  store ptr %call33, ptr %v, align 8
+  %32 = load ptr, ptr %v, align 8
+  %call34 = call zeroext i1 @visit_start_struct(ptr noundef %32, ptr noundef null, ptr noundef null, i64 noundef 0, ptr noundef null)
+  %33 = load ptr, ptr %v, align 8
+  %call35 = call zeroext i1 @visit_type_q_obj_block_export_del_arg_members(ptr noundef %33, ptr noundef %arg, ptr noundef null)
+  %34 = load ptr, ptr %v, align 8
+  call void @visit_end_struct(ptr noundef %34, ptr noundef null)
+  %35 = load ptr, ptr %v, align 8
+  call void @visit_free(ptr noundef %35)
+  ret void
+}
+
+declare zeroext i1 @visit_type_q_obj_block_export_del_arg_members(ptr noundef, ptr noundef, ptr noundef) #2
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @trace_qmp_enter_block_export_del(ptr noundef %json) #0 {
+entry:
+  %json.addr = alloca ptr, align 8
+  store ptr %json, ptr %json.addr, align 8
+  %0 = load ptr, ptr %json.addr, align 8
+  call void @_nocheck__trace_qmp_enter_block_export_del(ptr noundef %0)
+  ret void
+}
+
+declare void @qmp_block_export_del(ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef) #2
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @trace_qmp_exit_block_export_del(ptr noundef %result, i1 noundef zeroext %succeeded) #0 {
+entry:
+  %result.addr = alloca ptr, align 8
+  %succeeded.addr = alloca i8, align 1
+  store ptr %result, ptr %result.addr, align 8
+  %frombool = zext i1 %succeeded to i8
+  store i8 %frombool, ptr %succeeded.addr, align 1
+  %0 = load ptr, ptr %result.addr, align 8
+  %1 = load i8, ptr %succeeded.addr, align 1
+  %tobool = trunc i8 %1 to i1
+  call void @_nocheck__trace_qmp_exit_block_export_del(ptr noundef %0, i1 noundef zeroext %tobool)
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local void @qmp_marshal_query_block_exports(ptr noundef %args, ptr noundef %ret, ptr noundef %errp) #0 {
+entry:
+  %args.addr = alloca ptr, align 8
+  %ret.addr = alloca ptr, align 8
+  %errp.addr = alloca ptr, align 8
+  %err = alloca ptr, align 8
+  %ok = alloca i8, align 1
+  %v = alloca ptr, align 8
+  %retval = alloca ptr, align 8
+  %_obj12 = alloca ptr, align 8
+  %tmp = alloca ptr, align 8
+  %__mptr = alloca ptr, align 8
+  %tmp1 = alloca ptr, align 8
+  %req_json = alloca ptr, align 8
+  %_obj13 = alloca ptr, align 8
+  %tmp13 = alloca ptr, align 8
+  %__mptr16 = alloca ptr, align 8
+  %tmp18 = alloca ptr, align 8
+  %ret_json = alloca ptr, align 8
+  store ptr %args, ptr %args.addr, align 8
+  store ptr %ret, ptr %ret.addr, align 8
+  store ptr %errp, ptr %errp.addr, align 8
+  store ptr null, ptr %err, align 8
+  store i8 0, ptr %ok, align 1
+  %0 = load ptr, ptr %args.addr, align 8
+  store ptr %0, ptr %_obj12, align 8
+  %1 = load ptr, ptr %_obj12, align 8
+  %tobool = icmp ne ptr %1, null
+  br i1 %tobool, label %cond.true, label %cond.false
+
+cond.true:                                        ; preds = %entry
+  %2 = load ptr, ptr %_obj12, align 8
+  %base = getelementptr inbounds %struct.QDict, ptr %2, i32 0, i32 0
+  store ptr %base, ptr %__mptr, align 8
+  %3 = load ptr, ptr %__mptr, align 8
+  %add.ptr = getelementptr i8, ptr %3, i64 0
+  store ptr %add.ptr, ptr %tmp1, align 8
+  %4 = load ptr, ptr %tmp1, align 8
+  br label %cond.end
+
+cond.false:                                       ; preds = %entry
+  br label %cond.end
+
+cond.end:                                         ; preds = %cond.false, %cond.true
+  %cond = phi ptr [ %4, %cond.true ], [ null, %cond.false ]
+  store ptr %cond, ptr %tmp, align 8
+  %5 = load ptr, ptr %tmp, align 8
+  %call = call ptr @qobject_input_visitor_new_qmp(ptr noundef %5)
+  store ptr %call, ptr %v, align 8
+  %6 = load ptr, ptr %v, align 8
+  %7 = load ptr, ptr %errp.addr, align 8
+  %call2 = call zeroext i1 @visit_start_struct(ptr noundef %6, ptr noundef null, ptr noundef null, i64 noundef 0, ptr noundef %7)
+  br i1 %call2, label %if.end, label %if.then
+
+if.then:                                          ; preds = %cond.end
+  br label %out
+
+if.end:                                           ; preds = %cond.end
+  %8 = load ptr, ptr %v, align 8
+  %9 = load ptr, ptr %errp.addr, align 8
+  %call3 = call zeroext i1 @visit_check_struct(ptr noundef %8, ptr noundef %9)
+  %frombool = zext i1 %call3 to i8
+  store i8 %frombool, ptr %ok, align 1
+  %10 = load ptr, ptr %v, align 8
+  call void @visit_end_struct(ptr noundef %10, ptr noundef null)
+  %11 = load i8, ptr %ok, align 1
+  %tobool4 = trunc i8 %11 to i1
+  br i1 %tobool4, label %if.end6, label %if.then5
+
+if.then5:                                         ; preds = %if.end
+  br label %out
+
+if.end6:                                          ; preds = %if.end
+  %12 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool7 = icmp ne i32 %12, 0
+  %lnot = xor i1 %tobool7, true
+  %lnot8 = xor i1 %lnot, true
+  %lnot.ext = zext i1 %lnot8 to i32
+  %conv = sext i32 %lnot.ext to i64
+  %tobool9 = icmp ne i64 %conv, 0
+  br i1 %tobool9, label %land.lhs.true, label %if.end24
+
+land.lhs.true:                                    ; preds = %if.end6
+  %13 = load i16, ptr @_TRACE_QMP_ENTER_QUERY_BLOCK_EXPORTS_DSTATE, align 2
+  %conv10 = zext i16 %13 to i32
+  %tobool11 = icmp ne i32 %conv10, 0
+  br i1 %tobool11, label %if.then12, label %if.end24
+
+if.then12:                                        ; preds = %land.lhs.true
+  %14 = load ptr, ptr %args.addr, align 8
+  store ptr %14, ptr %_obj13, align 8
+  %15 = load ptr, ptr %_obj13, align 8
+  %tobool14 = icmp ne ptr %15, null
+  br i1 %tobool14, label %cond.true15, label %cond.false20
+
+cond.true15:                                      ; preds = %if.then12
+  %16 = load ptr, ptr %_obj13, align 8
+  %base17 = getelementptr inbounds %struct.QDict, ptr %16, i32 0, i32 0
+  store ptr %base17, ptr %__mptr16, align 8
+  %17 = load ptr, ptr %__mptr16, align 8
+  %add.ptr19 = getelementptr i8, ptr %17, i64 0
+  store ptr %add.ptr19, ptr %tmp18, align 8
+  %18 = load ptr, ptr %tmp18, align 8
+  br label %cond.end21
+
+cond.false20:                                     ; preds = %if.then12
+  br label %cond.end21
+
+cond.end21:                                       ; preds = %cond.false20, %cond.true15
+  %cond22 = phi ptr [ %18, %cond.true15 ], [ null, %cond.false20 ]
+  store ptr %cond22, ptr %tmp13, align 8
+  %19 = load ptr, ptr %tmp13, align 8
+  %call23 = call ptr @qobject_to_json(ptr noundef %19)
+  store ptr %call23, ptr %req_json, align 8
+  %20 = load ptr, ptr %req_json, align 8
+  %str = getelementptr inbounds %struct._GString, ptr %20, i32 0, i32 0
+  %21 = load ptr, ptr %str, align 8
+  call void @trace_qmp_enter_query_block_exports(ptr noundef %21)
+  call void @glib_autoptr_cleanup_GString(ptr noundef %req_json)
+  br label %if.end24
+
+if.end24:                                         ; preds = %cond.end21, %land.lhs.true, %if.end6
+  %call25 = call ptr @qmp_query_block_exports(ptr noundef %err)
+  store ptr %call25, ptr %retval, align 8
+  %22 = load ptr, ptr %err, align 8
+  %tobool26 = icmp ne ptr %22, null
+  br i1 %tobool26, label %if.then27, label %if.end29
+
+if.then27:                                        ; preds = %if.end24
+  %23 = load ptr, ptr %err, align 8
+  %call28 = call ptr @error_get_pretty(ptr noundef %23)
+  call void @trace_qmp_exit_query_block_exports(ptr noundef %call28, i1 noundef zeroext false)
+  %24 = load ptr, ptr %errp.addr, align 8
+  %25 = load ptr, ptr %err, align 8
+  call void @error_propagate(ptr noundef %24, ptr noundef %25)
+  br label %out
+
+if.end29:                                         ; preds = %if.end24
+  %26 = load ptr, ptr %retval, align 8
+  %27 = load ptr, ptr %ret.addr, align 8
+  %28 = load ptr, ptr %errp.addr, align 8
+  call void @qmp_marshal_output_BlockExportInfoList(ptr noundef %26, ptr noundef %27, ptr noundef %28)
+  %29 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool30 = icmp ne i32 %29, 0
+  %lnot31 = xor i1 %tobool30, true
+  %lnot33 = xor i1 %lnot31, true
+  %lnot.ext34 = zext i1 %lnot33 to i32
+  %conv35 = sext i32 %lnot.ext34 to i64
+  %tobool36 = icmp ne i64 %conv35, 0
+  br i1 %tobool36, label %land.lhs.true37, label %if.end43
+
+land.lhs.true37:                                  ; preds = %if.end29
+  %30 = load i16, ptr @_TRACE_QMP_EXIT_QUERY_BLOCK_EXPORTS_DSTATE, align 2
+  %conv38 = zext i16 %30 to i32
+  %tobool39 = icmp ne i32 %conv38, 0
+  br i1 %tobool39, label %if.then40, label %if.end43
+
+if.then40:                                        ; preds = %land.lhs.true37
+  %31 = load ptr, ptr %ret.addr, align 8
+  %32 = load ptr, ptr %31, align 8
+  %call41 = call ptr @qobject_to_json(ptr noundef %32)
+  store ptr %call41, ptr %ret_json, align 8
+  %33 = load ptr, ptr %ret_json, align 8
+  %str42 = getelementptr inbounds %struct._GString, ptr %33, i32 0, i32 0
+  %34 = load ptr, ptr %str42, align 8
+  call void @trace_qmp_exit_query_block_exports(ptr noundef %34, i1 noundef zeroext true)
+  call void @glib_autoptr_cleanup_GString(ptr noundef %ret_json)
+  br label %if.end43
+
+if.end43:                                         ; preds = %if.then40, %land.lhs.true37, %if.end29
+  br label %out
+
+out:                                              ; preds = %if.end43, %if.then27, %if.then5, %if.then
+  %35 = load ptr, ptr %v, align 8
+  call void @visit_free(ptr noundef %35)
+  %call44 = call ptr @qapi_dealloc_visitor_new()
+  store ptr %call44, ptr %v, align 8
+  %36 = load ptr, ptr %v, align 8
+  %call45 = call zeroext i1 @visit_start_struct(ptr noundef %36, ptr noundef null, ptr noundef null, i64 noundef 0, ptr noundef null)
+  %37 = load ptr, ptr %v, align 8
+  call void @visit_end_struct(ptr noundef %37, ptr noundef null)
+  %38 = load ptr, ptr %v, align 8
+  call void @visit_free(ptr noundef %38)
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @trace_qmp_enter_query_block_exports(ptr noundef %json) #0 {
+entry:
+  %json.addr = alloca ptr, align 8
+  store ptr %json, ptr %json.addr, align 8
+  %0 = load ptr, ptr %json.addr, align 8
+  call void @_nocheck__trace_qmp_enter_query_block_exports(ptr noundef %0)
+  ret void
+}
+
+declare ptr @qmp_query_block_exports(ptr noundef) #2
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @trace_qmp_exit_query_block_exports(ptr noundef %result, i1 noundef zeroext %succeeded) #0 {
+entry:
+  %result.addr = alloca ptr, align 8
+  %succeeded.addr = alloca i8, align 1
+  store ptr %result, ptr %result.addr, align 8
+  %frombool = zext i1 %succeeded to i8
+  store i8 %frombool, ptr %succeeded.addr, align 1
+  %0 = load ptr, ptr %result.addr, align 8
+  %1 = load i8, ptr %succeeded.addr, align 1
+  %tobool = trunc i8 %1 to i1
+  call void @_nocheck__trace_qmp_exit_query_block_exports(ptr noundef %0, i1 noundef zeroext %tobool)
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @qmp_marshal_output_BlockExportInfoList(ptr noundef %ret_in, ptr noundef %ret_out, ptr noundef %errp) #0 {
+entry:
+  %ret_in.addr = alloca ptr, align 8
+  %ret_out.addr = alloca ptr, align 8
+  %errp.addr = alloca ptr, align 8
+  %v = alloca ptr, align 8
+  store ptr %ret_in, ptr %ret_in.addr, align 8
+  store ptr %ret_out, ptr %ret_out.addr, align 8
+  store ptr %errp, ptr %errp.addr, align 8
+  %0 = load ptr, ptr %ret_out.addr, align 8
+  %call = call ptr @qobject_output_visitor_new_qmp(ptr noundef %0)
+  store ptr %call, ptr %v, align 8
+  %1 = load ptr, ptr %v, align 8
+  %2 = load ptr, ptr %errp.addr, align 8
+  %call1 = call zeroext i1 @visit_type_BlockExportInfoList(ptr noundef %1, ptr noundef @.str.29, ptr noundef %ret_in.addr, ptr noundef %2)
+  br i1 %call1, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %3 = load ptr, ptr %v, align 8
+  %4 = load ptr, ptr %ret_out.addr, align 8
+  call void @visit_complete(ptr noundef %3, ptr noundef %4)
+  br label %if.end
+
+if.end:                                           ; preds = %if.then, %entry
+  %5 = load ptr, ptr %v, align 8
+  call void @visit_free(ptr noundef %5)
+  %call2 = call ptr @qapi_dealloc_visitor_new()
+  store ptr %call2, ptr %v, align 8
+  %6 = load ptr, ptr %v, align 8
+  %call3 = call zeroext i1 @visit_type_BlockExportInfoList(ptr noundef %6, ptr noundef @.str.29, ptr noundef %ret_in.addr, ptr noundef null)
+  %7 = load ptr, ptr %v, align 8
+  call void @visit_free(ptr noundef %7)
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @glib_autoptr_clear_GString(ptr noundef %_ptr) #0 {
+entry:
+  %_ptr.addr = alloca ptr, align 8
+  store ptr %_ptr, ptr %_ptr.addr, align 8
+  %0 = load ptr, ptr %_ptr.addr, align 8
+  %tobool = icmp ne ptr %0, null
+  br i1 %tobool, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %1 = load ptr, ptr %_ptr.addr, align 8
+  call void @g_autoptr_cleanup_gstring_free(ptr noundef %1)
+  br label %if.end
+
+if.end:                                           ; preds = %if.then, %entry
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @g_autoptr_cleanup_gstring_free(ptr noundef %string) #0 {
+entry:
+  %string.addr = alloca ptr, align 8
+  store ptr %string, ptr %string.addr, align 8
+  %0 = load ptr, ptr %string.addr, align 8
+  %tobool = icmp ne ptr %0, null
+  br i1 %tobool, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %1 = load ptr, ptr %string.addr, align 8
+  %call = call ptr @g_string_free(ptr noundef %1, i32 noundef 1)
+  br label %if.end
+
+if.end:                                           ; preds = %if.then, %entry
+  ret void
+}
+
+declare ptr @g_string_free(ptr noundef, i32 noundef) #2
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @_nocheck__trace_qmp_enter_nbd_server_start(ptr noundef %json) #0 {
+entry:
+  %json.addr = alloca ptr, align 8
+  %_now = alloca %struct.timeval, align 8
+  store ptr %json, ptr %json.addr, align 8
+  %0 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool = icmp ne i32 %0, 0
+  %lnot = xor i1 %tobool, true
+  %lnot1 = xor i1 %lnot, true
+  %lnot.ext = zext i1 %lnot1 to i32
+  %conv = sext i32 %lnot.ext to i64
+  %tobool2 = icmp ne i64 %conv, 0
+  br i1 %tobool2, label %land.lhs.true, label %if.end11
+
+land.lhs.true:                                    ; preds = %entry
+  %1 = load i16, ptr @_TRACE_QMP_ENTER_NBD_SERVER_START_DSTATE, align 2
+  %conv3 = zext i16 %1 to i32
+  %tobool4 = icmp ne i32 %conv3, 0
+  br i1 %tobool4, label %land.lhs.true5, label %if.end11
+
+land.lhs.true5:                                   ; preds = %land.lhs.true
+  %call = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %call, label %if.then, label %if.end11
+
+if.then:                                          ; preds = %land.lhs.true5
+  %2 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7 = trunc i8 %2 to i1
+  br i1 %tobool7, label %if.then8, label %if.else
+
+if.then8:                                         ; preds = %if.then
+  %call9 = call i32 @gettimeofday(ptr noundef %_now, ptr noundef null) #4
+  %call10 = call i32 @qemu_get_thread_id()
+  %tv_sec = getelementptr inbounds %struct.timeval, ptr %_now, i32 0, i32 0
+  %3 = load i64, ptr %tv_sec, align 8
+  %tv_usec = getelementptr inbounds %struct.timeval, ptr %_now, i32 0, i32 1
+  %4 = load i64, ptr %tv_usec, align 8
+  %5 = load ptr, ptr %json.addr, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.1, i32 noundef %call10, i64 noundef %3, i64 noundef %4, ptr noundef %5)
+  br label %if.end
+
+if.else:                                          ; preds = %if.then
+  %6 = load ptr, ptr %json.addr, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.2, ptr noundef %6)
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then8
+  br label %if.end11
+
+if.end11:                                         ; preds = %if.end, %land.lhs.true5, %land.lhs.true, %entry
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @qemu_loglevel_mask(i32 noundef %mask) #0 {
+entry:
+  %mask.addr = alloca i32, align 4
+  store i32 %mask, ptr %mask.addr, align 4
+  %0 = load i32, ptr @qemu_loglevel, align 4
+  %1 = load i32, ptr %mask.addr, align 4
+  %and = and i32 %0, %1
+  %cmp = icmp ne i32 %and, 0
+  ret i1 %cmp
+}
+
+; Function Attrs: nounwind
+declare i32 @gettimeofday(ptr noundef, ptr noundef) #3
+
+declare void @qemu_log(ptr noundef, ...) #2
+
+declare i32 @qemu_get_thread_id() #2
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @_nocheck__trace_qmp_exit_nbd_server_start(ptr noundef %result, i1 noundef zeroext %succeeded) #0 {
+entry:
+  %result.addr = alloca ptr, align 8
+  %succeeded.addr = alloca i8, align 1
+  %_now = alloca %struct.timeval, align 8
+  store ptr %result, ptr %result.addr, align 8
+  %frombool = zext i1 %succeeded to i8
+  store i8 %frombool, ptr %succeeded.addr, align 1
+  %0 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool = icmp ne i32 %0, 0
+  %lnot = xor i1 %tobool, true
+  %lnot1 = xor i1 %lnot, true
+  %lnot.ext = zext i1 %lnot1 to i32
+  %conv = sext i32 %lnot.ext to i64
+  %tobool2 = icmp ne i64 %conv, 0
+  br i1 %tobool2, label %land.lhs.true, label %if.end15
+
+land.lhs.true:                                    ; preds = %entry
+  %1 = load i16, ptr @_TRACE_QMP_EXIT_NBD_SERVER_START_DSTATE, align 2
+  %conv3 = zext i16 %1 to i32
+  %tobool4 = icmp ne i32 %conv3, 0
+  br i1 %tobool4, label %land.lhs.true5, label %if.end15
+
+land.lhs.true5:                                   ; preds = %land.lhs.true
+  %call = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %call, label %if.then, label %if.end15
+
+if.then:                                          ; preds = %land.lhs.true5
+  %2 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7 = trunc i8 %2 to i1
+  br i1 %tobool7, label %if.then8, label %if.else
+
+if.then8:                                         ; preds = %if.then
+  %call9 = call i32 @gettimeofday(ptr noundef %_now, ptr noundef null) #4
+  %call10 = call i32 @qemu_get_thread_id()
+  %tv_sec = getelementptr inbounds %struct.timeval, ptr %_now, i32 0, i32 0
+  %3 = load i64, ptr %tv_sec, align 8
+  %tv_usec = getelementptr inbounds %struct.timeval, ptr %_now, i32 0, i32 1
+  %4 = load i64, ptr %tv_usec, align 8
+  %5 = load ptr, ptr %result.addr, align 8
+  %6 = load i8, ptr %succeeded.addr, align 1
+  %tobool11 = trunc i8 %6 to i1
+  %conv12 = zext i1 %tobool11 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.3, i32 noundef %call10, i64 noundef %3, i64 noundef %4, ptr noundef %5, i32 noundef %conv12)
+  br label %if.end
+
+if.else:                                          ; preds = %if.then
+  %7 = load ptr, ptr %result.addr, align 8
+  %8 = load i8, ptr %succeeded.addr, align 1
+  %tobool13 = trunc i8 %8 to i1
+  %conv14 = zext i1 %tobool13 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.4, ptr noundef %7, i32 noundef %conv14)
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then8
+  br label %if.end15
+
+if.end15:                                         ; preds = %if.end, %land.lhs.true5, %land.lhs.true, %entry
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @_nocheck__trace_qmp_enter_nbd_server_add(ptr noundef %json) #0 {
+entry:
+  %json.addr = alloca ptr, align 8
+  %_now = alloca %struct.timeval, align 8
+  store ptr %json, ptr %json.addr, align 8
+  %0 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool = icmp ne i32 %0, 0
+  %lnot = xor i1 %tobool, true
+  %lnot1 = xor i1 %lnot, true
+  %lnot.ext = zext i1 %lnot1 to i32
+  %conv = sext i32 %lnot.ext to i64
+  %tobool2 = icmp ne i64 %conv, 0
+  br i1 %tobool2, label %land.lhs.true, label %if.end11
+
+land.lhs.true:                                    ; preds = %entry
+  %1 = load i16, ptr @_TRACE_QMP_ENTER_NBD_SERVER_ADD_DSTATE, align 2
+  %conv3 = zext i16 %1 to i32
+  %tobool4 = icmp ne i32 %conv3, 0
+  br i1 %tobool4, label %land.lhs.true5, label %if.end11
+
+land.lhs.true5:                                   ; preds = %land.lhs.true
+  %call = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %call, label %if.then, label %if.end11
+
+if.then:                                          ; preds = %land.lhs.true5
+  %2 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7 = trunc i8 %2 to i1
+  br i1 %tobool7, label %if.then8, label %if.else
+
+if.then8:                                         ; preds = %if.then
+  %call9 = call i32 @gettimeofday(ptr noundef %_now, ptr noundef null) #4
+  %call10 = call i32 @qemu_get_thread_id()
+  %tv_sec = getelementptr inbounds %struct.timeval, ptr %_now, i32 0, i32 0
+  %3 = load i64, ptr %tv_sec, align 8
+  %tv_usec = getelementptr inbounds %struct.timeval, ptr %_now, i32 0, i32 1
+  %4 = load i64, ptr %tv_usec, align 8
+  %5 = load ptr, ptr %json.addr, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.5, i32 noundef %call10, i64 noundef %3, i64 noundef %4, ptr noundef %5)
+  br label %if.end
+
+if.else:                                          ; preds = %if.then
+  %6 = load ptr, ptr %json.addr, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.6, ptr noundef %6)
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then8
+  br label %if.end11
+
+if.end11:                                         ; preds = %if.end, %land.lhs.true5, %land.lhs.true, %entry
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @_nocheck__trace_qmp_exit_nbd_server_add(ptr noundef %result, i1 noundef zeroext %succeeded) #0 {
+entry:
+  %result.addr = alloca ptr, align 8
+  %succeeded.addr = alloca i8, align 1
+  %_now = alloca %struct.timeval, align 8
+  store ptr %result, ptr %result.addr, align 8
+  %frombool = zext i1 %succeeded to i8
+  store i8 %frombool, ptr %succeeded.addr, align 1
+  %0 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool = icmp ne i32 %0, 0
+  %lnot = xor i1 %tobool, true
+  %lnot1 = xor i1 %lnot, true
+  %lnot.ext = zext i1 %lnot1 to i32
+  %conv = sext i32 %lnot.ext to i64
+  %tobool2 = icmp ne i64 %conv, 0
+  br i1 %tobool2, label %land.lhs.true, label %if.end15
+
+land.lhs.true:                                    ; preds = %entry
+  %1 = load i16, ptr @_TRACE_QMP_EXIT_NBD_SERVER_ADD_DSTATE, align 2
+  %conv3 = zext i16 %1 to i32
+  %tobool4 = icmp ne i32 %conv3, 0
+  br i1 %tobool4, label %land.lhs.true5, label %if.end15
+
+land.lhs.true5:                                   ; preds = %land.lhs.true
+  %call = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %call, label %if.then, label %if.end15
+
+if.then:                                          ; preds = %land.lhs.true5
+  %2 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7 = trunc i8 %2 to i1
+  br i1 %tobool7, label %if.then8, label %if.else
+
+if.then8:                                         ; preds = %if.then
+  %call9 = call i32 @gettimeofday(ptr noundef %_now, ptr noundef null) #4
+  %call10 = call i32 @qemu_get_thread_id()
+  %tv_sec = getelementptr inbounds %struct.timeval, ptr %_now, i32 0, i32 0
+  %3 = load i64, ptr %tv_sec, align 8
+  %tv_usec = getelementptr inbounds %struct.timeval, ptr %_now, i32 0, i32 1
+  %4 = load i64, ptr %tv_usec, align 8
+  %5 = load ptr, ptr %result.addr, align 8
+  %6 = load i8, ptr %succeeded.addr, align 1
+  %tobool11 = trunc i8 %6 to i1
+  %conv12 = zext i1 %tobool11 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.7, i32 noundef %call10, i64 noundef %3, i64 noundef %4, ptr noundef %5, i32 noundef %conv12)
+  br label %if.end
+
+if.else:                                          ; preds = %if.then
+  %7 = load ptr, ptr %result.addr, align 8
+  %8 = load i8, ptr %succeeded.addr, align 1
+  %tobool13 = trunc i8 %8 to i1
+  %conv14 = zext i1 %tobool13 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.8, ptr noundef %7, i32 noundef %conv14)
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then8
+  br label %if.end15
+
+if.end15:                                         ; preds = %if.end, %land.lhs.true5, %land.lhs.true, %entry
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @_nocheck__trace_qmp_enter_nbd_server_remove(ptr noundef %json) #0 {
+entry:
+  %json.addr = alloca ptr, align 8
+  %_now = alloca %struct.timeval, align 8
+  store ptr %json, ptr %json.addr, align 8
+  %0 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool = icmp ne i32 %0, 0
+  %lnot = xor i1 %tobool, true
+  %lnot1 = xor i1 %lnot, true
+  %lnot.ext = zext i1 %lnot1 to i32
+  %conv = sext i32 %lnot.ext to i64
+  %tobool2 = icmp ne i64 %conv, 0
+  br i1 %tobool2, label %land.lhs.true, label %if.end11
+
+land.lhs.true:                                    ; preds = %entry
+  %1 = load i16, ptr @_TRACE_QMP_ENTER_NBD_SERVER_REMOVE_DSTATE, align 2
+  %conv3 = zext i16 %1 to i32
+  %tobool4 = icmp ne i32 %conv3, 0
+  br i1 %tobool4, label %land.lhs.true5, label %if.end11
+
+land.lhs.true5:                                   ; preds = %land.lhs.true
+  %call = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %call, label %if.then, label %if.end11
+
+if.then:                                          ; preds = %land.lhs.true5
+  %2 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7 = trunc i8 %2 to i1
+  br i1 %tobool7, label %if.then8, label %if.else
+
+if.then8:                                         ; preds = %if.then
+  %call9 = call i32 @gettimeofday(ptr noundef %_now, ptr noundef null) #4
+  %call10 = call i32 @qemu_get_thread_id()
+  %tv_sec = getelementptr inbounds %struct.timeval, ptr %_now, i32 0, i32 0
+  %3 = load i64, ptr %tv_sec, align 8
+  %tv_usec = getelementptr inbounds %struct.timeval, ptr %_now, i32 0, i32 1
+  %4 = load i64, ptr %tv_usec, align 8
+  %5 = load ptr, ptr %json.addr, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.9, i32 noundef %call10, i64 noundef %3, i64 noundef %4, ptr noundef %5)
+  br label %if.end
+
+if.else:                                          ; preds = %if.then
+  %6 = load ptr, ptr %json.addr, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.10, ptr noundef %6)
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then8
+  br label %if.end11
+
+if.end11:                                         ; preds = %if.end, %land.lhs.true5, %land.lhs.true, %entry
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @_nocheck__trace_qmp_exit_nbd_server_remove(ptr noundef %result, i1 noundef zeroext %succeeded) #0 {
+entry:
+  %result.addr = alloca ptr, align 8
+  %succeeded.addr = alloca i8, align 1
+  %_now = alloca %struct.timeval, align 8
+  store ptr %result, ptr %result.addr, align 8
+  %frombool = zext i1 %succeeded to i8
+  store i8 %frombool, ptr %succeeded.addr, align 1
+  %0 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool = icmp ne i32 %0, 0
+  %lnot = xor i1 %tobool, true
+  %lnot1 = xor i1 %lnot, true
+  %lnot.ext = zext i1 %lnot1 to i32
+  %conv = sext i32 %lnot.ext to i64
+  %tobool2 = icmp ne i64 %conv, 0
+  br i1 %tobool2, label %land.lhs.true, label %if.end15
+
+land.lhs.true:                                    ; preds = %entry
+  %1 = load i16, ptr @_TRACE_QMP_EXIT_NBD_SERVER_REMOVE_DSTATE, align 2
+  %conv3 = zext i16 %1 to i32
+  %tobool4 = icmp ne i32 %conv3, 0
+  br i1 %tobool4, label %land.lhs.true5, label %if.end15
+
+land.lhs.true5:                                   ; preds = %land.lhs.true
+  %call = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %call, label %if.then, label %if.end15
+
+if.then:                                          ; preds = %land.lhs.true5
+  %2 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7 = trunc i8 %2 to i1
+  br i1 %tobool7, label %if.then8, label %if.else
+
+if.then8:                                         ; preds = %if.then
+  %call9 = call i32 @gettimeofday(ptr noundef %_now, ptr noundef null) #4
+  %call10 = call i32 @qemu_get_thread_id()
+  %tv_sec = getelementptr inbounds %struct.timeval, ptr %_now, i32 0, i32 0
+  %3 = load i64, ptr %tv_sec, align 8
+  %tv_usec = getelementptr inbounds %struct.timeval, ptr %_now, i32 0, i32 1
+  %4 = load i64, ptr %tv_usec, align 8
+  %5 = load ptr, ptr %result.addr, align 8
+  %6 = load i8, ptr %succeeded.addr, align 1
+  %tobool11 = trunc i8 %6 to i1
+  %conv12 = zext i1 %tobool11 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.11, i32 noundef %call10, i64 noundef %3, i64 noundef %4, ptr noundef %5, i32 noundef %conv12)
+  br label %if.end
+
+if.else:                                          ; preds = %if.then
+  %7 = load ptr, ptr %result.addr, align 8
+  %8 = load i8, ptr %succeeded.addr, align 1
+  %tobool13 = trunc i8 %8 to i1
+  %conv14 = zext i1 %tobool13 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.12, ptr noundef %7, i32 noundef %conv14)
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then8
+  br label %if.end15
+
+if.end15:                                         ; preds = %if.end, %land.lhs.true5, %land.lhs.true, %entry
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @_nocheck__trace_qmp_enter_nbd_server_stop(ptr noundef %json) #0 {
+entry:
+  %json.addr = alloca ptr, align 8
+  %_now = alloca %struct.timeval, align 8
+  store ptr %json, ptr %json.addr, align 8
+  %0 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool = icmp ne i32 %0, 0
+  %lnot = xor i1 %tobool, true
+  %lnot1 = xor i1 %lnot, true
+  %lnot.ext = zext i1 %lnot1 to i32
+  %conv = sext i32 %lnot.ext to i64
+  %tobool2 = icmp ne i64 %conv, 0
+  br i1 %tobool2, label %land.lhs.true, label %if.end11
+
+land.lhs.true:                                    ; preds = %entry
+  %1 = load i16, ptr @_TRACE_QMP_ENTER_NBD_SERVER_STOP_DSTATE, align 2
+  %conv3 = zext i16 %1 to i32
+  %tobool4 = icmp ne i32 %conv3, 0
+  br i1 %tobool4, label %land.lhs.true5, label %if.end11
+
+land.lhs.true5:                                   ; preds = %land.lhs.true
+  %call = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %call, label %if.then, label %if.end11
+
+if.then:                                          ; preds = %land.lhs.true5
+  %2 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7 = trunc i8 %2 to i1
+  br i1 %tobool7, label %if.then8, label %if.else
+
+if.then8:                                         ; preds = %if.then
+  %call9 = call i32 @gettimeofday(ptr noundef %_now, ptr noundef null) #4
+  %call10 = call i32 @qemu_get_thread_id()
+  %tv_sec = getelementptr inbounds %struct.timeval, ptr %_now, i32 0, i32 0
+  %3 = load i64, ptr %tv_sec, align 8
+  %tv_usec = getelementptr inbounds %struct.timeval, ptr %_now, i32 0, i32 1
+  %4 = load i64, ptr %tv_usec, align 8
+  %5 = load ptr, ptr %json.addr, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.13, i32 noundef %call10, i64 noundef %3, i64 noundef %4, ptr noundef %5)
+  br label %if.end
+
+if.else:                                          ; preds = %if.then
+  %6 = load ptr, ptr %json.addr, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.14, ptr noundef %6)
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then8
+  br label %if.end11
+
+if.end11:                                         ; preds = %if.end, %land.lhs.true5, %land.lhs.true, %entry
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @_nocheck__trace_qmp_exit_nbd_server_stop(ptr noundef %result, i1 noundef zeroext %succeeded) #0 {
+entry:
+  %result.addr = alloca ptr, align 8
+  %succeeded.addr = alloca i8, align 1
+  %_now = alloca %struct.timeval, align 8
+  store ptr %result, ptr %result.addr, align 8
+  %frombool = zext i1 %succeeded to i8
+  store i8 %frombool, ptr %succeeded.addr, align 1
+  %0 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool = icmp ne i32 %0, 0
+  %lnot = xor i1 %tobool, true
+  %lnot1 = xor i1 %lnot, true
+  %lnot.ext = zext i1 %lnot1 to i32
+  %conv = sext i32 %lnot.ext to i64
+  %tobool2 = icmp ne i64 %conv, 0
+  br i1 %tobool2, label %land.lhs.true, label %if.end15
+
+land.lhs.true:                                    ; preds = %entry
+  %1 = load i16, ptr @_TRACE_QMP_EXIT_NBD_SERVER_STOP_DSTATE, align 2
+  %conv3 = zext i16 %1 to i32
+  %tobool4 = icmp ne i32 %conv3, 0
+  br i1 %tobool4, label %land.lhs.true5, label %if.end15
+
+land.lhs.true5:                                   ; preds = %land.lhs.true
+  %call = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %call, label %if.then, label %if.end15
+
+if.then:                                          ; preds = %land.lhs.true5
+  %2 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7 = trunc i8 %2 to i1
+  br i1 %tobool7, label %if.then8, label %if.else
+
+if.then8:                                         ; preds = %if.then
+  %call9 = call i32 @gettimeofday(ptr noundef %_now, ptr noundef null) #4
+  %call10 = call i32 @qemu_get_thread_id()
+  %tv_sec = getelementptr inbounds %struct.timeval, ptr %_now, i32 0, i32 0
+  %3 = load i64, ptr %tv_sec, align 8
+  %tv_usec = getelementptr inbounds %struct.timeval, ptr %_now, i32 0, i32 1
+  %4 = load i64, ptr %tv_usec, align 8
+  %5 = load ptr, ptr %result.addr, align 8
+  %6 = load i8, ptr %succeeded.addr, align 1
+  %tobool11 = trunc i8 %6 to i1
+  %conv12 = zext i1 %tobool11 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.15, i32 noundef %call10, i64 noundef %3, i64 noundef %4, ptr noundef %5, i32 noundef %conv12)
+  br label %if.end
+
+if.else:                                          ; preds = %if.then
+  %7 = load ptr, ptr %result.addr, align 8
+  %8 = load i8, ptr %succeeded.addr, align 1
+  %tobool13 = trunc i8 %8 to i1
+  %conv14 = zext i1 %tobool13 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.16, ptr noundef %7, i32 noundef %conv14)
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then8
+  br label %if.end15
+
+if.end15:                                         ; preds = %if.end, %land.lhs.true5, %land.lhs.true, %entry
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @_nocheck__trace_qmp_enter_block_export_add(ptr noundef %json) #0 {
+entry:
+  %json.addr = alloca ptr, align 8
+  %_now = alloca %struct.timeval, align 8
+  store ptr %json, ptr %json.addr, align 8
+  %0 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool = icmp ne i32 %0, 0
+  %lnot = xor i1 %tobool, true
+  %lnot1 = xor i1 %lnot, true
+  %lnot.ext = zext i1 %lnot1 to i32
+  %conv = sext i32 %lnot.ext to i64
+  %tobool2 = icmp ne i64 %conv, 0
+  br i1 %tobool2, label %land.lhs.true, label %if.end11
+
+land.lhs.true:                                    ; preds = %entry
+  %1 = load i16, ptr @_TRACE_QMP_ENTER_BLOCK_EXPORT_ADD_DSTATE, align 2
+  %conv3 = zext i16 %1 to i32
+  %tobool4 = icmp ne i32 %conv3, 0
+  br i1 %tobool4, label %land.lhs.true5, label %if.end11
+
+land.lhs.true5:                                   ; preds = %land.lhs.true
+  %call = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %call, label %if.then, label %if.end11
+
+if.then:                                          ; preds = %land.lhs.true5
+  %2 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7 = trunc i8 %2 to i1
+  br i1 %tobool7, label %if.then8, label %if.else
+
+if.then8:                                         ; preds = %if.then
+  %call9 = call i32 @gettimeofday(ptr noundef %_now, ptr noundef null) #4
+  %call10 = call i32 @qemu_get_thread_id()
+  %tv_sec = getelementptr inbounds %struct.timeval, ptr %_now, i32 0, i32 0
+  %3 = load i64, ptr %tv_sec, align 8
+  %tv_usec = getelementptr inbounds %struct.timeval, ptr %_now, i32 0, i32 1
+  %4 = load i64, ptr %tv_usec, align 8
+  %5 = load ptr, ptr %json.addr, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.17, i32 noundef %call10, i64 noundef %3, i64 noundef %4, ptr noundef %5)
+  br label %if.end
+
+if.else:                                          ; preds = %if.then
+  %6 = load ptr, ptr %json.addr, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.18, ptr noundef %6)
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then8
+  br label %if.end11
+
+if.end11:                                         ; preds = %if.end, %land.lhs.true5, %land.lhs.true, %entry
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @_nocheck__trace_qmp_exit_block_export_add(ptr noundef %result, i1 noundef zeroext %succeeded) #0 {
+entry:
+  %result.addr = alloca ptr, align 8
+  %succeeded.addr = alloca i8, align 1
+  %_now = alloca %struct.timeval, align 8
+  store ptr %result, ptr %result.addr, align 8
+  %frombool = zext i1 %succeeded to i8
+  store i8 %frombool, ptr %succeeded.addr, align 1
+  %0 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool = icmp ne i32 %0, 0
+  %lnot = xor i1 %tobool, true
+  %lnot1 = xor i1 %lnot, true
+  %lnot.ext = zext i1 %lnot1 to i32
+  %conv = sext i32 %lnot.ext to i64
+  %tobool2 = icmp ne i64 %conv, 0
+  br i1 %tobool2, label %land.lhs.true, label %if.end15
+
+land.lhs.true:                                    ; preds = %entry
+  %1 = load i16, ptr @_TRACE_QMP_EXIT_BLOCK_EXPORT_ADD_DSTATE, align 2
+  %conv3 = zext i16 %1 to i32
+  %tobool4 = icmp ne i32 %conv3, 0
+  br i1 %tobool4, label %land.lhs.true5, label %if.end15
+
+land.lhs.true5:                                   ; preds = %land.lhs.true
+  %call = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %call, label %if.then, label %if.end15
+
+if.then:                                          ; preds = %land.lhs.true5
+  %2 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7 = trunc i8 %2 to i1
+  br i1 %tobool7, label %if.then8, label %if.else
+
+if.then8:                                         ; preds = %if.then
+  %call9 = call i32 @gettimeofday(ptr noundef %_now, ptr noundef null) #4
+  %call10 = call i32 @qemu_get_thread_id()
+  %tv_sec = getelementptr inbounds %struct.timeval, ptr %_now, i32 0, i32 0
+  %3 = load i64, ptr %tv_sec, align 8
+  %tv_usec = getelementptr inbounds %struct.timeval, ptr %_now, i32 0, i32 1
+  %4 = load i64, ptr %tv_usec, align 8
+  %5 = load ptr, ptr %result.addr, align 8
+  %6 = load i8, ptr %succeeded.addr, align 1
+  %tobool11 = trunc i8 %6 to i1
+  %conv12 = zext i1 %tobool11 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.19, i32 noundef %call10, i64 noundef %3, i64 noundef %4, ptr noundef %5, i32 noundef %conv12)
+  br label %if.end
+
+if.else:                                          ; preds = %if.then
+  %7 = load ptr, ptr %result.addr, align 8
+  %8 = load i8, ptr %succeeded.addr, align 1
+  %tobool13 = trunc i8 %8 to i1
+  %conv14 = zext i1 %tobool13 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.20, ptr noundef %7, i32 noundef %conv14)
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then8
+  br label %if.end15
+
+if.end15:                                         ; preds = %if.end, %land.lhs.true5, %land.lhs.true, %entry
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @_nocheck__trace_qmp_enter_block_export_del(ptr noundef %json) #0 {
+entry:
+  %json.addr = alloca ptr, align 8
+  %_now = alloca %struct.timeval, align 8
+  store ptr %json, ptr %json.addr, align 8
+  %0 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool = icmp ne i32 %0, 0
+  %lnot = xor i1 %tobool, true
+  %lnot1 = xor i1 %lnot, true
+  %lnot.ext = zext i1 %lnot1 to i32
+  %conv = sext i32 %lnot.ext to i64
+  %tobool2 = icmp ne i64 %conv, 0
+  br i1 %tobool2, label %land.lhs.true, label %if.end11
+
+land.lhs.true:                                    ; preds = %entry
+  %1 = load i16, ptr @_TRACE_QMP_ENTER_BLOCK_EXPORT_DEL_DSTATE, align 2
+  %conv3 = zext i16 %1 to i32
+  %tobool4 = icmp ne i32 %conv3, 0
+  br i1 %tobool4, label %land.lhs.true5, label %if.end11
+
+land.lhs.true5:                                   ; preds = %land.lhs.true
+  %call = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %call, label %if.then, label %if.end11
+
+if.then:                                          ; preds = %land.lhs.true5
+  %2 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7 = trunc i8 %2 to i1
+  br i1 %tobool7, label %if.then8, label %if.else
+
+if.then8:                                         ; preds = %if.then
+  %call9 = call i32 @gettimeofday(ptr noundef %_now, ptr noundef null) #4
+  %call10 = call i32 @qemu_get_thread_id()
+  %tv_sec = getelementptr inbounds %struct.timeval, ptr %_now, i32 0, i32 0
+  %3 = load i64, ptr %tv_sec, align 8
+  %tv_usec = getelementptr inbounds %struct.timeval, ptr %_now, i32 0, i32 1
+  %4 = load i64, ptr %tv_usec, align 8
+  %5 = load ptr, ptr %json.addr, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.21, i32 noundef %call10, i64 noundef %3, i64 noundef %4, ptr noundef %5)
+  br label %if.end
+
+if.else:                                          ; preds = %if.then
+  %6 = load ptr, ptr %json.addr, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.22, ptr noundef %6)
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then8
+  br label %if.end11
+
+if.end11:                                         ; preds = %if.end, %land.lhs.true5, %land.lhs.true, %entry
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @_nocheck__trace_qmp_exit_block_export_del(ptr noundef %result, i1 noundef zeroext %succeeded) #0 {
+entry:
+  %result.addr = alloca ptr, align 8
+  %succeeded.addr = alloca i8, align 1
+  %_now = alloca %struct.timeval, align 8
+  store ptr %result, ptr %result.addr, align 8
+  %frombool = zext i1 %succeeded to i8
+  store i8 %frombool, ptr %succeeded.addr, align 1
+  %0 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool = icmp ne i32 %0, 0
+  %lnot = xor i1 %tobool, true
+  %lnot1 = xor i1 %lnot, true
+  %lnot.ext = zext i1 %lnot1 to i32
+  %conv = sext i32 %lnot.ext to i64
+  %tobool2 = icmp ne i64 %conv, 0
+  br i1 %tobool2, label %land.lhs.true, label %if.end15
+
+land.lhs.true:                                    ; preds = %entry
+  %1 = load i16, ptr @_TRACE_QMP_EXIT_BLOCK_EXPORT_DEL_DSTATE, align 2
+  %conv3 = zext i16 %1 to i32
+  %tobool4 = icmp ne i32 %conv3, 0
+  br i1 %tobool4, label %land.lhs.true5, label %if.end15
+
+land.lhs.true5:                                   ; preds = %land.lhs.true
+  %call = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %call, label %if.then, label %if.end15
+
+if.then:                                          ; preds = %land.lhs.true5
+  %2 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7 = trunc i8 %2 to i1
+  br i1 %tobool7, label %if.then8, label %if.else
+
+if.then8:                                         ; preds = %if.then
+  %call9 = call i32 @gettimeofday(ptr noundef %_now, ptr noundef null) #4
+  %call10 = call i32 @qemu_get_thread_id()
+  %tv_sec = getelementptr inbounds %struct.timeval, ptr %_now, i32 0, i32 0
+  %3 = load i64, ptr %tv_sec, align 8
+  %tv_usec = getelementptr inbounds %struct.timeval, ptr %_now, i32 0, i32 1
+  %4 = load i64, ptr %tv_usec, align 8
+  %5 = load ptr, ptr %result.addr, align 8
+  %6 = load i8, ptr %succeeded.addr, align 1
+  %tobool11 = trunc i8 %6 to i1
+  %conv12 = zext i1 %tobool11 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.23, i32 noundef %call10, i64 noundef %3, i64 noundef %4, ptr noundef %5, i32 noundef %conv12)
+  br label %if.end
+
+if.else:                                          ; preds = %if.then
+  %7 = load ptr, ptr %result.addr, align 8
+  %8 = load i8, ptr %succeeded.addr, align 1
+  %tobool13 = trunc i8 %8 to i1
+  %conv14 = zext i1 %tobool13 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.24, ptr noundef %7, i32 noundef %conv14)
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then8
+  br label %if.end15
+
+if.end15:                                         ; preds = %if.end, %land.lhs.true5, %land.lhs.true, %entry
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @_nocheck__trace_qmp_enter_query_block_exports(ptr noundef %json) #0 {
+entry:
+  %json.addr = alloca ptr, align 8
+  %_now = alloca %struct.timeval, align 8
+  store ptr %json, ptr %json.addr, align 8
+  %0 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool = icmp ne i32 %0, 0
+  %lnot = xor i1 %tobool, true
+  %lnot1 = xor i1 %lnot, true
+  %lnot.ext = zext i1 %lnot1 to i32
+  %conv = sext i32 %lnot.ext to i64
+  %tobool2 = icmp ne i64 %conv, 0
+  br i1 %tobool2, label %land.lhs.true, label %if.end11
+
+land.lhs.true:                                    ; preds = %entry
+  %1 = load i16, ptr @_TRACE_QMP_ENTER_QUERY_BLOCK_EXPORTS_DSTATE, align 2
+  %conv3 = zext i16 %1 to i32
+  %tobool4 = icmp ne i32 %conv3, 0
+  br i1 %tobool4, label %land.lhs.true5, label %if.end11
+
+land.lhs.true5:                                   ; preds = %land.lhs.true
+  %call = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %call, label %if.then, label %if.end11
+
+if.then:                                          ; preds = %land.lhs.true5
+  %2 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7 = trunc i8 %2 to i1
+  br i1 %tobool7, label %if.then8, label %if.else
+
+if.then8:                                         ; preds = %if.then
+  %call9 = call i32 @gettimeofday(ptr noundef %_now, ptr noundef null) #4
+  %call10 = call i32 @qemu_get_thread_id()
+  %tv_sec = getelementptr inbounds %struct.timeval, ptr %_now, i32 0, i32 0
+  %3 = load i64, ptr %tv_sec, align 8
+  %tv_usec = getelementptr inbounds %struct.timeval, ptr %_now, i32 0, i32 1
+  %4 = load i64, ptr %tv_usec, align 8
+  %5 = load ptr, ptr %json.addr, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.25, i32 noundef %call10, i64 noundef %3, i64 noundef %4, ptr noundef %5)
+  br label %if.end
+
+if.else:                                          ; preds = %if.then
+  %6 = load ptr, ptr %json.addr, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.26, ptr noundef %6)
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then8
+  br label %if.end11
+
+if.end11:                                         ; preds = %if.end, %land.lhs.true5, %land.lhs.true, %entry
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @_nocheck__trace_qmp_exit_query_block_exports(ptr noundef %result, i1 noundef zeroext %succeeded) #0 {
+entry:
+  %result.addr = alloca ptr, align 8
+  %succeeded.addr = alloca i8, align 1
+  %_now = alloca %struct.timeval, align 8
+  store ptr %result, ptr %result.addr, align 8
+  %frombool = zext i1 %succeeded to i8
+  store i8 %frombool, ptr %succeeded.addr, align 1
+  %0 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool = icmp ne i32 %0, 0
+  %lnot = xor i1 %tobool, true
+  %lnot1 = xor i1 %lnot, true
+  %lnot.ext = zext i1 %lnot1 to i32
+  %conv = sext i32 %lnot.ext to i64
+  %tobool2 = icmp ne i64 %conv, 0
+  br i1 %tobool2, label %land.lhs.true, label %if.end15
+
+land.lhs.true:                                    ; preds = %entry
+  %1 = load i16, ptr @_TRACE_QMP_EXIT_QUERY_BLOCK_EXPORTS_DSTATE, align 2
+  %conv3 = zext i16 %1 to i32
+  %tobool4 = icmp ne i32 %conv3, 0
+  br i1 %tobool4, label %land.lhs.true5, label %if.end15
+
+land.lhs.true5:                                   ; preds = %land.lhs.true
+  %call = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %call, label %if.then, label %if.end15
+
+if.then:                                          ; preds = %land.lhs.true5
+  %2 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7 = trunc i8 %2 to i1
+  br i1 %tobool7, label %if.then8, label %if.else
+
+if.then8:                                         ; preds = %if.then
+  %call9 = call i32 @gettimeofday(ptr noundef %_now, ptr noundef null) #4
+  %call10 = call i32 @qemu_get_thread_id()
+  %tv_sec = getelementptr inbounds %struct.timeval, ptr %_now, i32 0, i32 0
+  %3 = load i64, ptr %tv_sec, align 8
+  %tv_usec = getelementptr inbounds %struct.timeval, ptr %_now, i32 0, i32 1
+  %4 = load i64, ptr %tv_usec, align 8
+  %5 = load ptr, ptr %result.addr, align 8
+  %6 = load i8, ptr %succeeded.addr, align 1
+  %tobool11 = trunc i8 %6 to i1
+  %conv12 = zext i1 %tobool11 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.27, i32 noundef %call10, i64 noundef %3, i64 noundef %4, ptr noundef %5, i32 noundef %conv12)
+  br label %if.end
+
+if.else:                                          ; preds = %if.then
+  %7 = load ptr, ptr %result.addr, align 8
+  %8 = load i8, ptr %succeeded.addr, align 1
+  %tobool13 = trunc i8 %8 to i1
+  %conv14 = zext i1 %tobool13 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.28, ptr noundef %7, i32 noundef %conv14)
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then8
+  br label %if.end15
+
+if.end15:                                         ; preds = %if.end, %land.lhs.true5, %land.lhs.true, %entry
+  ret void
+}
+
+declare ptr @qobject_output_visitor_new_qmp(ptr noundef) #2
+
+declare zeroext i1 @visit_type_BlockExportInfoList(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+
+declare void @visit_complete(ptr noundef, ptr noundef) #2
+
+attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"PIE Level", i32 2}
+!3 = !{i32 7, !"uwtable", i32 2}
+!4 = !{i32 7, !"frame-pointer", i32 2}
