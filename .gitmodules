@@ -196,3 +196,6 @@
 [submodule "bench/openssl/openssl"]
 	path = bench/openssl/openssl
 	url = git@github.com:openssl/openssl.git
+[submodule "bench/flac/flac"]
+	path = bench/flac/flac
+	url = git@github.com:xiph/flac.git
