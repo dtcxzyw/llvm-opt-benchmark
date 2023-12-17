@@ -169,3 +169,6 @@
 [submodule "bench/eastl/EASTL"]
 	path = bench/eastl/EASTL
 	url = git@github.com:electronicarts/EASTL.git
+[submodule "bench/abseil-cpp/abseil-cpp"]
+	path = bench/abseil-cpp/abseil-cpp
+	url = git@github.com:abseil/abseil-cpp.git
