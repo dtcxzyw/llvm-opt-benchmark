@@ -175,3 +175,6 @@
 [submodule "bench/folly/folly"]
 	path = bench/folly/folly
 	url = git@github.com:facebook/folly.git
+[submodule "bench/ms-gsl/GSL"]
+	path = bench/ms-gsl/GSL
+	url = git@github.com:microsoft/GSL.git
