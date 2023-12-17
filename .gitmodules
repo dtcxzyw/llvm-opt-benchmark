@@ -184,3 +184,6 @@
 [submodule "bench/yoga/yoga"]
 	path = bench/yoga/yoga
 	url = git@github.com:facebook/yoga.git
+[submodule "bench/hermes/hermes"]
+	path = bench/hermes/hermes
+	url = git@github.com:facebook/hermes.git
