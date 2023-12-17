@@ -190,3 +190,6 @@
 [submodule "bench/proxygen/proxygen"]
 	path = bench/proxygen/proxygen
 	url = git@github.com:facebook/proxygen.git
+[submodule "bench/flatbuffers/flatbuffers"]
+	path = bench/flatbuffers/flatbuffers
+	url = git@github.com:google/flatbuffers.git
