@@ -202,3 +202,6 @@
 [submodule "bench/node/node"]
 	path = bench/node/node
 	url = git@github.com:nodejs/node.git
+[submodule "bench/cpp-httplib/cpp-httplib"]
+	path = bench/cpp-httplib/cpp-httplib
+	url = git@github.com:yhirose/cpp-httplib.git
