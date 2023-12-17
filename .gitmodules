@@ -199,3 +199,6 @@
 [submodule "bench/flac/flac"]
 	path = bench/flac/flac
 	url = git@github.com:xiph/flac.git
+[submodule "bench/node/node"]
+	path = bench/node/node
+	url = git@github.com:nodejs/node.git
