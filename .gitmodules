@@ -160,3 +160,6 @@
 [submodule "bench/qemu/qemu"]
 	path = bench/qemu/qemu
 	url = https://gitlab.com/qemu-project/qemu.git
+[submodule "bench/pugixml/pugixml"]
+	path = bench/pugixml/pugixml
+	url = git@github.com:zeux/pugixml.git
