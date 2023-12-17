@@ -172,3 +172,6 @@
 [submodule "bench/abseil-cpp/abseil-cpp"]
 	path = bench/abseil-cpp/abseil-cpp
 	url = git@github.com:abseil/abseil-cpp.git
+[submodule "bench/folly/folly"]
+	path = bench/folly/folly
+	url = git@github.com:facebook/folly.git
