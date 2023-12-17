@@ -163,3 +163,6 @@
 [submodule "bench/pugixml/pugixml"]
 	path = bench/pugixml/pugixml
 	url = git@github.com:zeux/pugixml.git
+[submodule "bench/tinyobjloader/tinyobjloader"]
+	path = bench/tinyobjloader/tinyobjloader
+	url = git@github.com:tinyobjloader/tinyobjloader.git
