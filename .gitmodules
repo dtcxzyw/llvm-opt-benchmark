@@ -166,3 +166,6 @@
 [submodule "bench/tinyobjloader/tinyobjloader"]
 	path = bench/tinyobjloader/tinyobjloader
 	url = git@github.com:tinyobjloader/tinyobjloader.git
+[submodule "bench/eastl/EASTL"]
+	path = bench/eastl/EASTL
+	url = git@github.com:electronicarts/EASTL.git

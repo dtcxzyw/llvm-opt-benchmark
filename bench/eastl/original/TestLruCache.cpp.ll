@@ -1,0 +1,11956 @@
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-unknown-linux-gnu"
+
+%"struct.eastl::pair.28" = type { i32, i32 }
+%"struct.eastl::nullopt_t" = type { i8 }
+%"struct.eastl::pair_first_construct_t" = type { i8 }
+%"class.eastl::lru_cache" = type { %"class.eastl::list", %"class.eastl::hash_map", i64, %"class.eastl::function", %"class.eastl::function.0" }
+%"class.eastl::list" = type { %"class.eastl::ListBase" }
+%"class.eastl::ListBase" = type { %"class.eastl::compressed_pair", i64 }
+%"class.eastl::compressed_pair" = type { %"class.eastl::compressed_pair_imp" }
+%"class.eastl::compressed_pair_imp" = type { %"struct.eastl::ListNodeBase" }
+%"struct.eastl::ListNodeBase" = type { ptr, ptr }
+%"class.eastl::hash_map" = type { %"class.eastl::hashtable.base", [3 x i8] }
+%"class.eastl::hashtable.base" = type <{ %"struct.eastl::hash_code_base", [4 x i8], ptr, i64, i64, %"struct.eastl::prime_rehash_policy", %"class.eastl::allocator" }>
+%"struct.eastl::hash_code_base" = type { %"struct.eastl::use_first", %"struct.eastl::equal_to", %"struct.eastl::hash", %"struct.eastl::mod_range_hashing" }
+%"struct.eastl::use_first" = type { i8 }
+%"struct.eastl::equal_to" = type { i8 }
+%"struct.eastl::hash" = type { i8 }
+%"struct.eastl::mod_range_hashing" = type { i8 }
+%"struct.eastl::prime_rehash_policy" = type { float, float, i32 }
+%"class.eastl::allocator" = type { i8 }
+%"class.eastl::function" = type { %"class.eastl::internal::function_detail" }
+%"class.eastl::internal::function_detail" = type { %"class.eastl::internal::function_base_detail", ptr, ptr }
+%"class.eastl::internal::function_base_detail" = type { %"struct.eastl::internal::functor_storage" }
+%"struct.eastl::internal::functor_storage" = type { %union.anon }
+%union.anon = type { %"union.eastl::internal::functor_storage_alignment" }
+%"union.eastl::internal::functor_storage_alignment" = type { { i64, i64 } }
+%"class.eastl::function.0" = type { %"class.eastl::internal::function_detail.1" }
+%"class.eastl::internal::function_detail.1" = type { %"class.eastl::internal::function_base_detail", ptr, ptr }
+%"class.eastl::optional" = type { %"struct.eastl::Internal::optional_storage.base", [3 x i8] }
+%"struct.eastl::Internal::optional_storage.base" = type { %"struct.eastl::aligned_storage<8, 4>::type", i8 }
+%"struct.eastl::aligned_storage<8, 4>::type" = type { [8 x i8] }
+%"struct.TestLruCacheInternal::Foo" = type { i32, i32 }
+%"class.TestLruCacheInternal::FooCreator" = type { i32 }
+%class.anon = type { ptr }
+%class.anon.2 = type { ptr }
+%"class.eastl::lru_cache.3" = type { %"class.eastl::list", %"class.eastl::hash_map.4", i64, %"class.eastl::function.11", %"class.eastl::function.13" }
+%"class.eastl::hash_map.4" = type { %"class.eastl::hashtable.base.9", [3 x i8] }
+%"class.eastl::hashtable.base.9" = type <{ %"struct.eastl::hash_code_base.7", [4 x i8], ptr, i64, i64, %"struct.eastl::prime_rehash_policy", %"class.eastl::allocator" }>
+%"struct.eastl::hash_code_base.7" = type { %"struct.eastl::use_first.8", %"struct.eastl::equal_to", %"struct.eastl::hash", %"struct.eastl::mod_range_hashing" }
+%"struct.eastl::use_first.8" = type { i8 }
+%"class.eastl::function.11" = type { %"class.eastl::internal::function_detail.12" }
+%"class.eastl::internal::function_detail.12" = type { %"class.eastl::internal::function_base_detail", ptr, ptr }
+%"class.eastl::function.13" = type { %"class.eastl::internal::function_detail.14" }
+%"class.eastl::internal::function_detail.14" = type { %"class.eastl::internal::function_base_detail", ptr, ptr }
+%"class.eastl::lru_cache.15" = type { %"class.eastl::list", %"class.eastl::hash_map.16", i64, %"class.eastl::function.23", %"class.eastl::function.25" }
+%"class.eastl::hash_map.16" = type { %"class.eastl::hashtable.base.21", [3 x i8] }
+%"class.eastl::hashtable.base.21" = type <{ %"struct.eastl::hash_code_base.19", [4 x i8], ptr, i64, i64, %"struct.eastl::prime_rehash_policy", %"class.eastl::allocator" }>
+%"struct.eastl::hash_code_base.19" = type { %"struct.eastl::use_first.20", %"struct.eastl::equal_to", %"struct.eastl::hash", %"struct.eastl::mod_range_hashing" }
+%"struct.eastl::use_first.20" = type { i8 }
+%"class.eastl::function.23" = type { %"class.eastl::internal::function_detail.24" }
+%"class.eastl::internal::function_detail.24" = type { %"class.eastl::internal::function_base_detail", ptr, ptr }
+%"class.eastl::function.25" = type { %"class.eastl::internal::function_detail.26" }
+%"class.eastl::internal::function_detail.26" = type { %"class.eastl::internal::function_base_detail", ptr, ptr }
+%"struct.eastl::hashtable_iterator" = type { %"struct.eastl::hashtable_iterator_base" }
+%"struct.eastl::hashtable_iterator_base" = type { ptr, ptr }
+%"class.std::initializer_list" = type { ptr, i64 }
+%"struct.eastl::pair" = type { i32, %"struct.eastl::pair.27" }
+%"struct.eastl::pair.27" = type { i32, %"struct.eastl::ListIterator" }
+%"struct.eastl::ListIterator" = type { ptr }
+%"struct.eastl::hashtable_iterator.33" = type { %"struct.eastl::hashtable_iterator_base.32" }
+%"struct.eastl::hashtable_iterator_base.32" = type { ptr, ptr }
+%"struct.eastl::hashtable_iterator.31" = type { %"struct.eastl::hashtable_iterator_base.32" }
+%"struct.eastl::pair.29" = type { i32, %"struct.eastl::pair.30" }
+%"struct.eastl::pair.30" = type { %"struct.TestLruCacheInternal::Foo", %"struct.eastl::ListIterator" }
+%"struct.eastl::Internal::optional_storage" = type { %"struct.eastl::aligned_storage<8, 4>::type", i8, [3 x i8] }
+%"struct.eastl::hashtable_iterator.42" = type { %"struct.eastl::hashtable_iterator_base.41" }
+%"struct.eastl::hashtable_iterator_base.41" = type { ptr, ptr }
+%"struct.eastl::hashtable_iterator.40" = type { %"struct.eastl::hashtable_iterator_base.41" }
+%"struct.eastl::ListIterator.36" = type { ptr }
+%"struct.eastl::pair.38" = type { i32, %"struct.eastl::pair.39" }
+%"struct.eastl::pair.39" = type { ptr, %"struct.eastl::ListIterator" }
+%"struct.eastl::hash_node.45" = type { %"struct.eastl::pair", ptr }
+%"struct.eastl::default_ranged_hash" = type { i8 }
+%"class.eastl::hashtable" = type <{ %"struct.eastl::hash_code_base", [4 x i8], ptr, i64, i64, %"struct.eastl::prime_rehash_policy", %"class.eastl::allocator", [3 x i8] }>
+%"struct.eastl::hash_node" = type { %"struct.eastl::pair.29", ptr }
+%"struct.eastl::pair.34" = type <{ %"struct.eastl::hashtable_iterator.31", i8, [7 x i8] }>
+%"struct.eastl::pair.35" = type { i8, i32 }
+%"struct.eastl::ListNode" = type <{ %"struct.eastl::ListNodeBase", i32, [4 x i8] }>
+%"class.eastl::hashtable.5" = type <{ %"struct.eastl::hash_code_base.7", [4 x i8], ptr, i64, i64, %"struct.eastl::prime_rehash_policy", %"class.eastl::allocator", [3 x i8] }>
+%"struct.eastl::hash_node.37" = type { %"struct.eastl::pair.38", ptr }
+%"struct.eastl::pair.43" = type <{ %"struct.eastl::hashtable_iterator.40", i8, [7 x i8] }>
+%"class.eastl::hashtable.17" = type <{ %"struct.eastl::hash_code_base.19", [4 x i8], ptr, i64, i64, %"struct.eastl::prime_rehash_policy", %"class.eastl::allocator", [3 x i8] }>
+%"struct.eastl::pair.47" = type <{ %"struct.eastl::hashtable_iterator", i8, [7 x i8] }>
+%"struct.eastl::hashtable_iterator.46" = type { %"struct.eastl::hashtable_iterator_base" }
+
+$_ZN5eastl9allocatorC2EPKc = comdat any
+
+$_ZN5eastl8functionIFN20TestLruCacheInternal3FooEiEEC2EDn = comdat any
+
+$_ZN5eastl8functionIFvRKN20TestLruCacheInternal3FooEEEC2EDn = comdat any
+
+$_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEEC2EmRKS3_NS_8functionIFS2_iEEENSL_IFvRKS2_EEE = comdat any
+
+$_ZN5eastl8functionIFvRKN20TestLruCacheInternal3FooEEED2Ev = comdat any
+
+$_ZN5eastl8functionIFN20TestLruCacheInternal3FooEiEED2Ev = comdat any
+
+$_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8containsERKi = comdat any
+
+$_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE4sizeEv = comdat any
+
+$_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE5emptyEv = comdat any
+
+$_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8capacityEv = comdat any
+
+$_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE2atERKi = comdat any
+
+$_ZNK5eastl8optionalIN20TestLruCacheInternal3FooEE9has_valueEv = comdat any
+
+$_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEEixERKi = comdat any
+
+$_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE6insertERKiRKS2_ = comdat any
+
+$_ZN20TestLruCacheInternal3FooC2Eii = comdat any
+
+$_ZNO5eastl8optionalIN20TestLruCacheInternal3FooEE5valueEv = comdat any
+
+$_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE5touchERKi = comdat any
+
+$_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE6resizeEm = comdat any
+
+$_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE6assignERKiRKS2_ = comdat any
+
+$_ZNK20TestLruCacheInternal3FooeqERKS0_ = comdat any
+
+$_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE16insert_or_assignERKiRKS2_ = comdat any
+
+$_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE5clearEv = comdat any
+
+$_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE17reset_lose_memoryEv = comdat any
+
+$_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEED2Ev = comdat any
+
+$_ZN20TestLruCacheInternal10FooCreatorC2Ev = comdat any
+
+$_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEEC2EmRKS4_NS_8functionIFS3_iEEENSM_IFvRKS3_EEE = comdat any
+
+$_ZN5eastl8functionIFvRKPN20TestLruCacheInternal3FooEEED2Ev = comdat any
+
+$_ZN5eastl8functionIFPN20TestLruCacheInternal3FooEiEED2Ev = comdat any
+
+$_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEEixERKi = comdat any
+
+$_ZNK5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE4sizeEv = comdat any
+
+$_ZNK5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE5emptyEv = comdat any
+
+$_ZNK5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE8capacityEv = comdat any
+
+$_ZNK5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE8containsERKi = comdat any
+
+$_ZN20TestLruCacheInternal10FooCreator6CreateEv = comdat any
+
+$_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE6assignERKiRKS3_ = comdat any
+
+$_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE5eraseERKi = comdat any
+
+$_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE16insert_or_assignERKiRKS3_ = comdat any
+
+$_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEED2Ev = comdat any
+
+$_ZN5eastl8functionIFiiEEC2EDn = comdat any
+
+$_ZN5eastl8functionIFvRKiEEC2EDn = comdat any
+
+$_ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEEC2EmRKS1_NS_8functionIFiiEEENSJ_IFvRKiEEE = comdat any
+
+$_ZN5eastl8functionIFvRKiEED2Ev = comdat any
+
+$_ZN5eastl8functionIFiiEED2Ev = comdat any
+
+$_ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEE16insert_or_assignERKiSI_ = comdat any
+
+$_ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEE5beginEv = comdat any
+
+$_ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEE3endEv = comdat any
+
+$_ZN5eastlneINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0EEEbRKNS_23hashtable_iterator_baseIT_XT0_EEESD_ = comdat any
+
+$_ZNK5eastl18hashtable_iteratorINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0ELb0EEdeEv = comdat any
+
+$_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0ELb0EEppEi = comdat any
+
+$_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0ELb0EEppEv = comdat any
+
+$_ZN5eastl3getILm0EKiNS_4pairIiNS_12ListIteratorIiPiRiEEEEEERNS_13tuple_elementIXT_ENS2_IT0_T1_EEE4typeERSB_ = comdat any
+
+$_ZN5eastl3getILm1EKiNS_4pairIiNS_12ListIteratorIiPiRiEEEEEERNS_13tuple_elementIXT_ENS2_IT0_T1_EEE4typeERSB_ = comdat any
+
+$_ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEED2Ev = comdat any
+
+$_ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEEC2ESt16initializer_listINS5_IiiEEE = comdat any
+
+$_ZN5eastl8internal15function_detailILi16EFvRKN20TestLruCacheInternal3FooEEED2Ev = comdat any
+
+$_ZN5eastl8internal15function_detailILi16EFvRKN20TestLruCacheInternal3FooEEE7DestroyEv = comdat any
+
+$_ZNK5eastl8internal15function_detailILi16EFvRKN20TestLruCacheInternal3FooEEE11HaveManagerEv = comdat any
+
+$__clang_call_terminate = comdat any
+
+$_ZN5eastl8internal15function_detailILi16EFN20TestLruCacheInternal3FooEiEED2Ev = comdat any
+
+$_ZN5eastl8internal15function_detailILi16EFN20TestLruCacheInternal3FooEiEE7DestroyEv = comdat any
+
+$_ZNK5eastl8internal15function_detailILi16EFN20TestLruCacheInternal3FooEiEE11HaveManagerEv = comdat any
+
+$_ZN5eastl8internal15function_detailILi16EFvRKPN20TestLruCacheInternal3FooEEED2Ev = comdat any
+
+$_ZN5eastl8internal15function_detailILi16EFvRKPN20TestLruCacheInternal3FooEEE7DestroyEv = comdat any
+
+$_ZNK5eastl8internal15function_detailILi16EFvRKPN20TestLruCacheInternal3FooEEE11HaveManagerEv = comdat any
+
+$_ZN5eastl8internal15function_detailILi16EFPN20TestLruCacheInternal3FooEiEED2Ev = comdat any
+
+$_ZN5eastl8internal15function_detailILi16EFPN20TestLruCacheInternal3FooEiEE7DestroyEv = comdat any
+
+$_ZNK5eastl8internal15function_detailILi16EFPN20TestLruCacheInternal3FooEiEE11HaveManagerEv = comdat any
+
+$_ZN20TestLruCacheInternal3FooC2Ev = comdat any
+
+$_ZN5eastl8internal15function_detailILi16EFvRKiEED2Ev = comdat any
+
+$_ZN5eastl8internal15function_detailILi16EFvRKiEE7DestroyEv = comdat any
+
+$_ZNK5eastl8internal15function_detailILi16EFvRKiEE11HaveManagerEv = comdat any
+
+$_ZN5eastl8internal15function_detailILi16EFiiEED2Ev = comdat any
+
+$_ZN5eastl8internal15function_detailILi16EFiiEE7DestroyEv = comdat any
+
+$_ZNK5eastl8internal15function_detailILi16EFiiEE11HaveManagerEv = comdat any
+
+$_ZN5eastl8internal15function_detailILi16EFN20TestLruCacheInternal3FooEiEEC2EDn = comdat any
+
+$_ZN5eastl8internal15function_detailILi16EFN20TestLruCacheInternal3FooEiEE14DefaultInvokerEiRKNS0_15functor_storageILi16EEE = comdat any
+
+$_ZN5eastl8internal15function_detailILi16EFvRKN20TestLruCacheInternal3FooEEEC2EDn = comdat any
+
+$_ZN5eastl8internal15function_detailILi16EFvRKN20TestLruCacheInternal3FooEEE14DefaultInvokerES5_RKNS0_15functor_storageILi16EEE = comdat any
+
+$_ZN5eastl4listIiNS_9allocatorEEC2ERKS1_ = comdat any
+
+$_ZN5eastl8hash_mapIiNS_4pairIN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEENS_9allocatorELb0EEC2ERKSD_ = comdat any
+
+$_ZN5eastl8functionIFN20TestLruCacheInternal3FooEiEEC2ERKS4_ = comdat any
+
+$_ZN5eastl8functionIFvRKN20TestLruCacheInternal3FooEEEC2ERKS6_ = comdat any
+
+$_ZN5eastl8hash_mapIiNS_4pairIN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEENS_9allocatorELb0EED2Ev = comdat any
+
+$_ZN5eastl4listIiNS_9allocatorEED2Ev = comdat any
+
+$_ZN5eastl8ListBaseIiNS_9allocatorEEC2ERKS1_ = comdat any
+
+$_ZN5eastl15compressed_pairINS_12ListNodeBaseENS_9allocatorEEC2ERKS1_RKS2_ = comdat any
+
+$_ZN5eastl8ListBaseIiNS_9allocatorEE6DoInitEv = comdat any
+
+$_ZN5eastl19compressed_pair_impINS_12ListNodeBaseENS_9allocatorELi2EEC2ERKS1_RKS2_ = comdat any
+
+$_ZN5eastl8ListBaseIiNS_9allocatorEE12internalNodeEv = comdat any
+
+$_ZN5eastl15compressed_pairINS_12ListNodeBaseENS_9allocatorEE5firstEv = comdat any
+
+$_ZN5eastl19compressed_pair_impINS_12ListNodeBaseENS_9allocatorELi2EE5firstEv = comdat any
+
+$_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EEC2EmRKSH_RKSI_RKSJ_RKSF_RKSD_RKSB_ = comdat any
+
+$_ZN5eastl14hash_code_baseIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EEC2ERKSC_RKSE_RKSG_RKSH_RKSI_ = comdat any
+
+$_ZN5eastl19prime_rehash_policyC2Ef = comdat any
+
+$_ZN5eastl9allocatorC2ERKS0_ = comdat any
+
+$_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17reset_lose_memoryEv = comdat any
+
+$_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm = comdat any
+
+$_ZN5eastl9allocator8allocateEmmmi = comdat any
+
+$_ZN5eastl8internal15function_detailILi16EFN20TestLruCacheInternal3FooEiEEC2ERKS5_ = comdat any
+
+$_ZN5eastl8internal15function_detailILi16EFN20TestLruCacheInternal3FooEiEE4CopyERKS5_ = comdat any
+
+$_ZN5eastl8internal15function_detailILi16EFvRKN20TestLruCacheInternal3FooEEEC2ERKS7_ = comdat any
+
+$_ZN5eastl8internal15function_detailILi16EFvRKN20TestLruCacheInternal3FooEEE4CopyERKS7_ = comdat any
+
+$_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev = comdat any
+
+$_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5clearEv = comdat any
+
+$_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeISA_Lb0EEEm = comdat any
+
+$_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE11DoFreeNodesEPPNS_9hash_nodeISA_Lb0EEEm = comdat any
+
+$_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeISA_Lb0EEE = comdat any
+
+$_ZN5eastl9allocator10deallocateEPvm = comdat any
+
+$_ZN5eastl8ListBaseIiNS_9allocatorEED2Ev = comdat any
+
+$_ZN5eastl8ListBaseIiNS_9allocatorEE7DoClearEv = comdat any
+
+$_ZN5eastl8ListBaseIiNS_9allocatorEE17internalAllocatorEv = comdat any
+
+$_ZN5eastl15compressed_pairINS_12ListNodeBaseENS_9allocatorEE6secondEv = comdat any
+
+$_ZN5eastl19compressed_pair_impINS_12ListNodeBaseENS_9allocatorELi2EE6secondEv = comdat any
+
+$_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv = comdat any
+
+$_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv = comdat any
+
+$_ZN5eastlneINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0EEEbRKNS_23hashtable_iterator_baseIT_XT0_EEESF_ = comdat any
+
+$_ZNK5eastl18hashtable_iteratorINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEdeEv = comdat any
+
+$_ZNK5eastl8functionIFvRKN20TestLruCacheInternal3FooEEEcvbEv = comdat any
+
+$_ZNK5eastl8functionIFvRKN20TestLruCacheInternal3FooEEEclES4_ = comdat any
+
+$_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEppEv = comdat any
+
+$_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEC2EPPNS_9hash_nodeISA_Lb0EEE = comdat any
+
+$_ZN5eastl23hashtable_iterator_baseINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0EE16increment_bucketEv = comdat any
+
+$_ZN5eastl23hashtable_iterator_baseINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0EEC2EPNS_9hash_nodeISA_Lb0EEEPSE_ = comdat any
+
+$_ZNK5eastl8internal15function_detailILi16EFvRKN20TestLruCacheInternal3FooEEEcvbEv = comdat any
+
+$_ZN5eastl7forwardIRKN20TestLruCacheInternal3FooEEEOT_RNS_16remove_referenceIS5_E4typeE = comdat any
+
+$_ZN5eastl23hashtable_iterator_baseINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0EE9incrementEv = comdat any
+
+$_ZNK5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_ = comdat any
+
+$_ZNK5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv = comdat any
+
+$_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS2_ = comdat any
+
+$_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE12bucket_indexERS2_mj = comdat any
+
+$_ZNK5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFindNodeEPNS_9hash_nodeISA_Lb0EEERS2_m = comdat any
+
+$_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb1ELb0EEC2EPNS_9hash_nodeISA_Lb0EEEPSE_ = comdat any
+
+$_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb1ELb0EEC2EPPNS_9hash_nodeISA_Lb0EEE = comdat any
+
+$_ZNK5eastl4hashIiEclEi = comdat any
+
+$_ZNK5eastl17mod_range_hashingclEmj = comdat any
+
+$_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS2_mPNS_9hash_nodeISA_Lb0EEE = comdat any
+
+$_ZNK5eastl8equal_toIiEclERKiS3_ = comdat any
+
+$_ZNK5eastl9use_firstINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEEEclERKSA_ = comdat any
+
+$_ZNK5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4sizeEv = comdat any
+
+$_ZNK5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5emptyEv = comdat any
+
+$_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_ = comdat any
+
+$_ZNK5eastl18hashtable_iteratorINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEptEv = comdat any
+
+$_ZN5eastl8optionalIN20TestLruCacheInternal3FooEEC2ERKS2_ = comdat any
+
+$_ZN5eastl8optionalIN20TestLruCacheInternal3FooEEC2ENS_9nullopt_tE = comdat any
+
+$_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEC2EPNS_9hash_nodeISA_Lb0EEEPSE_ = comdat any
+
+$_ZN5eastl8Internal16optional_storageIN20TestLruCacheInternal3FooELb1EEC2ERKS3_ = comdat any
+
+$_ZN5eastl9addressofINS_15aligned_storageILm8ELm4EE4typeEEEPT_RS4_ = comdat any
+
+$_ZN5eastl8Internal16optional_storageIN20TestLruCacheInternal3FooELb1EEC2Ev = comdat any
+
+$_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE3getERKi = comdat any
+
+$_ZNK5eastl8functionIFN20TestLruCacheInternal3FooEiEEcvbEv = comdat any
+
+$_ZNK5eastl8functionIFN20TestLruCacheInternal3FooEiEEclEi = comdat any
+
+$_ZN5eastl8hash_mapIiNS_4pairIN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEENS_9allocatorELb0EEixERKi = comdat any
+
+$_ZNK5eastl8internal15function_detailILi16EFN20TestLruCacheInternal3FooEiEEcvbEv = comdat any
+
+$_ZN5eastl7forwardIiEEOT_RNS_16remove_referenceIS1_E4typeE = comdat any
+
+$_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE11DoInsertKeyENS_17integral_constantIbLb1EEERS2_ = comdat any
+
+$_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE11DoInsertKeyENS_17integral_constantIbLb1EEERS2_m = comdat any
+
+$_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE21DoAllocateNodeFromKeyERS2_ = comdat any
+
+$_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE8set_codeEPNS_9hash_nodeISA_Lb0EEEm = comdat any
+
+$_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE8DoRehashEm = comdat any
+
+$_ZN5eastl4pairINS_18hashtable_iteratorINS0_IKiNS0_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEEbEC2ISB_bvEEOT_OT0_ = comdat any
+
+$_ZN5eastl15allocate_memoryINS_9allocatorEEEPvRT_mmm = comdat any
+
+$_ZN5eastl9addressofINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEEEEPT_RSB_ = comdat any
+
+$_ZN5eastl4pairIKiNS0_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEC2IiS8_vEENS_22pair_first_construct_tERKT_ = comdat any
+
+$_ZN5eastl9allocator8allocateEmi = comdat any
+
+$_ZN5eastl4pairIN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEC2IS2_S6_vEEv = comdat any
+
+$_ZN5eastl12ListIteratorIiPiRiEC2Ev = comdat any
+
+$_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE12bucket_indexEPKNS_9hash_nodeISA_Lb0EEEj = comdat any
+
+$_ZN5eastl7forwardINS_18hashtable_iteratorINS_4pairIKiNS2_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEEEEOT_RNS_16remove_referenceISD_E4typeE = comdat any
+
+$_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEC2ERKSB_ = comdat any
+
+$_ZN5eastl7forwardIbEEOT_RNS_16remove_referenceIS1_E4typeE = comdat any
+
+$_ZN5eastleqINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0EEEbRKNS_23hashtable_iterator_baseIT_XT0_EEESF_ = comdat any
+
+$_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE10make_spaceEv = comdat any
+
+$_ZN5eastl4listIiNS_9allocatorEE10push_frontERKi = comdat any
+
+$_ZN5eastl4listIiNS_9allocatorEE5beginEv = comdat any
+
+$_ZN5eastl4pairIN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEC2IS6_vEERKS2_OT_ = comdat any
+
+$_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE12erase_oldestEv = comdat any
+
+$_ZN5eastl4listIiNS_9allocatorEE4backEv = comdat any
+
+$_ZN5eastl4listIiNS_9allocatorEE8pop_backEv = comdat any
+
+$_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE9map_eraseENS_18hashtable_iteratorINS7_IKiSC_EELb0ELb0EEE = comdat any
+
+$_ZN5eastl4listIiNS_9allocatorEE7DoEraseEPNS_12ListNodeBaseE = comdat any
+
+$_ZN5eastl12ListNodeBase6removeEv = comdat any
+
+$_ZN5eastl8ListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_8ListNodeIiEE = comdat any
+
+$_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorISA_Lb1ELb0EEE = comdat any
+
+$_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb1ELb0EEC2ERKNS0_ISA_Lb0ELb0EEE = comdat any
+
+$_ZN5eastl4listIiNS_9allocatorEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_ = comdat any
+
+$_ZN5eastl4listIiNS_9allocatorEE12DoCreateNodeIJRKiEEEPNS_8ListNodeIiEEDpOT_ = comdat any
+
+$_ZN5eastl7forwardIRKiEEOT_RNS_16remove_referenceIS3_E4typeE = comdat any
+
+$_ZN5eastl12ListNodeBase6insertEPS0_ = comdat any
+
+$_ZN5eastl8ListBaseIiNS_9allocatorEE14DoAllocateNodeEv = comdat any
+
+$_ZN5eastl12ListIteratorIiPiRiEC2EPKNS_12ListNodeBaseE = comdat any
+
+$_ZN5eastl7forwardINS_12ListIteratorIiPiRiEEEEOT_RNS_16remove_referenceIS5_E4typeE = comdat any
+
+$_ZN5eastl12ListIteratorIiPiRiEC2ERKS3_ = comdat any
+
+$_ZN5eastl8optionalIN20TestLruCacheInternal3FooEE14get_rvalue_refEv = comdat any
+
+$_ZN5eastl4moveIRN20TestLruCacheInternal3FooEEEONS_16remove_referenceIT_E4typeEOS5_ = comdat any
+
+$_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE5touchERNS_18hashtable_iteratorINS7_IKiSC_EELb0ELb0EEE = comdat any
+
+$_ZN5eastl4listIiNS_9allocatorEE5eraseENS_12ListIteratorIiPKiRS4_EE = comdat any
+
+$_ZN5eastl12ListIteratorIiPKiRS1_EC2ERKNS0_IiPiRiEE = comdat any
+
+$_ZN5eastl12ListIteratorIiPKiRS1_EppEv = comdat any
+
+$_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE4trimEv = comdat any
+
+$_ZNK5eastl4listIiNS_9allocatorEE4sizeEv = comdat any
+
+$_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE6assignERNS_18hashtable_iteratorINS7_IKiSC_EELb0ELb0EEERKS2_ = comdat any
+
+$_ZN5eastl4listIiNS_9allocatorEE17reset_lose_memoryEv = comdat any
+
+$_ZN5eastl8internal15function_detailILi16EFPN20TestLruCacheInternal3FooEiEE14DefaultInvokerEiRKNS0_15functor_storageILi16EEE = comdat any
+
+$_ZN5eastl8internal15function_detailILi16EFvRKPN20TestLruCacheInternal3FooEEE14DefaultInvokerES6_RKNS0_15functor_storageILi16EEE = comdat any
+
+$_ZN5eastl7forwardIRKPN20TestLruCacheInternal3FooEEEOT_RNS_16remove_referenceIS6_E4typeE = comdat any
+
+$_ZN20TestLruCacheInternal10FooCreator7DestroyEPNS_3FooE = comdat any
+
+$_ZN5eastl8hash_mapIiNS_4pairIPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEENS_9allocatorELb0EEC2ERKSE_ = comdat any
+
+$_ZN5eastl8functionIFPN20TestLruCacheInternal3FooEiEEC2ERKS5_ = comdat any
+
+$_ZN5eastl8functionIFvRKPN20TestLruCacheInternal3FooEEEC2ERKS7_ = comdat any
+
+$_ZN5eastl8hash_mapIiNS_4pairIPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEENS_9allocatorELb0EED2Ev = comdat any
+
+$_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EEC2EmRKSI_RKSJ_RKSK_RKSG_RKSE_RKSC_ = comdat any
+
+$_ZN5eastl14hash_code_baseIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EEC2ERKSD_RKSF_RKSH_RKSI_RKSJ_ = comdat any
+
+$_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17reset_lose_memoryEv = comdat any
+
+$_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm = comdat any
+
+$_ZN5eastl8internal15function_detailILi16EFPN20TestLruCacheInternal3FooEiEEC2ERKS6_ = comdat any
+
+$_ZN5eastl8internal15function_detailILi16EFPN20TestLruCacheInternal3FooEiEE4CopyERKS6_ = comdat any
+
+$_ZN5eastl8internal15function_detailILi16EFvRKPN20TestLruCacheInternal3FooEEEC2ERKS8_ = comdat any
+
+$_ZN5eastl8internal15function_detailILi16EFvRKPN20TestLruCacheInternal3FooEEE4CopyERKS8_ = comdat any
+
+$_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev = comdat any
+
+$_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5clearEv = comdat any
+
+$_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeISB_Lb0EEEm = comdat any
+
+$_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE11DoFreeNodesEPPNS_9hash_nodeISB_Lb0EEEm = comdat any
+
+$_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeISB_Lb0EEE = comdat any
+
+$_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv = comdat any
+
+$_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv = comdat any
+
+$_ZN5eastlneINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0EEEbRKNS_23hashtable_iterator_baseIT_XT0_EEESG_ = comdat any
+
+$_ZNK5eastl18hashtable_iteratorINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEdeEv = comdat any
+
+$_ZNK5eastl8functionIFvRKPN20TestLruCacheInternal3FooEEEcvbEv = comdat any
+
+$_ZNK5eastl8functionIFvRKPN20TestLruCacheInternal3FooEEEclES5_ = comdat any
+
+$_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEppEv = comdat any
+
+$_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEC2EPPNS_9hash_nodeISB_Lb0EEE = comdat any
+
+$_ZN5eastl23hashtable_iterator_baseINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0EE16increment_bucketEv = comdat any
+
+$_ZN5eastl23hashtable_iterator_baseINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0EEC2EPNS_9hash_nodeISB_Lb0EEEPSF_ = comdat any
+
+$_ZNK5eastl8internal15function_detailILi16EFvRKPN20TestLruCacheInternal3FooEEEcvbEv = comdat any
+
+$_ZN5eastl23hashtable_iterator_baseINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0EE9incrementEv = comdat any
+
+$_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE3getERKi = comdat any
+
+$_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_ = comdat any
+
+$_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE5touchERKi = comdat any
+
+$_ZNK5eastl18hashtable_iteratorINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEptEv = comdat any
+
+$_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE6insertERKiRKS3_ = comdat any
+
+$_ZNK5eastl8functionIFPN20TestLruCacheInternal3FooEiEEcvbEv = comdat any
+
+$_ZNK5eastl8functionIFPN20TestLruCacheInternal3FooEiEEclEi = comdat any
+
+$_ZN5eastl8hash_mapIiNS_4pairIPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEENS_9allocatorELb0EEixERKi = comdat any
+
+$_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS2_ = comdat any
+
+$_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE12bucket_indexERS2_mj = comdat any
+
+$_ZNK5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFindNodeEPNS_9hash_nodeISB_Lb0EEERS2_m = comdat any
+
+$_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEC2EPNS_9hash_nodeISB_Lb0EEEPSF_ = comdat any
+
+$_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS2_mPNS_9hash_nodeISB_Lb0EEE = comdat any
+
+$_ZNK5eastl9use_firstINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEEEclERKSB_ = comdat any
+
+$_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE5touchERNS_18hashtable_iteratorINS8_IKiSD_EELb0ELb0EEE = comdat any
+
+$_ZN5eastleqINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0EEEbRKNS_23hashtable_iterator_baseIT_XT0_EEESG_ = comdat any
+
+$_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE10make_spaceEv = comdat any
+
+$_ZN5eastl4pairIPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEC2IS7_vEERKS3_OT_ = comdat any
+
+$_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE12erase_oldestEv = comdat any
+
+$_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE9map_eraseENS_18hashtable_iteratorINS8_IKiSD_EELb0ELb0EEE = comdat any
+
+$_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEC2ERKSC_ = comdat any
+
+$_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorISB_Lb1ELb0EEE = comdat any
+
+$_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb1ELb0EEC2ERKNS0_ISB_Lb0ELb0EEE = comdat any
+
+$_ZNK5eastl8internal15function_detailILi16EFPN20TestLruCacheInternal3FooEiEEcvbEv = comdat any
+
+$_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE11DoInsertKeyENS_17integral_constantIbLb1EEERS2_ = comdat any
+
+$_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE11DoInsertKeyENS_17integral_constantIbLb1EEERS2_m = comdat any
+
+$_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE21DoAllocateNodeFromKeyERS2_ = comdat any
+
+$_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE8set_codeEPNS_9hash_nodeISB_Lb0EEEm = comdat any
+
+$_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE8DoRehashEm = comdat any
+
+$_ZN5eastl4pairINS_18hashtable_iteratorINS0_IKiNS0_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEEbEC2ISC_bvEEOT_OT0_ = comdat any
+
+$_ZN5eastl9addressofINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEEEEPT_RSC_ = comdat any
+
+$_ZN5eastl4pairIKiNS0_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEC2IiS9_vEENS_22pair_first_construct_tERKT_ = comdat any
+
+$_ZN5eastl4pairIPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEC2IS3_S7_vEEv = comdat any
+
+$_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE12bucket_indexEPKNS_9hash_nodeISB_Lb0EEEj = comdat any
+
+$_ZN5eastl7forwardINS_18hashtable_iteratorINS_4pairIKiNS2_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEEEEOT_RNS_16remove_referenceISE_E4typeE = comdat any
+
+$_ZNK5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4sizeEv = comdat any
+
+$_ZNK5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5emptyEv = comdat any
+
+$_ZNK5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_ = comdat any
+
+$_ZNK5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv = comdat any
+
+$_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb1ELb0EEC2EPNS_9hash_nodeISB_Lb0EEEPSF_ = comdat any
+
+$_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb1ELb0EEC2EPPNS_9hash_nodeISB_Lb0EEE = comdat any
+
+$_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE6assignERNS_18hashtable_iteratorINS8_IKiSD_EELb0ELb0EEERKS3_ = comdat any
+
+$_ZN5eastl8internal15function_detailILi16EFiiEEC2EDn = comdat any
+
+$_ZN5eastl8internal15function_detailILi16EFiiEE14DefaultInvokerEiRKNS0_15functor_storageILi16EEE = comdat any
+
+$_ZN5eastl8internal15function_detailILi16EFvRKiEEC2EDn = comdat any
+
+$_ZN5eastl8internal15function_detailILi16EFvRKiEE14DefaultInvokerES3_RKNS0_15functor_storageILi16EEE = comdat any
+
+$_ZN5eastl8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEENS_9allocatorELb0EEC2ERKSB_ = comdat any
+
+$_ZN5eastl8functionIFiiEEC2ERKS2_ = comdat any
+
+$_ZN5eastl8functionIFvRKiEEC2ERKS4_ = comdat any
+
+$_ZN5eastl8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEENS_9allocatorELb0EED2Ev = comdat any
+
+$_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EEC2EmRKSF_RKSG_RKSH_RKSD_RKSB_RKS9_ = comdat any
+
+$_ZN5eastl14hash_code_baseIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EEC2ERKSA_RKSC_RKSE_RKSF_RKSG_ = comdat any
+
+$_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17reset_lose_memoryEv = comdat any
+
+$_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm = comdat any
+
+$_ZN5eastl8internal15function_detailILi16EFiiEEC2ERKS3_ = comdat any
+
+$_ZN5eastl8internal15function_detailILi16EFiiEE4CopyERKS3_ = comdat any
+
+$_ZN5eastl8internal15function_detailILi16EFvRKiEEC2ERKS5_ = comdat any
+
+$_ZN5eastl8internal15function_detailILi16EFvRKiEE4CopyERKS5_ = comdat any
+
+$_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev = comdat any
+
+$_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5clearEv = comdat any
+
+$_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS8_Lb0EEEm = comdat any
+
+$_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE11DoFreeNodesEPPNS_9hash_nodeIS8_Lb0EEEm = comdat any
+
+$_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS8_Lb0EEE = comdat any
+
+$_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv = comdat any
+
+$_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv = comdat any
+
+$_ZNK5eastl8functionIFvRKiEEcvbEv = comdat any
+
+$_ZNK5eastl8functionIFvRKiEEclES2_ = comdat any
+
+$_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0ELb0EEC2EPPNS_9hash_nodeIS8_Lb0EEE = comdat any
+
+$_ZN5eastl23hashtable_iterator_baseINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0EE16increment_bucketEv = comdat any
+
+$_ZN5eastl23hashtable_iterator_baseINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0EEC2EPNS_9hash_nodeIS8_Lb0EEEPSC_ = comdat any
+
+$_ZNK5eastl8internal15function_detailILi16EFvRKiEEcvbEv = comdat any
+
+$_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_ = comdat any
+
+$_ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEE6assignERNS_18hashtable_iteratorINS5_IKiSA_EELb0ELb0EEERSI_ = comdat any
+
+$_ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEE6insertERKiSI_ = comdat any
+
+$_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS2_ = comdat any
+
+$_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE12bucket_indexERS2_mj = comdat any
+
+$_ZNK5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFindNodeEPNS_9hash_nodeIS8_Lb0EEERS2_m = comdat any
+
+$_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0ELb0EEC2EPNS_9hash_nodeIS8_Lb0EEEPSC_ = comdat any
+
+$_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS2_mPNS_9hash_nodeIS8_Lb0EEE = comdat any
+
+$_ZNK5eastl9use_firstINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEEEclERKS8_ = comdat any
+
+$_ZNK5eastl18hashtable_iteratorINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0ELb0EEptEv = comdat any
+
+$_ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEE5touchERNS_18hashtable_iteratorINS5_IKiSA_EELb0ELb0EEE = comdat any
+
+$_ZN5eastleqINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0EEEbRKNS_23hashtable_iterator_baseIT_XT0_EEESD_ = comdat any
+
+$_ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEE10make_spaceEv = comdat any
+
+$_ZN5eastl4pairIiNS_12ListIteratorIiPiRiEEEC2IS4_vEERKiOT_ = comdat any
+
+$_ZN5eastl8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEENS_9allocatorELb0EEixERKi = comdat any
+
+$_ZNK5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEE4sizeEv = comdat any
+
+$_ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEE12erase_oldestEv = comdat any
+
+$_ZNK5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4sizeEv = comdat any
+
+$_ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEE9map_eraseENS_18hashtable_iteratorINS5_IKiSA_EELb0ELb0EEE = comdat any
+
+$_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0ELb0EEC2ERKS9_ = comdat any
+
+$_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorIS8_Lb1ELb0EEE = comdat any
+
+$_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb1ELb0EEC2ERKNS0_IS8_Lb0ELb0EEE = comdat any
+
+$_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE11DoInsertKeyENS_17integral_constantIbLb1EEERS2_ = comdat any
+
+$_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE11DoInsertKeyENS_17integral_constantIbLb1EEERS2_m = comdat any
+
+$_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE21DoAllocateNodeFromKeyERS2_ = comdat any
+
+$_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE8set_codeEPNS_9hash_nodeIS8_Lb0EEEm = comdat any
+
+$_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE8DoRehashEm = comdat any
+
+$_ZN5eastl4pairINS_18hashtable_iteratorINS0_IKiNS0_IiNS_12ListIteratorIiPiRiEEEEEELb0ELb0EEEbEC2IS9_bvEEOT_OT0_ = comdat any
+
+$_ZN5eastl9addressofINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEEEEPT_RS9_ = comdat any
+
+$_ZN5eastl4pairIKiNS0_IiNS_12ListIteratorIiPiRiEEEEEC2IiS6_vEENS_22pair_first_construct_tERKT_ = comdat any
+
+$_ZN5eastl4pairIiNS_12ListIteratorIiPiRiEEEC2IiS4_vEEv = comdat any
+
+$_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE12bucket_indexEPKNS_9hash_nodeIS8_Lb0EEEj = comdat any
+
+$_ZN5eastl7forwardINS_18hashtable_iteratorINS_4pairIKiNS2_IiNS_12ListIteratorIiPiRiEEEEEELb0ELb0EEEEEOT_RNS_16remove_referenceISB_E4typeE = comdat any
+
+$_ZN5eastl23hashtable_iterator_baseINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0EE9incrementEv = comdat any
+
+$_ZN5eastl7GetPairILm0EE11getInternalIKiNS_4pairIiNS_12ListIteratorIiPiRiEEEEEERT_RNS4_ISA_T0_EE = comdat any
+
+$_ZN5eastl7GetPairILm1EE11getInternalIKiNS_4pairIiNS_12ListIteratorIiPiRiEEEEEERT0_RNS4_IT_SA_EE = comdat any
+
+$_ZNKSt16initializer_listIN5eastl4pairIiiEEE4sizeEv = comdat any
+
+$_ZNKSt16initializer_listIN5eastl4pairIiiEEE5beginEv = comdat any
+
+$_ZNKSt16initializer_listIN5eastl4pairIiiEEE3endEv = comdat any
+
+@_ZN20TestLruCacheInternal3Foo5countE = dso_local global i32 0, align 4
+@.str = private unnamed_addr constant [16 x i8] c"EASTL lru_cache\00", align 1
+@.str.1 = private unnamed_addr constant [118 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/eastl/EASTL/test/source/TestLruCache.cpp\00", align 1
+@.str.2 = private unnamed_addr constant [30 x i8] c"lruCache.contains(1) == false\00", align 1
+@.str.3 = private unnamed_addr constant [21 x i8] c"lruCache.size() == 0\00", align 1
+@.str.4 = private unnamed_addr constant [25 x i8] c"lruCache.empty() == true\00", align 1
+@.str.5 = private unnamed_addr constant [25 x i8] c"lruCache.capacity() == 3\00", align 1
+@.str.6 = private unnamed_addr constant [36 x i8] c"lruCache.at(1).has_value() == false\00", align 1
+@.str.7 = private unnamed_addr constant [19 x i8] c"lruCache[0].a == 0\00", align 1
+@.str.8 = private unnamed_addr constant [19 x i8] c"lruCache[0].b == 1\00", align 1
+@.str.9 = private unnamed_addr constant [29 x i8] c"lruCache.contains(0) == true\00", align 1
+@.str.10 = private unnamed_addr constant [21 x i8] c"lruCache.size() == 1\00", align 1
+@.str.11 = private unnamed_addr constant [26 x i8] c"lruCache.empty() == false\00", align 1
+@.str.12 = private unnamed_addr constant [30 x i8] c"lruCache.at(1).value().a == 2\00", align 1
+@.str.13 = private unnamed_addr constant [30 x i8] c"lruCache.at(1).value().b == 3\00", align 1
+@.str.14 = private unnamed_addr constant [29 x i8] c"lruCache.contains(1) == true\00", align 1
+@.str.15 = private unnamed_addr constant [30 x i8] c"lruCache.contains(2) == false\00", align 1
+@.str.16 = private unnamed_addr constant [30 x i8] c"lruCache.contains(3) == false\00", align 1
+@.str.17 = private unnamed_addr constant [21 x i8] c"lruCache.size() == 2\00", align 1
+@.str.18 = private unnamed_addr constant [19 x i8] c"lruCache[2].a == 4\00", align 1
+@.str.19 = private unnamed_addr constant [19 x i8] c"lruCache[2].b == 5\00", align 1
+@.str.20 = private unnamed_addr constant [29 x i8] c"lruCache.contains(2) == true\00", align 1
+@.str.21 = private unnamed_addr constant [21 x i8] c"lruCache.size() == 3\00", align 1
+@.str.22 = private unnamed_addr constant [19 x i8] c"lruCache[3].a == 6\00", align 1
+@.str.23 = private unnamed_addr constant [19 x i8] c"lruCache[3].b == 7\00", align 1
+@.str.24 = private unnamed_addr constant [30 x i8] c"lruCache.contains(0) == false\00", align 1
+@.str.25 = private unnamed_addr constant [29 x i8] c"lruCache.contains(3) == true\00", align 1
+@.str.26 = private unnamed_addr constant [26 x i8] c"lruCache.touch(1) == true\00", align 1
+@.str.27 = private unnamed_addr constant [19 x i8] c"lruCache[4].a == 8\00", align 1
+@.str.28 = private unnamed_addr constant [19 x i8] c"lruCache[4].b == 9\00", align 1
+@.str.29 = private unnamed_addr constant [29 x i8] c"lruCache.contains(4) == true\00", align 1
+@.str.30 = private unnamed_addr constant [26 x i8] c"lruCache.touch(3) == true\00", align 1
+@.str.31 = private unnamed_addr constant [30 x i8] c"lruCache.contains(4) == false\00", align 1
+@.str.32 = private unnamed_addr constant [25 x i8] c"lruCache.capacity() == 1\00", align 1
+@.str.33 = private unnamed_addr constant [25 x i8] c"lruCache.capacity() == 5\00", align 1
+@.str.34 = private unnamed_addr constant [25 x i8] c"lruCache[3] == Foo(0, 0)\00", align 1
+@.str.35 = private unnamed_addr constant [25 x i8] c"lruCache[3] == Foo(1, 1)\00", align 1
+@.str.36 = private unnamed_addr constant [26 x i8] c"lruCache[25] == Foo(2, 2)\00", align 1
+@.str.37 = private unnamed_addr constant [30 x i8] c"lruCache.contains(25) == true\00", align 1
+@.str.38 = private unnamed_addr constant [16 x i8] c"eastl lru_cache\00", align 1
+@.str.39 = private unnamed_addr constant [33 x i8] c"fooCreator.mFooCreatedCount == 1\00", align 1
+@.str.40 = private unnamed_addr constant [33 x i8] c"fooCreator.mFooCreatedCount == 2\00", align 1
+@.str.41 = private unnamed_addr constant [33 x i8] c"fooCreator.mFooCreatedCount == 3\00", align 1
+@.str.42 = private unnamed_addr constant [21 x i8] c"lruCache[2]->a == 20\00", align 1
+@.str.43 = private unnamed_addr constant [21 x i8] c"lruCache[2]->b == 21\00", align 1
+@.str.44 = private unnamed_addr constant [33 x i8] c"fooCreator.mFooCreatedCount == 0\00", align 1
+@.str.45 = private unnamed_addr constant [29 x i8] c"lruCache.contains(7) == true\00", align 1
+@.str.46 = private unnamed_addr constant [26 x i8] c"lruCache.erase(7) == true\00", align 1
+@.str.47 = private unnamed_addr constant [13 x i8] c"i == p.first\00", align 1
+@.str.48 = private unnamed_addr constant [25 x i8] c"i + 10 == p.second.first\00", align 1
+@.str.49 = private unnamed_addr constant [9 x i8] c"i == key\00", align 1
+@.str.50 = private unnamed_addr constant [22 x i8] c"i + 10 == value.first\00", align 1
+@constinit = private constant [6 x %"struct.eastl::pair.28"] [%"struct.eastl::pair.28" { i32 0, i32 10 }, %"struct.eastl::pair.28" { i32 1, i32 11 }, %"struct.eastl::pair.28" { i32 2, i32 12 }, %"struct.eastl::pair.28" { i32 3, i32 13 }, %"struct.eastl::pair.28" { i32 4, i32 14 }, %"struct.eastl::pair.28" { i32 5, i32 15 }], align 4
+@_ZN5eastl18gpEmptyBucketArrayE = external global [2 x ptr], align 16
+@_ZN5eastlL7nulloptE = internal constant %"struct.eastl::nullopt_t" undef, align 1
+@_ZN5eastlL20pair_first_constructE = internal constant %"struct.eastl::pair_first_construct_t" zeroinitializer, align 1
+@_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
+@"_ZTSZ12TestLruCachevE3$_0" = internal constant [22 x i8] c"Z12TestLruCachevE3$_0\00", align 1
+@"_ZTIZ12TestLruCachevE3$_0" = internal constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @"_ZTSZ12TestLruCachevE3$_0" }, align 8
+@"_ZTSZ12TestLruCachevE3$_1" = internal constant [22 x i8] c"Z12TestLruCachevE3$_1\00", align 1
+@"_ZTIZ12TestLruCachevE3$_1" = internal constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @"_ZTSZ12TestLruCachevE3$_1" }, align 8
+
+; Function Attrs: mustprogress uwtable
+define dso_local noundef i32 @_Z12TestLruCachev() #0 personality ptr @__gxx_personality_v0 {
+entry:
+  %nErrorCount = alloca i32, align 4
+  %lruCache = alloca %"class.eastl::lru_cache", align 8
+  %ref.tmp = alloca %"class.eastl::allocator", align 1
+  %agg.tmp = alloca %"class.eastl::function", align 8
+  %agg.tmp1 = alloca %"class.eastl::function.0", align 8
+  %exn.slot = alloca ptr, align 8
+  %ehselector.slot = alloca i32, align 4
+  %ref.tmp2 = alloca i32, align 4
+  %ref.tmp20 = alloca %"class.eastl::optional", align 4
+  %ref.tmp21 = alloca i32, align 4
+  %ref.tmp28 = alloca i32, align 4
+  %ref.tmp34 = alloca i32, align 4
+  %ref.tmp40 = alloca i32, align 4
+  %ref.tmp47 = alloca i32, align 4
+  %ref.tmp67 = alloca i32, align 4
+  %ref.tmp68 = alloca %"struct.TestLruCacheInternal::Foo", align 4
+  %ref.tmp72 = alloca %"class.eastl::optional", align 4
+  %ref.tmp73 = alloca i32, align 4
+  %ref.tmp81 = alloca %"class.eastl::optional", align 4
+  %ref.tmp82 = alloca i32, align 4
+  %ref.tmp90 = alloca i32, align 4
+  %ref.tmp97 = alloca i32, align 4
+  %ref.tmp104 = alloca i32, align 4
+  %ref.tmp111 = alloca i32, align 4
+  %ref.tmp131 = alloca i32, align 4
+  %ref.tmp132 = alloca %"struct.TestLruCacheInternal::Foo", align 4
+  %ref.tmp136 = alloca i32, align 4
+  %ref.tmp143 = alloca i32, align 4
+  %ref.tmp150 = alloca i32, align 4
+  %ref.tmp157 = alloca i32, align 4
+  %ref.tmp164 = alloca i32, align 4
+  %ref.tmp171 = alloca i32, align 4
+  %ref.tmp191 = alloca i32, align 4
+  %ref.tmp192 = alloca %"struct.TestLruCacheInternal::Foo", align 4
+  %ref.tmp196 = alloca i32, align 4
+  %ref.tmp203 = alloca i32, align 4
+  %ref.tmp210 = alloca i32, align 4
+  %ref.tmp217 = alloca i32, align 4
+  %ref.tmp224 = alloca i32, align 4
+  %ref.tmp231 = alloca i32, align 4
+  %ref.tmp251 = alloca i32, align 4
+  %ref.tmp258 = alloca i32, align 4
+  %ref.tmp259 = alloca %"struct.TestLruCacheInternal::Foo", align 4
+  %ref.tmp263 = alloca i32, align 4
+  %ref.tmp270 = alloca i32, align 4
+  %ref.tmp277 = alloca i32, align 4
+  %ref.tmp284 = alloca i32, align 4
+  %ref.tmp291 = alloca i32, align 4
+  %ref.tmp298 = alloca i32, align 4
+  %ref.tmp305 = alloca i32, align 4
+  %ref.tmp325 = alloca i32, align 4
+  %ref.tmp333 = alloca i32, align 4
+  %ref.tmp340 = alloca i32, align 4
+  %ref.tmp347 = alloca i32, align 4
+  %ref.tmp354 = alloca i32, align 4
+  %ref.tmp361 = alloca i32, align 4
+  %ref.tmp382 = alloca i32, align 4
+  %ref.tmp389 = alloca i32, align 4
+  %ref.tmp396 = alloca i32, align 4
+  %ref.tmp403 = alloca i32, align 4
+  %ref.tmp410 = alloca i32, align 4
+  %ref.tmp430 = alloca i32, align 4
+  %ref.tmp431 = alloca %"struct.TestLruCacheInternal::Foo", align 4
+  %ref.tmp435 = alloca i32, align 4
+  %ref.tmp438 = alloca %"struct.TestLruCacheInternal::Foo", align 4
+  %ref.tmp444 = alloca i32, align 4
+  %ref.tmp451 = alloca i32, align 4
+  %ref.tmp458 = alloca i32, align 4
+  %ref.tmp465 = alloca i32, align 4
+  %ref.tmp472 = alloca i32, align 4
+  %ref.tmp492 = alloca i32, align 4
+  %ref.tmp493 = alloca %"struct.TestLruCacheInternal::Foo", align 4
+  %ref.tmp496 = alloca i32, align 4
+  %ref.tmp499 = alloca %"struct.TestLruCacheInternal::Foo", align 4
+  %ref.tmp505 = alloca i32, align 4
+  %ref.tmp512 = alloca i32, align 4
+  %ref.tmp519 = alloca i32, align 4
+  %ref.tmp526 = alloca i32, align 4
+  %ref.tmp533 = alloca i32, align 4
+  %ref.tmp553 = alloca i32, align 4
+  %ref.tmp554 = alloca %"struct.TestLruCacheInternal::Foo", align 4
+  %ref.tmp557 = alloca i32, align 4
+  %ref.tmp560 = alloca %"struct.TestLruCacheInternal::Foo", align 4
+  %ref.tmp566 = alloca i32, align 4
+  %ref.tmp569 = alloca %"struct.TestLruCacheInternal::Foo", align 4
+  %ref.tmp575 = alloca i32, align 4
+  %ref.tmp582 = alloca i32, align 4
+  %ref.tmp589 = alloca i32, align 4
+  %ref.tmp596 = alloca i32, align 4
+  %ref.tmp603 = alloca i32, align 4
+  %ref.tmp610 = alloca i32, align 4
+  %ref.tmp643 = alloca i32, align 4
+  %ref.tmp650 = alloca %"struct.TestLruCacheInternal::Foo", align 4
+  %ref.tmp652 = alloca i32, align 4
+  %fooCreator = alloca %"class.TestLruCacheInternal::FooCreator", align 4
+  %createCallback = alloca %class.anon, align 8
+  %deleteCallback = alloca %class.anon.2, align 8
+  %lruCache659 = alloca %"class.eastl::lru_cache.3", align 8
+  %ref.tmp660 = alloca %"class.eastl::allocator", align 1
+  %agg.tmp661 = alloca %"class.eastl::function.11", align 8
+  %agg.tmp662 = alloca %class.anon, align 8
+  %agg.tmp663 = alloca %"class.eastl::function.13", align 8
+  %agg.tmp664 = alloca %class.anon.2, align 8
+  %ref.tmp670 = alloca i32, align 4
+  %ref.tmp690 = alloca i32, align 4
+  %ref.tmp697 = alloca i32, align 4
+  %ref.tmp704 = alloca i32, align 4
+  %ref.tmp724 = alloca i32, align 4
+  %ref.tmp731 = alloca i32, align 4
+  %f = alloca ptr, align 8
+  %ref.tmp746 = alloca i32, align 4
+  %ref.tmp766 = alloca i32, align 4
+  %ref.tmp773 = alloca i32, align 4
+  %ref.tmp780 = alloca i32, align 4
+  %ref.tmp787 = alloca i32, align 4
+  %ref.tmp794 = alloca i32, align 4
+  %ref.tmp814 = alloca i32, align 4
+  %ref.tmp821 = alloca i32, align 4
+  %ref.tmp828 = alloca i32, align 4
+  %ref.tmp848 = alloca i32, align 4
+  %ref.tmp855 = alloca i32, align 4
+  %f862 = alloca ptr, align 8
+  %ref.tmp871 = alloca i32, align 4
+  %ref.tmp886 = alloca i32, align 4
+  %ref.tmp893 = alloca i32, align 4
+  %ref.tmp900 = alloca i32, align 4
+  %ref.tmp907 = alloca i32, align 4
+  %lc = alloca %"class.eastl::lru_cache.15", align 8
+  %ref.tmp919 = alloca %"class.eastl::allocator", align 1
+  %agg.tmp920 = alloca %"class.eastl::function.23", align 8
+  %agg.tmp921 = alloca %"class.eastl::function.25", align 8
+  %ref.tmp926 = alloca i32, align 4
+  %ref.tmp927 = alloca i32, align 4
+  %ref.tmp930 = alloca i32, align 4
+  %ref.tmp931 = alloca i32, align 4
+  %ref.tmp933 = alloca i32, align 4
+  %ref.tmp934 = alloca i32, align 4
+  %ref.tmp936 = alloca i32, align 4
+  %ref.tmp937 = alloca i32, align 4
+  %ref.tmp939 = alloca i32, align 4
+  %ref.tmp940 = alloca i32, align 4
+  %i = alloca i32, align 4
+  %b942 = alloca %"struct.eastl::hashtable_iterator", align 8
+  %e = alloca %"struct.eastl::hashtable_iterator", align 8
+  %p = alloca ptr, align 8
+  %tmp = alloca %"struct.eastl::hashtable_iterator", align 8
+  %i955 = alloca i32, align 4
+  %__range2 = alloca ptr, align 8
+  %__begin2 = alloca %"struct.eastl::hashtable_iterator", align 8
+  %__end2 = alloca %"struct.eastl::hashtable_iterator", align 8
+  %p960 = alloca ptr, align 8
+  %i978 = alloca i32, align 4
+  %__range2979 = alloca ptr, align 8
+  %__begin2980 = alloca %"struct.eastl::hashtable_iterator", align 8
+  %__end2981 = alloca %"struct.eastl::hashtable_iterator", align 8
+  %0 = alloca ptr, align 8
+  %key = alloca ptr, align 8
+  %value = alloca ptr, align 8
+  %lc1006 = alloca %"class.eastl::lru_cache.15", align 8
+  %agg.tmp1007 = alloca %"class.std::initializer_list", align 8
+  %ref.tmp1008 = alloca [6 x %"struct.eastl::pair.28"], align 4
+  %i1009 = alloca i32, align 4
+  %__range1 = alloca ptr, align 8
+  %__begin1 = alloca %"struct.eastl::hashtable_iterator", align 8
+  %__end1 = alloca %"struct.eastl::hashtable_iterator", align 8
+  %p1015 = alloca ptr, align 8
+  store i32 0, ptr %nErrorCount, align 4
+  call void @_ZN5eastl9allocatorC2EPKc(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef @.str)
+  call void @_ZN5eastl8functionIFN20TestLruCacheInternal3FooEiEEC2EDn(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr null) #9
+  call void @_ZN5eastl8functionIFvRKN20TestLruCacheInternal3FooEEEC2EDn(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1, ptr null) #9
+  invoke void @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEEC2EmRKS3_NS_8functionIFS2_iEEENSL_IFvRKS2_EEE(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, i64 noundef 3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef %agg.tmp, ptr noundef %agg.tmp1)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %entry
+  call void @_ZN5eastl8functionIFvRKN20TestLruCacheInternal3FooEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1) #9
+  call void @_ZN5eastl8functionIFN20TestLruCacheInternal3FooEiEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #9
+  store i32 1, ptr %ref.tmp2, align 4
+  %call = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2)
+          to label %invoke.cont4 unwind label %lpad3
+
+invoke.cont4:                                     ; preds = %invoke.cont
+  %conv = zext i1 %call to i32
+  %cmp = icmp eq i32 %conv, 0
+  %call6 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 66, ptr noundef @.str.2)
+          to label %invoke.cont5 unwind label %lpad3
+
+invoke.cont5:                                     ; preds = %invoke.cont4
+  %call7 = call noundef i64 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache) #9
+  %cmp8 = icmp eq i64 %call7, 0
+  %call10 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp8, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 67, ptr noundef @.str.3)
+          to label %invoke.cont9 unwind label %lpad3
+
+invoke.cont9:                                     ; preds = %invoke.cont5
+  %call11 = call noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache) #9
+  %conv12 = zext i1 %call11 to i32
+  %cmp13 = icmp eq i32 %conv12, 1
+  %call15 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp13, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 68, ptr noundef @.str.4)
+          to label %invoke.cont14 unwind label %lpad3
+
+invoke.cont14:                                    ; preds = %invoke.cont9
+  %call16 = call noundef i64 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache) #9
+  %cmp17 = icmp eq i64 %call16, 3
+  %call19 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp17, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 69, ptr noundef @.str.5)
+          to label %invoke.cont18 unwind label %lpad3
+
+invoke.cont18:                                    ; preds = %invoke.cont14
+  store i32 1, ptr %ref.tmp21, align 4
+  invoke void @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE2atERKi(ptr sret(%"class.eastl::optional") align 4 %ref.tmp20, ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp21)
+          to label %invoke.cont22 unwind label %lpad3
+
+invoke.cont22:                                    ; preds = %invoke.cont18
+  %call23 = call noundef zeroext i1 @_ZNK5eastl8optionalIN20TestLruCacheInternal3FooEE9has_valueEv(ptr noundef nonnull align 4 dereferenceable(9) %ref.tmp20) #9
+  %conv24 = zext i1 %call23 to i32
+  %cmp25 = icmp eq i32 %conv24, 0
+  %call27 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp25, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 70, ptr noundef @.str.6)
+          to label %invoke.cont26 unwind label %lpad3
+
+invoke.cont26:                                    ; preds = %invoke.cont22
+  store i32 0, ptr %ref.tmp28, align 4
+  %call30 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEEixERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp28)
+          to label %invoke.cont29 unwind label %lpad3
+
+invoke.cont29:                                    ; preds = %invoke.cont26
+  %a = getelementptr inbounds %"struct.TestLruCacheInternal::Foo", ptr %call30, i32 0, i32 0
+  %1 = load i32, ptr %a, align 4
+  %cmp31 = icmp eq i32 %1, 0
+  %call33 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp31, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 73, ptr noundef @.str.7)
+          to label %invoke.cont32 unwind label %lpad3
+
+invoke.cont32:                                    ; preds = %invoke.cont29
+  store i32 0, ptr %ref.tmp34, align 4
+  %call36 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEEixERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp34)
+          to label %invoke.cont35 unwind label %lpad3
+
+invoke.cont35:                                    ; preds = %invoke.cont32
+  %b = getelementptr inbounds %"struct.TestLruCacheInternal::Foo", ptr %call36, i32 0, i32 1
+  %2 = load i32, ptr %b, align 4
+  %cmp37 = icmp eq i32 %2, 1
+  %call39 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp37, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 74, ptr noundef @.str.8)
+          to label %invoke.cont38 unwind label %lpad3
+
+invoke.cont38:                                    ; preds = %invoke.cont35
+  store i32 1, ptr %ref.tmp40, align 4
+  %call42 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp40)
+          to label %invoke.cont41 unwind label %lpad3
+
+invoke.cont41:                                    ; preds = %invoke.cont38
+  %conv43 = zext i1 %call42 to i32
+  %cmp44 = icmp eq i32 %conv43, 0
+  %call46 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp44, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 75, ptr noundef @.str.2)
+          to label %invoke.cont45 unwind label %lpad3
+
+invoke.cont45:                                    ; preds = %invoke.cont41
+  store i32 0, ptr %ref.tmp47, align 4
+  %call49 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp47)
+          to label %invoke.cont48 unwind label %lpad3
+
+invoke.cont48:                                    ; preds = %invoke.cont45
+  %conv50 = zext i1 %call49 to i32
+  %cmp51 = icmp eq i32 %conv50, 1
+  %call53 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp51, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 76, ptr noundef @.str.9)
+          to label %invoke.cont52 unwind label %lpad3
+
+invoke.cont52:                                    ; preds = %invoke.cont48
+  %call54 = call noundef i64 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache) #9
+  %cmp55 = icmp eq i64 %call54, 1
+  %call57 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp55, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 77, ptr noundef @.str.10)
+          to label %invoke.cont56 unwind label %lpad3
+
+invoke.cont56:                                    ; preds = %invoke.cont52
+  %call58 = call noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache) #9
+  %conv59 = zext i1 %call58 to i32
+  %cmp60 = icmp eq i32 %conv59, 0
+  %call62 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp60, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 78, ptr noundef @.str.11)
+          to label %invoke.cont61 unwind label %lpad3
+
+invoke.cont61:                                    ; preds = %invoke.cont56
+  %call63 = call noundef i64 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache) #9
+  %cmp64 = icmp eq i64 %call63, 3
+  %call66 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp64, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 79, ptr noundef @.str.5)
+          to label %invoke.cont65 unwind label %lpad3
+
+invoke.cont65:                                    ; preds = %invoke.cont61
+  store i32 1, ptr %ref.tmp67, align 4
+  invoke void @_ZN20TestLruCacheInternal3FooC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp68, i32 noundef 2, i32 noundef 3)
+          to label %invoke.cont69 unwind label %lpad3
+
+invoke.cont69:                                    ; preds = %invoke.cont65
+  %call71 = invoke noundef zeroext i1 @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE6insertERKiRKS2_(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp67, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp68)
+          to label %invoke.cont70 unwind label %lpad3
+
+invoke.cont70:                                    ; preds = %invoke.cont69
+  store i32 1, ptr %ref.tmp73, align 4
+  invoke void @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE2atERKi(ptr sret(%"class.eastl::optional") align 4 %ref.tmp72, ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp73)
+          to label %invoke.cont74 unwind label %lpad3
+
+invoke.cont74:                                    ; preds = %invoke.cont70
+  %call76 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZNO5eastl8optionalIN20TestLruCacheInternal3FooEE5valueEv(ptr noundef nonnull align 4 dereferenceable(9) %ref.tmp72)
+          to label %invoke.cont75 unwind label %lpad3
+
+invoke.cont75:                                    ; preds = %invoke.cont74
+  %a77 = getelementptr inbounds %"struct.TestLruCacheInternal::Foo", ptr %call76, i32 0, i32 0
+  %3 = load i32, ptr %a77, align 4
+  %cmp78 = icmp eq i32 %3, 2
+  %call80 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp78, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 83, ptr noundef @.str.12)
+          to label %invoke.cont79 unwind label %lpad3
+
+invoke.cont79:                                    ; preds = %invoke.cont75
+  store i32 1, ptr %ref.tmp82, align 4
+  invoke void @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE2atERKi(ptr sret(%"class.eastl::optional") align 4 %ref.tmp81, ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp82)
+          to label %invoke.cont83 unwind label %lpad3
+
+invoke.cont83:                                    ; preds = %invoke.cont79
+  %call85 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZNO5eastl8optionalIN20TestLruCacheInternal3FooEE5valueEv(ptr noundef nonnull align 4 dereferenceable(9) %ref.tmp81)
+          to label %invoke.cont84 unwind label %lpad3
+
+invoke.cont84:                                    ; preds = %invoke.cont83
+  %b86 = getelementptr inbounds %"struct.TestLruCacheInternal::Foo", ptr %call85, i32 0, i32 1
+  %4 = load i32, ptr %b86, align 4
+  %cmp87 = icmp eq i32 %4, 3
+  %call89 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp87, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 84, ptr noundef @.str.13)
+          to label %invoke.cont88 unwind label %lpad3
+
+invoke.cont88:                                    ; preds = %invoke.cont84
+  store i32 0, ptr %ref.tmp90, align 4
+  %call92 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp90)
+          to label %invoke.cont91 unwind label %lpad3
+
+invoke.cont91:                                    ; preds = %invoke.cont88
+  %conv93 = zext i1 %call92 to i32
+  %cmp94 = icmp eq i32 %conv93, 1
+  %call96 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp94, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 85, ptr noundef @.str.9)
+          to label %invoke.cont95 unwind label %lpad3
+
+invoke.cont95:                                    ; preds = %invoke.cont91
+  store i32 1, ptr %ref.tmp97, align 4
+  %call99 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp97)
+          to label %invoke.cont98 unwind label %lpad3
+
+invoke.cont98:                                    ; preds = %invoke.cont95
+  %conv100 = zext i1 %call99 to i32
+  %cmp101 = icmp eq i32 %conv100, 1
+  %call103 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp101, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 86, ptr noundef @.str.14)
+          to label %invoke.cont102 unwind label %lpad3
+
+invoke.cont102:                                   ; preds = %invoke.cont98
+  store i32 2, ptr %ref.tmp104, align 4
+  %call106 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp104)
+          to label %invoke.cont105 unwind label %lpad3
+
+invoke.cont105:                                   ; preds = %invoke.cont102
+  %conv107 = zext i1 %call106 to i32
+  %cmp108 = icmp eq i32 %conv107, 0
+  %call110 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp108, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 87, ptr noundef @.str.15)
+          to label %invoke.cont109 unwind label %lpad3
+
+invoke.cont109:                                   ; preds = %invoke.cont105
+  store i32 3, ptr %ref.tmp111, align 4
+  %call113 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp111)
+          to label %invoke.cont112 unwind label %lpad3
+
+invoke.cont112:                                   ; preds = %invoke.cont109
+  %conv114 = zext i1 %call113 to i32
+  %cmp115 = icmp eq i32 %conv114, 0
+  %call117 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp115, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 88, ptr noundef @.str.16)
+          to label %invoke.cont116 unwind label %lpad3
+
+invoke.cont116:                                   ; preds = %invoke.cont112
+  %call118 = call noundef i64 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache) #9
+  %cmp119 = icmp eq i64 %call118, 2
+  %call121 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp119, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 89, ptr noundef @.str.17)
+          to label %invoke.cont120 unwind label %lpad3
+
+invoke.cont120:                                   ; preds = %invoke.cont116
+  %call122 = call noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache) #9
+  %conv123 = zext i1 %call122 to i32
+  %cmp124 = icmp eq i32 %conv123, 0
+  %call126 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp124, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 90, ptr noundef @.str.11)
+          to label %invoke.cont125 unwind label %lpad3
+
+invoke.cont125:                                   ; preds = %invoke.cont120
+  %call127 = call noundef i64 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache) #9
+  %cmp128 = icmp eq i64 %call127, 3
+  %call130 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp128, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 91, ptr noundef @.str.5)
+          to label %invoke.cont129 unwind label %lpad3
+
+invoke.cont129:                                   ; preds = %invoke.cont125
+  store i32 2, ptr %ref.tmp131, align 4
+  invoke void @_ZN20TestLruCacheInternal3FooC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp132, i32 noundef 4, i32 noundef 5)
+          to label %invoke.cont133 unwind label %lpad3
+
+invoke.cont133:                                   ; preds = %invoke.cont129
+  %call135 = invoke noundef zeroext i1 @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE6insertERKiRKS2_(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp131, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp132)
+          to label %invoke.cont134 unwind label %lpad3
+
+invoke.cont134:                                   ; preds = %invoke.cont133
+  store i32 2, ptr %ref.tmp136, align 4
+  %call138 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEEixERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp136)
+          to label %invoke.cont137 unwind label %lpad3
+
+invoke.cont137:                                   ; preds = %invoke.cont134
+  %a139 = getelementptr inbounds %"struct.TestLruCacheInternal::Foo", ptr %call138, i32 0, i32 0
+  %5 = load i32, ptr %a139, align 4
+  %cmp140 = icmp eq i32 %5, 4
+  %call142 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp140, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 94, ptr noundef @.str.18)
+          to label %invoke.cont141 unwind label %lpad3
+
+invoke.cont141:                                   ; preds = %invoke.cont137
+  store i32 2, ptr %ref.tmp143, align 4
+  %call145 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEEixERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp143)
+          to label %invoke.cont144 unwind label %lpad3
+
+invoke.cont144:                                   ; preds = %invoke.cont141
+  %b146 = getelementptr inbounds %"struct.TestLruCacheInternal::Foo", ptr %call145, i32 0, i32 1
+  %6 = load i32, ptr %b146, align 4
+  %cmp147 = icmp eq i32 %6, 5
+  %call149 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp147, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 95, ptr noundef @.str.19)
+          to label %invoke.cont148 unwind label %lpad3
+
+invoke.cont148:                                   ; preds = %invoke.cont144
+  store i32 0, ptr %ref.tmp150, align 4
+  %call152 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp150)
+          to label %invoke.cont151 unwind label %lpad3
+
+invoke.cont151:                                   ; preds = %invoke.cont148
+  %conv153 = zext i1 %call152 to i32
+  %cmp154 = icmp eq i32 %conv153, 1
+  %call156 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp154, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 96, ptr noundef @.str.9)
+          to label %invoke.cont155 unwind label %lpad3
+
+invoke.cont155:                                   ; preds = %invoke.cont151
+  store i32 1, ptr %ref.tmp157, align 4
+  %call159 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp157)
+          to label %invoke.cont158 unwind label %lpad3
+
+invoke.cont158:                                   ; preds = %invoke.cont155
+  %conv160 = zext i1 %call159 to i32
+  %cmp161 = icmp eq i32 %conv160, 1
+  %call163 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp161, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 97, ptr noundef @.str.14)
+          to label %invoke.cont162 unwind label %lpad3
+
+invoke.cont162:                                   ; preds = %invoke.cont158
+  store i32 2, ptr %ref.tmp164, align 4
+  %call166 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp164)
+          to label %invoke.cont165 unwind label %lpad3
+
+invoke.cont165:                                   ; preds = %invoke.cont162
+  %conv167 = zext i1 %call166 to i32
+  %cmp168 = icmp eq i32 %conv167, 1
+  %call170 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp168, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 98, ptr noundef @.str.20)
+          to label %invoke.cont169 unwind label %lpad3
+
+invoke.cont169:                                   ; preds = %invoke.cont165
+  store i32 3, ptr %ref.tmp171, align 4
+  %call173 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp171)
+          to label %invoke.cont172 unwind label %lpad3
+
+invoke.cont172:                                   ; preds = %invoke.cont169
+  %conv174 = zext i1 %call173 to i32
+  %cmp175 = icmp eq i32 %conv174, 0
+  %call177 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp175, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 99, ptr noundef @.str.16)
+          to label %invoke.cont176 unwind label %lpad3
+
+invoke.cont176:                                   ; preds = %invoke.cont172
+  %call178 = call noundef i64 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache) #9
+  %cmp179 = icmp eq i64 %call178, 3
+  %call181 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp179, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 100, ptr noundef @.str.21)
+          to label %invoke.cont180 unwind label %lpad3
+
+invoke.cont180:                                   ; preds = %invoke.cont176
+  %call182 = call noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache) #9
+  %conv183 = zext i1 %call182 to i32
+  %cmp184 = icmp eq i32 %conv183, 0
+  %call186 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp184, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 101, ptr noundef @.str.11)
+          to label %invoke.cont185 unwind label %lpad3
+
+invoke.cont185:                                   ; preds = %invoke.cont180
+  %call187 = call noundef i64 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache) #9
+  %cmp188 = icmp eq i64 %call187, 3
+  %call190 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp188, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 102, ptr noundef @.str.5)
+          to label %invoke.cont189 unwind label %lpad3
+
+invoke.cont189:                                   ; preds = %invoke.cont185
+  store i32 3, ptr %ref.tmp191, align 4
+  invoke void @_ZN20TestLruCacheInternal3FooC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp192, i32 noundef 6, i32 noundef 7)
+          to label %invoke.cont193 unwind label %lpad3
+
+invoke.cont193:                                   ; preds = %invoke.cont189
+  %call195 = invoke noundef zeroext i1 @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE6insertERKiRKS2_(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp191, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp192)
+          to label %invoke.cont194 unwind label %lpad3
+
+invoke.cont194:                                   ; preds = %invoke.cont193
+  store i32 3, ptr %ref.tmp196, align 4
+  %call198 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEEixERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp196)
+          to label %invoke.cont197 unwind label %lpad3
+
+invoke.cont197:                                   ; preds = %invoke.cont194
+  %a199 = getelementptr inbounds %"struct.TestLruCacheInternal::Foo", ptr %call198, i32 0, i32 0
+  %7 = load i32, ptr %a199, align 4
+  %cmp200 = icmp eq i32 %7, 6
+  %call202 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp200, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 106, ptr noundef @.str.22)
+          to label %invoke.cont201 unwind label %lpad3
+
+invoke.cont201:                                   ; preds = %invoke.cont197
+  store i32 3, ptr %ref.tmp203, align 4
+  %call205 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEEixERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp203)
+          to label %invoke.cont204 unwind label %lpad3
+
+invoke.cont204:                                   ; preds = %invoke.cont201
+  %b206 = getelementptr inbounds %"struct.TestLruCacheInternal::Foo", ptr %call205, i32 0, i32 1
+  %8 = load i32, ptr %b206, align 4
+  %cmp207 = icmp eq i32 %8, 7
+  %call209 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp207, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 107, ptr noundef @.str.23)
+          to label %invoke.cont208 unwind label %lpad3
+
+invoke.cont208:                                   ; preds = %invoke.cont204
+  store i32 0, ptr %ref.tmp210, align 4
+  %call212 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp210)
+          to label %invoke.cont211 unwind label %lpad3
+
+invoke.cont211:                                   ; preds = %invoke.cont208
+  %conv213 = zext i1 %call212 to i32
+  %cmp214 = icmp eq i32 %conv213, 0
+  %call216 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp214, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 108, ptr noundef @.str.24)
+          to label %invoke.cont215 unwind label %lpad3
+
+invoke.cont215:                                   ; preds = %invoke.cont211
+  store i32 1, ptr %ref.tmp217, align 4
+  %call219 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp217)
+          to label %invoke.cont218 unwind label %lpad3
+
+invoke.cont218:                                   ; preds = %invoke.cont215
+  %conv220 = zext i1 %call219 to i32
+  %cmp221 = icmp eq i32 %conv220, 1
+  %call223 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp221, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 109, ptr noundef @.str.14)
+          to label %invoke.cont222 unwind label %lpad3
+
+invoke.cont222:                                   ; preds = %invoke.cont218
+  store i32 2, ptr %ref.tmp224, align 4
+  %call226 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp224)
+          to label %invoke.cont225 unwind label %lpad3
+
+invoke.cont225:                                   ; preds = %invoke.cont222
+  %conv227 = zext i1 %call226 to i32
+  %cmp228 = icmp eq i32 %conv227, 1
+  %call230 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp228, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 110, ptr noundef @.str.20)
+          to label %invoke.cont229 unwind label %lpad3
+
+invoke.cont229:                                   ; preds = %invoke.cont225
+  store i32 3, ptr %ref.tmp231, align 4
+  %call233 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp231)
+          to label %invoke.cont232 unwind label %lpad3
+
+invoke.cont232:                                   ; preds = %invoke.cont229
+  %conv234 = zext i1 %call233 to i32
+  %cmp235 = icmp eq i32 %conv234, 1
+  %call237 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp235, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 111, ptr noundef @.str.25)
+          to label %invoke.cont236 unwind label %lpad3
+
+invoke.cont236:                                   ; preds = %invoke.cont232
+  %call238 = call noundef i64 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache) #9
+  %cmp239 = icmp eq i64 %call238, 3
+  %call241 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp239, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 112, ptr noundef @.str.21)
+          to label %invoke.cont240 unwind label %lpad3
+
+invoke.cont240:                                   ; preds = %invoke.cont236
+  %call242 = call noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache) #9
+  %conv243 = zext i1 %call242 to i32
+  %cmp244 = icmp eq i32 %conv243, 0
+  %call246 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp244, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 113, ptr noundef @.str.11)
+          to label %invoke.cont245 unwind label %lpad3
+
+invoke.cont245:                                   ; preds = %invoke.cont240
+  %call247 = call noundef i64 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache) #9
+  %cmp248 = icmp eq i64 %call247, 3
+  %call250 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp248, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 114, ptr noundef @.str.5)
+          to label %invoke.cont249 unwind label %lpad3
+
+invoke.cont249:                                   ; preds = %invoke.cont245
+  store i32 1, ptr %ref.tmp251, align 4
+  %call253 = invoke noundef zeroext i1 @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE5touchERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp251)
+          to label %invoke.cont252 unwind label %lpad3
+
+invoke.cont252:                                   ; preds = %invoke.cont249
+  %conv254 = zext i1 %call253 to i32
+  %cmp255 = icmp eq i32 %conv254, 1
+  %call257 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp255, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 117, ptr noundef @.str.26)
+          to label %invoke.cont256 unwind label %lpad3
+
+invoke.cont256:                                   ; preds = %invoke.cont252
+  store i32 4, ptr %ref.tmp258, align 4
+  invoke void @_ZN20TestLruCacheInternal3FooC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp259, i32 noundef 8, i32 noundef 9)
+          to label %invoke.cont260 unwind label %lpad3
+
+invoke.cont260:                                   ; preds = %invoke.cont256
+  %call262 = invoke noundef zeroext i1 @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE6insertERKiRKS2_(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp258, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp259)
+          to label %invoke.cont261 unwind label %lpad3
+
+invoke.cont261:                                   ; preds = %invoke.cont260
+  store i32 4, ptr %ref.tmp263, align 4
+  %call265 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEEixERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp263)
+          to label %invoke.cont264 unwind label %lpad3
+
+invoke.cont264:                                   ; preds = %invoke.cont261
+  %a266 = getelementptr inbounds %"struct.TestLruCacheInternal::Foo", ptr %call265, i32 0, i32 0
+  %9 = load i32, ptr %a266, align 4
+  %cmp267 = icmp eq i32 %9, 8
+  %call269 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp267, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 121, ptr noundef @.str.27)
+          to label %invoke.cont268 unwind label %lpad3
+
+invoke.cont268:                                   ; preds = %invoke.cont264
+  store i32 4, ptr %ref.tmp270, align 4
+  %call272 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEEixERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp270)
+          to label %invoke.cont271 unwind label %lpad3
+
+invoke.cont271:                                   ; preds = %invoke.cont268
+  %b273 = getelementptr inbounds %"struct.TestLruCacheInternal::Foo", ptr %call272, i32 0, i32 1
+  %10 = load i32, ptr %b273, align 4
+  %cmp274 = icmp eq i32 %10, 9
+  %call276 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp274, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 122, ptr noundef @.str.28)
+          to label %invoke.cont275 unwind label %lpad3
+
+invoke.cont275:                                   ; preds = %invoke.cont271
+  store i32 0, ptr %ref.tmp277, align 4
+  %call279 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp277)
+          to label %invoke.cont278 unwind label %lpad3
+
+invoke.cont278:                                   ; preds = %invoke.cont275
+  %conv280 = zext i1 %call279 to i32
+  %cmp281 = icmp eq i32 %conv280, 0
+  %call283 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp281, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 123, ptr noundef @.str.24)
+          to label %invoke.cont282 unwind label %lpad3
+
+invoke.cont282:                                   ; preds = %invoke.cont278
+  store i32 1, ptr %ref.tmp284, align 4
+  %call286 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp284)
+          to label %invoke.cont285 unwind label %lpad3
+
+invoke.cont285:                                   ; preds = %invoke.cont282
+  %conv287 = zext i1 %call286 to i32
+  %cmp288 = icmp eq i32 %conv287, 1
+  %call290 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp288, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 124, ptr noundef @.str.14)
+          to label %invoke.cont289 unwind label %lpad3
+
+invoke.cont289:                                   ; preds = %invoke.cont285
+  store i32 2, ptr %ref.tmp291, align 4
+  %call293 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp291)
+          to label %invoke.cont292 unwind label %lpad3
+
+invoke.cont292:                                   ; preds = %invoke.cont289
+  %conv294 = zext i1 %call293 to i32
+  %cmp295 = icmp eq i32 %conv294, 0
+  %call297 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp295, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 125, ptr noundef @.str.15)
+          to label %invoke.cont296 unwind label %lpad3
+
+invoke.cont296:                                   ; preds = %invoke.cont292
+  store i32 3, ptr %ref.tmp298, align 4
+  %call300 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp298)
+          to label %invoke.cont299 unwind label %lpad3
+
+invoke.cont299:                                   ; preds = %invoke.cont296
+  %conv301 = zext i1 %call300 to i32
+  %cmp302 = icmp eq i32 %conv301, 1
+  %call304 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp302, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 126, ptr noundef @.str.25)
+          to label %invoke.cont303 unwind label %lpad3
+
+invoke.cont303:                                   ; preds = %invoke.cont299
+  store i32 4, ptr %ref.tmp305, align 4
+  %call307 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp305)
+          to label %invoke.cont306 unwind label %lpad3
+
+invoke.cont306:                                   ; preds = %invoke.cont303
+  %conv308 = zext i1 %call307 to i32
+  %cmp309 = icmp eq i32 %conv308, 1
+  %call311 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp309, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 127, ptr noundef @.str.29)
+          to label %invoke.cont310 unwind label %lpad3
+
+invoke.cont310:                                   ; preds = %invoke.cont306
+  %call312 = call noundef i64 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache) #9
+  %cmp313 = icmp eq i64 %call312, 3
+  %call315 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp313, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 128, ptr noundef @.str.21)
+          to label %invoke.cont314 unwind label %lpad3
+
+invoke.cont314:                                   ; preds = %invoke.cont310
+  %call316 = call noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache) #9
+  %conv317 = zext i1 %call316 to i32
+  %cmp318 = icmp eq i32 %conv317, 0
+  %call320 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp318, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 129, ptr noundef @.str.11)
+          to label %invoke.cont319 unwind label %lpad3
+
+invoke.cont319:                                   ; preds = %invoke.cont314
+  %call321 = call noundef i64 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache) #9
+  %cmp322 = icmp eq i64 %call321, 3
+  %call324 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp322, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 130, ptr noundef @.str.5)
+          to label %invoke.cont323 unwind label %lpad3
+
+invoke.cont323:                                   ; preds = %invoke.cont319
+  store i32 3, ptr %ref.tmp325, align 4
+  %call327 = invoke noundef zeroext i1 @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE5touchERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp325)
+          to label %invoke.cont326 unwind label %lpad3
+
+invoke.cont326:                                   ; preds = %invoke.cont323
+  %conv328 = zext i1 %call327 to i32
+  %cmp329 = icmp eq i32 %conv328, 1
+  %call331 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp329, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 133, ptr noundef @.str.30)
+          to label %invoke.cont330 unwind label %lpad3
+
+invoke.cont330:                                   ; preds = %invoke.cont326
+  invoke void @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, i64 noundef 1)
+          to label %invoke.cont332 unwind label %lpad3
+
+invoke.cont332:                                   ; preds = %invoke.cont330
+  store i32 0, ptr %ref.tmp333, align 4
+  %call335 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp333)
+          to label %invoke.cont334 unwind label %lpad3
+
+invoke.cont334:                                   ; preds = %invoke.cont332
+  %conv336 = zext i1 %call335 to i32
+  %cmp337 = icmp eq i32 %conv336, 0
+  %call339 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp337, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 135, ptr noundef @.str.24)
+          to label %invoke.cont338 unwind label %lpad3
+
+invoke.cont338:                                   ; preds = %invoke.cont334
+  store i32 1, ptr %ref.tmp340, align 4
+  %call342 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp340)
+          to label %invoke.cont341 unwind label %lpad3
+
+invoke.cont341:                                   ; preds = %invoke.cont338
+  %conv343 = zext i1 %call342 to i32
+  %cmp344 = icmp eq i32 %conv343, 0
+  %call346 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp344, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 136, ptr noundef @.str.2)
+          to label %invoke.cont345 unwind label %lpad3
+
+invoke.cont345:                                   ; preds = %invoke.cont341
+  store i32 2, ptr %ref.tmp347, align 4
+  %call349 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp347)
+          to label %invoke.cont348 unwind label %lpad3
+
+invoke.cont348:                                   ; preds = %invoke.cont345
+  %conv350 = zext i1 %call349 to i32
+  %cmp351 = icmp eq i32 %conv350, 0
+  %call353 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp351, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 137, ptr noundef @.str.15)
+          to label %invoke.cont352 unwind label %lpad3
+
+invoke.cont352:                                   ; preds = %invoke.cont348
+  store i32 3, ptr %ref.tmp354, align 4
+  %call356 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp354)
+          to label %invoke.cont355 unwind label %lpad3
+
+invoke.cont355:                                   ; preds = %invoke.cont352
+  %conv357 = zext i1 %call356 to i32
+  %cmp358 = icmp eq i32 %conv357, 1
+  %call360 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp358, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 138, ptr noundef @.str.25)
+          to label %invoke.cont359 unwind label %lpad3
+
+invoke.cont359:                                   ; preds = %invoke.cont355
+  store i32 4, ptr %ref.tmp361, align 4
+  %call363 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp361)
+          to label %invoke.cont362 unwind label %lpad3
+
+invoke.cont362:                                   ; preds = %invoke.cont359
+  %conv364 = zext i1 %call363 to i32
+  %cmp365 = icmp eq i32 %conv364, 0
+  %call367 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp365, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 139, ptr noundef @.str.31)
+          to label %invoke.cont366 unwind label %lpad3
+
+invoke.cont366:                                   ; preds = %invoke.cont362
+  %call368 = call noundef i64 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache) #9
+  %cmp369 = icmp eq i64 %call368, 1
+  %call371 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp369, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 140, ptr noundef @.str.10)
+          to label %invoke.cont370 unwind label %lpad3
+
+invoke.cont370:                                   ; preds = %invoke.cont366
+  %call372 = call noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache) #9
+  %conv373 = zext i1 %call372 to i32
+  %cmp374 = icmp eq i32 %conv373, 0
+  %call376 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp374, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 141, ptr noundef @.str.11)
+          to label %invoke.cont375 unwind label %lpad3
+
+invoke.cont375:                                   ; preds = %invoke.cont370
+  %call377 = call noundef i64 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache) #9
+  %cmp378 = icmp eq i64 %call377, 1
+  %call380 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp378, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 142, ptr noundef @.str.32)
+          to label %invoke.cont379 unwind label %lpad3
+
+invoke.cont379:                                   ; preds = %invoke.cont375
+  invoke void @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, i64 noundef 5)
+          to label %invoke.cont381 unwind label %lpad3
+
+invoke.cont381:                                   ; preds = %invoke.cont379
+  store i32 0, ptr %ref.tmp382, align 4
+  %call384 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp382)
+          to label %invoke.cont383 unwind label %lpad3
+
+invoke.cont383:                                   ; preds = %invoke.cont381
+  %conv385 = zext i1 %call384 to i32
+  %cmp386 = icmp eq i32 %conv385, 0
+  %call388 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp386, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 146, ptr noundef @.str.24)
+          to label %invoke.cont387 unwind label %lpad3
+
+invoke.cont387:                                   ; preds = %invoke.cont383
+  store i32 1, ptr %ref.tmp389, align 4
+  %call391 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp389)
+          to label %invoke.cont390 unwind label %lpad3
+
+invoke.cont390:                                   ; preds = %invoke.cont387
+  %conv392 = zext i1 %call391 to i32
+  %cmp393 = icmp eq i32 %conv392, 0
+  %call395 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp393, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 147, ptr noundef @.str.2)
+          to label %invoke.cont394 unwind label %lpad3
+
+invoke.cont394:                                   ; preds = %invoke.cont390
+  store i32 2, ptr %ref.tmp396, align 4
+  %call398 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp396)
+          to label %invoke.cont397 unwind label %lpad3
+
+invoke.cont397:                                   ; preds = %invoke.cont394
+  %conv399 = zext i1 %call398 to i32
+  %cmp400 = icmp eq i32 %conv399, 0
+  %call402 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp400, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 148, ptr noundef @.str.15)
+          to label %invoke.cont401 unwind label %lpad3
+
+invoke.cont401:                                   ; preds = %invoke.cont397
+  store i32 3, ptr %ref.tmp403, align 4
+  %call405 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp403)
+          to label %invoke.cont404 unwind label %lpad3
+
+invoke.cont404:                                   ; preds = %invoke.cont401
+  %conv406 = zext i1 %call405 to i32
+  %cmp407 = icmp eq i32 %conv406, 1
+  %call409 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp407, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 149, ptr noundef @.str.25)
+          to label %invoke.cont408 unwind label %lpad3
+
+invoke.cont408:                                   ; preds = %invoke.cont404
+  store i32 4, ptr %ref.tmp410, align 4
+  %call412 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp410)
+          to label %invoke.cont411 unwind label %lpad3
+
+invoke.cont411:                                   ; preds = %invoke.cont408
+  %conv413 = zext i1 %call412 to i32
+  %cmp414 = icmp eq i32 %conv413, 0
+  %call416 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp414, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 150, ptr noundef @.str.31)
+          to label %invoke.cont415 unwind label %lpad3
+
+invoke.cont415:                                   ; preds = %invoke.cont411
+  %call417 = call noundef i64 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache) #9
+  %cmp418 = icmp eq i64 %call417, 1
+  %call420 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp418, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 151, ptr noundef @.str.10)
+          to label %invoke.cont419 unwind label %lpad3
+
+invoke.cont419:                                   ; preds = %invoke.cont415
+  %call421 = call noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache) #9
+  %conv422 = zext i1 %call421 to i32
+  %cmp423 = icmp eq i32 %conv422, 0
+  %call425 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp423, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 152, ptr noundef @.str.11)
+          to label %invoke.cont424 unwind label %lpad3
+
+invoke.cont424:                                   ; preds = %invoke.cont419
+  %call426 = call noundef i64 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache) #9
+  %cmp427 = icmp eq i64 %call426, 5
+  %call429 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp427, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 153, ptr noundef @.str.33)
+          to label %invoke.cont428 unwind label %lpad3
+
+invoke.cont428:                                   ; preds = %invoke.cont424
+  store i32 3, ptr %ref.tmp430, align 4
+  invoke void @_ZN20TestLruCacheInternal3FooC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp431, i32 noundef 0, i32 noundef 0)
+          to label %invoke.cont432 unwind label %lpad3
+
+invoke.cont432:                                   ; preds = %invoke.cont428
+  %call434 = invoke noundef zeroext i1 @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE6assignERKiRKS2_(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp430, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp431)
+          to label %invoke.cont433 unwind label %lpad3
+
+invoke.cont433:                                   ; preds = %invoke.cont432
+  store i32 3, ptr %ref.tmp435, align 4
+  %call437 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEEixERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp435)
+          to label %invoke.cont436 unwind label %lpad3
+
+invoke.cont436:                                   ; preds = %invoke.cont433
+  invoke void @_ZN20TestLruCacheInternal3FooC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp438, i32 noundef 0, i32 noundef 0)
+          to label %invoke.cont439 unwind label %lpad3
+
+invoke.cont439:                                   ; preds = %invoke.cont436
+  %call441 = invoke noundef zeroext i1 @_ZNK20TestLruCacheInternal3FooeqERKS0_(ptr noundef nonnull align 4 dereferenceable(8) %call437, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp438)
+          to label %invoke.cont440 unwind label %lpad3
+
+invoke.cont440:                                   ; preds = %invoke.cont439
+  %call443 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call441, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 157, ptr noundef @.str.34)
+          to label %invoke.cont442 unwind label %lpad3
+
+invoke.cont442:                                   ; preds = %invoke.cont440
+  store i32 0, ptr %ref.tmp444, align 4
+  %call446 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp444)
+          to label %invoke.cont445 unwind label %lpad3
+
+invoke.cont445:                                   ; preds = %invoke.cont442
+  %conv447 = zext i1 %call446 to i32
+  %cmp448 = icmp eq i32 %conv447, 0
+  %call450 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp448, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 158, ptr noundef @.str.24)
+          to label %invoke.cont449 unwind label %lpad3
+
+invoke.cont449:                                   ; preds = %invoke.cont445
+  store i32 1, ptr %ref.tmp451, align 4
+  %call453 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp451)
+          to label %invoke.cont452 unwind label %lpad3
+
+invoke.cont452:                                   ; preds = %invoke.cont449
+  %conv454 = zext i1 %call453 to i32
+  %cmp455 = icmp eq i32 %conv454, 0
+  %call457 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp455, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 159, ptr noundef @.str.2)
+          to label %invoke.cont456 unwind label %lpad3
+
+invoke.cont456:                                   ; preds = %invoke.cont452
+  store i32 2, ptr %ref.tmp458, align 4
+  %call460 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp458)
+          to label %invoke.cont459 unwind label %lpad3
+
+invoke.cont459:                                   ; preds = %invoke.cont456
+  %conv461 = zext i1 %call460 to i32
+  %cmp462 = icmp eq i32 %conv461, 0
+  %call464 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp462, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 160, ptr noundef @.str.15)
+          to label %invoke.cont463 unwind label %lpad3
+
+invoke.cont463:                                   ; preds = %invoke.cont459
+  store i32 3, ptr %ref.tmp465, align 4
+  %call467 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp465)
+          to label %invoke.cont466 unwind label %lpad3
+
+invoke.cont466:                                   ; preds = %invoke.cont463
+  %conv468 = zext i1 %call467 to i32
+  %cmp469 = icmp eq i32 %conv468, 1
+  %call471 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp469, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 161, ptr noundef @.str.25)
+          to label %invoke.cont470 unwind label %lpad3
+
+invoke.cont470:                                   ; preds = %invoke.cont466
+  store i32 4, ptr %ref.tmp472, align 4
+  %call474 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp472)
+          to label %invoke.cont473 unwind label %lpad3
+
+invoke.cont473:                                   ; preds = %invoke.cont470
+  %conv475 = zext i1 %call474 to i32
+  %cmp476 = icmp eq i32 %conv475, 0
+  %call478 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp476, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 162, ptr noundef @.str.31)
+          to label %invoke.cont477 unwind label %lpad3
+
+invoke.cont477:                                   ; preds = %invoke.cont473
+  %call479 = call noundef i64 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache) #9
+  %cmp480 = icmp eq i64 %call479, 1
+  %call482 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp480, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 163, ptr noundef @.str.10)
+          to label %invoke.cont481 unwind label %lpad3
+
+invoke.cont481:                                   ; preds = %invoke.cont477
+  %call483 = call noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache) #9
+  %conv484 = zext i1 %call483 to i32
+  %cmp485 = icmp eq i32 %conv484, 0
+  %call487 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp485, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 164, ptr noundef @.str.11)
+          to label %invoke.cont486 unwind label %lpad3
+
+invoke.cont486:                                   ; preds = %invoke.cont481
+  %call488 = call noundef i64 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache) #9
+  %cmp489 = icmp eq i64 %call488, 5
+  %call491 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp489, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 165, ptr noundef @.str.33)
+          to label %invoke.cont490 unwind label %lpad3
+
+invoke.cont490:                                   ; preds = %invoke.cont486
+  store i32 3, ptr %ref.tmp492, align 4
+  invoke void @_ZN20TestLruCacheInternal3FooC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp493, i32 noundef 1, i32 noundef 1)
+          to label %invoke.cont494 unwind label %lpad3
+
+invoke.cont494:                                   ; preds = %invoke.cont490
+  invoke void @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE16insert_or_assignERKiRKS2_(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp492, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp493)
+          to label %invoke.cont495 unwind label %lpad3
+
+invoke.cont495:                                   ; preds = %invoke.cont494
+  store i32 3, ptr %ref.tmp496, align 4
+  %call498 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEEixERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp496)
+          to label %invoke.cont497 unwind label %lpad3
+
+invoke.cont497:                                   ; preds = %invoke.cont495
+  invoke void @_ZN20TestLruCacheInternal3FooC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp499, i32 noundef 1, i32 noundef 1)
+          to label %invoke.cont500 unwind label %lpad3
+
+invoke.cont500:                                   ; preds = %invoke.cont497
+  %call502 = invoke noundef zeroext i1 @_ZNK20TestLruCacheInternal3FooeqERKS0_(ptr noundef nonnull align 4 dereferenceable(8) %call498, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp499)
+          to label %invoke.cont501 unwind label %lpad3
+
+invoke.cont501:                                   ; preds = %invoke.cont500
+  %call504 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call502, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 169, ptr noundef @.str.35)
+          to label %invoke.cont503 unwind label %lpad3
+
+invoke.cont503:                                   ; preds = %invoke.cont501
+  store i32 0, ptr %ref.tmp505, align 4
+  %call507 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp505)
+          to label %invoke.cont506 unwind label %lpad3
+
+invoke.cont506:                                   ; preds = %invoke.cont503
+  %conv508 = zext i1 %call507 to i32
+  %cmp509 = icmp eq i32 %conv508, 0
+  %call511 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp509, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 170, ptr noundef @.str.24)
+          to label %invoke.cont510 unwind label %lpad3
+
+invoke.cont510:                                   ; preds = %invoke.cont506
+  store i32 1, ptr %ref.tmp512, align 4
+  %call514 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp512)
+          to label %invoke.cont513 unwind label %lpad3
+
+invoke.cont513:                                   ; preds = %invoke.cont510
+  %conv515 = zext i1 %call514 to i32
+  %cmp516 = icmp eq i32 %conv515, 0
+  %call518 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp516, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 171, ptr noundef @.str.2)
+          to label %invoke.cont517 unwind label %lpad3
+
+invoke.cont517:                                   ; preds = %invoke.cont513
+  store i32 2, ptr %ref.tmp519, align 4
+  %call521 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp519)
+          to label %invoke.cont520 unwind label %lpad3
+
+invoke.cont520:                                   ; preds = %invoke.cont517
+  %conv522 = zext i1 %call521 to i32
+  %cmp523 = icmp eq i32 %conv522, 0
+  %call525 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp523, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 172, ptr noundef @.str.15)
+          to label %invoke.cont524 unwind label %lpad3
+
+invoke.cont524:                                   ; preds = %invoke.cont520
+  store i32 3, ptr %ref.tmp526, align 4
+  %call528 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp526)
+          to label %invoke.cont527 unwind label %lpad3
+
+invoke.cont527:                                   ; preds = %invoke.cont524
+  %conv529 = zext i1 %call528 to i32
+  %cmp530 = icmp eq i32 %conv529, 1
+  %call532 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp530, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 173, ptr noundef @.str.25)
+          to label %invoke.cont531 unwind label %lpad3
+
+invoke.cont531:                                   ; preds = %invoke.cont527
+  store i32 4, ptr %ref.tmp533, align 4
+  %call535 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp533)
+          to label %invoke.cont534 unwind label %lpad3
+
+invoke.cont534:                                   ; preds = %invoke.cont531
+  %conv536 = zext i1 %call535 to i32
+  %cmp537 = icmp eq i32 %conv536, 0
+  %call539 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp537, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 174, ptr noundef @.str.31)
+          to label %invoke.cont538 unwind label %lpad3
+
+invoke.cont538:                                   ; preds = %invoke.cont534
+  %call540 = call noundef i64 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache) #9
+  %cmp541 = icmp eq i64 %call540, 1
+  %call543 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp541, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 175, ptr noundef @.str.10)
+          to label %invoke.cont542 unwind label %lpad3
+
+invoke.cont542:                                   ; preds = %invoke.cont538
+  %call544 = call noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache) #9
+  %conv545 = zext i1 %call544 to i32
+  %cmp546 = icmp eq i32 %conv545, 0
+  %call548 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp546, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 176, ptr noundef @.str.11)
+          to label %invoke.cont547 unwind label %lpad3
+
+invoke.cont547:                                   ; preds = %invoke.cont542
+  %call549 = call noundef i64 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache) #9
+  %cmp550 = icmp eq i64 %call549, 5
+  %call552 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp550, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 177, ptr noundef @.str.33)
+          to label %invoke.cont551 unwind label %lpad3
+
+invoke.cont551:                                   ; preds = %invoke.cont547
+  store i32 25, ptr %ref.tmp553, align 4
+  invoke void @_ZN20TestLruCacheInternal3FooC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp554, i32 noundef 2, i32 noundef 2)
+          to label %invoke.cont555 unwind label %lpad3
+
+invoke.cont555:                                   ; preds = %invoke.cont551
+  invoke void @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE16insert_or_assignERKiRKS2_(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp553, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp554)
+          to label %invoke.cont556 unwind label %lpad3
+
+invoke.cont556:                                   ; preds = %invoke.cont555
+  store i32 3, ptr %ref.tmp557, align 4
+  %call559 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEEixERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp557)
+          to label %invoke.cont558 unwind label %lpad3
+
+invoke.cont558:                                   ; preds = %invoke.cont556
+  invoke void @_ZN20TestLruCacheInternal3FooC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp560, i32 noundef 1, i32 noundef 1)
+          to label %invoke.cont561 unwind label %lpad3
+
+invoke.cont561:                                   ; preds = %invoke.cont558
+  %call563 = invoke noundef zeroext i1 @_ZNK20TestLruCacheInternal3FooeqERKS0_(ptr noundef nonnull align 4 dereferenceable(8) %call559, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp560)
+          to label %invoke.cont562 unwind label %lpad3
+
+invoke.cont562:                                   ; preds = %invoke.cont561
+  %call565 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call563, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 181, ptr noundef @.str.35)
+          to label %invoke.cont564 unwind label %lpad3
+
+invoke.cont564:                                   ; preds = %invoke.cont562
+  store i32 25, ptr %ref.tmp566, align 4
+  %call568 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEEixERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp566)
+          to label %invoke.cont567 unwind label %lpad3
+
+invoke.cont567:                                   ; preds = %invoke.cont564
+  invoke void @_ZN20TestLruCacheInternal3FooC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp569, i32 noundef 2, i32 noundef 2)
+          to label %invoke.cont570 unwind label %lpad3
+
+invoke.cont570:                                   ; preds = %invoke.cont567
+  %call572 = invoke noundef zeroext i1 @_ZNK20TestLruCacheInternal3FooeqERKS0_(ptr noundef nonnull align 4 dereferenceable(8) %call568, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp569)
+          to label %invoke.cont571 unwind label %lpad3
+
+invoke.cont571:                                   ; preds = %invoke.cont570
+  %call574 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call572, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 182, ptr noundef @.str.36)
+          to label %invoke.cont573 unwind label %lpad3
+
+invoke.cont573:                                   ; preds = %invoke.cont571
+  store i32 0, ptr %ref.tmp575, align 4
+  %call577 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp575)
+          to label %invoke.cont576 unwind label %lpad3
+
+invoke.cont576:                                   ; preds = %invoke.cont573
+  %conv578 = zext i1 %call577 to i32
+  %cmp579 = icmp eq i32 %conv578, 0
+  %call581 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp579, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 183, ptr noundef @.str.24)
+          to label %invoke.cont580 unwind label %lpad3
+
+invoke.cont580:                                   ; preds = %invoke.cont576
+  store i32 1, ptr %ref.tmp582, align 4
+  %call584 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp582)
+          to label %invoke.cont583 unwind label %lpad3
+
+invoke.cont583:                                   ; preds = %invoke.cont580
+  %conv585 = zext i1 %call584 to i32
+  %cmp586 = icmp eq i32 %conv585, 0
+  %call588 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp586, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 184, ptr noundef @.str.2)
+          to label %invoke.cont587 unwind label %lpad3
+
+invoke.cont587:                                   ; preds = %invoke.cont583
+  store i32 2, ptr %ref.tmp589, align 4
+  %call591 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp589)
+          to label %invoke.cont590 unwind label %lpad3
+
+invoke.cont590:                                   ; preds = %invoke.cont587
+  %conv592 = zext i1 %call591 to i32
+  %cmp593 = icmp eq i32 %conv592, 0
+  %call595 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp593, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 185, ptr noundef @.str.15)
+          to label %invoke.cont594 unwind label %lpad3
+
+invoke.cont594:                                   ; preds = %invoke.cont590
+  store i32 3, ptr %ref.tmp596, align 4
+  %call598 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp596)
+          to label %invoke.cont597 unwind label %lpad3
+
+invoke.cont597:                                   ; preds = %invoke.cont594
+  %conv599 = zext i1 %call598 to i32
+  %cmp600 = icmp eq i32 %conv599, 1
+  %call602 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp600, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 186, ptr noundef @.str.25)
+          to label %invoke.cont601 unwind label %lpad3
+
+invoke.cont601:                                   ; preds = %invoke.cont597
+  store i32 4, ptr %ref.tmp603, align 4
+  %call605 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp603)
+          to label %invoke.cont604 unwind label %lpad3
+
+invoke.cont604:                                   ; preds = %invoke.cont601
+  %conv606 = zext i1 %call605 to i32
+  %cmp607 = icmp eq i32 %conv606, 0
+  %call609 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp607, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 187, ptr noundef @.str.31)
+          to label %invoke.cont608 unwind label %lpad3
+
+invoke.cont608:                                   ; preds = %invoke.cont604
+  store i32 25, ptr %ref.tmp610, align 4
+  %call612 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp610)
+          to label %invoke.cont611 unwind label %lpad3
+
+invoke.cont611:                                   ; preds = %invoke.cont608
+  %conv613 = zext i1 %call612 to i32
+  %cmp614 = icmp eq i32 %conv613, 1
+  %call616 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp614, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 188, ptr noundef @.str.37)
+          to label %invoke.cont615 unwind label %lpad3
+
+invoke.cont615:                                   ; preds = %invoke.cont611
+  %call617 = call noundef i64 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache) #9
+  %cmp618 = icmp eq i64 %call617, 2
+  %call620 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp618, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 189, ptr noundef @.str.17)
+          to label %invoke.cont619 unwind label %lpad3
+
+invoke.cont619:                                   ; preds = %invoke.cont615
+  %call621 = call noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache) #9
+  %conv622 = zext i1 %call621 to i32
+  %cmp623 = icmp eq i32 %conv622, 0
+  %call625 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp623, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 190, ptr noundef @.str.11)
+          to label %invoke.cont624 unwind label %lpad3
+
+invoke.cont624:                                   ; preds = %invoke.cont619
+  %call626 = call noundef i64 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache) #9
+  %cmp627 = icmp eq i64 %call626, 5
+  %call629 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp627, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 191, ptr noundef @.str.33)
+          to label %invoke.cont628 unwind label %lpad3
+
+invoke.cont628:                                   ; preds = %invoke.cont624
+  call void @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE5clearEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache) #9
+  %call630 = call noundef i64 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache) #9
+  %cmp631 = icmp eq i64 %call630, 0
+  %call633 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp631, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 195, ptr noundef @.str.3)
+          to label %invoke.cont632 unwind label %lpad3
+
+invoke.cont632:                                   ; preds = %invoke.cont628
+  %call634 = call noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache) #9
+  %conv635 = zext i1 %call634 to i32
+  %cmp636 = icmp eq i32 %conv635, 1
+  %call638 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp636, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 196, ptr noundef @.str.4)
+          to label %invoke.cont637 unwind label %lpad3
+
+invoke.cont637:                                   ; preds = %invoke.cont632
+  %call639 = call noundef i64 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache) #9
+  %cmp640 = icmp eq i64 %call639, 5
+  %call642 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp640, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 197, ptr noundef @.str.33)
+          to label %invoke.cont641 unwind label %lpad3
+
+invoke.cont641:                                   ; preds = %invoke.cont637
+  store i32 3, ptr %ref.tmp643, align 4
+  %call645 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp643)
+          to label %invoke.cont644 unwind label %lpad3
+
+invoke.cont644:                                   ; preds = %invoke.cont641
+  %conv646 = zext i1 %call645 to i32
+  %cmp647 = icmp eq i32 %conv646, 0
+  %call649 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp647, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 198, ptr noundef @.str.16)
+          to label %invoke.cont648 unwind label %lpad3
+
+invoke.cont648:                                   ; preds = %invoke.cont644
+  invoke void @_ZN20TestLruCacheInternal3FooC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp650, i32 noundef 1, i32 noundef 2)
+          to label %invoke.cont651 unwind label %lpad3
+
+invoke.cont651:                                   ; preds = %invoke.cont648
+  store i32 1, ptr %ref.tmp652, align 4
+  %call654 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEEixERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp652)
+          to label %invoke.cont653 unwind label %lpad3
+
+invoke.cont653:                                   ; preds = %invoke.cont651
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call654, ptr align 4 %ref.tmp650, i64 8, i1 false)
+  call void @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE17reset_lose_memoryEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache) #9
+  %call655 = call noundef i64 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache) #9
+  %cmp656 = icmp eq i64 %call655, 0
+  %call658 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp656, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 203, ptr noundef @.str.3)
+          to label %invoke.cont657 unwind label %lpad3
+
+invoke.cont657:                                   ; preds = %invoke.cont653
+  call void @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %lruCache) #9
+  call void @_ZN20TestLruCacheInternal10FooCreatorC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %fooCreator)
+  %11 = getelementptr inbounds %class.anon, ptr %createCallback, i32 0, i32 0
+  store ptr %fooCreator, ptr %11, align 8
+  %12 = getelementptr inbounds %class.anon.2, ptr %deleteCallback, i32 0, i32 0
+  store ptr %fooCreator, ptr %12, align 8
+  call void @_ZN5eastl9allocatorC2EPKc(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp660, ptr noundef @.str.38)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp662, ptr align 8 %createCallback, i64 8, i1 false)
+  %coerce.dive = getelementptr inbounds %class.anon, ptr %agg.tmp662, i32 0, i32 0
+  %13 = load ptr, ptr %coerce.dive, align 8
+  call void @"_ZN5eastl8functionIFPN20TestLruCacheInternal3FooEiEEC2IZ12TestLruCachevE3$_0vEET_"(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp661, ptr %13)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp664, ptr align 8 %deleteCallback, i64 8, i1 false)
+  %coerce.dive665 = getelementptr inbounds %class.anon.2, ptr %agg.tmp664, i32 0, i32 0
+  %14 = load ptr, ptr %coerce.dive665, align 8
+  invoke void @"_ZN5eastl8functionIFvRKPN20TestLruCacheInternal3FooEEEC2IZ12TestLruCachevE3$_1vEET_"(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp663, ptr %14)
+          to label %invoke.cont667 unwind label %lpad666
+
+invoke.cont667:                                   ; preds = %invoke.cont657
+  invoke void @_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEEC2EmRKS4_NS_8functionIFS3_iEEENSM_IFvRKS3_EEE(ptr noundef nonnull align 8 dereferenceable(144) %lruCache659, i64 noundef 3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp660, ptr noundef %agg.tmp661, ptr noundef %agg.tmp663)
+          to label %invoke.cont669 unwind label %lpad668
+
+invoke.cont669:                                   ; preds = %invoke.cont667
+  call void @_ZN5eastl8functionIFvRKPN20TestLruCacheInternal3FooEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp663) #9
+  call void @_ZN5eastl8functionIFPN20TestLruCacheInternal3FooEiEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp661) #9
+  store i32 1, ptr %ref.tmp670, align 4
+  %call673 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEEixERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache659, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp670)
+          to label %invoke.cont672 unwind label %lpad671
+
+invoke.cont672:                                   ; preds = %invoke.cont669
+  %mFooCreatedCount = getelementptr inbounds %"class.TestLruCacheInternal::FooCreator", ptr %fooCreator, i32 0, i32 0
+  %15 = load i32, ptr %mFooCreatedCount, align 4
+  %cmp674 = icmp eq i32 %15, 1
+  %call676 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp674, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 218, ptr noundef @.str.39)
+          to label %invoke.cont675 unwind label %lpad671
+
+invoke.cont675:                                   ; preds = %invoke.cont672
+  %call677 = call noundef i64 @_ZNK5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache659) #9
+  %cmp678 = icmp eq i64 %call677, 1
+  %call680 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp678, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 219, ptr noundef @.str.10)
+          to label %invoke.cont679 unwind label %lpad671
+
+invoke.cont679:                                   ; preds = %invoke.cont675
+  %call681 = call noundef zeroext i1 @_ZNK5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache659) #9
+  %conv682 = zext i1 %call681 to i32
+  %cmp683 = icmp eq i32 %conv682, 0
+  %call685 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp683, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 220, ptr noundef @.str.11)
+          to label %invoke.cont684 unwind label %lpad671
+
+invoke.cont684:                                   ; preds = %invoke.cont679
+  %call686 = call noundef i64 @_ZNK5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache659) #9
+  %cmp687 = icmp eq i64 %call686, 3
+  %call689 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp687, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 221, ptr noundef @.str.5)
+          to label %invoke.cont688 unwind label %lpad671
+
+invoke.cont688:                                   ; preds = %invoke.cont684
+  store i32 1, ptr %ref.tmp690, align 4
+  %call692 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache659, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp690)
+          to label %invoke.cont691 unwind label %lpad671
+
+invoke.cont691:                                   ; preds = %invoke.cont688
+  %conv693 = zext i1 %call692 to i32
+  %cmp694 = icmp eq i32 %conv693, 1
+  %call696 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp694, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 222, ptr noundef @.str.14)
+          to label %invoke.cont695 unwind label %lpad671
+
+invoke.cont695:                                   ; preds = %invoke.cont691
+  store i32 2, ptr %ref.tmp697, align 4
+  %call699 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache659, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp697)
+          to label %invoke.cont698 unwind label %lpad671
+
+invoke.cont698:                                   ; preds = %invoke.cont695
+  %conv700 = zext i1 %call699 to i32
+  %cmp701 = icmp eq i32 %conv700, 0
+  %call703 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp701, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 223, ptr noundef @.str.15)
+          to label %invoke.cont702 unwind label %lpad671
+
+invoke.cont702:                                   ; preds = %invoke.cont698
+  store i32 2, ptr %ref.tmp704, align 4
+  %call706 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEEixERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache659, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp704)
+          to label %invoke.cont705 unwind label %lpad671
+
+invoke.cont705:                                   ; preds = %invoke.cont702
+  %mFooCreatedCount707 = getelementptr inbounds %"class.TestLruCacheInternal::FooCreator", ptr %fooCreator, i32 0, i32 0
+  %16 = load i32, ptr %mFooCreatedCount707, align 4
+  %cmp708 = icmp eq i32 %16, 2
+  %call710 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp708, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 226, ptr noundef @.str.40)
+          to label %invoke.cont709 unwind label %lpad671
+
+invoke.cont709:                                   ; preds = %invoke.cont705
+  %call711 = call noundef i64 @_ZNK5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache659) #9
+  %cmp712 = icmp eq i64 %call711, 2
+  %call714 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp712, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 227, ptr noundef @.str.17)
+          to label %invoke.cont713 unwind label %lpad671
+
+invoke.cont713:                                   ; preds = %invoke.cont709
+  %call715 = call noundef zeroext i1 @_ZNK5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache659) #9
+  %conv716 = zext i1 %call715 to i32
+  %cmp717 = icmp eq i32 %conv716, 0
+  %call719 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp717, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 228, ptr noundef @.str.11)
+          to label %invoke.cont718 unwind label %lpad671
+
+invoke.cont718:                                   ; preds = %invoke.cont713
+  %call720 = call noundef i64 @_ZNK5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache659) #9
+  %cmp721 = icmp eq i64 %call720, 3
+  %call723 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp721, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 229, ptr noundef @.str.5)
+          to label %invoke.cont722 unwind label %lpad671
+
+invoke.cont722:                                   ; preds = %invoke.cont718
+  store i32 1, ptr %ref.tmp724, align 4
+  %call726 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache659, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp724)
+          to label %invoke.cont725 unwind label %lpad671
+
+invoke.cont725:                                   ; preds = %invoke.cont722
+  %conv727 = zext i1 %call726 to i32
+  %cmp728 = icmp eq i32 %conv727, 1
+  %call730 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp728, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 230, ptr noundef @.str.14)
+          to label %invoke.cont729 unwind label %lpad671
+
+invoke.cont729:                                   ; preds = %invoke.cont725
+  store i32 2, ptr %ref.tmp731, align 4
+  %call733 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache659, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp731)
+          to label %invoke.cont732 unwind label %lpad671
+
+invoke.cont732:                                   ; preds = %invoke.cont729
+  %conv734 = zext i1 %call733 to i32
+  %cmp735 = icmp eq i32 %conv734, 1
+  %call737 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp735, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 231, ptr noundef @.str.20)
+          to label %invoke.cont736 unwind label %lpad671
+
+invoke.cont736:                                   ; preds = %invoke.cont732
+  %call739 = invoke noundef ptr @_ZN20TestLruCacheInternal10FooCreator6CreateEv(ptr noundef nonnull align 4 dereferenceable(4) %fooCreator)
+          to label %invoke.cont738 unwind label %lpad671
+
+invoke.cont738:                                   ; preds = %invoke.cont736
+  store ptr %call739, ptr %f, align 8
+  %mFooCreatedCount740 = getelementptr inbounds %"class.TestLruCacheInternal::FooCreator", ptr %fooCreator, i32 0, i32 0
+  %17 = load i32, ptr %mFooCreatedCount740, align 4
+  %cmp741 = icmp eq i32 %17, 3
+  %call743 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp741, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 236, ptr noundef @.str.41)
+          to label %invoke.cont742 unwind label %lpad671
+
+invoke.cont742:                                   ; preds = %invoke.cont738
+  %18 = load ptr, ptr %f, align 8
+  %a744 = getelementptr inbounds %"struct.TestLruCacheInternal::Foo", ptr %18, i32 0, i32 0
+  store i32 20, ptr %a744, align 4
+  %19 = load ptr, ptr %f, align 8
+  %b745 = getelementptr inbounds %"struct.TestLruCacheInternal::Foo", ptr %19, i32 0, i32 1
+  store i32 21, ptr %b745, align 4
+  store i32 2, ptr %ref.tmp746, align 4
+  %call748 = invoke noundef zeroext i1 @_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE6assignERKiRKS3_(ptr noundef nonnull align 8 dereferenceable(144) %lruCache659, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp746, ptr noundef nonnull align 8 dereferenceable(8) %f)
+          to label %invoke.cont747 unwind label %lpad671
+
+invoke.cont747:                                   ; preds = %invoke.cont742
+  %mFooCreatedCount749 = getelementptr inbounds %"class.TestLruCacheInternal::FooCreator", ptr %fooCreator, i32 0, i32 0
+  %20 = load i32, ptr %mFooCreatedCount749, align 4
+  %cmp750 = icmp eq i32 %20, 2
+  %call752 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp750, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 240, ptr noundef @.str.40)
+          to label %invoke.cont751 unwind label %lpad671
+
+invoke.cont751:                                   ; preds = %invoke.cont747
+  %call753 = call noundef i64 @_ZNK5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache659) #9
+  %cmp754 = icmp eq i64 %call753, 2
+  %call756 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp754, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 241, ptr noundef @.str.17)
+          to label %invoke.cont755 unwind label %lpad671
+
+invoke.cont755:                                   ; preds = %invoke.cont751
+  %call757 = call noundef zeroext i1 @_ZNK5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache659) #9
+  %conv758 = zext i1 %call757 to i32
+  %cmp759 = icmp eq i32 %conv758, 0
+  %call761 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp759, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 242, ptr noundef @.str.11)
+          to label %invoke.cont760 unwind label %lpad671
+
+invoke.cont760:                                   ; preds = %invoke.cont755
+  %call762 = call noundef i64 @_ZNK5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache659) #9
+  %cmp763 = icmp eq i64 %call762, 3
+  %call765 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp763, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 243, ptr noundef @.str.5)
+          to label %invoke.cont764 unwind label %lpad671
+
+invoke.cont764:                                   ; preds = %invoke.cont760
+  store i32 1, ptr %ref.tmp766, align 4
+  %call768 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache659, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp766)
+          to label %invoke.cont767 unwind label %lpad671
+
+invoke.cont767:                                   ; preds = %invoke.cont764
+  %conv769 = zext i1 %call768 to i32
+  %cmp770 = icmp eq i32 %conv769, 1
+  %call772 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp770, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 244, ptr noundef @.str.14)
+          to label %invoke.cont771 unwind label %lpad671
+
+invoke.cont771:                                   ; preds = %invoke.cont767
+  store i32 2, ptr %ref.tmp773, align 4
+  %call775 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache659, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp773)
+          to label %invoke.cont774 unwind label %lpad671
+
+invoke.cont774:                                   ; preds = %invoke.cont771
+  %conv776 = zext i1 %call775 to i32
+  %cmp777 = icmp eq i32 %conv776, 1
+  %call779 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp777, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 245, ptr noundef @.str.20)
+          to label %invoke.cont778 unwind label %lpad671
+
+invoke.cont778:                                   ; preds = %invoke.cont774
+  store i32 2, ptr %ref.tmp780, align 4
+  %call782 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEEixERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache659, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp780)
+          to label %invoke.cont781 unwind label %lpad671
+
+invoke.cont781:                                   ; preds = %invoke.cont778
+  %21 = load ptr, ptr %call782, align 8
+  %a783 = getelementptr inbounds %"struct.TestLruCacheInternal::Foo", ptr %21, i32 0, i32 0
+  %22 = load i32, ptr %a783, align 4
+  %cmp784 = icmp eq i32 %22, 20
+  %call786 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp784, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 246, ptr noundef @.str.42)
+          to label %invoke.cont785 unwind label %lpad671
+
+invoke.cont785:                                   ; preds = %invoke.cont781
+  store i32 2, ptr %ref.tmp787, align 4
+  %call789 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEEixERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache659, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp787)
+          to label %invoke.cont788 unwind label %lpad671
+
+invoke.cont788:                                   ; preds = %invoke.cont785
+  %23 = load ptr, ptr %call789, align 8
+  %b790 = getelementptr inbounds %"struct.TestLruCacheInternal::Foo", ptr %23, i32 0, i32 1
+  %24 = load i32, ptr %b790, align 4
+  %cmp791 = icmp eq i32 %24, 21
+  %call793 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp791, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 247, ptr noundef @.str.43)
+          to label %invoke.cont792 unwind label %lpad671
+
+invoke.cont792:                                   ; preds = %invoke.cont788
+  store i32 2, ptr %ref.tmp794, align 4
+  %call796 = invoke noundef zeroext i1 @_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE5eraseERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache659, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp794)
+          to label %invoke.cont795 unwind label %lpad671
+
+invoke.cont795:                                   ; preds = %invoke.cont792
+  %mFooCreatedCount797 = getelementptr inbounds %"class.TestLruCacheInternal::FooCreator", ptr %fooCreator, i32 0, i32 0
+  %25 = load i32, ptr %mFooCreatedCount797, align 4
+  %cmp798 = icmp eq i32 %25, 1
+  %call800 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp798, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 251, ptr noundef @.str.39)
+          to label %invoke.cont799 unwind label %lpad671
+
+invoke.cont799:                                   ; preds = %invoke.cont795
+  %call801 = call noundef i64 @_ZNK5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache659) #9
+  %cmp802 = icmp eq i64 %call801, 1
+  %call804 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp802, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 252, ptr noundef @.str.10)
+          to label %invoke.cont803 unwind label %lpad671
+
+invoke.cont803:                                   ; preds = %invoke.cont799
+  %call805 = call noundef zeroext i1 @_ZNK5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache659) #9
+  %conv806 = zext i1 %call805 to i32
+  %cmp807 = icmp eq i32 %conv806, 0
+  %call809 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp807, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 253, ptr noundef @.str.11)
+          to label %invoke.cont808 unwind label %lpad671
+
+invoke.cont808:                                   ; preds = %invoke.cont803
+  %call810 = call noundef i64 @_ZNK5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache659) #9
+  %cmp811 = icmp eq i64 %call810, 3
+  %call813 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp811, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 254, ptr noundef @.str.5)
+          to label %invoke.cont812 unwind label %lpad671
+
+invoke.cont812:                                   ; preds = %invoke.cont808
+  store i32 1, ptr %ref.tmp814, align 4
+  %call816 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache659, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp814)
+          to label %invoke.cont815 unwind label %lpad671
+
+invoke.cont815:                                   ; preds = %invoke.cont812
+  %conv817 = zext i1 %call816 to i32
+  %cmp818 = icmp eq i32 %conv817, 1
+  %call820 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp818, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 255, ptr noundef @.str.14)
+          to label %invoke.cont819 unwind label %lpad671
+
+invoke.cont819:                                   ; preds = %invoke.cont815
+  store i32 2, ptr %ref.tmp821, align 4
+  %call823 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache659, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp821)
+          to label %invoke.cont822 unwind label %lpad671
+
+invoke.cont822:                                   ; preds = %invoke.cont819
+  %conv824 = zext i1 %call823 to i32
+  %cmp825 = icmp eq i32 %conv824, 0
+  %call827 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp825, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 256, ptr noundef @.str.15)
+          to label %invoke.cont826 unwind label %lpad671
+
+invoke.cont826:                                   ; preds = %invoke.cont822
+  store i32 1, ptr %ref.tmp828, align 4
+  %call830 = invoke noundef zeroext i1 @_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE5eraseERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache659, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp828)
+          to label %invoke.cont829 unwind label %lpad671
+
+invoke.cont829:                                   ; preds = %invoke.cont826
+  %mFooCreatedCount831 = getelementptr inbounds %"class.TestLruCacheInternal::FooCreator", ptr %fooCreator, i32 0, i32 0
+  %26 = load i32, ptr %mFooCreatedCount831, align 4
+  %cmp832 = icmp eq i32 %26, 0
+  %call834 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp832, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 259, ptr noundef @.str.44)
+          to label %invoke.cont833 unwind label %lpad671
+
+invoke.cont833:                                   ; preds = %invoke.cont829
+  %call835 = call noundef i64 @_ZNK5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache659) #9
+  %cmp836 = icmp eq i64 %call835, 0
+  %call838 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp836, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 260, ptr noundef @.str.3)
+          to label %invoke.cont837 unwind label %lpad671
+
+invoke.cont837:                                   ; preds = %invoke.cont833
+  %call839 = call noundef zeroext i1 @_ZNK5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache659) #9
+  %conv840 = zext i1 %call839 to i32
+  %cmp841 = icmp eq i32 %conv840, 1
+  %call843 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp841, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 261, ptr noundef @.str.4)
+          to label %invoke.cont842 unwind label %lpad671
+
+invoke.cont842:                                   ; preds = %invoke.cont837
+  %call844 = call noundef i64 @_ZNK5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache659) #9
+  %cmp845 = icmp eq i64 %call844, 3
+  %call847 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp845, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 262, ptr noundef @.str.5)
+          to label %invoke.cont846 unwind label %lpad671
+
+invoke.cont846:                                   ; preds = %invoke.cont842
+  store i32 1, ptr %ref.tmp848, align 4
+  %call850 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache659, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp848)
+          to label %invoke.cont849 unwind label %lpad671
+
+invoke.cont849:                                   ; preds = %invoke.cont846
+  %conv851 = zext i1 %call850 to i32
+  %cmp852 = icmp eq i32 %conv851, 0
+  %call854 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp852, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 263, ptr noundef @.str.2)
+          to label %invoke.cont853 unwind label %lpad671
+
+invoke.cont853:                                   ; preds = %invoke.cont849
+  store i32 2, ptr %ref.tmp855, align 4
+  %call857 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache659, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp855)
+          to label %invoke.cont856 unwind label %lpad671
+
+invoke.cont856:                                   ; preds = %invoke.cont853
+  %conv858 = zext i1 %call857 to i32
+  %cmp859 = icmp eq i32 %conv858, 0
+  %call861 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp859, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 264, ptr noundef @.str.15)
+          to label %invoke.cont860 unwind label %lpad671
+
+invoke.cont860:                                   ; preds = %invoke.cont856
+  %call864 = invoke noundef ptr @_ZN20TestLruCacheInternal10FooCreator6CreateEv(ptr noundef nonnull align 4 dereferenceable(4) %fooCreator)
+          to label %invoke.cont863 unwind label %lpad671
+
+invoke.cont863:                                   ; preds = %invoke.cont860
+  store ptr %call864, ptr %f862, align 8
+  %27 = load ptr, ptr %f862, align 8
+  %a865 = getelementptr inbounds %"struct.TestLruCacheInternal::Foo", ptr %27, i32 0, i32 0
+  store i32 22, ptr %a865, align 4
+  %28 = load ptr, ptr %f862, align 8
+  %b866 = getelementptr inbounds %"struct.TestLruCacheInternal::Foo", ptr %28, i32 0, i32 1
+  store i32 30, ptr %b866, align 4
+  %mFooCreatedCount867 = getelementptr inbounds %"class.TestLruCacheInternal::FooCreator", ptr %fooCreator, i32 0, i32 0
+  %29 = load i32, ptr %mFooCreatedCount867, align 4
+  %cmp868 = icmp eq i32 %29, 1
+  %call870 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp868, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 271, ptr noundef @.str.39)
+          to label %invoke.cont869 unwind label %lpad671
+
+invoke.cont869:                                   ; preds = %invoke.cont863
+  store i32 7, ptr %ref.tmp871, align 4
+  invoke void @_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE16insert_or_assignERKiRKS3_(ptr noundef nonnull align 8 dereferenceable(144) %lruCache659, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp871, ptr noundef nonnull align 8 dereferenceable(8) %f862)
+          to label %invoke.cont872 unwind label %lpad671
+
+invoke.cont872:                                   ; preds = %invoke.cont869
+  %call873 = call noundef i64 @_ZNK5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache659) #9
+  %cmp874 = icmp eq i64 %call873, 1
+  %call876 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp874, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 274, ptr noundef @.str.10)
+          to label %invoke.cont875 unwind label %lpad671
+
+invoke.cont875:                                   ; preds = %invoke.cont872
+  %call877 = call noundef zeroext i1 @_ZNK5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache659) #9
+  %conv878 = zext i1 %call877 to i32
+  %cmp879 = icmp eq i32 %conv878, 0
+  %call881 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp879, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 275, ptr noundef @.str.11)
+          to label %invoke.cont880 unwind label %lpad671
+
+invoke.cont880:                                   ; preds = %invoke.cont875
+  %call882 = call noundef i64 @_ZNK5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(144) %lruCache659) #9
+  %cmp883 = icmp eq i64 %call882, 3
+  %call885 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp883, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 276, ptr noundef @.str.5)
+          to label %invoke.cont884 unwind label %lpad671
+
+invoke.cont884:                                   ; preds = %invoke.cont880
+  store i32 1, ptr %ref.tmp886, align 4
+  %call888 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache659, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp886)
+          to label %invoke.cont887 unwind label %lpad671
+
+invoke.cont887:                                   ; preds = %invoke.cont884
+  %conv889 = zext i1 %call888 to i32
+  %cmp890 = icmp eq i32 %conv889, 0
+  %call892 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp890, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 277, ptr noundef @.str.2)
+          to label %invoke.cont891 unwind label %lpad671
+
+invoke.cont891:                                   ; preds = %invoke.cont887
+  store i32 2, ptr %ref.tmp893, align 4
+  %call895 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache659, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp893)
+          to label %invoke.cont894 unwind label %lpad671
+
+invoke.cont894:                                   ; preds = %invoke.cont891
+  %conv896 = zext i1 %call895 to i32
+  %cmp897 = icmp eq i32 %conv896, 0
+  %call899 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp897, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 278, ptr noundef @.str.15)
+          to label %invoke.cont898 unwind label %lpad671
+
+invoke.cont898:                                   ; preds = %invoke.cont894
+  store i32 7, ptr %ref.tmp900, align 4
+  %call902 = invoke noundef zeroext i1 @_ZNK5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache659, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp900)
+          to label %invoke.cont901 unwind label %lpad671
+
+invoke.cont901:                                   ; preds = %invoke.cont898
+  %conv903 = zext i1 %call902 to i32
+  %cmp904 = icmp eq i32 %conv903, 1
+  %call906 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp904, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 279, ptr noundef @.str.45)
+          to label %invoke.cont905 unwind label %lpad671
+
+invoke.cont905:                                   ; preds = %invoke.cont901
+  store i32 7, ptr %ref.tmp907, align 4
+  %call909 = invoke noundef zeroext i1 @_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE5eraseERKi(ptr noundef nonnull align 8 dereferenceable(144) %lruCache659, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp907)
+          to label %invoke.cont908 unwind label %lpad671
+
+invoke.cont908:                                   ; preds = %invoke.cont905
+  %conv910 = zext i1 %call909 to i32
+  %cmp911 = icmp eq i32 %conv910, 1
+  %call913 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp911, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 280, ptr noundef @.str.46)
+          to label %invoke.cont912 unwind label %lpad671
+
+invoke.cont912:                                   ; preds = %invoke.cont908
+  %mFooCreatedCount914 = getelementptr inbounds %"class.TestLruCacheInternal::FooCreator", ptr %fooCreator, i32 0, i32 0
+  %30 = load i32, ptr %mFooCreatedCount914, align 4
+  %cmp915 = icmp eq i32 %30, 0
+  %call917 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp915, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 281, ptr noundef @.str.44)
+          to label %invoke.cont916 unwind label %lpad671
+
+invoke.cont916:                                   ; preds = %invoke.cont912
+  call void @_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %lruCache659) #9
+  call void @_ZN5eastl9allocatorC2EPKc(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp919, ptr noundef @.str)
+  call void @_ZN5eastl8functionIFiiEEC2EDn(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp920, ptr null) #9
+  call void @_ZN5eastl8functionIFvRKiEEC2EDn(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp921, ptr null) #9
+  invoke void @_ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEEC2EmRKS1_NS_8functionIFiiEEENSJ_IFvRKiEEE(ptr noundef nonnull align 8 dereferenceable(144) %lc, i64 noundef 5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp919, ptr noundef %agg.tmp920, ptr noundef %agg.tmp921)
+          to label %invoke.cont923 unwind label %lpad922
+
+invoke.cont923:                                   ; preds = %invoke.cont916
+  call void @_ZN5eastl8functionIFvRKiEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp921) #9
+  call void @_ZN5eastl8functionIFiiEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp920) #9
+  store i32 0, ptr %ref.tmp926, align 4
+  store i32 10, ptr %ref.tmp927, align 4
+  invoke void @_ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEE16insert_or_assignERKiSI_(ptr noundef nonnull align 8 dereferenceable(144) %lc, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp926, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp927)
+          to label %invoke.cont929 unwind label %lpad928
+
+invoke.cont929:                                   ; preds = %invoke.cont923
+  store i32 1, ptr %ref.tmp930, align 4
+  store i32 11, ptr %ref.tmp931, align 4
+  invoke void @_ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEE16insert_or_assignERKiSI_(ptr noundef nonnull align 8 dereferenceable(144) %lc, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp930, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp931)
+          to label %invoke.cont932 unwind label %lpad928
+
+invoke.cont932:                                   ; preds = %invoke.cont929
+  store i32 2, ptr %ref.tmp933, align 4
+  store i32 12, ptr %ref.tmp934, align 4
+  invoke void @_ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEE16insert_or_assignERKiSI_(ptr noundef nonnull align 8 dereferenceable(144) %lc, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp933, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp934)
+          to label %invoke.cont935 unwind label %lpad928
+
+invoke.cont935:                                   ; preds = %invoke.cont932
+  store i32 3, ptr %ref.tmp936, align 4
+  store i32 13, ptr %ref.tmp937, align 4
+  invoke void @_ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEE16insert_or_assignERKiSI_(ptr noundef nonnull align 8 dereferenceable(144) %lc, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp936, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp937)
+          to label %invoke.cont938 unwind label %lpad928
+
+invoke.cont938:                                   ; preds = %invoke.cont935
+  store i32 4, ptr %ref.tmp939, align 4
+  store i32 14, ptr %ref.tmp940, align 4
+  invoke void @_ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEE16insert_or_assignERKiSI_(ptr noundef nonnull align 8 dereferenceable(144) %lc, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp939, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp940)
+          to label %invoke.cont941 unwind label %lpad928
+
+invoke.cont941:                                   ; preds = %invoke.cont938
+  store i32 0, ptr %i, align 4
+  call void @_ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEE5beginEv(ptr sret(%"struct.eastl::hashtable_iterator") align 8 %b942, ptr noundef nonnull align 8 dereferenceable(144) %lc) #9
+  call void @_ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEE3endEv(ptr sret(%"struct.eastl::hashtable_iterator") align 8 %e, ptr noundef nonnull align 8 dereferenceable(144) %lc) #9
+  br label %for.cond
+
+for.cond:                                         ; preds = %invoke.cont954, %invoke.cont941
+  %call944 = invoke noundef zeroext i1 @_ZN5eastlneINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0EEEbRKNS_23hashtable_iterator_baseIT_XT0_EEESD_(ptr noundef nonnull align 8 dereferenceable(16) %b942, ptr noundef nonnull align 8 dereferenceable(16) %e)
+          to label %invoke.cont943 unwind label %lpad928
+
+invoke.cont943:                                   ; preds = %for.cond
+  br i1 %call944, label %for.body, label %for.end
+
+for.body:                                         ; preds = %invoke.cont943
+  %call946 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5eastl18hashtable_iteratorINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0ELb0EEdeEv(ptr noundef nonnull align 8 dereferenceable(16) %b942)
+          to label %invoke.cont945 unwind label %lpad928
+
+invoke.cont945:                                   ; preds = %for.body
+  store ptr %call946, ptr %p, align 8
+  %31 = load i32, ptr %i, align 4
+  %32 = load ptr, ptr %p, align 8
+  %first = getelementptr inbounds %"struct.eastl::pair", ptr %32, i32 0, i32 0
+  %33 = load i32, ptr %first, align 8
+  %cmp947 = icmp eq i32 %31, %33
+  %call949 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp947, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 299, ptr noundef @.str.47)
+          to label %invoke.cont948 unwind label %lpad928
+
+invoke.cont948:                                   ; preds = %invoke.cont945
+  %34 = load i32, ptr %i, align 4
+  %add = add nsw i32 %34, 10
+  %35 = load ptr, ptr %p, align 8
+  %second = getelementptr inbounds %"struct.eastl::pair", ptr %35, i32 0, i32 1
+  %first950 = getelementptr inbounds %"struct.eastl::pair.27", ptr %second, i32 0, i32 0
+  %36 = load i32, ptr %first950, align 8
+  %cmp951 = icmp eq i32 %add, %36
+  %call953 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp951, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 300, ptr noundef @.str.48)
+          to label %invoke.cont952 unwind label %lpad928
+
+invoke.cont952:                                   ; preds = %invoke.cont948
+  %37 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %37, 1
+  store i32 %inc, ptr %i, align 4
+  br label %for.inc
+
+for.inc:                                          ; preds = %invoke.cont952
+  invoke void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0ELb0EEppEi(ptr sret(%"struct.eastl::hashtable_iterator") align 8 %tmp, ptr noundef nonnull align 8 dereferenceable(16) %b942, i32 noundef 0)
+          to label %invoke.cont954 unwind label %lpad928
+
+invoke.cont954:                                   ; preds = %for.inc
+  br label %for.cond, !llvm.loop !5
+
+lpad:                                             ; preds = %entry
+  %38 = landingpad { ptr, i32 }
+          cleanup
+  %39 = extractvalue { ptr, i32 } %38, 0
+  store ptr %39, ptr %exn.slot, align 8
+  %40 = extractvalue { ptr, i32 } %38, 1
+  store i32 %40, ptr %ehselector.slot, align 4
+  call void @_ZN5eastl8functionIFvRKN20TestLruCacheInternal3FooEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1) #9
+  call void @_ZN5eastl8functionIFN20TestLruCacheInternal3FooEiEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #9
+  br label %eh.resume
+
+lpad3:                                            ; preds = %invoke.cont653, %invoke.cont651, %invoke.cont648, %invoke.cont644, %invoke.cont641, %invoke.cont637, %invoke.cont632, %invoke.cont628, %invoke.cont624, %invoke.cont619, %invoke.cont615, %invoke.cont611, %invoke.cont608, %invoke.cont604, %invoke.cont601, %invoke.cont597, %invoke.cont594, %invoke.cont590, %invoke.cont587, %invoke.cont583, %invoke.cont580, %invoke.cont576, %invoke.cont573, %invoke.cont571, %invoke.cont570, %invoke.cont567, %invoke.cont564, %invoke.cont562, %invoke.cont561, %invoke.cont558, %invoke.cont556, %invoke.cont555, %invoke.cont551, %invoke.cont547, %invoke.cont542, %invoke.cont538, %invoke.cont534, %invoke.cont531, %invoke.cont527, %invoke.cont524, %invoke.cont520, %invoke.cont517, %invoke.cont513, %invoke.cont510, %invoke.cont506, %invoke.cont503, %invoke.cont501, %invoke.cont500, %invoke.cont497, %invoke.cont495, %invoke.cont494, %invoke.cont490, %invoke.cont486, %invoke.cont481, %invoke.cont477, %invoke.cont473, %invoke.cont470, %invoke.cont466, %invoke.cont463, %invoke.cont459, %invoke.cont456, %invoke.cont452, %invoke.cont449, %invoke.cont445, %invoke.cont442, %invoke.cont440, %invoke.cont439, %invoke.cont436, %invoke.cont433, %invoke.cont432, %invoke.cont428, %invoke.cont424, %invoke.cont419, %invoke.cont415, %invoke.cont411, %invoke.cont408, %invoke.cont404, %invoke.cont401, %invoke.cont397, %invoke.cont394, %invoke.cont390, %invoke.cont387, %invoke.cont383, %invoke.cont381, %invoke.cont379, %invoke.cont375, %invoke.cont370, %invoke.cont366, %invoke.cont362, %invoke.cont359, %invoke.cont355, %invoke.cont352, %invoke.cont348, %invoke.cont345, %invoke.cont341, %invoke.cont338, %invoke.cont334, %invoke.cont332, %invoke.cont330, %invoke.cont326, %invoke.cont323, %invoke.cont319, %invoke.cont314, %invoke.cont310, %invoke.cont306, %invoke.cont303, %invoke.cont299, %invoke.cont296, %invoke.cont292, %invoke.cont289, %invoke.cont285, %invoke.cont282, %invoke.cont278, %invoke.cont275, %invoke.cont271, %invoke.cont268, %invoke.cont264, %invoke.cont261, %invoke.cont260, %invoke.cont256, %invoke.cont252, %invoke.cont249, %invoke.cont245, %invoke.cont240, %invoke.cont236, %invoke.cont232, %invoke.cont229, %invoke.cont225, %invoke.cont222, %invoke.cont218, %invoke.cont215, %invoke.cont211, %invoke.cont208, %invoke.cont204, %invoke.cont201, %invoke.cont197, %invoke.cont194, %invoke.cont193, %invoke.cont189, %invoke.cont185, %invoke.cont180, %invoke.cont176, %invoke.cont172, %invoke.cont169, %invoke.cont165, %invoke.cont162, %invoke.cont158, %invoke.cont155, %invoke.cont151, %invoke.cont148, %invoke.cont144, %invoke.cont141, %invoke.cont137, %invoke.cont134, %invoke.cont133, %invoke.cont129, %invoke.cont125, %invoke.cont120, %invoke.cont116, %invoke.cont112, %invoke.cont109, %invoke.cont105, %invoke.cont102, %invoke.cont98, %invoke.cont95, %invoke.cont91, %invoke.cont88, %invoke.cont84, %invoke.cont83, %invoke.cont79, %invoke.cont75, %invoke.cont74, %invoke.cont70, %invoke.cont69, %invoke.cont65, %invoke.cont61, %invoke.cont56, %invoke.cont52, %invoke.cont48, %invoke.cont45, %invoke.cont41, %invoke.cont38, %invoke.cont35, %invoke.cont32, %invoke.cont29, %invoke.cont26, %invoke.cont22, %invoke.cont18, %invoke.cont14, %invoke.cont9, %invoke.cont5, %invoke.cont4, %invoke.cont
+  %41 = landingpad { ptr, i32 }
+          cleanup
+  %42 = extractvalue { ptr, i32 } %41, 0
+  store ptr %42, ptr %exn.slot, align 8
+  %43 = extractvalue { ptr, i32 } %41, 1
+  store i32 %43, ptr %ehselector.slot, align 4
+  call void @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %lruCache) #9
+  br label %eh.resume
+
+lpad666:                                          ; preds = %invoke.cont657
+  %44 = landingpad { ptr, i32 }
+          cleanup
+  %45 = extractvalue { ptr, i32 } %44, 0
+  store ptr %45, ptr %exn.slot, align 8
+  %46 = extractvalue { ptr, i32 } %44, 1
+  store i32 %46, ptr %ehselector.slot, align 4
+  br label %ehcleanup
+
+lpad668:                                          ; preds = %invoke.cont667
+  %47 = landingpad { ptr, i32 }
+          cleanup
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %exn.slot, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %ehselector.slot, align 4
+  call void @_ZN5eastl8functionIFvRKPN20TestLruCacheInternal3FooEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp663) #9
+  br label %ehcleanup
+
+ehcleanup:                                        ; preds = %lpad668, %lpad666
+  call void @_ZN5eastl8functionIFPN20TestLruCacheInternal3FooEiEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp661) #9
+  br label %eh.resume
+
+lpad671:                                          ; preds = %invoke.cont912, %invoke.cont908, %invoke.cont905, %invoke.cont901, %invoke.cont898, %invoke.cont894, %invoke.cont891, %invoke.cont887, %invoke.cont884, %invoke.cont880, %invoke.cont875, %invoke.cont872, %invoke.cont869, %invoke.cont863, %invoke.cont860, %invoke.cont856, %invoke.cont853, %invoke.cont849, %invoke.cont846, %invoke.cont842, %invoke.cont837, %invoke.cont833, %invoke.cont829, %invoke.cont826, %invoke.cont822, %invoke.cont819, %invoke.cont815, %invoke.cont812, %invoke.cont808, %invoke.cont803, %invoke.cont799, %invoke.cont795, %invoke.cont792, %invoke.cont788, %invoke.cont785, %invoke.cont781, %invoke.cont778, %invoke.cont774, %invoke.cont771, %invoke.cont767, %invoke.cont764, %invoke.cont760, %invoke.cont755, %invoke.cont751, %invoke.cont747, %invoke.cont742, %invoke.cont738, %invoke.cont736, %invoke.cont732, %invoke.cont729, %invoke.cont725, %invoke.cont722, %invoke.cont718, %invoke.cont713, %invoke.cont709, %invoke.cont705, %invoke.cont702, %invoke.cont698, %invoke.cont695, %invoke.cont691, %invoke.cont688, %invoke.cont684, %invoke.cont679, %invoke.cont675, %invoke.cont672, %invoke.cont669
+  %50 = landingpad { ptr, i32 }
+          cleanup
+  %51 = extractvalue { ptr, i32 } %50, 0
+  store ptr %51, ptr %exn.slot, align 8
+  %52 = extractvalue { ptr, i32 } %50, 1
+  store i32 %52, ptr %ehselector.slot, align 4
+  call void @_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %lruCache659) #9
+  br label %eh.resume
+
+lpad922:                                          ; preds = %invoke.cont916
+  %53 = landingpad { ptr, i32 }
+          cleanup
+  %54 = extractvalue { ptr, i32 } %53, 0
+  store ptr %54, ptr %exn.slot, align 8
+  %55 = extractvalue { ptr, i32 } %53, 1
+  store i32 %55, ptr %ehselector.slot, align 4
+  call void @_ZN5eastl8functionIFvRKiEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp921) #9
+  call void @_ZN5eastl8functionIFiiEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp920) #9
+  br label %eh.resume
+
+lpad928:                                          ; preds = %for.inc1001, %invoke.cont993, %invoke.cont990, %invoke.cont988, %invoke.cont986, %for.body985, %for.cond982, %for.inc974, %invoke.cont965, %invoke.cont961, %for.body959, %for.cond956, %for.inc, %invoke.cont948, %invoke.cont945, %for.body, %for.cond, %invoke.cont938, %invoke.cont935, %invoke.cont932, %invoke.cont929, %invoke.cont923
+  %56 = landingpad { ptr, i32 }
+          cleanup
+  %57 = extractvalue { ptr, i32 } %56, 0
+  store ptr %57, ptr %exn.slot, align 8
+  %58 = extractvalue { ptr, i32 } %56, 1
+  store i32 %58, ptr %ehselector.slot, align 4
+  call void @_ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %lc) #9
+  br label %eh.resume
+
+for.end:                                          ; preds = %invoke.cont943
+  store i32 0, ptr %i955, align 4
+  store ptr %lc, ptr %__range2, align 8
+  %59 = load ptr, ptr %__range2, align 8
+  call void @_ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEE5beginEv(ptr sret(%"struct.eastl::hashtable_iterator") align 8 %__begin2, ptr noundef nonnull align 8 dereferenceable(144) %59) #9
+  %60 = load ptr, ptr %__range2, align 8
+  call void @_ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEE3endEv(ptr sret(%"struct.eastl::hashtable_iterator") align 8 %__end2, ptr noundef nonnull align 8 dereferenceable(144) %60) #9
+  br label %for.cond956
+
+for.cond956:                                      ; preds = %invoke.cont975, %for.end
+  %call958 = invoke noundef zeroext i1 @_ZN5eastlneINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0EEEbRKNS_23hashtable_iterator_baseIT_XT0_EEESD_(ptr noundef nonnull align 8 dereferenceable(16) %__begin2, ptr noundef nonnull align 8 dereferenceable(16) %__end2)
+          to label %invoke.cont957 unwind label %lpad928
+
+invoke.cont957:                                   ; preds = %for.cond956
+  br i1 %call958, label %for.body959, label %for.end977
+
+for.body959:                                      ; preds = %invoke.cont957
+  %call962 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5eastl18hashtable_iteratorINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0ELb0EEdeEv(ptr noundef nonnull align 8 dereferenceable(16) %__begin2)
+          to label %invoke.cont961 unwind label %lpad928
+
+invoke.cont961:                                   ; preds = %for.body959
+  store ptr %call962, ptr %p960, align 8
+  %61 = load i32, ptr %i955, align 4
+  %62 = load ptr, ptr %p960, align 8
+  %first963 = getelementptr inbounds %"struct.eastl::pair", ptr %62, i32 0, i32 0
+  %63 = load i32, ptr %first963, align 8
+  %cmp964 = icmp eq i32 %61, %63
+  %call966 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp964, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 309, ptr noundef @.str.47)
+          to label %invoke.cont965 unwind label %lpad928
+
+invoke.cont965:                                   ; preds = %invoke.cont961
+  %64 = load i32, ptr %i955, align 4
+  %add967 = add nsw i32 %64, 10
+  %65 = load ptr, ptr %p960, align 8
+  %second968 = getelementptr inbounds %"struct.eastl::pair", ptr %65, i32 0, i32 1
+  %first969 = getelementptr inbounds %"struct.eastl::pair.27", ptr %second968, i32 0, i32 0
+  %66 = load i32, ptr %first969, align 8
+  %cmp970 = icmp eq i32 %add967, %66
+  %call972 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp970, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 310, ptr noundef @.str.48)
+          to label %invoke.cont971 unwind label %lpad928
+
+invoke.cont971:                                   ; preds = %invoke.cont965
+  %67 = load i32, ptr %i955, align 4
+  %inc973 = add nsw i32 %67, 1
+  store i32 %inc973, ptr %i955, align 4
+  br label %for.inc974
+
+for.inc974:                                       ; preds = %invoke.cont971
+  %call976 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0ELb0EEppEv(ptr noundef nonnull align 8 dereferenceable(16) %__begin2)
+          to label %invoke.cont975 unwind label %lpad928
+
+invoke.cont975:                                   ; preds = %for.inc974
+  br label %for.cond956
+
+for.end977:                                       ; preds = %invoke.cont957
+  store i32 0, ptr %i978, align 4
+  store ptr %lc, ptr %__range2979, align 8
+  %68 = load ptr, ptr %__range2979, align 8
+  call void @_ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEE5beginEv(ptr sret(%"struct.eastl::hashtable_iterator") align 8 %__begin2980, ptr noundef nonnull align 8 dereferenceable(144) %68) #9
+  %69 = load ptr, ptr %__range2979, align 8
+  call void @_ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEE3endEv(ptr sret(%"struct.eastl::hashtable_iterator") align 8 %__end2981, ptr noundef nonnull align 8 dereferenceable(144) %69) #9
+  br label %for.cond982
+
+for.cond982:                                      ; preds = %invoke.cont1002, %for.end977
+  %call984 = invoke noundef zeroext i1 @_ZN5eastlneINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0EEEbRKNS_23hashtable_iterator_baseIT_XT0_EEESD_(ptr noundef nonnull align 8 dereferenceable(16) %__begin2980, ptr noundef nonnull align 8 dereferenceable(16) %__end2981)
+          to label %invoke.cont983 unwind label %lpad928
+
+invoke.cont983:                                   ; preds = %for.cond982
+  br i1 %call984, label %for.body985, label %for.end1004
+
+for.body985:                                      ; preds = %invoke.cont983
+  %call987 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5eastl18hashtable_iteratorINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0ELb0EEdeEv(ptr noundef nonnull align 8 dereferenceable(16) %__begin2980)
+          to label %invoke.cont986 unwind label %lpad928
+
+invoke.cont986:                                   ; preds = %for.body985
+  store ptr %call987, ptr %0, align 8
+  %70 = load ptr, ptr %0, align 8
+  %call989 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN5eastl3getILm0EKiNS_4pairIiNS_12ListIteratorIiPiRiEEEEEERNS_13tuple_elementIXT_ENS2_IT0_T1_EEE4typeERSB_(ptr noundef nonnull align 8 dereferenceable(24) %70)
+          to label %invoke.cont988 unwind label %lpad928
+
+invoke.cont988:                                   ; preds = %invoke.cont986
+  store ptr %call989, ptr %key, align 8
+  %71 = load ptr, ptr %0, align 8
+  %call991 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl3getILm1EKiNS_4pairIiNS_12ListIteratorIiPiRiEEEEEERNS_13tuple_elementIXT_ENS2_IT0_T1_EEE4typeERSB_(ptr noundef nonnull align 8 dereferenceable(24) %71)
+          to label %invoke.cont990 unwind label %lpad928
+
+invoke.cont990:                                   ; preds = %invoke.cont988
+  store ptr %call991, ptr %value, align 8
+  %72 = load i32, ptr %i978, align 4
+  %73 = load ptr, ptr %key, align 8
+  %74 = load i32, ptr %73, align 4
+  %cmp992 = icmp eq i32 %72, %74
+  %call994 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp992, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 319, ptr noundef @.str.49)
+          to label %invoke.cont993 unwind label %lpad928
+
+invoke.cont993:                                   ; preds = %invoke.cont990
+  %75 = load i32, ptr %i978, align 4
+  %add995 = add nsw i32 %75, 10
+  %76 = load ptr, ptr %value, align 8
+  %first996 = getelementptr inbounds %"struct.eastl::pair.27", ptr %76, i32 0, i32 0
+  %77 = load i32, ptr %first996, align 8
+  %cmp997 = icmp eq i32 %add995, %77
+  %call999 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp997, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 320, ptr noundef @.str.50)
+          to label %invoke.cont998 unwind label %lpad928
+
+invoke.cont998:                                   ; preds = %invoke.cont993
+  %78 = load i32, ptr %i978, align 4
+  %inc1000 = add nsw i32 %78, 1
+  store i32 %inc1000, ptr %i978, align 4
+  br label %for.inc1001
+
+for.inc1001:                                      ; preds = %invoke.cont998
+  %call1003 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0ELb0EEppEv(ptr noundef nonnull align 8 dereferenceable(16) %__begin2980)
+          to label %invoke.cont1002 unwind label %lpad928
+
+invoke.cont1002:                                  ; preds = %for.inc1001
+  br label %for.cond982
+
+for.end1004:                                      ; preds = %invoke.cont983
+  call void @_ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %lc) #9
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %ref.tmp1008, ptr align 4 @constinit, i64 48, i1 false)
+  %_M_array = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp1007, i32 0, i32 0
+  %arraystart = getelementptr inbounds [6 x %"struct.eastl::pair.28"], ptr %ref.tmp1008, i64 0, i64 0
+  store ptr %arraystart, ptr %_M_array, align 8
+  %_M_len = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp1007, i32 0, i32 1
+  store i64 6, ptr %_M_len, align 8
+  %79 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp1007, i32 0, i32 0
+  %80 = load ptr, ptr %79, align 8
+  %81 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp1007, i32 0, i32 1
+  %82 = load i64, ptr %81, align 8
+  call void @_ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEEC2ESt16initializer_listINS5_IiiEEE(ptr noundef nonnull align 8 dereferenceable(144) %lc1006, ptr %80, i64 %82)
+  store i32 0, ptr %i1009, align 4
+  store ptr %lc1006, ptr %__range1, align 8
+  %83 = load ptr, ptr %__range1, align 8
+  call void @_ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEE5beginEv(ptr sret(%"struct.eastl::hashtable_iterator") align 8 %__begin1, ptr noundef nonnull align 8 dereferenceable(144) %83) #9
+  %84 = load ptr, ptr %__range1, align 8
+  call void @_ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEE3endEv(ptr sret(%"struct.eastl::hashtable_iterator") align 8 %__end1, ptr noundef nonnull align 8 dereferenceable(144) %84) #9
+  br label %for.cond1010
+
+for.cond1010:                                     ; preds = %invoke.cont1030, %for.end1004
+  %call1013 = invoke noundef zeroext i1 @_ZN5eastlneINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0EEEbRKNS_23hashtable_iterator_baseIT_XT0_EEESD_(ptr noundef nonnull align 8 dereferenceable(16) %__begin1, ptr noundef nonnull align 8 dereferenceable(16) %__end1)
+          to label %invoke.cont1012 unwind label %lpad1011
+
+invoke.cont1012:                                  ; preds = %for.cond1010
+  br i1 %call1013, label %for.body1014, label %for.end1032
+
+for.body1014:                                     ; preds = %invoke.cont1012
+  %call1017 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5eastl18hashtable_iteratorINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0ELb0EEdeEv(ptr noundef nonnull align 8 dereferenceable(16) %__begin1)
+          to label %invoke.cont1016 unwind label %lpad1011
+
+invoke.cont1016:                                  ; preds = %for.body1014
+  store ptr %call1017, ptr %p1015, align 8
+  %85 = load i32, ptr %i1009, align 4
+  %86 = load ptr, ptr %p1015, align 8
+  %first1018 = getelementptr inbounds %"struct.eastl::pair", ptr %86, i32 0, i32 0
+  %87 = load i32, ptr %first1018, align 8
+  %cmp1019 = icmp eq i32 %85, %87
+  %call1021 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp1019, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 333, ptr noundef @.str.47)
+          to label %invoke.cont1020 unwind label %lpad1011
+
+invoke.cont1020:                                  ; preds = %invoke.cont1016
+  %88 = load i32, ptr %i1009, align 4
+  %add1022 = add nsw i32 %88, 10
+  %89 = load ptr, ptr %p1015, align 8
+  %second1023 = getelementptr inbounds %"struct.eastl::pair", ptr %89, i32 0, i32 1
+  %first1024 = getelementptr inbounds %"struct.eastl::pair.27", ptr %second1023, i32 0, i32 0
+  %90 = load i32, ptr %first1024, align 8
+  %cmp1025 = icmp eq i32 %add1022, %90
+  %call1027 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp1025, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.1, i32 noundef 334, ptr noundef @.str.48)
+          to label %invoke.cont1026 unwind label %lpad1011
+
+invoke.cont1026:                                  ; preds = %invoke.cont1020
+  %91 = load i32, ptr %i1009, align 4
+  %inc1028 = add nsw i32 %91, 1
+  store i32 %inc1028, ptr %i1009, align 4
+  br label %for.inc1029
+
+for.inc1029:                                      ; preds = %invoke.cont1026
+  %call1031 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0ELb0EEppEv(ptr noundef nonnull align 8 dereferenceable(16) %__begin1)
+          to label %invoke.cont1030 unwind label %lpad1011
+
+invoke.cont1030:                                  ; preds = %for.inc1029
+  br label %for.cond1010
+
+lpad1011:                                         ; preds = %for.inc1029, %invoke.cont1020, %invoke.cont1016, %for.body1014, %for.cond1010
+  %92 = landingpad { ptr, i32 }
+          cleanup
+  %93 = extractvalue { ptr, i32 } %92, 0
+  store ptr %93, ptr %exn.slot, align 8
+  %94 = extractvalue { ptr, i32 } %92, 1
+  store i32 %94, ptr %ehselector.slot, align 4
+  call void @_ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %lc1006) #9
+  br label %eh.resume
+
+for.end1032:                                      ; preds = %invoke.cont1012
+  call void @_ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %lc1006) #9
+  %95 = load i32, ptr %nErrorCount, align 4
+  ret i32 %95
+
+eh.resume:                                        ; preds = %lpad1011, %lpad928, %lpad922, %lpad671, %ehcleanup, %lpad3, %lpad
+  %exn = load ptr, ptr %exn.slot, align 8
+  %sel = load i32, ptr %ehselector.slot, align 4
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
+  %lpad.val1034 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
+  resume { ptr, i32 } %lpad.val1034
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl9allocatorC2EPKc(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %0) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl8functionIFN20TestLruCacheInternal3FooEiEEC2EDn(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr %p) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %p.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %p, ptr %p.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZN5eastl8internal15function_detailILi16EFN20TestLruCacheInternal3FooEiEEC2EDn(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr null) #9
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl8functionIFvRKN20TestLruCacheInternal3FooEEEC2EDn(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr %p) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %p.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %p, ptr %p.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZN5eastl8internal15function_detailILi16EFvRKN20TestLruCacheInternal3FooEEEC2EDn(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr null) #9
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEEC2EmRKS3_NS_8functionIFS2_iEEENSL_IFvRKS2_EEE(ptr noundef nonnull align 8 dereferenceable(144) %this, i64 noundef %size, ptr noundef nonnull align 1 dereferenceable(1) %allocator, ptr noundef %creator, ptr noundef %deletor) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %size.addr = alloca i64, align 8
+  %allocator.addr = alloca ptr, align 8
+  %creator.indirect_addr = alloca ptr, align 8
+  %deletor.indirect_addr = alloca ptr, align 8
+  %exn.slot = alloca ptr, align 8
+  %ehselector.slot = alloca i32, align 4
+  store ptr %this, ptr %this.addr, align 8
+  store i64 %size, ptr %size.addr, align 8
+  store ptr %allocator, ptr %allocator.addr, align 8
+  store ptr %creator, ptr %creator.indirect_addr, align 8
+  store ptr %deletor, ptr %deletor.indirect_addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_list = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %allocator.addr, align 8
+  call void @_ZN5eastl4listIiNS_9allocatorEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %m_list, ptr noundef nonnull align 1 dereferenceable(1) %0)
+  %m_map = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 1
+  %1 = load ptr, ptr %allocator.addr, align 8
+  invoke void @_ZN5eastl8hash_mapIiNS_4pairIN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEENS_9allocatorELb0EEC2ERKSD_(ptr noundef nonnull align 8 dereferenceable(45) %m_map, ptr noundef nonnull align 1 dereferenceable(1) %1)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %entry
+  %m_capacity = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 2
+  %2 = load i64, ptr %size.addr, align 8
+  store i64 %2, ptr %m_capacity, align 8
+  %m_create_callback = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 3
+  invoke void @_ZN5eastl8functionIFN20TestLruCacheInternal3FooEiEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_create_callback, ptr noundef nonnull align 8 dereferenceable(32) %creator)
+          to label %invoke.cont3 unwind label %lpad2
+
+invoke.cont3:                                     ; preds = %invoke.cont
+  %m_delete_callback = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 4
+  invoke void @_ZN5eastl8functionIFvRKN20TestLruCacheInternal3FooEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(32) %m_delete_callback, ptr noundef nonnull align 8 dereferenceable(32) %deletor)
+          to label %invoke.cont5 unwind label %lpad4
+
+invoke.cont5:                                     ; preds = %invoke.cont3
+  ret void
+
+lpad:                                             ; preds = %entry
+  %3 = landingpad { ptr, i32 }
+          cleanup
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
+  br label %ehcleanup6
+
+lpad2:                                            ; preds = %invoke.cont
+  %6 = landingpad { ptr, i32 }
+          cleanup
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
+  br label %ehcleanup
+
+lpad4:                                            ; preds = %invoke.cont3
+  %9 = landingpad { ptr, i32 }
+          cleanup
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
+  call void @_ZN5eastl8functionIFN20TestLruCacheInternal3FooEiEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_create_callback) #9
+  br label %ehcleanup
+
+ehcleanup:                                        ; preds = %lpad4, %lpad2
+  call void @_ZN5eastl8hash_mapIiNS_4pairIN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEENS_9allocatorELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(45) %m_map) #9
+  br label %ehcleanup6
+
+ehcleanup6:                                       ; preds = %ehcleanup, %lpad
+  call void @_ZN5eastl4listIiNS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_list) #9
+  br label %eh.resume
+
+eh.resume:                                        ; preds = %ehcleanup6
+  %exn = load ptr, ptr %exn.slot, align 8
+  %sel = load i32, ptr %ehselector.slot, align 4
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
+  %lpad.val7 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
+  resume { ptr, i32 } %lpad.val7
+}
+
+declare i32 @__gxx_personality_v0(...)
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl8functionIFvRKN20TestLruCacheInternal3FooEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZN5eastl8internal15function_detailILi16EFvRKN20TestLruCacheInternal3FooEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #9
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl8functionIFN20TestLruCacheInternal3FooEiEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZN5eastl8internal15function_detailILi16EFN20TestLruCacheInternal3FooEiEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #9
+  ret void
+}
+
+declare noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef, i32 noundef, ptr noundef) #2
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 4 dereferenceable(4) %k) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %k.addr = alloca ptr, align 8
+  %ref.tmp = alloca %"struct.eastl::hashtable_iterator.33", align 8
+  %ref.tmp2 = alloca %"struct.eastl::hashtable_iterator.33", align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %k, ptr %k.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_map = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 1
+  %0 = load ptr, ptr %k.addr, align 8
+  %call = call { ptr, ptr } @_ZNK5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_(ptr noundef nonnull align 8 dereferenceable(45) %m_map, ptr noundef nonnull align 4 dereferenceable(4) %0)
+  %coerce.dive = getelementptr inbounds %"struct.eastl::hashtable_iterator.33", ptr %ref.tmp, i32 0, i32 0
+  %1 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive, i32 0, i32 0
+  %2 = extractvalue { ptr, ptr } %call, 0
+  store ptr %2, ptr %1, align 8
+  %3 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive, i32 0, i32 1
+  %4 = extractvalue { ptr, ptr } %call, 1
+  store ptr %4, ptr %3, align 8
+  %m_map3 = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 1
+  %call4 = call { ptr, ptr } @_ZNK5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv(ptr noundef nonnull align 8 dereferenceable(45) %m_map3) #9
+  %coerce.dive5 = getelementptr inbounds %"struct.eastl::hashtable_iterator.33", ptr %ref.tmp2, i32 0, i32 0
+  %5 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive5, i32 0, i32 0
+  %6 = extractvalue { ptr, ptr } %call4, 0
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive5, i32 0, i32 1
+  %8 = extractvalue { ptr, ptr } %call4, 1
+  store ptr %8, ptr %7, align 8
+  %call6 = call noundef zeroext i1 @_ZN5eastlneINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0EEEbRKNS_23hashtable_iterator_baseIT_XT0_EEESF_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2)
+  ret i1 %call6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i64 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_map = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 1
+  %call = call noundef i64 @_ZNK5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(45) %m_map) #9
+  ret i64 %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(144) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_map = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 1
+  %call = call noundef zeroext i1 @_ZNK5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(45) %m_map) #9
+  ret i1 %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i64 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(144) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_capacity = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 2
+  %0 = load i64, ptr %m_capacity, align 8
+  ret i64 %0
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE2atERKi(ptr noalias sret(%"class.eastl::optional") align 4 %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 4 dereferenceable(4) %k) #0 comdat align 2 {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %this.addr = alloca ptr, align 8
+  %k.addr = alloca ptr, align 8
+  %iter = alloca %"struct.eastl::hashtable_iterator.31", align 8
+  %ref.tmp = alloca %"struct.eastl::hashtable_iterator.31", align 8
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %k, ptr %k.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_map = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 1
+  %0 = load ptr, ptr %k.addr, align 8
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_(ptr sret(%"struct.eastl::hashtable_iterator.31") align 8 %iter, ptr noundef nonnull align 8 dereferenceable(45) %m_map, ptr noundef nonnull align 4 dereferenceable(4) %0)
+  %m_map2 = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 1
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv(ptr sret(%"struct.eastl::hashtable_iterator.31") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(45) %m_map2) #9
+  %call = call noundef zeroext i1 @_ZN5eastlneINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0EEEbRKNS_23hashtable_iterator_baseIT_XT0_EEESF_(ptr noundef nonnull align 8 dereferenceable(16) %iter, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
+  br i1 %call, label %if.then, label %if.else
+
+if.then:                                          ; preds = %entry
+  %call3 = call noundef ptr @_ZNK5eastl18hashtable_iteratorINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEptEv(ptr noundef nonnull align 8 dereferenceable(16) %iter)
+  %second = getelementptr inbounds %"struct.eastl::pair.29", ptr %call3, i32 0, i32 1
+  %first = getelementptr inbounds %"struct.eastl::pair.30", ptr %second, i32 0, i32 0
+  call void @_ZN5eastl8optionalIN20TestLruCacheInternal3FooEEC2ERKS2_(ptr noundef nonnull align 4 dereferenceable(9) %agg.result, ptr noundef nonnull align 4 dereferenceable(8) %first)
+  br label %return
+
+if.else:                                          ; preds = %entry
+  call void @_ZN5eastl8optionalIN20TestLruCacheInternal3FooEEC2ENS_9nullopt_tE(ptr noundef nonnull align 4 dereferenceable(9) %agg.result) #9
+  br label %return
+
+return:                                           ; preds = %if.else, %if.then
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK5eastl8optionalIN20TestLruCacheInternal3FooEE9has_valueEv(ptr noundef nonnull align 4 dereferenceable(9) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %engaged = getelementptr inbounds %"struct.eastl::Internal::optional_storage", ptr %this1, i32 0, i32 1
+  %0 = load i8, ptr %engaged, align 4
+  %tobool = trunc i8 %0 to i1
+  ret i1 %tobool
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(8) ptr @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEEixERKi(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 4 dereferenceable(4) %k) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %k.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %k, ptr %k.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %k.addr, align 8
+  %call = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE3getERKi(ptr noundef nonnull align 8 dereferenceable(144) %this1, ptr noundef nonnull align 4 dereferenceable(4) %0)
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE6insertERKiRKS2_(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 4 dereferenceable(4) %k, ptr noundef nonnull align 4 dereferenceable(8) %v) #0 comdat align 2 {
+entry:
+  %retval = alloca i1, align 1
+  %this.addr = alloca ptr, align 8
+  %k.addr = alloca ptr, align 8
+  %v.addr = alloca ptr, align 8
+  %ref.tmp = alloca %"struct.eastl::hashtable_iterator.31", align 8
+  %ref.tmp2 = alloca %"struct.eastl::hashtable_iterator.31", align 8
+  %ref.tmp4 = alloca %"struct.eastl::pair.30", align 8
+  %ref.tmp5 = alloca %"struct.eastl::ListIterator", align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %k, ptr %k.addr, align 8
+  store ptr %v, ptr %v.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_map = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 1
+  %0 = load ptr, ptr %k.addr, align 8
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_(ptr sret(%"struct.eastl::hashtable_iterator.31") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(45) %m_map, ptr noundef nonnull align 4 dereferenceable(4) %0)
+  %m_map3 = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 1
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv(ptr sret(%"struct.eastl::hashtable_iterator.31") align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(45) %m_map3) #9
+  %call = call noundef zeroext i1 @_ZN5eastleqINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0EEEbRKNS_23hashtable_iterator_baseIT_XT0_EEESF_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2)
+  br i1 %call, label %if.then, label %if.else
+
+if.then:                                          ; preds = %entry
+  call void @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE10make_spaceEv(ptr noundef nonnull align 8 dereferenceable(144) %this1)
+  %m_list = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 0
+  %1 = load ptr, ptr %k.addr, align 8
+  call void @_ZN5eastl4listIiNS_9allocatorEE10push_frontERKi(ptr noundef nonnull align 8 dereferenceable(24) %m_list, ptr noundef nonnull align 4 dereferenceable(4) %1)
+  %2 = load ptr, ptr %v.addr, align 8
+  %m_list6 = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 0
+  call void @_ZN5eastl4listIiNS_9allocatorEE5beginEv(ptr sret(%"struct.eastl::ListIterator") align 8 %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(24) %m_list6) #9
+  call void @_ZN5eastl4pairIN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEC2IS6_vEERKS2_OT_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4, ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp5)
+  %m_map7 = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 1
+  %3 = load ptr, ptr %k.addr, align 8
+  %call8 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl8hash_mapIiNS_4pairIN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEENS_9allocatorELb0EEixERKi(ptr noundef nonnull align 8 dereferenceable(45) %m_map7, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call8, ptr align 8 %ref.tmp4, i64 16, i1 false)
+  store i1 true, ptr %retval, align 1
+  br label %return
+
+if.else:                                          ; preds = %entry
+  store i1 false, ptr %retval, align 1
+  br label %return
+
+return:                                           ; preds = %if.else, %if.then
+  %4 = load i1, ptr %retval, align 1
+  ret i1 %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN20TestLruCacheInternal3FooC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %this, i32 noundef %x, i32 noundef %y) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %x.addr = alloca i32, align 4
+  %y.addr = alloca i32, align 4
+  store ptr %this, ptr %this.addr, align 8
+  store i32 %x, ptr %x.addr, align 4
+  store i32 %y, ptr %y.addr, align 4
+  %this1 = load ptr, ptr %this.addr, align 8
+  %a = getelementptr inbounds %"struct.TestLruCacheInternal::Foo", ptr %this1, i32 0, i32 0
+  %0 = load i32, ptr %x.addr, align 4
+  store i32 %0, ptr %a, align 4
+  %b = getelementptr inbounds %"struct.TestLruCacheInternal::Foo", ptr %this1, i32 0, i32 1
+  %1 = load i32, ptr %y.addr, align 4
+  store i32 %1, ptr %b, align 4
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(8) ptr @_ZNO5eastl8optionalIN20TestLruCacheInternal3FooEE5valueEv(ptr noundef nonnull align 4 dereferenceable(9) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN5eastl8optionalIN20TestLruCacheInternal3FooEE14get_rvalue_refEv(ptr noundef nonnull align 4 dereferenceable(9) %this1) #9
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE5touchERKi(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 4 dereferenceable(4) %k) #0 comdat align 2 {
+entry:
+  %retval = alloca i1, align 1
+  %this.addr = alloca ptr, align 8
+  %k.addr = alloca ptr, align 8
+  %iter = alloca %"struct.eastl::hashtable_iterator.31", align 8
+  %ref.tmp = alloca %"struct.eastl::hashtable_iterator.31", align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %k, ptr %k.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_map = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 1
+  %0 = load ptr, ptr %k.addr, align 8
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_(ptr sret(%"struct.eastl::hashtable_iterator.31") align 8 %iter, ptr noundef nonnull align 8 dereferenceable(45) %m_map, ptr noundef nonnull align 4 dereferenceable(4) %0)
+  %m_map2 = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 1
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv(ptr sret(%"struct.eastl::hashtable_iterator.31") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(45) %m_map2) #9
+  %call = call noundef zeroext i1 @_ZN5eastlneINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0EEEbRKNS_23hashtable_iterator_baseIT_XT0_EEESF_(ptr noundef nonnull align 8 dereferenceable(16) %iter, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
+  br i1 %call, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  call void @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE5touchERNS_18hashtable_iteratorINS7_IKiSC_EELb0ELb0EEE(ptr noundef nonnull align 8 dereferenceable(144) %this1, ptr noundef nonnull align 8 dereferenceable(16) %iter)
+  store i1 true, ptr %retval, align 1
+  br label %return
+
+if.end:                                           ; preds = %entry
+  store i1 false, ptr %retval, align 1
+  br label %return
+
+return:                                           ; preds = %if.end, %if.then
+  %1 = load i1, ptr %retval, align 1
+  ret i1 %1
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(144) %this, i64 noundef %newSize) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %newSize.addr = alloca i64, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store i64 %newSize, ptr %newSize.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load i64, ptr %newSize.addr, align 8
+  %m_capacity = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 2
+  store i64 %0, ptr %m_capacity, align 8
+  %call = call noundef zeroext i1 @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE4trimEv(ptr noundef nonnull align 8 dereferenceable(144) %this1)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE6assignERKiRKS2_(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 4 dereferenceable(4) %k, ptr noundef nonnull align 4 dereferenceable(8) %v) #0 comdat align 2 {
+entry:
+  %retval = alloca i1, align 1
+  %this.addr = alloca ptr, align 8
+  %k.addr = alloca ptr, align 8
+  %v.addr = alloca ptr, align 8
+  %iter = alloca %"struct.eastl::hashtable_iterator.31", align 8
+  %ref.tmp = alloca %"struct.eastl::hashtable_iterator.31", align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %k, ptr %k.addr, align 8
+  store ptr %v, ptr %v.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_map = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 1
+  %0 = load ptr, ptr %k.addr, align 8
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_(ptr sret(%"struct.eastl::hashtable_iterator.31") align 8 %iter, ptr noundef nonnull align 8 dereferenceable(45) %m_map, ptr noundef nonnull align 4 dereferenceable(4) %0)
+  %m_map2 = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 1
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv(ptr sret(%"struct.eastl::hashtable_iterator.31") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(45) %m_map2) #9
+  %call = call noundef zeroext i1 @_ZN5eastlneINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0EEEbRKNS_23hashtable_iterator_baseIT_XT0_EEESF_(ptr noundef nonnull align 8 dereferenceable(16) %iter, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
+  br i1 %call, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %1 = load ptr, ptr %v.addr, align 8
+  call void @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE6assignERNS_18hashtable_iteratorINS7_IKiSC_EELb0ELb0EEERKS2_(ptr noundef nonnull align 8 dereferenceable(144) %this1, ptr noundef nonnull align 8 dereferenceable(16) %iter, ptr noundef nonnull align 4 dereferenceable(8) %1)
+  store i1 true, ptr %retval, align 1
+  br label %return
+
+if.end:                                           ; preds = %entry
+  store i1 false, ptr %retval, align 1
+  br label %return
+
+return:                                           ; preds = %if.end, %if.then
+  %2 = load i1, ptr %retval, align 1
+  ret i1 %2
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK20TestLruCacheInternal3FooeqERKS0_(ptr noundef nonnull align 4 dereferenceable(8) %this, ptr noundef nonnull align 4 dereferenceable(8) %other) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %other.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %other, ptr %other.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %a = getelementptr inbounds %"struct.TestLruCacheInternal::Foo", ptr %this1, i32 0, i32 0
+  %0 = load i32, ptr %a, align 4
+  %1 = load ptr, ptr %other.addr, align 8
+  %a2 = getelementptr inbounds %"struct.TestLruCacheInternal::Foo", ptr %1, i32 0, i32 0
+  %2 = load i32, ptr %a2, align 4
+  %cmp = icmp eq i32 %0, %2
+  br i1 %cmp, label %land.rhs, label %land.end
+
+land.rhs:                                         ; preds = %entry
+  %b = getelementptr inbounds %"struct.TestLruCacheInternal::Foo", ptr %this1, i32 0, i32 1
+  %3 = load i32, ptr %b, align 4
+  %4 = load ptr, ptr %other.addr, align 8
+  %b3 = getelementptr inbounds %"struct.TestLruCacheInternal::Foo", ptr %4, i32 0, i32 1
+  %5 = load i32, ptr %b3, align 4
+  %cmp4 = icmp eq i32 %3, %5
+  br label %land.end
+
+land.end:                                         ; preds = %land.rhs, %entry
+  %6 = phi i1 [ false, %entry ], [ %cmp4, %land.rhs ]
+  ret i1 %6
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE16insert_or_assignERKiRKS2_(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 4 dereferenceable(4) %k, ptr noundef nonnull align 4 dereferenceable(8) %v) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %k.addr = alloca ptr, align 8
+  %v.addr = alloca ptr, align 8
+  %iter = alloca %"struct.eastl::hashtable_iterator.31", align 8
+  %ref.tmp = alloca %"struct.eastl::hashtable_iterator.31", align 8
+  %ref.tmp3 = alloca %"struct.eastl::hashtable_iterator.31", align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %k, ptr %k.addr, align 8
+  store ptr %v, ptr %v.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_map = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 1
+  %0 = load ptr, ptr %k.addr, align 8
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_(ptr sret(%"struct.eastl::hashtable_iterator.31") align 8 %iter, ptr noundef nonnull align 8 dereferenceable(45) %m_map, ptr noundef nonnull align 4 dereferenceable(4) %0)
+  %m_map2 = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 1
+  %1 = load ptr, ptr %k.addr, align 8
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_(ptr sret(%"struct.eastl::hashtable_iterator.31") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(45) %m_map2, ptr noundef nonnull align 4 dereferenceable(4) %1)
+  %m_map4 = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 1
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv(ptr sret(%"struct.eastl::hashtable_iterator.31") align 8 %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(45) %m_map4) #9
+  %call = call noundef zeroext i1 @_ZN5eastlneINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0EEEbRKNS_23hashtable_iterator_baseIT_XT0_EEESF_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3)
+  br i1 %call, label %if.then, label %if.else
+
+if.then:                                          ; preds = %entry
+  %2 = load ptr, ptr %v.addr, align 8
+  call void @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE6assignERNS_18hashtable_iteratorINS7_IKiSC_EELb0ELb0EEERKS2_(ptr noundef nonnull align 8 dereferenceable(144) %this1, ptr noundef nonnull align 8 dereferenceable(16) %iter, ptr noundef nonnull align 4 dereferenceable(8) %2)
+  br label %if.end
+
+if.else:                                          ; preds = %entry
+  %3 = load ptr, ptr %k.addr, align 8
+  %4 = load ptr, ptr %v.addr, align 8
+  %call5 = call noundef zeroext i1 @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE6insertERKiRKS2_(ptr noundef nonnull align 8 dereferenceable(144) %this1, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(8) %4)
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE5clearEv(ptr noundef nonnull align 8 dereferenceable(144) %this) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %old_max = alloca i64, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_capacity = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 2
+  %0 = load i64, ptr %m_capacity, align 8
+  store i64 %0, ptr %old_max, align 8
+  %m_capacity2 = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 2
+  store i64 0, ptr %m_capacity2, align 8
+  %call = invoke noundef zeroext i1 @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE4trimEv(ptr noundef nonnull align 8 dereferenceable(144) %this1)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %entry
+  %1 = load i64, ptr %old_max, align 8
+  %m_capacity3 = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 2
+  store i64 %1, ptr %m_capacity3, align 8
+  ret void
+
+terminate.lpad:                                   ; preds = %entry
+  %2 = landingpad { ptr, i32 }
+          catch ptr null
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #10
+  unreachable
+}
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE17reset_lose_memoryEv(ptr noundef nonnull align 8 dereferenceable(144) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_map = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 1
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17reset_lose_memoryEv(ptr noundef nonnull align 8 dereferenceable(45) %m_map) #9
+  %m_list = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 0
+  call void @_ZN5eastl4listIiNS_9allocatorEE17reset_lose_memoryEv(ptr noundef nonnull align 8 dereferenceable(24) %m_list) #9
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__range2 = alloca ptr, align 8
+  %__begin0 = alloca %"struct.eastl::hashtable_iterator.31", align 8
+  %__end0 = alloca %"struct.eastl::hashtable_iterator.31", align 8
+  %iter = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_map = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 1
+  store ptr %m_map, ptr %__range2, align 8
+  %0 = load ptr, ptr %__range2, align 8
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv(ptr sret(%"struct.eastl::hashtable_iterator.31") align 8 %__begin0, ptr noundef nonnull align 8 dereferenceable(45) %0) #9
+  %1 = load ptr, ptr %__range2, align 8
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv(ptr sret(%"struct.eastl::hashtable_iterator.31") align 8 %__end0, ptr noundef nonnull align 8 dereferenceable(45) %1) #9
+  br label %for.cond
+
+for.cond:                                         ; preds = %invoke.cont7, %entry
+  %call = invoke noundef zeroext i1 @_ZN5eastlneINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0EEEbRKNS_23hashtable_iterator_baseIT_XT0_EEESF_(ptr noundef nonnull align 8 dereferenceable(16) %__begin0, ptr noundef nonnull align 8 dereferenceable(16) %__end0)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %for.cond
+  br i1 %call, label %for.body, label %for.end
+
+for.body:                                         ; preds = %invoke.cont
+  %call3 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5eastl18hashtable_iteratorINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEdeEv(ptr noundef nonnull align 8 dereferenceable(16) %__begin0)
+          to label %invoke.cont2 unwind label %terminate.lpad
+
+invoke.cont2:                                     ; preds = %for.body
+  store ptr %call3, ptr %iter, align 8
+  %m_delete_callback = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 4
+  %call4 = call noundef zeroext i1 @_ZNK5eastl8functionIFvRKN20TestLruCacheInternal3FooEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(32) %m_delete_callback) #9
+  br i1 %call4, label %if.then, label %if.end
+
+if.then:                                          ; preds = %invoke.cont2
+  %m_delete_callback5 = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 4
+  %2 = load ptr, ptr %iter, align 8
+  %second = getelementptr inbounds %"struct.eastl::pair.29", ptr %2, i32 0, i32 1
+  %first = getelementptr inbounds %"struct.eastl::pair.30", ptr %second, i32 0, i32 0
+  invoke void @_ZNK5eastl8functionIFvRKN20TestLruCacheInternal3FooEEEclES4_(ptr noundef nonnull align 8 dereferenceable(32) %m_delete_callback5, ptr noundef nonnull align 4 dereferenceable(8) %first)
+          to label %invoke.cont6 unwind label %terminate.lpad
+
+invoke.cont6:                                     ; preds = %if.then
+  br label %if.end
+
+if.end:                                           ; preds = %invoke.cont6, %invoke.cont2
+  br label %for.inc
+
+for.inc:                                          ; preds = %if.end
+  %call8 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEppEv(ptr noundef nonnull align 8 dereferenceable(16) %__begin0)
+          to label %invoke.cont7 unwind label %terminate.lpad
+
+invoke.cont7:                                     ; preds = %for.inc
+  br label %for.cond
+
+for.end:                                          ; preds = %invoke.cont
+  %m_delete_callback9 = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 4
+  call void @_ZN5eastl8functionIFvRKN20TestLruCacheInternal3FooEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_delete_callback9) #9
+  %m_create_callback = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 3
+  call void @_ZN5eastl8functionIFN20TestLruCacheInternal3FooEiEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_create_callback) #9
+  %m_map10 = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 1
+  call void @_ZN5eastl8hash_mapIiNS_4pairIN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEENS_9allocatorELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(45) %m_map10) #9
+  %m_list = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 0
+  call void @_ZN5eastl4listIiNS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_list) #9
+  ret void
+
+terminate.lpad:                                   ; preds = %for.inc, %if.then, %for.body, %for.cond
+  %3 = landingpad { ptr, i32 }
+          catch ptr null
+  %4 = extractvalue { ptr, i32 } %3, 0
+  call void @__clang_call_terminate(ptr %4) #10
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN20TestLruCacheInternal10FooCreatorC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %this) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mFooCreatedCount = getelementptr inbounds %"class.TestLruCacheInternal::FooCreator", ptr %this1, i32 0, i32 0
+  store i32 0, ptr %mFooCreatedCount, align 4
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @"_ZN5eastl8functionIFPN20TestLruCacheInternal3FooEiEEC2IZ12TestLruCachevE3$_0vEET_"(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr %functor.coerce) unnamed_addr #0 align 2 {
+entry:
+  %functor = alloca %class.anon, align 8
+  %this.addr = alloca ptr, align 8
+  %agg.tmp = alloca %class.anon, align 8
+  %coerce.dive = getelementptr inbounds %class.anon, ptr %functor, i32 0, i32 0
+  store ptr %functor.coerce, ptr %coerce.dive, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @"_ZN5eastl4moveIRZ12TestLruCachevE3$_0EEONS_16remove_referenceIT_E4typeEOS4_"(ptr noundef nonnull align 8 dereferenceable(8) %functor) #9
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %call, i64 8, i1 false)
+  %coerce.dive2 = getelementptr inbounds %class.anon, ptr %agg.tmp, i32 0, i32 0
+  %0 = load ptr, ptr %coerce.dive2, align 8
+  call void @"_ZN5eastl8internal15function_detailILi16EFPN20TestLruCacheInternal3FooEiEEC2IZ12TestLruCachevE3$_0vEET_"(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr %0)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @"_ZN5eastl8functionIFvRKPN20TestLruCacheInternal3FooEEEC2IZ12TestLruCachevE3$_1vEET_"(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr %functor.coerce) unnamed_addr #0 align 2 {
+entry:
+  %functor = alloca %class.anon.2, align 8
+  %this.addr = alloca ptr, align 8
+  %agg.tmp = alloca %class.anon.2, align 8
+  %coerce.dive = getelementptr inbounds %class.anon.2, ptr %functor, i32 0, i32 0
+  store ptr %functor.coerce, ptr %coerce.dive, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @"_ZN5eastl4moveIRZ12TestLruCachevE3$_1EEONS_16remove_referenceIT_E4typeEOS4_"(ptr noundef nonnull align 8 dereferenceable(8) %functor) #9
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %call, i64 8, i1 false)
+  %coerce.dive2 = getelementptr inbounds %class.anon.2, ptr %agg.tmp, i32 0, i32 0
+  %0 = load ptr, ptr %coerce.dive2, align 8
+  call void @"_ZN5eastl8internal15function_detailILi16EFvRKPN20TestLruCacheInternal3FooEEEC2IZ12TestLruCachevE3$_1vEET_"(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr %0)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEEC2EmRKS4_NS_8functionIFS3_iEEENSM_IFvRKS3_EEE(ptr noundef nonnull align 8 dereferenceable(144) %this, i64 noundef %size, ptr noundef nonnull align 1 dereferenceable(1) %allocator, ptr noundef %creator, ptr noundef %deletor) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %size.addr = alloca i64, align 8
+  %allocator.addr = alloca ptr, align 8
+  %creator.indirect_addr = alloca ptr, align 8
+  %deletor.indirect_addr = alloca ptr, align 8
+  %exn.slot = alloca ptr, align 8
+  %ehselector.slot = alloca i32, align 4
+  store ptr %this, ptr %this.addr, align 8
+  store i64 %size, ptr %size.addr, align 8
+  store ptr %allocator, ptr %allocator.addr, align 8
+  store ptr %creator, ptr %creator.indirect_addr, align 8
+  store ptr %deletor, ptr %deletor.indirect_addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_list = getelementptr inbounds %"class.eastl::lru_cache.3", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %allocator.addr, align 8
+  call void @_ZN5eastl4listIiNS_9allocatorEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %m_list, ptr noundef nonnull align 1 dereferenceable(1) %0)
+  %m_map = getelementptr inbounds %"class.eastl::lru_cache.3", ptr %this1, i32 0, i32 1
+  %1 = load ptr, ptr %allocator.addr, align 8
+  invoke void @_ZN5eastl8hash_mapIiNS_4pairIPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEENS_9allocatorELb0EEC2ERKSE_(ptr noundef nonnull align 8 dereferenceable(45) %m_map, ptr noundef nonnull align 1 dereferenceable(1) %1)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %entry
+  %m_capacity = getelementptr inbounds %"class.eastl::lru_cache.3", ptr %this1, i32 0, i32 2
+  %2 = load i64, ptr %size.addr, align 8
+  store i64 %2, ptr %m_capacity, align 8
+  %m_create_callback = getelementptr inbounds %"class.eastl::lru_cache.3", ptr %this1, i32 0, i32 3
+  invoke void @_ZN5eastl8functionIFPN20TestLruCacheInternal3FooEiEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(32) %m_create_callback, ptr noundef nonnull align 8 dereferenceable(32) %creator)
+          to label %invoke.cont3 unwind label %lpad2
+
+invoke.cont3:                                     ; preds = %invoke.cont
+  %m_delete_callback = getelementptr inbounds %"class.eastl::lru_cache.3", ptr %this1, i32 0, i32 4
+  invoke void @_ZN5eastl8functionIFvRKPN20TestLruCacheInternal3FooEEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(32) %m_delete_callback, ptr noundef nonnull align 8 dereferenceable(32) %deletor)
+          to label %invoke.cont5 unwind label %lpad4
+
+invoke.cont5:                                     ; preds = %invoke.cont3
+  ret void
+
+lpad:                                             ; preds = %entry
+  %3 = landingpad { ptr, i32 }
+          cleanup
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
+  br label %ehcleanup6
+
+lpad2:                                            ; preds = %invoke.cont
+  %6 = landingpad { ptr, i32 }
+          cleanup
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
+  br label %ehcleanup
+
+lpad4:                                            ; preds = %invoke.cont3
+  %9 = landingpad { ptr, i32 }
+          cleanup
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
+  call void @_ZN5eastl8functionIFPN20TestLruCacheInternal3FooEiEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_create_callback) #9
+  br label %ehcleanup
+
+ehcleanup:                                        ; preds = %lpad4, %lpad2
+  call void @_ZN5eastl8hash_mapIiNS_4pairIPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEENS_9allocatorELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(45) %m_map) #9
+  br label %ehcleanup6
+
+ehcleanup6:                                       ; preds = %ehcleanup, %lpad
+  call void @_ZN5eastl4listIiNS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_list) #9
+  br label %eh.resume
+
+eh.resume:                                        ; preds = %ehcleanup6
+  %exn = load ptr, ptr %exn.slot, align 8
+  %sel = load i32, ptr %ehselector.slot, align 4
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
+  %lpad.val7 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
+  resume { ptr, i32 } %lpad.val7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl8functionIFvRKPN20TestLruCacheInternal3FooEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZN5eastl8internal15function_detailILi16EFvRKPN20TestLruCacheInternal3FooEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #9
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl8functionIFPN20TestLruCacheInternal3FooEiEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZN5eastl8internal15function_detailILi16EFPN20TestLruCacheInternal3FooEiEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #9
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEEixERKi(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 4 dereferenceable(4) %k) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %k.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %k, ptr %k.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %k.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE3getERKi(ptr noundef nonnull align 8 dereferenceable(144) %this1, ptr noundef nonnull align 4 dereferenceable(4) %0)
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i64 @_ZNK5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_map = getelementptr inbounds %"class.eastl::lru_cache.3", ptr %this1, i32 0, i32 1
+  %call = call noundef i64 @_ZNK5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(45) %m_map) #9
+  ret i64 %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(144) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_map = getelementptr inbounds %"class.eastl::lru_cache.3", ptr %this1, i32 0, i32 1
+  %call = call noundef zeroext i1 @_ZNK5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(45) %m_map) #9
+  ret i1 %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i64 @_ZNK5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(144) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_capacity = getelementptr inbounds %"class.eastl::lru_cache.3", ptr %this1, i32 0, i32 2
+  %0 = load i64, ptr %m_capacity, align 8
+  ret i64 %0
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE8containsERKi(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 4 dereferenceable(4) %k) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %k.addr = alloca ptr, align 8
+  %ref.tmp = alloca %"struct.eastl::hashtable_iterator.42", align 8
+  %ref.tmp2 = alloca %"struct.eastl::hashtable_iterator.42", align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %k, ptr %k.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_map = getelementptr inbounds %"class.eastl::lru_cache.3", ptr %this1, i32 0, i32 1
+  %0 = load ptr, ptr %k.addr, align 8
+  %call = call { ptr, ptr } @_ZNK5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_(ptr noundef nonnull align 8 dereferenceable(45) %m_map, ptr noundef nonnull align 4 dereferenceable(4) %0)
+  %coerce.dive = getelementptr inbounds %"struct.eastl::hashtable_iterator.42", ptr %ref.tmp, i32 0, i32 0
+  %1 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive, i32 0, i32 0
+  %2 = extractvalue { ptr, ptr } %call, 0
+  store ptr %2, ptr %1, align 8
+  %3 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive, i32 0, i32 1
+  %4 = extractvalue { ptr, ptr } %call, 1
+  store ptr %4, ptr %3, align 8
+  %m_map3 = getelementptr inbounds %"class.eastl::lru_cache.3", ptr %this1, i32 0, i32 1
+  %call4 = call { ptr, ptr } @_ZNK5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv(ptr noundef nonnull align 8 dereferenceable(45) %m_map3) #9
+  %coerce.dive5 = getelementptr inbounds %"struct.eastl::hashtable_iterator.42", ptr %ref.tmp2, i32 0, i32 0
+  %5 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive5, i32 0, i32 0
+  %6 = extractvalue { ptr, ptr } %call4, 0
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive5, i32 0, i32 1
+  %8 = extractvalue { ptr, ptr } %call4, 1
+  store ptr %8, ptr %7, align 8
+  %call6 = call noundef zeroext i1 @_ZN5eastlneINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0EEEbRKNS_23hashtable_iterator_baseIT_XT0_EEESG_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2)
+  ret i1 %call6
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN20TestLruCacheInternal10FooCreator6CreateEv(ptr noundef nonnull align 4 dereferenceable(4) %this) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %exn.slot = alloca ptr, align 8
+  %ehselector.slot = alloca i32, align 4
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mFooCreatedCount = getelementptr inbounds %"class.TestLruCacheInternal::FooCreator", ptr %this1, i32 0, i32 0
+  %0 = load i32, ptr %mFooCreatedCount, align 4
+  %inc = add nsw i32 %0, 1
+  store i32 %inc, ptr %mFooCreatedCount, align 4
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #11
+  invoke void @_ZN20TestLruCacheInternal3FooC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %call)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %entry
+  ret ptr %call
+
+lpad:                                             ; preds = %entry
+  %1 = landingpad { ptr, i32 }
+          cleanup
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
+  call void @_ZdlPv(ptr noundef %call) #12
+  br label %eh.resume
+
+eh.resume:                                        ; preds = %lpad
+  %exn = load ptr, ptr %exn.slot, align 8
+  %sel = load i32, ptr %ehselector.slot, align 4
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
+  %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
+  resume { ptr, i32 } %lpad.val2
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE6assignERKiRKS3_(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 4 dereferenceable(4) %k, ptr noundef nonnull align 8 dereferenceable(8) %v) #0 comdat align 2 {
+entry:
+  %retval = alloca i1, align 1
+  %this.addr = alloca ptr, align 8
+  %k.addr = alloca ptr, align 8
+  %v.addr = alloca ptr, align 8
+  %iter = alloca %"struct.eastl::hashtable_iterator.40", align 8
+  %ref.tmp = alloca %"struct.eastl::hashtable_iterator.40", align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %k, ptr %k.addr, align 8
+  store ptr %v, ptr %v.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_map = getelementptr inbounds %"class.eastl::lru_cache.3", ptr %this1, i32 0, i32 1
+  %0 = load ptr, ptr %k.addr, align 8
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_(ptr sret(%"struct.eastl::hashtable_iterator.40") align 8 %iter, ptr noundef nonnull align 8 dereferenceable(45) %m_map, ptr noundef nonnull align 4 dereferenceable(4) %0)
+  %m_map2 = getelementptr inbounds %"class.eastl::lru_cache.3", ptr %this1, i32 0, i32 1
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv(ptr sret(%"struct.eastl::hashtable_iterator.40") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(45) %m_map2) #9
+  %call = call noundef zeroext i1 @_ZN5eastlneINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0EEEbRKNS_23hashtable_iterator_baseIT_XT0_EEESG_(ptr noundef nonnull align 8 dereferenceable(16) %iter, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
+  br i1 %call, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %1 = load ptr, ptr %v.addr, align 8
+  call void @_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE6assignERNS_18hashtable_iteratorINS8_IKiSD_EELb0ELb0EEERKS3_(ptr noundef nonnull align 8 dereferenceable(144) %this1, ptr noundef nonnull align 8 dereferenceable(16) %iter, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  store i1 true, ptr %retval, align 1
+  br label %return
+
+if.end:                                           ; preds = %entry
+  store i1 false, ptr %retval, align 1
+  br label %return
+
+return:                                           ; preds = %if.end, %if.then
+  %2 = load i1, ptr %retval, align 1
+  ret i1 %2
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE5eraseERKi(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 4 dereferenceable(4) %k) #0 comdat align 2 {
+entry:
+  %retval = alloca i1, align 1
+  %this.addr = alloca ptr, align 8
+  %k.addr = alloca ptr, align 8
+  %iter = alloca %"struct.eastl::hashtable_iterator.40", align 8
+  %ref.tmp = alloca %"struct.eastl::hashtable_iterator.40", align 8
+  %agg.tmp = alloca %"struct.eastl::ListIterator.36", align 8
+  %tmp = alloca %"struct.eastl::ListIterator", align 8
+  %agg.tmp5 = alloca %"struct.eastl::hashtable_iterator.40", align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %k, ptr %k.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_map = getelementptr inbounds %"class.eastl::lru_cache.3", ptr %this1, i32 0, i32 1
+  %0 = load ptr, ptr %k.addr, align 8
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_(ptr sret(%"struct.eastl::hashtable_iterator.40") align 8 %iter, ptr noundef nonnull align 8 dereferenceable(45) %m_map, ptr noundef nonnull align 4 dereferenceable(4) %0)
+  %m_map2 = getelementptr inbounds %"class.eastl::lru_cache.3", ptr %this1, i32 0, i32 1
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv(ptr sret(%"struct.eastl::hashtable_iterator.40") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(45) %m_map2) #9
+  %call = call noundef zeroext i1 @_ZN5eastlneINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0EEEbRKNS_23hashtable_iterator_baseIT_XT0_EEESG_(ptr noundef nonnull align 8 dereferenceable(16) %iter, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
+  br i1 %call, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %m_list = getelementptr inbounds %"class.eastl::lru_cache.3", ptr %this1, i32 0, i32 0
+  %call3 = call noundef ptr @_ZNK5eastl18hashtable_iteratorINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEptEv(ptr noundef nonnull align 8 dereferenceable(16) %iter)
+  %second = getelementptr inbounds %"struct.eastl::pair.38", ptr %call3, i32 0, i32 1
+  %second4 = getelementptr inbounds %"struct.eastl::pair.39", ptr %second, i32 0, i32 1
+  call void @_ZN5eastl12ListIteratorIiPKiRS1_EC2ERKNS0_IiPiRiEE(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %second4) #9
+  %coerce.dive = getelementptr inbounds %"struct.eastl::ListIterator.36", ptr %agg.tmp, i32 0, i32 0
+  %1 = load ptr, ptr %coerce.dive, align 8
+  call void @_ZN5eastl4listIiNS_9allocatorEE5eraseENS_12ListIteratorIiPKiRS4_EE(ptr sret(%"struct.eastl::ListIterator") align 8 %tmp, ptr noundef nonnull align 8 dereferenceable(24) %m_list, ptr %1)
+  call void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEC2ERKSC_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp5, ptr noundef nonnull align 8 dereferenceable(16) %iter)
+  call void @_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE9map_eraseENS_18hashtable_iteratorINS8_IKiSD_EELb0ELb0EEE(ptr noundef nonnull align 8 dereferenceable(144) %this1, ptr noundef %agg.tmp5)
+  store i1 true, ptr %retval, align 1
+  br label %return
+
+if.end:                                           ; preds = %entry
+  store i1 false, ptr %retval, align 1
+  br label %return
+
+return:                                           ; preds = %if.end, %if.then
+  %2 = load i1, ptr %retval, align 1
+  ret i1 %2
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE16insert_or_assignERKiRKS3_(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 4 dereferenceable(4) %k, ptr noundef nonnull align 8 dereferenceable(8) %v) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %k.addr = alloca ptr, align 8
+  %v.addr = alloca ptr, align 8
+  %iter = alloca %"struct.eastl::hashtable_iterator.40", align 8
+  %ref.tmp = alloca %"struct.eastl::hashtable_iterator.40", align 8
+  %ref.tmp3 = alloca %"struct.eastl::hashtable_iterator.40", align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %k, ptr %k.addr, align 8
+  store ptr %v, ptr %v.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_map = getelementptr inbounds %"class.eastl::lru_cache.3", ptr %this1, i32 0, i32 1
+  %0 = load ptr, ptr %k.addr, align 8
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_(ptr sret(%"struct.eastl::hashtable_iterator.40") align 8 %iter, ptr noundef nonnull align 8 dereferenceable(45) %m_map, ptr noundef nonnull align 4 dereferenceable(4) %0)
+  %m_map2 = getelementptr inbounds %"class.eastl::lru_cache.3", ptr %this1, i32 0, i32 1
+  %1 = load ptr, ptr %k.addr, align 8
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_(ptr sret(%"struct.eastl::hashtable_iterator.40") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(45) %m_map2, ptr noundef nonnull align 4 dereferenceable(4) %1)
+  %m_map4 = getelementptr inbounds %"class.eastl::lru_cache.3", ptr %this1, i32 0, i32 1
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv(ptr sret(%"struct.eastl::hashtable_iterator.40") align 8 %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(45) %m_map4) #9
+  %call = call noundef zeroext i1 @_ZN5eastlneINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0EEEbRKNS_23hashtable_iterator_baseIT_XT0_EEESG_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3)
+  br i1 %call, label %if.then, label %if.else
+
+if.then:                                          ; preds = %entry
+  %2 = load ptr, ptr %v.addr, align 8
+  call void @_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE6assignERNS_18hashtable_iteratorINS8_IKiSD_EELb0ELb0EEERKS3_(ptr noundef nonnull align 8 dereferenceable(144) %this1, ptr noundef nonnull align 8 dereferenceable(16) %iter, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  br label %if.end
+
+if.else:                                          ; preds = %entry
+  %3 = load ptr, ptr %k.addr, align 8
+  %4 = load ptr, ptr %v.addr, align 8
+  %call5 = call noundef zeroext i1 @_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE6insertERKiRKS3_(ptr noundef nonnull align 8 dereferenceable(144) %this1, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__range2 = alloca ptr, align 8
+  %__begin0 = alloca %"struct.eastl::hashtable_iterator.40", align 8
+  %__end0 = alloca %"struct.eastl::hashtable_iterator.40", align 8
+  %iter = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_map = getelementptr inbounds %"class.eastl::lru_cache.3", ptr %this1, i32 0, i32 1
+  store ptr %m_map, ptr %__range2, align 8
+  %0 = load ptr, ptr %__range2, align 8
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv(ptr sret(%"struct.eastl::hashtable_iterator.40") align 8 %__begin0, ptr noundef nonnull align 8 dereferenceable(45) %0) #9
+  %1 = load ptr, ptr %__range2, align 8
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv(ptr sret(%"struct.eastl::hashtable_iterator.40") align 8 %__end0, ptr noundef nonnull align 8 dereferenceable(45) %1) #9
+  br label %for.cond
+
+for.cond:                                         ; preds = %invoke.cont7, %entry
+  %call = invoke noundef zeroext i1 @_ZN5eastlneINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0EEEbRKNS_23hashtable_iterator_baseIT_XT0_EEESG_(ptr noundef nonnull align 8 dereferenceable(16) %__begin0, ptr noundef nonnull align 8 dereferenceable(16) %__end0)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %for.cond
+  br i1 %call, label %for.body, label %for.end
+
+for.body:                                         ; preds = %invoke.cont
+  %call3 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5eastl18hashtable_iteratorINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEdeEv(ptr noundef nonnull align 8 dereferenceable(16) %__begin0)
+          to label %invoke.cont2 unwind label %terminate.lpad
+
+invoke.cont2:                                     ; preds = %for.body
+  store ptr %call3, ptr %iter, align 8
+  %m_delete_callback = getelementptr inbounds %"class.eastl::lru_cache.3", ptr %this1, i32 0, i32 4
+  %call4 = call noundef zeroext i1 @_ZNK5eastl8functionIFvRKPN20TestLruCacheInternal3FooEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(32) %m_delete_callback) #9
+  br i1 %call4, label %if.then, label %if.end
+
+if.then:                                          ; preds = %invoke.cont2
+  %m_delete_callback5 = getelementptr inbounds %"class.eastl::lru_cache.3", ptr %this1, i32 0, i32 4
+  %2 = load ptr, ptr %iter, align 8
+  %second = getelementptr inbounds %"struct.eastl::pair.38", ptr %2, i32 0, i32 1
+  %first = getelementptr inbounds %"struct.eastl::pair.39", ptr %second, i32 0, i32 0
+  invoke void @_ZNK5eastl8functionIFvRKPN20TestLruCacheInternal3FooEEEclES5_(ptr noundef nonnull align 8 dereferenceable(32) %m_delete_callback5, ptr noundef nonnull align 8 dereferenceable(8) %first)
+          to label %invoke.cont6 unwind label %terminate.lpad
+
+invoke.cont6:                                     ; preds = %if.then
+  br label %if.end
+
+if.end:                                           ; preds = %invoke.cont6, %invoke.cont2
+  br label %for.inc
+
+for.inc:                                          ; preds = %if.end
+  %call8 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEppEv(ptr noundef nonnull align 8 dereferenceable(16) %__begin0)
+          to label %invoke.cont7 unwind label %terminate.lpad
+
+invoke.cont7:                                     ; preds = %for.inc
+  br label %for.cond
+
+for.end:                                          ; preds = %invoke.cont
+  %m_delete_callback9 = getelementptr inbounds %"class.eastl::lru_cache.3", ptr %this1, i32 0, i32 4
+  call void @_ZN5eastl8functionIFvRKPN20TestLruCacheInternal3FooEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_delete_callback9) #9
+  %m_create_callback = getelementptr inbounds %"class.eastl::lru_cache.3", ptr %this1, i32 0, i32 3
+  call void @_ZN5eastl8functionIFPN20TestLruCacheInternal3FooEiEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_create_callback) #9
+  %m_map10 = getelementptr inbounds %"class.eastl::lru_cache.3", ptr %this1, i32 0, i32 1
+  call void @_ZN5eastl8hash_mapIiNS_4pairIPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEENS_9allocatorELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(45) %m_map10) #9
+  %m_list = getelementptr inbounds %"class.eastl::lru_cache.3", ptr %this1, i32 0, i32 0
+  call void @_ZN5eastl4listIiNS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_list) #9
+  ret void
+
+terminate.lpad:                                   ; preds = %for.inc, %if.then, %for.body, %for.cond
+  %3 = landingpad { ptr, i32 }
+          catch ptr null
+  %4 = extractvalue { ptr, i32 } %3, 0
+  call void @__clang_call_terminate(ptr %4) #10
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl8functionIFiiEEC2EDn(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr %p) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %p.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %p, ptr %p.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZN5eastl8internal15function_detailILi16EFiiEEC2EDn(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr null) #9
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl8functionIFvRKiEEC2EDn(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr %p) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %p.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %p, ptr %p.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZN5eastl8internal15function_detailILi16EFvRKiEEC2EDn(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr null) #9
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEEC2EmRKS1_NS_8functionIFiiEEENSJ_IFvRKiEEE(ptr noundef nonnull align 8 dereferenceable(144) %this, i64 noundef %size, ptr noundef nonnull align 1 dereferenceable(1) %allocator, ptr noundef %creator, ptr noundef %deletor) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %size.addr = alloca i64, align 8
+  %allocator.addr = alloca ptr, align 8
+  %creator.indirect_addr = alloca ptr, align 8
+  %deletor.indirect_addr = alloca ptr, align 8
+  %exn.slot = alloca ptr, align 8
+  %ehselector.slot = alloca i32, align 4
+  store ptr %this, ptr %this.addr, align 8
+  store i64 %size, ptr %size.addr, align 8
+  store ptr %allocator, ptr %allocator.addr, align 8
+  store ptr %creator, ptr %creator.indirect_addr, align 8
+  store ptr %deletor, ptr %deletor.indirect_addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_list = getelementptr inbounds %"class.eastl::lru_cache.15", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %allocator.addr, align 8
+  call void @_ZN5eastl4listIiNS_9allocatorEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %m_list, ptr noundef nonnull align 1 dereferenceable(1) %0)
+  %m_map = getelementptr inbounds %"class.eastl::lru_cache.15", ptr %this1, i32 0, i32 1
+  %1 = load ptr, ptr %allocator.addr, align 8
+  invoke void @_ZN5eastl8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEENS_9allocatorELb0EEC2ERKSB_(ptr noundef nonnull align 8 dereferenceable(45) %m_map, ptr noundef nonnull align 1 dereferenceable(1) %1)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %entry
+  %m_capacity = getelementptr inbounds %"class.eastl::lru_cache.15", ptr %this1, i32 0, i32 2
+  %2 = load i64, ptr %size.addr, align 8
+  store i64 %2, ptr %m_capacity, align 8
+  %m_create_callback = getelementptr inbounds %"class.eastl::lru_cache.15", ptr %this1, i32 0, i32 3
+  invoke void @_ZN5eastl8functionIFiiEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(32) %m_create_callback, ptr noundef nonnull align 8 dereferenceable(32) %creator)
+          to label %invoke.cont3 unwind label %lpad2
+
+invoke.cont3:                                     ; preds = %invoke.cont
+  %m_delete_callback = getelementptr inbounds %"class.eastl::lru_cache.15", ptr %this1, i32 0, i32 4
+  invoke void @_ZN5eastl8functionIFvRKiEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_delete_callback, ptr noundef nonnull align 8 dereferenceable(32) %deletor)
+          to label %invoke.cont5 unwind label %lpad4
+
+invoke.cont5:                                     ; preds = %invoke.cont3
+  ret void
+
+lpad:                                             ; preds = %entry
+  %3 = landingpad { ptr, i32 }
+          cleanup
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
+  br label %ehcleanup6
+
+lpad2:                                            ; preds = %invoke.cont
+  %6 = landingpad { ptr, i32 }
+          cleanup
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
+  br label %ehcleanup
+
+lpad4:                                            ; preds = %invoke.cont3
+  %9 = landingpad { ptr, i32 }
+          cleanup
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
+  call void @_ZN5eastl8functionIFiiEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_create_callback) #9
+  br label %ehcleanup
+
+ehcleanup:                                        ; preds = %lpad4, %lpad2
+  call void @_ZN5eastl8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEENS_9allocatorELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(45) %m_map) #9
+  br label %ehcleanup6
+
+ehcleanup6:                                       ; preds = %ehcleanup, %lpad
+  call void @_ZN5eastl4listIiNS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_list) #9
+  br label %eh.resume
+
+eh.resume:                                        ; preds = %ehcleanup6
+  %exn = load ptr, ptr %exn.slot, align 8
+  %sel = load i32, ptr %ehselector.slot, align 4
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
+  %lpad.val7 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
+  resume { ptr, i32 } %lpad.val7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl8functionIFvRKiEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZN5eastl8internal15function_detailILi16EFvRKiEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #9
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl8functionIFiiEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZN5eastl8internal15function_detailILi16EFiiEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #9
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEE16insert_or_assignERKiSI_(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 4 dereferenceable(4) %k, ptr noundef nonnull align 4 dereferenceable(4) %v) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %k.addr = alloca ptr, align 8
+  %v.addr = alloca ptr, align 8
+  %iter = alloca %"struct.eastl::hashtable_iterator", align 8
+  %ref.tmp = alloca %"struct.eastl::hashtable_iterator", align 8
+  %ref.tmp3 = alloca %"struct.eastl::hashtable_iterator", align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %k, ptr %k.addr, align 8
+  store ptr %v, ptr %v.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_map = getelementptr inbounds %"class.eastl::lru_cache.15", ptr %this1, i32 0, i32 1
+  %0 = load ptr, ptr %k.addr, align 8
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_(ptr sret(%"struct.eastl::hashtable_iterator") align 8 %iter, ptr noundef nonnull align 8 dereferenceable(45) %m_map, ptr noundef nonnull align 4 dereferenceable(4) %0)
+  %m_map2 = getelementptr inbounds %"class.eastl::lru_cache.15", ptr %this1, i32 0, i32 1
+  %1 = load ptr, ptr %k.addr, align 8
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_(ptr sret(%"struct.eastl::hashtable_iterator") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(45) %m_map2, ptr noundef nonnull align 4 dereferenceable(4) %1)
+  %m_map4 = getelementptr inbounds %"class.eastl::lru_cache.15", ptr %this1, i32 0, i32 1
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv(ptr sret(%"struct.eastl::hashtable_iterator") align 8 %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(45) %m_map4) #9
+  %call = call noundef zeroext i1 @_ZN5eastlneINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0EEEbRKNS_23hashtable_iterator_baseIT_XT0_EEESD_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3)
+  br i1 %call, label %if.then, label %if.else
+
+if.then:                                          ; preds = %entry
+  %2 = load ptr, ptr %v.addr, align 8
+  call void @_ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEE6assignERNS_18hashtable_iteratorINS5_IKiSA_EELb0ELb0EEERSI_(ptr noundef nonnull align 8 dereferenceable(144) %this1, ptr noundef nonnull align 8 dereferenceable(16) %iter, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  br label %if.end
+
+if.else:                                          ; preds = %entry
+  %3 = load ptr, ptr %k.addr, align 8
+  %4 = load ptr, ptr %v.addr, align 8
+  %call5 = call noundef zeroext i1 @_ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEE6insertERKiSI_(ptr noundef nonnull align 8 dereferenceable(144) %this1, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEE5beginEv(ptr noalias sret(%"struct.eastl::hashtable_iterator") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this) #1 comdat align 2 {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %this.addr = alloca ptr, align 8
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_map = getelementptr inbounds %"class.eastl::lru_cache.15", ptr %this1, i32 0, i32 1
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv(ptr sret(%"struct.eastl::hashtable_iterator") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(45) %m_map) #9
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEE3endEv(ptr noalias sret(%"struct.eastl::hashtable_iterator") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this) #1 comdat align 2 {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %this.addr = alloca ptr, align 8
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_map = getelementptr inbounds %"class.eastl::lru_cache.15", ptr %this1, i32 0, i32 1
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv(ptr sret(%"struct.eastl::hashtable_iterator") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(45) %m_map) #9
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZN5eastlneINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0EEEbRKNS_23hashtable_iterator_baseIT_XT0_EEESD_(ptr noundef nonnull align 8 dereferenceable(16) %a, ptr noundef nonnull align 8 dereferenceable(16) %b) #1 comdat {
+entry:
+  %a.addr = alloca ptr, align 8
+  %b.addr = alloca ptr, align 8
+  store ptr %a, ptr %a.addr, align 8
+  store ptr %b, ptr %b.addr, align 8
+  %0 = load ptr, ptr %a.addr, align 8
+  %mpNode = getelementptr inbounds %"struct.eastl::hashtable_iterator_base", ptr %0, i32 0, i32 0
+  %1 = load ptr, ptr %mpNode, align 8
+  %2 = load ptr, ptr %b.addr, align 8
+  %mpNode1 = getelementptr inbounds %"struct.eastl::hashtable_iterator_base", ptr %2, i32 0, i32 0
+  %3 = load ptr, ptr %mpNode1, align 8
+  %cmp = icmp ne ptr %1, %3
+  ret i1 %cmp
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5eastl18hashtable_iteratorINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0ELb0EEdeEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mpNode = getelementptr inbounds %"struct.eastl::hashtable_iterator_base", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %mpNode, align 8
+  %mValue = getelementptr inbounds %"struct.eastl::hash_node.45", ptr %0, i32 0, i32 0
+  ret ptr %mValue
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0ELb0EEppEi(ptr noalias sret(%"struct.eastl::hashtable_iterator") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %0) #0 comdat align 2 {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca i32, align 4
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store i32 %0, ptr %.addr, align 4
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0ELb0EEC2ERKS9_(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this1)
+  call void @_ZN5eastl23hashtable_iterator_baseINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0EE9incrementEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0ELb0EEppEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZN5eastl23hashtable_iterator_baseINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0EE9incrementEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
+  ret ptr %this1
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(4) ptr @_ZN5eastl3getILm0EKiNS_4pairIiNS_12ListIteratorIiPiRiEEEEEERNS_13tuple_elementIXT_ENS2_IT0_T1_EEE4typeERSB_(ptr noundef nonnull align 8 dereferenceable(24) %p) #0 comdat {
+entry:
+  %p.addr = alloca ptr, align 8
+  store ptr %p, ptr %p.addr, align 8
+  %0 = load ptr, ptr %p.addr, align 8
+  %call = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN5eastl7GetPairILm0EE11getInternalIKiNS_4pairIiNS_12ListIteratorIiPiRiEEEEEERT_RNS4_ISA_T0_EE(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl3getILm1EKiNS_4pairIiNS_12ListIteratorIiPiRiEEEEEERNS_13tuple_elementIXT_ENS2_IT0_T1_EEE4typeERSB_(ptr noundef nonnull align 8 dereferenceable(24) %p) #0 comdat {
+entry:
+  %p.addr = alloca ptr, align 8
+  store ptr %p, ptr %p.addr, align 8
+  %0 = load ptr, ptr %p.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl7GetPairILm1EE11getInternalIKiNS_4pairIiNS_12ListIteratorIiPiRiEEEEEERT0_RNS4_IT_SA_EE(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %__range2 = alloca ptr, align 8
+  %__begin0 = alloca %"struct.eastl::hashtable_iterator", align 8
+  %__end0 = alloca %"struct.eastl::hashtable_iterator", align 8
+  %iter = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_map = getelementptr inbounds %"class.eastl::lru_cache.15", ptr %this1, i32 0, i32 1
+  store ptr %m_map, ptr %__range2, align 8
+  %0 = load ptr, ptr %__range2, align 8
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv(ptr sret(%"struct.eastl::hashtable_iterator") align 8 %__begin0, ptr noundef nonnull align 8 dereferenceable(45) %0) #9
+  %1 = load ptr, ptr %__range2, align 8
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv(ptr sret(%"struct.eastl::hashtable_iterator") align 8 %__end0, ptr noundef nonnull align 8 dereferenceable(45) %1) #9
+  br label %for.cond
+
+for.cond:                                         ; preds = %invoke.cont7, %entry
+  %call = invoke noundef zeroext i1 @_ZN5eastlneINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0EEEbRKNS_23hashtable_iterator_baseIT_XT0_EEESD_(ptr noundef nonnull align 8 dereferenceable(16) %__begin0, ptr noundef nonnull align 8 dereferenceable(16) %__end0)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %for.cond
+  br i1 %call, label %for.body, label %for.end
+
+for.body:                                         ; preds = %invoke.cont
+  %call3 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5eastl18hashtable_iteratorINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0ELb0EEdeEv(ptr noundef nonnull align 8 dereferenceable(16) %__begin0)
+          to label %invoke.cont2 unwind label %terminate.lpad
+
+invoke.cont2:                                     ; preds = %for.body
+  store ptr %call3, ptr %iter, align 8
+  %m_delete_callback = getelementptr inbounds %"class.eastl::lru_cache.15", ptr %this1, i32 0, i32 4
+  %call4 = call noundef zeroext i1 @_ZNK5eastl8functionIFvRKiEEcvbEv(ptr noundef nonnull align 8 dereferenceable(32) %m_delete_callback) #9
+  br i1 %call4, label %if.then, label %if.end
+
+if.then:                                          ; preds = %invoke.cont2
+  %m_delete_callback5 = getelementptr inbounds %"class.eastl::lru_cache.15", ptr %this1, i32 0, i32 4
+  %2 = load ptr, ptr %iter, align 8
+  %second = getelementptr inbounds %"struct.eastl::pair", ptr %2, i32 0, i32 1
+  %first = getelementptr inbounds %"struct.eastl::pair.27", ptr %second, i32 0, i32 0
+  invoke void @_ZNK5eastl8functionIFvRKiEEclES2_(ptr noundef nonnull align 8 dereferenceable(32) %m_delete_callback5, ptr noundef nonnull align 4 dereferenceable(4) %first)
+          to label %invoke.cont6 unwind label %terminate.lpad
+
+invoke.cont6:                                     ; preds = %if.then
+  br label %if.end
+
+if.end:                                           ; preds = %invoke.cont6, %invoke.cont2
+  br label %for.inc
+
+for.inc:                                          ; preds = %if.end
+  %call8 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0ELb0EEppEv(ptr noundef nonnull align 8 dereferenceable(16) %__begin0)
+          to label %invoke.cont7 unwind label %terminate.lpad
+
+invoke.cont7:                                     ; preds = %for.inc
+  br label %for.cond
+
+for.end:                                          ; preds = %invoke.cont
+  %m_delete_callback9 = getelementptr inbounds %"class.eastl::lru_cache.15", ptr %this1, i32 0, i32 4
+  call void @_ZN5eastl8functionIFvRKiEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_delete_callback9) #9
+  %m_create_callback = getelementptr inbounds %"class.eastl::lru_cache.15", ptr %this1, i32 0, i32 3
+  call void @_ZN5eastl8functionIFiiEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_create_callback) #9
+  %m_map10 = getelementptr inbounds %"class.eastl::lru_cache.15", ptr %this1, i32 0, i32 1
+  call void @_ZN5eastl8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEENS_9allocatorELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(45) %m_map10) #9
+  %m_list = getelementptr inbounds %"class.eastl::lru_cache.15", ptr %this1, i32 0, i32 0
+  call void @_ZN5eastl4listIiNS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_list) #9
+  ret void
+
+terminate.lpad:                                   ; preds = %for.inc, %if.then, %for.body, %for.cond
+  %3 = landingpad { ptr, i32 }
+          catch ptr null
+  %4 = extractvalue { ptr, i32 } %3, 0
+  call void @__clang_call_terminate(ptr %4) #10
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEEC2ESt16initializer_listINS5_IiiEEE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr %il.coerce0, i64 %il.coerce1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %il = alloca %"class.std::initializer_list", align 8
+  %this.addr = alloca ptr, align 8
+  %ref.tmp = alloca %"class.eastl::allocator", align 1
+  %agg.tmp = alloca %"class.eastl::function.23", align 8
+  %agg.tmp2 = alloca %"class.eastl::function.25", align 8
+  %exn.slot = alloca ptr, align 8
+  %ehselector.slot = alloca i32, align 4
+  %__range2 = alloca ptr, align 8
+  %__begin0 = alloca ptr, align 8
+  %__end0 = alloca ptr, align 8
+  %p = alloca ptr, align 8
+  %0 = getelementptr inbounds { ptr, i64 }, ptr %il, i32 0, i32 0
+  store ptr %il.coerce0, ptr %0, align 8
+  %1 = getelementptr inbounds { ptr, i64 }, ptr %il, i32 0, i32 1
+  store i64 %il.coerce1, ptr %1, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef i64 @_ZNKSt16initializer_listIN5eastl4pairIiiEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %il) #9
+  call void @_ZN5eastl9allocatorC2EPKc(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef @.str)
+  call void @_ZN5eastl8functionIFiiEEC2EDn(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr null) #9
+  call void @_ZN5eastl8functionIFvRKiEEC2EDn(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2, ptr null) #9
+  invoke void @_ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEEC2EmRKS1_NS_8functionIFiiEEENSJ_IFvRKiEEE(ptr noundef nonnull align 8 dereferenceable(144) %this1, i64 noundef %call, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef %agg.tmp, ptr noundef %agg.tmp2)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %entry
+  call void @_ZN5eastl8functionIFvRKiEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2) #9
+  call void @_ZN5eastl8functionIFiiEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #9
+  store ptr %il, ptr %__range2, align 8
+  %2 = load ptr, ptr %__range2, align 8
+  %call3 = call noundef ptr @_ZNKSt16initializer_listIN5eastl4pairIiiEEE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #9
+  store ptr %call3, ptr %__begin0, align 8
+  %3 = load ptr, ptr %__range2, align 8
+  %call4 = call noundef ptr @_ZNKSt16initializer_listIN5eastl4pairIiiEEE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #9
+  store ptr %call4, ptr %__end0, align 8
+  br label %for.cond
+
+for.cond:                                         ; preds = %for.inc, %invoke.cont
+  %4 = load ptr, ptr %__begin0, align 8
+  %5 = load ptr, ptr %__end0, align 8
+  %cmp = icmp ne ptr %4, %5
+  br i1 %cmp, label %for.body, label %for.end
+
+for.body:                                         ; preds = %for.cond
+  %6 = load ptr, ptr %__begin0, align 8
+  store ptr %6, ptr %p, align 8
+  %7 = load ptr, ptr %p, align 8
+  %first = getelementptr inbounds %"struct.eastl::pair.28", ptr %7, i32 0, i32 0
+  %8 = load ptr, ptr %p, align 8
+  %second = getelementptr inbounds %"struct.eastl::pair.28", ptr %8, i32 0, i32 1
+  invoke void @_ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEE16insert_or_assignERKiSI_(ptr noundef nonnull align 8 dereferenceable(144) %this1, ptr noundef nonnull align 4 dereferenceable(4) %first, ptr noundef nonnull align 4 dereferenceable(4) %second)
+          to label %invoke.cont6 unwind label %lpad5
+
+invoke.cont6:                                     ; preds = %for.body
+  br label %for.inc
+
+for.inc:                                          ; preds = %invoke.cont6
+  %9 = load ptr, ptr %__begin0, align 8
+  %incdec.ptr = getelementptr inbounds %"struct.eastl::pair.28", ptr %9, i32 1
+  store ptr %incdec.ptr, ptr %__begin0, align 8
+  br label %for.cond
+
+lpad:                                             ; preds = %entry
+  %10 = landingpad { ptr, i32 }
+          cleanup
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
+  call void @_ZN5eastl8functionIFvRKiEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2) #9
+  call void @_ZN5eastl8functionIFiiEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #9
+  br label %eh.resume
+
+lpad5:                                            ; preds = %for.body
+  %13 = landingpad { ptr, i32 }
+          cleanup
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
+  call void @_ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this1) #9
+  br label %eh.resume
+
+for.end:                                          ; preds = %for.cond
+  ret void
+
+eh.resume:                                        ; preds = %lpad5, %lpad
+  %exn = load ptr, ptr %exn.slot, align 8
+  %sel = load i32, ptr %ehselector.slot, align 4
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
+  %lpad.val7 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
+  resume { ptr, i32 } %lpad.val7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl8internal15function_detailILi16EFvRKN20TestLruCacheInternal3FooEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZN5eastl8internal15function_detailILi16EFvRKN20TestLruCacheInternal3FooEEE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #9
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl8internal15function_detailILi16EFvRKN20TestLruCacheInternal3FooEEE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef zeroext i1 @_ZNK5eastl8internal15function_detailILi16EFvRKN20TestLruCacheInternal3FooEEE11HaveManagerEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #9
+  br i1 %call, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %mMgrFuncPtr = getelementptr inbounds %"class.eastl::internal::function_detail.1", ptr %this1, i32 0, i32 1
+  %0 = load ptr, ptr %mMgrFuncPtr, align 8
+  %mStorage = getelementptr inbounds %"class.eastl::internal::function_base_detail", ptr %this1, i32 0, i32 0
+  %call2 = invoke noundef ptr %0(ptr noundef %mStorage, ptr noundef null, i32 noundef 0)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %if.then
+  br label %if.end
+
+if.end:                                           ; preds = %invoke.cont, %entry
+  ret void
+
+terminate.lpad:                                   ; preds = %if.then
+  %1 = landingpad { ptr, i32 }
+          catch ptr null
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #10
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK5eastl8internal15function_detailILi16EFvRKN20TestLruCacheInternal3FooEEE11HaveManagerEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mMgrFuncPtr = getelementptr inbounds %"class.eastl::internal::function_detail.1", ptr %this1, i32 0, i32 1
+  %0 = load ptr, ptr %mMgrFuncPtr, align 8
+  %cmp = icmp ne ptr %0, null
+  ret i1 %cmp
+}
+
+; Function Attrs: noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #4 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #9
+  call void @_ZSt9terminatev() #10
+  unreachable
+}
+
+declare ptr @__cxa_begin_catch(ptr)
+
+declare void @_ZSt9terminatev()
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl8internal15function_detailILi16EFN20TestLruCacheInternal3FooEiEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZN5eastl8internal15function_detailILi16EFN20TestLruCacheInternal3FooEiEE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #9
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl8internal15function_detailILi16EFN20TestLruCacheInternal3FooEiEE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef zeroext i1 @_ZNK5eastl8internal15function_detailILi16EFN20TestLruCacheInternal3FooEiEE11HaveManagerEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #9
+  br i1 %call, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %mMgrFuncPtr = getelementptr inbounds %"class.eastl::internal::function_detail", ptr %this1, i32 0, i32 1
+  %0 = load ptr, ptr %mMgrFuncPtr, align 8
+  %mStorage = getelementptr inbounds %"class.eastl::internal::function_base_detail", ptr %this1, i32 0, i32 0
+  %call2 = invoke noundef ptr %0(ptr noundef %mStorage, ptr noundef null, i32 noundef 0)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %if.then
+  br label %if.end
+
+if.end:                                           ; preds = %invoke.cont, %entry
+  ret void
+
+terminate.lpad:                                   ; preds = %if.then
+  %1 = landingpad { ptr, i32 }
+          catch ptr null
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #10
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK5eastl8internal15function_detailILi16EFN20TestLruCacheInternal3FooEiEE11HaveManagerEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mMgrFuncPtr = getelementptr inbounds %"class.eastl::internal::function_detail", ptr %this1, i32 0, i32 1
+  %0 = load ptr, ptr %mMgrFuncPtr, align 8
+  %cmp = icmp ne ptr %0, null
+  ret i1 %cmp
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl8internal15function_detailILi16EFvRKPN20TestLruCacheInternal3FooEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZN5eastl8internal15function_detailILi16EFvRKPN20TestLruCacheInternal3FooEEE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #9
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl8internal15function_detailILi16EFvRKPN20TestLruCacheInternal3FooEEE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef zeroext i1 @_ZNK5eastl8internal15function_detailILi16EFvRKPN20TestLruCacheInternal3FooEEE11HaveManagerEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #9
+  br i1 %call, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %mMgrFuncPtr = getelementptr inbounds %"class.eastl::internal::function_detail.14", ptr %this1, i32 0, i32 1
+  %0 = load ptr, ptr %mMgrFuncPtr, align 8
+  %mStorage = getelementptr inbounds %"class.eastl::internal::function_base_detail", ptr %this1, i32 0, i32 0
+  %call2 = invoke noundef ptr %0(ptr noundef %mStorage, ptr noundef null, i32 noundef 0)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %if.then
+  br label %if.end
+
+if.end:                                           ; preds = %invoke.cont, %entry
+  ret void
+
+terminate.lpad:                                   ; preds = %if.then
+  %1 = landingpad { ptr, i32 }
+          catch ptr null
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #10
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK5eastl8internal15function_detailILi16EFvRKPN20TestLruCacheInternal3FooEEE11HaveManagerEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mMgrFuncPtr = getelementptr inbounds %"class.eastl::internal::function_detail.14", ptr %this1, i32 0, i32 1
+  %0 = load ptr, ptr %mMgrFuncPtr, align 8
+  %cmp = icmp ne ptr %0, null
+  ret i1 %cmp
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl8internal15function_detailILi16EFPN20TestLruCacheInternal3FooEiEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZN5eastl8internal15function_detailILi16EFPN20TestLruCacheInternal3FooEiEE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #9
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl8internal15function_detailILi16EFPN20TestLruCacheInternal3FooEiEE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef zeroext i1 @_ZNK5eastl8internal15function_detailILi16EFPN20TestLruCacheInternal3FooEiEE11HaveManagerEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #9
+  br i1 %call, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %mMgrFuncPtr = getelementptr inbounds %"class.eastl::internal::function_detail.12", ptr %this1, i32 0, i32 1
+  %0 = load ptr, ptr %mMgrFuncPtr, align 8
+  %mStorage = getelementptr inbounds %"class.eastl::internal::function_base_detail", ptr %this1, i32 0, i32 0
+  %call2 = invoke noundef ptr %0(ptr noundef %mStorage, ptr noundef null, i32 noundef 0)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %if.then
+  br label %if.end
+
+if.end:                                           ; preds = %invoke.cont, %entry
+  ret void
+
+terminate.lpad:                                   ; preds = %if.then
+  %1 = landingpad { ptr, i32 }
+          catch ptr null
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #10
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK5eastl8internal15function_detailILi16EFPN20TestLruCacheInternal3FooEiEE11HaveManagerEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mMgrFuncPtr = getelementptr inbounds %"class.eastl::internal::function_detail.12", ptr %this1, i32 0, i32 1
+  %0 = load ptr, ptr %mMgrFuncPtr, align 8
+  %cmp = icmp ne ptr %0, null
+  ret i1 %cmp
+}
+
+; Function Attrs: nobuiltin allocsize(0)
+declare noundef nonnull ptr @_Znwm(i64 noundef) #5
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN20TestLruCacheInternal3FooC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %this) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %a = getelementptr inbounds %"struct.TestLruCacheInternal::Foo", ptr %this1, i32 0, i32 0
+  %0 = load i32, ptr @_ZN20TestLruCacheInternal3Foo5countE, align 4
+  %inc = add nsw i32 %0, 1
+  store i32 %inc, ptr @_ZN20TestLruCacheInternal3Foo5countE, align 4
+  store i32 %0, ptr %a, align 4
+  %b = getelementptr inbounds %"struct.TestLruCacheInternal::Foo", ptr %this1, i32 0, i32 1
+  %1 = load i32, ptr @_ZN20TestLruCacheInternal3Foo5countE, align 4
+  %inc2 = add nsw i32 %1, 1
+  store i32 %inc2, ptr @_ZN20TestLruCacheInternal3Foo5countE, align 4
+  store i32 %1, ptr %b, align 4
+  ret void
+}
+
+; Function Attrs: nobuiltin nounwind
+declare void @_ZdlPv(ptr noundef) #6
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl8internal15function_detailILi16EFvRKiEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZN5eastl8internal15function_detailILi16EFvRKiEE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #9
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl8internal15function_detailILi16EFvRKiEE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef zeroext i1 @_ZNK5eastl8internal15function_detailILi16EFvRKiEE11HaveManagerEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #9
+  br i1 %call, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %mMgrFuncPtr = getelementptr inbounds %"class.eastl::internal::function_detail.26", ptr %this1, i32 0, i32 1
+  %0 = load ptr, ptr %mMgrFuncPtr, align 8
+  %mStorage = getelementptr inbounds %"class.eastl::internal::function_base_detail", ptr %this1, i32 0, i32 0
+  %call2 = invoke noundef ptr %0(ptr noundef %mStorage, ptr noundef null, i32 noundef 0)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %if.then
+  br label %if.end
+
+if.end:                                           ; preds = %invoke.cont, %entry
+  ret void
+
+terminate.lpad:                                   ; preds = %if.then
+  %1 = landingpad { ptr, i32 }
+          catch ptr null
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #10
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK5eastl8internal15function_detailILi16EFvRKiEE11HaveManagerEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mMgrFuncPtr = getelementptr inbounds %"class.eastl::internal::function_detail.26", ptr %this1, i32 0, i32 1
+  %0 = load ptr, ptr %mMgrFuncPtr, align 8
+  %cmp = icmp ne ptr %0, null
+  ret i1 %cmp
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl8internal15function_detailILi16EFiiEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZN5eastl8internal15function_detailILi16EFiiEE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #9
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl8internal15function_detailILi16EFiiEE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef zeroext i1 @_ZNK5eastl8internal15function_detailILi16EFiiEE11HaveManagerEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #9
+  br i1 %call, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %mMgrFuncPtr = getelementptr inbounds %"class.eastl::internal::function_detail.24", ptr %this1, i32 0, i32 1
+  %0 = load ptr, ptr %mMgrFuncPtr, align 8
+  %mStorage = getelementptr inbounds %"class.eastl::internal::function_base_detail", ptr %this1, i32 0, i32 0
+  %call2 = invoke noundef ptr %0(ptr noundef %mStorage, ptr noundef null, i32 noundef 0)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %if.then
+  br label %if.end
+
+if.end:                                           ; preds = %invoke.cont, %entry
+  ret void
+
+terminate.lpad:                                   ; preds = %if.then
+  %1 = landingpad { ptr, i32 }
+          catch ptr null
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #10
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK5eastl8internal15function_detailILi16EFiiEE11HaveManagerEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mMgrFuncPtr = getelementptr inbounds %"class.eastl::internal::function_detail.24", ptr %this1, i32 0, i32 1
+  %0 = load ptr, ptr %mMgrFuncPtr, align 8
+  %cmp = icmp ne ptr %0, null
+  ret i1 %cmp
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl8internal15function_detailILi16EFN20TestLruCacheInternal3FooEiEEC2EDn(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr %0) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mMgrFuncPtr = getelementptr inbounds %"class.eastl::internal::function_detail", ptr %this1, i32 0, i32 1
+  store ptr null, ptr %mMgrFuncPtr, align 8
+  %mInvokeFuncPtr = getelementptr inbounds %"class.eastl::internal::function_detail", ptr %this1, i32 0, i32 2
+  store ptr @_ZN5eastl8internal15function_detailILi16EFN20TestLruCacheInternal3FooEiEE14DefaultInvokerEiRKNS0_15functor_storageILi16EEE, ptr %mInvokeFuncPtr, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local i64 @_ZN5eastl8internal15function_detailILi16EFN20TestLruCacheInternal3FooEiEE14DefaultInvokerEiRKNS0_15functor_storageILi16EEE(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #1 comdat align 2 {
+entry:
+  %.addr = alloca i32, align 4
+  %.addr1 = alloca ptr, align 8
+  store i32 %0, ptr %.addr, align 4
+  store ptr %1, ptr %.addr1, align 8
+  call void @llvm.trap()
+  unreachable
+}
+
+; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
+declare void @llvm.trap() #7
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl8internal15function_detailILi16EFvRKN20TestLruCacheInternal3FooEEEC2EDn(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr %0) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mMgrFuncPtr = getelementptr inbounds %"class.eastl::internal::function_detail.1", ptr %this1, i32 0, i32 1
+  store ptr null, ptr %mMgrFuncPtr, align 8
+  %mInvokeFuncPtr = getelementptr inbounds %"class.eastl::internal::function_detail.1", ptr %this1, i32 0, i32 2
+  store ptr @_ZN5eastl8internal15function_detailILi16EFvRKN20TestLruCacheInternal3FooEEE14DefaultInvokerES5_RKNS0_15functor_storageILi16EEE, ptr %mInvokeFuncPtr, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl8internal15function_detailILi16EFvRKN20TestLruCacheInternal3FooEEE14DefaultInvokerES5_RKNS0_15functor_storageILi16EEE(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #1 comdat align 2 {
+entry:
+  %.addr = alloca ptr, align 8
+  %.addr1 = alloca ptr, align 8
+  store ptr %0, ptr %.addr, align 8
+  store ptr %1, ptr %.addr1, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl4listIiNS_9allocatorEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 1 dereferenceable(1) %allocator) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %allocator.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %allocator, ptr %allocator.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %allocator.addr, align 8
+  call void @_ZN5eastl8ListBaseIiNS_9allocatorEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 1 dereferenceable(1) %0)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl8hash_mapIiNS_4pairIN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEENS_9allocatorELb0EEC2ERKSD_(ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 1 dereferenceable(1) %allocator) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %allocator.addr = alloca ptr, align 8
+  %ref.tmp = alloca %"struct.eastl::hash", align 1
+  %ref.tmp2 = alloca %"struct.eastl::mod_range_hashing", align 1
+  %ref.tmp3 = alloca %"struct.eastl::default_ranged_hash", align 1
+  %ref.tmp4 = alloca %"struct.eastl::equal_to", align 1
+  %ref.tmp5 = alloca %"struct.eastl::use_first", align 1
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %allocator, ptr %allocator.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %allocator.addr, align 8
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EEC2EmRKSH_RKSI_RKSJ_RKSF_RKSD_RKSB_(ptr noundef nonnull align 8 dereferenceable(45) %this1, i64 noundef 0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5, ptr noundef nonnull align 1 dereferenceable(1) %0)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl8functionIFN20TestLruCacheInternal3FooEiEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %other) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %other.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %other, ptr %other.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %other.addr, align 8
+  call void @_ZN5eastl8internal15function_detailILi16EFN20TestLruCacheInternal3FooEiEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl8functionIFvRKN20TestLruCacheInternal3FooEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %other) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %other.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %other, ptr %other.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %other.addr, align 8
+  call void @_ZN5eastl8internal15function_detailILi16EFvRKN20TestLruCacheInternal3FooEEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl8hash_mapIiNS_4pairIN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEENS_9allocatorELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(45) %this) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(45) %this1) #9
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl4listIiNS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZN5eastl8ListBaseIiNS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #9
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl8ListBaseIiNS_9allocatorEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 1 dereferenceable(1) %allocator) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %allocator.addr = alloca ptr, align 8
+  %ref.tmp = alloca %"struct.eastl::ListNodeBase", align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %allocator, ptr %allocator.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mNodeAllocator = getelementptr inbounds %"class.eastl::ListBase", ptr %this1, i32 0, i32 0
+  call void @llvm.memset.p0.i64(ptr align 8 %ref.tmp, i8 0, i64 16, i1 false)
+  %0 = load ptr, ptr %allocator.addr, align 8
+  call void @_ZN5eastl15compressed_pairINS_12ListNodeBaseENS_9allocatorEEC2ERKS1_RKS2_(ptr noundef nonnull align 8 dereferenceable(16) %mNodeAllocator, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(1) %0)
+  %mSize = getelementptr inbounds %"class.eastl::ListBase", ptr %this1, i32 0, i32 1
+  store i64 0, ptr %mSize, align 8
+  call void @_ZN5eastl8ListBaseIiNS_9allocatorEE6DoInitEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #9
+  ret void
+}
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl15compressed_pairINS_12ListNodeBaseENS_9allocatorEEC2ERKS1_RKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %x, ptr noundef nonnull align 1 dereferenceable(1) %y) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %x.addr = alloca ptr, align 8
+  %y.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %x, ptr %x.addr, align 8
+  store ptr %y, ptr %y.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %x.addr, align 8
+  %1 = load ptr, ptr %y.addr, align 8
+  call void @_ZN5eastl19compressed_pair_impINS_12ListNodeBaseENS_9allocatorELi2EEC2ERKS1_RKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(1) %1)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl8ListBaseIiNS_9allocatorEE6DoInitEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl8ListBaseIiNS_9allocatorEE12internalNodeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #9
+  %call2 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl8ListBaseIiNS_9allocatorEE12internalNodeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #9
+  %mpNext = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call2, i32 0, i32 0
+  store ptr %call, ptr %mpNext, align 8
+  %call3 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl8ListBaseIiNS_9allocatorEE12internalNodeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #9
+  %call4 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl8ListBaseIiNS_9allocatorEE12internalNodeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #9
+  %mpPrev = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call4, i32 0, i32 1
+  store ptr %call3, ptr %mpPrev, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl19compressed_pair_impINS_12ListNodeBaseENS_9allocatorELi2EEC2ERKS1_RKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %x, ptr noundef nonnull align 1 dereferenceable(1) %y) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %x.addr = alloca ptr, align 8
+  %y.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %x, ptr %x.addr, align 8
+  store ptr %y, ptr %y.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %y.addr, align 8
+  call void @_ZN5eastl9allocatorC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %this1, ptr noundef nonnull align 1 dereferenceable(1) %0)
+  %mFirst = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this1, i32 0, i32 0
+  %1 = load ptr, ptr %x.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %mFirst, ptr align 8 %1, i64 16, i1 false)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl8ListBaseIiNS_9allocatorEE12internalNodeEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mNodeAllocator = getelementptr inbounds %"class.eastl::ListBase", ptr %this1, i32 0, i32 0
+  %call = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl15compressed_pairINS_12ListNodeBaseENS_9allocatorEE5firstEv(ptr noundef nonnull align 8 dereferenceable(16) %mNodeAllocator)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %entry
+  ret ptr %call
+
+terminate.lpad:                                   ; preds = %entry
+  %0 = landingpad { ptr, i32 }
+          catch ptr null
+  %1 = extractvalue { ptr, i32 } %0, 0
+  call void @__clang_call_terminate(ptr %1) #10
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl15compressed_pairINS_12ListNodeBaseENS_9allocatorEE5firstEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl19compressed_pair_impINS_12ListNodeBaseENS_9allocatorELi2EE5firstEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl19compressed_pair_impINS_12ListNodeBaseENS_9allocatorELi2EE5firstEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mFirst = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this1, i32 0, i32 0
+  ret ptr %mFirst
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EEC2EmRKSH_RKSI_RKSJ_RKSF_RKSD_RKSB_(ptr noundef nonnull align 8 dereferenceable(45) %this, i64 noundef %nBucketCount, ptr noundef nonnull align 1 dereferenceable(1) %h1, ptr noundef nonnull align 1 dereferenceable(1) %h2, ptr noundef nonnull align 1 dereferenceable(1) %h, ptr noundef nonnull align 1 dereferenceable(1) %eq, ptr noundef nonnull align 1 dereferenceable(1) %ek, ptr noundef nonnull align 1 dereferenceable(1) %allocator) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %nBucketCount.addr = alloca i64, align 8
+  %h1.addr = alloca ptr, align 8
+  %h2.addr = alloca ptr, align 8
+  %h.addr = alloca ptr, align 8
+  %eq.addr = alloca ptr, align 8
+  %ek.addr = alloca ptr, align 8
+  %allocator.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store i64 %nBucketCount, ptr %nBucketCount.addr, align 8
+  store ptr %h1, ptr %h1.addr, align 8
+  store ptr %h2, ptr %h2.addr, align 8
+  store ptr %h, ptr %h.addr, align 8
+  store ptr %eq, ptr %eq.addr, align 8
+  store ptr %ek, ptr %ek.addr, align 8
+  store ptr %allocator, ptr %allocator.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %ek.addr, align 8
+  %1 = load ptr, ptr %eq.addr, align 8
+  %2 = load ptr, ptr %h1.addr, align 8
+  %3 = load ptr, ptr %h2.addr, align 8
+  %4 = load ptr, ptr %h.addr, align 8
+  call void @_ZN5eastl14hash_code_baseIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EEC2ERKSC_RKSE_RKSG_RKSH_RKSI_(ptr noundef nonnull align 1 dereferenceable(4) %this1, ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  %mnBucketCount = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 3
+  store i64 0, ptr %mnBucketCount, align 8
+  %mnElementCount = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 4
+  store i64 0, ptr %mnElementCount, align 8
+  %mRehashPolicy = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 5
+  call void @_ZN5eastl19prime_rehash_policyC2Ef(ptr noundef nonnull align 4 dereferenceable(12) %mRehashPolicy, float noundef 1.000000e+00)
+  %mAllocator = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 6
+  %5 = load ptr, ptr %allocator.addr, align 8
+  call void @_ZN5eastl9allocatorC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %mAllocator, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  %6 = load i64, ptr %nBucketCount.addr, align 8
+  %cmp = icmp ult i64 %6, 2
+  br i1 %cmp, label %if.then, label %if.else
+
+if.then:                                          ; preds = %entry
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17reset_lose_memoryEv(ptr noundef nonnull align 8 dereferenceable(45) %this1) #9
+  br label %if.end
+
+if.else:                                          ; preds = %entry
+  %mRehashPolicy2 = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 5
+  %7 = load i64, ptr %nBucketCount.addr, align 8
+  %conv = trunc i64 %7 to i32
+  %call = call noundef i32 @_ZNK5eastl19prime_rehash_policy18GetNextBucketCountEj(ptr noundef nonnull align 4 dereferenceable(12) %mRehashPolicy2, i32 noundef %conv)
+  %conv3 = zext i32 %call to i64
+  %mnBucketCount4 = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 3
+  store i64 %conv3, ptr %mnBucketCount4, align 8
+  %mnBucketCount5 = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 3
+  %8 = load i64, ptr %mnBucketCount5, align 8
+  %call6 = call noundef ptr @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm(ptr noundef nonnull align 8 dereferenceable(45) %this1, i64 noundef %8)
+  %mpBucketArray = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 2
+  store ptr %call6, ptr %mpBucketArray, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl14hash_code_baseIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EEC2ERKSC_RKSE_RKSG_RKSH_RKSI_(ptr noundef nonnull align 1 dereferenceable(4) %this, ptr noundef nonnull align 1 dereferenceable(1) %ex, ptr noundef nonnull align 1 dereferenceable(1) %eq, ptr noundef nonnull align 1 dereferenceable(1) %h1, ptr noundef nonnull align 1 dereferenceable(1) %h2, ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %ex.addr = alloca ptr, align 8
+  %eq.addr = alloca ptr, align 8
+  %h1.addr = alloca ptr, align 8
+  %h2.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %ex, ptr %ex.addr, align 8
+  store ptr %eq, ptr %eq.addr, align 8
+  store ptr %h1, ptr %h1.addr, align 8
+  store ptr %h2, ptr %h2.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl19prime_rehash_policyC2Ef(ptr noundef nonnull align 4 dereferenceable(12) %this, float noundef %fMaxLoadFactor) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %fMaxLoadFactor.addr = alloca float, align 4
+  store ptr %this, ptr %this.addr, align 8
+  store float %fMaxLoadFactor, ptr %fMaxLoadFactor.addr, align 4
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mfMaxLoadFactor = getelementptr inbounds %"struct.eastl::prime_rehash_policy", ptr %this1, i32 0, i32 0
+  %0 = load float, ptr %fMaxLoadFactor.addr, align 4
+  store float %0, ptr %mfMaxLoadFactor, align 4
+  %mfGrowthFactor = getelementptr inbounds %"struct.eastl::prime_rehash_policy", ptr %this1, i32 0, i32 1
+  store float 2.000000e+00, ptr %mfGrowthFactor, align 4
+  %mnNextResize = getelementptr inbounds %"struct.eastl::prime_rehash_policy", ptr %this1, i32 0, i32 2
+  store i32 0, ptr %mnNextResize, align 4
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl9allocatorC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17reset_lose_memoryEv(ptr noundef nonnull align 8 dereferenceable(45) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %p = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mnBucketCount = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 3
+  store i64 1, ptr %mnBucketCount, align 8
+  store ptr @_ZN5eastl18gpEmptyBucketArrayE, ptr %p, align 8
+  %mpBucketArray = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %mpBucketArray, ptr align 8 %p, i64 8, i1 false)
+  %mnElementCount = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 4
+  store i64 0, ptr %mnElementCount, align 8
+  %mRehashPolicy = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 5
+  %mnNextResize = getelementptr inbounds %"struct.eastl::prime_rehash_policy", ptr %mRehashPolicy, i32 0, i32 2
+  store i32 0, ptr %mnNextResize, align 8
+  ret void
+}
+
+declare noundef i32 @_ZNK5eastl19prime_rehash_policy18GetNextBucketCountEj(ptr noundef nonnull align 4 dereferenceable(12), i32 noundef) #2
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm(ptr noundef nonnull align 8 dereferenceable(45) %this, i64 noundef %n) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %n.addr = alloca i64, align 8
+  %pBucketArray = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store i64 %n, ptr %n.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mAllocator = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 6
+  %0 = load i64, ptr %n.addr, align 8
+  %add = add i64 %0, 1
+  %mul = mul i64 %add, 8
+  %call = call noundef ptr @_ZN5eastl9allocator8allocateEmmmi(ptr noundef nonnull align 1 dereferenceable(1) %mAllocator, i64 noundef %mul, i64 noundef 8, i64 noundef 0, i32 noundef 4194304)
+  store ptr %call, ptr %pBucketArray, align 8
+  %1 = load ptr, ptr %pBucketArray, align 8
+  %2 = load i64, ptr %n.addr, align 8
+  %mul2 = mul i64 %2, 8
+  call void @llvm.memset.p0.i64(ptr align 8 %1, i8 0, i64 %mul2, i1 false)
+  %3 = load ptr, ptr %pBucketArray, align 8
+  %4 = load i64, ptr %n.addr, align 8
+  %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
+  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
+  %5 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN5eastl9allocator8allocateEmmmi(ptr noundef nonnull align 1 dereferenceable(1) %this, i64 noundef %n, i64 noundef %alignment, i64 noundef %offset, i32 noundef %flags) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %n.addr = alloca i64, align 8
+  %alignment.addr = alloca i64, align 8
+  %offset.addr = alloca i64, align 8
+  %flags.addr = alloca i32, align 4
+  store ptr %this, ptr %this.addr, align 8
+  store i64 %n, ptr %n.addr, align 8
+  store i64 %alignment, ptr %alignment.addr, align 8
+  store i64 %offset, ptr %offset.addr, align 8
+  store i32 %flags, ptr %flags.addr, align 4
+  %0 = load i64, ptr %n.addr, align 8
+  %1 = load i64, ptr %alignment.addr, align 8
+  %2 = load i64, ptr %offset.addr, align 8
+  %3 = load i32, ptr %flags.addr, align 4
+  %call = call noundef ptr @_ZnammmPKcijS0_i(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef null, i32 noundef %3, i32 noundef 0, ptr noundef null, i32 noundef 0)
+  ret ptr %call
+}
+
+declare noundef ptr @_ZnammmPKcijS0_i(i64 noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #2
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl8internal15function_detailILi16EFN20TestLruCacheInternal3FooEiEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %other) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %other.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %other, ptr %other.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mMgrFuncPtr = getelementptr inbounds %"class.eastl::internal::function_detail", ptr %this1, i32 0, i32 1
+  store ptr null, ptr %mMgrFuncPtr, align 8
+  %mInvokeFuncPtr = getelementptr inbounds %"class.eastl::internal::function_detail", ptr %this1, i32 0, i32 2
+  store ptr @_ZN5eastl8internal15function_detailILi16EFN20TestLruCacheInternal3FooEiEE14DefaultInvokerEiRKNS0_15functor_storageILi16EEE, ptr %mInvokeFuncPtr, align 8
+  %0 = load ptr, ptr %other.addr, align 8
+  %cmp = icmp ne ptr %this1, %0
+  br i1 %cmp, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %1 = load ptr, ptr %other.addr, align 8
+  call void @_ZN5eastl8internal15function_detailILi16EFN20TestLruCacheInternal3FooEiEE4CopyERKS5_(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  br label %if.end
+
+if.end:                                           ; preds = %if.then, %entry
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl8internal15function_detailILi16EFN20TestLruCacheInternal3FooEiEE4CopyERKS5_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %other) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %other.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %other, ptr %other.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %other.addr, align 8
+  %call = call noundef zeroext i1 @_ZNK5eastl8internal15function_detailILi16EFN20TestLruCacheInternal3FooEiEE11HaveManagerEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #9
+  br i1 %call, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %1 = load ptr, ptr %other.addr, align 8
+  %mMgrFuncPtr = getelementptr inbounds %"class.eastl::internal::function_detail", ptr %1, i32 0, i32 1
+  %2 = load ptr, ptr %mMgrFuncPtr, align 8
+  %mStorage = getelementptr inbounds %"class.eastl::internal::function_base_detail", ptr %this1, i32 0, i32 0
+  %3 = load ptr, ptr %other.addr, align 8
+  %mStorage2 = getelementptr inbounds %"class.eastl::internal::function_base_detail", ptr %3, i32 0, i32 0
+  %call3 = call noundef ptr %2(ptr noundef %mStorage, ptr noundef %mStorage2, i32 noundef 1)
+  br label %if.end
+
+if.end:                                           ; preds = %if.then, %entry
+  %4 = load ptr, ptr %other.addr, align 8
+  %mMgrFuncPtr4 = getelementptr inbounds %"class.eastl::internal::function_detail", ptr %4, i32 0, i32 1
+  %5 = load ptr, ptr %mMgrFuncPtr4, align 8
+  %mMgrFuncPtr5 = getelementptr inbounds %"class.eastl::internal::function_detail", ptr %this1, i32 0, i32 1
+  store ptr %5, ptr %mMgrFuncPtr5, align 8
+  %6 = load ptr, ptr %other.addr, align 8
+  %mInvokeFuncPtr = getelementptr inbounds %"class.eastl::internal::function_detail", ptr %6, i32 0, i32 2
+  %7 = load ptr, ptr %mInvokeFuncPtr, align 8
+  %mInvokeFuncPtr6 = getelementptr inbounds %"class.eastl::internal::function_detail", ptr %this1, i32 0, i32 2
+  store ptr %7, ptr %mInvokeFuncPtr6, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl8internal15function_detailILi16EFvRKN20TestLruCacheInternal3FooEEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %other) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %other.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %other, ptr %other.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mMgrFuncPtr = getelementptr inbounds %"class.eastl::internal::function_detail.1", ptr %this1, i32 0, i32 1
+  store ptr null, ptr %mMgrFuncPtr, align 8
+  %mInvokeFuncPtr = getelementptr inbounds %"class.eastl::internal::function_detail.1", ptr %this1, i32 0, i32 2
+  store ptr @_ZN5eastl8internal15function_detailILi16EFvRKN20TestLruCacheInternal3FooEEE14DefaultInvokerES5_RKNS0_15functor_storageILi16EEE, ptr %mInvokeFuncPtr, align 8
+  %0 = load ptr, ptr %other.addr, align 8
+  %cmp = icmp ne ptr %this1, %0
+  br i1 %cmp, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %1 = load ptr, ptr %other.addr, align 8
+  call void @_ZN5eastl8internal15function_detailILi16EFvRKN20TestLruCacheInternal3FooEEE4CopyERKS7_(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  br label %if.end
+
+if.end:                                           ; preds = %if.then, %entry
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl8internal15function_detailILi16EFvRKN20TestLruCacheInternal3FooEEE4CopyERKS7_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %other) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %other.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %other, ptr %other.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %other.addr, align 8
+  %call = call noundef zeroext i1 @_ZNK5eastl8internal15function_detailILi16EFvRKN20TestLruCacheInternal3FooEEE11HaveManagerEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #9
+  br i1 %call, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %1 = load ptr, ptr %other.addr, align 8
+  %mMgrFuncPtr = getelementptr inbounds %"class.eastl::internal::function_detail.1", ptr %1, i32 0, i32 1
+  %2 = load ptr, ptr %mMgrFuncPtr, align 8
+  %mStorage = getelementptr inbounds %"class.eastl::internal::function_base_detail", ptr %this1, i32 0, i32 0
+  %3 = load ptr, ptr %other.addr, align 8
+  %mStorage2 = getelementptr inbounds %"class.eastl::internal::function_base_detail", ptr %3, i32 0, i32 0
+  %call3 = call noundef ptr %2(ptr noundef %mStorage, ptr noundef %mStorage2, i32 noundef 1)
+  br label %if.end
+
+if.end:                                           ; preds = %if.then, %entry
+  %4 = load ptr, ptr %other.addr, align 8
+  %mMgrFuncPtr4 = getelementptr inbounds %"class.eastl::internal::function_detail.1", ptr %4, i32 0, i32 1
+  %5 = load ptr, ptr %mMgrFuncPtr4, align 8
+  %mMgrFuncPtr5 = getelementptr inbounds %"class.eastl::internal::function_detail.1", ptr %this1, i32 0, i32 1
+  store ptr %5, ptr %mMgrFuncPtr5, align 8
+  %6 = load ptr, ptr %other.addr, align 8
+  %mInvokeFuncPtr = getelementptr inbounds %"class.eastl::internal::function_detail.1", ptr %6, i32 0, i32 2
+  %7 = load ptr, ptr %mInvokeFuncPtr, align 8
+  %mInvokeFuncPtr6 = getelementptr inbounds %"class.eastl::internal::function_detail.1", ptr %this1, i32 0, i32 2
+  store ptr %7, ptr %mInvokeFuncPtr6, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(45) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  invoke void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5clearEv(ptr noundef nonnull align 8 dereferenceable(45) %this1)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %entry
+  %mpBucketArray = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 2
+  %0 = load ptr, ptr %mpBucketArray, align 8
+  %mnBucketCount = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 3
+  %1 = load i64, ptr %mnBucketCount, align 8
+  invoke void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeISA_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(45) %this1, ptr noundef %0, i64 noundef %1)
+          to label %invoke.cont2 unwind label %terminate.lpad
+
+invoke.cont2:                                     ; preds = %invoke.cont
+  ret void
+
+terminate.lpad:                                   ; preds = %invoke.cont, %entry
+  %2 = landingpad { ptr, i32 }
+          catch ptr null
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #10
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5clearEv(ptr noundef nonnull align 8 dereferenceable(45) %this) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mpBucketArray = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 2
+  %0 = load ptr, ptr %mpBucketArray, align 8
+  %mnBucketCount = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 3
+  %1 = load i64, ptr %mnBucketCount, align 8
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE11DoFreeNodesEPPNS_9hash_nodeISA_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(45) %this1, ptr noundef %0, i64 noundef %1)
+  %mnElementCount = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 4
+  store i64 0, ptr %mnElementCount, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeISA_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef %pBucketArray, i64 noundef %n) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %pBucketArray.addr = alloca ptr, align 8
+  %n.addr = alloca i64, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %pBucketArray, ptr %pBucketArray.addr, align 8
+  store i64 %n, ptr %n.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load i64, ptr %n.addr, align 8
+  %cmp = icmp ugt i64 %0, 1
+  br i1 %cmp, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %mAllocator = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 6
+  %1 = load ptr, ptr %pBucketArray.addr, align 8
+  %2 = load i64, ptr %n.addr, align 8
+  %add = add i64 %2, 1
+  %mul = mul i64 %add, 8
+  call void @_ZN5eastl9allocator10deallocateEPvm(ptr noundef nonnull align 1 dereferenceable(1) %mAllocator, ptr noundef %1, i64 noundef %mul)
+  br label %if.end
+
+if.end:                                           ; preds = %if.then, %entry
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE11DoFreeNodesEPPNS_9hash_nodeISA_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef %pNodeArray, i64 noundef %n) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %pNodeArray.addr = alloca ptr, align 8
+  %n.addr = alloca i64, align 8
+  %i = alloca i64, align 8
+  %pNode = alloca ptr, align 8
+  %pTempNode = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %pNodeArray, ptr %pNodeArray.addr, align 8
+  store i64 %n, ptr %n.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  store i64 0, ptr %i, align 8
+  br label %for.cond
+
+for.cond:                                         ; preds = %for.inc, %entry
+  %0 = load i64, ptr %i, align 8
+  %1 = load i64, ptr %n.addr, align 8
+  %cmp = icmp ult i64 %0, %1
+  br i1 %cmp, label %for.body, label %for.end
+
+for.body:                                         ; preds = %for.cond
+  %2 = load ptr, ptr %pNodeArray.addr, align 8
+  %3 = load i64, ptr %i, align 8
+  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %3
+  %4 = load ptr, ptr %arrayidx, align 8
+  store ptr %4, ptr %pNode, align 8
+  br label %while.cond
+
+while.cond:                                       ; preds = %while.body, %for.body
+  %5 = load ptr, ptr %pNode, align 8
+  %tobool = icmp ne ptr %5, null
+  br i1 %tobool, label %while.body, label %while.end
+
+while.body:                                       ; preds = %while.cond
+  %6 = load ptr, ptr %pNode, align 8
+  store ptr %6, ptr %pTempNode, align 8
+  %7 = load ptr, ptr %pNode, align 8
+  %mpNext = getelementptr inbounds %"struct.eastl::hash_node", ptr %7, i32 0, i32 1
+  %8 = load ptr, ptr %mpNext, align 8
+  store ptr %8, ptr %pNode, align 8
+  %9 = load ptr, ptr %pTempNode, align 8
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeISA_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(45) %this1, ptr noundef %9)
+  br label %while.cond, !llvm.loop !7
+
+while.end:                                        ; preds = %while.cond
+  %10 = load ptr, ptr %pNodeArray.addr, align 8
+  %11 = load i64, ptr %i, align 8
+  %arrayidx2 = getelementptr inbounds ptr, ptr %10, i64 %11
+  store ptr null, ptr %arrayidx2, align 8
+  br label %for.inc
+
+for.inc:                                          ; preds = %while.end
+  %12 = load i64, ptr %i, align 8
+  %inc = add i64 %12, 1
+  store i64 %inc, ptr %i, align 8
+  br label %for.cond, !llvm.loop !8
+
+for.end:                                          ; preds = %for.cond
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeISA_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef %pNode) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %pNode.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %pNode, ptr %pNode.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mAllocator = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 6
+  %0 = load ptr, ptr %pNode.addr, align 8
+  call void @_ZN5eastl9allocator10deallocateEPvm(ptr noundef nonnull align 1 dereferenceable(1) %mAllocator, ptr noundef %0, i64 noundef 32)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl9allocator10deallocateEPvm(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %p, i64 noundef %0) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %p.addr = alloca ptr, align 8
+  %.addr = alloca i64, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %p, ptr %p.addr, align 8
+  store i64 %0, ptr %.addr, align 8
+  %1 = load ptr, ptr %p.addr, align 8
+  %isnull = icmp eq ptr %1, null
+  br i1 %isnull, label %delete.end, label %delete.notnull
+
+delete.notnull:                                   ; preds = %entry
+  call void @_ZdaPv(ptr noundef %1) #12
+  br label %delete.end
+
+delete.end:                                       ; preds = %delete.notnull, %entry
+  ret void
+}
+
+; Function Attrs: nobuiltin nounwind
+declare void @_ZdaPv(ptr noundef) #6
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl8ListBaseIiNS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  invoke void @_ZN5eastl8ListBaseIiNS_9allocatorEE7DoClearEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %entry
+  ret void
+
+terminate.lpad:                                   ; preds = %entry
+  %0 = landingpad { ptr, i32 }
+          catch ptr null
+  %1 = extractvalue { ptr, i32 } %0, 0
+  call void @__clang_call_terminate(ptr %1) #10
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl8ListBaseIiNS_9allocatorEE7DoClearEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %p = alloca ptr, align 8
+  %pTemp = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl8ListBaseIiNS_9allocatorEE12internalNodeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #9
+  %mpNext = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call, i32 0, i32 0
+  %0 = load ptr, ptr %mpNext, align 8
+  store ptr %0, ptr %p, align 8
+  br label %while.cond
+
+while.cond:                                       ; preds = %while.body, %entry
+  %1 = load ptr, ptr %p, align 8
+  %call2 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl8ListBaseIiNS_9allocatorEE12internalNodeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #9
+  %cmp = icmp ne ptr %1, %call2
+  br i1 %cmp, label %while.body, label %while.end
+
+while.body:                                       ; preds = %while.cond
+  %2 = load ptr, ptr %p, align 8
+  store ptr %2, ptr %pTemp, align 8
+  %3 = load ptr, ptr %p, align 8
+  %mpNext3 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %3, i32 0, i32 0
+  %4 = load ptr, ptr %mpNext3, align 8
+  store ptr %4, ptr %p, align 8
+  %call4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl8ListBaseIiNS_9allocatorEE17internalAllocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #9
+  %5 = load ptr, ptr %pTemp, align 8
+  call void @_ZN5eastl9allocator10deallocateEPvm(ptr noundef nonnull align 1 dereferenceable(1) %call4, ptr noundef %5, i64 noundef 24)
+  br label %while.cond, !llvm.loop !9
+
+while.end:                                        ; preds = %while.cond
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl8ListBaseIiNS_9allocatorEE17internalAllocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mNodeAllocator = getelementptr inbounds %"class.eastl::ListBase", ptr %this1, i32 0, i32 0
+  %call = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl15compressed_pairINS_12ListNodeBaseENS_9allocatorEE6secondEv(ptr noundef nonnull align 8 dereferenceable(16) %mNodeAllocator)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %entry
+  ret ptr %call
+
+terminate.lpad:                                   ; preds = %entry
+  %0 = landingpad { ptr, i32 }
+          catch ptr null
+  %1 = extractvalue { ptr, i32 } %0, 0
+  call void @__clang_call_terminate(ptr %1) #10
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl15compressed_pairINS_12ListNodeBaseENS_9allocatorEE6secondEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl19compressed_pair_impINS_12ListNodeBaseENS_9allocatorELi2EE6secondEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl19compressed_pair_impINS_12ListNodeBaseENS_9allocatorELi2EE6secondEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  ret ptr %this1
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv(ptr noalias sret(%"struct.eastl::hashtable_iterator.31") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(45) %this) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %this.addr = alloca ptr, align 8
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mpBucketArray = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 2
+  %0 = load ptr, ptr %mpBucketArray, align 8
+  invoke void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEC2EPPNS_9hash_nodeISA_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef %0)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %entry
+  %mpNode = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.32", ptr %agg.result, i32 0, i32 0
+  %1 = load ptr, ptr %mpNode, align 8
+  %tobool = icmp ne ptr %1, null
+  br i1 %tobool, label %if.end, label %if.then
+
+if.then:                                          ; preds = %invoke.cont
+  invoke void @_ZN5eastl23hashtable_iterator_baseINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0EE16increment_bucketEv(ptr noundef nonnull align 8 dereferenceable(16) %agg.result)
+          to label %invoke.cont2 unwind label %terminate.lpad
+
+invoke.cont2:                                     ; preds = %if.then
+  br label %if.end
+
+if.end:                                           ; preds = %invoke.cont2, %invoke.cont
+  ret void
+
+terminate.lpad:                                   ; preds = %if.then, %entry
+  %2 = landingpad { ptr, i32 }
+          catch ptr null
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #10
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv(ptr noalias sret(%"struct.eastl::hashtable_iterator.31") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(45) %this) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %this.addr = alloca ptr, align 8
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mpBucketArray = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 2
+  %0 = load ptr, ptr %mpBucketArray, align 8
+  %mnBucketCount = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 3
+  %1 = load i64, ptr %mnBucketCount, align 8
+  %add.ptr = getelementptr inbounds ptr, ptr %0, i64 %1
+  invoke void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEC2EPPNS_9hash_nodeISA_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef %add.ptr)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %entry
+  ret void
+
+terminate.lpad:                                   ; preds = %entry
+  %2 = landingpad { ptr, i32 }
+          catch ptr null
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #10
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZN5eastlneINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0EEEbRKNS_23hashtable_iterator_baseIT_XT0_EEESF_(ptr noundef nonnull align 8 dereferenceable(16) %a, ptr noundef nonnull align 8 dereferenceable(16) %b) #1 comdat {
+entry:
+  %a.addr = alloca ptr, align 8
+  %b.addr = alloca ptr, align 8
+  store ptr %a, ptr %a.addr, align 8
+  store ptr %b, ptr %b.addr, align 8
+  %0 = load ptr, ptr %a.addr, align 8
+  %mpNode = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.32", ptr %0, i32 0, i32 0
+  %1 = load ptr, ptr %mpNode, align 8
+  %2 = load ptr, ptr %b.addr, align 8
+  %mpNode1 = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.32", ptr %2, i32 0, i32 0
+  %3 = load ptr, ptr %mpNode1, align 8
+  %cmp = icmp ne ptr %1, %3
+  ret i1 %cmp
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5eastl18hashtable_iteratorINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEdeEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mpNode = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.32", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %mpNode, align 8
+  %mValue = getelementptr inbounds %"struct.eastl::hash_node", ptr %0, i32 0, i32 0
+  ret ptr %mValue
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK5eastl8functionIFvRKN20TestLruCacheInternal3FooEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef zeroext i1 @_ZNK5eastl8internal15function_detailILi16EFvRKN20TestLruCacheInternal3FooEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #9
+  ret i1 %call
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZNK5eastl8functionIFvRKN20TestLruCacheInternal3FooEEEclES4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 4 dereferenceable(8) %args) #0 comdat align 2 {
+entry:
+  %this.addr.i = alloca ptr, align 8
+  %args.addr.i = alloca ptr, align 8
+  %this.addr = alloca ptr, align 8
+  %args.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %args, ptr %args.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %args.addr, align 8
+  %call = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN5eastl7forwardIRKN20TestLruCacheInternal3FooEEEOT_RNS_16remove_referenceIS5_E4typeE(ptr noundef nonnull align 4 dereferenceable(8) %0) #9
+  store ptr %this1, ptr %this.addr.i, align 8
+  store ptr %call, ptr %args.addr.i, align 8
+  %this1.i = load ptr, ptr %this.addr.i, align 8
+  %mInvokeFuncPtr.i = getelementptr inbounds %"class.eastl::internal::function_detail.1", ptr %this1.i, i32 0, i32 2
+  %1 = load ptr, ptr %mInvokeFuncPtr.i, align 8
+  %2 = load ptr, ptr %args.addr.i, align 8
+  %call.i = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN5eastl7forwardIRKN20TestLruCacheInternal3FooEEEOT_RNS_16remove_referenceIS5_E4typeE(ptr noundef nonnull align 4 dereferenceable(8) %2) #9
+  call void %1(ptr noundef nonnull align 4 dereferenceable(8) %call.i, ptr noundef nonnull align 8 dereferenceable(16) %this1.i)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEppEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZN5eastl23hashtable_iterator_baseINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0EE9incrementEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
+  ret ptr %this1
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEC2EPPNS_9hash_nodeISA_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %pBucket) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %pBucket.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %pBucket, ptr %pBucket.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %pBucket.addr, align 8
+  %1 = load ptr, ptr %0, align 8
+  %2 = load ptr, ptr %pBucket.addr, align 8
+  call void @_ZN5eastl23hashtable_iterator_baseINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0EEC2EPNS_9hash_nodeISA_Lb0EEEPSE_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %1, ptr noundef %2)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl23hashtable_iterator_baseINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0EE16increment_bucketEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mpBucket = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.32", ptr %this1, i32 0, i32 1
+  %0 = load ptr, ptr %mpBucket, align 8
+  %incdec.ptr = getelementptr inbounds ptr, ptr %0, i32 1
+  store ptr %incdec.ptr, ptr %mpBucket, align 8
+  br label %while.cond
+
+while.cond:                                       ; preds = %while.body, %entry
+  %mpBucket2 = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.32", ptr %this1, i32 0, i32 1
+  %1 = load ptr, ptr %mpBucket2, align 8
+  %2 = load ptr, ptr %1, align 8
+  %cmp = icmp eq ptr %2, null
+  br i1 %cmp, label %while.body, label %while.end
+
+while.body:                                       ; preds = %while.cond
+  %mpBucket3 = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.32", ptr %this1, i32 0, i32 1
+  %3 = load ptr, ptr %mpBucket3, align 8
+  %incdec.ptr4 = getelementptr inbounds ptr, ptr %3, i32 1
+  store ptr %incdec.ptr4, ptr %mpBucket3, align 8
+  br label %while.cond, !llvm.loop !10
+
+while.end:                                        ; preds = %while.cond
+  %mpBucket5 = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.32", ptr %this1, i32 0, i32 1
+  %4 = load ptr, ptr %mpBucket5, align 8
+  %5 = load ptr, ptr %4, align 8
+  %mpNode = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.32", ptr %this1, i32 0, i32 0
+  store ptr %5, ptr %mpNode, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl23hashtable_iterator_baseINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0EEC2EPNS_9hash_nodeISA_Lb0EEEPSE_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %pNode, ptr noundef %pBucket) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %pNode.addr = alloca ptr, align 8
+  %pBucket.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %pNode, ptr %pNode.addr, align 8
+  store ptr %pBucket, ptr %pBucket.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mpNode = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.32", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %pNode.addr, align 8
+  store ptr %0, ptr %mpNode, align 8
+  %mpBucket = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.32", ptr %this1, i32 0, i32 1
+  %1 = load ptr, ptr %pBucket.addr, align 8
+  store ptr %1, ptr %mpBucket, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK5eastl8internal15function_detailILi16EFvRKN20TestLruCacheInternal3FooEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef zeroext i1 @_ZNK5eastl8internal15function_detailILi16EFvRKN20TestLruCacheInternal3FooEEE11HaveManagerEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #9
+  ret i1 %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(8) ptr @_ZN5eastl7forwardIRKN20TestLruCacheInternal3FooEEEOT_RNS_16remove_referenceIS5_E4typeE(ptr noundef nonnull align 4 dereferenceable(8) %x) #1 comdat {
+entry:
+  %x.addr = alloca ptr, align 8
+  store ptr %x, ptr %x.addr, align 8
+  %0 = load ptr, ptr %x.addr, align 8
+  ret ptr %0
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl23hashtable_iterator_baseINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0EE9incrementEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mpNode = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.32", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %mpNode, align 8
+  %mpNext = getelementptr inbounds %"struct.eastl::hash_node", ptr %0, i32 0, i32 1
+  %1 = load ptr, ptr %mpNext, align 8
+  %mpNode2 = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.32", ptr %this1, i32 0, i32 0
+  store ptr %1, ptr %mpNode2, align 8
+  br label %while.cond
+
+while.cond:                                       ; preds = %while.body, %entry
+  %mpNode3 = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.32", ptr %this1, i32 0, i32 0
+  %2 = load ptr, ptr %mpNode3, align 8
+  %cmp = icmp eq ptr %2, null
+  br i1 %cmp, label %while.body, label %while.end
+
+while.body:                                       ; preds = %while.cond
+  %mpBucket = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.32", ptr %this1, i32 0, i32 1
+  %3 = load ptr, ptr %mpBucket, align 8
+  %incdec.ptr = getelementptr inbounds ptr, ptr %3, i32 1
+  store ptr %incdec.ptr, ptr %mpBucket, align 8
+  %4 = load ptr, ptr %incdec.ptr, align 8
+  %mpNode4 = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.32", ptr %this1, i32 0, i32 0
+  store ptr %4, ptr %mpNode4, align 8
+  br label %while.cond, !llvm.loop !11
+
+while.end:                                        ; preds = %while.cond
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local { ptr, ptr } @_ZNK5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_(ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 4 dereferenceable(4) %k) #0 comdat align 2 {
+entry:
+  %retval = alloca %"struct.eastl::hashtable_iterator.33", align 8
+  %this.addr = alloca ptr, align 8
+  %k.addr = alloca ptr, align 8
+  %c = alloca i64, align 8
+  %n = alloca i64, align 8
+  %pNode = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %k, ptr %k.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %k.addr, align 8
+  %call = call noundef i64 @_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS2_(ptr noundef nonnull align 1 dereferenceable(4) %this1, ptr noundef nonnull align 4 dereferenceable(4) %0)
+  store i64 %call, ptr %c, align 8
+  %1 = load ptr, ptr %k.addr, align 8
+  %2 = load i64, ptr %c, align 8
+  %mnBucketCount = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 3
+  %3 = load i64, ptr %mnBucketCount, align 8
+  %conv = trunc i64 %3 to i32
+  %call2 = call noundef i32 @_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE12bucket_indexERS2_mj(ptr noundef nonnull align 1 dereferenceable(4) %this1, ptr noundef nonnull align 4 dereferenceable(4) %1, i64 noundef %2, i32 noundef %conv)
+  %conv3 = zext i32 %call2 to i64
+  store i64 %conv3, ptr %n, align 8
+  %mpBucketArray = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 2
+  %4 = load ptr, ptr %mpBucketArray, align 8
+  %5 = load i64, ptr %n, align 8
+  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %5
+  %6 = load ptr, ptr %arrayidx, align 8
+  %7 = load ptr, ptr %k.addr, align 8
+  %8 = load i64, ptr %c, align 8
+  %call4 = call noundef ptr @_ZNK5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFindNodeEPNS_9hash_nodeISA_Lb0EEERS2_m(ptr noundef nonnull align 8 dereferenceable(45) %this1, ptr noundef %6, ptr noundef nonnull align 4 dereferenceable(4) %7, i64 noundef %8)
+  store ptr %call4, ptr %pNode, align 8
+  %9 = load ptr, ptr %pNode, align 8
+  %tobool = icmp ne ptr %9, null
+  br i1 %tobool, label %cond.true, label %cond.false
+
+cond.true:                                        ; preds = %entry
+  %10 = load ptr, ptr %pNode, align 8
+  %mpBucketArray5 = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 2
+  %11 = load ptr, ptr %mpBucketArray5, align 8
+  %12 = load i64, ptr %n, align 8
+  %add.ptr = getelementptr inbounds ptr, ptr %11, i64 %12
+  call void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb1ELb0EEC2EPNS_9hash_nodeISA_Lb0EEEPSE_(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef %10, ptr noundef %add.ptr)
+  br label %cond.end
+
+cond.false:                                       ; preds = %entry
+  %mpBucketArray6 = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 2
+  %13 = load ptr, ptr %mpBucketArray6, align 8
+  %mnBucketCount7 = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 3
+  %14 = load i64, ptr %mnBucketCount7, align 8
+  %add.ptr8 = getelementptr inbounds ptr, ptr %13, i64 %14
+  call void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb1ELb0EEC2EPPNS_9hash_nodeISA_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef %add.ptr8)
+  br label %cond.end
+
+cond.end:                                         ; preds = %cond.false, %cond.true
+  %coerce.dive = getelementptr inbounds %"struct.eastl::hashtable_iterator.33", ptr %retval, i32 0, i32 0
+  %15 = load { ptr, ptr }, ptr %coerce.dive, align 8
+  ret { ptr, ptr } %15
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local { ptr, ptr } @_ZNK5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv(ptr noundef nonnull align 8 dereferenceable(45) %this) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %retval = alloca %"struct.eastl::hashtable_iterator.33", align 8
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mpBucketArray = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 2
+  %0 = load ptr, ptr %mpBucketArray, align 8
+  %mnBucketCount = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 3
+  %1 = load i64, ptr %mnBucketCount, align 8
+  %add.ptr = getelementptr inbounds ptr, ptr %0, i64 %1
+  invoke void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb1ELb0EEC2EPPNS_9hash_nodeISA_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef %add.ptr)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %entry
+  %coerce.dive = getelementptr inbounds %"struct.eastl::hashtable_iterator.33", ptr %retval, i32 0, i32 0
+  %2 = load { ptr, ptr }, ptr %coerce.dive, align 8
+  ret { ptr, ptr } %2
+
+terminate.lpad:                                   ; preds = %entry
+  %3 = landingpad { ptr, i32 }
+          catch ptr null
+  %4 = extractvalue { ptr, i32 } %3, 0
+  call void @__clang_call_terminate(ptr %4) #10
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef i64 @_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS2_(ptr noundef nonnull align 1 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %key) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %key.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %key, ptr %key.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_h1 = getelementptr inbounds %"struct.eastl::hash_code_base", ptr %this1, i32 0, i32 2
+  %0 = load ptr, ptr %key.addr, align 8
+  %1 = load i32, ptr %0, align 4
+  %call = call noundef i64 @_ZNK5eastl4hashIiEclEi(ptr noundef nonnull align 1 dereferenceable(1) %m_h1, i32 noundef %1)
+  ret i64 %call
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef i32 @_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE12bucket_indexERS2_mj(ptr noundef nonnull align 1 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %0, i64 noundef %c, i32 noundef %nBucketCount) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  %c.addr = alloca i64, align 8
+  %nBucketCount.addr = alloca i32, align 4
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  store i64 %c, ptr %c.addr, align 8
+  store i32 %nBucketCount, ptr %nBucketCount.addr, align 4
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_h2 = getelementptr inbounds %"struct.eastl::hash_code_base", ptr %this1, i32 0, i32 3
+  %1 = load i64, ptr %c.addr, align 8
+  %2 = load i32, ptr %nBucketCount.addr, align 4
+  %call = call noundef i32 @_ZNK5eastl17mod_range_hashingclEmj(ptr noundef nonnull align 1 dereferenceable(1) %m_h2, i64 noundef %1, i32 noundef %2)
+  ret i32 %call
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZNK5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFindNodeEPNS_9hash_nodeISA_Lb0EEERS2_m(ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef %pNode, ptr noundef nonnull align 4 dereferenceable(4) %k, i64 noundef %c) #0 comdat align 2 {
+entry:
+  %retval = alloca ptr, align 8
+  %this.addr = alloca ptr, align 8
+  %pNode.addr = alloca ptr, align 8
+  %k.addr = alloca ptr, align 8
+  %c.addr = alloca i64, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %pNode, ptr %pNode.addr, align 8
+  store ptr %k, ptr %k.addr, align 8
+  store i64 %c, ptr %c.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  br label %for.cond
+
+for.cond:                                         ; preds = %for.inc, %entry
+  %0 = load ptr, ptr %pNode.addr, align 8
+  %tobool = icmp ne ptr %0, null
+  br i1 %tobool, label %for.body, label %for.end
+
+for.body:                                         ; preds = %for.cond
+  %1 = load ptr, ptr %k.addr, align 8
+  %2 = load i64, ptr %c.addr, align 8
+  %3 = load ptr, ptr %pNode.addr, align 8
+  %call = call noundef zeroext i1 @_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS2_mPNS_9hash_nodeISA_Lb0EEE(ptr noundef nonnull align 1 dereferenceable(4) %this1, ptr noundef nonnull align 4 dereferenceable(4) %1, i64 noundef %2, ptr noundef %3)
+  br i1 %call, label %if.then, label %if.end
+
+if.then:                                          ; preds = %for.body
+  %4 = load ptr, ptr %pNode.addr, align 8
+  store ptr %4, ptr %retval, align 8
+  br label %return
+
+if.end:                                           ; preds = %for.body
+  br label %for.inc
+
+for.inc:                                          ; preds = %if.end
+  %5 = load ptr, ptr %pNode.addr, align 8
+  %mpNext = getelementptr inbounds %"struct.eastl::hash_node", ptr %5, i32 0, i32 1
+  %6 = load ptr, ptr %mpNext, align 8
+  store ptr %6, ptr %pNode.addr, align 8
+  br label %for.cond, !llvm.loop !12
+
+for.end:                                          ; preds = %for.cond
+  store ptr null, ptr %retval, align 8
+  br label %return
+
+return:                                           ; preds = %for.end, %if.then
+  %7 = load ptr, ptr %retval, align 8
+  ret ptr %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb1ELb0EEC2EPNS_9hash_nodeISA_Lb0EEEPSE_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %pNode, ptr noundef %pBucket) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %pNode.addr = alloca ptr, align 8
+  %pBucket.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %pNode, ptr %pNode.addr, align 8
+  store ptr %pBucket, ptr %pBucket.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %pNode.addr, align 8
+  %1 = load ptr, ptr %pBucket.addr, align 8
+  call void @_ZN5eastl23hashtable_iterator_baseINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0EEC2EPNS_9hash_nodeISA_Lb0EEEPSE_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0, ptr noundef %1)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb1ELb0EEC2EPPNS_9hash_nodeISA_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %pBucket) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %pBucket.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %pBucket, ptr %pBucket.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %pBucket.addr, align 8
+  %1 = load ptr, ptr %0, align 8
+  %2 = load ptr, ptr %pBucket.addr, align 8
+  call void @_ZN5eastl23hashtable_iterator_baseINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0EEC2EPNS_9hash_nodeISA_Lb0EEEPSE_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %1, ptr noundef %2)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i64 @_ZNK5eastl4hashIiEclEi(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %val) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %val.addr = alloca i32, align 4
+  store ptr %this, ptr %this.addr, align 8
+  store i32 %val, ptr %val.addr, align 4
+  %0 = load i32, ptr %val.addr, align 4
+  %conv = sext i32 %0 to i64
+  ret i64 %conv
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZNK5eastl17mod_range_hashingclEmj(ptr noundef nonnull align 1 dereferenceable(1) %this, i64 noundef %r, i32 noundef %n) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %r.addr = alloca i64, align 8
+  %n.addr = alloca i32, align 4
+  store ptr %this, ptr %this.addr, align 8
+  store i64 %r, ptr %r.addr, align 8
+  store i32 %n, ptr %n.addr, align 4
+  %0 = load i64, ptr %r.addr, align 8
+  %1 = load i32, ptr %n.addr, align 4
+  %conv = zext i32 %1 to i64
+  %rem = urem i64 %0, %conv
+  %conv2 = trunc i64 %rem to i32
+  ret i32 %conv2
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS2_mPNS_9hash_nodeISA_Lb0EEE(ptr noundef nonnull align 1 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %key, i64 noundef %0, ptr noundef %pNode) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %key.addr = alloca ptr, align 8
+  %.addr = alloca i64, align 8
+  %pNode.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %key, ptr %key.addr, align 8
+  store i64 %0, ptr %.addr, align 8
+  store ptr %pNode, ptr %pNode.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mEqual = getelementptr inbounds %"struct.eastl::hash_code_base", ptr %this1, i32 0, i32 1
+  %1 = load ptr, ptr %key.addr, align 8
+  %mExtractKey = getelementptr inbounds %"struct.eastl::hash_code_base", ptr %this1, i32 0, i32 0
+  %2 = load ptr, ptr %pNode.addr, align 8
+  %mValue = getelementptr inbounds %"struct.eastl::hash_node", ptr %2, i32 0, i32 0
+  %call = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK5eastl9use_firstINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEEEclERKSA_(ptr noundef nonnull align 1 dereferenceable(1) %mExtractKey, ptr noundef nonnull align 8 dereferenceable(24) %mValue)
+  %call2 = call noundef zeroext i1 @_ZNK5eastl8equal_toIiEclERKiS3_(ptr noundef nonnull align 1 dereferenceable(1) %mEqual, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %call)
+  ret i1 %call2
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK5eastl8equal_toIiEclERKiS3_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 4 dereferenceable(4) %a, ptr noundef nonnull align 4 dereferenceable(4) %b) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %a.addr = alloca ptr, align 8
+  %b.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %a, ptr %a.addr, align 8
+  store ptr %b, ptr %b.addr, align 8
+  %0 = load ptr, ptr %a.addr, align 8
+  %1 = load i32, ptr %0, align 4
+  %2 = load ptr, ptr %b.addr, align 8
+  %3 = load i32, ptr %2, align 4
+  %cmp = icmp eq i32 %1, %3
+  ret i1 %cmp
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(4) ptr @_ZNK5eastl9use_firstINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEEEclERKSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(24) %x) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %x.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %x, ptr %x.addr, align 8
+  %0 = load ptr, ptr %x.addr, align 8
+  %first = getelementptr inbounds %"struct.eastl::pair.29", ptr %0, i32 0, i32 0
+  ret ptr %first
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i64 @_ZNK5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(45) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mnElementCount = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 4
+  %0 = load i64, ptr %mnElementCount, align 8
+  ret i64 %0
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(45) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mnElementCount = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 4
+  %0 = load i64, ptr %mnElementCount, align 8
+  %cmp = icmp eq i64 %0, 0
+  ret i1 %cmp
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_(ptr noalias sret(%"struct.eastl::hashtable_iterator.31") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 4 dereferenceable(4) %k) #0 comdat align 2 {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %this.addr = alloca ptr, align 8
+  %k.addr = alloca ptr, align 8
+  %c = alloca i64, align 8
+  %n = alloca i64, align 8
+  %pNode = alloca ptr, align 8
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %k, ptr %k.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %k.addr, align 8
+  %call = call noundef i64 @_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS2_(ptr noundef nonnull align 1 dereferenceable(4) %this1, ptr noundef nonnull align 4 dereferenceable(4) %0)
+  store i64 %call, ptr %c, align 8
+  %1 = load ptr, ptr %k.addr, align 8
+  %2 = load i64, ptr %c, align 8
+  %mnBucketCount = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 3
+  %3 = load i64, ptr %mnBucketCount, align 8
+  %conv = trunc i64 %3 to i32
+  %call2 = call noundef i32 @_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE12bucket_indexERS2_mj(ptr noundef nonnull align 1 dereferenceable(4) %this1, ptr noundef nonnull align 4 dereferenceable(4) %1, i64 noundef %2, i32 noundef %conv)
+  %conv3 = zext i32 %call2 to i64
+  store i64 %conv3, ptr %n, align 8
+  %mpBucketArray = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 2
+  %4 = load ptr, ptr %mpBucketArray, align 8
+  %5 = load i64, ptr %n, align 8
+  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %5
+  %6 = load ptr, ptr %arrayidx, align 8
+  %7 = load ptr, ptr %k.addr, align 8
+  %8 = load i64, ptr %c, align 8
+  %call4 = call noundef ptr @_ZNK5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFindNodeEPNS_9hash_nodeISA_Lb0EEERS2_m(ptr noundef nonnull align 8 dereferenceable(45) %this1, ptr noundef %6, ptr noundef nonnull align 4 dereferenceable(4) %7, i64 noundef %8)
+  store ptr %call4, ptr %pNode, align 8
+  %9 = load ptr, ptr %pNode, align 8
+  %tobool = icmp ne ptr %9, null
+  br i1 %tobool, label %cond.true, label %cond.false
+
+cond.true:                                        ; preds = %entry
+  %10 = load ptr, ptr %pNode, align 8
+  %mpBucketArray5 = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 2
+  %11 = load ptr, ptr %mpBucketArray5, align 8
+  %12 = load i64, ptr %n, align 8
+  %add.ptr = getelementptr inbounds ptr, ptr %11, i64 %12
+  call void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEC2EPNS_9hash_nodeISA_Lb0EEEPSE_(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef %10, ptr noundef %add.ptr)
+  br label %cond.end
+
+cond.false:                                       ; preds = %entry
+  %mpBucketArray6 = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 2
+  %13 = load ptr, ptr %mpBucketArray6, align 8
+  %mnBucketCount7 = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 3
+  %14 = load i64, ptr %mnBucketCount7, align 8
+  %add.ptr8 = getelementptr inbounds ptr, ptr %13, i64 %14
+  call void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEC2EPPNS_9hash_nodeISA_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef %add.ptr8)
+  br label %cond.end
+
+cond.end:                                         ; preds = %cond.false, %cond.true
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZNK5eastl18hashtable_iteratorINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEptEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mpNode = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.32", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %mpNode, align 8
+  %mValue = getelementptr inbounds %"struct.eastl::hash_node", ptr %0, i32 0, i32 0
+  ret ptr %mValue
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl8optionalIN20TestLruCacheInternal3FooEEC2ERKS2_(ptr noundef nonnull align 4 dereferenceable(9) %this, ptr noundef nonnull align 4 dereferenceable(8) %value) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %value.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %value, ptr %value.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %value.addr, align 8
+  call void @_ZN5eastl8Internal16optional_storageIN20TestLruCacheInternal3FooELb1EEC2ERKS3_(ptr noundef nonnull align 4 dereferenceable(9) %this1, ptr noundef nonnull align 4 dereferenceable(8) %0)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl8optionalIN20TestLruCacheInternal3FooEEC2ENS_9nullopt_tE(ptr noundef nonnull align 4 dereferenceable(9) %this) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZN5eastl8Internal16optional_storageIN20TestLruCacheInternal3FooELb1EEC2Ev(ptr noundef nonnull align 4 dereferenceable(9) %this1) #9
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEC2EPNS_9hash_nodeISA_Lb0EEEPSE_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %pNode, ptr noundef %pBucket) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %pNode.addr = alloca ptr, align 8
+  %pBucket.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %pNode, ptr %pNode.addr, align 8
+  store ptr %pBucket, ptr %pBucket.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %pNode.addr, align 8
+  %1 = load ptr, ptr %pBucket.addr, align 8
+  call void @_ZN5eastl23hashtable_iterator_baseINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0EEC2EPNS_9hash_nodeISA_Lb0EEEPSE_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0, ptr noundef %1)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl8Internal16optional_storageIN20TestLruCacheInternal3FooELb1EEC2ERKS3_(ptr noundef nonnull align 4 dereferenceable(9) %this, ptr noundef nonnull align 4 dereferenceable(8) %v) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %v.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %v, ptr %v.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %engaged = getelementptr inbounds %"struct.eastl::Internal::optional_storage", ptr %this1, i32 0, i32 1
+  store i8 1, ptr %engaged, align 4
+  %val2 = getelementptr inbounds %"struct.eastl::Internal::optional_storage", ptr %this1, i32 0, i32 0
+  %call = call noundef ptr @_ZN5eastl9addressofINS_15aligned_storageILm8ELm4EE4typeEEEPT_RS4_(ptr noundef nonnull align 4 dereferenceable(8) %val2) #9
+  %0 = load ptr, ptr %v.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call, ptr align 4 %0, i64 8, i1 false)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZN5eastl9addressofINS_15aligned_storageILm8ELm4EE4typeEEEPT_RS4_(ptr noundef nonnull align 4 dereferenceable(8) %value) #1 comdat {
+entry:
+  %value.addr = alloca ptr, align 8
+  store ptr %value, ptr %value.addr, align 8
+  %0 = load ptr, ptr %value.addr, align 8
+  ret ptr %0
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl8Internal16optional_storageIN20TestLruCacheInternal3FooELb1EEC2Ev(ptr noundef nonnull align 4 dereferenceable(9) %this) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %engaged = getelementptr inbounds %"struct.eastl::Internal::optional_storage", ptr %this1, i32 0, i32 1
+  store i8 0, ptr %engaged, align 4
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(8) ptr @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE3getERKi(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 4 dereferenceable(4) %k) #0 comdat align 2 {
+entry:
+  %retval = alloca ptr, align 8
+  %this.addr = alloca ptr, align 8
+  %k.addr = alloca ptr, align 8
+  %iter = alloca %"struct.eastl::hashtable_iterator.31", align 8
+  %ref.tmp = alloca %"struct.eastl::hashtable_iterator.31", align 8
+  %ref.tmp5 = alloca %"struct.TestLruCacheInternal::Foo", align 4
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %k, ptr %k.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_map = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 1
+  %0 = load ptr, ptr %k.addr, align 8
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_(ptr sret(%"struct.eastl::hashtable_iterator.31") align 8 %iter, ptr noundef nonnull align 8 dereferenceable(45) %m_map, ptr noundef nonnull align 4 dereferenceable(4) %0)
+  %m_map2 = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 1
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv(ptr sret(%"struct.eastl::hashtable_iterator.31") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(45) %m_map2) #9
+  %call = call noundef zeroext i1 @_ZN5eastlneINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0EEEbRKNS_23hashtable_iterator_baseIT_XT0_EEESF_(ptr noundef nonnull align 8 dereferenceable(16) %iter, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
+  br i1 %call, label %if.then, label %if.else
+
+if.then:                                          ; preds = %entry
+  %1 = load ptr, ptr %k.addr, align 8
+  %call3 = call noundef zeroext i1 @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE5touchERKi(ptr noundef nonnull align 8 dereferenceable(144) %this1, ptr noundef nonnull align 4 dereferenceable(4) %1)
+  %call4 = call noundef ptr @_ZNK5eastl18hashtable_iteratorINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEptEv(ptr noundef nonnull align 8 dereferenceable(16) %iter)
+  %second = getelementptr inbounds %"struct.eastl::pair.29", ptr %call4, i32 0, i32 1
+  %first = getelementptr inbounds %"struct.eastl::pair.30", ptr %second, i32 0, i32 0
+  store ptr %first, ptr %retval, align 8
+  br label %return
+
+if.else:                                          ; preds = %entry
+  %2 = load ptr, ptr %k.addr, align 8
+  %m_create_callback = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 3
+  %call6 = call noundef zeroext i1 @_ZNK5eastl8functionIFN20TestLruCacheInternal3FooEiEEcvbEv(ptr noundef nonnull align 8 dereferenceable(32) %m_create_callback) #9
+  br i1 %call6, label %cond.true, label %cond.false
+
+cond.true:                                        ; preds = %if.else
+  %m_create_callback7 = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 3
+  %3 = load ptr, ptr %k.addr, align 8
+  %4 = load i32, ptr %3, align 4
+  %call8 = call i64 @_ZNK5eastl8functionIFN20TestLruCacheInternal3FooEiEEclEi(ptr noundef nonnull align 8 dereferenceable(32) %m_create_callback7, i32 noundef %4)
+  store i64 %call8, ptr %ref.tmp5, align 4
+  br label %cond.end
+
+cond.false:                                       ; preds = %if.else
+  call void @_ZN20TestLruCacheInternal3FooC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp5)
+  br label %cond.end
+
+cond.end:                                         ; preds = %cond.false, %cond.true
+  %call9 = call noundef zeroext i1 @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE6insertERKiRKS2_(ptr noundef nonnull align 8 dereferenceable(144) %this1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp5)
+  %m_map10 = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 1
+  %5 = load ptr, ptr %k.addr, align 8
+  %call11 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl8hash_mapIiNS_4pairIN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEENS_9allocatorELb0EEixERKi(ptr noundef nonnull align 8 dereferenceable(45) %m_map10, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %first12 = getelementptr inbounds %"struct.eastl::pair.30", ptr %call11, i32 0, i32 0
+  store ptr %first12, ptr %retval, align 8
+  br label %return
+
+return:                                           ; preds = %cond.end, %if.then
+  %6 = load ptr, ptr %retval, align 8
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK5eastl8functionIFN20TestLruCacheInternal3FooEiEEcvbEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef zeroext i1 @_ZNK5eastl8internal15function_detailILi16EFN20TestLruCacheInternal3FooEiEEcvbEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #9
+  ret i1 %call
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local i64 @_ZNK5eastl8functionIFN20TestLruCacheInternal3FooEiEEclEi(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %args) #0 comdat align 2 {
+entry:
+  %retval.i = alloca %"struct.TestLruCacheInternal::Foo", align 4
+  %this.addr.i = alloca ptr, align 8
+  %args.addr.i = alloca i32, align 4
+  %retval = alloca %"struct.TestLruCacheInternal::Foo", align 4
+  %this.addr = alloca ptr, align 8
+  %args.addr = alloca i32, align 4
+  store ptr %this, ptr %this.addr, align 8
+  store i32 %args, ptr %args.addr, align 4
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN5eastl7forwardIiEEOT_RNS_16remove_referenceIS1_E4typeE(ptr noundef nonnull align 4 dereferenceable(4) %args.addr) #9
+  %0 = load i32, ptr %call, align 4
+  store ptr %this1, ptr %this.addr.i, align 8
+  store i32 %0, ptr %args.addr.i, align 4
+  %this1.i = load ptr, ptr %this.addr.i, align 8
+  %mInvokeFuncPtr.i = getelementptr inbounds %"class.eastl::internal::function_detail", ptr %this1.i, i32 0, i32 2
+  %1 = load ptr, ptr %mInvokeFuncPtr.i, align 8
+  %call.i = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN5eastl7forwardIiEEOT_RNS_16remove_referenceIS1_E4typeE(ptr noundef nonnull align 4 dereferenceable(4) %args.addr.i) #9
+  %2 = load i32, ptr %call.i, align 4
+  %call2.i = call i64 %1(i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %this1.i)
+  store i64 %call2.i, ptr %retval.i, align 4
+  %3 = load i64, ptr %retval.i, align 4
+  store i64 %3, ptr %retval, align 4
+  %4 = load i64, ptr %retval, align 4
+  ret i64 %4
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl8hash_mapIiNS_4pairIN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEENS_9allocatorELb0EEixERKi(ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 4 dereferenceable(4) %key) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %key.addr = alloca ptr, align 8
+  %ref.tmp = alloca %"struct.eastl::pair.34", align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %key, ptr %key.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %key.addr, align 8
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE11DoInsertKeyENS_17integral_constantIbLb1EEERS2_(ptr sret(%"struct.eastl::pair.34") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(45) %this1, ptr noundef nonnull align 4 dereferenceable(4) %0)
+  %first = getelementptr inbounds %"struct.eastl::pair.34", ptr %ref.tmp, i32 0, i32 0
+  %call = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5eastl18hashtable_iteratorINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEdeEv(ptr noundef nonnull align 8 dereferenceable(16) %first)
+  %second = getelementptr inbounds %"struct.eastl::pair.29", ptr %call, i32 0, i32 1
+  ret ptr %second
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK5eastl8internal15function_detailILi16EFN20TestLruCacheInternal3FooEiEEcvbEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef zeroext i1 @_ZNK5eastl8internal15function_detailILi16EFN20TestLruCacheInternal3FooEiEE11HaveManagerEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #9
+  ret i1 %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(4) ptr @_ZN5eastl7forwardIiEEOT_RNS_16remove_referenceIS1_E4typeE(ptr noundef nonnull align 4 dereferenceable(4) %x) #1 comdat {
+entry:
+  %x.addr = alloca ptr, align 8
+  store ptr %x, ptr %x.addr, align 8
+  %0 = load ptr, ptr %x.addr, align 8
+  ret ptr %0
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE11DoInsertKeyENS_17integral_constantIbLb1EEERS2_(ptr noalias sret(%"struct.eastl::pair.34") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 4 dereferenceable(4) %key) #0 comdat align 2 {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %this.addr = alloca ptr, align 8
+  %key.addr = alloca ptr, align 8
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %key, ptr %key.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %key.addr, align 8
+  %1 = load ptr, ptr %key.addr, align 8
+  %call = call noundef i64 @_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS2_(ptr noundef nonnull align 1 dereferenceable(4) %this1, ptr noundef nonnull align 4 dereferenceable(4) %1)
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE11DoInsertKeyENS_17integral_constantIbLb1EEERS2_m(ptr sret(%"struct.eastl::pair.34") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(45) %this1, ptr noundef nonnull align 4 dereferenceable(4) %0, i64 noundef %call)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE11DoInsertKeyENS_17integral_constantIbLb1EEERS2_m(ptr noalias sret(%"struct.eastl::pair.34") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 4 dereferenceable(4) %key, i64 noundef %c) #0 comdat align 2 {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %this.addr = alloca ptr, align 8
+  %key.addr = alloca ptr, align 8
+  %c.addr = alloca i64, align 8
+  %n = alloca i64, align 8
+  %pNode = alloca ptr, align 8
+  %bRehash = alloca %"struct.eastl::pair.35", align 4
+  %pNodeNew = alloca ptr, align 8
+  %ref.tmp = alloca %"struct.eastl::hashtable_iterator.31", align 8
+  %ref.tmp20 = alloca i8, align 1
+  %ref.tmp22 = alloca %"struct.eastl::hashtable_iterator.31", align 8
+  %ref.tmp25 = alloca i8, align 1
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %key, ptr %key.addr, align 8
+  store i64 %c, ptr %c.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %key.addr, align 8
+  %1 = load i64, ptr %c.addr, align 8
+  %mnBucketCount = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 3
+  %2 = load i64, ptr %mnBucketCount, align 8
+  %conv = trunc i64 %2 to i32
+  %call = call noundef i32 @_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE12bucket_indexERS2_mj(ptr noundef nonnull align 1 dereferenceable(4) %this1, ptr noundef nonnull align 4 dereferenceable(4) %0, i64 noundef %1, i32 noundef %conv)
+  %conv2 = zext i32 %call to i64
+  store i64 %conv2, ptr %n, align 8
+  %mpBucketArray = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 2
+  %3 = load ptr, ptr %mpBucketArray, align 8
+  %4 = load i64, ptr %n, align 8
+  %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
+  %5 = load ptr, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %key.addr, align 8
+  %7 = load i64, ptr %c.addr, align 8
+  %call3 = call noundef ptr @_ZNK5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFindNodeEPNS_9hash_nodeISA_Lb0EEERS2_m(ptr noundef nonnull align 8 dereferenceable(45) %this1, ptr noundef %5, ptr noundef nonnull align 4 dereferenceable(4) %6, i64 noundef %7)
+  store ptr %call3, ptr %pNode, align 8
+  %8 = load ptr, ptr %pNode, align 8
+  %cmp = icmp eq ptr %8, null
+  br i1 %cmp, label %if.then, label %if.end21
+
+if.then:                                          ; preds = %entry
+  %mRehashPolicy = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 5
+  %mnBucketCount4 = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 3
+  %9 = load i64, ptr %mnBucketCount4, align 8
+  %conv5 = trunc i64 %9 to i32
+  %mnElementCount = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 4
+  %10 = load i64, ptr %mnElementCount, align 8
+  %conv6 = trunc i64 %10 to i32
+  %call7 = call i64 @_ZNK5eastl19prime_rehash_policy17GetRehashRequiredEjjj(ptr noundef nonnull align 4 dereferenceable(12) %mRehashPolicy, i32 noundef %conv5, i32 noundef %conv6, i32 noundef 1)
+  store i64 %call7, ptr %bRehash, align 4
+  %11 = load ptr, ptr %key.addr, align 8
+  %call8 = call noundef ptr @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE21DoAllocateNodeFromKeyERS2_(ptr noundef nonnull align 8 dereferenceable(45) %this1, ptr noundef nonnull align 4 dereferenceable(4) %11)
+  store ptr %call8, ptr %pNodeNew, align 8
+  %12 = load ptr, ptr %pNodeNew, align 8
+  %13 = load i64, ptr %c.addr, align 8
+  call void @_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE8set_codeEPNS_9hash_nodeISA_Lb0EEEm(ptr noundef nonnull align 1 dereferenceable(4) %this1, ptr noundef %12, i64 noundef %13)
+  %first = getelementptr inbounds %"struct.eastl::pair.35", ptr %bRehash, i32 0, i32 0
+  %14 = load i8, ptr %first, align 4
+  %tobool = trunc i8 %14 to i1
+  br i1 %tobool, label %if.then9, label %if.end
+
+if.then9:                                         ; preds = %if.then
+  %15 = load ptr, ptr %key.addr, align 8
+  %16 = load i64, ptr %c.addr, align 8
+  %second = getelementptr inbounds %"struct.eastl::pair.35", ptr %bRehash, i32 0, i32 1
+  %17 = load i32, ptr %second, align 4
+  %call10 = call noundef i32 @_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE12bucket_indexERS2_mj(ptr noundef nonnull align 1 dereferenceable(4) %this1, ptr noundef nonnull align 4 dereferenceable(4) %15, i64 noundef %16, i32 noundef %17)
+  %conv11 = zext i32 %call10 to i64
+  store i64 %conv11, ptr %n, align 8
+  %second12 = getelementptr inbounds %"struct.eastl::pair.35", ptr %bRehash, i32 0, i32 1
+  %18 = load i32, ptr %second12, align 4
+  %conv13 = zext i32 %18 to i64
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE8DoRehashEm(ptr noundef nonnull align 8 dereferenceable(45) %this1, i64 noundef %conv13)
+  br label %if.end
+
+if.end:                                           ; preds = %if.then9, %if.then
+  %mpBucketArray14 = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 2
+  %19 = load ptr, ptr %mpBucketArray14, align 8
+  %20 = load i64, ptr %n, align 8
+  %arrayidx15 = getelementptr inbounds ptr, ptr %19, i64 %20
+  %21 = load ptr, ptr %arrayidx15, align 8
+  %22 = load ptr, ptr %pNodeNew, align 8
+  %mpNext = getelementptr inbounds %"struct.eastl::hash_node", ptr %22, i32 0, i32 1
+  store ptr %21, ptr %mpNext, align 8
+  %23 = load ptr, ptr %pNodeNew, align 8
+  %mpBucketArray16 = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 2
+  %24 = load ptr, ptr %mpBucketArray16, align 8
+  %25 = load i64, ptr %n, align 8
+  %arrayidx17 = getelementptr inbounds ptr, ptr %24, i64 %25
+  store ptr %23, ptr %arrayidx17, align 8
+  %mnElementCount18 = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 4
+  %26 = load i64, ptr %mnElementCount18, align 8
+  %inc = add i64 %26, 1
+  store i64 %inc, ptr %mnElementCount18, align 8
+  %27 = load ptr, ptr %pNodeNew, align 8
+  %mpBucketArray19 = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 2
+  %28 = load ptr, ptr %mpBucketArray19, align 8
+  %29 = load i64, ptr %n, align 8
+  %add.ptr = getelementptr inbounds ptr, ptr %28, i64 %29
+  call void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEC2EPNS_9hash_nodeISA_Lb0EEEPSE_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %27, ptr noundef %add.ptr)
+  store i8 1, ptr %ref.tmp20, align 1
+  call void @_ZN5eastl4pairINS_18hashtable_iteratorINS0_IKiNS0_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEEbEC2ISB_bvEEOT_OT0_(ptr noundef nonnull align 8 dereferenceable(17) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp20)
+  br label %return
+
+if.end21:                                         ; preds = %entry
+  %30 = load ptr, ptr %pNode, align 8
+  %mpBucketArray23 = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 2
+  %31 = load ptr, ptr %mpBucketArray23, align 8
+  %32 = load i64, ptr %n, align 8
+  %add.ptr24 = getelementptr inbounds ptr, ptr %31, i64 %32
+  call void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEC2EPNS_9hash_nodeISA_Lb0EEEPSE_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp22, ptr noundef %30, ptr noundef %add.ptr24)
+  store i8 0, ptr %ref.tmp25, align 1
+  call void @_ZN5eastl4pairINS_18hashtable_iteratorINS0_IKiNS0_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEEbEC2ISB_bvEEOT_OT0_(ptr noundef nonnull align 8 dereferenceable(17) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp22, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp25)
+  br label %return
+
+return:                                           ; preds = %if.end21, %if.end
+  ret void
+}
+
+declare i64 @_ZNK5eastl19prime_rehash_policy17GetRehashRequiredEjjj(ptr noundef nonnull align 4 dereferenceable(12), i32 noundef, i32 noundef, i32 noundef) #2
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE21DoAllocateNodeFromKeyERS2_(ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 4 dereferenceable(4) %key) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %key.addr = alloca ptr, align 8
+  %pNode = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %key, ptr %key.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mAllocator = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 6
+  %call = call noundef ptr @_ZN5eastl15allocate_memoryINS_9allocatorEEEPvRT_mmm(ptr noundef nonnull align 1 dereferenceable(1) %mAllocator, i64 noundef 32, i64 noundef 8, i64 noundef 0)
+  store ptr %call, ptr %pNode, align 8
+  %0 = load ptr, ptr %pNode, align 8
+  %mValue = getelementptr inbounds %"struct.eastl::hash_node", ptr %0, i32 0, i32 0
+  %call2 = call noundef ptr @_ZN5eastl9addressofINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEEEEPT_RSB_(ptr noundef nonnull align 8 dereferenceable(24) %mValue) #9
+  %1 = load ptr, ptr %key.addr, align 8
+  call void @_ZN5eastl4pairIKiNS0_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEC2IiS8_vEENS_22pair_first_construct_tERKT_(ptr noundef nonnull align 8 dereferenceable(24) %call2, ptr noundef nonnull align 4 dereferenceable(4) %1)
+  %2 = load ptr, ptr %pNode, align 8
+  %mpNext = getelementptr inbounds %"struct.eastl::hash_node", ptr %2, i32 0, i32 1
+  store ptr null, ptr %mpNext, align 8
+  %3 = load ptr, ptr %pNode, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE8set_codeEPNS_9hash_nodeISA_Lb0EEEm(ptr noundef nonnull align 1 dereferenceable(4) %this, ptr noundef %0, i64 noundef %1) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  %.addr1 = alloca i64, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  store i64 %1, ptr %.addr1, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE8DoRehashEm(ptr noundef nonnull align 8 dereferenceable(45) %this, i64 noundef %nNewBucketCount) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %nNewBucketCount.addr = alloca i64, align 8
+  %pBucketArray = alloca ptr, align 8
+  %pNode = alloca ptr, align 8
+  %i = alloca i64, align 8
+  %nNewBucketIndex = alloca i64, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store i64 %nNewBucketCount, ptr %nNewBucketCount.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load i64, ptr %nNewBucketCount.addr, align 8
+  %call = call noundef ptr @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm(ptr noundef nonnull align 8 dereferenceable(45) %this1, i64 noundef %0)
+  store ptr %call, ptr %pBucketArray, align 8
+  store i64 0, ptr %i, align 8
+  br label %for.cond
+
+for.cond:                                         ; preds = %for.inc, %entry
+  %1 = load i64, ptr %i, align 8
+  %mnBucketCount = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 3
+  %2 = load i64, ptr %mnBucketCount, align 8
+  %cmp = icmp ult i64 %1, %2
+  br i1 %cmp, label %for.body, label %for.end
+
+for.body:                                         ; preds = %for.cond
+  br label %while.cond
+
+while.cond:                                       ; preds = %while.body, %for.body
+  %mpBucketArray = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 2
+  %3 = load ptr, ptr %mpBucketArray, align 8
+  %4 = load i64, ptr %i, align 8
+  %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
+  %5 = load ptr, ptr %arrayidx, align 8
+  store ptr %5, ptr %pNode, align 8
+  %cmp2 = icmp ne ptr %5, null
+  br i1 %cmp2, label %while.body, label %while.end
+
+while.body:                                       ; preds = %while.cond
+  %6 = load ptr, ptr %pNode, align 8
+  %7 = load i64, ptr %nNewBucketCount.addr, align 8
+  %conv = trunc i64 %7 to i32
+  %call3 = call noundef i32 @_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE12bucket_indexEPKNS_9hash_nodeISA_Lb0EEEj(ptr noundef nonnull align 1 dereferenceable(4) %this1, ptr noundef %6, i32 noundef %conv)
+  %conv4 = zext i32 %call3 to i64
+  store i64 %conv4, ptr %nNewBucketIndex, align 8
+  %8 = load ptr, ptr %pNode, align 8
+  %mpNext = getelementptr inbounds %"struct.eastl::hash_node", ptr %8, i32 0, i32 1
+  %9 = load ptr, ptr %mpNext, align 8
+  %mpBucketArray5 = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 2
+  %10 = load ptr, ptr %mpBucketArray5, align 8
+  %11 = load i64, ptr %i, align 8
+  %arrayidx6 = getelementptr inbounds ptr, ptr %10, i64 %11
+  store ptr %9, ptr %arrayidx6, align 8
+  %12 = load ptr, ptr %pBucketArray, align 8
+  %13 = load i64, ptr %nNewBucketIndex, align 8
+  %arrayidx7 = getelementptr inbounds ptr, ptr %12, i64 %13
+  %14 = load ptr, ptr %arrayidx7, align 8
+  %15 = load ptr, ptr %pNode, align 8
+  %mpNext8 = getelementptr inbounds %"struct.eastl::hash_node", ptr %15, i32 0, i32 1
+  store ptr %14, ptr %mpNext8, align 8
+  %16 = load ptr, ptr %pNode, align 8
+  %17 = load ptr, ptr %pBucketArray, align 8
+  %18 = load i64, ptr %nNewBucketIndex, align 8
+  %arrayidx9 = getelementptr inbounds ptr, ptr %17, i64 %18
+  store ptr %16, ptr %arrayidx9, align 8
+  br label %while.cond, !llvm.loop !13
+
+while.end:                                        ; preds = %while.cond
+  br label %for.inc
+
+for.inc:                                          ; preds = %while.end
+  %19 = load i64, ptr %i, align 8
+  %inc = add i64 %19, 1
+  store i64 %inc, ptr %i, align 8
+  br label %for.cond, !llvm.loop !14
+
+for.end:                                          ; preds = %for.cond
+  %mpBucketArray10 = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 2
+  %20 = load ptr, ptr %mpBucketArray10, align 8
+  %mnBucketCount11 = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 3
+  %21 = load i64, ptr %mnBucketCount11, align 8
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeISA_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(45) %this1, ptr noundef %20, i64 noundef %21)
+  %22 = load i64, ptr %nNewBucketCount.addr, align 8
+  %mnBucketCount12 = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 3
+  store i64 %22, ptr %mnBucketCount12, align 8
+  %23 = load ptr, ptr %pBucketArray, align 8
+  %mpBucketArray13 = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 2
+  store ptr %23, ptr %mpBucketArray13, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl4pairINS_18hashtable_iteratorINS0_IKiNS0_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEEbEC2ISB_bvEEOT_OT0_(ptr noundef nonnull align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(16) %u, ptr noundef nonnull align 1 dereferenceable(1) %v) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %u.addr = alloca ptr, align 8
+  %v.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %u, ptr %u.addr, align 8
+  store ptr %v, ptr %v.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %first = getelementptr inbounds %"struct.eastl::pair.34", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %u.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl7forwardINS_18hashtable_iteratorINS_4pairIKiNS2_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEEEEOT_RNS_16remove_referenceISD_E4typeE(ptr noundef nonnull align 8 dereferenceable(16) %0) #9
+  call void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEC2ERKSB_(ptr noundef nonnull align 8 dereferenceable(16) %first, ptr noundef nonnull align 8 dereferenceable(16) %call)
+  %second = getelementptr inbounds %"struct.eastl::pair.34", ptr %this1, i32 0, i32 1
+  %1 = load ptr, ptr %v.addr, align 8
+  %call2 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl7forwardIbEEOT_RNS_16remove_referenceIS1_E4typeE(ptr noundef nonnull align 1 dereferenceable(1) %1) #9
+  %2 = load i8, ptr %call2, align 1
+  %tobool = trunc i8 %2 to i1
+  %frombool = zext i1 %tobool to i8
+  store i8 %frombool, ptr %second, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN5eastl15allocate_memoryINS_9allocatorEEEPvRT_mmm(ptr noundef nonnull align 1 dereferenceable(1) %a, i64 noundef %n, i64 noundef %alignment, i64 noundef %alignmentOffset) #0 comdat {
+entry:
+  %a.addr = alloca ptr, align 8
+  %n.addr = alloca i64, align 8
+  %alignment.addr = alloca i64, align 8
+  %alignmentOffset.addr = alloca i64, align 8
+  %result = alloca ptr, align 8
+  %resultMinusOffset = alloca ptr, align 8
+  store ptr %a, ptr %a.addr, align 8
+  store i64 %n, ptr %n.addr, align 8
+  store i64 %alignment, ptr %alignment.addr, align 8
+  store i64 %alignmentOffset, ptr %alignmentOffset.addr, align 8
+  %0 = load i64, ptr %alignment.addr, align 8
+  %cmp = icmp ule i64 %0, 16
+  br i1 %cmp, label %if.then, label %if.else
+
+if.then:                                          ; preds = %entry
+  %1 = load ptr, ptr %a.addr, align 8
+  %2 = load i64, ptr %n.addr, align 8
+  %call = call noundef ptr @_ZN5eastl9allocator8allocateEmi(ptr noundef nonnull align 1 dereferenceable(1) %1, i64 noundef %2, i32 noundef 0)
+  store ptr %call, ptr %result, align 8
+  br label %if.end
+
+if.else:                                          ; preds = %entry
+  %3 = load ptr, ptr %a.addr, align 8
+  %4 = load i64, ptr %n.addr, align 8
+  %5 = load i64, ptr %alignment.addr, align 8
+  %6 = load i64, ptr %alignmentOffset.addr, align 8
+  %call1 = call noundef ptr @_ZN5eastl9allocator8allocateEmmmi(ptr noundef nonnull align 1 dereferenceable(1) %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i32 noundef 0)
+  store ptr %call1, ptr %result, align 8
+  %7 = load ptr, ptr %result, align 8
+  %8 = load i64, ptr %alignmentOffset.addr, align 8
+  %idx.neg = sub i64 0, %8
+  %add.ptr = getelementptr inbounds i8, ptr %7, i64 %idx.neg
+  store ptr %add.ptr, ptr %resultMinusOffset, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then
+  %9 = load ptr, ptr %result, align 8
+  ret ptr %9
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZN5eastl9addressofINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEEEEPT_RSB_(ptr noundef nonnull align 8 dereferenceable(24) %value) #1 comdat {
+entry:
+  %value.addr = alloca ptr, align 8
+  store ptr %value, ptr %value.addr, align 8
+  %0 = load ptr, ptr %value.addr, align 8
+  ret ptr %0
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl4pairIKiNS0_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEC2IiS8_vEENS_22pair_first_construct_tERKT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 4 dereferenceable(4) %x) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %x.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %x, ptr %x.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %first = getelementptr inbounds %"struct.eastl::pair.29", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %x.addr, align 8
+  %1 = load i32, ptr %0, align 4
+  store i32 %1, ptr %first, align 8
+  %second = getelementptr inbounds %"struct.eastl::pair.29", ptr %this1, i32 0, i32 1
+  call void @_ZN5eastl4pairIN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEC2IS2_S6_vEEv(ptr noundef nonnull align 8 dereferenceable(16) %second)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN5eastl9allocator8allocateEmi(ptr noundef nonnull align 1 dereferenceable(1) %this, i64 noundef %n, i32 noundef %flags) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %n.addr = alloca i64, align 8
+  %flags.addr = alloca i32, align 4
+  store ptr %this, ptr %this.addr, align 8
+  store i64 %n, ptr %n.addr, align 8
+  store i32 %flags, ptr %flags.addr, align 4
+  %0 = load i64, ptr %n.addr, align 8
+  %1 = load i32, ptr %flags.addr, align 4
+  %call = call noundef ptr @_ZnamPKcijS0_i(i64 noundef %0, ptr noundef null, i32 noundef %1, i32 noundef 0, ptr noundef null, i32 noundef 0)
+  ret ptr %call
+}
+
+declare noundef ptr @_ZnamPKcijS0_i(i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #2
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl4pairIN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEC2IS2_S6_vEEv(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %first = getelementptr inbounds %"struct.eastl::pair.30", ptr %this1, i32 0, i32 0
+  call void @_ZN20TestLruCacheInternal3FooC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %first)
+  %second = getelementptr inbounds %"struct.eastl::pair.30", ptr %this1, i32 0, i32 1
+  call void @_ZN5eastl12ListIteratorIiPiRiEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %second) #9
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl12ListIteratorIiPiRiEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mpNode = getelementptr inbounds %"struct.eastl::ListIterator", ptr %this1, i32 0, i32 0
+  store ptr null, ptr %mpNode, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE12bucket_indexEPKNS_9hash_nodeISA_Lb0EEEj(ptr noundef nonnull align 1 dereferenceable(4) %this, ptr noundef %pNode, i32 noundef %nBucketCount) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %pNode.addr = alloca ptr, align 8
+  %nBucketCount.addr = alloca i32, align 4
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %pNode, ptr %pNode.addr, align 8
+  store i32 %nBucketCount, ptr %nBucketCount.addr, align 4
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_h2 = getelementptr inbounds %"struct.eastl::hash_code_base", ptr %this1, i32 0, i32 3
+  %m_h1 = getelementptr inbounds %"struct.eastl::hash_code_base", ptr %this1, i32 0, i32 2
+  %mExtractKey = getelementptr inbounds %"struct.eastl::hash_code_base", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %pNode.addr, align 8
+  %mValue = getelementptr inbounds %"struct.eastl::hash_node", ptr %0, i32 0, i32 0
+  %call = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK5eastl9use_firstINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEEEclERKSA_(ptr noundef nonnull align 1 dereferenceable(1) %mExtractKey, ptr noundef nonnull align 8 dereferenceable(24) %mValue)
+  %1 = load i32, ptr %call, align 4
+  %call2 = call noundef i64 @_ZNK5eastl4hashIiEclEi(ptr noundef nonnull align 1 dereferenceable(1) %m_h1, i32 noundef %1)
+  %2 = load i32, ptr %nBucketCount.addr, align 4
+  %call3 = call noundef i32 @_ZNK5eastl17mod_range_hashingclEmj(ptr noundef nonnull align 1 dereferenceable(1) %m_h2, i64 noundef %call2, i32 noundef %2)
+  ret i32 %call3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl7forwardINS_18hashtable_iteratorINS_4pairIKiNS2_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEEEEOT_RNS_16remove_referenceISD_E4typeE(ptr noundef nonnull align 8 dereferenceable(16) %x) #1 comdat {
+entry:
+  %x.addr = alloca ptr, align 8
+  store ptr %x, ptr %x.addr, align 8
+  %0 = load ptr, ptr %x.addr, align 8
+  ret ptr %0
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEC2ERKSB_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %x) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %x.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %x, ptr %x.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %x.addr, align 8
+  %mpNode = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.32", ptr %0, i32 0, i32 0
+  %1 = load ptr, ptr %mpNode, align 8
+  %2 = load ptr, ptr %x.addr, align 8
+  %mpBucket = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.32", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %mpBucket, align 8
+  call void @_ZN5eastl23hashtable_iterator_baseINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0EEC2EPNS_9hash_nodeISA_Lb0EEEPSE_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %1, ptr noundef %3)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl7forwardIbEEOT_RNS_16remove_referenceIS1_E4typeE(ptr noundef nonnull align 1 dereferenceable(1) %x) #1 comdat {
+entry:
+  %x.addr = alloca ptr, align 8
+  store ptr %x, ptr %x.addr, align 8
+  %0 = load ptr, ptr %x.addr, align 8
+  ret ptr %0
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZN5eastleqINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0EEEbRKNS_23hashtable_iterator_baseIT_XT0_EEESF_(ptr noundef nonnull align 8 dereferenceable(16) %a, ptr noundef nonnull align 8 dereferenceable(16) %b) #1 comdat {
+entry:
+  %a.addr = alloca ptr, align 8
+  %b.addr = alloca ptr, align 8
+  store ptr %a, ptr %a.addr, align 8
+  store ptr %b, ptr %b.addr, align 8
+  %0 = load ptr, ptr %a.addr, align 8
+  %mpNode = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.32", ptr %0, i32 0, i32 0
+  %1 = load ptr, ptr %mpNode, align 8
+  %2 = load ptr, ptr %b.addr, align 8
+  %mpNode1 = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.32", ptr %2, i32 0, i32 0
+  %3 = load ptr, ptr %mpNode1, align 8
+  %cmp = icmp eq ptr %1, %3
+  ret i1 %cmp
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE10make_spaceEv(ptr noundef nonnull align 8 dereferenceable(144) %this) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef i64 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %this1) #9
+  %m_capacity = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 2
+  %0 = load i64, ptr %m_capacity, align 8
+  %cmp = icmp eq i64 %call, %0
+  br i1 %cmp, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  call void @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE12erase_oldestEv(ptr noundef nonnull align 8 dereferenceable(144) %this1)
+  br label %if.end
+
+if.end:                                           ; preds = %if.then, %entry
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl4listIiNS_9allocatorEE10push_frontERKi(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 4 dereferenceable(4) %value) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %value.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %value, ptr %value.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl8ListBaseIiNS_9allocatorEE12internalNodeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #9
+  %mpNext = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call, i32 0, i32 0
+  %0 = load ptr, ptr %mpNext, align 8
+  %1 = load ptr, ptr %value.addr, align 8
+  call void @_ZN5eastl4listIiNS_9allocatorEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(4) %1)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl4listIiNS_9allocatorEE5beginEv(ptr noalias sret(%"struct.eastl::ListIterator") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) #1 comdat align 2 {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %this.addr = alloca ptr, align 8
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl8ListBaseIiNS_9allocatorEE12internalNodeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #9
+  %mpNext = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call, i32 0, i32 0
+  %0 = load ptr, ptr %mpNext, align 8
+  call void @_ZN5eastl12ListIteratorIiPiRiEC2EPKNS_12ListNodeBaseE(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %0) #9
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl4pairIN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEC2IS6_vEERKS2_OT_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(8) %x, ptr noundef nonnull align 8 dereferenceable(8) %y) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %x.addr = alloca ptr, align 8
+  %y.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %x, ptr %x.addr, align 8
+  store ptr %y, ptr %y.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %first = getelementptr inbounds %"struct.eastl::pair.30", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %x.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %first, ptr align 4 %0, i64 8, i1 false)
+  %second = getelementptr inbounds %"struct.eastl::pair.30", ptr %this1, i32 0, i32 1
+  %1 = load ptr, ptr %y.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5eastl7forwardINS_12ListIteratorIiPiRiEEEEOT_RNS_16remove_referenceIS5_E4typeE(ptr noundef nonnull align 8 dereferenceable(8) %1) #9
+  call void @_ZN5eastl12ListIteratorIiPiRiEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %second, ptr noundef nonnull align 8 dereferenceable(8) %call) #9
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE12erase_oldestEv(ptr noundef nonnull align 8 dereferenceable(144) %this) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %key = alloca i32, align 4
+  %iter = alloca %"struct.eastl::hashtable_iterator.31", align 8
+  %agg.tmp = alloca %"struct.eastl::hashtable_iterator.31", align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_list = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 0
+  %call = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN5eastl4listIiNS_9allocatorEE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %m_list)
+  %0 = load i32, ptr %call, align 4
+  store i32 %0, ptr %key, align 4
+  %m_list2 = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 0
+  call void @_ZN5eastl4listIiNS_9allocatorEE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(24) %m_list2)
+  %m_map = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 1
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_(ptr sret(%"struct.eastl::hashtable_iterator.31") align 8 %iter, ptr noundef nonnull align 8 dereferenceable(45) %m_map, ptr noundef nonnull align 4 dereferenceable(4) %key)
+  call void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEC2ERKSB_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %iter)
+  call void @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE9map_eraseENS_18hashtable_iteratorINS7_IKiSC_EELb0ELb0EEE(ptr noundef nonnull align 8 dereferenceable(144) %this1, ptr noundef %agg.tmp)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(4) ptr @_ZN5eastl4listIiNS_9allocatorEE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl8ListBaseIiNS_9allocatorEE12internalNodeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #9
+  %mpPrev = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call, i32 0, i32 1
+  %0 = load ptr, ptr %mpPrev, align 8
+  %mValue = getelementptr inbounds %"struct.eastl::ListNode", ptr %0, i32 0, i32 1
+  ret ptr %mValue
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl4listIiNS_9allocatorEE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl8ListBaseIiNS_9allocatorEE12internalNodeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #9
+  %mpPrev = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call, i32 0, i32 1
+  %0 = load ptr, ptr %mpPrev, align 8
+  call void @_ZN5eastl4listIiNS_9allocatorEE7DoEraseEPNS_12ListNodeBaseE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %0)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE9map_eraseENS_18hashtable_iteratorINS7_IKiSC_EELb0ELb0EEE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %pos) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %pos.indirect_addr = alloca ptr, align 8
+  %agg.tmp = alloca %"struct.eastl::hashtable_iterator.33", align 8
+  %tmp = alloca %"struct.eastl::hashtable_iterator.31", align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %pos, ptr %pos.indirect_addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_delete_callback = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 4
+  %call = call noundef zeroext i1 @_ZNK5eastl8functionIFvRKN20TestLruCacheInternal3FooEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(32) %m_delete_callback) #9
+  br i1 %call, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %m_delete_callback2 = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 4
+  %call3 = call noundef ptr @_ZNK5eastl18hashtable_iteratorINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEptEv(ptr noundef nonnull align 8 dereferenceable(16) %pos)
+  %second = getelementptr inbounds %"struct.eastl::pair.29", ptr %call3, i32 0, i32 1
+  %first = getelementptr inbounds %"struct.eastl::pair.30", ptr %second, i32 0, i32 0
+  call void @_ZNK5eastl8functionIFvRKN20TestLruCacheInternal3FooEEEclES4_(ptr noundef nonnull align 8 dereferenceable(32) %m_delete_callback2, ptr noundef nonnull align 4 dereferenceable(8) %first)
+  br label %if.end
+
+if.end:                                           ; preds = %if.then, %entry
+  %m_map = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 1
+  call void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb1ELb0EEC2ERKNS0_ISA_Lb0ELb0EEE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %pos)
+  %0 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp, i32 0, i32 0
+  %1 = load ptr, ptr %0, align 8
+  %2 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp, i32 0, i32 1
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorISA_Lb1ELb0EEE(ptr sret(%"struct.eastl::hashtable_iterator.31") align 8 %tmp, ptr noundef nonnull align 8 dereferenceable(45) %m_map, ptr %1, ptr %3)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl4listIiNS_9allocatorEE7DoEraseEPNS_12ListNodeBaseE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %pNode) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %pNode.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %pNode, ptr %pNode.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %pNode.addr, align 8
+  call void @_ZN5eastl12ListNodeBase6removeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #9
+  %1 = load ptr, ptr %pNode.addr, align 8
+  call void @_ZN5eastl8ListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_8ListNodeIiEE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %1)
+  %mSize = getelementptr inbounds %"class.eastl::ListBase", ptr %this1, i32 0, i32 1
+  %2 = load i64, ptr %mSize, align 8
+  %dec = add i64 %2, -1
+  store i64 %dec, ptr %mSize, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl12ListNodeBase6removeEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mpPrev = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this1, i32 0, i32 1
+  %0 = load ptr, ptr %mpPrev, align 8
+  %mpNext = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this1, i32 0, i32 0
+  %1 = load ptr, ptr %mpNext, align 8
+  %mpPrev2 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1, i32 0, i32 1
+  store ptr %0, ptr %mpPrev2, align 8
+  %mpNext3 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this1, i32 0, i32 0
+  %2 = load ptr, ptr %mpNext3, align 8
+  %mpPrev4 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this1, i32 0, i32 1
+  %3 = load ptr, ptr %mpPrev4, align 8
+  %mpNext5 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %3, i32 0, i32 0
+  store ptr %2, ptr %mpNext5, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl8ListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_8ListNodeIiEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %p) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %p.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %p, ptr %p.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl8ListBaseIiNS_9allocatorEE17internalAllocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #9
+  %0 = load ptr, ptr %p.addr, align 8
+  call void @_ZN5eastl9allocator10deallocateEPvm(ptr noundef nonnull align 1 dereferenceable(1) %call, ptr noundef %0, i64 noundef 24)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorISA_Lb1ELb0EEE(ptr noalias sret(%"struct.eastl::hashtable_iterator.31") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(45) %this, ptr %i.coerce0, ptr %i.coerce1) #0 comdat align 2 {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %i = alloca %"struct.eastl::hashtable_iterator.33", align 8
+  %this.addr = alloca ptr, align 8
+  %pNode = alloca ptr, align 8
+  %pNodeCurrent = alloca ptr, align 8
+  %pNodeNext = alloca ptr, align 8
+  store ptr %agg.result, ptr %result.ptr, align 8
+  %0 = getelementptr inbounds { ptr, ptr }, ptr %i, i32 0, i32 0
+  store ptr %i.coerce0, ptr %0, align 8
+  %1 = getelementptr inbounds { ptr, ptr }, ptr %i, i32 0, i32 1
+  store ptr %i.coerce1, ptr %1, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mpNode = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.32", ptr %i, i32 0, i32 0
+  %2 = load ptr, ptr %mpNode, align 8
+  %mpBucket = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.32", ptr %i, i32 0, i32 1
+  %3 = load ptr, ptr %mpBucket, align 8
+  call void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEC2EPNS_9hash_nodeISA_Lb0EEEPSE_(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef %2, ptr noundef %3)
+  %call = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEppEv(ptr noundef nonnull align 8 dereferenceable(16) %agg.result)
+  %mpNode2 = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.32", ptr %i, i32 0, i32 0
+  %4 = load ptr, ptr %mpNode2, align 8
+  store ptr %4, ptr %pNode, align 8
+  %mpBucket3 = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.32", ptr %i, i32 0, i32 1
+  %5 = load ptr, ptr %mpBucket3, align 8
+  %6 = load ptr, ptr %5, align 8
+  store ptr %6, ptr %pNodeCurrent, align 8
+  %7 = load ptr, ptr %pNodeCurrent, align 8
+  %8 = load ptr, ptr %pNode, align 8
+  %cmp = icmp eq ptr %7, %8
+  br i1 %cmp, label %if.then, label %if.else
+
+if.then:                                          ; preds = %entry
+  %9 = load ptr, ptr %pNodeCurrent, align 8
+  %mpNext = getelementptr inbounds %"struct.eastl::hash_node", ptr %9, i32 0, i32 1
+  %10 = load ptr, ptr %mpNext, align 8
+  %mpBucket4 = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.32", ptr %i, i32 0, i32 1
+  %11 = load ptr, ptr %mpBucket4, align 8
+  store ptr %10, ptr %11, align 8
+  br label %if.end
+
+if.else:                                          ; preds = %entry
+  %12 = load ptr, ptr %pNodeCurrent, align 8
+  %mpNext5 = getelementptr inbounds %"struct.eastl::hash_node", ptr %12, i32 0, i32 1
+  %13 = load ptr, ptr %mpNext5, align 8
+  store ptr %13, ptr %pNodeNext, align 8
+  br label %while.cond
+
+while.cond:                                       ; preds = %while.body, %if.else
+  %14 = load ptr, ptr %pNodeNext, align 8
+  %15 = load ptr, ptr %pNode, align 8
+  %cmp6 = icmp ne ptr %14, %15
+  br i1 %cmp6, label %while.body, label %while.end
+
+while.body:                                       ; preds = %while.cond
+  %16 = load ptr, ptr %pNodeNext, align 8
+  store ptr %16, ptr %pNodeCurrent, align 8
+  %17 = load ptr, ptr %pNodeCurrent, align 8
+  %mpNext7 = getelementptr inbounds %"struct.eastl::hash_node", ptr %17, i32 0, i32 1
+  %18 = load ptr, ptr %mpNext7, align 8
+  store ptr %18, ptr %pNodeNext, align 8
+  br label %while.cond, !llvm.loop !15
+
+while.end:                                        ; preds = %while.cond
+  %19 = load ptr, ptr %pNodeNext, align 8
+  %mpNext8 = getelementptr inbounds %"struct.eastl::hash_node", ptr %19, i32 0, i32 1
+  %20 = load ptr, ptr %mpNext8, align 8
+  %21 = load ptr, ptr %pNodeCurrent, align 8
+  %mpNext9 = getelementptr inbounds %"struct.eastl::hash_node", ptr %21, i32 0, i32 1
+  store ptr %20, ptr %mpNext9, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %while.end, %if.then
+  %22 = load ptr, ptr %pNode, align 8
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeISA_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(45) %this1, ptr noundef %22)
+  %mnElementCount = getelementptr inbounds %"class.eastl::hashtable", ptr %this1, i32 0, i32 4
+  %23 = load i64, ptr %mnElementCount, align 8
+  %dec = add i64 %23, -1
+  store i64 %dec, ptr %mnElementCount, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb1ELb0EEC2ERKNS0_ISA_Lb0ELb0EEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %x) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %x.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %x, ptr %x.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %x.addr, align 8
+  %mpNode = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.32", ptr %0, i32 0, i32 0
+  %1 = load ptr, ptr %mpNode, align 8
+  %2 = load ptr, ptr %x.addr, align 8
+  %mpBucket = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.32", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %mpBucket, align 8
+  call void @_ZN5eastl23hashtable_iterator_baseINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0EEC2EPNS_9hash_nodeISA_Lb0EEEPSE_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %1, ptr noundef %3)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl4listIiNS_9allocatorEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %pNode, ptr noundef nonnull align 4 dereferenceable(4) %args) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %pNode.addr = alloca ptr, align 8
+  %args.addr = alloca ptr, align 8
+  %pNodeNew = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %pNode, ptr %pNode.addr, align 8
+  store ptr %args, ptr %args.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %args.addr, align 8
+  %call = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN5eastl7forwardIRKiEEOT_RNS_16remove_referenceIS3_E4typeE(ptr noundef nonnull align 4 dereferenceable(4) %0) #9
+  %call2 = call noundef ptr @_ZN5eastl4listIiNS_9allocatorEE12DoCreateNodeIJRKiEEEPNS_8ListNodeIiEEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 4 dereferenceable(4) %call)
+  store ptr %call2, ptr %pNodeNew, align 8
+  %1 = load ptr, ptr %pNodeNew, align 8
+  %2 = load ptr, ptr %pNode.addr, align 8
+  call void @_ZN5eastl12ListNodeBase6insertEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2) #9
+  %mSize = getelementptr inbounds %"class.eastl::ListBase", ptr %this1, i32 0, i32 1
+  %3 = load i64, ptr %mSize, align 8
+  %inc = add i64 %3, 1
+  store i64 %inc, ptr %mSize, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN5eastl4listIiNS_9allocatorEE12DoCreateNodeIJRKiEEEPNS_8ListNodeIiEEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 4 dereferenceable(4) %args) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %args.addr = alloca ptr, align 8
+  %pNode = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %args, ptr %args.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef ptr @_ZN5eastl8ListBaseIiNS_9allocatorEE14DoAllocateNodeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
+  store ptr %call, ptr %pNode, align 8
+  %0 = load ptr, ptr %pNode, align 8
+  %mValue = getelementptr inbounds %"struct.eastl::ListNode", ptr %0, i32 0, i32 1
+  %1 = load ptr, ptr %args.addr, align 8
+  %call2 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN5eastl7forwardIRKiEEOT_RNS_16remove_referenceIS3_E4typeE(ptr noundef nonnull align 4 dereferenceable(4) %1) #9
+  %2 = load i32, ptr %call2, align 4
+  store i32 %2, ptr %mValue, align 4
+  %3 = load ptr, ptr %pNode, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(4) ptr @_ZN5eastl7forwardIRKiEEOT_RNS_16remove_referenceIS3_E4typeE(ptr noundef nonnull align 4 dereferenceable(4) %x) #1 comdat {
+entry:
+  %x.addr = alloca ptr, align 8
+  store ptr %x, ptr %x.addr, align 8
+  %0 = load ptr, ptr %x.addr, align 8
+  ret ptr %0
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl12ListNodeBase6insertEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %pNext) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %pNext.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %pNext, ptr %pNext.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %pNext.addr, align 8
+  %mpNext = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this1, i32 0, i32 0
+  store ptr %0, ptr %mpNext, align 8
+  %1 = load ptr, ptr %pNext.addr, align 8
+  %mpPrev = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1, i32 0, i32 1
+  %2 = load ptr, ptr %mpPrev, align 8
+  %mpPrev2 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this1, i32 0, i32 1
+  store ptr %2, ptr %mpPrev2, align 8
+  %3 = load ptr, ptr %pNext.addr, align 8
+  %mpPrev3 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %3, i32 0, i32 1
+  %4 = load ptr, ptr %mpPrev3, align 8
+  %mpNext4 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %4, i32 0, i32 0
+  store ptr %this1, ptr %mpNext4, align 8
+  %5 = load ptr, ptr %pNext.addr, align 8
+  %mpPrev5 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %5, i32 0, i32 1
+  store ptr %this1, ptr %mpPrev5, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN5eastl8ListBaseIiNS_9allocatorEE14DoAllocateNodeEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %pNode = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl8ListBaseIiNS_9allocatorEE17internalAllocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #9
+  %call2 = call noundef ptr @_ZN5eastl15allocate_memoryINS_9allocatorEEEPvRT_mmm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  store ptr %call2, ptr %pNode, align 8
+  %0 = load ptr, ptr %pNode, align 8
+  ret ptr %0
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl12ListIteratorIiPiRiEC2EPKNS_12ListNodeBaseE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %pNode) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %pNode.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %pNode, ptr %pNode.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mpNode = getelementptr inbounds %"struct.eastl::ListIterator", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %pNode.addr, align 8
+  store ptr %0, ptr %mpNode, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN5eastl7forwardINS_12ListIteratorIiPiRiEEEEOT_RNS_16remove_referenceIS5_E4typeE(ptr noundef nonnull align 8 dereferenceable(8) %x) #1 comdat {
+entry:
+  %x.addr = alloca ptr, align 8
+  store ptr %x, ptr %x.addr, align 8
+  %0 = load ptr, ptr %x.addr, align 8
+  ret ptr %0
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl12ListIteratorIiPiRiEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %x) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %x.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %x, ptr %x.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mpNode = getelementptr inbounds %"struct.eastl::ListIterator", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %x.addr, align 8
+  %mpNode2 = getelementptr inbounds %"struct.eastl::ListIterator", ptr %0, i32 0, i32 0
+  %1 = load ptr, ptr %mpNode2, align 8
+  store ptr %1, ptr %mpNode, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(8) ptr @_ZN5eastl8optionalIN20TestLruCacheInternal3FooEE14get_rvalue_refEv(ptr noundef nonnull align 4 dereferenceable(9) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %val = getelementptr inbounds %"struct.eastl::Internal::optional_storage", ptr %this1, i32 0, i32 0
+  %call = call noundef ptr @_ZN5eastl9addressofINS_15aligned_storageILm8ELm4EE4typeEEEPT_RS4_(ptr noundef nonnull align 4 dereferenceable(8) %val) #9
+  %call2 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN5eastl4moveIRN20TestLruCacheInternal3FooEEEONS_16remove_referenceIT_E4typeEOS5_(ptr noundef nonnull align 4 dereferenceable(8) %call) #9
+  ret ptr %call2
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(8) ptr @_ZN5eastl4moveIRN20TestLruCacheInternal3FooEEEONS_16remove_referenceIT_E4typeEOS5_(ptr noundef nonnull align 4 dereferenceable(8) %x) #1 comdat {
+entry:
+  %x.addr = alloca ptr, align 8
+  store ptr %x, ptr %x.addr, align 8
+  %0 = load ptr, ptr %x.addr, align 8
+  ret ptr %0
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE5touchERNS_18hashtable_iteratorINS7_IKiSC_EELb0ELb0EEE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(16) %iter) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %iter.addr = alloca ptr, align 8
+  %listRef = alloca %"struct.eastl::ListIterator", align 8
+  %agg.tmp = alloca %"struct.eastl::ListIterator.36", align 8
+  %tmp = alloca %"struct.eastl::ListIterator", align 8
+  %ref.tmp = alloca %"struct.eastl::ListIterator", align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %iter, ptr %iter.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %iter.addr, align 8
+  %call = call noundef ptr @_ZNK5eastl18hashtable_iteratorINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEptEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %second = getelementptr inbounds %"struct.eastl::pair.29", ptr %call, i32 0, i32 1
+  %second2 = getelementptr inbounds %"struct.eastl::pair.30", ptr %second, i32 0, i32 1
+  call void @_ZN5eastl12ListIteratorIiPiRiEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %listRef, ptr noundef nonnull align 8 dereferenceable(8) %second2) #9
+  %m_list = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 0
+  call void @_ZN5eastl12ListIteratorIiPKiRS1_EC2ERKNS0_IiPiRiEE(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %listRef) #9
+  %coerce.dive = getelementptr inbounds %"struct.eastl::ListIterator.36", ptr %agg.tmp, i32 0, i32 0
+  %1 = load ptr, ptr %coerce.dive, align 8
+  call void @_ZN5eastl4listIiNS_9allocatorEE5eraseENS_12ListIteratorIiPKiRS4_EE(ptr sret(%"struct.eastl::ListIterator") align 8 %tmp, ptr noundef nonnull align 8 dereferenceable(24) %m_list, ptr %1)
+  %m_list3 = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 0
+  %2 = load ptr, ptr %iter.addr, align 8
+  %call4 = call noundef ptr @_ZNK5eastl18hashtable_iteratorINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEptEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
+  %first = getelementptr inbounds %"struct.eastl::pair.29", ptr %call4, i32 0, i32 0
+  call void @_ZN5eastl4listIiNS_9allocatorEE10push_frontERKi(ptr noundef nonnull align 8 dereferenceable(24) %m_list3, ptr noundef nonnull align 4 dereferenceable(4) %first)
+  %m_list5 = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 0
+  call void @_ZN5eastl4listIiNS_9allocatorEE5beginEv(ptr sret(%"struct.eastl::ListIterator") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %m_list5) #9
+  %3 = load ptr, ptr %iter.addr, align 8
+  %call6 = call noundef ptr @_ZNK5eastl18hashtable_iteratorINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEptEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %second7 = getelementptr inbounds %"struct.eastl::pair.29", ptr %call6, i32 0, i32 1
+  %second8 = getelementptr inbounds %"struct.eastl::pair.30", ptr %second7, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %second8, ptr align 8 %ref.tmp, i64 8, i1 false)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl4listIiNS_9allocatorEE5eraseENS_12ListIteratorIiPKiRS4_EE(ptr noalias sret(%"struct.eastl::ListIterator") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %position.coerce) #0 comdat align 2 {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %position = alloca %"struct.eastl::ListIterator.36", align 8
+  %this.addr = alloca ptr, align 8
+  store ptr %agg.result, ptr %result.ptr, align 8
+  %coerce.dive = getelementptr inbounds %"struct.eastl::ListIterator.36", ptr %position, i32 0, i32 0
+  store ptr %position.coerce, ptr %coerce.dive, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5eastl12ListIteratorIiPKiRS1_EppEv(ptr noundef nonnull align 8 dereferenceable(8) %position) #9
+  %mpNode = getelementptr inbounds %"struct.eastl::ListIterator.36", ptr %position, i32 0, i32 0
+  %0 = load ptr, ptr %mpNode, align 8
+  %mpPrev = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %0, i32 0, i32 1
+  %1 = load ptr, ptr %mpPrev, align 8
+  call void @_ZN5eastl4listIiNS_9allocatorEE7DoEraseEPNS_12ListNodeBaseE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %1)
+  %mpNode2 = getelementptr inbounds %"struct.eastl::ListIterator.36", ptr %position, i32 0, i32 0
+  %2 = load ptr, ptr %mpNode2, align 8
+  call void @_ZN5eastl12ListIteratorIiPiRiEC2EPKNS_12ListNodeBaseE(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %2) #9
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl12ListIteratorIiPKiRS1_EC2ERKNS0_IiPiRiEE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %x) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %x.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %x, ptr %x.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mpNode = getelementptr inbounds %"struct.eastl::ListIterator.36", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %x.addr, align 8
+  %mpNode2 = getelementptr inbounds %"struct.eastl::ListIterator", ptr %0, i32 0, i32 0
+  %1 = load ptr, ptr %mpNode2, align 8
+  store ptr %1, ptr %mpNode, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN5eastl12ListIteratorIiPKiRS1_EppEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mpNode = getelementptr inbounds %"struct.eastl::ListIterator.36", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %mpNode, align 8
+  %mpNext = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %0, i32 0, i32 0
+  %1 = load ptr, ptr %mpNext, align 8
+  %mpNode2 = getelementptr inbounds %"struct.eastl::ListIterator.36", ptr %this1, i32 0, i32 0
+  store ptr %1, ptr %mpNode2, align 8
+  ret ptr %this1
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE4trimEv(ptr noundef nonnull align 8 dereferenceable(144) %this) #0 comdat align 2 {
+entry:
+  %retval = alloca i1, align 1
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef i64 @_ZNK5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %this1) #9
+  %m_capacity = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 2
+  %0 = load i64, ptr %m_capacity, align 8
+  %cmp = icmp ule i64 %call, %0
+  br i1 %cmp, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  store i1 false, ptr %retval, align 1
+  br label %return
+
+if.end:                                           ; preds = %entry
+  br label %do.body
+
+do.body:                                          ; preds = %do.cond, %if.end
+  call void @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE12erase_oldestEv(ptr noundef nonnull align 8 dereferenceable(144) %this1)
+  br label %do.cond
+
+do.cond:                                          ; preds = %do.body
+  %m_list = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 0
+  %call2 = call noundef i64 @_ZNK5eastl4listIiNS_9allocatorEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %m_list) #9
+  %m_capacity3 = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 2
+  %1 = load i64, ptr %m_capacity3, align 8
+  %cmp4 = icmp ugt i64 %call2, %1
+  br i1 %cmp4, label %do.body, label %do.end, !llvm.loop !16
+
+do.end:                                           ; preds = %do.cond
+  store i1 true, ptr %retval, align 1
+  br label %return
+
+return:                                           ; preds = %do.end, %if.then
+  %2 = load i1, ptr %retval, align 1
+  ret i1 %2
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i64 @_ZNK5eastl4listIiNS_9allocatorEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mSize = getelementptr inbounds %"class.eastl::ListBase", ptr %this1, i32 0, i32 1
+  %0 = load i64, ptr %mSize, align 8
+  ret i64 %0
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE6assignERNS_18hashtable_iteratorINS7_IKiSC_EELb0ELb0EEERKS2_(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(16) %iter, ptr noundef nonnull align 4 dereferenceable(8) %v) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %iter.addr = alloca ptr, align 8
+  %v.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %iter, ptr %iter.addr, align 8
+  store ptr %v, ptr %v.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_delete_callback = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 4
+  %call = call noundef zeroext i1 @_ZNK5eastl8functionIFvRKN20TestLruCacheInternal3FooEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(32) %m_delete_callback) #9
+  br i1 %call, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %m_delete_callback2 = getelementptr inbounds %"class.eastl::lru_cache", ptr %this1, i32 0, i32 4
+  %0 = load ptr, ptr %iter.addr, align 8
+  %call3 = call noundef ptr @_ZNK5eastl18hashtable_iteratorINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEptEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %second = getelementptr inbounds %"struct.eastl::pair.29", ptr %call3, i32 0, i32 1
+  %first = getelementptr inbounds %"struct.eastl::pair.30", ptr %second, i32 0, i32 0
+  call void @_ZNK5eastl8functionIFvRKN20TestLruCacheInternal3FooEEEclES4_(ptr noundef nonnull align 8 dereferenceable(32) %m_delete_callback2, ptr noundef nonnull align 4 dereferenceable(8) %first)
+  br label %if.end
+
+if.end:                                           ; preds = %if.then, %entry
+  %1 = load ptr, ptr %iter.addr, align 8
+  call void @_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE5touchERNS_18hashtable_iteratorINS7_IKiSC_EELb0ELb0EEE(ptr noundef nonnull align 8 dereferenceable(144) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %2 = load ptr, ptr %v.addr, align 8
+  %3 = load ptr, ptr %iter.addr, align 8
+  %call4 = call noundef ptr @_ZNK5eastl18hashtable_iteratorINS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEptEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %second5 = getelementptr inbounds %"struct.eastl::pair.29", ptr %call4, i32 0, i32 1
+  %first6 = getelementptr inbounds %"struct.eastl::pair.30", ptr %second5, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %first6, ptr align 4 %2, i64 8, i1 false)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl4listIiNS_9allocatorEE17reset_lose_memoryEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZN5eastl8ListBaseIiNS_9allocatorEE6DoInitEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #9
+  %mSize = getelementptr inbounds %"class.eastl::ListBase", ptr %this1, i32 0, i32 1
+  store i64 0, ptr %mSize, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN5eastl4moveIRZ12TestLruCachevE3$_0EEONS_16remove_referenceIT_E4typeEOS4_"(ptr noundef nonnull align 8 dereferenceable(8) %x) #1 {
+entry:
+  %x.addr = alloca ptr, align 8
+  store ptr %x, ptr %x.addr, align 8
+  %0 = load ptr, ptr %x.addr, align 8
+  ret ptr %0
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @"_ZN5eastl8internal15function_detailILi16EFPN20TestLruCacheInternal3FooEiEEC2IZ12TestLruCachevE3$_0vEET_"(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr %functor.coerce) unnamed_addr #0 align 2 {
+entry:
+  %functor = alloca %class.anon, align 8
+  %this.addr = alloca ptr, align 8
+  %coerce.dive = getelementptr inbounds %class.anon, ptr %functor, i32 0, i32 0
+  store ptr %functor.coerce, ptr %coerce.dive, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mMgrFuncPtr = getelementptr inbounds %"class.eastl::internal::function_detail.12", ptr %this1, i32 0, i32 1
+  store ptr null, ptr %mMgrFuncPtr, align 8
+  %mInvokeFuncPtr = getelementptr inbounds %"class.eastl::internal::function_detail.12", ptr %this1, i32 0, i32 2
+  store ptr @_ZN5eastl8internal15function_detailILi16EFPN20TestLruCacheInternal3FooEiEE14DefaultInvokerEiRKNS0_15functor_storageILi16EEE, ptr %mInvokeFuncPtr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @"_ZN5eastl4moveIRZ12TestLruCachevE3$_0EEONS_16remove_referenceIT_E4typeEOS4_"(ptr noundef nonnull align 8 dereferenceable(8) %functor) #9
+  call void @"_ZN5eastl8internal15function_detailILi16EFPN20TestLruCacheInternal3FooEiEE20CreateForwardFunctorIZ12TestLruCachevE3$_0EEvOT_"(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(8) %call)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZN5eastl8internal15function_detailILi16EFPN20TestLruCacheInternal3FooEiEE14DefaultInvokerEiRKNS0_15functor_storageILi16EEE(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #1 comdat align 2 {
+entry:
+  %.addr = alloca i32, align 4
+  %.addr1 = alloca ptr, align 8
+  store i32 %0, ptr %.addr, align 4
+  store ptr %1, ptr %.addr1, align 8
+  call void @llvm.trap()
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @"_ZN5eastl8internal15function_detailILi16EFPN20TestLruCacheInternal3FooEiEE20CreateForwardFunctorIZ12TestLruCachevE3$_0EEvOT_"(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(8) %functor) #0 align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %functor.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %functor, ptr %functor.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %functor.addr, align 8
+  %call = call noundef zeroext i1 @"_ZN5eastl8internal7is_nullIZ12TestLruCachevE3$_0EEbRKT_"(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  br i1 %call, label %if.then, label %if.else
+
+if.then:                                          ; preds = %entry
+  %mMgrFuncPtr = getelementptr inbounds %"class.eastl::internal::function_detail.12", ptr %this1, i32 0, i32 1
+  store ptr null, ptr %mMgrFuncPtr, align 8
+  %mInvokeFuncPtr = getelementptr inbounds %"class.eastl::internal::function_detail.12", ptr %this1, i32 0, i32 2
+  store ptr @_ZN5eastl8internal15function_detailILi16EFPN20TestLruCacheInternal3FooEiEE14DefaultInvokerEiRKNS0_15functor_storageILi16EEE, ptr %mInvokeFuncPtr, align 8
+  br label %if.end
+
+if.else:                                          ; preds = %entry
+  %mMgrFuncPtr2 = getelementptr inbounds %"class.eastl::internal::function_detail.12", ptr %this1, i32 0, i32 1
+  store ptr @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZ12TestLruCachevE3$_0PN20TestLruCacheInternal3FooEJiEE7ManagerEPvS9_NS2_17ManagerOperationsE", ptr %mMgrFuncPtr2, align 8
+  %mInvokeFuncPtr3 = getelementptr inbounds %"class.eastl::internal::function_detail.12", ptr %this1, i32 0, i32 2
+  store ptr @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZ12TestLruCachevE3$_0PN20TestLruCacheInternal3FooEJiEE7InvokerEiRKNS0_15functor_storageILi16EEE", ptr %mInvokeFuncPtr3, align 8
+  %mStorage = getelementptr inbounds %"class.eastl::internal::function_base_detail", ptr %this1, i32 0, i32 0
+  %1 = load ptr, ptr %functor.addr, align 8
+  %call4 = call noundef nonnull align 8 dereferenceable(8) ptr @"_ZN5eastl7forwardIZ12TestLruCachevE3$_0EEOT_RNS_16remove_referenceIS2_E4typeE"(ptr noundef nonnull align 8 dereferenceable(8) %1) #9
+  call void @"_ZN5eastl8internal20function_base_detailILi16EE21function_manager_baseIZ12TestLruCachevE3$_0vE13CreateFunctorIS4_EEvRNS0_15functor_storageILi16EEEOT_"(ptr noundef nonnull align 8 dereferenceable(16) %mStorage, ptr noundef nonnull align 8 dereferenceable(8) %call4)
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef zeroext i1 @"_ZN5eastl8internal7is_nullIZ12TestLruCachevE3$_0EEbRKT_"(ptr noundef nonnull align 8 dereferenceable(8) %0) #1 {
+entry:
+  %.addr = alloca ptr, align 8
+  store ptr %0, ptr %.addr, align 8
+  ret i1 false
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZ12TestLruCachevE3$_0PN20TestLruCacheInternal3FooEJiEE7ManagerEPvS9_NS2_17ManagerOperationsE"(ptr noundef %to, ptr noundef %from, i32 noundef %ops) #1 align 2 {
+entry:
+  %retval = alloca ptr, align 8
+  %to.addr = alloca ptr, align 8
+  %from.addr = alloca ptr, align 8
+  %ops.addr = alloca i32, align 4
+  store ptr %to, ptr %to.addr, align 8
+  store ptr %from, ptr %from.addr, align 8
+  store i32 %ops, ptr %ops.addr, align 4
+  %0 = load i32, ptr %ops.addr, align 4
+  switch i32 %0, label %sw.default [
+    i32 3, label %sw.bb
+    i32 4, label %sw.bb1
+  ]
+
+sw.bb:                                            ; preds = %entry
+  %call = call noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZ12TestLruCachevE3$_0PN20TestLruCacheInternal3FooEJiEE11GetTypeInfoEv"() #9
+  store ptr %call, ptr %retval, align 8
+  br label %return
+
+sw.bb1:                                           ; preds = %entry
+  %1 = load ptr, ptr %to.addr, align 8
+  %call2 = call noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE21function_manager_baseIZ12TestLruCachevE3$_0vE13GetFunctorPtrERKNS0_15functor_storageILi16EEE"(ptr noundef nonnull align 8 dereferenceable(16) %1) #9
+  store ptr %call2, ptr %retval, align 8
+  br label %return
+
+sw.default:                                       ; preds = %entry
+  %2 = load ptr, ptr %to.addr, align 8
+  %3 = load ptr, ptr %from.addr, align 8
+  %4 = load i32, ptr %ops.addr, align 4
+  %call3 = call noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE21function_manager_baseIZ12TestLruCachevE3$_0vE7ManagerEPvS6_NS2_17ManagerOperationsE"(ptr noundef %2, ptr noundef %3, i32 noundef %4) #9
+  store ptr %call3, ptr %retval, align 8
+  br label %return
+
+return:                                           ; preds = %sw.default, %sw.bb1, %sw.bb
+  %5 = load ptr, ptr %retval, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress uwtable
+define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZ12TestLruCachevE3$_0PN20TestLruCacheInternal3FooEJiEE7InvokerEiRKNS0_15functor_storageILi16EEE"(i32 noundef %args, ptr noundef nonnull align 8 dereferenceable(16) %functor) #0 align 2 {
+entry:
+  %args.addr = alloca i32, align 4
+  %functor.addr = alloca ptr, align 8
+  store i32 %args, ptr %args.addr, align 4
+  store ptr %functor, ptr %functor.addr, align 8
+  %0 = load ptr, ptr %functor.addr, align 8
+  %call = call noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE21function_manager_baseIZ12TestLruCachevE3$_0vE13GetFunctorPtrERKNS0_15functor_storageILi16EEE"(ptr noundef nonnull align 8 dereferenceable(16) %0) #9
+  %call1 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN5eastl7forwardIiEEOT_RNS_16remove_referenceIS1_E4typeE(ptr noundef nonnull align 4 dereferenceable(4) %args.addr) #9
+  %call2 = call noundef ptr @"_ZN5eastl6invokeIRZ12TestLruCachevE3$_0JiEEEDcOT_DpOT0_"(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull align 4 dereferenceable(4) %call1)
+  ret ptr %call2
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZN5eastl8internal20function_base_detailILi16EE21function_manager_baseIZ12TestLruCachevE3$_0vE13CreateFunctorIS4_EEvRNS0_15functor_storageILi16EEEOT_"(ptr noundef nonnull align 8 dereferenceable(16) %storage, ptr noundef nonnull align 8 dereferenceable(8) %functor) #1 align 2 {
+entry:
+  %storage.addr = alloca ptr, align 8
+  %functor.addr = alloca ptr, align 8
+  store ptr %storage, ptr %storage.addr, align 8
+  store ptr %functor, ptr %functor.addr, align 8
+  %0 = load ptr, ptr %storage.addr, align 8
+  %call = call noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE21function_manager_baseIZ12TestLruCachevE3$_0vE13GetFunctorPtrERKNS0_15functor_storageILi16EEE"(ptr noundef nonnull align 8 dereferenceable(16) %0) #9
+  %1 = load ptr, ptr %functor.addr, align 8
+  %call1 = call noundef nonnull align 8 dereferenceable(8) ptr @"_ZN5eastl7forwardIZ12TestLruCachevE3$_0EEOT_RNS_16remove_referenceIS2_E4typeE"(ptr noundef nonnull align 8 dereferenceable(8) %1) #9
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call, ptr align 8 %call1, i64 8, i1 false)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN5eastl7forwardIZ12TestLruCachevE3$_0EEOT_RNS_16remove_referenceIS2_E4typeE"(ptr noundef nonnull align 8 dereferenceable(8) %x) #1 {
+entry:
+  %x.addr = alloca ptr, align 8
+  store ptr %x, ptr %x.addr, align 8
+  %0 = load ptr, ptr %x.addr, align 8
+  ret ptr %0
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZ12TestLruCachevE3$_0PN20TestLruCacheInternal3FooEJiEE11GetTypeInfoEv"() #1 align 2 {
+entry:
+  ret ptr @"_ZTIZ12TestLruCachevE3$_0"
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE21function_manager_baseIZ12TestLruCachevE3$_0vE13GetFunctorPtrERKNS0_15functor_storageILi16EEE"(ptr noundef nonnull align 8 dereferenceable(16) %storage) #1 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %storage.addr = alloca ptr, align 8
+  store ptr %storage, ptr %storage.addr, align 8
+  %0 = load ptr, ptr %storage.addr, align 8
+  %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @"_ZNK5eastl8internal15functor_storageILi16EE17GetStorageTypeRefIZ12TestLruCachevE3$_0EERT_v"(ptr noundef nonnull align 8 dereferenceable(16) %0)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %entry
+  ret ptr %call
+
+terminate.lpad:                                   ; preds = %entry
+  %1 = landingpad { ptr, i32 }
+          catch ptr null
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #10
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE21function_manager_baseIZ12TestLruCachevE3$_0vE7ManagerEPvS6_NS2_17ManagerOperationsE"(ptr noundef %to, ptr noundef %from, i32 noundef %ops) #1 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %to.addr = alloca ptr, align 8
+  %from.addr = alloca ptr, align 8
+  %ops.addr = alloca i32, align 4
+  store ptr %to, ptr %to.addr, align 8
+  store ptr %from, ptr %from.addr, align 8
+  store i32 %ops, ptr %ops.addr, align 4
+  %0 = load i32, ptr %ops.addr, align 4
+  switch i32 %0, label %sw.default [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 2, label %sw.bb3
+  ]
+
+sw.bb:                                            ; preds = %entry
+  %1 = load ptr, ptr %to.addr, align 8
+  invoke void @"_ZN5eastl8internal20function_base_detailILi16EE21function_manager_baseIZ12TestLruCachevE3$_0vE15DestructFunctorERNS0_15functor_storageILi16EEE"(ptr noundef nonnull align 8 dereferenceable(16) %1)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %sw.bb
+  br label %sw.epilog
+
+sw.bb1:                                           ; preds = %entry
+  %2 = load ptr, ptr %to.addr, align 8
+  %3 = load ptr, ptr %from.addr, align 8
+  invoke void @"_ZN5eastl8internal20function_base_detailILi16EE21function_manager_baseIZ12TestLruCachevE3$_0vE11CopyFunctorERNS0_15functor_storageILi16EEERKS7_"(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
+          to label %invoke.cont2 unwind label %terminate.lpad
+
+invoke.cont2:                                     ; preds = %sw.bb1
+  br label %sw.epilog
+
+sw.bb3:                                           ; preds = %entry
+  %4 = load ptr, ptr %to.addr, align 8
+  %5 = load ptr, ptr %from.addr, align 8
+  call void @"_ZN5eastl8internal20function_base_detailILi16EE21function_manager_baseIZ12TestLruCachevE3$_0vE11MoveFunctorERNS0_15functor_storageILi16EEES8_"(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5) #9
+  %6 = load ptr, ptr %from.addr, align 8
+  invoke void @"_ZN5eastl8internal20function_base_detailILi16EE21function_manager_baseIZ12TestLruCachevE3$_0vE15DestructFunctorERNS0_15functor_storageILi16EEE"(ptr noundef nonnull align 8 dereferenceable(16) %6)
+          to label %invoke.cont4 unwind label %terminate.lpad
+
+invoke.cont4:                                     ; preds = %sw.bb3
+  br label %sw.epilog
+
+sw.default:                                       ; preds = %entry
+  br label %sw.epilog
+
+sw.epilog:                                        ; preds = %sw.default, %invoke.cont4, %invoke.cont2, %invoke.cont
+  ret ptr null
+
+terminate.lpad:                                   ; preds = %sw.bb3, %sw.bb1, %sw.bb
+  %7 = landingpad { ptr, i32 }
+          catch ptr null
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #10
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZNK5eastl8internal15functor_storageILi16EE17GetStorageTypeRefIZ12TestLruCachevE3$_0EERT_v"(ptr noundef nonnull align 8 dereferenceable(16) %this) #1 align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = getelementptr inbounds %"struct.eastl::internal::functor_storage", ptr %this1, i32 0, i32 0
+  %arrayidx = getelementptr inbounds [16 x i8], ptr %0, i64 0, i64 0
+  ret ptr %arrayidx
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZN5eastl8internal20function_base_detailILi16EE21function_manager_baseIZ12TestLruCachevE3$_0vE15DestructFunctorERNS0_15functor_storageILi16EEE"(ptr noundef nonnull align 8 dereferenceable(16) %storage) #1 align 2 {
+entry:
+  %storage.addr = alloca ptr, align 8
+  store ptr %storage, ptr %storage.addr, align 8
+  %0 = load ptr, ptr %storage.addr, align 8
+  %call = call noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE21function_manager_baseIZ12TestLruCachevE3$_0vE13GetFunctorPtrERKNS0_15functor_storageILi16EEE"(ptr noundef nonnull align 8 dereferenceable(16) %0) #9
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZN5eastl8internal20function_base_detailILi16EE21function_manager_baseIZ12TestLruCachevE3$_0vE11CopyFunctorERNS0_15functor_storageILi16EEERKS7_"(ptr noundef nonnull align 8 dereferenceable(16) %to, ptr noundef nonnull align 8 dereferenceable(16) %from) #1 align 2 {
+entry:
+  %to.addr = alloca ptr, align 8
+  %from.addr = alloca ptr, align 8
+  store ptr %to, ptr %to.addr, align 8
+  store ptr %from, ptr %from.addr, align 8
+  %0 = load ptr, ptr %to.addr, align 8
+  %call = call noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE21function_manager_baseIZ12TestLruCachevE3$_0vE13GetFunctorPtrERKNS0_15functor_storageILi16EEE"(ptr noundef nonnull align 8 dereferenceable(16) %0) #9
+  %1 = load ptr, ptr %from.addr, align 8
+  %call1 = call noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE21function_manager_baseIZ12TestLruCachevE3$_0vE13GetFunctorPtrERKNS0_15functor_storageILi16EEE"(ptr noundef nonnull align 8 dereferenceable(16) %1) #9
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call, ptr align 8 %call1, i64 8, i1 false)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZN5eastl8internal20function_base_detailILi16EE21function_manager_baseIZ12TestLruCachevE3$_0vE11MoveFunctorERNS0_15functor_storageILi16EEES8_"(ptr noundef nonnull align 8 dereferenceable(16) %to, ptr noundef nonnull align 8 dereferenceable(16) %from) #1 align 2 {
+entry:
+  %to.addr = alloca ptr, align 8
+  %from.addr = alloca ptr, align 8
+  store ptr %to, ptr %to.addr, align 8
+  store ptr %from, ptr %from.addr, align 8
+  %0 = load ptr, ptr %to.addr, align 8
+  %call = call noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE21function_manager_baseIZ12TestLruCachevE3$_0vE13GetFunctorPtrERKNS0_15functor_storageILi16EEE"(ptr noundef nonnull align 8 dereferenceable(16) %0) #9
+  %1 = load ptr, ptr %from.addr, align 8
+  %call1 = call noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE21function_manager_baseIZ12TestLruCachevE3$_0vE13GetFunctorPtrERKNS0_15functor_storageILi16EEE"(ptr noundef nonnull align 8 dereferenceable(16) %1) #9
+  %call2 = call noundef nonnull align 8 dereferenceable(8) ptr @"_ZN5eastl4moveIRZ12TestLruCachevE3$_0EEONS_16remove_referenceIT_E4typeEOS4_"(ptr noundef nonnull align 8 dereferenceable(8) %call1) #9
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call, ptr align 8 %call2, i64 8, i1 false)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal noundef ptr @"_ZN5eastl6invokeIRZ12TestLruCachevE3$_0JiEEEDcOT_DpOT0_"(ptr noundef nonnull align 8 dereferenceable(8) %func, ptr noundef nonnull align 4 dereferenceable(4) %args) #0 {
+entry:
+  %func.addr = alloca ptr, align 8
+  %args.addr = alloca ptr, align 8
+  store ptr %func, ptr %func.addr, align 8
+  store ptr %args, ptr %args.addr, align 8
+  %0 = load ptr, ptr %func.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @"_ZN5eastl7forwardIRZ12TestLruCachevE3$_0EEOT_RNS_16remove_referenceIS3_E4typeE"(ptr noundef nonnull align 8 dereferenceable(8) %0) #9
+  %1 = load ptr, ptr %args.addr, align 8
+  %call1 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN5eastl7forwardIiEEOT_RNS_16remove_referenceIS1_E4typeE(ptr noundef nonnull align 4 dereferenceable(4) %1) #9
+  %call2 = call noundef ptr @"_ZN5eastl11invoke_implIRZ12TestLruCachevE3$_0JiEEEDTclclsr5eastlE7forwardIT_Efp_Espclsr5eastlE7forwardIT0_Efp0_EEEOS3_DpOS4_"(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull align 4 dereferenceable(4) %call1)
+  ret ptr %call2
+}
+
+; Function Attrs: mustprogress uwtable
+define internal noundef ptr @"_ZN5eastl11invoke_implIRZ12TestLruCachevE3$_0JiEEEDTclclsr5eastlE7forwardIT_Efp_Espclsr5eastlE7forwardIT0_Efp0_EEEOS3_DpOS4_"(ptr noundef nonnull align 8 dereferenceable(8) %func, ptr noundef nonnull align 4 dereferenceable(4) %args) #0 {
+entry:
+  %func.addr = alloca ptr, align 8
+  %args.addr = alloca ptr, align 8
+  store ptr %func, ptr %func.addr, align 8
+  store ptr %args, ptr %args.addr, align 8
+  %0 = load ptr, ptr %func.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @"_ZN5eastl7forwardIRZ12TestLruCachevE3$_0EEOT_RNS_16remove_referenceIS3_E4typeE"(ptr noundef nonnull align 8 dereferenceable(8) %0) #9
+  %1 = load ptr, ptr %args.addr, align 8
+  %call1 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN5eastl7forwardIiEEOT_RNS_16remove_referenceIS1_E4typeE(ptr noundef nonnull align 4 dereferenceable(4) %1) #9
+  %2 = load i32, ptr %call1, align 4
+  %call2 = call noundef ptr @"_ZZ12TestLruCachevENK3$_0clEi"(ptr noundef nonnull align 8 dereferenceable(8) %call, i32 noundef %2)
+  ret ptr %call2
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN5eastl7forwardIRZ12TestLruCachevE3$_0EEOT_RNS_16remove_referenceIS3_E4typeE"(ptr noundef nonnull align 8 dereferenceable(8) %x) #1 {
+entry:
+  %x.addr = alloca ptr, align 8
+  store ptr %x, ptr %x.addr, align 8
+  %0 = load ptr, ptr %x.addr, align 8
+  ret ptr %0
+}
+
+; Function Attrs: mustprogress uwtable
+define internal noundef ptr @"_ZZ12TestLruCachevENK3$_0clEi"(ptr noundef nonnull align 8 dereferenceable(8) %this, i32 noundef %0) #0 align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca i32, align 4
+  store ptr %this, ptr %this.addr, align 8
+  store i32 %0, ptr %.addr, align 4
+  %this1 = load ptr, ptr %this.addr, align 8
+  %1 = getelementptr inbounds %class.anon, ptr %this1, i32 0, i32 0
+  %2 = load ptr, ptr %1, align 8
+  %call = call noundef ptr @_ZN20TestLruCacheInternal10FooCreator6CreateEv(ptr noundef nonnull align 4 dereferenceable(4) %2)
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN5eastl4moveIRZ12TestLruCachevE3$_1EEONS_16remove_referenceIT_E4typeEOS4_"(ptr noundef nonnull align 8 dereferenceable(8) %x) #1 {
+entry:
+  %x.addr = alloca ptr, align 8
+  store ptr %x, ptr %x.addr, align 8
+  %0 = load ptr, ptr %x.addr, align 8
+  ret ptr %0
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @"_ZN5eastl8internal15function_detailILi16EFvRKPN20TestLruCacheInternal3FooEEEC2IZ12TestLruCachevE3$_1vEET_"(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr %functor.coerce) unnamed_addr #0 align 2 {
+entry:
+  %functor = alloca %class.anon.2, align 8
+  %this.addr = alloca ptr, align 8
+  %coerce.dive = getelementptr inbounds %class.anon.2, ptr %functor, i32 0, i32 0
+  store ptr %functor.coerce, ptr %coerce.dive, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mMgrFuncPtr = getelementptr inbounds %"class.eastl::internal::function_detail.14", ptr %this1, i32 0, i32 1
+  store ptr null, ptr %mMgrFuncPtr, align 8
+  %mInvokeFuncPtr = getelementptr inbounds %"class.eastl::internal::function_detail.14", ptr %this1, i32 0, i32 2
+  store ptr @_ZN5eastl8internal15function_detailILi16EFvRKPN20TestLruCacheInternal3FooEEE14DefaultInvokerES6_RKNS0_15functor_storageILi16EEE, ptr %mInvokeFuncPtr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @"_ZN5eastl4moveIRZ12TestLruCachevE3$_1EEONS_16remove_referenceIT_E4typeEOS4_"(ptr noundef nonnull align 8 dereferenceable(8) %functor) #9
+  call void @"_ZN5eastl8internal15function_detailILi16EFvRKPN20TestLruCacheInternal3FooEEE20CreateForwardFunctorIZ12TestLruCachevE3$_1EEvOT_"(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(8) %call)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl8internal15function_detailILi16EFvRKPN20TestLruCacheInternal3FooEEE14DefaultInvokerES6_RKNS0_15functor_storageILi16EEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #1 comdat align 2 {
+entry:
+  %.addr = alloca ptr, align 8
+  %.addr1 = alloca ptr, align 8
+  store ptr %0, ptr %.addr, align 8
+  store ptr %1, ptr %.addr1, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @"_ZN5eastl8internal15function_detailILi16EFvRKPN20TestLruCacheInternal3FooEEE20CreateForwardFunctorIZ12TestLruCachevE3$_1EEvOT_"(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(8) %functor) #0 align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %functor.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %functor, ptr %functor.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %functor.addr, align 8
+  %call = call noundef zeroext i1 @"_ZN5eastl8internal7is_nullIZ12TestLruCachevE3$_1EEbRKT_"(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  br i1 %call, label %if.then, label %if.else
+
+if.then:                                          ; preds = %entry
+  %mMgrFuncPtr = getelementptr inbounds %"class.eastl::internal::function_detail.14", ptr %this1, i32 0, i32 1
+  store ptr null, ptr %mMgrFuncPtr, align 8
+  %mInvokeFuncPtr = getelementptr inbounds %"class.eastl::internal::function_detail.14", ptr %this1, i32 0, i32 2
+  store ptr @_ZN5eastl8internal15function_detailILi16EFvRKPN20TestLruCacheInternal3FooEEE14DefaultInvokerES6_RKNS0_15functor_storageILi16EEE, ptr %mInvokeFuncPtr, align 8
+  br label %if.end
+
+if.else:                                          ; preds = %entry
+  %mMgrFuncPtr2 = getelementptr inbounds %"class.eastl::internal::function_detail.14", ptr %this1, i32 0, i32 1
+  store ptr @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZ12TestLruCachevE3$_1vJRKPN20TestLruCacheInternal3FooEEE7ManagerEPvSB_NS2_17ManagerOperationsE", ptr %mMgrFuncPtr2, align 8
+  %mInvokeFuncPtr3 = getelementptr inbounds %"class.eastl::internal::function_detail.14", ptr %this1, i32 0, i32 2
+  store ptr @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZ12TestLruCachevE3$_1vJRKPN20TestLruCacheInternal3FooEEE7InvokerES9_RKNS0_15functor_storageILi16EEE", ptr %mInvokeFuncPtr3, align 8
+  %mStorage = getelementptr inbounds %"class.eastl::internal::function_base_detail", ptr %this1, i32 0, i32 0
+  %1 = load ptr, ptr %functor.addr, align 8
+  %call4 = call noundef nonnull align 8 dereferenceable(8) ptr @"_ZN5eastl7forwardIZ12TestLruCachevE3$_1EEOT_RNS_16remove_referenceIS2_E4typeE"(ptr noundef nonnull align 8 dereferenceable(8) %1) #9
+  call void @"_ZN5eastl8internal20function_base_detailILi16EE21function_manager_baseIZ12TestLruCachevE3$_1vE13CreateFunctorIS4_EEvRNS0_15functor_storageILi16EEEOT_"(ptr noundef nonnull align 8 dereferenceable(16) %mStorage, ptr noundef nonnull align 8 dereferenceable(8) %call4)
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef zeroext i1 @"_ZN5eastl8internal7is_nullIZ12TestLruCachevE3$_1EEbRKT_"(ptr noundef nonnull align 8 dereferenceable(8) %0) #1 {
+entry:
+  %.addr = alloca ptr, align 8
+  store ptr %0, ptr %.addr, align 8
+  ret i1 false
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZ12TestLruCachevE3$_1vJRKPN20TestLruCacheInternal3FooEEE7ManagerEPvSB_NS2_17ManagerOperationsE"(ptr noundef %to, ptr noundef %from, i32 noundef %ops) #1 align 2 {
+entry:
+  %retval = alloca ptr, align 8
+  %to.addr = alloca ptr, align 8
+  %from.addr = alloca ptr, align 8
+  %ops.addr = alloca i32, align 4
+  store ptr %to, ptr %to.addr, align 8
+  store ptr %from, ptr %from.addr, align 8
+  store i32 %ops, ptr %ops.addr, align 4
+  %0 = load i32, ptr %ops.addr, align 4
+  switch i32 %0, label %sw.default [
+    i32 3, label %sw.bb
+    i32 4, label %sw.bb1
+  ]
+
+sw.bb:                                            ; preds = %entry
+  %call = call noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZ12TestLruCachevE3$_1vJRKPN20TestLruCacheInternal3FooEEE11GetTypeInfoEv"() #9
+  store ptr %call, ptr %retval, align 8
+  br label %return
+
+sw.bb1:                                           ; preds = %entry
+  %1 = load ptr, ptr %to.addr, align 8
+  %call2 = call noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE21function_manager_baseIZ12TestLruCachevE3$_1vE13GetFunctorPtrERKNS0_15functor_storageILi16EEE"(ptr noundef nonnull align 8 dereferenceable(16) %1) #9
+  store ptr %call2, ptr %retval, align 8
+  br label %return
+
+sw.default:                                       ; preds = %entry
+  %2 = load ptr, ptr %to.addr, align 8
+  %3 = load ptr, ptr %from.addr, align 8
+  %4 = load i32, ptr %ops.addr, align 4
+  %call3 = call noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE21function_manager_baseIZ12TestLruCachevE3$_1vE7ManagerEPvS6_NS2_17ManagerOperationsE"(ptr noundef %2, ptr noundef %3, i32 noundef %4) #9
+  store ptr %call3, ptr %retval, align 8
+  br label %return
+
+return:                                           ; preds = %sw.default, %sw.bb1, %sw.bb
+  %5 = load ptr, ptr %retval, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZ12TestLruCachevE3$_1vJRKPN20TestLruCacheInternal3FooEEE7InvokerES9_RKNS0_15functor_storageILi16EEE"(ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull align 8 dereferenceable(16) %functor) #0 align 2 {
+entry:
+  %args.addr = alloca ptr, align 8
+  %functor.addr = alloca ptr, align 8
+  store ptr %args, ptr %args.addr, align 8
+  store ptr %functor, ptr %functor.addr, align 8
+  %0 = load ptr, ptr %functor.addr, align 8
+  %call = call noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE21function_manager_baseIZ12TestLruCachevE3$_1vE13GetFunctorPtrERKNS0_15functor_storageILi16EEE"(ptr noundef nonnull align 8 dereferenceable(16) %0) #9
+  %1 = load ptr, ptr %args.addr, align 8
+  %call1 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5eastl7forwardIRKPN20TestLruCacheInternal3FooEEEOT_RNS_16remove_referenceIS6_E4typeE(ptr noundef nonnull align 8 dereferenceable(8) %1) #9
+  call void @"_ZN5eastl6invokeIRZ12TestLruCachevE3$_1JRKPN20TestLruCacheInternal3FooEEEEDcOT_DpOT0_"(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull align 8 dereferenceable(8) %call1)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZN5eastl8internal20function_base_detailILi16EE21function_manager_baseIZ12TestLruCachevE3$_1vE13CreateFunctorIS4_EEvRNS0_15functor_storageILi16EEEOT_"(ptr noundef nonnull align 8 dereferenceable(16) %storage, ptr noundef nonnull align 8 dereferenceable(8) %functor) #1 align 2 {
+entry:
+  %storage.addr = alloca ptr, align 8
+  %functor.addr = alloca ptr, align 8
+  store ptr %storage, ptr %storage.addr, align 8
+  store ptr %functor, ptr %functor.addr, align 8
+  %0 = load ptr, ptr %storage.addr, align 8
+  %call = call noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE21function_manager_baseIZ12TestLruCachevE3$_1vE13GetFunctorPtrERKNS0_15functor_storageILi16EEE"(ptr noundef nonnull align 8 dereferenceable(16) %0) #9
+  %1 = load ptr, ptr %functor.addr, align 8
+  %call1 = call noundef nonnull align 8 dereferenceable(8) ptr @"_ZN5eastl7forwardIZ12TestLruCachevE3$_1EEOT_RNS_16remove_referenceIS2_E4typeE"(ptr noundef nonnull align 8 dereferenceable(8) %1) #9
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call, ptr align 8 %call1, i64 8, i1 false)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN5eastl7forwardIZ12TestLruCachevE3$_1EEOT_RNS_16remove_referenceIS2_E4typeE"(ptr noundef nonnull align 8 dereferenceable(8) %x) #1 {
+entry:
+  %x.addr = alloca ptr, align 8
+  store ptr %x, ptr %x.addr, align 8
+  %0 = load ptr, ptr %x.addr, align 8
+  ret ptr %0
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZ12TestLruCachevE3$_1vJRKPN20TestLruCacheInternal3FooEEE11GetTypeInfoEv"() #1 align 2 {
+entry:
+  ret ptr @"_ZTIZ12TestLruCachevE3$_1"
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE21function_manager_baseIZ12TestLruCachevE3$_1vE13GetFunctorPtrERKNS0_15functor_storageILi16EEE"(ptr noundef nonnull align 8 dereferenceable(16) %storage) #1 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %storage.addr = alloca ptr, align 8
+  store ptr %storage, ptr %storage.addr, align 8
+  %0 = load ptr, ptr %storage.addr, align 8
+  %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @"_ZNK5eastl8internal15functor_storageILi16EE17GetStorageTypeRefIZ12TestLruCachevE3$_1EERT_v"(ptr noundef nonnull align 8 dereferenceable(16) %0)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %entry
+  ret ptr %call
+
+terminate.lpad:                                   ; preds = %entry
+  %1 = landingpad { ptr, i32 }
+          catch ptr null
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #10
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE21function_manager_baseIZ12TestLruCachevE3$_1vE7ManagerEPvS6_NS2_17ManagerOperationsE"(ptr noundef %to, ptr noundef %from, i32 noundef %ops) #1 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %to.addr = alloca ptr, align 8
+  %from.addr = alloca ptr, align 8
+  %ops.addr = alloca i32, align 4
+  store ptr %to, ptr %to.addr, align 8
+  store ptr %from, ptr %from.addr, align 8
+  store i32 %ops, ptr %ops.addr, align 4
+  %0 = load i32, ptr %ops.addr, align 4
+  switch i32 %0, label %sw.default [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 2, label %sw.bb3
+  ]
+
+sw.bb:                                            ; preds = %entry
+  %1 = load ptr, ptr %to.addr, align 8
+  invoke void @"_ZN5eastl8internal20function_base_detailILi16EE21function_manager_baseIZ12TestLruCachevE3$_1vE15DestructFunctorERNS0_15functor_storageILi16EEE"(ptr noundef nonnull align 8 dereferenceable(16) %1)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %sw.bb
+  br label %sw.epilog
+
+sw.bb1:                                           ; preds = %entry
+  %2 = load ptr, ptr %to.addr, align 8
+  %3 = load ptr, ptr %from.addr, align 8
+  invoke void @"_ZN5eastl8internal20function_base_detailILi16EE21function_manager_baseIZ12TestLruCachevE3$_1vE11CopyFunctorERNS0_15functor_storageILi16EEERKS7_"(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
+          to label %invoke.cont2 unwind label %terminate.lpad
+
+invoke.cont2:                                     ; preds = %sw.bb1
+  br label %sw.epilog
+
+sw.bb3:                                           ; preds = %entry
+  %4 = load ptr, ptr %to.addr, align 8
+  %5 = load ptr, ptr %from.addr, align 8
+  call void @"_ZN5eastl8internal20function_base_detailILi16EE21function_manager_baseIZ12TestLruCachevE3$_1vE11MoveFunctorERNS0_15functor_storageILi16EEES8_"(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5) #9
+  %6 = load ptr, ptr %from.addr, align 8
+  invoke void @"_ZN5eastl8internal20function_base_detailILi16EE21function_manager_baseIZ12TestLruCachevE3$_1vE15DestructFunctorERNS0_15functor_storageILi16EEE"(ptr noundef nonnull align 8 dereferenceable(16) %6)
+          to label %invoke.cont4 unwind label %terminate.lpad
+
+invoke.cont4:                                     ; preds = %sw.bb3
+  br label %sw.epilog
+
+sw.default:                                       ; preds = %entry
+  br label %sw.epilog
+
+sw.epilog:                                        ; preds = %sw.default, %invoke.cont4, %invoke.cont2, %invoke.cont
+  ret ptr null
+
+terminate.lpad:                                   ; preds = %sw.bb3, %sw.bb1, %sw.bb
+  %7 = landingpad { ptr, i32 }
+          catch ptr null
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #10
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZNK5eastl8internal15functor_storageILi16EE17GetStorageTypeRefIZ12TestLruCachevE3$_1EERT_v"(ptr noundef nonnull align 8 dereferenceable(16) %this) #1 align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = getelementptr inbounds %"struct.eastl::internal::functor_storage", ptr %this1, i32 0, i32 0
+  %arrayidx = getelementptr inbounds [16 x i8], ptr %0, i64 0, i64 0
+  ret ptr %arrayidx
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZN5eastl8internal20function_base_detailILi16EE21function_manager_baseIZ12TestLruCachevE3$_1vE15DestructFunctorERNS0_15functor_storageILi16EEE"(ptr noundef nonnull align 8 dereferenceable(16) %storage) #1 align 2 {
+entry:
+  %storage.addr = alloca ptr, align 8
+  store ptr %storage, ptr %storage.addr, align 8
+  %0 = load ptr, ptr %storage.addr, align 8
+  %call = call noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE21function_manager_baseIZ12TestLruCachevE3$_1vE13GetFunctorPtrERKNS0_15functor_storageILi16EEE"(ptr noundef nonnull align 8 dereferenceable(16) %0) #9
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZN5eastl8internal20function_base_detailILi16EE21function_manager_baseIZ12TestLruCachevE3$_1vE11CopyFunctorERNS0_15functor_storageILi16EEERKS7_"(ptr noundef nonnull align 8 dereferenceable(16) %to, ptr noundef nonnull align 8 dereferenceable(16) %from) #1 align 2 {
+entry:
+  %to.addr = alloca ptr, align 8
+  %from.addr = alloca ptr, align 8
+  store ptr %to, ptr %to.addr, align 8
+  store ptr %from, ptr %from.addr, align 8
+  %0 = load ptr, ptr %to.addr, align 8
+  %call = call noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE21function_manager_baseIZ12TestLruCachevE3$_1vE13GetFunctorPtrERKNS0_15functor_storageILi16EEE"(ptr noundef nonnull align 8 dereferenceable(16) %0) #9
+  %1 = load ptr, ptr %from.addr, align 8
+  %call1 = call noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE21function_manager_baseIZ12TestLruCachevE3$_1vE13GetFunctorPtrERKNS0_15functor_storageILi16EEE"(ptr noundef nonnull align 8 dereferenceable(16) %1) #9
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call, ptr align 8 %call1, i64 8, i1 false)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZN5eastl8internal20function_base_detailILi16EE21function_manager_baseIZ12TestLruCachevE3$_1vE11MoveFunctorERNS0_15functor_storageILi16EEES8_"(ptr noundef nonnull align 8 dereferenceable(16) %to, ptr noundef nonnull align 8 dereferenceable(16) %from) #1 align 2 {
+entry:
+  %to.addr = alloca ptr, align 8
+  %from.addr = alloca ptr, align 8
+  store ptr %to, ptr %to.addr, align 8
+  store ptr %from, ptr %from.addr, align 8
+  %0 = load ptr, ptr %to.addr, align 8
+  %call = call noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE21function_manager_baseIZ12TestLruCachevE3$_1vE13GetFunctorPtrERKNS0_15functor_storageILi16EEE"(ptr noundef nonnull align 8 dereferenceable(16) %0) #9
+  %1 = load ptr, ptr %from.addr, align 8
+  %call1 = call noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE21function_manager_baseIZ12TestLruCachevE3$_1vE13GetFunctorPtrERKNS0_15functor_storageILi16EEE"(ptr noundef nonnull align 8 dereferenceable(16) %1) #9
+  %call2 = call noundef nonnull align 8 dereferenceable(8) ptr @"_ZN5eastl4moveIRZ12TestLruCachevE3$_1EEONS_16remove_referenceIT_E4typeEOS4_"(ptr noundef nonnull align 8 dereferenceable(8) %call1) #9
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call, ptr align 8 %call2, i64 8, i1 false)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @"_ZN5eastl6invokeIRZ12TestLruCachevE3$_1JRKPN20TestLruCacheInternal3FooEEEEDcOT_DpOT0_"(ptr noundef nonnull align 8 dereferenceable(8) %func, ptr noundef nonnull align 8 dereferenceable(8) %args) #0 {
+entry:
+  %func.addr = alloca ptr, align 8
+  %args.addr = alloca ptr, align 8
+  store ptr %func, ptr %func.addr, align 8
+  store ptr %args, ptr %args.addr, align 8
+  %0 = load ptr, ptr %func.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @"_ZN5eastl7forwardIRZ12TestLruCachevE3$_1EEOT_RNS_16remove_referenceIS3_E4typeE"(ptr noundef nonnull align 8 dereferenceable(8) %0) #9
+  %1 = load ptr, ptr %args.addr, align 8
+  %call1 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5eastl7forwardIRKPN20TestLruCacheInternal3FooEEEOT_RNS_16remove_referenceIS6_E4typeE(ptr noundef nonnull align 8 dereferenceable(8) %1) #9
+  call void @"_ZN5eastl11invoke_implIRZ12TestLruCachevE3$_1JRKPN20TestLruCacheInternal3FooEEEEDTclclsr5eastlE7forwardIT_Efp_Espclsr5eastlE7forwardIT0_Efp0_EEEOS8_DpOS9_"(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull align 8 dereferenceable(8) %call1)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN5eastl7forwardIRKPN20TestLruCacheInternal3FooEEEOT_RNS_16remove_referenceIS6_E4typeE(ptr noundef nonnull align 8 dereferenceable(8) %x) #1 comdat {
+entry:
+  %x.addr = alloca ptr, align 8
+  store ptr %x, ptr %x.addr, align 8
+  %0 = load ptr, ptr %x.addr, align 8
+  ret ptr %0
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @"_ZN5eastl11invoke_implIRZ12TestLruCachevE3$_1JRKPN20TestLruCacheInternal3FooEEEEDTclclsr5eastlE7forwardIT_Efp_Espclsr5eastlE7forwardIT0_Efp0_EEEOS8_DpOS9_"(ptr noundef nonnull align 8 dereferenceable(8) %func, ptr noundef nonnull align 8 dereferenceable(8) %args) #0 {
+entry:
+  %func.addr = alloca ptr, align 8
+  %args.addr = alloca ptr, align 8
+  store ptr %func, ptr %func.addr, align 8
+  store ptr %args, ptr %args.addr, align 8
+  %0 = load ptr, ptr %func.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @"_ZN5eastl7forwardIRZ12TestLruCachevE3$_1EEOT_RNS_16remove_referenceIS3_E4typeE"(ptr noundef nonnull align 8 dereferenceable(8) %0) #9
+  %1 = load ptr, ptr %args.addr, align 8
+  %call1 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5eastl7forwardIRKPN20TestLruCacheInternal3FooEEEOT_RNS_16remove_referenceIS6_E4typeE(ptr noundef nonnull align 8 dereferenceable(8) %1) #9
+  %2 = load ptr, ptr %call1, align 8
+  call void @"_ZZ12TestLruCachevENK3$_1clEPN20TestLruCacheInternal3FooE"(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef %2)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN5eastl7forwardIRZ12TestLruCachevE3$_1EEOT_RNS_16remove_referenceIS3_E4typeE"(ptr noundef nonnull align 8 dereferenceable(8) %x) #1 {
+entry:
+  %x.addr = alloca ptr, align 8
+  store ptr %x, ptr %x.addr, align 8
+  %0 = load ptr, ptr %x.addr, align 8
+  ret ptr %0
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @"_ZZ12TestLruCachevENK3$_1clEPN20TestLruCacheInternal3FooE"(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %f) #0 align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %f.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %f, ptr %f.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = getelementptr inbounds %class.anon.2, ptr %this1, i32 0, i32 0
+  %1 = load ptr, ptr %0, align 8
+  %2 = load ptr, ptr %f.addr, align 8
+  call void @_ZN20TestLruCacheInternal10FooCreator7DestroyEPNS_3FooE(ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef %2)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN20TestLruCacheInternal10FooCreator7DestroyEPNS_3FooE(ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef %f) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %f.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %f, ptr %f.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %f.addr, align 8
+  %isnull = icmp eq ptr %0, null
+  br i1 %isnull, label %delete.end, label %delete.notnull
+
+delete.notnull:                                   ; preds = %entry
+  call void @_ZdlPv(ptr noundef %0) #12
+  br label %delete.end
+
+delete.end:                                       ; preds = %delete.notnull, %entry
+  %mFooCreatedCount = getelementptr inbounds %"class.TestLruCacheInternal::FooCreator", ptr %this1, i32 0, i32 0
+  %1 = load i32, ptr %mFooCreatedCount, align 4
+  %dec = add nsw i32 %1, -1
+  store i32 %dec, ptr %mFooCreatedCount, align 4
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl8hash_mapIiNS_4pairIPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEENS_9allocatorELb0EEC2ERKSE_(ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 1 dereferenceable(1) %allocator) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %allocator.addr = alloca ptr, align 8
+  %ref.tmp = alloca %"struct.eastl::hash", align 1
+  %ref.tmp2 = alloca %"struct.eastl::mod_range_hashing", align 1
+  %ref.tmp3 = alloca %"struct.eastl::default_ranged_hash", align 1
+  %ref.tmp4 = alloca %"struct.eastl::equal_to", align 1
+  %ref.tmp5 = alloca %"struct.eastl::use_first.8", align 1
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %allocator, ptr %allocator.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %allocator.addr, align 8
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EEC2EmRKSI_RKSJ_RKSK_RKSG_RKSE_RKSC_(ptr noundef nonnull align 8 dereferenceable(45) %this1, i64 noundef 0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5, ptr noundef nonnull align 1 dereferenceable(1) %0)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl8functionIFPN20TestLruCacheInternal3FooEiEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %other) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %other.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %other, ptr %other.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %other.addr, align 8
+  call void @_ZN5eastl8internal15function_detailILi16EFPN20TestLruCacheInternal3FooEiEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl8functionIFvRKPN20TestLruCacheInternal3FooEEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %other) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %other.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %other, ptr %other.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %other.addr, align 8
+  call void @_ZN5eastl8internal15function_detailILi16EFvRKPN20TestLruCacheInternal3FooEEEC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl8hash_mapIiNS_4pairIPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEENS_9allocatorELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(45) %this) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(45) %this1) #9
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EEC2EmRKSI_RKSJ_RKSK_RKSG_RKSE_RKSC_(ptr noundef nonnull align 8 dereferenceable(45) %this, i64 noundef %nBucketCount, ptr noundef nonnull align 1 dereferenceable(1) %h1, ptr noundef nonnull align 1 dereferenceable(1) %h2, ptr noundef nonnull align 1 dereferenceable(1) %h, ptr noundef nonnull align 1 dereferenceable(1) %eq, ptr noundef nonnull align 1 dereferenceable(1) %ek, ptr noundef nonnull align 1 dereferenceable(1) %allocator) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %nBucketCount.addr = alloca i64, align 8
+  %h1.addr = alloca ptr, align 8
+  %h2.addr = alloca ptr, align 8
+  %h.addr = alloca ptr, align 8
+  %eq.addr = alloca ptr, align 8
+  %ek.addr = alloca ptr, align 8
+  %allocator.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store i64 %nBucketCount, ptr %nBucketCount.addr, align 8
+  store ptr %h1, ptr %h1.addr, align 8
+  store ptr %h2, ptr %h2.addr, align 8
+  store ptr %h, ptr %h.addr, align 8
+  store ptr %eq, ptr %eq.addr, align 8
+  store ptr %ek, ptr %ek.addr, align 8
+  store ptr %allocator, ptr %allocator.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %ek.addr, align 8
+  %1 = load ptr, ptr %eq.addr, align 8
+  %2 = load ptr, ptr %h1.addr, align 8
+  %3 = load ptr, ptr %h2.addr, align 8
+  %4 = load ptr, ptr %h.addr, align 8
+  call void @_ZN5eastl14hash_code_baseIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EEC2ERKSD_RKSF_RKSH_RKSI_RKSJ_(ptr noundef nonnull align 1 dereferenceable(4) %this1, ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  %mnBucketCount = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 3
+  store i64 0, ptr %mnBucketCount, align 8
+  %mnElementCount = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 4
+  store i64 0, ptr %mnElementCount, align 8
+  %mRehashPolicy = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 5
+  call void @_ZN5eastl19prime_rehash_policyC2Ef(ptr noundef nonnull align 4 dereferenceable(12) %mRehashPolicy, float noundef 1.000000e+00)
+  %mAllocator = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 6
+  %5 = load ptr, ptr %allocator.addr, align 8
+  call void @_ZN5eastl9allocatorC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %mAllocator, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  %6 = load i64, ptr %nBucketCount.addr, align 8
+  %cmp = icmp ult i64 %6, 2
+  br i1 %cmp, label %if.then, label %if.else
+
+if.then:                                          ; preds = %entry
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17reset_lose_memoryEv(ptr noundef nonnull align 8 dereferenceable(45) %this1) #9
+  br label %if.end
+
+if.else:                                          ; preds = %entry
+  %mRehashPolicy2 = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 5
+  %7 = load i64, ptr %nBucketCount.addr, align 8
+  %conv = trunc i64 %7 to i32
+  %call = call noundef i32 @_ZNK5eastl19prime_rehash_policy18GetNextBucketCountEj(ptr noundef nonnull align 4 dereferenceable(12) %mRehashPolicy2, i32 noundef %conv)
+  %conv3 = zext i32 %call to i64
+  %mnBucketCount4 = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 3
+  store i64 %conv3, ptr %mnBucketCount4, align 8
+  %mnBucketCount5 = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 3
+  %8 = load i64, ptr %mnBucketCount5, align 8
+  %call6 = call noundef ptr @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm(ptr noundef nonnull align 8 dereferenceable(45) %this1, i64 noundef %8)
+  %mpBucketArray = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 2
+  store ptr %call6, ptr %mpBucketArray, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl14hash_code_baseIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EEC2ERKSD_RKSF_RKSH_RKSI_RKSJ_(ptr noundef nonnull align 1 dereferenceable(4) %this, ptr noundef nonnull align 1 dereferenceable(1) %ex, ptr noundef nonnull align 1 dereferenceable(1) %eq, ptr noundef nonnull align 1 dereferenceable(1) %h1, ptr noundef nonnull align 1 dereferenceable(1) %h2, ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %ex.addr = alloca ptr, align 8
+  %eq.addr = alloca ptr, align 8
+  %h1.addr = alloca ptr, align 8
+  %h2.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %ex, ptr %ex.addr, align 8
+  store ptr %eq, ptr %eq.addr, align 8
+  store ptr %h1, ptr %h1.addr, align 8
+  store ptr %h2, ptr %h2.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17reset_lose_memoryEv(ptr noundef nonnull align 8 dereferenceable(45) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %p = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mnBucketCount = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 3
+  store i64 1, ptr %mnBucketCount, align 8
+  store ptr @_ZN5eastl18gpEmptyBucketArrayE, ptr %p, align 8
+  %mpBucketArray = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %mpBucketArray, ptr align 8 %p, i64 8, i1 false)
+  %mnElementCount = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 4
+  store i64 0, ptr %mnElementCount, align 8
+  %mRehashPolicy = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 5
+  %mnNextResize = getelementptr inbounds %"struct.eastl::prime_rehash_policy", ptr %mRehashPolicy, i32 0, i32 2
+  store i32 0, ptr %mnNextResize, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm(ptr noundef nonnull align 8 dereferenceable(45) %this, i64 noundef %n) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %n.addr = alloca i64, align 8
+  %pBucketArray = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store i64 %n, ptr %n.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mAllocator = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 6
+  %0 = load i64, ptr %n.addr, align 8
+  %add = add i64 %0, 1
+  %mul = mul i64 %add, 8
+  %call = call noundef ptr @_ZN5eastl9allocator8allocateEmmmi(ptr noundef nonnull align 1 dereferenceable(1) %mAllocator, i64 noundef %mul, i64 noundef 8, i64 noundef 0, i32 noundef 4194304)
+  store ptr %call, ptr %pBucketArray, align 8
+  %1 = load ptr, ptr %pBucketArray, align 8
+  %2 = load i64, ptr %n.addr, align 8
+  %mul2 = mul i64 %2, 8
+  call void @llvm.memset.p0.i64(ptr align 8 %1, i8 0, i64 %mul2, i1 false)
+  %3 = load ptr, ptr %pBucketArray, align 8
+  %4 = load i64, ptr %n.addr, align 8
+  %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
+  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
+  %5 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl8internal15function_detailILi16EFPN20TestLruCacheInternal3FooEiEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %other) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %other.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %other, ptr %other.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mMgrFuncPtr = getelementptr inbounds %"class.eastl::internal::function_detail.12", ptr %this1, i32 0, i32 1
+  store ptr null, ptr %mMgrFuncPtr, align 8
+  %mInvokeFuncPtr = getelementptr inbounds %"class.eastl::internal::function_detail.12", ptr %this1, i32 0, i32 2
+  store ptr @_ZN5eastl8internal15function_detailILi16EFPN20TestLruCacheInternal3FooEiEE14DefaultInvokerEiRKNS0_15functor_storageILi16EEE, ptr %mInvokeFuncPtr, align 8
+  %0 = load ptr, ptr %other.addr, align 8
+  %cmp = icmp ne ptr %this1, %0
+  br i1 %cmp, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %1 = load ptr, ptr %other.addr, align 8
+  call void @_ZN5eastl8internal15function_detailILi16EFPN20TestLruCacheInternal3FooEiEE4CopyERKS6_(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  br label %if.end
+
+if.end:                                           ; preds = %if.then, %entry
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl8internal15function_detailILi16EFPN20TestLruCacheInternal3FooEiEE4CopyERKS6_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %other) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %other.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %other, ptr %other.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %other.addr, align 8
+  %call = call noundef zeroext i1 @_ZNK5eastl8internal15function_detailILi16EFPN20TestLruCacheInternal3FooEiEE11HaveManagerEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #9
+  br i1 %call, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %1 = load ptr, ptr %other.addr, align 8
+  %mMgrFuncPtr = getelementptr inbounds %"class.eastl::internal::function_detail.12", ptr %1, i32 0, i32 1
+  %2 = load ptr, ptr %mMgrFuncPtr, align 8
+  %mStorage = getelementptr inbounds %"class.eastl::internal::function_base_detail", ptr %this1, i32 0, i32 0
+  %3 = load ptr, ptr %other.addr, align 8
+  %mStorage2 = getelementptr inbounds %"class.eastl::internal::function_base_detail", ptr %3, i32 0, i32 0
+  %call3 = call noundef ptr %2(ptr noundef %mStorage, ptr noundef %mStorage2, i32 noundef 1)
+  br label %if.end
+
+if.end:                                           ; preds = %if.then, %entry
+  %4 = load ptr, ptr %other.addr, align 8
+  %mMgrFuncPtr4 = getelementptr inbounds %"class.eastl::internal::function_detail.12", ptr %4, i32 0, i32 1
+  %5 = load ptr, ptr %mMgrFuncPtr4, align 8
+  %mMgrFuncPtr5 = getelementptr inbounds %"class.eastl::internal::function_detail.12", ptr %this1, i32 0, i32 1
+  store ptr %5, ptr %mMgrFuncPtr5, align 8
+  %6 = load ptr, ptr %other.addr, align 8
+  %mInvokeFuncPtr = getelementptr inbounds %"class.eastl::internal::function_detail.12", ptr %6, i32 0, i32 2
+  %7 = load ptr, ptr %mInvokeFuncPtr, align 8
+  %mInvokeFuncPtr6 = getelementptr inbounds %"class.eastl::internal::function_detail.12", ptr %this1, i32 0, i32 2
+  store ptr %7, ptr %mInvokeFuncPtr6, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl8internal15function_detailILi16EFvRKPN20TestLruCacheInternal3FooEEEC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %other) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %other.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %other, ptr %other.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mMgrFuncPtr = getelementptr inbounds %"class.eastl::internal::function_detail.14", ptr %this1, i32 0, i32 1
+  store ptr null, ptr %mMgrFuncPtr, align 8
+  %mInvokeFuncPtr = getelementptr inbounds %"class.eastl::internal::function_detail.14", ptr %this1, i32 0, i32 2
+  store ptr @_ZN5eastl8internal15function_detailILi16EFvRKPN20TestLruCacheInternal3FooEEE14DefaultInvokerES6_RKNS0_15functor_storageILi16EEE, ptr %mInvokeFuncPtr, align 8
+  %0 = load ptr, ptr %other.addr, align 8
+  %cmp = icmp ne ptr %this1, %0
+  br i1 %cmp, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %1 = load ptr, ptr %other.addr, align 8
+  call void @_ZN5eastl8internal15function_detailILi16EFvRKPN20TestLruCacheInternal3FooEEE4CopyERKS8_(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  br label %if.end
+
+if.end:                                           ; preds = %if.then, %entry
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl8internal15function_detailILi16EFvRKPN20TestLruCacheInternal3FooEEE4CopyERKS8_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %other) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %other.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %other, ptr %other.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %other.addr, align 8
+  %call = call noundef zeroext i1 @_ZNK5eastl8internal15function_detailILi16EFvRKPN20TestLruCacheInternal3FooEEE11HaveManagerEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #9
+  br i1 %call, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %1 = load ptr, ptr %other.addr, align 8
+  %mMgrFuncPtr = getelementptr inbounds %"class.eastl::internal::function_detail.14", ptr %1, i32 0, i32 1
+  %2 = load ptr, ptr %mMgrFuncPtr, align 8
+  %mStorage = getelementptr inbounds %"class.eastl::internal::function_base_detail", ptr %this1, i32 0, i32 0
+  %3 = load ptr, ptr %other.addr, align 8
+  %mStorage2 = getelementptr inbounds %"class.eastl::internal::function_base_detail", ptr %3, i32 0, i32 0
+  %call3 = call noundef ptr %2(ptr noundef %mStorage, ptr noundef %mStorage2, i32 noundef 1)
+  br label %if.end
+
+if.end:                                           ; preds = %if.then, %entry
+  %4 = load ptr, ptr %other.addr, align 8
+  %mMgrFuncPtr4 = getelementptr inbounds %"class.eastl::internal::function_detail.14", ptr %4, i32 0, i32 1
+  %5 = load ptr, ptr %mMgrFuncPtr4, align 8
+  %mMgrFuncPtr5 = getelementptr inbounds %"class.eastl::internal::function_detail.14", ptr %this1, i32 0, i32 1
+  store ptr %5, ptr %mMgrFuncPtr5, align 8
+  %6 = load ptr, ptr %other.addr, align 8
+  %mInvokeFuncPtr = getelementptr inbounds %"class.eastl::internal::function_detail.14", ptr %6, i32 0, i32 2
+  %7 = load ptr, ptr %mInvokeFuncPtr, align 8
+  %mInvokeFuncPtr6 = getelementptr inbounds %"class.eastl::internal::function_detail.14", ptr %this1, i32 0, i32 2
+  store ptr %7, ptr %mInvokeFuncPtr6, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(45) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  invoke void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5clearEv(ptr noundef nonnull align 8 dereferenceable(45) %this1)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %entry
+  %mpBucketArray = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 2
+  %0 = load ptr, ptr %mpBucketArray, align 8
+  %mnBucketCount = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 3
+  %1 = load i64, ptr %mnBucketCount, align 8
+  invoke void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeISB_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(45) %this1, ptr noundef %0, i64 noundef %1)
+          to label %invoke.cont2 unwind label %terminate.lpad
+
+invoke.cont2:                                     ; preds = %invoke.cont
+  ret void
+
+terminate.lpad:                                   ; preds = %invoke.cont, %entry
+  %2 = landingpad { ptr, i32 }
+          catch ptr null
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #10
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5clearEv(ptr noundef nonnull align 8 dereferenceable(45) %this) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mpBucketArray = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 2
+  %0 = load ptr, ptr %mpBucketArray, align 8
+  %mnBucketCount = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 3
+  %1 = load i64, ptr %mnBucketCount, align 8
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE11DoFreeNodesEPPNS_9hash_nodeISB_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(45) %this1, ptr noundef %0, i64 noundef %1)
+  %mnElementCount = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 4
+  store i64 0, ptr %mnElementCount, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeISB_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef %pBucketArray, i64 noundef %n) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %pBucketArray.addr = alloca ptr, align 8
+  %n.addr = alloca i64, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %pBucketArray, ptr %pBucketArray.addr, align 8
+  store i64 %n, ptr %n.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load i64, ptr %n.addr, align 8
+  %cmp = icmp ugt i64 %0, 1
+  br i1 %cmp, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %mAllocator = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 6
+  %1 = load ptr, ptr %pBucketArray.addr, align 8
+  %2 = load i64, ptr %n.addr, align 8
+  %add = add i64 %2, 1
+  %mul = mul i64 %add, 8
+  call void @_ZN5eastl9allocator10deallocateEPvm(ptr noundef nonnull align 1 dereferenceable(1) %mAllocator, ptr noundef %1, i64 noundef %mul)
+  br label %if.end
+
+if.end:                                           ; preds = %if.then, %entry
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE11DoFreeNodesEPPNS_9hash_nodeISB_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef %pNodeArray, i64 noundef %n) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %pNodeArray.addr = alloca ptr, align 8
+  %n.addr = alloca i64, align 8
+  %i = alloca i64, align 8
+  %pNode = alloca ptr, align 8
+  %pTempNode = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %pNodeArray, ptr %pNodeArray.addr, align 8
+  store i64 %n, ptr %n.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  store i64 0, ptr %i, align 8
+  br label %for.cond
+
+for.cond:                                         ; preds = %for.inc, %entry
+  %0 = load i64, ptr %i, align 8
+  %1 = load i64, ptr %n.addr, align 8
+  %cmp = icmp ult i64 %0, %1
+  br i1 %cmp, label %for.body, label %for.end
+
+for.body:                                         ; preds = %for.cond
+  %2 = load ptr, ptr %pNodeArray.addr, align 8
+  %3 = load i64, ptr %i, align 8
+  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %3
+  %4 = load ptr, ptr %arrayidx, align 8
+  store ptr %4, ptr %pNode, align 8
+  br label %while.cond
+
+while.cond:                                       ; preds = %while.body, %for.body
+  %5 = load ptr, ptr %pNode, align 8
+  %tobool = icmp ne ptr %5, null
+  br i1 %tobool, label %while.body, label %while.end
+
+while.body:                                       ; preds = %while.cond
+  %6 = load ptr, ptr %pNode, align 8
+  store ptr %6, ptr %pTempNode, align 8
+  %7 = load ptr, ptr %pNode, align 8
+  %mpNext = getelementptr inbounds %"struct.eastl::hash_node.37", ptr %7, i32 0, i32 1
+  %8 = load ptr, ptr %mpNext, align 8
+  store ptr %8, ptr %pNode, align 8
+  %9 = load ptr, ptr %pTempNode, align 8
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeISB_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(45) %this1, ptr noundef %9)
+  br label %while.cond, !llvm.loop !17
+
+while.end:                                        ; preds = %while.cond
+  %10 = load ptr, ptr %pNodeArray.addr, align 8
+  %11 = load i64, ptr %i, align 8
+  %arrayidx2 = getelementptr inbounds ptr, ptr %10, i64 %11
+  store ptr null, ptr %arrayidx2, align 8
+  br label %for.inc
+
+for.inc:                                          ; preds = %while.end
+  %12 = load i64, ptr %i, align 8
+  %inc = add i64 %12, 1
+  store i64 %inc, ptr %i, align 8
+  br label %for.cond, !llvm.loop !18
+
+for.end:                                          ; preds = %for.cond
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeISB_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef %pNode) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %pNode.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %pNode, ptr %pNode.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mAllocator = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 6
+  %0 = load ptr, ptr %pNode.addr, align 8
+  call void @_ZN5eastl9allocator10deallocateEPvm(ptr noundef nonnull align 1 dereferenceable(1) %mAllocator, ptr noundef %0, i64 noundef 32)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv(ptr noalias sret(%"struct.eastl::hashtable_iterator.40") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(45) %this) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %this.addr = alloca ptr, align 8
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mpBucketArray = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 2
+  %0 = load ptr, ptr %mpBucketArray, align 8
+  invoke void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEC2EPPNS_9hash_nodeISB_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef %0)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %entry
+  %mpNode = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.41", ptr %agg.result, i32 0, i32 0
+  %1 = load ptr, ptr %mpNode, align 8
+  %tobool = icmp ne ptr %1, null
+  br i1 %tobool, label %if.end, label %if.then
+
+if.then:                                          ; preds = %invoke.cont
+  invoke void @_ZN5eastl23hashtable_iterator_baseINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0EE16increment_bucketEv(ptr noundef nonnull align 8 dereferenceable(16) %agg.result)
+          to label %invoke.cont2 unwind label %terminate.lpad
+
+invoke.cont2:                                     ; preds = %if.then
+  br label %if.end
+
+if.end:                                           ; preds = %invoke.cont2, %invoke.cont
+  ret void
+
+terminate.lpad:                                   ; preds = %if.then, %entry
+  %2 = landingpad { ptr, i32 }
+          catch ptr null
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #10
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv(ptr noalias sret(%"struct.eastl::hashtable_iterator.40") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(45) %this) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %this.addr = alloca ptr, align 8
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mpBucketArray = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 2
+  %0 = load ptr, ptr %mpBucketArray, align 8
+  %mnBucketCount = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 3
+  %1 = load i64, ptr %mnBucketCount, align 8
+  %add.ptr = getelementptr inbounds ptr, ptr %0, i64 %1
+  invoke void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEC2EPPNS_9hash_nodeISB_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef %add.ptr)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %entry
+  ret void
+
+terminate.lpad:                                   ; preds = %entry
+  %2 = landingpad { ptr, i32 }
+          catch ptr null
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #10
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZN5eastlneINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0EEEbRKNS_23hashtable_iterator_baseIT_XT0_EEESG_(ptr noundef nonnull align 8 dereferenceable(16) %a, ptr noundef nonnull align 8 dereferenceable(16) %b) #1 comdat {
+entry:
+  %a.addr = alloca ptr, align 8
+  %b.addr = alloca ptr, align 8
+  store ptr %a, ptr %a.addr, align 8
+  store ptr %b, ptr %b.addr, align 8
+  %0 = load ptr, ptr %a.addr, align 8
+  %mpNode = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.41", ptr %0, i32 0, i32 0
+  %1 = load ptr, ptr %mpNode, align 8
+  %2 = load ptr, ptr %b.addr, align 8
+  %mpNode1 = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.41", ptr %2, i32 0, i32 0
+  %3 = load ptr, ptr %mpNode1, align 8
+  %cmp = icmp ne ptr %1, %3
+  ret i1 %cmp
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5eastl18hashtable_iteratorINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEdeEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mpNode = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.41", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %mpNode, align 8
+  %mValue = getelementptr inbounds %"struct.eastl::hash_node.37", ptr %0, i32 0, i32 0
+  ret ptr %mValue
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK5eastl8functionIFvRKPN20TestLruCacheInternal3FooEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef zeroext i1 @_ZNK5eastl8internal15function_detailILi16EFvRKPN20TestLruCacheInternal3FooEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #9
+  ret i1 %call
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZNK5eastl8functionIFvRKPN20TestLruCacheInternal3FooEEEclES5_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(8) %args) #0 comdat align 2 {
+entry:
+  %this.addr.i = alloca ptr, align 8
+  %args.addr.i = alloca ptr, align 8
+  %this.addr = alloca ptr, align 8
+  %args.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %args, ptr %args.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %args.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5eastl7forwardIRKPN20TestLruCacheInternal3FooEEEOT_RNS_16remove_referenceIS6_E4typeE(ptr noundef nonnull align 8 dereferenceable(8) %0) #9
+  store ptr %this1, ptr %this.addr.i, align 8
+  store ptr %call, ptr %args.addr.i, align 8
+  %this1.i = load ptr, ptr %this.addr.i, align 8
+  %mInvokeFuncPtr.i = getelementptr inbounds %"class.eastl::internal::function_detail.14", ptr %this1.i, i32 0, i32 2
+  %1 = load ptr, ptr %mInvokeFuncPtr.i, align 8
+  %2 = load ptr, ptr %args.addr.i, align 8
+  %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5eastl7forwardIRKPN20TestLruCacheInternal3FooEEEOT_RNS_16remove_referenceIS6_E4typeE(ptr noundef nonnull align 8 dereferenceable(8) %2) #9
+  call void %1(ptr noundef nonnull align 8 dereferenceable(8) %call.i, ptr noundef nonnull align 8 dereferenceable(16) %this1.i)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEppEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZN5eastl23hashtable_iterator_baseINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0EE9incrementEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
+  ret ptr %this1
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEC2EPPNS_9hash_nodeISB_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %pBucket) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %pBucket.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %pBucket, ptr %pBucket.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %pBucket.addr, align 8
+  %1 = load ptr, ptr %0, align 8
+  %2 = load ptr, ptr %pBucket.addr, align 8
+  call void @_ZN5eastl23hashtable_iterator_baseINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0EEC2EPNS_9hash_nodeISB_Lb0EEEPSF_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %1, ptr noundef %2)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl23hashtable_iterator_baseINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0EE16increment_bucketEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mpBucket = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.41", ptr %this1, i32 0, i32 1
+  %0 = load ptr, ptr %mpBucket, align 8
+  %incdec.ptr = getelementptr inbounds ptr, ptr %0, i32 1
+  store ptr %incdec.ptr, ptr %mpBucket, align 8
+  br label %while.cond
+
+while.cond:                                       ; preds = %while.body, %entry
+  %mpBucket2 = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.41", ptr %this1, i32 0, i32 1
+  %1 = load ptr, ptr %mpBucket2, align 8
+  %2 = load ptr, ptr %1, align 8
+  %cmp = icmp eq ptr %2, null
+  br i1 %cmp, label %while.body, label %while.end
+
+while.body:                                       ; preds = %while.cond
+  %mpBucket3 = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.41", ptr %this1, i32 0, i32 1
+  %3 = load ptr, ptr %mpBucket3, align 8
+  %incdec.ptr4 = getelementptr inbounds ptr, ptr %3, i32 1
+  store ptr %incdec.ptr4, ptr %mpBucket3, align 8
+  br label %while.cond, !llvm.loop !19
+
+while.end:                                        ; preds = %while.cond
+  %mpBucket5 = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.41", ptr %this1, i32 0, i32 1
+  %4 = load ptr, ptr %mpBucket5, align 8
+  %5 = load ptr, ptr %4, align 8
+  %mpNode = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.41", ptr %this1, i32 0, i32 0
+  store ptr %5, ptr %mpNode, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl23hashtable_iterator_baseINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0EEC2EPNS_9hash_nodeISB_Lb0EEEPSF_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %pNode, ptr noundef %pBucket) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %pNode.addr = alloca ptr, align 8
+  %pBucket.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %pNode, ptr %pNode.addr, align 8
+  store ptr %pBucket, ptr %pBucket.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mpNode = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.41", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %pNode.addr, align 8
+  store ptr %0, ptr %mpNode, align 8
+  %mpBucket = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.41", ptr %this1, i32 0, i32 1
+  %1 = load ptr, ptr %pBucket.addr, align 8
+  store ptr %1, ptr %mpBucket, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK5eastl8internal15function_detailILi16EFvRKPN20TestLruCacheInternal3FooEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef zeroext i1 @_ZNK5eastl8internal15function_detailILi16EFvRKPN20TestLruCacheInternal3FooEEE11HaveManagerEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #9
+  ret i1 %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl23hashtable_iterator_baseINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0EE9incrementEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mpNode = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.41", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %mpNode, align 8
+  %mpNext = getelementptr inbounds %"struct.eastl::hash_node.37", ptr %0, i32 0, i32 1
+  %1 = load ptr, ptr %mpNext, align 8
+  %mpNode2 = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.41", ptr %this1, i32 0, i32 0
+  store ptr %1, ptr %mpNode2, align 8
+  br label %while.cond
+
+while.cond:                                       ; preds = %while.body, %entry
+  %mpNode3 = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.41", ptr %this1, i32 0, i32 0
+  %2 = load ptr, ptr %mpNode3, align 8
+  %cmp = icmp eq ptr %2, null
+  br i1 %cmp, label %while.body, label %while.end
+
+while.body:                                       ; preds = %while.cond
+  %mpBucket = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.41", ptr %this1, i32 0, i32 1
+  %3 = load ptr, ptr %mpBucket, align 8
+  %incdec.ptr = getelementptr inbounds ptr, ptr %3, i32 1
+  store ptr %incdec.ptr, ptr %mpBucket, align 8
+  %4 = load ptr, ptr %incdec.ptr, align 8
+  %mpNode4 = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.41", ptr %this1, i32 0, i32 0
+  store ptr %4, ptr %mpNode4, align 8
+  br label %while.cond, !llvm.loop !20
+
+while.end:                                        ; preds = %while.cond
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE3getERKi(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 4 dereferenceable(4) %k) #0 comdat align 2 {
+entry:
+  %retval = alloca ptr, align 8
+  %this.addr = alloca ptr, align 8
+  %k.addr = alloca ptr, align 8
+  %iter = alloca %"struct.eastl::hashtable_iterator.40", align 8
+  %ref.tmp = alloca %"struct.eastl::hashtable_iterator.40", align 8
+  %ref.tmp5 = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %k, ptr %k.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_map = getelementptr inbounds %"class.eastl::lru_cache.3", ptr %this1, i32 0, i32 1
+  %0 = load ptr, ptr %k.addr, align 8
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_(ptr sret(%"struct.eastl::hashtable_iterator.40") align 8 %iter, ptr noundef nonnull align 8 dereferenceable(45) %m_map, ptr noundef nonnull align 4 dereferenceable(4) %0)
+  %m_map2 = getelementptr inbounds %"class.eastl::lru_cache.3", ptr %this1, i32 0, i32 1
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv(ptr sret(%"struct.eastl::hashtable_iterator.40") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(45) %m_map2) #9
+  %call = call noundef zeroext i1 @_ZN5eastlneINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0EEEbRKNS_23hashtable_iterator_baseIT_XT0_EEESG_(ptr noundef nonnull align 8 dereferenceable(16) %iter, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
+  br i1 %call, label %if.then, label %if.else
+
+if.then:                                          ; preds = %entry
+  %1 = load ptr, ptr %k.addr, align 8
+  %call3 = call noundef zeroext i1 @_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE5touchERKi(ptr noundef nonnull align 8 dereferenceable(144) %this1, ptr noundef nonnull align 4 dereferenceable(4) %1)
+  %call4 = call noundef ptr @_ZNK5eastl18hashtable_iteratorINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEptEv(ptr noundef nonnull align 8 dereferenceable(16) %iter)
+  %second = getelementptr inbounds %"struct.eastl::pair.38", ptr %call4, i32 0, i32 1
+  %first = getelementptr inbounds %"struct.eastl::pair.39", ptr %second, i32 0, i32 0
+  store ptr %first, ptr %retval, align 8
+  br label %return
+
+if.else:                                          ; preds = %entry
+  %2 = load ptr, ptr %k.addr, align 8
+  %m_create_callback = getelementptr inbounds %"class.eastl::lru_cache.3", ptr %this1, i32 0, i32 3
+  %call6 = call noundef zeroext i1 @_ZNK5eastl8functionIFPN20TestLruCacheInternal3FooEiEEcvbEv(ptr noundef nonnull align 8 dereferenceable(32) %m_create_callback) #9
+  br i1 %call6, label %cond.true, label %cond.false
+
+cond.true:                                        ; preds = %if.else
+  %m_create_callback7 = getelementptr inbounds %"class.eastl::lru_cache.3", ptr %this1, i32 0, i32 3
+  %3 = load ptr, ptr %k.addr, align 8
+  %4 = load i32, ptr %3, align 4
+  %call8 = call noundef ptr @_ZNK5eastl8functionIFPN20TestLruCacheInternal3FooEiEEclEi(ptr noundef nonnull align 8 dereferenceable(32) %m_create_callback7, i32 noundef %4)
+  br label %cond.end
+
+cond.false:                                       ; preds = %if.else
+  br label %cond.end
+
+cond.end:                                         ; preds = %cond.false, %cond.true
+  %cond = phi ptr [ %call8, %cond.true ], [ null, %cond.false ]
+  store ptr %cond, ptr %ref.tmp5, align 8
+  %call9 = call noundef zeroext i1 @_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE6insertERKiRKS3_(ptr noundef nonnull align 8 dereferenceable(144) %this1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp5)
+  %m_map10 = getelementptr inbounds %"class.eastl::lru_cache.3", ptr %this1, i32 0, i32 1
+  %5 = load ptr, ptr %k.addr, align 8
+  %call11 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl8hash_mapIiNS_4pairIPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEENS_9allocatorELb0EEixERKi(ptr noundef nonnull align 8 dereferenceable(45) %m_map10, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %first12 = getelementptr inbounds %"struct.eastl::pair.39", ptr %call11, i32 0, i32 0
+  store ptr %first12, ptr %retval, align 8
+  br label %return
+
+return:                                           ; preds = %cond.end, %if.then
+  %6 = load ptr, ptr %retval, align 8
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_(ptr noalias sret(%"struct.eastl::hashtable_iterator.40") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 4 dereferenceable(4) %k) #0 comdat align 2 {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %this.addr = alloca ptr, align 8
+  %k.addr = alloca ptr, align 8
+  %c = alloca i64, align 8
+  %n = alloca i64, align 8
+  %pNode = alloca ptr, align 8
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %k, ptr %k.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %k.addr, align 8
+  %call = call noundef i64 @_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS2_(ptr noundef nonnull align 1 dereferenceable(4) %this1, ptr noundef nonnull align 4 dereferenceable(4) %0)
+  store i64 %call, ptr %c, align 8
+  %1 = load ptr, ptr %k.addr, align 8
+  %2 = load i64, ptr %c, align 8
+  %mnBucketCount = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 3
+  %3 = load i64, ptr %mnBucketCount, align 8
+  %conv = trunc i64 %3 to i32
+  %call2 = call noundef i32 @_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE12bucket_indexERS2_mj(ptr noundef nonnull align 1 dereferenceable(4) %this1, ptr noundef nonnull align 4 dereferenceable(4) %1, i64 noundef %2, i32 noundef %conv)
+  %conv3 = zext i32 %call2 to i64
+  store i64 %conv3, ptr %n, align 8
+  %mpBucketArray = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 2
+  %4 = load ptr, ptr %mpBucketArray, align 8
+  %5 = load i64, ptr %n, align 8
+  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %5
+  %6 = load ptr, ptr %arrayidx, align 8
+  %7 = load ptr, ptr %k.addr, align 8
+  %8 = load i64, ptr %c, align 8
+  %call4 = call noundef ptr @_ZNK5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFindNodeEPNS_9hash_nodeISB_Lb0EEERS2_m(ptr noundef nonnull align 8 dereferenceable(45) %this1, ptr noundef %6, ptr noundef nonnull align 4 dereferenceable(4) %7, i64 noundef %8)
+  store ptr %call4, ptr %pNode, align 8
+  %9 = load ptr, ptr %pNode, align 8
+  %tobool = icmp ne ptr %9, null
+  br i1 %tobool, label %cond.true, label %cond.false
+
+cond.true:                                        ; preds = %entry
+  %10 = load ptr, ptr %pNode, align 8
+  %mpBucketArray5 = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 2
+  %11 = load ptr, ptr %mpBucketArray5, align 8
+  %12 = load i64, ptr %n, align 8
+  %add.ptr = getelementptr inbounds ptr, ptr %11, i64 %12
+  call void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEC2EPNS_9hash_nodeISB_Lb0EEEPSF_(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef %10, ptr noundef %add.ptr)
+  br label %cond.end
+
+cond.false:                                       ; preds = %entry
+  %mpBucketArray6 = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 2
+  %13 = load ptr, ptr %mpBucketArray6, align 8
+  %mnBucketCount7 = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 3
+  %14 = load i64, ptr %mnBucketCount7, align 8
+  %add.ptr8 = getelementptr inbounds ptr, ptr %13, i64 %14
+  call void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEC2EPPNS_9hash_nodeISB_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef %add.ptr8)
+  br label %cond.end
+
+cond.end:                                         ; preds = %cond.false, %cond.true
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE5touchERKi(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 4 dereferenceable(4) %k) #0 comdat align 2 {
+entry:
+  %retval = alloca i1, align 1
+  %this.addr = alloca ptr, align 8
+  %k.addr = alloca ptr, align 8
+  %iter = alloca %"struct.eastl::hashtable_iterator.40", align 8
+  %ref.tmp = alloca %"struct.eastl::hashtable_iterator.40", align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %k, ptr %k.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_map = getelementptr inbounds %"class.eastl::lru_cache.3", ptr %this1, i32 0, i32 1
+  %0 = load ptr, ptr %k.addr, align 8
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_(ptr sret(%"struct.eastl::hashtable_iterator.40") align 8 %iter, ptr noundef nonnull align 8 dereferenceable(45) %m_map, ptr noundef nonnull align 4 dereferenceable(4) %0)
+  %m_map2 = getelementptr inbounds %"class.eastl::lru_cache.3", ptr %this1, i32 0, i32 1
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv(ptr sret(%"struct.eastl::hashtable_iterator.40") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(45) %m_map2) #9
+  %call = call noundef zeroext i1 @_ZN5eastlneINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0EEEbRKNS_23hashtable_iterator_baseIT_XT0_EEESG_(ptr noundef nonnull align 8 dereferenceable(16) %iter, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
+  br i1 %call, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  call void @_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE5touchERNS_18hashtable_iteratorINS8_IKiSD_EELb0ELb0EEE(ptr noundef nonnull align 8 dereferenceable(144) %this1, ptr noundef nonnull align 8 dereferenceable(16) %iter)
+  store i1 true, ptr %retval, align 1
+  br label %return
+
+if.end:                                           ; preds = %entry
+  store i1 false, ptr %retval, align 1
+  br label %return
+
+return:                                           ; preds = %if.end, %if.then
+  %1 = load i1, ptr %retval, align 1
+  ret i1 %1
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZNK5eastl18hashtable_iteratorINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEptEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mpNode = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.41", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %mpNode, align 8
+  %mValue = getelementptr inbounds %"struct.eastl::hash_node.37", ptr %0, i32 0, i32 0
+  ret ptr %mValue
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE6insertERKiRKS3_(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 4 dereferenceable(4) %k, ptr noundef nonnull align 8 dereferenceable(8) %v) #0 comdat align 2 {
+entry:
+  %retval = alloca i1, align 1
+  %this.addr = alloca ptr, align 8
+  %k.addr = alloca ptr, align 8
+  %v.addr = alloca ptr, align 8
+  %ref.tmp = alloca %"struct.eastl::hashtable_iterator.40", align 8
+  %ref.tmp2 = alloca %"struct.eastl::hashtable_iterator.40", align 8
+  %ref.tmp4 = alloca %"struct.eastl::pair.39", align 8
+  %ref.tmp5 = alloca %"struct.eastl::ListIterator", align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %k, ptr %k.addr, align 8
+  store ptr %v, ptr %v.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_map = getelementptr inbounds %"class.eastl::lru_cache.3", ptr %this1, i32 0, i32 1
+  %0 = load ptr, ptr %k.addr, align 8
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_(ptr sret(%"struct.eastl::hashtable_iterator.40") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(45) %m_map, ptr noundef nonnull align 4 dereferenceable(4) %0)
+  %m_map3 = getelementptr inbounds %"class.eastl::lru_cache.3", ptr %this1, i32 0, i32 1
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv(ptr sret(%"struct.eastl::hashtable_iterator.40") align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(45) %m_map3) #9
+  %call = call noundef zeroext i1 @_ZN5eastleqINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0EEEbRKNS_23hashtable_iterator_baseIT_XT0_EEESG_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2)
+  br i1 %call, label %if.then, label %if.else
+
+if.then:                                          ; preds = %entry
+  call void @_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE10make_spaceEv(ptr noundef nonnull align 8 dereferenceable(144) %this1)
+  %m_list = getelementptr inbounds %"class.eastl::lru_cache.3", ptr %this1, i32 0, i32 0
+  %1 = load ptr, ptr %k.addr, align 8
+  call void @_ZN5eastl4listIiNS_9allocatorEE10push_frontERKi(ptr noundef nonnull align 8 dereferenceable(24) %m_list, ptr noundef nonnull align 4 dereferenceable(4) %1)
+  %2 = load ptr, ptr %v.addr, align 8
+  %m_list6 = getelementptr inbounds %"class.eastl::lru_cache.3", ptr %this1, i32 0, i32 0
+  call void @_ZN5eastl4listIiNS_9allocatorEE5beginEv(ptr sret(%"struct.eastl::ListIterator") align 8 %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(24) %m_list6) #9
+  call void @_ZN5eastl4pairIPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEC2IS7_vEERKS3_OT_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp5)
+  %m_map7 = getelementptr inbounds %"class.eastl::lru_cache.3", ptr %this1, i32 0, i32 1
+  %3 = load ptr, ptr %k.addr, align 8
+  %call8 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl8hash_mapIiNS_4pairIPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEENS_9allocatorELb0EEixERKi(ptr noundef nonnull align 8 dereferenceable(45) %m_map7, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call8, ptr align 8 %ref.tmp4, i64 16, i1 false)
+  store i1 true, ptr %retval, align 1
+  br label %return
+
+if.else:                                          ; preds = %entry
+  store i1 false, ptr %retval, align 1
+  br label %return
+
+return:                                           ; preds = %if.else, %if.then
+  %4 = load i1, ptr %retval, align 1
+  ret i1 %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK5eastl8functionIFPN20TestLruCacheInternal3FooEiEEcvbEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef zeroext i1 @_ZNK5eastl8internal15function_detailILi16EFPN20TestLruCacheInternal3FooEiEEcvbEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #9
+  ret i1 %call
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZNK5eastl8functionIFPN20TestLruCacheInternal3FooEiEEclEi(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %args) #0 comdat align 2 {
+entry:
+  %this.addr.i = alloca ptr, align 8
+  %args.addr.i = alloca i32, align 4
+  %this.addr = alloca ptr, align 8
+  %args.addr = alloca i32, align 4
+  store ptr %this, ptr %this.addr, align 8
+  store i32 %args, ptr %args.addr, align 4
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN5eastl7forwardIiEEOT_RNS_16remove_referenceIS1_E4typeE(ptr noundef nonnull align 4 dereferenceable(4) %args.addr) #9
+  %0 = load i32, ptr %call, align 4
+  store ptr %this1, ptr %this.addr.i, align 8
+  store i32 %0, ptr %args.addr.i, align 4
+  %this1.i = load ptr, ptr %this.addr.i, align 8
+  %mInvokeFuncPtr.i = getelementptr inbounds %"class.eastl::internal::function_detail.12", ptr %this1.i, i32 0, i32 2
+  %1 = load ptr, ptr %mInvokeFuncPtr.i, align 8
+  %call.i = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN5eastl7forwardIiEEOT_RNS_16remove_referenceIS1_E4typeE(ptr noundef nonnull align 4 dereferenceable(4) %args.addr.i) #9
+  %2 = load i32, ptr %call.i, align 4
+  %call2.i = call noundef ptr %1(i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %this1.i)
+  ret ptr %call2.i
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl8hash_mapIiNS_4pairIPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEENS_9allocatorELb0EEixERKi(ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 4 dereferenceable(4) %key) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %key.addr = alloca ptr, align 8
+  %ref.tmp = alloca %"struct.eastl::pair.43", align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %key, ptr %key.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %key.addr, align 8
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE11DoInsertKeyENS_17integral_constantIbLb1EEERS2_(ptr sret(%"struct.eastl::pair.43") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(45) %this1, ptr noundef nonnull align 4 dereferenceable(4) %0)
+  %first = getelementptr inbounds %"struct.eastl::pair.43", ptr %ref.tmp, i32 0, i32 0
+  %call = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5eastl18hashtable_iteratorINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEdeEv(ptr noundef nonnull align 8 dereferenceable(16) %first)
+  %second = getelementptr inbounds %"struct.eastl::pair.38", ptr %call, i32 0, i32 1
+  ret ptr %second
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i64 @_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS2_(ptr noundef nonnull align 1 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %key) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %key.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %key, ptr %key.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_h1 = getelementptr inbounds %"struct.eastl::hash_code_base.7", ptr %this1, i32 0, i32 2
+  %0 = load ptr, ptr %key.addr, align 8
+  %1 = load i32, ptr %0, align 4
+  %call = call noundef i64 @_ZNK5eastl4hashIiEclEi(ptr noundef nonnull align 1 dereferenceable(1) %m_h1, i32 noundef %1)
+  ret i64 %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE12bucket_indexERS2_mj(ptr noundef nonnull align 1 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %0, i64 noundef %c, i32 noundef %nBucketCount) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  %c.addr = alloca i64, align 8
+  %nBucketCount.addr = alloca i32, align 4
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  store i64 %c, ptr %c.addr, align 8
+  store i32 %nBucketCount, ptr %nBucketCount.addr, align 4
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_h2 = getelementptr inbounds %"struct.eastl::hash_code_base.7", ptr %this1, i32 0, i32 3
+  %1 = load i64, ptr %c.addr, align 8
+  %2 = load i32, ptr %nBucketCount.addr, align 4
+  %call = call noundef i32 @_ZNK5eastl17mod_range_hashingclEmj(ptr noundef nonnull align 1 dereferenceable(1) %m_h2, i64 noundef %1, i32 noundef %2)
+  ret i32 %call
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZNK5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFindNodeEPNS_9hash_nodeISB_Lb0EEERS2_m(ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef %pNode, ptr noundef nonnull align 4 dereferenceable(4) %k, i64 noundef %c) #0 comdat align 2 {
+entry:
+  %retval = alloca ptr, align 8
+  %this.addr = alloca ptr, align 8
+  %pNode.addr = alloca ptr, align 8
+  %k.addr = alloca ptr, align 8
+  %c.addr = alloca i64, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %pNode, ptr %pNode.addr, align 8
+  store ptr %k, ptr %k.addr, align 8
+  store i64 %c, ptr %c.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  br label %for.cond
+
+for.cond:                                         ; preds = %for.inc, %entry
+  %0 = load ptr, ptr %pNode.addr, align 8
+  %tobool = icmp ne ptr %0, null
+  br i1 %tobool, label %for.body, label %for.end
+
+for.body:                                         ; preds = %for.cond
+  %1 = load ptr, ptr %k.addr, align 8
+  %2 = load i64, ptr %c.addr, align 8
+  %3 = load ptr, ptr %pNode.addr, align 8
+  %call = call noundef zeroext i1 @_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS2_mPNS_9hash_nodeISB_Lb0EEE(ptr noundef nonnull align 1 dereferenceable(4) %this1, ptr noundef nonnull align 4 dereferenceable(4) %1, i64 noundef %2, ptr noundef %3)
+  br i1 %call, label %if.then, label %if.end
+
+if.then:                                          ; preds = %for.body
+  %4 = load ptr, ptr %pNode.addr, align 8
+  store ptr %4, ptr %retval, align 8
+  br label %return
+
+if.end:                                           ; preds = %for.body
+  br label %for.inc
+
+for.inc:                                          ; preds = %if.end
+  %5 = load ptr, ptr %pNode.addr, align 8
+  %mpNext = getelementptr inbounds %"struct.eastl::hash_node.37", ptr %5, i32 0, i32 1
+  %6 = load ptr, ptr %mpNext, align 8
+  store ptr %6, ptr %pNode.addr, align 8
+  br label %for.cond, !llvm.loop !21
+
+for.end:                                          ; preds = %for.cond
+  store ptr null, ptr %retval, align 8
+  br label %return
+
+return:                                           ; preds = %for.end, %if.then
+  %7 = load ptr, ptr %retval, align 8
+  ret ptr %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEC2EPNS_9hash_nodeISB_Lb0EEEPSF_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %pNode, ptr noundef %pBucket) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %pNode.addr = alloca ptr, align 8
+  %pBucket.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %pNode, ptr %pNode.addr, align 8
+  store ptr %pBucket, ptr %pBucket.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %pNode.addr, align 8
+  %1 = load ptr, ptr %pBucket.addr, align 8
+  call void @_ZN5eastl23hashtable_iterator_baseINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0EEC2EPNS_9hash_nodeISB_Lb0EEEPSF_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0, ptr noundef %1)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS2_mPNS_9hash_nodeISB_Lb0EEE(ptr noundef nonnull align 1 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %key, i64 noundef %0, ptr noundef %pNode) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %key.addr = alloca ptr, align 8
+  %.addr = alloca i64, align 8
+  %pNode.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %key, ptr %key.addr, align 8
+  store i64 %0, ptr %.addr, align 8
+  store ptr %pNode, ptr %pNode.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mEqual = getelementptr inbounds %"struct.eastl::hash_code_base.7", ptr %this1, i32 0, i32 1
+  %1 = load ptr, ptr %key.addr, align 8
+  %mExtractKey = getelementptr inbounds %"struct.eastl::hash_code_base.7", ptr %this1, i32 0, i32 0
+  %2 = load ptr, ptr %pNode.addr, align 8
+  %mValue = getelementptr inbounds %"struct.eastl::hash_node.37", ptr %2, i32 0, i32 0
+  %call = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK5eastl9use_firstINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEEEclERKSB_(ptr noundef nonnull align 1 dereferenceable(1) %mExtractKey, ptr noundef nonnull align 8 dereferenceable(24) %mValue)
+  %call2 = call noundef zeroext i1 @_ZNK5eastl8equal_toIiEclERKiS3_(ptr noundef nonnull align 1 dereferenceable(1) %mEqual, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %call)
+  ret i1 %call2
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(4) ptr @_ZNK5eastl9use_firstINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEEEclERKSB_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(24) %x) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %x.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %x, ptr %x.addr, align 8
+  %0 = load ptr, ptr %x.addr, align 8
+  %first = getelementptr inbounds %"struct.eastl::pair.38", ptr %0, i32 0, i32 0
+  ret ptr %first
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE5touchERNS_18hashtable_iteratorINS8_IKiSD_EELb0ELb0EEE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(16) %iter) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %iter.addr = alloca ptr, align 8
+  %listRef = alloca %"struct.eastl::ListIterator", align 8
+  %agg.tmp = alloca %"struct.eastl::ListIterator.36", align 8
+  %tmp = alloca %"struct.eastl::ListIterator", align 8
+  %ref.tmp = alloca %"struct.eastl::ListIterator", align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %iter, ptr %iter.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %iter.addr, align 8
+  %call = call noundef ptr @_ZNK5eastl18hashtable_iteratorINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEptEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %second = getelementptr inbounds %"struct.eastl::pair.38", ptr %call, i32 0, i32 1
+  %second2 = getelementptr inbounds %"struct.eastl::pair.39", ptr %second, i32 0, i32 1
+  call void @_ZN5eastl12ListIteratorIiPiRiEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %listRef, ptr noundef nonnull align 8 dereferenceable(8) %second2) #9
+  %m_list = getelementptr inbounds %"class.eastl::lru_cache.3", ptr %this1, i32 0, i32 0
+  call void @_ZN5eastl12ListIteratorIiPKiRS1_EC2ERKNS0_IiPiRiEE(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %listRef) #9
+  %coerce.dive = getelementptr inbounds %"struct.eastl::ListIterator.36", ptr %agg.tmp, i32 0, i32 0
+  %1 = load ptr, ptr %coerce.dive, align 8
+  call void @_ZN5eastl4listIiNS_9allocatorEE5eraseENS_12ListIteratorIiPKiRS4_EE(ptr sret(%"struct.eastl::ListIterator") align 8 %tmp, ptr noundef nonnull align 8 dereferenceable(24) %m_list, ptr %1)
+  %m_list3 = getelementptr inbounds %"class.eastl::lru_cache.3", ptr %this1, i32 0, i32 0
+  %2 = load ptr, ptr %iter.addr, align 8
+  %call4 = call noundef ptr @_ZNK5eastl18hashtable_iteratorINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEptEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
+  %first = getelementptr inbounds %"struct.eastl::pair.38", ptr %call4, i32 0, i32 0
+  call void @_ZN5eastl4listIiNS_9allocatorEE10push_frontERKi(ptr noundef nonnull align 8 dereferenceable(24) %m_list3, ptr noundef nonnull align 4 dereferenceable(4) %first)
+  %m_list5 = getelementptr inbounds %"class.eastl::lru_cache.3", ptr %this1, i32 0, i32 0
+  call void @_ZN5eastl4listIiNS_9allocatorEE5beginEv(ptr sret(%"struct.eastl::ListIterator") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %m_list5) #9
+  %3 = load ptr, ptr %iter.addr, align 8
+  %call6 = call noundef ptr @_ZNK5eastl18hashtable_iteratorINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEptEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %second7 = getelementptr inbounds %"struct.eastl::pair.38", ptr %call6, i32 0, i32 1
+  %second8 = getelementptr inbounds %"struct.eastl::pair.39", ptr %second7, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %second8, ptr align 8 %ref.tmp, i64 8, i1 false)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZN5eastleqINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0EEEbRKNS_23hashtable_iterator_baseIT_XT0_EEESG_(ptr noundef nonnull align 8 dereferenceable(16) %a, ptr noundef nonnull align 8 dereferenceable(16) %b) #1 comdat {
+entry:
+  %a.addr = alloca ptr, align 8
+  %b.addr = alloca ptr, align 8
+  store ptr %a, ptr %a.addr, align 8
+  store ptr %b, ptr %b.addr, align 8
+  %0 = load ptr, ptr %a.addr, align 8
+  %mpNode = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.41", ptr %0, i32 0, i32 0
+  %1 = load ptr, ptr %mpNode, align 8
+  %2 = load ptr, ptr %b.addr, align 8
+  %mpNode1 = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.41", ptr %2, i32 0, i32 0
+  %3 = load ptr, ptr %mpNode1, align 8
+  %cmp = icmp eq ptr %1, %3
+  ret i1 %cmp
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE10make_spaceEv(ptr noundef nonnull align 8 dereferenceable(144) %this) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef i64 @_ZNK5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %this1) #9
+  %m_capacity = getelementptr inbounds %"class.eastl::lru_cache.3", ptr %this1, i32 0, i32 2
+  %0 = load i64, ptr %m_capacity, align 8
+  %cmp = icmp eq i64 %call, %0
+  br i1 %cmp, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  call void @_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE12erase_oldestEv(ptr noundef nonnull align 8 dereferenceable(144) %this1)
+  br label %if.end
+
+if.end:                                           ; preds = %if.then, %entry
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl4pairIPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEC2IS7_vEERKS3_OT_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(8) %x, ptr noundef nonnull align 8 dereferenceable(8) %y) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %x.addr = alloca ptr, align 8
+  %y.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %x, ptr %x.addr, align 8
+  store ptr %y, ptr %y.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %first = getelementptr inbounds %"struct.eastl::pair.39", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %x.addr, align 8
+  %1 = load ptr, ptr %0, align 8
+  store ptr %1, ptr %first, align 8
+  %second = getelementptr inbounds %"struct.eastl::pair.39", ptr %this1, i32 0, i32 1
+  %2 = load ptr, ptr %y.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5eastl7forwardINS_12ListIteratorIiPiRiEEEEOT_RNS_16remove_referenceIS5_E4typeE(ptr noundef nonnull align 8 dereferenceable(8) %2) #9
+  call void @_ZN5eastl12ListIteratorIiPiRiEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %second, ptr noundef nonnull align 8 dereferenceable(8) %call) #9
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE12erase_oldestEv(ptr noundef nonnull align 8 dereferenceable(144) %this) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %key = alloca i32, align 4
+  %iter = alloca %"struct.eastl::hashtable_iterator.40", align 8
+  %agg.tmp = alloca %"struct.eastl::hashtable_iterator.40", align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_list = getelementptr inbounds %"class.eastl::lru_cache.3", ptr %this1, i32 0, i32 0
+  %call = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN5eastl4listIiNS_9allocatorEE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %m_list)
+  %0 = load i32, ptr %call, align 4
+  store i32 %0, ptr %key, align 4
+  %m_list2 = getelementptr inbounds %"class.eastl::lru_cache.3", ptr %this1, i32 0, i32 0
+  call void @_ZN5eastl4listIiNS_9allocatorEE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(24) %m_list2)
+  %m_map = getelementptr inbounds %"class.eastl::lru_cache.3", ptr %this1, i32 0, i32 1
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_(ptr sret(%"struct.eastl::hashtable_iterator.40") align 8 %iter, ptr noundef nonnull align 8 dereferenceable(45) %m_map, ptr noundef nonnull align 4 dereferenceable(4) %key)
+  call void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEC2ERKSC_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %iter)
+  call void @_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE9map_eraseENS_18hashtable_iteratorINS8_IKiSD_EELb0ELb0EEE(ptr noundef nonnull align 8 dereferenceable(144) %this1, ptr noundef %agg.tmp)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE9map_eraseENS_18hashtable_iteratorINS8_IKiSD_EELb0ELb0EEE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %pos) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %pos.indirect_addr = alloca ptr, align 8
+  %agg.tmp = alloca %"struct.eastl::hashtable_iterator.42", align 8
+  %tmp = alloca %"struct.eastl::hashtable_iterator.40", align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %pos, ptr %pos.indirect_addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_delete_callback = getelementptr inbounds %"class.eastl::lru_cache.3", ptr %this1, i32 0, i32 4
+  %call = call noundef zeroext i1 @_ZNK5eastl8functionIFvRKPN20TestLruCacheInternal3FooEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(32) %m_delete_callback) #9
+  br i1 %call, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %m_delete_callback2 = getelementptr inbounds %"class.eastl::lru_cache.3", ptr %this1, i32 0, i32 4
+  %call3 = call noundef ptr @_ZNK5eastl18hashtable_iteratorINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEptEv(ptr noundef nonnull align 8 dereferenceable(16) %pos)
+  %second = getelementptr inbounds %"struct.eastl::pair.38", ptr %call3, i32 0, i32 1
+  %first = getelementptr inbounds %"struct.eastl::pair.39", ptr %second, i32 0, i32 0
+  call void @_ZNK5eastl8functionIFvRKPN20TestLruCacheInternal3FooEEEclES5_(ptr noundef nonnull align 8 dereferenceable(32) %m_delete_callback2, ptr noundef nonnull align 8 dereferenceable(8) %first)
+  br label %if.end
+
+if.end:                                           ; preds = %if.then, %entry
+  %m_map = getelementptr inbounds %"class.eastl::lru_cache.3", ptr %this1, i32 0, i32 1
+  call void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb1ELb0EEC2ERKNS0_ISB_Lb0ELb0EEE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %pos)
+  %0 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp, i32 0, i32 0
+  %1 = load ptr, ptr %0, align 8
+  %2 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp, i32 0, i32 1
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorISB_Lb1ELb0EEE(ptr sret(%"struct.eastl::hashtable_iterator.40") align 8 %tmp, ptr noundef nonnull align 8 dereferenceable(45) %m_map, ptr %1, ptr %3)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEC2ERKSC_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %x) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %x.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %x, ptr %x.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %x.addr, align 8
+  %mpNode = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.41", ptr %0, i32 0, i32 0
+  %1 = load ptr, ptr %mpNode, align 8
+  %2 = load ptr, ptr %x.addr, align 8
+  %mpBucket = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.41", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %mpBucket, align 8
+  call void @_ZN5eastl23hashtable_iterator_baseINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0EEC2EPNS_9hash_nodeISB_Lb0EEEPSF_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %1, ptr noundef %3)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorISB_Lb1ELb0EEE(ptr noalias sret(%"struct.eastl::hashtable_iterator.40") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(45) %this, ptr %i.coerce0, ptr %i.coerce1) #0 comdat align 2 {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %i = alloca %"struct.eastl::hashtable_iterator.42", align 8
+  %this.addr = alloca ptr, align 8
+  %pNode = alloca ptr, align 8
+  %pNodeCurrent = alloca ptr, align 8
+  %pNodeNext = alloca ptr, align 8
+  store ptr %agg.result, ptr %result.ptr, align 8
+  %0 = getelementptr inbounds { ptr, ptr }, ptr %i, i32 0, i32 0
+  store ptr %i.coerce0, ptr %0, align 8
+  %1 = getelementptr inbounds { ptr, ptr }, ptr %i, i32 0, i32 1
+  store ptr %i.coerce1, ptr %1, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mpNode = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.41", ptr %i, i32 0, i32 0
+  %2 = load ptr, ptr %mpNode, align 8
+  %mpBucket = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.41", ptr %i, i32 0, i32 1
+  %3 = load ptr, ptr %mpBucket, align 8
+  call void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEC2EPNS_9hash_nodeISB_Lb0EEEPSF_(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef %2, ptr noundef %3)
+  %call = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEppEv(ptr noundef nonnull align 8 dereferenceable(16) %agg.result)
+  %mpNode2 = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.41", ptr %i, i32 0, i32 0
+  %4 = load ptr, ptr %mpNode2, align 8
+  store ptr %4, ptr %pNode, align 8
+  %mpBucket3 = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.41", ptr %i, i32 0, i32 1
+  %5 = load ptr, ptr %mpBucket3, align 8
+  %6 = load ptr, ptr %5, align 8
+  store ptr %6, ptr %pNodeCurrent, align 8
+  %7 = load ptr, ptr %pNodeCurrent, align 8
+  %8 = load ptr, ptr %pNode, align 8
+  %cmp = icmp eq ptr %7, %8
+  br i1 %cmp, label %if.then, label %if.else
+
+if.then:                                          ; preds = %entry
+  %9 = load ptr, ptr %pNodeCurrent, align 8
+  %mpNext = getelementptr inbounds %"struct.eastl::hash_node.37", ptr %9, i32 0, i32 1
+  %10 = load ptr, ptr %mpNext, align 8
+  %mpBucket4 = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.41", ptr %i, i32 0, i32 1
+  %11 = load ptr, ptr %mpBucket4, align 8
+  store ptr %10, ptr %11, align 8
+  br label %if.end
+
+if.else:                                          ; preds = %entry
+  %12 = load ptr, ptr %pNodeCurrent, align 8
+  %mpNext5 = getelementptr inbounds %"struct.eastl::hash_node.37", ptr %12, i32 0, i32 1
+  %13 = load ptr, ptr %mpNext5, align 8
+  store ptr %13, ptr %pNodeNext, align 8
+  br label %while.cond
+
+while.cond:                                       ; preds = %while.body, %if.else
+  %14 = load ptr, ptr %pNodeNext, align 8
+  %15 = load ptr, ptr %pNode, align 8
+  %cmp6 = icmp ne ptr %14, %15
+  br i1 %cmp6, label %while.body, label %while.end
+
+while.body:                                       ; preds = %while.cond
+  %16 = load ptr, ptr %pNodeNext, align 8
+  store ptr %16, ptr %pNodeCurrent, align 8
+  %17 = load ptr, ptr %pNodeCurrent, align 8
+  %mpNext7 = getelementptr inbounds %"struct.eastl::hash_node.37", ptr %17, i32 0, i32 1
+  %18 = load ptr, ptr %mpNext7, align 8
+  store ptr %18, ptr %pNodeNext, align 8
+  br label %while.cond, !llvm.loop !22
+
+while.end:                                        ; preds = %while.cond
+  %19 = load ptr, ptr %pNodeNext, align 8
+  %mpNext8 = getelementptr inbounds %"struct.eastl::hash_node.37", ptr %19, i32 0, i32 1
+  %20 = load ptr, ptr %mpNext8, align 8
+  %21 = load ptr, ptr %pNodeCurrent, align 8
+  %mpNext9 = getelementptr inbounds %"struct.eastl::hash_node.37", ptr %21, i32 0, i32 1
+  store ptr %20, ptr %mpNext9, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %while.end, %if.then
+  %22 = load ptr, ptr %pNode, align 8
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeISB_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(45) %this1, ptr noundef %22)
+  %mnElementCount = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 4
+  %23 = load i64, ptr %mnElementCount, align 8
+  %dec = add i64 %23, -1
+  store i64 %dec, ptr %mnElementCount, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb1ELb0EEC2ERKNS0_ISB_Lb0ELb0EEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %x) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %x.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %x, ptr %x.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %x.addr, align 8
+  %mpNode = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.41", ptr %0, i32 0, i32 0
+  %1 = load ptr, ptr %mpNode, align 8
+  %2 = load ptr, ptr %x.addr, align 8
+  %mpBucket = getelementptr inbounds %"struct.eastl::hashtable_iterator_base.41", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %mpBucket, align 8
+  call void @_ZN5eastl23hashtable_iterator_baseINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0EEC2EPNS_9hash_nodeISB_Lb0EEEPSF_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %1, ptr noundef %3)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK5eastl8internal15function_detailILi16EFPN20TestLruCacheInternal3FooEiEEcvbEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef zeroext i1 @_ZNK5eastl8internal15function_detailILi16EFPN20TestLruCacheInternal3FooEiEE11HaveManagerEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #9
+  ret i1 %call
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE11DoInsertKeyENS_17integral_constantIbLb1EEERS2_(ptr noalias sret(%"struct.eastl::pair.43") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 4 dereferenceable(4) %key) #0 comdat align 2 {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %this.addr = alloca ptr, align 8
+  %key.addr = alloca ptr, align 8
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %key, ptr %key.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %key.addr, align 8
+  %1 = load ptr, ptr %key.addr, align 8
+  %call = call noundef i64 @_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS2_(ptr noundef nonnull align 1 dereferenceable(4) %this1, ptr noundef nonnull align 4 dereferenceable(4) %1)
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE11DoInsertKeyENS_17integral_constantIbLb1EEERS2_m(ptr sret(%"struct.eastl::pair.43") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(45) %this1, ptr noundef nonnull align 4 dereferenceable(4) %0, i64 noundef %call)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE11DoInsertKeyENS_17integral_constantIbLb1EEERS2_m(ptr noalias sret(%"struct.eastl::pair.43") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 4 dereferenceable(4) %key, i64 noundef %c) #0 comdat align 2 {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %this.addr = alloca ptr, align 8
+  %key.addr = alloca ptr, align 8
+  %c.addr = alloca i64, align 8
+  %n = alloca i64, align 8
+  %pNode = alloca ptr, align 8
+  %bRehash = alloca %"struct.eastl::pair.35", align 4
+  %pNodeNew = alloca ptr, align 8
+  %ref.tmp = alloca %"struct.eastl::hashtable_iterator.40", align 8
+  %ref.tmp20 = alloca i8, align 1
+  %ref.tmp22 = alloca %"struct.eastl::hashtable_iterator.40", align 8
+  %ref.tmp25 = alloca i8, align 1
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %key, ptr %key.addr, align 8
+  store i64 %c, ptr %c.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %key.addr, align 8
+  %1 = load i64, ptr %c.addr, align 8
+  %mnBucketCount = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 3
+  %2 = load i64, ptr %mnBucketCount, align 8
+  %conv = trunc i64 %2 to i32
+  %call = call noundef i32 @_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE12bucket_indexERS2_mj(ptr noundef nonnull align 1 dereferenceable(4) %this1, ptr noundef nonnull align 4 dereferenceable(4) %0, i64 noundef %1, i32 noundef %conv)
+  %conv2 = zext i32 %call to i64
+  store i64 %conv2, ptr %n, align 8
+  %mpBucketArray = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 2
+  %3 = load ptr, ptr %mpBucketArray, align 8
+  %4 = load i64, ptr %n, align 8
+  %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
+  %5 = load ptr, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %key.addr, align 8
+  %7 = load i64, ptr %c.addr, align 8
+  %call3 = call noundef ptr @_ZNK5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFindNodeEPNS_9hash_nodeISB_Lb0EEERS2_m(ptr noundef nonnull align 8 dereferenceable(45) %this1, ptr noundef %5, ptr noundef nonnull align 4 dereferenceable(4) %6, i64 noundef %7)
+  store ptr %call3, ptr %pNode, align 8
+  %8 = load ptr, ptr %pNode, align 8
+  %cmp = icmp eq ptr %8, null
+  br i1 %cmp, label %if.then, label %if.end21
+
+if.then:                                          ; preds = %entry
+  %mRehashPolicy = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 5
+  %mnBucketCount4 = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 3
+  %9 = load i64, ptr %mnBucketCount4, align 8
+  %conv5 = trunc i64 %9 to i32
+  %mnElementCount = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 4
+  %10 = load i64, ptr %mnElementCount, align 8
+  %conv6 = trunc i64 %10 to i32
+  %call7 = call i64 @_ZNK5eastl19prime_rehash_policy17GetRehashRequiredEjjj(ptr noundef nonnull align 4 dereferenceable(12) %mRehashPolicy, i32 noundef %conv5, i32 noundef %conv6, i32 noundef 1)
+  store i64 %call7, ptr %bRehash, align 4
+  %11 = load ptr, ptr %key.addr, align 8
+  %call8 = call noundef ptr @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE21DoAllocateNodeFromKeyERS2_(ptr noundef nonnull align 8 dereferenceable(45) %this1, ptr noundef nonnull align 4 dereferenceable(4) %11)
+  store ptr %call8, ptr %pNodeNew, align 8
+  %12 = load ptr, ptr %pNodeNew, align 8
+  %13 = load i64, ptr %c.addr, align 8
+  call void @_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE8set_codeEPNS_9hash_nodeISB_Lb0EEEm(ptr noundef nonnull align 1 dereferenceable(4) %this1, ptr noundef %12, i64 noundef %13)
+  %first = getelementptr inbounds %"struct.eastl::pair.35", ptr %bRehash, i32 0, i32 0
+  %14 = load i8, ptr %first, align 4
+  %tobool = trunc i8 %14 to i1
+  br i1 %tobool, label %if.then9, label %if.end
+
+if.then9:                                         ; preds = %if.then
+  %15 = load ptr, ptr %key.addr, align 8
+  %16 = load i64, ptr %c.addr, align 8
+  %second = getelementptr inbounds %"struct.eastl::pair.35", ptr %bRehash, i32 0, i32 1
+  %17 = load i32, ptr %second, align 4
+  %call10 = call noundef i32 @_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE12bucket_indexERS2_mj(ptr noundef nonnull align 1 dereferenceable(4) %this1, ptr noundef nonnull align 4 dereferenceable(4) %15, i64 noundef %16, i32 noundef %17)
+  %conv11 = zext i32 %call10 to i64
+  store i64 %conv11, ptr %n, align 8
+  %second12 = getelementptr inbounds %"struct.eastl::pair.35", ptr %bRehash, i32 0, i32 1
+  %18 = load i32, ptr %second12, align 4
+  %conv13 = zext i32 %18 to i64
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE8DoRehashEm(ptr noundef nonnull align 8 dereferenceable(45) %this1, i64 noundef %conv13)
+  br label %if.end
+
+if.end:                                           ; preds = %if.then9, %if.then
+  %mpBucketArray14 = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 2
+  %19 = load ptr, ptr %mpBucketArray14, align 8
+  %20 = load i64, ptr %n, align 8
+  %arrayidx15 = getelementptr inbounds ptr, ptr %19, i64 %20
+  %21 = load ptr, ptr %arrayidx15, align 8
+  %22 = load ptr, ptr %pNodeNew, align 8
+  %mpNext = getelementptr inbounds %"struct.eastl::hash_node.37", ptr %22, i32 0, i32 1
+  store ptr %21, ptr %mpNext, align 8
+  %23 = load ptr, ptr %pNodeNew, align 8
+  %mpBucketArray16 = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 2
+  %24 = load ptr, ptr %mpBucketArray16, align 8
+  %25 = load i64, ptr %n, align 8
+  %arrayidx17 = getelementptr inbounds ptr, ptr %24, i64 %25
+  store ptr %23, ptr %arrayidx17, align 8
+  %mnElementCount18 = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 4
+  %26 = load i64, ptr %mnElementCount18, align 8
+  %inc = add i64 %26, 1
+  store i64 %inc, ptr %mnElementCount18, align 8
+  %27 = load ptr, ptr %pNodeNew, align 8
+  %mpBucketArray19 = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 2
+  %28 = load ptr, ptr %mpBucketArray19, align 8
+  %29 = load i64, ptr %n, align 8
+  %add.ptr = getelementptr inbounds ptr, ptr %28, i64 %29
+  call void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEC2EPNS_9hash_nodeISB_Lb0EEEPSF_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %27, ptr noundef %add.ptr)
+  store i8 1, ptr %ref.tmp20, align 1
+  call void @_ZN5eastl4pairINS_18hashtable_iteratorINS0_IKiNS0_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEEbEC2ISC_bvEEOT_OT0_(ptr noundef nonnull align 8 dereferenceable(17) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp20)
+  br label %return
+
+if.end21:                                         ; preds = %entry
+  %30 = load ptr, ptr %pNode, align 8
+  %mpBucketArray23 = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 2
+  %31 = load ptr, ptr %mpBucketArray23, align 8
+  %32 = load i64, ptr %n, align 8
+  %add.ptr24 = getelementptr inbounds ptr, ptr %31, i64 %32
+  call void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEC2EPNS_9hash_nodeISB_Lb0EEEPSF_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp22, ptr noundef %30, ptr noundef %add.ptr24)
+  store i8 0, ptr %ref.tmp25, align 1
+  call void @_ZN5eastl4pairINS_18hashtable_iteratorINS0_IKiNS0_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEEbEC2ISC_bvEEOT_OT0_(ptr noundef nonnull align 8 dereferenceable(17) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp22, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp25)
+  br label %return
+
+return:                                           ; preds = %if.end21, %if.end
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE21DoAllocateNodeFromKeyERS2_(ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 4 dereferenceable(4) %key) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %key.addr = alloca ptr, align 8
+  %pNode = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %key, ptr %key.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mAllocator = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 6
+  %call = call noundef ptr @_ZN5eastl15allocate_memoryINS_9allocatorEEEPvRT_mmm(ptr noundef nonnull align 1 dereferenceable(1) %mAllocator, i64 noundef 32, i64 noundef 8, i64 noundef 0)
+  store ptr %call, ptr %pNode, align 8
+  %0 = load ptr, ptr %pNode, align 8
+  %mValue = getelementptr inbounds %"struct.eastl::hash_node.37", ptr %0, i32 0, i32 0
+  %call2 = call noundef ptr @_ZN5eastl9addressofINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEEEEPT_RSC_(ptr noundef nonnull align 8 dereferenceable(24) %mValue) #9
+  %1 = load ptr, ptr %key.addr, align 8
+  call void @_ZN5eastl4pairIKiNS0_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEC2IiS9_vEENS_22pair_first_construct_tERKT_(ptr noundef nonnull align 8 dereferenceable(24) %call2, ptr noundef nonnull align 4 dereferenceable(4) %1)
+  %2 = load ptr, ptr %pNode, align 8
+  %mpNext = getelementptr inbounds %"struct.eastl::hash_node.37", ptr %2, i32 0, i32 1
+  store ptr null, ptr %mpNext, align 8
+  %3 = load ptr, ptr %pNode, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE8set_codeEPNS_9hash_nodeISB_Lb0EEEm(ptr noundef nonnull align 1 dereferenceable(4) %this, ptr noundef %0, i64 noundef %1) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  %.addr1 = alloca i64, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  store i64 %1, ptr %.addr1, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE8DoRehashEm(ptr noundef nonnull align 8 dereferenceable(45) %this, i64 noundef %nNewBucketCount) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %nNewBucketCount.addr = alloca i64, align 8
+  %pBucketArray = alloca ptr, align 8
+  %pNode = alloca ptr, align 8
+  %i = alloca i64, align 8
+  %nNewBucketIndex = alloca i64, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store i64 %nNewBucketCount, ptr %nNewBucketCount.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load i64, ptr %nNewBucketCount.addr, align 8
+  %call = call noundef ptr @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm(ptr noundef nonnull align 8 dereferenceable(45) %this1, i64 noundef %0)
+  store ptr %call, ptr %pBucketArray, align 8
+  store i64 0, ptr %i, align 8
+  br label %for.cond
+
+for.cond:                                         ; preds = %for.inc, %entry
+  %1 = load i64, ptr %i, align 8
+  %mnBucketCount = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 3
+  %2 = load i64, ptr %mnBucketCount, align 8
+  %cmp = icmp ult i64 %1, %2
+  br i1 %cmp, label %for.body, label %for.end
+
+for.body:                                         ; preds = %for.cond
+  br label %while.cond
+
+while.cond:                                       ; preds = %while.body, %for.body
+  %mpBucketArray = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 2
+  %3 = load ptr, ptr %mpBucketArray, align 8
+  %4 = load i64, ptr %i, align 8
+  %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
+  %5 = load ptr, ptr %arrayidx, align 8
+  store ptr %5, ptr %pNode, align 8
+  %cmp2 = icmp ne ptr %5, null
+  br i1 %cmp2, label %while.body, label %while.end
+
+while.body:                                       ; preds = %while.cond
+  %6 = load ptr, ptr %pNode, align 8
+  %7 = load i64, ptr %nNewBucketCount.addr, align 8
+  %conv = trunc i64 %7 to i32
+  %call3 = call noundef i32 @_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE12bucket_indexEPKNS_9hash_nodeISB_Lb0EEEj(ptr noundef nonnull align 1 dereferenceable(4) %this1, ptr noundef %6, i32 noundef %conv)
+  %conv4 = zext i32 %call3 to i64
+  store i64 %conv4, ptr %nNewBucketIndex, align 8
+  %8 = load ptr, ptr %pNode, align 8
+  %mpNext = getelementptr inbounds %"struct.eastl::hash_node.37", ptr %8, i32 0, i32 1
+  %9 = load ptr, ptr %mpNext, align 8
+  %mpBucketArray5 = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 2
+  %10 = load ptr, ptr %mpBucketArray5, align 8
+  %11 = load i64, ptr %i, align 8
+  %arrayidx6 = getelementptr inbounds ptr, ptr %10, i64 %11
+  store ptr %9, ptr %arrayidx6, align 8
+  %12 = load ptr, ptr %pBucketArray, align 8
+  %13 = load i64, ptr %nNewBucketIndex, align 8
+  %arrayidx7 = getelementptr inbounds ptr, ptr %12, i64 %13
+  %14 = load ptr, ptr %arrayidx7, align 8
+  %15 = load ptr, ptr %pNode, align 8
+  %mpNext8 = getelementptr inbounds %"struct.eastl::hash_node.37", ptr %15, i32 0, i32 1
+  store ptr %14, ptr %mpNext8, align 8
+  %16 = load ptr, ptr %pNode, align 8
+  %17 = load ptr, ptr %pBucketArray, align 8
+  %18 = load i64, ptr %nNewBucketIndex, align 8
+  %arrayidx9 = getelementptr inbounds ptr, ptr %17, i64 %18
+  store ptr %16, ptr %arrayidx9, align 8
+  br label %while.cond, !llvm.loop !23
+
+while.end:                                        ; preds = %while.cond
+  br label %for.inc
+
+for.inc:                                          ; preds = %while.end
+  %19 = load i64, ptr %i, align 8
+  %inc = add i64 %19, 1
+  store i64 %inc, ptr %i, align 8
+  br label %for.cond, !llvm.loop !24
+
+for.end:                                          ; preds = %for.cond
+  %mpBucketArray10 = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 2
+  %20 = load ptr, ptr %mpBucketArray10, align 8
+  %mnBucketCount11 = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 3
+  %21 = load i64, ptr %mnBucketCount11, align 8
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeISB_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(45) %this1, ptr noundef %20, i64 noundef %21)
+  %22 = load i64, ptr %nNewBucketCount.addr, align 8
+  %mnBucketCount12 = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 3
+  store i64 %22, ptr %mnBucketCount12, align 8
+  %23 = load ptr, ptr %pBucketArray, align 8
+  %mpBucketArray13 = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 2
+  store ptr %23, ptr %mpBucketArray13, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl4pairINS_18hashtable_iteratorINS0_IKiNS0_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEEbEC2ISC_bvEEOT_OT0_(ptr noundef nonnull align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(16) %u, ptr noundef nonnull align 1 dereferenceable(1) %v) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %u.addr = alloca ptr, align 8
+  %v.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %u, ptr %u.addr, align 8
+  store ptr %v, ptr %v.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %first = getelementptr inbounds %"struct.eastl::pair.43", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %u.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl7forwardINS_18hashtable_iteratorINS_4pairIKiNS2_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEEEEOT_RNS_16remove_referenceISE_E4typeE(ptr noundef nonnull align 8 dereferenceable(16) %0) #9
+  call void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEC2ERKSC_(ptr noundef nonnull align 8 dereferenceable(16) %first, ptr noundef nonnull align 8 dereferenceable(16) %call)
+  %second = getelementptr inbounds %"struct.eastl::pair.43", ptr %this1, i32 0, i32 1
+  %1 = load ptr, ptr %v.addr, align 8
+  %call2 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl7forwardIbEEOT_RNS_16remove_referenceIS1_E4typeE(ptr noundef nonnull align 1 dereferenceable(1) %1) #9
+  %2 = load i8, ptr %call2, align 1
+  %tobool = trunc i8 %2 to i1
+  %frombool = zext i1 %tobool to i8
+  store i8 %frombool, ptr %second, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZN5eastl9addressofINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEEEEPT_RSC_(ptr noundef nonnull align 8 dereferenceable(24) %value) #1 comdat {
+entry:
+  %value.addr = alloca ptr, align 8
+  store ptr %value, ptr %value.addr, align 8
+  %0 = load ptr, ptr %value.addr, align 8
+  ret ptr %0
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl4pairIKiNS0_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEC2IiS9_vEENS_22pair_first_construct_tERKT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 4 dereferenceable(4) %x) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %x.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %x, ptr %x.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %first = getelementptr inbounds %"struct.eastl::pair.38", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %x.addr, align 8
+  %1 = load i32, ptr %0, align 4
+  store i32 %1, ptr %first, align 8
+  %second = getelementptr inbounds %"struct.eastl::pair.38", ptr %this1, i32 0, i32 1
+  call void @_ZN5eastl4pairIPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEC2IS3_S7_vEEv(ptr noundef nonnull align 8 dereferenceable(16) %second)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl4pairIPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEC2IS3_S7_vEEv(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %first = getelementptr inbounds %"struct.eastl::pair.39", ptr %this1, i32 0, i32 0
+  store ptr null, ptr %first, align 8
+  %second = getelementptr inbounds %"struct.eastl::pair.39", ptr %this1, i32 0, i32 1
+  call void @_ZN5eastl12ListIteratorIiPiRiEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %second) #9
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE12bucket_indexEPKNS_9hash_nodeISB_Lb0EEEj(ptr noundef nonnull align 1 dereferenceable(4) %this, ptr noundef %pNode, i32 noundef %nBucketCount) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %pNode.addr = alloca ptr, align 8
+  %nBucketCount.addr = alloca i32, align 4
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %pNode, ptr %pNode.addr, align 8
+  store i32 %nBucketCount, ptr %nBucketCount.addr, align 4
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_h2 = getelementptr inbounds %"struct.eastl::hash_code_base.7", ptr %this1, i32 0, i32 3
+  %m_h1 = getelementptr inbounds %"struct.eastl::hash_code_base.7", ptr %this1, i32 0, i32 2
+  %mExtractKey = getelementptr inbounds %"struct.eastl::hash_code_base.7", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %pNode.addr, align 8
+  %mValue = getelementptr inbounds %"struct.eastl::hash_node.37", ptr %0, i32 0, i32 0
+  %call = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK5eastl9use_firstINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEEEclERKSB_(ptr noundef nonnull align 1 dereferenceable(1) %mExtractKey, ptr noundef nonnull align 8 dereferenceable(24) %mValue)
+  %1 = load i32, ptr %call, align 4
+  %call2 = call noundef i64 @_ZNK5eastl4hashIiEclEi(ptr noundef nonnull align 1 dereferenceable(1) %m_h1, i32 noundef %1)
+  %2 = load i32, ptr %nBucketCount.addr, align 4
+  %call3 = call noundef i32 @_ZNK5eastl17mod_range_hashingclEmj(ptr noundef nonnull align 1 dereferenceable(1) %m_h2, i64 noundef %call2, i32 noundef %2)
+  ret i32 %call3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl7forwardINS_18hashtable_iteratorINS_4pairIKiNS2_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEEEEOT_RNS_16remove_referenceISE_E4typeE(ptr noundef nonnull align 8 dereferenceable(16) %x) #1 comdat {
+entry:
+  %x.addr = alloca ptr, align 8
+  store ptr %x, ptr %x.addr, align 8
+  %0 = load ptr, ptr %x.addr, align 8
+  ret ptr %0
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i64 @_ZNK5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(45) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mnElementCount = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 4
+  %0 = load i64, ptr %mnElementCount, align 8
+  ret i64 %0
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(45) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mnElementCount = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 4
+  %0 = load i64, ptr %mnElementCount, align 8
+  %cmp = icmp eq i64 %0, 0
+  ret i1 %cmp
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local { ptr, ptr } @_ZNK5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_(ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 4 dereferenceable(4) %k) #0 comdat align 2 {
+entry:
+  %retval = alloca %"struct.eastl::hashtable_iterator.42", align 8
+  %this.addr = alloca ptr, align 8
+  %k.addr = alloca ptr, align 8
+  %c = alloca i64, align 8
+  %n = alloca i64, align 8
+  %pNode = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %k, ptr %k.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %k.addr, align 8
+  %call = call noundef i64 @_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS2_(ptr noundef nonnull align 1 dereferenceable(4) %this1, ptr noundef nonnull align 4 dereferenceable(4) %0)
+  store i64 %call, ptr %c, align 8
+  %1 = load ptr, ptr %k.addr, align 8
+  %2 = load i64, ptr %c, align 8
+  %mnBucketCount = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 3
+  %3 = load i64, ptr %mnBucketCount, align 8
+  %conv = trunc i64 %3 to i32
+  %call2 = call noundef i32 @_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE12bucket_indexERS2_mj(ptr noundef nonnull align 1 dereferenceable(4) %this1, ptr noundef nonnull align 4 dereferenceable(4) %1, i64 noundef %2, i32 noundef %conv)
+  %conv3 = zext i32 %call2 to i64
+  store i64 %conv3, ptr %n, align 8
+  %mpBucketArray = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 2
+  %4 = load ptr, ptr %mpBucketArray, align 8
+  %5 = load i64, ptr %n, align 8
+  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %5
+  %6 = load ptr, ptr %arrayidx, align 8
+  %7 = load ptr, ptr %k.addr, align 8
+  %8 = load i64, ptr %c, align 8
+  %call4 = call noundef ptr @_ZNK5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFindNodeEPNS_9hash_nodeISB_Lb0EEERS2_m(ptr noundef nonnull align 8 dereferenceable(45) %this1, ptr noundef %6, ptr noundef nonnull align 4 dereferenceable(4) %7, i64 noundef %8)
+  store ptr %call4, ptr %pNode, align 8
+  %9 = load ptr, ptr %pNode, align 8
+  %tobool = icmp ne ptr %9, null
+  br i1 %tobool, label %cond.true, label %cond.false
+
+cond.true:                                        ; preds = %entry
+  %10 = load ptr, ptr %pNode, align 8
+  %mpBucketArray5 = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 2
+  %11 = load ptr, ptr %mpBucketArray5, align 8
+  %12 = load i64, ptr %n, align 8
+  %add.ptr = getelementptr inbounds ptr, ptr %11, i64 %12
+  call void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb1ELb0EEC2EPNS_9hash_nodeISB_Lb0EEEPSF_(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef %10, ptr noundef %add.ptr)
+  br label %cond.end
+
+cond.false:                                       ; preds = %entry
+  %mpBucketArray6 = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 2
+  %13 = load ptr, ptr %mpBucketArray6, align 8
+  %mnBucketCount7 = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 3
+  %14 = load i64, ptr %mnBucketCount7, align 8
+  %add.ptr8 = getelementptr inbounds ptr, ptr %13, i64 %14
+  call void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb1ELb0EEC2EPPNS_9hash_nodeISB_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef %add.ptr8)
+  br label %cond.end
+
+cond.end:                                         ; preds = %cond.false, %cond.true
+  %coerce.dive = getelementptr inbounds %"struct.eastl::hashtable_iterator.42", ptr %retval, i32 0, i32 0
+  %15 = load { ptr, ptr }, ptr %coerce.dive, align 8
+  ret { ptr, ptr } %15
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local { ptr, ptr } @_ZNK5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv(ptr noundef nonnull align 8 dereferenceable(45) %this) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %retval = alloca %"struct.eastl::hashtable_iterator.42", align 8
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mpBucketArray = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 2
+  %0 = load ptr, ptr %mpBucketArray, align 8
+  %mnBucketCount = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this1, i32 0, i32 3
+  %1 = load i64, ptr %mnBucketCount, align 8
+  %add.ptr = getelementptr inbounds ptr, ptr %0, i64 %1
+  invoke void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb1ELb0EEC2EPPNS_9hash_nodeISB_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef %add.ptr)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %entry
+  %coerce.dive = getelementptr inbounds %"struct.eastl::hashtable_iterator.42", ptr %retval, i32 0, i32 0
+  %2 = load { ptr, ptr }, ptr %coerce.dive, align 8
+  ret { ptr, ptr } %2
+
+terminate.lpad:                                   ; preds = %entry
+  %3 = landingpad { ptr, i32 }
+          catch ptr null
+  %4 = extractvalue { ptr, i32 } %3, 0
+  call void @__clang_call_terminate(ptr %4) #10
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb1ELb0EEC2EPNS_9hash_nodeISB_Lb0EEEPSF_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %pNode, ptr noundef %pBucket) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %pNode.addr = alloca ptr, align 8
+  %pBucket.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %pNode, ptr %pNode.addr, align 8
+  store ptr %pBucket, ptr %pBucket.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %pNode.addr, align 8
+  %1 = load ptr, ptr %pBucket.addr, align 8
+  call void @_ZN5eastl23hashtable_iterator_baseINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0EEC2EPNS_9hash_nodeISB_Lb0EEEPSF_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0, ptr noundef %1)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb1ELb0EEC2EPPNS_9hash_nodeISB_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %pBucket) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %pBucket.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %pBucket, ptr %pBucket.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %pBucket.addr, align 8
+  %1 = load ptr, ptr %0, align 8
+  %2 = load ptr, ptr %pBucket.addr, align 8
+  call void @_ZN5eastl23hashtable_iterator_baseINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0EEC2EPNS_9hash_nodeISB_Lb0EEEPSF_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %1, ptr noundef %2)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE6assignERNS_18hashtable_iteratorINS8_IKiSD_EELb0ELb0EEERKS3_(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(16) %iter, ptr noundef nonnull align 8 dereferenceable(8) %v) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %iter.addr = alloca ptr, align 8
+  %v.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %iter, ptr %iter.addr, align 8
+  store ptr %v, ptr %v.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_delete_callback = getelementptr inbounds %"class.eastl::lru_cache.3", ptr %this1, i32 0, i32 4
+  %call = call noundef zeroext i1 @_ZNK5eastl8functionIFvRKPN20TestLruCacheInternal3FooEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(32) %m_delete_callback) #9
+  br i1 %call, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %m_delete_callback2 = getelementptr inbounds %"class.eastl::lru_cache.3", ptr %this1, i32 0, i32 4
+  %0 = load ptr, ptr %iter.addr, align 8
+  %call3 = call noundef ptr @_ZNK5eastl18hashtable_iteratorINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEptEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %second = getelementptr inbounds %"struct.eastl::pair.38", ptr %call3, i32 0, i32 1
+  %first = getelementptr inbounds %"struct.eastl::pair.39", ptr %second, i32 0, i32 0
+  call void @_ZNK5eastl8functionIFvRKPN20TestLruCacheInternal3FooEEEclES5_(ptr noundef nonnull align 8 dereferenceable(32) %m_delete_callback2, ptr noundef nonnull align 8 dereferenceable(8) %first)
+  br label %if.end
+
+if.end:                                           ; preds = %if.then, %entry
+  %1 = load ptr, ptr %iter.addr, align 8
+  call void @_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE5touchERNS_18hashtable_iteratorINS8_IKiSD_EELb0ELb0EEE(ptr noundef nonnull align 8 dereferenceable(144) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %2 = load ptr, ptr %v.addr, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = load ptr, ptr %iter.addr, align 8
+  %call4 = call noundef ptr @_ZNK5eastl18hashtable_iteratorINS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEELb0ELb0EEptEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
+  %second5 = getelementptr inbounds %"struct.eastl::pair.38", ptr %call4, i32 0, i32 1
+  %first6 = getelementptr inbounds %"struct.eastl::pair.39", ptr %second5, i32 0, i32 0
+  store ptr %3, ptr %first6, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl8internal15function_detailILi16EFiiEEC2EDn(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr %0) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mMgrFuncPtr = getelementptr inbounds %"class.eastl::internal::function_detail.24", ptr %this1, i32 0, i32 1
+  store ptr null, ptr %mMgrFuncPtr, align 8
+  %mInvokeFuncPtr = getelementptr inbounds %"class.eastl::internal::function_detail.24", ptr %this1, i32 0, i32 2
+  store ptr @_ZN5eastl8internal15function_detailILi16EFiiEE14DefaultInvokerEiRKNS0_15functor_storageILi16EEE, ptr %mInvokeFuncPtr, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZN5eastl8internal15function_detailILi16EFiiEE14DefaultInvokerEiRKNS0_15functor_storageILi16EEE(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #1 comdat align 2 {
+entry:
+  %.addr = alloca i32, align 4
+  %.addr1 = alloca ptr, align 8
+  store i32 %0, ptr %.addr, align 4
+  store ptr %1, ptr %.addr1, align 8
+  call void @llvm.trap()
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl8internal15function_detailILi16EFvRKiEEC2EDn(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr %0) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mMgrFuncPtr = getelementptr inbounds %"class.eastl::internal::function_detail.26", ptr %this1, i32 0, i32 1
+  store ptr null, ptr %mMgrFuncPtr, align 8
+  %mInvokeFuncPtr = getelementptr inbounds %"class.eastl::internal::function_detail.26", ptr %this1, i32 0, i32 2
+  store ptr @_ZN5eastl8internal15function_detailILi16EFvRKiEE14DefaultInvokerES3_RKNS0_15functor_storageILi16EEE, ptr %mInvokeFuncPtr, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl8internal15function_detailILi16EFvRKiEE14DefaultInvokerES3_RKNS0_15functor_storageILi16EEE(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #1 comdat align 2 {
+entry:
+  %.addr = alloca ptr, align 8
+  %.addr1 = alloca ptr, align 8
+  store ptr %0, ptr %.addr, align 8
+  store ptr %1, ptr %.addr1, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEENS_9allocatorELb0EEC2ERKSB_(ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 1 dereferenceable(1) %allocator) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %allocator.addr = alloca ptr, align 8
+  %ref.tmp = alloca %"struct.eastl::hash", align 1
+  %ref.tmp2 = alloca %"struct.eastl::mod_range_hashing", align 1
+  %ref.tmp3 = alloca %"struct.eastl::default_ranged_hash", align 1
+  %ref.tmp4 = alloca %"struct.eastl::equal_to", align 1
+  %ref.tmp5 = alloca %"struct.eastl::use_first.20", align 1
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %allocator, ptr %allocator.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %allocator.addr, align 8
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EEC2EmRKSF_RKSG_RKSH_RKSD_RKSB_RKS9_(ptr noundef nonnull align 8 dereferenceable(45) %this1, i64 noundef 0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5, ptr noundef nonnull align 1 dereferenceable(1) %0)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl8functionIFiiEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %other) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %other.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %other, ptr %other.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %other.addr, align 8
+  call void @_ZN5eastl8internal15function_detailILi16EFiiEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl8functionIFvRKiEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %other) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %other.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %other, ptr %other.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %other.addr, align 8
+  call void @_ZN5eastl8internal15function_detailILi16EFvRKiEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEENS_9allocatorELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(45) %this) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(45) %this1) #9
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EEC2EmRKSF_RKSG_RKSH_RKSD_RKSB_RKS9_(ptr noundef nonnull align 8 dereferenceable(45) %this, i64 noundef %nBucketCount, ptr noundef nonnull align 1 dereferenceable(1) %h1, ptr noundef nonnull align 1 dereferenceable(1) %h2, ptr noundef nonnull align 1 dereferenceable(1) %h, ptr noundef nonnull align 1 dereferenceable(1) %eq, ptr noundef nonnull align 1 dereferenceable(1) %ek, ptr noundef nonnull align 1 dereferenceable(1) %allocator) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %nBucketCount.addr = alloca i64, align 8
+  %h1.addr = alloca ptr, align 8
+  %h2.addr = alloca ptr, align 8
+  %h.addr = alloca ptr, align 8
+  %eq.addr = alloca ptr, align 8
+  %ek.addr = alloca ptr, align 8
+  %allocator.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store i64 %nBucketCount, ptr %nBucketCount.addr, align 8
+  store ptr %h1, ptr %h1.addr, align 8
+  store ptr %h2, ptr %h2.addr, align 8
+  store ptr %h, ptr %h.addr, align 8
+  store ptr %eq, ptr %eq.addr, align 8
+  store ptr %ek, ptr %ek.addr, align 8
+  store ptr %allocator, ptr %allocator.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %ek.addr, align 8
+  %1 = load ptr, ptr %eq.addr, align 8
+  %2 = load ptr, ptr %h1.addr, align 8
+  %3 = load ptr, ptr %h2.addr, align 8
+  %4 = load ptr, ptr %h.addr, align 8
+  call void @_ZN5eastl14hash_code_baseIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EEC2ERKSA_RKSC_RKSE_RKSF_RKSG_(ptr noundef nonnull align 1 dereferenceable(4) %this1, ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  %mnBucketCount = getelementptr inbounds %"class.eastl::hashtable.17", ptr %this1, i32 0, i32 3
+  store i64 0, ptr %mnBucketCount, align 8
+  %mnElementCount = getelementptr inbounds %"class.eastl::hashtable.17", ptr %this1, i32 0, i32 4
+  store i64 0, ptr %mnElementCount, align 8
+  %mRehashPolicy = getelementptr inbounds %"class.eastl::hashtable.17", ptr %this1, i32 0, i32 5
+  call void @_ZN5eastl19prime_rehash_policyC2Ef(ptr noundef nonnull align 4 dereferenceable(12) %mRehashPolicy, float noundef 1.000000e+00)
+  %mAllocator = getelementptr inbounds %"class.eastl::hashtable.17", ptr %this1, i32 0, i32 6
+  %5 = load ptr, ptr %allocator.addr, align 8
+  call void @_ZN5eastl9allocatorC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %mAllocator, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  %6 = load i64, ptr %nBucketCount.addr, align 8
+  %cmp = icmp ult i64 %6, 2
+  br i1 %cmp, label %if.then, label %if.else
+
+if.then:                                          ; preds = %entry
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17reset_lose_memoryEv(ptr noundef nonnull align 8 dereferenceable(45) %this1) #9
+  br label %if.end
+
+if.else:                                          ; preds = %entry
+  %mRehashPolicy2 = getelementptr inbounds %"class.eastl::hashtable.17", ptr %this1, i32 0, i32 5
+  %7 = load i64, ptr %nBucketCount.addr, align 8
+  %conv = trunc i64 %7 to i32
+  %call = call noundef i32 @_ZNK5eastl19prime_rehash_policy18GetNextBucketCountEj(ptr noundef nonnull align 4 dereferenceable(12) %mRehashPolicy2, i32 noundef %conv)
+  %conv3 = zext i32 %call to i64
+  %mnBucketCount4 = getelementptr inbounds %"class.eastl::hashtable.17", ptr %this1, i32 0, i32 3
+  store i64 %conv3, ptr %mnBucketCount4, align 8
+  %mnBucketCount5 = getelementptr inbounds %"class.eastl::hashtable.17", ptr %this1, i32 0, i32 3
+  %8 = load i64, ptr %mnBucketCount5, align 8
+  %call6 = call noundef ptr @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm(ptr noundef nonnull align 8 dereferenceable(45) %this1, i64 noundef %8)
+  %mpBucketArray = getelementptr inbounds %"class.eastl::hashtable.17", ptr %this1, i32 0, i32 2
+  store ptr %call6, ptr %mpBucketArray, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl14hash_code_baseIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EEC2ERKSA_RKSC_RKSE_RKSF_RKSG_(ptr noundef nonnull align 1 dereferenceable(4) %this, ptr noundef nonnull align 1 dereferenceable(1) %ex, ptr noundef nonnull align 1 dereferenceable(1) %eq, ptr noundef nonnull align 1 dereferenceable(1) %h1, ptr noundef nonnull align 1 dereferenceable(1) %h2, ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %ex.addr = alloca ptr, align 8
+  %eq.addr = alloca ptr, align 8
+  %h1.addr = alloca ptr, align 8
+  %h2.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %ex, ptr %ex.addr, align 8
+  store ptr %eq, ptr %eq.addr, align 8
+  store ptr %h1, ptr %h1.addr, align 8
+  store ptr %h2, ptr %h2.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17reset_lose_memoryEv(ptr noundef nonnull align 8 dereferenceable(45) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %p = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mnBucketCount = getelementptr inbounds %"class.eastl::hashtable.17", ptr %this1, i32 0, i32 3
+  store i64 1, ptr %mnBucketCount, align 8
+  store ptr @_ZN5eastl18gpEmptyBucketArrayE, ptr %p, align 8
+  %mpBucketArray = getelementptr inbounds %"class.eastl::hashtable.17", ptr %this1, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %mpBucketArray, ptr align 8 %p, i64 8, i1 false)
+  %mnElementCount = getelementptr inbounds %"class.eastl::hashtable.17", ptr %this1, i32 0, i32 4
+  store i64 0, ptr %mnElementCount, align 8
+  %mRehashPolicy = getelementptr inbounds %"class.eastl::hashtable.17", ptr %this1, i32 0, i32 5
+  %mnNextResize = getelementptr inbounds %"struct.eastl::prime_rehash_policy", ptr %mRehashPolicy, i32 0, i32 2
+  store i32 0, ptr %mnNextResize, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm(ptr noundef nonnull align 8 dereferenceable(45) %this, i64 noundef %n) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %n.addr = alloca i64, align 8
+  %pBucketArray = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store i64 %n, ptr %n.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mAllocator = getelementptr inbounds %"class.eastl::hashtable.17", ptr %this1, i32 0, i32 6
+  %0 = load i64, ptr %n.addr, align 8
+  %add = add i64 %0, 1
+  %mul = mul i64 %add, 8
+  %call = call noundef ptr @_ZN5eastl9allocator8allocateEmmmi(ptr noundef nonnull align 1 dereferenceable(1) %mAllocator, i64 noundef %mul, i64 noundef 8, i64 noundef 0, i32 noundef 4194304)
+  store ptr %call, ptr %pBucketArray, align 8
+  %1 = load ptr, ptr %pBucketArray, align 8
+  %2 = load i64, ptr %n.addr, align 8
+  %mul2 = mul i64 %2, 8
+  call void @llvm.memset.p0.i64(ptr align 8 %1, i8 0, i64 %mul2, i1 false)
+  %3 = load ptr, ptr %pBucketArray, align 8
+  %4 = load i64, ptr %n.addr, align 8
+  %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
+  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
+  %5 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl8internal15function_detailILi16EFiiEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %other) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %other.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %other, ptr %other.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mMgrFuncPtr = getelementptr inbounds %"class.eastl::internal::function_detail.24", ptr %this1, i32 0, i32 1
+  store ptr null, ptr %mMgrFuncPtr, align 8
+  %mInvokeFuncPtr = getelementptr inbounds %"class.eastl::internal::function_detail.24", ptr %this1, i32 0, i32 2
+  store ptr @_ZN5eastl8internal15function_detailILi16EFiiEE14DefaultInvokerEiRKNS0_15functor_storageILi16EEE, ptr %mInvokeFuncPtr, align 8
+  %0 = load ptr, ptr %other.addr, align 8
+  %cmp = icmp ne ptr %this1, %0
+  br i1 %cmp, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %1 = load ptr, ptr %other.addr, align 8
+  call void @_ZN5eastl8internal15function_detailILi16EFiiEE4CopyERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  br label %if.end
+
+if.end:                                           ; preds = %if.then, %entry
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl8internal15function_detailILi16EFiiEE4CopyERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %other) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %other.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %other, ptr %other.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %other.addr, align 8
+  %call = call noundef zeroext i1 @_ZNK5eastl8internal15function_detailILi16EFiiEE11HaveManagerEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #9
+  br i1 %call, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %1 = load ptr, ptr %other.addr, align 8
+  %mMgrFuncPtr = getelementptr inbounds %"class.eastl::internal::function_detail.24", ptr %1, i32 0, i32 1
+  %2 = load ptr, ptr %mMgrFuncPtr, align 8
+  %mStorage = getelementptr inbounds %"class.eastl::internal::function_base_detail", ptr %this1, i32 0, i32 0
+  %3 = load ptr, ptr %other.addr, align 8
+  %mStorage2 = getelementptr inbounds %"class.eastl::internal::function_base_detail", ptr %3, i32 0, i32 0
+  %call3 = call noundef ptr %2(ptr noundef %mStorage, ptr noundef %mStorage2, i32 noundef 1)
+  br label %if.end
+
+if.end:                                           ; preds = %if.then, %entry
+  %4 = load ptr, ptr %other.addr, align 8
+  %mMgrFuncPtr4 = getelementptr inbounds %"class.eastl::internal::function_detail.24", ptr %4, i32 0, i32 1
+  %5 = load ptr, ptr %mMgrFuncPtr4, align 8
+  %mMgrFuncPtr5 = getelementptr inbounds %"class.eastl::internal::function_detail.24", ptr %this1, i32 0, i32 1
+  store ptr %5, ptr %mMgrFuncPtr5, align 8
+  %6 = load ptr, ptr %other.addr, align 8
+  %mInvokeFuncPtr = getelementptr inbounds %"class.eastl::internal::function_detail.24", ptr %6, i32 0, i32 2
+  %7 = load ptr, ptr %mInvokeFuncPtr, align 8
+  %mInvokeFuncPtr6 = getelementptr inbounds %"class.eastl::internal::function_detail.24", ptr %this1, i32 0, i32 2
+  store ptr %7, ptr %mInvokeFuncPtr6, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl8internal15function_detailILi16EFvRKiEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %other) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %other.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %other, ptr %other.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mMgrFuncPtr = getelementptr inbounds %"class.eastl::internal::function_detail.26", ptr %this1, i32 0, i32 1
+  store ptr null, ptr %mMgrFuncPtr, align 8
+  %mInvokeFuncPtr = getelementptr inbounds %"class.eastl::internal::function_detail.26", ptr %this1, i32 0, i32 2
+  store ptr @_ZN5eastl8internal15function_detailILi16EFvRKiEE14DefaultInvokerES3_RKNS0_15functor_storageILi16EEE, ptr %mInvokeFuncPtr, align 8
+  %0 = load ptr, ptr %other.addr, align 8
+  %cmp = icmp ne ptr %this1, %0
+  br i1 %cmp, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %1 = load ptr, ptr %other.addr, align 8
+  call void @_ZN5eastl8internal15function_detailILi16EFvRKiEE4CopyERKS5_(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  br label %if.end
+
+if.end:                                           ; preds = %if.then, %entry
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl8internal15function_detailILi16EFvRKiEE4CopyERKS5_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %other) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %other.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %other, ptr %other.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %other.addr, align 8
+  %call = call noundef zeroext i1 @_ZNK5eastl8internal15function_detailILi16EFvRKiEE11HaveManagerEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #9
+  br i1 %call, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %1 = load ptr, ptr %other.addr, align 8
+  %mMgrFuncPtr = getelementptr inbounds %"class.eastl::internal::function_detail.26", ptr %1, i32 0, i32 1
+  %2 = load ptr, ptr %mMgrFuncPtr, align 8
+  %mStorage = getelementptr inbounds %"class.eastl::internal::function_base_detail", ptr %this1, i32 0, i32 0
+  %3 = load ptr, ptr %other.addr, align 8
+  %mStorage2 = getelementptr inbounds %"class.eastl::internal::function_base_detail", ptr %3, i32 0, i32 0
+  %call3 = call noundef ptr %2(ptr noundef %mStorage, ptr noundef %mStorage2, i32 noundef 1)
+  br label %if.end
+
+if.end:                                           ; preds = %if.then, %entry
+  %4 = load ptr, ptr %other.addr, align 8
+  %mMgrFuncPtr4 = getelementptr inbounds %"class.eastl::internal::function_detail.26", ptr %4, i32 0, i32 1
+  %5 = load ptr, ptr %mMgrFuncPtr4, align 8
+  %mMgrFuncPtr5 = getelementptr inbounds %"class.eastl::internal::function_detail.26", ptr %this1, i32 0, i32 1
+  store ptr %5, ptr %mMgrFuncPtr5, align 8
+  %6 = load ptr, ptr %other.addr, align 8
+  %mInvokeFuncPtr = getelementptr inbounds %"class.eastl::internal::function_detail.26", ptr %6, i32 0, i32 2
+  %7 = load ptr, ptr %mInvokeFuncPtr, align 8
+  %mInvokeFuncPtr6 = getelementptr inbounds %"class.eastl::internal::function_detail.26", ptr %this1, i32 0, i32 2
+  store ptr %7, ptr %mInvokeFuncPtr6, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(45) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  invoke void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5clearEv(ptr noundef nonnull align 8 dereferenceable(45) %this1)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %entry
+  %mpBucketArray = getelementptr inbounds %"class.eastl::hashtable.17", ptr %this1, i32 0, i32 2
+  %0 = load ptr, ptr %mpBucketArray, align 8
+  %mnBucketCount = getelementptr inbounds %"class.eastl::hashtable.17", ptr %this1, i32 0, i32 3
+  %1 = load i64, ptr %mnBucketCount, align 8
+  invoke void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS8_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(45) %this1, ptr noundef %0, i64 noundef %1)
+          to label %invoke.cont2 unwind label %terminate.lpad
+
+invoke.cont2:                                     ; preds = %invoke.cont
+  ret void
+
+terminate.lpad:                                   ; preds = %invoke.cont, %entry
+  %2 = landingpad { ptr, i32 }
+          catch ptr null
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #10
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5clearEv(ptr noundef nonnull align 8 dereferenceable(45) %this) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mpBucketArray = getelementptr inbounds %"class.eastl::hashtable.17", ptr %this1, i32 0, i32 2
+  %0 = load ptr, ptr %mpBucketArray, align 8
+  %mnBucketCount = getelementptr inbounds %"class.eastl::hashtable.17", ptr %this1, i32 0, i32 3
+  %1 = load i64, ptr %mnBucketCount, align 8
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE11DoFreeNodesEPPNS_9hash_nodeIS8_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(45) %this1, ptr noundef %0, i64 noundef %1)
+  %mnElementCount = getelementptr inbounds %"class.eastl::hashtable.17", ptr %this1, i32 0, i32 4
+  store i64 0, ptr %mnElementCount, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS8_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef %pBucketArray, i64 noundef %n) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %pBucketArray.addr = alloca ptr, align 8
+  %n.addr = alloca i64, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %pBucketArray, ptr %pBucketArray.addr, align 8
+  store i64 %n, ptr %n.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load i64, ptr %n.addr, align 8
+  %cmp = icmp ugt i64 %0, 1
+  br i1 %cmp, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %mAllocator = getelementptr inbounds %"class.eastl::hashtable.17", ptr %this1, i32 0, i32 6
+  %1 = load ptr, ptr %pBucketArray.addr, align 8
+  %2 = load i64, ptr %n.addr, align 8
+  %add = add i64 %2, 1
+  %mul = mul i64 %add, 8
+  call void @_ZN5eastl9allocator10deallocateEPvm(ptr noundef nonnull align 1 dereferenceable(1) %mAllocator, ptr noundef %1, i64 noundef %mul)
+  br label %if.end
+
+if.end:                                           ; preds = %if.then, %entry
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE11DoFreeNodesEPPNS_9hash_nodeIS8_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef %pNodeArray, i64 noundef %n) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %pNodeArray.addr = alloca ptr, align 8
+  %n.addr = alloca i64, align 8
+  %i = alloca i64, align 8
+  %pNode = alloca ptr, align 8
+  %pTempNode = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %pNodeArray, ptr %pNodeArray.addr, align 8
+  store i64 %n, ptr %n.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  store i64 0, ptr %i, align 8
+  br label %for.cond
+
+for.cond:                                         ; preds = %for.inc, %entry
+  %0 = load i64, ptr %i, align 8
+  %1 = load i64, ptr %n.addr, align 8
+  %cmp = icmp ult i64 %0, %1
+  br i1 %cmp, label %for.body, label %for.end
+
+for.body:                                         ; preds = %for.cond
+  %2 = load ptr, ptr %pNodeArray.addr, align 8
+  %3 = load i64, ptr %i, align 8
+  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %3
+  %4 = load ptr, ptr %arrayidx, align 8
+  store ptr %4, ptr %pNode, align 8
+  br label %while.cond
+
+while.cond:                                       ; preds = %while.body, %for.body
+  %5 = load ptr, ptr %pNode, align 8
+  %tobool = icmp ne ptr %5, null
+  br i1 %tobool, label %while.body, label %while.end
+
+while.body:                                       ; preds = %while.cond
+  %6 = load ptr, ptr %pNode, align 8
+  store ptr %6, ptr %pTempNode, align 8
+  %7 = load ptr, ptr %pNode, align 8
+  %mpNext = getelementptr inbounds %"struct.eastl::hash_node.45", ptr %7, i32 0, i32 1
+  %8 = load ptr, ptr %mpNext, align 8
+  store ptr %8, ptr %pNode, align 8
+  %9 = load ptr, ptr %pTempNode, align 8
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS8_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(45) %this1, ptr noundef %9)
+  br label %while.cond, !llvm.loop !25
+
+while.end:                                        ; preds = %while.cond
+  %10 = load ptr, ptr %pNodeArray.addr, align 8
+  %11 = load i64, ptr %i, align 8
+  %arrayidx2 = getelementptr inbounds ptr, ptr %10, i64 %11
+  store ptr null, ptr %arrayidx2, align 8
+  br label %for.inc
+
+for.inc:                                          ; preds = %while.end
+  %12 = load i64, ptr %i, align 8
+  %inc = add i64 %12, 1
+  store i64 %inc, ptr %i, align 8
+  br label %for.cond, !llvm.loop !26
+
+for.end:                                          ; preds = %for.cond
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS8_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef %pNode) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %pNode.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %pNode, ptr %pNode.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mAllocator = getelementptr inbounds %"class.eastl::hashtable.17", ptr %this1, i32 0, i32 6
+  %0 = load ptr, ptr %pNode.addr, align 8
+  call void @_ZN5eastl9allocator10deallocateEPvm(ptr noundef nonnull align 1 dereferenceable(1) %mAllocator, ptr noundef %0, i64 noundef 32)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv(ptr noalias sret(%"struct.eastl::hashtable_iterator") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(45) %this) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %this.addr = alloca ptr, align 8
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mpBucketArray = getelementptr inbounds %"class.eastl::hashtable.17", ptr %this1, i32 0, i32 2
+  %0 = load ptr, ptr %mpBucketArray, align 8
+  invoke void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0ELb0EEC2EPPNS_9hash_nodeIS8_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef %0)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %entry
+  %mpNode = getelementptr inbounds %"struct.eastl::hashtable_iterator_base", ptr %agg.result, i32 0, i32 0
+  %1 = load ptr, ptr %mpNode, align 8
+  %tobool = icmp ne ptr %1, null
+  br i1 %tobool, label %if.end, label %if.then
+
+if.then:                                          ; preds = %invoke.cont
+  invoke void @_ZN5eastl23hashtable_iterator_baseINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0EE16increment_bucketEv(ptr noundef nonnull align 8 dereferenceable(16) %agg.result)
+          to label %invoke.cont2 unwind label %terminate.lpad
+
+invoke.cont2:                                     ; preds = %if.then
+  br label %if.end
+
+if.end:                                           ; preds = %invoke.cont2, %invoke.cont
+  ret void
+
+terminate.lpad:                                   ; preds = %if.then, %entry
+  %2 = landingpad { ptr, i32 }
+          catch ptr null
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #10
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv(ptr noalias sret(%"struct.eastl::hashtable_iterator") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(45) %this) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %this.addr = alloca ptr, align 8
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mpBucketArray = getelementptr inbounds %"class.eastl::hashtable.17", ptr %this1, i32 0, i32 2
+  %0 = load ptr, ptr %mpBucketArray, align 8
+  %mnBucketCount = getelementptr inbounds %"class.eastl::hashtable.17", ptr %this1, i32 0, i32 3
+  %1 = load i64, ptr %mnBucketCount, align 8
+  %add.ptr = getelementptr inbounds ptr, ptr %0, i64 %1
+  invoke void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0ELb0EEC2EPPNS_9hash_nodeIS8_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef %add.ptr)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %entry
+  ret void
+
+terminate.lpad:                                   ; preds = %entry
+  %2 = landingpad { ptr, i32 }
+          catch ptr null
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #10
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK5eastl8functionIFvRKiEEcvbEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef zeroext i1 @_ZNK5eastl8internal15function_detailILi16EFvRKiEEcvbEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #9
+  ret i1 %call
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZNK5eastl8functionIFvRKiEEclES2_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 4 dereferenceable(4) %args) #0 comdat align 2 {
+entry:
+  %this.addr.i = alloca ptr, align 8
+  %args.addr.i = alloca ptr, align 8
+  %this.addr = alloca ptr, align 8
+  %args.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %args, ptr %args.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %args.addr, align 8
+  %call = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN5eastl7forwardIRKiEEOT_RNS_16remove_referenceIS3_E4typeE(ptr noundef nonnull align 4 dereferenceable(4) %0) #9
+  store ptr %this1, ptr %this.addr.i, align 8
+  store ptr %call, ptr %args.addr.i, align 8
+  %this1.i = load ptr, ptr %this.addr.i, align 8
+  %mInvokeFuncPtr.i = getelementptr inbounds %"class.eastl::internal::function_detail.26", ptr %this1.i, i32 0, i32 2
+  %1 = load ptr, ptr %mInvokeFuncPtr.i, align 8
+  %2 = load ptr, ptr %args.addr.i, align 8
+  %call.i = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN5eastl7forwardIRKiEEOT_RNS_16remove_referenceIS3_E4typeE(ptr noundef nonnull align 4 dereferenceable(4) %2) #9
+  call void %1(ptr noundef nonnull align 4 dereferenceable(4) %call.i, ptr noundef nonnull align 8 dereferenceable(16) %this1.i)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0ELb0EEC2EPPNS_9hash_nodeIS8_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %pBucket) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %pBucket.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %pBucket, ptr %pBucket.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %pBucket.addr, align 8
+  %1 = load ptr, ptr %0, align 8
+  %2 = load ptr, ptr %pBucket.addr, align 8
+  call void @_ZN5eastl23hashtable_iterator_baseINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0EEC2EPNS_9hash_nodeIS8_Lb0EEEPSC_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %1, ptr noundef %2)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl23hashtable_iterator_baseINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0EE16increment_bucketEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mpBucket = getelementptr inbounds %"struct.eastl::hashtable_iterator_base", ptr %this1, i32 0, i32 1
+  %0 = load ptr, ptr %mpBucket, align 8
+  %incdec.ptr = getelementptr inbounds ptr, ptr %0, i32 1
+  store ptr %incdec.ptr, ptr %mpBucket, align 8
+  br label %while.cond
+
+while.cond:                                       ; preds = %while.body, %entry
+  %mpBucket2 = getelementptr inbounds %"struct.eastl::hashtable_iterator_base", ptr %this1, i32 0, i32 1
+  %1 = load ptr, ptr %mpBucket2, align 8
+  %2 = load ptr, ptr %1, align 8
+  %cmp = icmp eq ptr %2, null
+  br i1 %cmp, label %while.body, label %while.end
+
+while.body:                                       ; preds = %while.cond
+  %mpBucket3 = getelementptr inbounds %"struct.eastl::hashtable_iterator_base", ptr %this1, i32 0, i32 1
+  %3 = load ptr, ptr %mpBucket3, align 8
+  %incdec.ptr4 = getelementptr inbounds ptr, ptr %3, i32 1
+  store ptr %incdec.ptr4, ptr %mpBucket3, align 8
+  br label %while.cond, !llvm.loop !27
+
+while.end:                                        ; preds = %while.cond
+  %mpBucket5 = getelementptr inbounds %"struct.eastl::hashtable_iterator_base", ptr %this1, i32 0, i32 1
+  %4 = load ptr, ptr %mpBucket5, align 8
+  %5 = load ptr, ptr %4, align 8
+  %mpNode = getelementptr inbounds %"struct.eastl::hashtable_iterator_base", ptr %this1, i32 0, i32 0
+  store ptr %5, ptr %mpNode, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl23hashtable_iterator_baseINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0EEC2EPNS_9hash_nodeIS8_Lb0EEEPSC_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %pNode, ptr noundef %pBucket) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %pNode.addr = alloca ptr, align 8
+  %pBucket.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %pNode, ptr %pNode.addr, align 8
+  store ptr %pBucket, ptr %pBucket.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mpNode = getelementptr inbounds %"struct.eastl::hashtable_iterator_base", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %pNode.addr, align 8
+  store ptr %0, ptr %mpNode, align 8
+  %mpBucket = getelementptr inbounds %"struct.eastl::hashtable_iterator_base", ptr %this1, i32 0, i32 1
+  %1 = load ptr, ptr %pBucket.addr, align 8
+  store ptr %1, ptr %mpBucket, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK5eastl8internal15function_detailILi16EFvRKiEEcvbEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef zeroext i1 @_ZNK5eastl8internal15function_detailILi16EFvRKiEE11HaveManagerEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #9
+  ret i1 %call
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_(ptr noalias sret(%"struct.eastl::hashtable_iterator") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 4 dereferenceable(4) %k) #0 comdat align 2 {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %this.addr = alloca ptr, align 8
+  %k.addr = alloca ptr, align 8
+  %c = alloca i64, align 8
+  %n = alloca i64, align 8
+  %pNode = alloca ptr, align 8
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %k, ptr %k.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %k.addr, align 8
+  %call = call noundef i64 @_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS2_(ptr noundef nonnull align 1 dereferenceable(4) %this1, ptr noundef nonnull align 4 dereferenceable(4) %0)
+  store i64 %call, ptr %c, align 8
+  %1 = load ptr, ptr %k.addr, align 8
+  %2 = load i64, ptr %c, align 8
+  %mnBucketCount = getelementptr inbounds %"class.eastl::hashtable.17", ptr %this1, i32 0, i32 3
+  %3 = load i64, ptr %mnBucketCount, align 8
+  %conv = trunc i64 %3 to i32
+  %call2 = call noundef i32 @_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE12bucket_indexERS2_mj(ptr noundef nonnull align 1 dereferenceable(4) %this1, ptr noundef nonnull align 4 dereferenceable(4) %1, i64 noundef %2, i32 noundef %conv)
+  %conv3 = zext i32 %call2 to i64
+  store i64 %conv3, ptr %n, align 8
+  %mpBucketArray = getelementptr inbounds %"class.eastl::hashtable.17", ptr %this1, i32 0, i32 2
+  %4 = load ptr, ptr %mpBucketArray, align 8
+  %5 = load i64, ptr %n, align 8
+  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %5
+  %6 = load ptr, ptr %arrayidx, align 8
+  %7 = load ptr, ptr %k.addr, align 8
+  %8 = load i64, ptr %c, align 8
+  %call4 = call noundef ptr @_ZNK5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFindNodeEPNS_9hash_nodeIS8_Lb0EEERS2_m(ptr noundef nonnull align 8 dereferenceable(45) %this1, ptr noundef %6, ptr noundef nonnull align 4 dereferenceable(4) %7, i64 noundef %8)
+  store ptr %call4, ptr %pNode, align 8
+  %9 = load ptr, ptr %pNode, align 8
+  %tobool = icmp ne ptr %9, null
+  br i1 %tobool, label %cond.true, label %cond.false
+
+cond.true:                                        ; preds = %entry
+  %10 = load ptr, ptr %pNode, align 8
+  %mpBucketArray5 = getelementptr inbounds %"class.eastl::hashtable.17", ptr %this1, i32 0, i32 2
+  %11 = load ptr, ptr %mpBucketArray5, align 8
+  %12 = load i64, ptr %n, align 8
+  %add.ptr = getelementptr inbounds ptr, ptr %11, i64 %12
+  call void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0ELb0EEC2EPNS_9hash_nodeIS8_Lb0EEEPSC_(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef %10, ptr noundef %add.ptr)
+  br label %cond.end
+
+cond.false:                                       ; preds = %entry
+  %mpBucketArray6 = getelementptr inbounds %"class.eastl::hashtable.17", ptr %this1, i32 0, i32 2
+  %13 = load ptr, ptr %mpBucketArray6, align 8
+  %mnBucketCount7 = getelementptr inbounds %"class.eastl::hashtable.17", ptr %this1, i32 0, i32 3
+  %14 = load i64, ptr %mnBucketCount7, align 8
+  %add.ptr8 = getelementptr inbounds ptr, ptr %13, i64 %14
+  call void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0ELb0EEC2EPPNS_9hash_nodeIS8_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef %add.ptr8)
+  br label %cond.end
+
+cond.end:                                         ; preds = %cond.false, %cond.true
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEE6assignERNS_18hashtable_iteratorINS5_IKiSA_EELb0ELb0EEERSI_(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(16) %iter, ptr noundef nonnull align 4 dereferenceable(4) %v) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %iter.addr = alloca ptr, align 8
+  %v.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %iter, ptr %iter.addr, align 8
+  store ptr %v, ptr %v.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_delete_callback = getelementptr inbounds %"class.eastl::lru_cache.15", ptr %this1, i32 0, i32 4
+  %call = call noundef zeroext i1 @_ZNK5eastl8functionIFvRKiEEcvbEv(ptr noundef nonnull align 8 dereferenceable(32) %m_delete_callback) #9
+  br i1 %call, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %m_delete_callback2 = getelementptr inbounds %"class.eastl::lru_cache.15", ptr %this1, i32 0, i32 4
+  %0 = load ptr, ptr %iter.addr, align 8
+  %call3 = call noundef ptr @_ZNK5eastl18hashtable_iteratorINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0ELb0EEptEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %second = getelementptr inbounds %"struct.eastl::pair", ptr %call3, i32 0, i32 1
+  %first = getelementptr inbounds %"struct.eastl::pair.27", ptr %second, i32 0, i32 0
+  call void @_ZNK5eastl8functionIFvRKiEEclES2_(ptr noundef nonnull align 8 dereferenceable(32) %m_delete_callback2, ptr noundef nonnull align 4 dereferenceable(4) %first)
+  br label %if.end
+
+if.end:                                           ; preds = %if.then, %entry
+  %1 = load ptr, ptr %iter.addr, align 8
+  call void @_ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEE5touchERNS_18hashtable_iteratorINS5_IKiSA_EELb0ELb0EEE(ptr noundef nonnull align 8 dereferenceable(144) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %2 = load ptr, ptr %v.addr, align 8
+  %3 = load i32, ptr %2, align 4
+  %4 = load ptr, ptr %iter.addr, align 8
+  %call4 = call noundef ptr @_ZNK5eastl18hashtable_iteratorINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0ELb0EEptEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
+  %second5 = getelementptr inbounds %"struct.eastl::pair", ptr %call4, i32 0, i32 1
+  %first6 = getelementptr inbounds %"struct.eastl::pair.27", ptr %second5, i32 0, i32 0
+  store i32 %3, ptr %first6, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEE6insertERKiSI_(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 4 dereferenceable(4) %k, ptr noundef nonnull align 4 dereferenceable(4) %v) #0 comdat align 2 {
+entry:
+  %retval = alloca i1, align 1
+  %this.addr = alloca ptr, align 8
+  %k.addr = alloca ptr, align 8
+  %v.addr = alloca ptr, align 8
+  %ref.tmp = alloca %"struct.eastl::hashtable_iterator", align 8
+  %ref.tmp2 = alloca %"struct.eastl::hashtable_iterator", align 8
+  %ref.tmp4 = alloca %"struct.eastl::pair.27", align 8
+  %ref.tmp5 = alloca %"struct.eastl::ListIterator", align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %k, ptr %k.addr, align 8
+  store ptr %v, ptr %v.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_map = getelementptr inbounds %"class.eastl::lru_cache.15", ptr %this1, i32 0, i32 1
+  %0 = load ptr, ptr %k.addr, align 8
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_(ptr sret(%"struct.eastl::hashtable_iterator") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(45) %m_map, ptr noundef nonnull align 4 dereferenceable(4) %0)
+  %m_map3 = getelementptr inbounds %"class.eastl::lru_cache.15", ptr %this1, i32 0, i32 1
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv(ptr sret(%"struct.eastl::hashtable_iterator") align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(45) %m_map3) #9
+  %call = call noundef zeroext i1 @_ZN5eastleqINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0EEEbRKNS_23hashtable_iterator_baseIT_XT0_EEESD_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2)
+  br i1 %call, label %if.then, label %if.else
+
+if.then:                                          ; preds = %entry
+  call void @_ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEE10make_spaceEv(ptr noundef nonnull align 8 dereferenceable(144) %this1)
+  %m_list = getelementptr inbounds %"class.eastl::lru_cache.15", ptr %this1, i32 0, i32 0
+  %1 = load ptr, ptr %k.addr, align 8
+  call void @_ZN5eastl4listIiNS_9allocatorEE10push_frontERKi(ptr noundef nonnull align 8 dereferenceable(24) %m_list, ptr noundef nonnull align 4 dereferenceable(4) %1)
+  %2 = load ptr, ptr %v.addr, align 8
+  %m_list6 = getelementptr inbounds %"class.eastl::lru_cache.15", ptr %this1, i32 0, i32 0
+  call void @_ZN5eastl4listIiNS_9allocatorEE5beginEv(ptr sret(%"struct.eastl::ListIterator") align 8 %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(24) %m_list6) #9
+  call void @_ZN5eastl4pairIiNS_12ListIteratorIiPiRiEEEC2IS4_vEERKiOT_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp5)
+  %m_map7 = getelementptr inbounds %"class.eastl::lru_cache.15", ptr %this1, i32 0, i32 1
+  %3 = load ptr, ptr %k.addr, align 8
+  %call8 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEENS_9allocatorELb0EEixERKi(ptr noundef nonnull align 8 dereferenceable(45) %m_map7, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call8, ptr align 8 %ref.tmp4, i64 16, i1 false)
+  store i1 true, ptr %retval, align 1
+  br label %return
+
+if.else:                                          ; preds = %entry
+  store i1 false, ptr %retval, align 1
+  br label %return
+
+return:                                           ; preds = %if.else, %if.then
+  %4 = load i1, ptr %retval, align 1
+  ret i1 %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i64 @_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS2_(ptr noundef nonnull align 1 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %key) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %key.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %key, ptr %key.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_h1 = getelementptr inbounds %"struct.eastl::hash_code_base.19", ptr %this1, i32 0, i32 2
+  %0 = load ptr, ptr %key.addr, align 8
+  %1 = load i32, ptr %0, align 4
+  %call = call noundef i64 @_ZNK5eastl4hashIiEclEi(ptr noundef nonnull align 1 dereferenceable(1) %m_h1, i32 noundef %1)
+  ret i64 %call
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE12bucket_indexERS2_mj(ptr noundef nonnull align 1 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %0, i64 noundef %c, i32 noundef %nBucketCount) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  %c.addr = alloca i64, align 8
+  %nBucketCount.addr = alloca i32, align 4
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  store i64 %c, ptr %c.addr, align 8
+  store i32 %nBucketCount, ptr %nBucketCount.addr, align 4
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_h2 = getelementptr inbounds %"struct.eastl::hash_code_base.19", ptr %this1, i32 0, i32 3
+  %1 = load i64, ptr %c.addr, align 8
+  %2 = load i32, ptr %nBucketCount.addr, align 4
+  %call = call noundef i32 @_ZNK5eastl17mod_range_hashingclEmj(ptr noundef nonnull align 1 dereferenceable(1) %m_h2, i64 noundef %1, i32 noundef %2)
+  ret i32 %call
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZNK5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFindNodeEPNS_9hash_nodeIS8_Lb0EEERS2_m(ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef %pNode, ptr noundef nonnull align 4 dereferenceable(4) %k, i64 noundef %c) #0 comdat align 2 {
+entry:
+  %retval = alloca ptr, align 8
+  %this.addr = alloca ptr, align 8
+  %pNode.addr = alloca ptr, align 8
+  %k.addr = alloca ptr, align 8
+  %c.addr = alloca i64, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %pNode, ptr %pNode.addr, align 8
+  store ptr %k, ptr %k.addr, align 8
+  store i64 %c, ptr %c.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  br label %for.cond
+
+for.cond:                                         ; preds = %for.inc, %entry
+  %0 = load ptr, ptr %pNode.addr, align 8
+  %tobool = icmp ne ptr %0, null
+  br i1 %tobool, label %for.body, label %for.end
+
+for.body:                                         ; preds = %for.cond
+  %1 = load ptr, ptr %k.addr, align 8
+  %2 = load i64, ptr %c.addr, align 8
+  %3 = load ptr, ptr %pNode.addr, align 8
+  %call = call noundef zeroext i1 @_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS2_mPNS_9hash_nodeIS8_Lb0EEE(ptr noundef nonnull align 1 dereferenceable(4) %this1, ptr noundef nonnull align 4 dereferenceable(4) %1, i64 noundef %2, ptr noundef %3)
+  br i1 %call, label %if.then, label %if.end
+
+if.then:                                          ; preds = %for.body
+  %4 = load ptr, ptr %pNode.addr, align 8
+  store ptr %4, ptr %retval, align 8
+  br label %return
+
+if.end:                                           ; preds = %for.body
+  br label %for.inc
+
+for.inc:                                          ; preds = %if.end
+  %5 = load ptr, ptr %pNode.addr, align 8
+  %mpNext = getelementptr inbounds %"struct.eastl::hash_node.45", ptr %5, i32 0, i32 1
+  %6 = load ptr, ptr %mpNext, align 8
+  store ptr %6, ptr %pNode.addr, align 8
+  br label %for.cond, !llvm.loop !28
+
+for.end:                                          ; preds = %for.cond
+  store ptr null, ptr %retval, align 8
+  br label %return
+
+return:                                           ; preds = %for.end, %if.then
+  %7 = load ptr, ptr %retval, align 8
+  ret ptr %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0ELb0EEC2EPNS_9hash_nodeIS8_Lb0EEEPSC_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %pNode, ptr noundef %pBucket) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %pNode.addr = alloca ptr, align 8
+  %pBucket.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %pNode, ptr %pNode.addr, align 8
+  store ptr %pBucket, ptr %pBucket.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %pNode.addr, align 8
+  %1 = load ptr, ptr %pBucket.addr, align 8
+  call void @_ZN5eastl23hashtable_iterator_baseINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0EEC2EPNS_9hash_nodeIS8_Lb0EEEPSC_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0, ptr noundef %1)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS2_mPNS_9hash_nodeIS8_Lb0EEE(ptr noundef nonnull align 1 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %key, i64 noundef %0, ptr noundef %pNode) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %key.addr = alloca ptr, align 8
+  %.addr = alloca i64, align 8
+  %pNode.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %key, ptr %key.addr, align 8
+  store i64 %0, ptr %.addr, align 8
+  store ptr %pNode, ptr %pNode.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mEqual = getelementptr inbounds %"struct.eastl::hash_code_base.19", ptr %this1, i32 0, i32 1
+  %1 = load ptr, ptr %key.addr, align 8
+  %mExtractKey = getelementptr inbounds %"struct.eastl::hash_code_base.19", ptr %this1, i32 0, i32 0
+  %2 = load ptr, ptr %pNode.addr, align 8
+  %mValue = getelementptr inbounds %"struct.eastl::hash_node.45", ptr %2, i32 0, i32 0
+  %call = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK5eastl9use_firstINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEEEclERKS8_(ptr noundef nonnull align 1 dereferenceable(1) %mExtractKey, ptr noundef nonnull align 8 dereferenceable(24) %mValue)
+  %call2 = call noundef zeroext i1 @_ZNK5eastl8equal_toIiEclERKiS3_(ptr noundef nonnull align 1 dereferenceable(1) %mEqual, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %call)
+  ret i1 %call2
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(4) ptr @_ZNK5eastl9use_firstINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEEEclERKS8_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(24) %x) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %x.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %x, ptr %x.addr, align 8
+  %0 = load ptr, ptr %x.addr, align 8
+  %first = getelementptr inbounds %"struct.eastl::pair", ptr %0, i32 0, i32 0
+  ret ptr %first
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZNK5eastl18hashtable_iteratorINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0ELb0EEptEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mpNode = getelementptr inbounds %"struct.eastl::hashtable_iterator_base", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %mpNode, align 8
+  %mValue = getelementptr inbounds %"struct.eastl::hash_node.45", ptr %0, i32 0, i32 0
+  ret ptr %mValue
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEE5touchERNS_18hashtable_iteratorINS5_IKiSA_EELb0ELb0EEE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(16) %iter) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %iter.addr = alloca ptr, align 8
+  %listRef = alloca %"struct.eastl::ListIterator", align 8
+  %agg.tmp = alloca %"struct.eastl::ListIterator.36", align 8
+  %tmp = alloca %"struct.eastl::ListIterator", align 8
+  %ref.tmp = alloca %"struct.eastl::ListIterator", align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %iter, ptr %iter.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %iter.addr, align 8
+  %call = call noundef ptr @_ZNK5eastl18hashtable_iteratorINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0ELb0EEptEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %second = getelementptr inbounds %"struct.eastl::pair", ptr %call, i32 0, i32 1
+  %second2 = getelementptr inbounds %"struct.eastl::pair.27", ptr %second, i32 0, i32 1
+  call void @_ZN5eastl12ListIteratorIiPiRiEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %listRef, ptr noundef nonnull align 8 dereferenceable(8) %second2) #9
+  %m_list = getelementptr inbounds %"class.eastl::lru_cache.15", ptr %this1, i32 0, i32 0
+  call void @_ZN5eastl12ListIteratorIiPKiRS1_EC2ERKNS0_IiPiRiEE(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %listRef) #9
+  %coerce.dive = getelementptr inbounds %"struct.eastl::ListIterator.36", ptr %agg.tmp, i32 0, i32 0
+  %1 = load ptr, ptr %coerce.dive, align 8
+  call void @_ZN5eastl4listIiNS_9allocatorEE5eraseENS_12ListIteratorIiPKiRS4_EE(ptr sret(%"struct.eastl::ListIterator") align 8 %tmp, ptr noundef nonnull align 8 dereferenceable(24) %m_list, ptr %1)
+  %m_list3 = getelementptr inbounds %"class.eastl::lru_cache.15", ptr %this1, i32 0, i32 0
+  %2 = load ptr, ptr %iter.addr, align 8
+  %call4 = call noundef ptr @_ZNK5eastl18hashtable_iteratorINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0ELb0EEptEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
+  %first = getelementptr inbounds %"struct.eastl::pair", ptr %call4, i32 0, i32 0
+  call void @_ZN5eastl4listIiNS_9allocatorEE10push_frontERKi(ptr noundef nonnull align 8 dereferenceable(24) %m_list3, ptr noundef nonnull align 4 dereferenceable(4) %first)
+  %m_list5 = getelementptr inbounds %"class.eastl::lru_cache.15", ptr %this1, i32 0, i32 0
+  call void @_ZN5eastl4listIiNS_9allocatorEE5beginEv(ptr sret(%"struct.eastl::ListIterator") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %m_list5) #9
+  %3 = load ptr, ptr %iter.addr, align 8
+  %call6 = call noundef ptr @_ZNK5eastl18hashtable_iteratorINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0ELb0EEptEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %second7 = getelementptr inbounds %"struct.eastl::pair", ptr %call6, i32 0, i32 1
+  %second8 = getelementptr inbounds %"struct.eastl::pair.27", ptr %second7, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %second8, ptr align 8 %ref.tmp, i64 8, i1 false)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZN5eastleqINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0EEEbRKNS_23hashtable_iterator_baseIT_XT0_EEESD_(ptr noundef nonnull align 8 dereferenceable(16) %a, ptr noundef nonnull align 8 dereferenceable(16) %b) #1 comdat {
+entry:
+  %a.addr = alloca ptr, align 8
+  %b.addr = alloca ptr, align 8
+  store ptr %a, ptr %a.addr, align 8
+  store ptr %b, ptr %b.addr, align 8
+  %0 = load ptr, ptr %a.addr, align 8
+  %mpNode = getelementptr inbounds %"struct.eastl::hashtable_iterator_base", ptr %0, i32 0, i32 0
+  %1 = load ptr, ptr %mpNode, align 8
+  %2 = load ptr, ptr %b.addr, align 8
+  %mpNode1 = getelementptr inbounds %"struct.eastl::hashtable_iterator_base", ptr %2, i32 0, i32 0
+  %3 = load ptr, ptr %mpNode1, align 8
+  %cmp = icmp eq ptr %1, %3
+  ret i1 %cmp
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEE10make_spaceEv(ptr noundef nonnull align 8 dereferenceable(144) %this) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef i64 @_ZNK5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %this1) #9
+  %m_capacity = getelementptr inbounds %"class.eastl::lru_cache.15", ptr %this1, i32 0, i32 2
+  %0 = load i64, ptr %m_capacity, align 8
+  %cmp = icmp eq i64 %call, %0
+  br i1 %cmp, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  call void @_ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEE12erase_oldestEv(ptr noundef nonnull align 8 dereferenceable(144) %this1)
+  br label %if.end
+
+if.end:                                           ; preds = %if.then, %entry
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl4pairIiNS_12ListIteratorIiPiRiEEEC2IS4_vEERKiOT_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %x, ptr noundef nonnull align 8 dereferenceable(8) %y) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %x.addr = alloca ptr, align 8
+  %y.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %x, ptr %x.addr, align 8
+  store ptr %y, ptr %y.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %first = getelementptr inbounds %"struct.eastl::pair.27", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %x.addr, align 8
+  %1 = load i32, ptr %0, align 4
+  store i32 %1, ptr %first, align 8
+  %second = getelementptr inbounds %"struct.eastl::pair.27", ptr %this1, i32 0, i32 1
+  %2 = load ptr, ptr %y.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5eastl7forwardINS_12ListIteratorIiPiRiEEEEOT_RNS_16remove_referenceIS5_E4typeE(ptr noundef nonnull align 8 dereferenceable(8) %2) #9
+  call void @_ZN5eastl12ListIteratorIiPiRiEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %second, ptr noundef nonnull align 8 dereferenceable(8) %call) #9
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEENS_9allocatorELb0EEixERKi(ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 4 dereferenceable(4) %key) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %key.addr = alloca ptr, align 8
+  %ref.tmp = alloca %"struct.eastl::pair.47", align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %key, ptr %key.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %key.addr, align 8
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE11DoInsertKeyENS_17integral_constantIbLb1EEERS2_(ptr sret(%"struct.eastl::pair.47") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(45) %this1, ptr noundef nonnull align 4 dereferenceable(4) %0)
+  %first = getelementptr inbounds %"struct.eastl::pair.47", ptr %ref.tmp, i32 0, i32 0
+  %call = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5eastl18hashtable_iteratorINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0ELb0EEdeEv(ptr noundef nonnull align 8 dereferenceable(16) %first)
+  %second = getelementptr inbounds %"struct.eastl::pair", ptr %call, i32 0, i32 1
+  ret ptr %second
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i64 @_ZNK5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_map = getelementptr inbounds %"class.eastl::lru_cache.15", ptr %this1, i32 0, i32 1
+  %call = call noundef i64 @_ZNK5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(45) %m_map) #9
+  ret i64 %call
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEE12erase_oldestEv(ptr noundef nonnull align 8 dereferenceable(144) %this) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %key = alloca i32, align 4
+  %iter = alloca %"struct.eastl::hashtable_iterator", align 8
+  %agg.tmp = alloca %"struct.eastl::hashtable_iterator", align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_list = getelementptr inbounds %"class.eastl::lru_cache.15", ptr %this1, i32 0, i32 0
+  %call = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN5eastl4listIiNS_9allocatorEE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %m_list)
+  %0 = load i32, ptr %call, align 4
+  store i32 %0, ptr %key, align 4
+  %m_list2 = getelementptr inbounds %"class.eastl::lru_cache.15", ptr %this1, i32 0, i32 0
+  call void @_ZN5eastl4listIiNS_9allocatorEE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(24) %m_list2)
+  %m_map = getelementptr inbounds %"class.eastl::lru_cache.15", ptr %this1, i32 0, i32 1
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_(ptr sret(%"struct.eastl::hashtable_iterator") align 8 %iter, ptr noundef nonnull align 8 dereferenceable(45) %m_map, ptr noundef nonnull align 4 dereferenceable(4) %key)
+  call void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0ELb0EEC2ERKS9_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %iter)
+  call void @_ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEE9map_eraseENS_18hashtable_iteratorINS5_IKiSA_EELb0ELb0EEE(ptr noundef nonnull align 8 dereferenceable(144) %this1, ptr noundef %agg.tmp)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i64 @_ZNK5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(45) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mnElementCount = getelementptr inbounds %"class.eastl::hashtable.17", ptr %this1, i32 0, i32 4
+  %0 = load i64, ptr %mnElementCount, align 8
+  ret i64 %0
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEE9map_eraseENS_18hashtable_iteratorINS5_IKiSA_EELb0ELb0EEE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %pos) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %pos.indirect_addr = alloca ptr, align 8
+  %agg.tmp = alloca %"struct.eastl::hashtable_iterator.46", align 8
+  %tmp = alloca %"struct.eastl::hashtable_iterator", align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %pos, ptr %pos.indirect_addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_delete_callback = getelementptr inbounds %"class.eastl::lru_cache.15", ptr %this1, i32 0, i32 4
+  %call = call noundef zeroext i1 @_ZNK5eastl8functionIFvRKiEEcvbEv(ptr noundef nonnull align 8 dereferenceable(32) %m_delete_callback) #9
+  br i1 %call, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %m_delete_callback2 = getelementptr inbounds %"class.eastl::lru_cache.15", ptr %this1, i32 0, i32 4
+  %call3 = call noundef ptr @_ZNK5eastl18hashtable_iteratorINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0ELb0EEptEv(ptr noundef nonnull align 8 dereferenceable(16) %pos)
+  %second = getelementptr inbounds %"struct.eastl::pair", ptr %call3, i32 0, i32 1
+  %first = getelementptr inbounds %"struct.eastl::pair.27", ptr %second, i32 0, i32 0
+  call void @_ZNK5eastl8functionIFvRKiEEclES2_(ptr noundef nonnull align 8 dereferenceable(32) %m_delete_callback2, ptr noundef nonnull align 4 dereferenceable(4) %first)
+  br label %if.end
+
+if.end:                                           ; preds = %if.then, %entry
+  %m_map = getelementptr inbounds %"class.eastl::lru_cache.15", ptr %this1, i32 0, i32 1
+  call void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb1ELb0EEC2ERKNS0_IS8_Lb0ELb0EEE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %pos)
+  %0 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp, i32 0, i32 0
+  %1 = load ptr, ptr %0, align 8
+  %2 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp, i32 0, i32 1
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorIS8_Lb1ELb0EEE(ptr sret(%"struct.eastl::hashtable_iterator") align 8 %tmp, ptr noundef nonnull align 8 dereferenceable(45) %m_map, ptr %1, ptr %3)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0ELb0EEC2ERKS9_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %x) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %x.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %x, ptr %x.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %x.addr, align 8
+  %mpNode = getelementptr inbounds %"struct.eastl::hashtable_iterator_base", ptr %0, i32 0, i32 0
+  %1 = load ptr, ptr %mpNode, align 8
+  %2 = load ptr, ptr %x.addr, align 8
+  %mpBucket = getelementptr inbounds %"struct.eastl::hashtable_iterator_base", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %mpBucket, align 8
+  call void @_ZN5eastl23hashtable_iterator_baseINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0EEC2EPNS_9hash_nodeIS8_Lb0EEEPSC_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %1, ptr noundef %3)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorIS8_Lb1ELb0EEE(ptr noalias sret(%"struct.eastl::hashtable_iterator") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(45) %this, ptr %i.coerce0, ptr %i.coerce1) #0 comdat align 2 {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %i = alloca %"struct.eastl::hashtable_iterator.46", align 8
+  %this.addr = alloca ptr, align 8
+  %pNode = alloca ptr, align 8
+  %pNodeCurrent = alloca ptr, align 8
+  %pNodeNext = alloca ptr, align 8
+  store ptr %agg.result, ptr %result.ptr, align 8
+  %0 = getelementptr inbounds { ptr, ptr }, ptr %i, i32 0, i32 0
+  store ptr %i.coerce0, ptr %0, align 8
+  %1 = getelementptr inbounds { ptr, ptr }, ptr %i, i32 0, i32 1
+  store ptr %i.coerce1, ptr %1, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mpNode = getelementptr inbounds %"struct.eastl::hashtable_iterator_base", ptr %i, i32 0, i32 0
+  %2 = load ptr, ptr %mpNode, align 8
+  %mpBucket = getelementptr inbounds %"struct.eastl::hashtable_iterator_base", ptr %i, i32 0, i32 1
+  %3 = load ptr, ptr %mpBucket, align 8
+  call void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0ELb0EEC2EPNS_9hash_nodeIS8_Lb0EEEPSC_(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef %2, ptr noundef %3)
+  %call = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0ELb0EEppEv(ptr noundef nonnull align 8 dereferenceable(16) %agg.result)
+  %mpNode2 = getelementptr inbounds %"struct.eastl::hashtable_iterator_base", ptr %i, i32 0, i32 0
+  %4 = load ptr, ptr %mpNode2, align 8
+  store ptr %4, ptr %pNode, align 8
+  %mpBucket3 = getelementptr inbounds %"struct.eastl::hashtable_iterator_base", ptr %i, i32 0, i32 1
+  %5 = load ptr, ptr %mpBucket3, align 8
+  %6 = load ptr, ptr %5, align 8
+  store ptr %6, ptr %pNodeCurrent, align 8
+  %7 = load ptr, ptr %pNodeCurrent, align 8
+  %8 = load ptr, ptr %pNode, align 8
+  %cmp = icmp eq ptr %7, %8
+  br i1 %cmp, label %if.then, label %if.else
+
+if.then:                                          ; preds = %entry
+  %9 = load ptr, ptr %pNodeCurrent, align 8
+  %mpNext = getelementptr inbounds %"struct.eastl::hash_node.45", ptr %9, i32 0, i32 1
+  %10 = load ptr, ptr %mpNext, align 8
+  %mpBucket4 = getelementptr inbounds %"struct.eastl::hashtable_iterator_base", ptr %i, i32 0, i32 1
+  %11 = load ptr, ptr %mpBucket4, align 8
+  store ptr %10, ptr %11, align 8
+  br label %if.end
+
+if.else:                                          ; preds = %entry
+  %12 = load ptr, ptr %pNodeCurrent, align 8
+  %mpNext5 = getelementptr inbounds %"struct.eastl::hash_node.45", ptr %12, i32 0, i32 1
+  %13 = load ptr, ptr %mpNext5, align 8
+  store ptr %13, ptr %pNodeNext, align 8
+  br label %while.cond
+
+while.cond:                                       ; preds = %while.body, %if.else
+  %14 = load ptr, ptr %pNodeNext, align 8
+  %15 = load ptr, ptr %pNode, align 8
+  %cmp6 = icmp ne ptr %14, %15
+  br i1 %cmp6, label %while.body, label %while.end
+
+while.body:                                       ; preds = %while.cond
+  %16 = load ptr, ptr %pNodeNext, align 8
+  store ptr %16, ptr %pNodeCurrent, align 8
+  %17 = load ptr, ptr %pNodeCurrent, align 8
+  %mpNext7 = getelementptr inbounds %"struct.eastl::hash_node.45", ptr %17, i32 0, i32 1
+  %18 = load ptr, ptr %mpNext7, align 8
+  store ptr %18, ptr %pNodeNext, align 8
+  br label %while.cond, !llvm.loop !29
+
+while.end:                                        ; preds = %while.cond
+  %19 = load ptr, ptr %pNodeNext, align 8
+  %mpNext8 = getelementptr inbounds %"struct.eastl::hash_node.45", ptr %19, i32 0, i32 1
+  %20 = load ptr, ptr %mpNext8, align 8
+  %21 = load ptr, ptr %pNodeCurrent, align 8
+  %mpNext9 = getelementptr inbounds %"struct.eastl::hash_node.45", ptr %21, i32 0, i32 1
+  store ptr %20, ptr %mpNext9, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %while.end, %if.then
+  %22 = load ptr, ptr %pNode, align 8
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS8_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(45) %this1, ptr noundef %22)
+  %mnElementCount = getelementptr inbounds %"class.eastl::hashtable.17", ptr %this1, i32 0, i32 4
+  %23 = load i64, ptr %mnElementCount, align 8
+  %dec = add i64 %23, -1
+  store i64 %dec, ptr %mnElementCount, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb1ELb0EEC2ERKNS0_IS8_Lb0ELb0EEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %x) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %x.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %x, ptr %x.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %x.addr, align 8
+  %mpNode = getelementptr inbounds %"struct.eastl::hashtable_iterator_base", ptr %0, i32 0, i32 0
+  %1 = load ptr, ptr %mpNode, align 8
+  %2 = load ptr, ptr %x.addr, align 8
+  %mpBucket = getelementptr inbounds %"struct.eastl::hashtable_iterator_base", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %mpBucket, align 8
+  call void @_ZN5eastl23hashtable_iterator_baseINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0EEC2EPNS_9hash_nodeIS8_Lb0EEEPSC_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %1, ptr noundef %3)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE11DoInsertKeyENS_17integral_constantIbLb1EEERS2_(ptr noalias sret(%"struct.eastl::pair.47") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 4 dereferenceable(4) %key) #0 comdat align 2 {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %this.addr = alloca ptr, align 8
+  %key.addr = alloca ptr, align 8
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %key, ptr %key.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %key.addr, align 8
+  %1 = load ptr, ptr %key.addr, align 8
+  %call = call noundef i64 @_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE13get_hash_codeERS2_(ptr noundef nonnull align 1 dereferenceable(4) %this1, ptr noundef nonnull align 4 dereferenceable(4) %1)
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE11DoInsertKeyENS_17integral_constantIbLb1EEERS2_m(ptr sret(%"struct.eastl::pair.47") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(45) %this1, ptr noundef nonnull align 4 dereferenceable(4) %0, i64 noundef %call)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE11DoInsertKeyENS_17integral_constantIbLb1EEERS2_m(ptr noalias sret(%"struct.eastl::pair.47") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 4 dereferenceable(4) %key, i64 noundef %c) #0 comdat align 2 {
+entry:
+  %result.ptr = alloca ptr, align 8
+  %this.addr = alloca ptr, align 8
+  %key.addr = alloca ptr, align 8
+  %c.addr = alloca i64, align 8
+  %n = alloca i64, align 8
+  %pNode = alloca ptr, align 8
+  %bRehash = alloca %"struct.eastl::pair.35", align 4
+  %pNodeNew = alloca ptr, align 8
+  %ref.tmp = alloca %"struct.eastl::hashtable_iterator", align 8
+  %ref.tmp20 = alloca i8, align 1
+  %ref.tmp22 = alloca %"struct.eastl::hashtable_iterator", align 8
+  %ref.tmp25 = alloca i8, align 1
+  store ptr %agg.result, ptr %result.ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %key, ptr %key.addr, align 8
+  store i64 %c, ptr %c.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %key.addr, align 8
+  %1 = load i64, ptr %c.addr, align 8
+  %mnBucketCount = getelementptr inbounds %"class.eastl::hashtable.17", ptr %this1, i32 0, i32 3
+  %2 = load i64, ptr %mnBucketCount, align 8
+  %conv = trunc i64 %2 to i32
+  %call = call noundef i32 @_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE12bucket_indexERS2_mj(ptr noundef nonnull align 1 dereferenceable(4) %this1, ptr noundef nonnull align 4 dereferenceable(4) %0, i64 noundef %1, i32 noundef %conv)
+  %conv2 = zext i32 %call to i64
+  store i64 %conv2, ptr %n, align 8
+  %mpBucketArray = getelementptr inbounds %"class.eastl::hashtable.17", ptr %this1, i32 0, i32 2
+  %3 = load ptr, ptr %mpBucketArray, align 8
+  %4 = load i64, ptr %n, align 8
+  %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
+  %5 = load ptr, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %key.addr, align 8
+  %7 = load i64, ptr %c.addr, align 8
+  %call3 = call noundef ptr @_ZNK5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFindNodeEPNS_9hash_nodeIS8_Lb0EEERS2_m(ptr noundef nonnull align 8 dereferenceable(45) %this1, ptr noundef %5, ptr noundef nonnull align 4 dereferenceable(4) %6, i64 noundef %7)
+  store ptr %call3, ptr %pNode, align 8
+  %8 = load ptr, ptr %pNode, align 8
+  %cmp = icmp eq ptr %8, null
+  br i1 %cmp, label %if.then, label %if.end21
+
+if.then:                                          ; preds = %entry
+  %mRehashPolicy = getelementptr inbounds %"class.eastl::hashtable.17", ptr %this1, i32 0, i32 5
+  %mnBucketCount4 = getelementptr inbounds %"class.eastl::hashtable.17", ptr %this1, i32 0, i32 3
+  %9 = load i64, ptr %mnBucketCount4, align 8
+  %conv5 = trunc i64 %9 to i32
+  %mnElementCount = getelementptr inbounds %"class.eastl::hashtable.17", ptr %this1, i32 0, i32 4
+  %10 = load i64, ptr %mnElementCount, align 8
+  %conv6 = trunc i64 %10 to i32
+  %call7 = call i64 @_ZNK5eastl19prime_rehash_policy17GetRehashRequiredEjjj(ptr noundef nonnull align 4 dereferenceable(12) %mRehashPolicy, i32 noundef %conv5, i32 noundef %conv6, i32 noundef 1)
+  store i64 %call7, ptr %bRehash, align 4
+  %11 = load ptr, ptr %key.addr, align 8
+  %call8 = call noundef ptr @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE21DoAllocateNodeFromKeyERS2_(ptr noundef nonnull align 8 dereferenceable(45) %this1, ptr noundef nonnull align 4 dereferenceable(4) %11)
+  store ptr %call8, ptr %pNodeNew, align 8
+  %12 = load ptr, ptr %pNodeNew, align 8
+  %13 = load i64, ptr %c.addr, align 8
+  call void @_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE8set_codeEPNS_9hash_nodeIS8_Lb0EEEm(ptr noundef nonnull align 1 dereferenceable(4) %this1, ptr noundef %12, i64 noundef %13)
+  %first = getelementptr inbounds %"struct.eastl::pair.35", ptr %bRehash, i32 0, i32 0
+  %14 = load i8, ptr %first, align 4
+  %tobool = trunc i8 %14 to i1
+  br i1 %tobool, label %if.then9, label %if.end
+
+if.then9:                                         ; preds = %if.then
+  %15 = load ptr, ptr %key.addr, align 8
+  %16 = load i64, ptr %c.addr, align 8
+  %second = getelementptr inbounds %"struct.eastl::pair.35", ptr %bRehash, i32 0, i32 1
+  %17 = load i32, ptr %second, align 4
+  %call10 = call noundef i32 @_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE12bucket_indexERS2_mj(ptr noundef nonnull align 1 dereferenceable(4) %this1, ptr noundef nonnull align 4 dereferenceable(4) %15, i64 noundef %16, i32 noundef %17)
+  %conv11 = zext i32 %call10 to i64
+  store i64 %conv11, ptr %n, align 8
+  %second12 = getelementptr inbounds %"struct.eastl::pair.35", ptr %bRehash, i32 0, i32 1
+  %18 = load i32, ptr %second12, align 4
+  %conv13 = zext i32 %18 to i64
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE8DoRehashEm(ptr noundef nonnull align 8 dereferenceable(45) %this1, i64 noundef %conv13)
+  br label %if.end
+
+if.end:                                           ; preds = %if.then9, %if.then
+  %mpBucketArray14 = getelementptr inbounds %"class.eastl::hashtable.17", ptr %this1, i32 0, i32 2
+  %19 = load ptr, ptr %mpBucketArray14, align 8
+  %20 = load i64, ptr %n, align 8
+  %arrayidx15 = getelementptr inbounds ptr, ptr %19, i64 %20
+  %21 = load ptr, ptr %arrayidx15, align 8
+  %22 = load ptr, ptr %pNodeNew, align 8
+  %mpNext = getelementptr inbounds %"struct.eastl::hash_node.45", ptr %22, i32 0, i32 1
+  store ptr %21, ptr %mpNext, align 8
+  %23 = load ptr, ptr %pNodeNew, align 8
+  %mpBucketArray16 = getelementptr inbounds %"class.eastl::hashtable.17", ptr %this1, i32 0, i32 2
+  %24 = load ptr, ptr %mpBucketArray16, align 8
+  %25 = load i64, ptr %n, align 8
+  %arrayidx17 = getelementptr inbounds ptr, ptr %24, i64 %25
+  store ptr %23, ptr %arrayidx17, align 8
+  %mnElementCount18 = getelementptr inbounds %"class.eastl::hashtable.17", ptr %this1, i32 0, i32 4
+  %26 = load i64, ptr %mnElementCount18, align 8
+  %inc = add i64 %26, 1
+  store i64 %inc, ptr %mnElementCount18, align 8
+  %27 = load ptr, ptr %pNodeNew, align 8
+  %mpBucketArray19 = getelementptr inbounds %"class.eastl::hashtable.17", ptr %this1, i32 0, i32 2
+  %28 = load ptr, ptr %mpBucketArray19, align 8
+  %29 = load i64, ptr %n, align 8
+  %add.ptr = getelementptr inbounds ptr, ptr %28, i64 %29
+  call void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0ELb0EEC2EPNS_9hash_nodeIS8_Lb0EEEPSC_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %27, ptr noundef %add.ptr)
+  store i8 1, ptr %ref.tmp20, align 1
+  call void @_ZN5eastl4pairINS_18hashtable_iteratorINS0_IKiNS0_IiNS_12ListIteratorIiPiRiEEEEEELb0ELb0EEEbEC2IS9_bvEEOT_OT0_(ptr noundef nonnull align 8 dereferenceable(17) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp20)
+  br label %return
+
+if.end21:                                         ; preds = %entry
+  %30 = load ptr, ptr %pNode, align 8
+  %mpBucketArray23 = getelementptr inbounds %"class.eastl::hashtable.17", ptr %this1, i32 0, i32 2
+  %31 = load ptr, ptr %mpBucketArray23, align 8
+  %32 = load i64, ptr %n, align 8
+  %add.ptr24 = getelementptr inbounds ptr, ptr %31, i64 %32
+  call void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0ELb0EEC2EPNS_9hash_nodeIS8_Lb0EEEPSC_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp22, ptr noundef %30, ptr noundef %add.ptr24)
+  store i8 0, ptr %ref.tmp25, align 1
+  call void @_ZN5eastl4pairINS_18hashtable_iteratorINS0_IKiNS0_IiNS_12ListIteratorIiPiRiEEEEEELb0ELb0EEEbEC2IS9_bvEEOT_OT0_(ptr noundef nonnull align 8 dereferenceable(17) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp22, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp25)
+  br label %return
+
+return:                                           ; preds = %if.end21, %if.end
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE21DoAllocateNodeFromKeyERS2_(ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 4 dereferenceable(4) %key) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %key.addr = alloca ptr, align 8
+  %pNode = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %key, ptr %key.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mAllocator = getelementptr inbounds %"class.eastl::hashtable.17", ptr %this1, i32 0, i32 6
+  %call = call noundef ptr @_ZN5eastl15allocate_memoryINS_9allocatorEEEPvRT_mmm(ptr noundef nonnull align 1 dereferenceable(1) %mAllocator, i64 noundef 32, i64 noundef 8, i64 noundef 0)
+  store ptr %call, ptr %pNode, align 8
+  %0 = load ptr, ptr %pNode, align 8
+  %mValue = getelementptr inbounds %"struct.eastl::hash_node.45", ptr %0, i32 0, i32 0
+  %call2 = call noundef ptr @_ZN5eastl9addressofINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEEEEPT_RS9_(ptr noundef nonnull align 8 dereferenceable(24) %mValue) #9
+  %1 = load ptr, ptr %key.addr, align 8
+  call void @_ZN5eastl4pairIKiNS0_IiNS_12ListIteratorIiPiRiEEEEEC2IiS6_vEENS_22pair_first_construct_tERKT_(ptr noundef nonnull align 8 dereferenceable(24) %call2, ptr noundef nonnull align 4 dereferenceable(4) %1)
+  %2 = load ptr, ptr %pNode, align 8
+  %mpNext = getelementptr inbounds %"struct.eastl::hash_node.45", ptr %2, i32 0, i32 1
+  store ptr null, ptr %mpNext, align 8
+  %3 = load ptr, ptr %pNode, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE8set_codeEPNS_9hash_nodeIS8_Lb0EEEm(ptr noundef nonnull align 1 dereferenceable(4) %this, ptr noundef %0, i64 noundef %1) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %.addr = alloca ptr, align 8
+  %.addr1 = alloca i64, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %0, ptr %.addr, align 8
+  store i64 %1, ptr %.addr1, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE8DoRehashEm(ptr noundef nonnull align 8 dereferenceable(45) %this, i64 noundef %nNewBucketCount) #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %nNewBucketCount.addr = alloca i64, align 8
+  %pBucketArray = alloca ptr, align 8
+  %pNode = alloca ptr, align 8
+  %i = alloca i64, align 8
+  %nNewBucketIndex = alloca i64, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store i64 %nNewBucketCount, ptr %nNewBucketCount.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load i64, ptr %nNewBucketCount.addr, align 8
+  %call = call noundef ptr @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm(ptr noundef nonnull align 8 dereferenceable(45) %this1, i64 noundef %0)
+  store ptr %call, ptr %pBucketArray, align 8
+  store i64 0, ptr %i, align 8
+  br label %for.cond
+
+for.cond:                                         ; preds = %for.inc, %entry
+  %1 = load i64, ptr %i, align 8
+  %mnBucketCount = getelementptr inbounds %"class.eastl::hashtable.17", ptr %this1, i32 0, i32 3
+  %2 = load i64, ptr %mnBucketCount, align 8
+  %cmp = icmp ult i64 %1, %2
+  br i1 %cmp, label %for.body, label %for.end
+
+for.body:                                         ; preds = %for.cond
+  br label %while.cond
+
+while.cond:                                       ; preds = %while.body, %for.body
+  %mpBucketArray = getelementptr inbounds %"class.eastl::hashtable.17", ptr %this1, i32 0, i32 2
+  %3 = load ptr, ptr %mpBucketArray, align 8
+  %4 = load i64, ptr %i, align 8
+  %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
+  %5 = load ptr, ptr %arrayidx, align 8
+  store ptr %5, ptr %pNode, align 8
+  %cmp2 = icmp ne ptr %5, null
+  br i1 %cmp2, label %while.body, label %while.end
+
+while.body:                                       ; preds = %while.cond
+  %6 = load ptr, ptr %pNode, align 8
+  %7 = load i64, ptr %nNewBucketCount.addr, align 8
+  %conv = trunc i64 %7 to i32
+  %call3 = call noundef i32 @_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE12bucket_indexEPKNS_9hash_nodeIS8_Lb0EEEj(ptr noundef nonnull align 1 dereferenceable(4) %this1, ptr noundef %6, i32 noundef %conv)
+  %conv4 = zext i32 %call3 to i64
+  store i64 %conv4, ptr %nNewBucketIndex, align 8
+  %8 = load ptr, ptr %pNode, align 8
+  %mpNext = getelementptr inbounds %"struct.eastl::hash_node.45", ptr %8, i32 0, i32 1
+  %9 = load ptr, ptr %mpNext, align 8
+  %mpBucketArray5 = getelementptr inbounds %"class.eastl::hashtable.17", ptr %this1, i32 0, i32 2
+  %10 = load ptr, ptr %mpBucketArray5, align 8
+  %11 = load i64, ptr %i, align 8
+  %arrayidx6 = getelementptr inbounds ptr, ptr %10, i64 %11
+  store ptr %9, ptr %arrayidx6, align 8
+  %12 = load ptr, ptr %pBucketArray, align 8
+  %13 = load i64, ptr %nNewBucketIndex, align 8
+  %arrayidx7 = getelementptr inbounds ptr, ptr %12, i64 %13
+  %14 = load ptr, ptr %arrayidx7, align 8
+  %15 = load ptr, ptr %pNode, align 8
+  %mpNext8 = getelementptr inbounds %"struct.eastl::hash_node.45", ptr %15, i32 0, i32 1
+  store ptr %14, ptr %mpNext8, align 8
+  %16 = load ptr, ptr %pNode, align 8
+  %17 = load ptr, ptr %pBucketArray, align 8
+  %18 = load i64, ptr %nNewBucketIndex, align 8
+  %arrayidx9 = getelementptr inbounds ptr, ptr %17, i64 %18
+  store ptr %16, ptr %arrayidx9, align 8
+  br label %while.cond, !llvm.loop !30
+
+while.end:                                        ; preds = %while.cond
+  br label %for.inc
+
+for.inc:                                          ; preds = %while.end
+  %19 = load i64, ptr %i, align 8
+  %inc = add i64 %19, 1
+  store i64 %inc, ptr %i, align 8
+  br label %for.cond, !llvm.loop !31
+
+for.end:                                          ; preds = %for.cond
+  %mpBucketArray10 = getelementptr inbounds %"class.eastl::hashtable.17", ptr %this1, i32 0, i32 2
+  %20 = load ptr, ptr %mpBucketArray10, align 8
+  %mnBucketCount11 = getelementptr inbounds %"class.eastl::hashtable.17", ptr %this1, i32 0, i32 3
+  %21 = load i64, ptr %mnBucketCount11, align 8
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS8_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(45) %this1, ptr noundef %20, i64 noundef %21)
+  %22 = load i64, ptr %nNewBucketCount.addr, align 8
+  %mnBucketCount12 = getelementptr inbounds %"class.eastl::hashtable.17", ptr %this1, i32 0, i32 3
+  store i64 %22, ptr %mnBucketCount12, align 8
+  %23 = load ptr, ptr %pBucketArray, align 8
+  %mpBucketArray13 = getelementptr inbounds %"class.eastl::hashtable.17", ptr %this1, i32 0, i32 2
+  store ptr %23, ptr %mpBucketArray13, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl4pairINS_18hashtable_iteratorINS0_IKiNS0_IiNS_12ListIteratorIiPiRiEEEEEELb0ELb0EEEbEC2IS9_bvEEOT_OT0_(ptr noundef nonnull align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(16) %u, ptr noundef nonnull align 1 dereferenceable(1) %v) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %u.addr = alloca ptr, align 8
+  %v.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %u, ptr %u.addr, align 8
+  store ptr %v, ptr %v.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %first = getelementptr inbounds %"struct.eastl::pair.47", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %u.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl7forwardINS_18hashtable_iteratorINS_4pairIKiNS2_IiNS_12ListIteratorIiPiRiEEEEEELb0ELb0EEEEEOT_RNS_16remove_referenceISB_E4typeE(ptr noundef nonnull align 8 dereferenceable(16) %0) #9
+  call void @_ZN5eastl18hashtable_iteratorINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0ELb0EEC2ERKS9_(ptr noundef nonnull align 8 dereferenceable(16) %first, ptr noundef nonnull align 8 dereferenceable(16) %call)
+  %second = getelementptr inbounds %"struct.eastl::pair.47", ptr %this1, i32 0, i32 1
+  %1 = load ptr, ptr %v.addr, align 8
+  %call2 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl7forwardIbEEOT_RNS_16remove_referenceIS1_E4typeE(ptr noundef nonnull align 1 dereferenceable(1) %1) #9
+  %2 = load i8, ptr %call2, align 1
+  %tobool = trunc i8 %2 to i1
+  %frombool = zext i1 %tobool to i8
+  store i8 %frombool, ptr %second, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZN5eastl9addressofINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEEEEPT_RS9_(ptr noundef nonnull align 8 dereferenceable(24) %value) #1 comdat {
+entry:
+  %value.addr = alloca ptr, align 8
+  store ptr %value, ptr %value.addr, align 8
+  %0 = load ptr, ptr %value.addr, align 8
+  ret ptr %0
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN5eastl4pairIKiNS0_IiNS_12ListIteratorIiPiRiEEEEEC2IiS6_vEENS_22pair_first_construct_tERKT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 4 dereferenceable(4) %x) unnamed_addr #0 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %x.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %x, ptr %x.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %first = getelementptr inbounds %"struct.eastl::pair", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %x.addr, align 8
+  %1 = load i32, ptr %0, align 4
+  store i32 %1, ptr %first, align 8
+  %second = getelementptr inbounds %"struct.eastl::pair", ptr %this1, i32 0, i32 1
+  call void @_ZN5eastl4pairIiNS_12ListIteratorIiPiRiEEEC2IiS4_vEEv(ptr noundef nonnull align 8 dereferenceable(16) %second)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl4pairIiNS_12ListIteratorIiPiRiEEEC2IiS4_vEEv(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %first = getelementptr inbounds %"struct.eastl::pair.27", ptr %this1, i32 0, i32 0
+  store i32 0, ptr %first, align 8
+  %second = getelementptr inbounds %"struct.eastl::pair.27", ptr %this1, i32 0, i32 1
+  call void @_ZN5eastl12ListIteratorIiPiRiEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %second) #9
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZNK5eastl14hash_code_baseIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb0EE12bucket_indexEPKNS_9hash_nodeIS8_Lb0EEEj(ptr noundef nonnull align 1 dereferenceable(4) %this, ptr noundef %pNode, i32 noundef %nBucketCount) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %pNode.addr = alloca ptr, align 8
+  %nBucketCount.addr = alloca i32, align 4
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %pNode, ptr %pNode.addr, align 8
+  store i32 %nBucketCount, ptr %nBucketCount.addr, align 4
+  %this1 = load ptr, ptr %this.addr, align 8
+  %m_h2 = getelementptr inbounds %"struct.eastl::hash_code_base.19", ptr %this1, i32 0, i32 3
+  %m_h1 = getelementptr inbounds %"struct.eastl::hash_code_base.19", ptr %this1, i32 0, i32 2
+  %mExtractKey = getelementptr inbounds %"struct.eastl::hash_code_base.19", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %pNode.addr, align 8
+  %mValue = getelementptr inbounds %"struct.eastl::hash_node.45", ptr %0, i32 0, i32 0
+  %call = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK5eastl9use_firstINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEEEclERKS8_(ptr noundef nonnull align 1 dereferenceable(1) %mExtractKey, ptr noundef nonnull align 8 dereferenceable(24) %mValue)
+  %1 = load i32, ptr %call, align 4
+  %call2 = call noundef i64 @_ZNK5eastl4hashIiEclEi(ptr noundef nonnull align 1 dereferenceable(1) %m_h1, i32 noundef %1)
+  %2 = load i32, ptr %nBucketCount.addr, align 4
+  %call3 = call noundef i32 @_ZNK5eastl17mod_range_hashingclEmj(ptr noundef nonnull align 1 dereferenceable(1) %m_h2, i64 noundef %call2, i32 noundef %2)
+  ret i32 %call3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl7forwardINS_18hashtable_iteratorINS_4pairIKiNS2_IiNS_12ListIteratorIiPiRiEEEEEELb0ELb0EEEEEOT_RNS_16remove_referenceISB_E4typeE(ptr noundef nonnull align 8 dereferenceable(16) %x) #1 comdat {
+entry:
+  %x.addr = alloca ptr, align 8
+  store ptr %x, ptr %x.addr, align 8
+  %0 = load ptr, ptr %x.addr, align 8
+  ret ptr %0
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN5eastl23hashtable_iterator_baseINS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEELb0EE9incrementEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %mpNode = getelementptr inbounds %"struct.eastl::hashtable_iterator_base", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %mpNode, align 8
+  %mpNext = getelementptr inbounds %"struct.eastl::hash_node.45", ptr %0, i32 0, i32 1
+  %1 = load ptr, ptr %mpNext, align 8
+  %mpNode2 = getelementptr inbounds %"struct.eastl::hashtable_iterator_base", ptr %this1, i32 0, i32 0
+  store ptr %1, ptr %mpNode2, align 8
+  br label %while.cond
+
+while.cond:                                       ; preds = %while.body, %entry
+  %mpNode3 = getelementptr inbounds %"struct.eastl::hashtable_iterator_base", ptr %this1, i32 0, i32 0
+  %2 = load ptr, ptr %mpNode3, align 8
+  %cmp = icmp eq ptr %2, null
+  br i1 %cmp, label %while.body, label %while.end
+
+while.body:                                       ; preds = %while.cond
+  %mpBucket = getelementptr inbounds %"struct.eastl::hashtable_iterator_base", ptr %this1, i32 0, i32 1
+  %3 = load ptr, ptr %mpBucket, align 8
+  %incdec.ptr = getelementptr inbounds ptr, ptr %3, i32 1
+  store ptr %incdec.ptr, ptr %mpBucket, align 8
+  %4 = load ptr, ptr %incdec.ptr, align 8
+  %mpNode4 = getelementptr inbounds %"struct.eastl::hashtable_iterator_base", ptr %this1, i32 0, i32 0
+  store ptr %4, ptr %mpNode4, align 8
+  br label %while.cond, !llvm.loop !32
+
+while.end:                                        ; preds = %while.cond
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(4) ptr @_ZN5eastl7GetPairILm0EE11getInternalIKiNS_4pairIiNS_12ListIteratorIiPiRiEEEEEERT_RNS4_ISA_T0_EE(ptr noundef nonnull align 8 dereferenceable(24) %p) #1 comdat align 2 {
+entry:
+  %p.addr = alloca ptr, align 8
+  store ptr %p, ptr %p.addr, align 8
+  %0 = load ptr, ptr %p.addr, align 8
+  %first = getelementptr inbounds %"struct.eastl::pair", ptr %0, i32 0, i32 0
+  ret ptr %first
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl7GetPairILm1EE11getInternalIKiNS_4pairIiNS_12ListIteratorIiPiRiEEEEEERT0_RNS4_IT_SA_EE(ptr noundef nonnull align 8 dereferenceable(24) %p) #1 comdat align 2 {
+entry:
+  %p.addr = alloca ptr, align 8
+  store ptr %p, ptr %p.addr, align 8
+  %0 = load ptr, ptr %p.addr, align 8
+  %second = getelementptr inbounds %"struct.eastl::pair", ptr %0, i32 0, i32 1
+  ret ptr %second
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i64 @_ZNKSt16initializer_listIN5eastl4pairIiiEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_len = getelementptr inbounds %"class.std::initializer_list", ptr %this1, i32 0, i32 1
+  %0 = load i64, ptr %_M_len, align 8
+  ret i64 %0
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZNKSt16initializer_listIN5eastl4pairIiiEEE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %_M_array = getelementptr inbounds %"class.std::initializer_list", ptr %this1, i32 0, i32 0
+  %0 = load ptr, ptr %_M_array, align 8
+  ret ptr %0
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZNKSt16initializer_listIN5eastl4pairIiiEEE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %call = call noundef ptr @_ZNKSt16initializer_listIN5eastl4pairIiiEEE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %this1) #9
+  %call2 = call noundef i64 @_ZNKSt16initializer_listIN5eastl4pairIiiEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %this1) #9
+  %add.ptr = getelementptr inbounds %"struct.eastl::pair.28", ptr %call, i64 %call2
+  ret ptr %add.ptr
+}
+
+attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { nounwind }
+attributes #10 = { noreturn nounwind }
+attributes #11 = { builtin allocsize(0) }
+attributes #12 = { builtin nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"PIE Level", i32 2}
+!3 = !{i32 7, !"uwtable", i32 2}
+!4 = !{i32 7, !"frame-pointer", i32 2}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}
+!20 = distinct !{!20, !6}
+!21 = distinct !{!21, !6}
+!22 = distinct !{!22, !6}
+!23 = distinct !{!23, !6}
+!24 = distinct !{!24, !6}
+!25 = distinct !{!25, !6}
+!26 = distinct !{!26, !6}
+!27 = distinct !{!27, !6}
+!28 = distinct !{!28, !6}
+!29 = distinct !{!29, !6}
+!30 = distinct !{!30, !6}
+!31 = distinct !{!31, !6}
+!32 = distinct !{!32, !6}
