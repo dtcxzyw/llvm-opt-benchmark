@@ -208,3 +208,6 @@
 [submodule "bench/cpython/cpython"]
 	path = bench/cpython/cpython
 	url = git@github.com:python/cpython.git
+[submodule "bench/lua/lua"]
+	path = bench/lua/lua
+	url = git@github.com:lua/lua.git
