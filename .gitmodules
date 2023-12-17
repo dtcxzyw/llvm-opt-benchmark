@@ -181,3 +181,6 @@
 [submodule "bench/rocksdb/rocksdb"]
 	path = bench/rocksdb/rocksdb
 	url = git@github.com:facebook/rocksdb.git
+[submodule "bench/yoga/yoga"]
+	path = bench/yoga/yoga
+	url = git@github.com:facebook/yoga.git
