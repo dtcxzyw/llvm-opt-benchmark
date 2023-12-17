@@ -205,3 +205,6 @@
 [submodule "bench/cpp-httplib/cpp-httplib"]
 	path = bench/cpp-httplib/cpp-httplib
 	url = git@github.com:yhirose/cpp-httplib.git
+[submodule "bench/cpython/cpython"]
+	path = bench/cpython/cpython
+	url = git@github.com:python/cpython.git
