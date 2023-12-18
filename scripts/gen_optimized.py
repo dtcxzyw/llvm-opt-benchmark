@@ -35,11 +35,13 @@ if __name__ == '__main__':
     
     print("total items: ", len(work_list))
 
-pool = Pool(processes=16)
-progress = tqdm.tqdm(work_list)
-
-for file, status in pool.imap_unordered(run_opt, work_list):
-    if status != 'success':
-        progress.write(file, status)
-    progress.update()
-progress.close()
+    pool = Pool(processes=16)
+    progress = tqdm.tqdm(work_list)
+    with open('test.log', 'w') as log:
+        for file, status in pool.imap_unordered(run_opt, work_list):
+            if status != 'success':
+                file = os.path.relpath(file, bench_dir)
+                progress.write(file + ' ' + status)
+                log.write(file + ' ' + status + '\n')
+            progress.update()
+        progress.close()

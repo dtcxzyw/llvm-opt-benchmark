@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  schedule:
+  - cron: "0 */1 * * *"
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    concurrency:
+      group: single
+      cancel-in-progress: false
+
+    runs-on: self-hosted
+
+    permissions:
+      issues: write
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+          fetch-depth: 0
+
+      - name: Set up Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Update LLVM
+        run: ${{ github.workspace }}/scripts/update_llvm.sh
+
+      - name: Update optimized IR
+        id: update
+        run: ${{ github.workspace }}/scripts/update_optimized.sh
+
+      - name: Report
+        uses: JasonEtco/create-an-issue@v2
+        if: steps.update.outputs.SHOULD_OPEN_ISSUE == '1'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          filename: scripts/issue.md
