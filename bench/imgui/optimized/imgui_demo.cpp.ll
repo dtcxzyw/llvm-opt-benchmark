@@ -9307,7 +9307,7 @@ if.end45:                                         ; preds = %if.then44, %for.bod
   %18 = load float, ptr %r.i, align 4
   %19 = load float, ptr %g.i, align 4
   %20 = load float, ptr %b.i, align 4
-  %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> undef, float %18, i64 0
+  %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %18, i64 0
   %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %19, i64 1
   %retval.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 1.000000e+00>, float %20, i64 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %r.i)
@@ -9323,7 +9323,7 @@ if.end45:                                         ; preds = %if.then44, %for.bod
   %21 = load float, ptr %r.i329, align 4
   %22 = load float, ptr %g.i330, align 4
   %23 = load float, ptr %b.i331, align 4
-  %retval.sroa.0.0.vec.insert.i332 = insertelement <2 x float> undef, float %21, i64 0
+  %retval.sroa.0.0.vec.insert.i332 = insertelement <2 x float> poison, float %21, i64 0
   %retval.sroa.0.4.vec.insert.i333 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i332, float %22, i64 1
   %retval.sroa.3.12.vec.insert.i335 = insertelement <2 x float> <float poison, float 1.000000e+00>, float %23, i64 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %r.i329)
@@ -9339,7 +9339,7 @@ if.end45:                                         ; preds = %if.then44, %for.bod
   %24 = load float, ptr %r.i343, align 4
   %25 = load float, ptr %g.i344, align 4
   %26 = load float, ptr %b.i345, align 4
-  %retval.sroa.0.0.vec.insert.i346 = insertelement <2 x float> undef, float %24, i64 0
+  %retval.sroa.0.0.vec.insert.i346 = insertelement <2 x float> poison, float %24, i64 0
   %retval.sroa.0.4.vec.insert.i347 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i346, float %25, i64 1
   %retval.sroa.3.12.vec.insert.i349 = insertelement <2 x float> <float poison, float 1.000000e+00>, float %26, i64 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %r.i343)
@@ -13119,7 +13119,7 @@ if.end1884:                                       ; preds = %if.then1883, %for.b
   %449 = load float, ptr %r.i643, align 4
   %450 = load float, ptr %g.i644, align 4
   %451 = load float, ptr %b.i645, align 4
-  %retval.sroa.0.0.vec.insert.i646 = insertelement <2 x float> undef, float %449, i64 0
+  %retval.sroa.0.0.vec.insert.i646 = insertelement <2 x float> poison, float %449, i64 0
   %retval.sroa.0.4.vec.insert.i647 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i646, float %450, i64 1
   %retval.sroa.3.12.vec.insert.i649 = insertelement <2 x float> <float poison, float 1.000000e+00>, float %451, i64 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %r.i643)
@@ -13135,7 +13135,7 @@ if.end1884:                                       ; preds = %if.then1883, %for.b
   %452 = load float, ptr %r.i657, align 4
   %453 = load float, ptr %g.i658, align 4
   %454 = load float, ptr %b.i659, align 4
-  %retval.sroa.0.0.vec.insert.i660 = insertelement <2 x float> undef, float %452, i64 0
+  %retval.sroa.0.0.vec.insert.i660 = insertelement <2 x float> poison, float %452, i64 0
   %retval.sroa.0.4.vec.insert.i661 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i660, float %453, i64 1
   %retval.sroa.3.12.vec.insert.i663 = insertelement <2 x float> <float poison, float 1.000000e+00>, float %454, i64 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %r.i657)
@@ -13151,7 +13151,7 @@ if.end1884:                                       ; preds = %if.then1883, %for.b
   %455 = load float, ptr %r.i671, align 4
   %456 = load float, ptr %g.i672, align 4
   %457 = load float, ptr %b.i673, align 4
-  %retval.sroa.0.0.vec.insert.i674 = insertelement <2 x float> undef, float %455, i64 0
+  %retval.sroa.0.0.vec.insert.i674 = insertelement <2 x float> poison, float %455, i64 0
   %retval.sroa.0.4.vec.insert.i675 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i674, float %456, i64 1
   %retval.sroa.3.12.vec.insert.i677 = insertelement <2 x float> <float poison, float 1.000000e+00>, float %457, i64 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %r.i671)
@@ -13167,7 +13167,7 @@ if.end1884:                                       ; preds = %if.then1883, %for.b
   %458 = load float, ptr %r.i685, align 4
   %459 = load float, ptr %g.i686, align 4
   %460 = load float, ptr %b.i687, align 4
-  %retval.sroa.0.0.vec.insert.i688 = insertelement <2 x float> undef, float %458, i64 0
+  %retval.sroa.0.0.vec.insert.i688 = insertelement <2 x float> poison, float %458, i64 0
   %retval.sroa.0.4.vec.insert.i689 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i688, float %459, i64 1
   %retval.sroa.3.12.vec.insert.i691 = insertelement <2 x float> <float poison, float 1.000000e+00>, float %460, i64 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %r.i685)
@@ -15654,7 +15654,7 @@ cond.end600:                                      ; preds = %cond.false590, %con
   %110 = load float, ptr %r.i, align 4
   %111 = load float, ptr %g.i, align 4
   %112 = load float, ptr %b.i, align 4
-  %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> undef, float %110, i64 0
+  %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %110, i64 0
   %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %111, i64 1
   %retval.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 1.000000e+00>, float %112, i64 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %r.i)
@@ -15670,7 +15670,7 @@ cond.end600:                                      ; preds = %cond.false590, %con
   %113 = load float, ptr %r.i235, align 4
   %114 = load float, ptr %g.i236, align 4
   %115 = load float, ptr %b.i237, align 4
-  %retval.sroa.0.0.vec.insert.i238 = insertelement <2 x float> undef, float %113, i64 0
+  %retval.sroa.0.0.vec.insert.i238 = insertelement <2 x float> poison, float %113, i64 0
   %retval.sroa.0.4.vec.insert.i239 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i238, float %114, i64 1
   %retval.sroa.3.12.vec.insert.i241 = insertelement <2 x float> <float poison, float 1.000000e+00>, float %115, i64 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %r.i235)
@@ -15686,7 +15686,7 @@ cond.end600:                                      ; preds = %cond.false590, %con
   %116 = load float, ptr %r.i249, align 4
   %117 = load float, ptr %g.i250, align 4
   %118 = load float, ptr %b.i251, align 4
-  %retval.sroa.0.0.vec.insert.i252 = insertelement <2 x float> undef, float %116, i64 0
+  %retval.sroa.0.0.vec.insert.i252 = insertelement <2 x float> poison, float %116, i64 0
   %retval.sroa.0.4.vec.insert.i253 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i252, float %117, i64 1
   %retval.sroa.3.12.vec.insert.i255 = insertelement <2 x float> <float poison, float 1.000000e+00>, float %118, i64 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %r.i249)

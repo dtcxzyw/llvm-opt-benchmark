@@ -10482,7 +10482,7 @@ if.then:                                          ; preds = %entry
   %1 = load i64, ptr %chunkMask_.i, align 8
   %2 = load ptr, ptr %this, align 8
   %conv.i25 = trunc i64 %hp.coerce1 to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i25, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i25, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %3 = load i32, ptr %key, align 4
   br label %for.body.i
@@ -11229,7 +11229,7 @@ if.then:                                          ; preds = %entry
   %conv.i57 = zext i32 %1 to i64
   %chunks_.i = getelementptr inbounds %"class.folly::f14::detail::F14Table.283", ptr %this, i64 0, i32 1
   %conv.i25 = trunc i64 %hp.coerce1 to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i25, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i25, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i
 
@@ -12668,7 +12668,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %tobool22.not.i, label %if.then23.i, label %_ZNK8facebook5velox6common18FloatingPointRangeIdE18testFloatingPointsEN5xsimd5batchIdNS4_4fma3INS4_4avx2EEEEE.exit
 
 if.then23.i:                                      ; preds = %if.then.i
-  %vecinit3.i.i.i.i.i2.i = shufflevector <2 x double> %2, <2 x double> undef, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
+  %vecinit3.i.i.i.i.i2.i = shufflevector <2 x double> %2, <2 x double> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
   %upperExclusive_.i = getelementptr inbounds %"class.facebook::velox::common::AbstractRange", ptr %this, i64 0, i32 4
   %9 = load i8, ptr %upperExclusive_.i, align 1
   %10 = and i8 %9, 1
@@ -12688,7 +12688,7 @@ if.else43.i:                                      ; preds = %if.then23.i
 if.else58.i:                                      ; preds = %entry
   %upper_60.i = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange", ptr %this, i64 0, i32 2
   %13 = load double, ptr %upper_60.i, align 8
-  %vecinit.i.i.i.i.i4.i = insertelement <4 x double> undef, double %13, i64 0
+  %vecinit.i.i.i.i.i4.i = insertelement <4 x double> poison, double %13, i64 0
   %vecinit3.i.i.i.i.i5.i = shufflevector <4 x double> %vecinit.i.i.i.i.i4.i, <4 x double> poison, <4 x i32> zeroinitializer
   %upperExclusive_66.i = getelementptr inbounds %"class.facebook::velox::common::AbstractRange", ptr %this, i64 0, i32 4
   %14 = load i8, ptr %upperExclusive_66.i, align 1
@@ -14026,7 +14026,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %lower_.i = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange.477", ptr %this, i64 0, i32 1
   %2 = load float, ptr %lower_.i, align 4
-  %vecinit.i.i.i.i.i.i = insertelement <8 x float> undef, float %2, i64 0
+  %vecinit.i.i.i.i.i.i = insertelement <8 x float> poison, float %2, i64 0
   %vecinit7.i.i.i.i.i.i = shufflevector <8 x float> %vecinit.i.i.i.i.i.i, <8 x float> poison, <8 x i32> zeroinitializer
   %lowerExclusive_.i = getelementptr inbounds %"class.facebook::velox::common::AbstractRange", ptr %this, i64 0, i32 2
   %3 = load i8, ptr %lowerExclusive_.i, align 1
@@ -14044,7 +14044,7 @@ if.then.i:                                        ; preds = %entry
 if.then23.i:                                      ; preds = %if.then.i
   %upper_.i = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange.477", ptr %this, i64 0, i32 2
   %9 = load float, ptr %upper_.i, align 8
-  %vecinit.i.i.i.i.i1.i = insertelement <8 x float> undef, float %9, i64 0
+  %vecinit.i.i.i.i.i1.i = insertelement <8 x float> poison, float %9, i64 0
   %vecinit7.i.i.i.i.i2.i = shufflevector <8 x float> %vecinit.i.i.i.i.i1.i, <8 x float> poison, <8 x i32> zeroinitializer
   %upperExclusive_.i = getelementptr inbounds %"class.facebook::velox::common::AbstractRange", ptr %this, i64 0, i32 4
   %10 = load i8, ptr %upperExclusive_.i, align 1
@@ -14065,7 +14065,7 @@ if.else43.i:                                      ; preds = %if.then23.i
 if.else58.i:                                      ; preds = %entry
   %upper_60.i = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange.477", ptr %this, i64 0, i32 2
   %14 = load float, ptr %upper_60.i, align 8
-  %vecinit.i.i.i.i.i4.i = insertelement <8 x float> undef, float %14, i64 0
+  %vecinit.i.i.i.i.i4.i = insertelement <8 x float> poison, float %14, i64 0
   %vecinit7.i.i.i.i.i5.i = shufflevector <8 x float> %vecinit.i.i.i.i.i4.i, <8 x float> poison, <8 x i32> zeroinitializer
   %upperExclusive_66.i = getelementptr inbounds %"class.facebook::velox::common::AbstractRange", ptr %this, i64 0, i32 4
   %15 = load i8, ptr %upperExclusive_66.i, align 1

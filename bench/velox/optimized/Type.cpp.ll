@@ -4961,7 +4961,7 @@ _ZNK5folly7dynamic3getINS0_10ObjectImplEEERKT_v.exit: ; preds = %entry
   %chunkMask_.i = getelementptr inbounds %"struct.folly::dynamic", ptr %this, i64 0, i32 1, i32 0, i32 1
   %4 = load i64, ptr %chunkMask_.i, align 8
   %conv.i17 = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i17, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i17, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp.i8.i.i.i.i.i = icmp eq ptr %key.coerce1, %key.coerce0
   br label %for.body.i
@@ -7790,7 +7790,7 @@ call2.i.noexc.i:                                  ; preds = %for.body.i
   %14 = load i32, ptr %chunkMask_.i.i.i.i.i, align 8, !alias.scope !65
   %conv.i59.i = zext i32 %14 to i64
   %conv.i29.i = trunc i64 %or.i.i to i8
-  %vecinit.i.i.i = insertelement <16 x i8> undef, i8 %conv.i29.i, i64 0
+  %vecinit.i.i.i = insertelement <16 x i8> poison, i8 %conv.i29.i, i64 0
   %vecinit15.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %call6.i.noexc.i
 
@@ -8459,7 +8459,7 @@ _ZNK5folly3f146detail21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char
   %conv.i40 = zext i32 %2 to i64
   %chunks_.i = getelementptr inbounds %"class.facebook::velox::RowType", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
   %conv.i15 = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i15, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i15, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i
 
@@ -18762,7 +18762,7 @@ _ZNK5folly3f146detail10BasePolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %chunkMask_.i = getelementptr inbounds %"class.folly::f14::detail::F14Table.366", ptr %this, i64 0, i32 1
   %2 = load i64, ptr %chunkMask_.i, align 8
   %conv.i = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i
 
@@ -18864,7 +18864,7 @@ _ZNK5folly3f146detail10BasePolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %chunkMask_.i.i = getelementptr inbounds %"class.folly::f14::detail::F14Table.366", ptr %0, i64 0, i32 1
   %3 = load i64, ptr %chunkMask_.i.i, align 8
   %conv.i = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i.i
 
@@ -18989,7 +18989,7 @@ _ZNK5folly3f146detail10BasePolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %chunkMask_.i = getelementptr inbounds %"class.folly::f14::detail::F14Table", ptr %this, i64 0, i32 1
   %2 = load i64, ptr %chunkMask_.i, align 8
   %conv.i = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i
 
@@ -19090,7 +19090,7 @@ _ZNK5folly3f146detail10BasePolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %chunkMask_.i.i = getelementptr inbounds %"class.folly::f14::detail::F14Table", ptr %0, i64 0, i32 1
   %3 = load i64, ptr %chunkMask_.i.i, align 8
   %conv.i = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i.i
 
@@ -19214,7 +19214,7 @@ _ZNK5folly3f146detail10BasePolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %chunkMask_.i = getelementptr inbounds %"class.folly::f14::detail::F14Table.381", ptr %this, i64 0, i32 1
   %2 = load i64, ptr %chunkMask_.i, align 8
   %conv.i = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i
 
@@ -19315,7 +19315,7 @@ _ZNK5folly3f146detail10BasePolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %chunkMask_.i.i = getelementptr inbounds %"class.folly::f14::detail::F14Table.381", ptr %0, i64 0, i32 1
   %3 = load i64, ptr %chunkMask_.i.i, align 8
   %conv.i = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i.i
 
@@ -23886,7 +23886,7 @@ if.then:                                          ; preds = %entry
   %conv.i57 = zext i32 %1 to i64
   %chunks_.i = getelementptr inbounds %"class.folly::f14::detail::F14Table.145", ptr %this, i64 0, i32 1
   %conv.i25 = trunc i64 %hp.coerce1 to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i25, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i25, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i
 
@@ -34041,7 +34041,7 @@ if.then:                                          ; preds = %entry
   %chunkMask_.i = getelementptr inbounds %"class.folly::f14::detail::F14Table", ptr %this, i64 0, i32 1
   %1 = load i64, ptr %chunkMask_.i, align 8
   %conv.i26 = trunc i64 %hp.coerce1 to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i26, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i26, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i
 

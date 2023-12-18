@@ -2980,7 +2980,7 @@ if.end21.i.i.i:                                   ; preds = %if.else.i.i.i, %if.
   %call.i19.i.i.i = tail call noundef float @sinf(float noundef %theta.0.i.i.i) #23, !noalias !25
   %mul.i.i22.i.i.i = fmul float %r.0.i.i.i, %call.i.i.i.i
   %mul2.i.i.i.i.i = fmul float %r.0.i.i.i, %call.i19.i.i.i
-  %retval.sroa.0.0.vec.insert.i.i24.i.i.i = insertelement <2 x float> undef, float %mul.i.i22.i.i.i, i64 0
+  %retval.sroa.0.0.vec.insert.i.i24.i.i.i = insertelement <2 x float> poison, float %mul.i.i22.i.i.i, i64 0
   %retval.sroa.0.4.vec.insert.i.i25.i.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i24.i.i.i, float %mul2.i.i.i.i.i, i64 1
   br label %_ZN4pbrt22SampleCosineHemisphereENS_6Point2IfEE.exit.i
 
@@ -9416,7 +9416,7 @@ invoke.cont187.us:                                ; preds = %invoke.cont159.us
   %fneg2.i398.us = fneg float %101
   %102 = load float, ptr %z.i399, align 4
   %fneg3.i400.us = fneg float %102
-  %retval.sroa.0.0.vec.insert.i401.us = insertelement <2 x float> undef, float %fneg.i396.us, i64 0
+  %retval.sroa.0.0.vec.insert.i401.us = insertelement <2 x float> poison, float %fneg.i396.us, i64 0
   %retval.sroa.0.4.vec.insert.i402.us = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i401.us, float %fneg2.i398.us, i64 1
   %call192.us = invoke noundef float @_ZNK4pbrt15TopOrBottomBxDFINS_14DielectricBxDFENS_13ConductorBxDFEE3PDFENS_7Vector3IfEES5_NS_13TransportModeENS_18BxDFReflTransFlagsE(ptr noundef nonnull align 8 dereferenceable(16) %rInterface, <2 x float> %73, float %fneg3.i223.us, <2 x float> %retval.sroa.0.4.vec.insert.i402.us, float %fneg3.i400.us, i32 noundef %mode, i32 noundef 3)
           to label %invoke.cont193.us unwind label %lpad142.loopexit.split.us
@@ -9443,7 +9443,7 @@ invoke.cont204.us:                                ; preds = %invoke.cont193.us
   %fneg2.i420.us = fneg float %108
   %109 = load float, ptr %z.i421, align 4
   %fneg3.i422.us = fneg float %109
-  %retval.sroa.0.0.vec.insert.i423.us = insertelement <2 x float> undef, float %fneg.i418.us, i64 0
+  %retval.sroa.0.0.vec.insert.i423.us = insertelement <2 x float> poison, float %fneg.i418.us, i64 0
   %retval.sroa.0.4.vec.insert.i424.us = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i423.us, float %fneg2.i420.us, i64 1
   %call210.us = invoke noundef float @_ZNK4pbrt15TopOrBottomBxDFINS_14DielectricBxDFENS_13ConductorBxDFEE3PDFENS_7Vector3IfEES5_NS_13TransportModeENS_18BxDFReflTransFlagsE(ptr noundef nonnull align 8 dereferenceable(16) %tInterface, <2 x float> %retval.sroa.0.4.vec.insert.i424.us, float %fneg3.i422.us, <2 x float> %wi.sroa.0.0, float %wi.sroa.14.0, i32 noundef %mode, i32 noundef 3)
           to label %invoke.cont209.us unwind label %lpad142.loopexit.split.us
@@ -9480,7 +9480,7 @@ invoke.cont166.us:                                ; preds = %if.then161.us
   %fneg2.i364.us = fneg float %118
   %119 = load float, ptr %z.i421, align 4
   %fneg3.i366.us = fneg float %119
-  %retval.sroa.0.0.vec.insert.i367.us = insertelement <2 x float> undef, float %fneg.i362.us, i64 0
+  %retval.sroa.0.0.vec.insert.i367.us = insertelement <2 x float> poison, float %fneg.i362.us, i64 0
   %retval.sroa.0.4.vec.insert.i368.us = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i367.us, float %fneg2.i364.us, i64 1
   %call172.us = invoke noundef float @_ZNK4pbrt15TopOrBottomBxDFINS_14DielectricBxDFENS_13ConductorBxDFEE3PDFENS_7Vector3IfEES5_NS_13TransportModeENS_18BxDFReflTransFlagsE(ptr noundef nonnull align 8 dereferenceable(16) %tInterface, <2 x float> %retval.sroa.0.4.vec.insert.i368.us, float %fneg3.i366.us, <2 x float> %wi.sroa.0.0, float %wi.sroa.14.0, i32 noundef %mode, i32 noundef 3)
           to label %if.end219.us unwind label %lpad142.loopexit.split.us
@@ -9565,7 +9565,7 @@ if.end23.i.us:                                    ; preds = %init.end.i.us
   %135 = extractelement <2 x float> %128, i64 1
   %div2.i.i.i.us = fdiv float %135, %sqrt.i.i.i.us
   %div3.i.i.i.us = fdiv float %add6.i.i.us, %sqrt.i.i.i.us
-  %retval.sroa.0.0.vec.insert.i.i.i.us = insertelement <2 x float> undef, float %div.i.i.i.us, i64 0
+  %retval.sroa.0.0.vec.insert.i.i.i.us = insertelement <2 x float> poison, float %div.i.i.i.us, i64 0
   %retval.sroa.0.4.vec.insert.i.i.i.us = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i.i.us, float %div2.i.i.i.us, i64 1
   %136 = call noundef float @llvm.fma.f32(float %div2.i.i.i.us, float 0.000000e+00, float %div3.i.i.i.us)
   %fneg.i.i.i.i.us = fneg float %div3.i.i.i.us
@@ -9575,7 +9575,7 @@ if.end23.i.us:                                    ; preds = %init.end.i.us
   %cmp.i16.i.us = fcmp olt float %138, 0.000000e+00
   %fneg.i.i.i.us = fneg float %div.i.i.i.us
   %fneg2.i.i.i.us = fneg float %div2.i.i.i.us
-  %retval.sroa.0.0.vec.insert.i.i17.i.us = insertelement <2 x float> undef, float %fneg.i.i.i.us, i64 0
+  %retval.sroa.0.0.vec.insert.i.i17.i.us = insertelement <2 x float> poison, float %fneg.i.i.i.us, i64 0
   %retval.sroa.0.4.vec.insert.i.i18.i.us = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i17.i.us, float %fneg2.i.i.i.us, i64 1
   %retval.sroa.0.0.i.i.us = select i1 %cmp.i16.i.us, <2 x float> %retval.sroa.0.4.vec.insert.i.i18.i.us, <2 x float> %retval.sroa.0.4.vec.insert.i.i.i.us
   %retval.sroa.3.0.i.i.us = select i1 %cmp.i16.i.us, float %fneg.i.i.i.i.us, float %div3.i.i.i.us
@@ -12609,7 +12609,7 @@ if.end162:                                        ; preds = %for.body, %if.then1
 
 for.end:                                          ; preds = %if.end162
   %47 = extractelement <2 x float> %4, i64 1
-  %wi.sroa.0.0.vec.insert = insertelement <2 x float> undef, float %add77, i64 0
+  %wi.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %add77, i64 0
   %mul102 = fmul float %sqrt.i84, %call.i107
   %wi.sroa.0.4.vec.insert = insertelement <2 x float> %wi.sroa.0.0.vec.insert, float %mul102, i64 1
   %mul104 = fmul float %sqrt.i84, %call.i108
@@ -18223,7 +18223,7 @@ if.end19:                                         ; preds = %if.end10
   %cond = fsub float %call.i40, %sub
   %mul.i46 = fmul float %cond, 0x3FC45F3060000000
   %add.i47 = fadd float %mul.i46, 5.000000e-01
-  %u_wm.sroa.0.0.vec.insert = insertelement <2 x float> undef, float %call.i.i45, i64 0
+  %u_wm.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %call.i.i45, i64 0
   %12 = tail call noundef float @llvm.floor.f32(float %add.i47)
   %sub40 = fsub float %add.i47, %12
   %u_wm.sroa.0.4.vec.insert114 = insertelement <2 x float> %u_wm.sroa.0.0.vec.insert, float %sub40, i64 1
@@ -19922,7 +19922,7 @@ if.end22:                                         ; preds = %if.end13
   %cond = fsub float %call.i34, %sub
   %mul.i36 = fmul float %cond, 0x3FC45F3060000000
   %add.i37 = fadd float %mul.i36, 5.000000e-01
-  %u_wm.sroa.0.0.vec.insert = insertelement <2 x float> undef, float %call.i.i, i64 0
+  %u_wm.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %call.i.i, i64 0
   %15 = tail call noundef float @llvm.floor.f32(float %add.i37)
   %sub42 = fsub float %add.i37, %15
   %u_wm.sroa.0.4.vec.insert = insertelement <2 x float> %u_wm.sroa.0.0.vec.insert, float %sub42, i64 1
@@ -20450,7 +20450,7 @@ if.end:                                           ; preds = %for.body
   %.sroa.speculated.i.i = select i1 %cmp.i.i.i, float %sub.i, float 0.000000e+00
   %sqrt.i.i = call noundef float @llvm.sqrt.f32(float %.sroa.speculated.i.i)
   %mul5.i = fmul float %call.i.i, %sqrt.i.i
-  %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> undef, float %mul5.i, i64 0
+  %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %mul5.i, i64 0
   %mul7.i = fmul float %call.i5.i, %sqrt.i.i
   %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %mul7.i, i64 1
   %arrayidx.i6 = getelementptr inbounds float, ptr %uc.coerce0, i64 %i.076
@@ -20848,14 +20848,14 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp5.i, label %if.else.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end.i
-  %retval.sroa.0.0.vec.insert12.i = insertelement <2 x float> undef, float %call.i.i, i64 0
+  %retval.sroa.0.0.vec.insert12.i = insertelement <2 x float> poison, float %call.i.i, i64 0
   %retval.sroa.0.4.vec.insert16.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert12.i, float %div.i, i64 1
   br label %_ZN4pstd4sqrtIfEENS_7complexIT_EERKS3_.exit
 
 if.else.i:                                        ; preds = %if.end.i
   %4 = tail call noundef float @llvm.fabs.f32(float %div.i)
   %5 = tail call noundef float @llvm.copysign.f32(float %call.i.i, float %sub4.i.i)
-  %retval.sroa.0.0.vec.insert14.i = insertelement <2 x float> undef, float %4, i64 0
+  %retval.sroa.0.0.vec.insert14.i = insertelement <2 x float> poison, float %4, i64 0
   %retval.sroa.0.4.vec.insert18.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert14.i, float %5, i64 1
   br label %_ZN4pstd4sqrtIfEENS_7complexIT_EERKS3_.exit
 
@@ -21792,7 +21792,7 @@ if.end21.i.i.i.i:                                 ; preds = %if.else.i.i.i.i, %i
   %call.i19.i.i.i.i = tail call noundef float @sinf(float noundef %theta.0.i.i.i.i) #23, !noalias !184
   %mul.i.i22.i.i.i.i = fmul float %r.0.i.i.i.i, %call.i.i.i.i.i
   %mul2.i.i.i.i.i.i = fmul float %r.0.i.i.i.i, %call.i19.i.i.i.i
-  %retval.sroa.0.0.vec.insert.i.i24.i.i.i.i = insertelement <2 x float> undef, float %mul.i.i22.i.i.i.i, i64 0
+  %retval.sroa.0.0.vec.insert.i.i24.i.i.i.i = insertelement <2 x float> poison, float %mul.i.i22.i.i.i.i, i64 0
   %retval.sroa.0.4.vec.insert.i.i25.i.i.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i24.i.i.i.i, float %mul2.i.i.i.i.i.i, i64 1
   br label %_ZN4pbrt22SampleCosineHemisphereENS_6Point2IfEE.exit.i.i
 
@@ -22053,7 +22053,7 @@ if.end21.i.i.i.i:                                 ; preds = %if.else.i.i.i.i, %i
   %call.i19.i.i.i.i = tail call noundef float @sinf(float noundef %theta.0.i.i.i.i) #23, !noalias !212
   %mul.i.i22.i.i.i.i = fmul float %r.0.i.i.i.i, %call.i.i.i.i.i
   %mul2.i.i.i.i.i.i = fmul float %r.0.i.i.i.i, %call.i19.i.i.i.i
-  %retval.sroa.0.0.vec.insert.i.i24.i.i.i.i = insertelement <2 x float> undef, float %mul.i.i22.i.i.i.i, i64 0
+  %retval.sroa.0.0.vec.insert.i.i24.i.i.i.i = insertelement <2 x float> poison, float %mul.i.i22.i.i.i.i, i64 0
   %retval.sroa.0.4.vec.insert.i.i25.i.i.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i24.i.i.i.i, float %mul2.i.i.i.i.i.i, i64 1
   br label %_ZN4pbrt22SampleCosineHemisphereENS_6Point2IfEE.exit.i.i
 
@@ -22207,7 +22207,7 @@ if.end21.i.i:                                     ; preds = %if.else.i.i, %if.th
   %call.i19.i.i = tail call noundef float @sinf(float noundef %theta.0.i.i) #23
   %mul.i.i22.i.i = fmul float %r.0.i.i, %call.i.i.i
   %mul2.i.i.i.i = fmul float %r.0.i.i, %call.i19.i.i
-  %retval.sroa.0.0.vec.insert.i.i24.i.i = insertelement <2 x float> undef, float %mul.i.i22.i.i, i64 0
+  %retval.sroa.0.0.vec.insert.i.i24.i.i = insertelement <2 x float> poison, float %mul.i.i22.i.i, i64 0
   %retval.sroa.0.4.vec.insert.i.i25.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i24.i.i, float %mul2.i.i.i.i, i64 1
   br label %_ZN4pbrt22SampleCosineHemisphereENS_6Point2IfEE.exit
 
@@ -22326,7 +22326,7 @@ if.end21.i.i48:                                   ; preds = %if.else.i.i44, %if.
   %call.i19.i.i52 = tail call noundef float @sinf(float noundef %theta.0.i.i50) #23
   %mul.i.i22.i.i53 = fmul float %r.0.i.i49, %call.i.i.i51
   %mul2.i.i.i.i54 = fmul float %r.0.i.i49, %call.i19.i.i52
-  %retval.sroa.0.0.vec.insert.i.i24.i.i55 = insertelement <2 x float> undef, float %mul.i.i22.i.i53, i64 0
+  %retval.sroa.0.0.vec.insert.i.i24.i.i55 = insertelement <2 x float> poison, float %mul.i.i22.i.i53, i64 0
   %retval.sroa.0.4.vec.insert.i.i25.i.i56 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i24.i.i55, float %mul2.i.i.i.i54, i64 1
   br label %_ZN4pbrt22SampleCosineHemisphereENS_6Point2IfEE.exit72
 

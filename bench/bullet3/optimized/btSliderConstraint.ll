@@ -655,7 +655,7 @@ if.end39:                                         ; preds = %if.else32, %if.then
   %311 = phi float [ %308, %if.else32 ], [ %301, %if.then26 ]
   %312 = phi float [ %303, %if.else32 ], [ %297, %if.then26 ]
   %313 = phi <2 x float> [ %307, %if.else32 ], [ %300, %if.then26 ]
-  %retval.sroa.0.0.vec.insert.i198 = insertelement <2 x float> undef, float %sub.i191.sink, i64 0
+  %retval.sroa.0.0.vec.insert.i198 = insertelement <2 x float> poison, float %sub.i191.sink, i64 0
   %314 = shufflevector <2 x float> %retval.sroa.0.0.vec.insert.i198, <2 x float> %313, <2 x i32> <i32 0, i32 2>
   %315 = shufflevector <2 x float> <float poison, float 0.000000e+00>, <2 x float> %313, <2 x i32> <i32 3, i32 1>
   %m_delta38 = getelementptr inbounds %class.btSliderConstraint, ptr %this, i64 0, i32 47
@@ -673,7 +673,7 @@ if.end39:                                         ; preds = %if.else32, %if.then
   %add.i = fadd float %312, %mul.i.i
   %add8.i = fadd float %311, %mul4.i.i
   %add14.i = fadd float %mul8.i.i, %310
-  %retval.sroa.0.0.vec.insert.i210 = insertelement <2 x float> undef, float %add.i, i64 0
+  %retval.sroa.0.0.vec.insert.i210 = insertelement <2 x float> poison, float %add.i, i64 0
   %retval.sroa.0.4.vec.insert.i211 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i210, float %add8.i, i64 1
   %retval.sroa.3.12.vec.insert.i212 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i, i64 0
   %m_projPivotInW = getelementptr inbounds %class.btSliderConstraint, ptr %this, i64 0, i32 46
@@ -1390,7 +1390,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %if.then.i, %if.else
 
 if.else25:                                        ; preds = %entry
   %retval.sroa.3.12.vec.insert.i342 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %12, i64 0
-  %retval.sroa.0.0.vec.insert.i340 = insertelement <2 x float> undef, float %10, i64 0
+  %retval.sroa.0.0.vec.insert.i340 = insertelement <2 x float> poison, float %10, i64 0
   %retval.sroa.0.4.vec.insert.i341 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i340, float %11, i64 1
   %arrayidx2.i = getelementptr inbounds %class.btSliderConstraint, ptr %this, i64 0, i32 41, i32 0, i32 0, i64 0, i32 0, i64 1
   %arrayidx7.i387 = getelementptr inbounds %class.btSliderConstraint, ptr %this, i64 0, i32 41, i32 0, i32 0, i64 1, i32 0, i64 1
@@ -1678,7 +1678,7 @@ if.end210:                                        ; preds = %if.else205, %if.the
   %186 = fmul <2 x float> %185, %183
   %187 = shufflevector <2 x float> %ax1.sroa.47.0, <2 x float> %ax1.sroa.0.0, <2 x i32> <i32 0, i32 2>
   %188 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %187, <2 x float> %179, <2 x float> %186)
-  %retval.sroa.0.0.vec.insert.i656 = insertelement <2 x float> undef, float %182, i64 0
+  %retval.sroa.0.0.vec.insert.i656 = insertelement <2 x float> poison, float %182, i64 0
   %189 = shufflevector <2 x float> %retval.sroa.0.0.vec.insert.i656, <2 x float> %188, <2 x i32> <i32 0, i32 2>
   %190 = shufflevector <2 x float> <float poison, float 0.000000e+00>, <2 x float> %188, <2 x i32> <i32 3, i32 1>
   store <2 x float> %189, ptr %q, align 8
@@ -1695,7 +1695,7 @@ if.end210:                                        ; preds = %if.else205, %if.the
   %198 = fneg float %192
   %neg30.i667 = fmul float %196, %198
   %199 = tail call float @llvm.fmuladd.f32(float %194, float %181, float %neg30.i667)
-  %retval.sroa.0.0.vec.insert.i668 = insertelement <2 x float> undef, float %193, i64 0
+  %retval.sroa.0.0.vec.insert.i668 = insertelement <2 x float> poison, float %193, i64 0
   %retval.sroa.0.4.vec.insert.i669 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i668, float %197, i64 1
   %retval.sroa.3.12.vec.insert.i670 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %199, i64 0
   store <2 x float> %retval.sroa.0.4.vec.insert.i669, ptr %tmpA, align 8
@@ -1711,7 +1711,7 @@ if.end210:                                        ; preds = %if.else205, %if.the
   %206 = fneg float %201
   %neg30.i679 = fmul float %196, %206
   %207 = tail call float @llvm.fmuladd.f32(float %203, float %181, float %neg30.i679)
-  %retval.sroa.0.0.vec.insert.i680 = insertelement <2 x float> undef, float %202, i64 0
+  %retval.sroa.0.0.vec.insert.i680 = insertelement <2 x float> poison, float %202, i64 0
   %retval.sroa.0.4.vec.insert.i681 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i680, float %205, i64 1
   %retval.sroa.3.12.vec.insert.i682 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %207, i64 0
   store <2 x float> %retval.sroa.0.4.vec.insert.i681, ptr %tmpB, align 8
@@ -1753,7 +1753,7 @@ for.end242:                                       ; preds = %for.body231
   %218 = tail call float @llvm.fmuladd.f32(float %add14.i576, float %182, float %neg19.i690)
   %neg30.i691 = fmul float %182, %198
   %219 = tail call float @llvm.fmuladd.f32(float %194, float %215, float %neg30.i691)
-  %retval.sroa.0.0.vec.insert.i692 = insertelement <2 x float> undef, float %217, i64 0
+  %retval.sroa.0.0.vec.insert.i692 = insertelement <2 x float> poison, float %217, i64 0
   %retval.sroa.0.4.vec.insert.i693 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i692, float %218, i64 1
   %retval.sroa.3.12.vec.insert.i694 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %219, i64 0
   store <2 x float> %retval.sroa.0.4.vec.insert.i693, ptr %tmpA, align 8
@@ -1764,7 +1764,7 @@ for.end242:                                       ; preds = %for.body231
   %221 = tail call float @llvm.fmuladd.f32(float %sub14.i598, float %182, float %neg19.i702)
   %neg30.i703 = fmul float %182, %206
   %222 = tail call float @llvm.fmuladd.f32(float %203, float %215, float %neg30.i703)
-  %retval.sroa.0.0.vec.insert.i704 = insertelement <2 x float> undef, float %220, i64 0
+  %retval.sroa.0.0.vec.insert.i704 = insertelement <2 x float> poison, float %220, i64 0
   %retval.sroa.0.4.vec.insert.i705 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i704, float %221, i64 1
   %retval.sroa.3.12.vec.insert.i706 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %222, i64 0
   store <2 x float> %retval.sroa.0.4.vec.insert.i705, ptr %tmpB, align 8
@@ -1894,7 +1894,7 @@ if.else334:                                       ; preds = %if.end123
   %251 = fneg float %246
   %neg30.i737 = fmul float %74, %251
   %252 = tail call float @llvm.fmuladd.f32(float %248, float %73, float %neg30.i737)
-  %retval.sroa.0.0.vec.insert.i738 = insertelement <2 x float> undef, float %247, i64 0
+  %retval.sroa.0.0.vec.insert.i738 = insertelement <2 x float> poison, float %247, i64 0
   %retval.sroa.0.4.vec.insert.i739 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i738, float %250, i64 1
   %retval.sroa.3.12.vec.insert.i740 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %252, i64 0
   store <2 x float> %retval.sroa.0.4.vec.insert.i739, ptr %tmp, align 8
@@ -1936,7 +1936,7 @@ for.end369:                                       ; preds = %for.body358
   %262 = tail call float @llvm.fmuladd.f32(float %sub14.i725, float %71, float %neg19.i748)
   %neg30.i749 = fmul float %71, %251
   %263 = tail call float @llvm.fmuladd.f32(float %248, float %81, float %neg30.i749)
-  %retval.sroa.0.0.vec.insert.i750 = insertelement <2 x float> undef, float %261, i64 0
+  %retval.sroa.0.0.vec.insert.i750 = insertelement <2 x float> poison, float %261, i64 0
   %retval.sroa.0.4.vec.insert.i751 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i750, float %262, i64 1
   %retval.sroa.3.12.vec.insert.i752 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %263, i64 0
   store <2 x float> %retval.sroa.0.4.vec.insert.i751, ptr %tmp, align 8
@@ -2180,7 +2180,7 @@ if.then548:                                       ; preds = %if.then546
   %324 = fneg float %relA.sroa.0.4.vec.extract926
   %neg30.i773 = fmul float %ax1.sroa.0.0.vec.extract982, %324
   %325 = tail call float @llvm.fmuladd.f32(float %relA.sroa.0.0.vec.extract917, float %ax1.sroa.0.4.vec.extract1023, float %neg30.i773)
-  %retval.sroa.0.0.vec.insert.i774 = insertelement <2 x float> undef, float %321, i64 0
+  %retval.sroa.0.0.vec.insert.i774 = insertelement <2 x float> poison, float %321, i64 0
   %retval.sroa.0.4.vec.insert.i775 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i774, float %323, i64 1
   %retval.sroa.3.12.vec.insert.i776 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %325, i64 0
   store <2 x float> %retval.sroa.0.4.vec.insert.i775, ptr %tmpA, align 8
@@ -2197,7 +2197,7 @@ if.then548:                                       ; preds = %if.then546
   %330 = fneg float %relB.sroa.0.4.vec.extract899
   %neg30.i785 = fmul float %ax1.sroa.0.0.vec.extract982, %330
   %331 = tail call float @llvm.fmuladd.f32(float %relB.sroa.0.0.vec.extract890, float %ax1.sroa.0.4.vec.extract1023, float %neg30.i785)
-  %retval.sroa.0.0.vec.insert.i786 = insertelement <2 x float> undef, float %327, i64 0
+  %retval.sroa.0.0.vec.insert.i786 = insertelement <2 x float> poison, float %327, i64 0
   %retval.sroa.0.4.vec.insert.i787 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i786, float %329, i64 1
   %retval.sroa.3.12.vec.insert.i788 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %331, i64 0
   store <2 x float> %retval.sroa.0.4.vec.insert.i787, ptr %tmpB, align 8
@@ -2908,7 +2908,7 @@ entry:
   %38 = shufflevector <2 x float> %37, <2 x float> poison, <2 x i32> zeroinitializer
   %39 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %38, <2 x float> %21, <2 x float> %36)
   %40 = fadd <2 x float> %39, %30
-  %retval.sroa.0.0.vec.insert.i2.i.i = insertelement <2 x float> undef, float %add.i.i.i, i64 0
+  %retval.sroa.0.0.vec.insert.i2.i.i = insertelement <2 x float> poison, float %add.i.i.i, i64 0
   %41 = shufflevector <2 x float> %retval.sroa.0.0.vec.insert.i2.i.i, <2 x float> %40, <2 x i32> <i32 0, i32 2>
   %42 = shufflevector <2 x float> <float poison, float 0.000000e+00>, <2 x float> %40, <2 x i32> <i32 3, i32 1>
   %.fca.0.insert.i5.i.i = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %41, 0

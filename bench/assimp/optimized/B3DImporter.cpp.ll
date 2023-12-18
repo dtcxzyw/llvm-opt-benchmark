@@ -2742,7 +2742,7 @@ _ZN6Assimp11B3DImporter9ReadFloatEv.exit20:       ; preds = %_ZN6Assimp11B3DImpo
   store i64 %add.i4, ptr %_pos.i, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp2.i2)
-  %retval.sroa.0.0.vec.insert = insertelement <2 x float> undef, float %n.0.copyload.i, i64 0
+  %retval.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %n.0.copyload.i, i64 0
   %retval.sroa.0.4.vec.insert = insertelement <2 x float> %retval.sroa.0.0.vec.insert, float %n.0.copyload.i12, i64 1
   ret <2 x float> %retval.sroa.0.4.vec.insert
 }
@@ -2876,7 +2876,7 @@ _ZN6Assimp11B3DImporter9ReadFloatEv.exit40:       ; preds = %_ZN6Assimp11B3DImpo
   store i64 %add.i24, ptr %_pos.i, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i21)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp2.i22)
-  %retval.sroa.0.0.vec.insert = insertelement <2 x float> undef, float %n.0.copyload.i, i64 0
+  %retval.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %n.0.copyload.i, i64 0
   %retval.sroa.0.4.vec.insert = insertelement <2 x float> %retval.sroa.0.0.vec.insert, float %n.0.copyload.i12, i64 1
   %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %retval.sroa.0.4.vec.insert, 0
   %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %n.0.copyload.i32, 1
@@ -3050,9 +3050,9 @@ _ZN6Assimp11B3DImporter9ReadFloatEv.exit60:       ; preds = %_ZN6Assimp11B3DImpo
   store i64 %add.i44, ptr %_pos.i, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i41)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp2.i42)
-  %retval.sroa.0.0.vec.insert = insertelement <2 x float> undef, float %fneg, i64 0
+  %retval.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %fneg, i64 0
   %retval.sroa.0.4.vec.insert = insertelement <2 x float> %retval.sroa.0.0.vec.insert, float %n.0.copyload.i12, i64 1
-  %retval.sroa.3.8.vec.insert = insertelement <2 x float> undef, float %n.0.copyload.i32, i64 0
+  %retval.sroa.3.8.vec.insert = insertelement <2 x float> poison, float %n.0.copyload.i32, i64 0
   %retval.sroa.3.12.vec.insert = insertelement <2 x float> %retval.sroa.3.8.vec.insert, float %n.0.copyload.i52, i64 1
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %retval.sroa.0.4.vec.insert, 0
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %retval.sroa.3.12.vec.insert, 1

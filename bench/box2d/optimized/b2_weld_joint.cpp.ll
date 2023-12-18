@@ -243,7 +243,7 @@ entry:
   %38 = tail call float @llvm.fmuladd.f32(float %call2.i41, float %sub.i47, float %neg.i55)
   %mul6.i56 = fmul float %call2.i41, %sub3.i50
   %39 = tail call float @llvm.fmuladd.f32(float %call.i40, float %sub.i47, float %mul6.i56)
-  %retval.sroa.0.0.vec.insert.i57 = insertelement <2 x float> undef, float %38, i64 0
+  %retval.sroa.0.0.vec.insert.i57 = insertelement <2 x float> poison, float %38, i64 0
   %retval.sroa.0.4.vec.insert.i58 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i57, float %39, i64 1
   %m_rB = getelementptr inbounds %class.b2WeldJoint, ptr %this, i64 0, i32 12
   store <2 x float> %retval.sroa.0.4.vec.insert.i58, ptr %m_rB, align 8

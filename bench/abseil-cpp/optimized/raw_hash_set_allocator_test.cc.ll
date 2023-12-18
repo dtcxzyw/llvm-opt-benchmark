@@ -5224,7 +5224,7 @@ entry:
   %xor.i.i.i = xor i64 %shr.i.i.i, %shr.i.i.i.i
   %3 = trunc i32 %0 to i8
   %conv.i = and i8 %3, 127
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %4 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val6 = load ptr, ptr %4, align 8
@@ -11042,7 +11042,7 @@ entry:
   %xor.i.i.i.i.i.i.i.i = xor i64 %shr.i.i.i.i.i.i.i.i.i, %shr.i.i.i.i.i.i.i.i
   %2 = trunc i32 %value.0.val to i8
   %conv.i.i.i.i.i.i = and i8 %2, 127
-  %vecinit.i.i.i.i.i.i.i = insertelement <16 x i8> undef, i8 %conv.i.i.i.i.i.i, i64 0
+  %vecinit.i.i.i.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i.i.i.i.i, i64 0
   %vecinit15.i.i.i.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %3 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val6.i.i.i.i.i = load ptr, ptr %3, align 8, !noalias !227
@@ -19872,7 +19872,7 @@ entry:
   %xor.i.i.i = xor i64 %shr.i.i.i, %shr.i.i.i.i
   %3 = trunc i32 %0 to i8
   %conv.i = and i8 %3, 127
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %4 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val6 = load ptr, ptr %4, align 8

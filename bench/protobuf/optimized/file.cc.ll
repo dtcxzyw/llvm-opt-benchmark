@@ -1414,7 +1414,7 @@ entry:
   %4 = load ptr, ptr %slots_.i.i.i.i.i.i, align 8
   %5 = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i8
   %conv.i.i.i.i.i = and i8 %5, 127
-  %vecinit.i.i.i.i.i.i = insertelement <16 x i8> undef, i8 %conv.i.i.i.i.i, i64 0
+  %vecinit.i.i.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i.i.i.i, i64 0
   %vecinit15.i.i.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %while.body.i.i.i.i
 
@@ -1880,7 +1880,7 @@ for.body60:                                       ; preds = %for.body60.lr.ph, %
   %36 = load ptr, ptr %slots_.i.i.i.i.i.i.i56, align 8
   %37 = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i to i8
   %conv.i.i.i = and i8 %37, 127
-  %vecinit.i.i.i.i = insertelement <16 x i8> undef, i8 %conv.i.i.i, i64 0
+  %vecinit.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i.i, i64 0
   %vecinit15.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %while.body.i.i
 
@@ -2515,7 +2515,7 @@ invoke.cont150:                                   ; preds = %for.body147
   %xor.i.i.i.i.i.i.i = xor i64 %shr.i.i.i.i.i.i.i.i, %shr.i.i.i.i.i.i.i
   %103 = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i8
   %conv.i.i.i.i.i = and i8 %103, 127
-  %vecinit.i.i.i.i.i.i = insertelement <16 x i8> undef, i8 %conv.i.i.i.i.i, i64 0
+  %vecinit.i.i.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i.i.i.i, i64 0
   %vecinit15.i.i.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %104 = load ptr, ptr %slots_.i.i.i.i.i.i, align 8, !noalias !60
   br label %while.body.i.i.i.i
@@ -15482,7 +15482,7 @@ land.lhs.true:                                    ; preds = %for.body35
   %29 = load ptr, ptr %slots_.i.i.i.i.i.i, align 8
   %30 = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i8
   %conv.i.i.i.i.i = and i8 %30, 127
-  %vecinit.i.i.i.i.i.i = insertelement <16 x i8> undef, i8 %conv.i.i.i.i.i, i64 0
+  %vecinit.i.i.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i.i.i.i, i64 0
   %vecinit15.i.i.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %while.body.i.i.i.i
 
@@ -15632,7 +15632,7 @@ land.rhs70:                                       ; preds = %for.body67
   %48 = load ptr, ptr %slots_.i.i.i.i.i.i, align 8
   %49 = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i.i123 to i8
   %conv.i.i.i.i.i130 = and i8 %49, 127
-  %vecinit.i.i.i.i.i.i131 = insertelement <16 x i8> undef, i8 %conv.i.i.i.i.i130, i64 0
+  %vecinit.i.i.i.i.i.i131 = insertelement <16 x i8> poison, i8 %conv.i.i.i.i.i130, i64 0
   %vecinit15.i.i.i.i.i.i132 = shufflevector <16 x i8> %vecinit.i.i.i.i.i.i131, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %while.body.i.i.i.i133
 
@@ -15769,7 +15769,7 @@ land.lhs.true105:                                 ; preds = %for.body98
   %69 = load ptr, ptr %slots_.i.i.i.i.i.i, align 8
   %70 = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i.i184 to i8
   %conv.i.i.i.i.i191 = and i8 %70, 127
-  %vecinit.i.i.i.i.i.i192 = insertelement <16 x i8> undef, i8 %conv.i.i.i.i.i191, i64 0
+  %vecinit.i.i.i.i.i.i192 = insertelement <16 x i8> poison, i8 %conv.i.i.i.i.i191, i64 0
   %vecinit15.i.i.i.i.i.i193 = shufflevector <16 x i8> %vecinit.i.i.i.i.i.i192, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %while.body.i.i.i.i194
 
@@ -16297,7 +16297,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %xor.i.i.i.i.i.i.i = xor i64 %shr.i.i.i.i.i.i.i, %shr.i.i.i.i.i.i.i.i
   %7 = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i8
   %conv.i.i.i.i.i = and i8 %7, 127
-  %vecinit.i.i.i.i.i.i = insertelement <16 x i8> undef, i8 %conv.i.i.i.i.i, i64 0
+  %vecinit.i.i.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i.i.i.i, i64 0
   %vecinit15.i.i.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %8 = load ptr, ptr %slots_.i.i.i.i.i.i, align 8, !noalias !257
   br label %while.body.i.i.i.i
@@ -20399,7 +20399,7 @@ entry:
   %3 = load ptr, ptr %slots_.i.i.i, align 8
   %4 = trunc i64 %hash to i8
   %conv.i.i = and i8 %4, 127
-  %vecinit.i.i.i = insertelement <16 x i8> undef, i8 %conv.i.i, i64 0
+  %vecinit.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i, i64 0
   %vecinit15.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %agg.tmp4.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr %key, align 8
   %agg.tmp4.sroa.0.0.copyload.i.i.i.i.i.i.fr = freeze i64 %agg.tmp4.sroa.0.0.copyload.i.i.i.i.i.i
@@ -21067,7 +21067,7 @@ entry:
   %xor.i.i.i = xor i64 %shr.i.i.i, %shr.i.i.i.i
   %4 = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i to i8
   %conv.i = and i8 %4, 127
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %slots_.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 1
   %5 = load ptr, ptr %slots_.i.i, align 8
@@ -22476,7 +22476,7 @@ entry:
   %xor.i.i.i = xor i64 %shr.i.i.i, %shr.i.i.i.i
   %6 = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i to i8
   %conv.i = and i8 %6, 127
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %slots_.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 1
   br label %while.body
@@ -22769,7 +22769,7 @@ entry:
   %xor.i.i.i = xor i64 %shr.i.i.i, %shr.i.i.i.i
   %6 = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i to i8
   %conv.i = and i8 %6, 127
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %slots_.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 1
   br label %while.body
@@ -23484,7 +23484,7 @@ entry:
   %4 = load ptr, ptr %slots_.i.i.i.i, align 8
   %5 = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i to i8
   %conv.i.i.i = and i8 %5, 127
-  %vecinit.i.i.i.i = insertelement <16 x i8> undef, i8 %conv.i.i.i, i64 0
+  %vecinit.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i.i, i64 0
   %vecinit15.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %while.body.i.i
 
@@ -24415,7 +24415,7 @@ entry:
   %4 = load ptr, ptr %slots_.i.i.i.i, align 8
   %5 = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i to i8
   %conv.i.i.i = and i8 %5, 127
-  %vecinit.i.i.i.i = insertelement <16 x i8> undef, i8 %conv.i.i.i, i64 0
+  %vecinit.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i.i, i64 0
   %vecinit15.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %while.body.i.i
 
@@ -30005,7 +30005,7 @@ entry:
   %xor.i.i.i.i = xor i64 %shr.i.i.i.i, %shr.i.i.i.i.i
   %5 = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i to i8
   %conv.i.i = and i8 %5, 127
-  %vecinit.i.i.i = insertelement <16 x i8> undef, i8 %conv.i.i, i64 0
+  %vecinit.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i, i64 0
   %vecinit15.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %slots_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 1
   %6 = load ptr, ptr %slots_.i.i.i, align 8
@@ -30469,7 +30469,7 @@ entry:
   %xor.i.i.i = xor i64 %shr.i.i.i, %shr.i.i.i.i
   %4 = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i to i8
   %conv.i = and i8 %4, 127
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %slots_.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 1
   %5 = load ptr, ptr %slots_.i.i, align 8
@@ -30759,7 +30759,7 @@ entry:
   %xor.i.i.i = xor i64 %shr.i.i.i, %shr.i.i.i.i
   %4 = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i to i8
   %conv.i = and i8 %4, 127
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %slots_.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 1
   %5 = load ptr, ptr %slots_.i.i, align 8
@@ -31278,7 +31278,7 @@ entry:
   %3 = load ptr, ptr %slots_.i.i.i, align 8
   %4 = trunc i64 %hash to i8
   %conv.i.i = and i8 %4, 127
-  %vecinit.i.i.i = insertelement <16 x i8> undef, i8 %conv.i.i, i64 0
+  %vecinit.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i, i64 0
   %vecinit15.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %agg.tmp4.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr %key, align 8
   %agg.tmp4.sroa.0.0.copyload.i.i.i.i.i.i.fr = freeze i64 %agg.tmp4.sroa.0.0.copyload.i.i.i.i.i.i
@@ -31714,7 +31714,7 @@ entry:
   %xor.i.i.i = xor i64 %shr.i.i.i, %shr.i.i.i.i
   %6 = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i to i8
   %conv.i = and i8 %6, 127
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %slots_.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 1
   br label %while.body
@@ -32018,7 +32018,7 @@ entry:
   %3 = load ptr, ptr %slots_.i.i.i, align 8
   %4 = trunc i64 %hash to i8
   %conv.i.i = and i8 %4, 127
-  %vecinit.i.i.i = insertelement <16 x i8> undef, i8 %conv.i.i, i64 0
+  %vecinit.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i, i64 0
   %vecinit15.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %agg.tmp2.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %key, align 8
   %agg.tmp2.sroa.0.0.copyload.i.i.i.i.i.fr = freeze i64 %agg.tmp2.sroa.0.0.copyload.i.i.i.i.i

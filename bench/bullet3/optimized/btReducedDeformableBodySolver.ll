@@ -7289,7 +7289,7 @@ if.then5:                                         ; preds = %if.then
   %cmp.i10.i15.i = fcmp olt float %points.sroa.4.0.copyload, 0.000000e+00
   %ref.tmp11.sroa.17.1 = select i1 %cmp.i10.i15.i, float 0.000000e+00, float %points.sroa.4.0.copyload
   %sub13.i.i = fsub float %ref.tmp11.sroa.6.1, %cond
-  %6 = insertelement <2 x float> undef, float %sub13.i.i, i64 0
+  %6 = insertelement <2 x float> poison, float %sub13.i.i, i64 0
   %vol.sroa.8.8.vec.insert = insertelement <2 x float> %6, float %ref.tmp11.sroa.8.1, i64 1
   %7 = load <2 x float>, ptr %m_x, align 8
   %8 = load <2 x float>, ptr %m_v, align 4
@@ -7306,7 +7306,7 @@ if.then5:                                         ; preds = %if.then
   %19 = fsub <2 x float> %16, %18
   %20 = fadd <2 x float> %18, %14
   %add13.i.i = fadd float %cond, %ref.tmp11.sroa.15.1
-  %21 = insertelement <2 x float> undef, float %add13.i.i, i64 0
+  %21 = insertelement <2 x float> poison, float %add13.i.i, i64 0
   %vol.sroa.20.24.vec.insert = insertelement <2 x float> %21, float %ref.tmp11.sroa.17.1, i64 1
   br label %if.end
 

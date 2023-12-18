@@ -173,7 +173,7 @@ invoke.cont7:                                     ; preds = %entry, %if.end.i
   %9 = phi float [ %4, %entry ], [ %mul.i, %if.end.i ]
   %10 = phi float [ %7, %entry ], [ %mul2.i, %if.end.i ]
   %mul.i11 = fneg float %10
-  %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> undef, float %mul.i11, i64 0
+  %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %mul.i11, i64 0
   %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %9, i64 1
   %m_localYAxisA9 = getelementptr inbounds %class.b2PrismaticJoint, ptr %this, i64 0, i32 4
   store <2 x float> %retval.sroa.0.4.vec.insert.i, ptr %m_localYAxisA9, align 8

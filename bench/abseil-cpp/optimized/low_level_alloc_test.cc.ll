@@ -184,7 +184,7 @@ _ZN4absl13base_internal12_GLOBAL__N_118RandomizeBlockDescEPNS1_9BlockDescE.exit:
   %this.val5.i.i = load ptr, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i.i.i, align 8
   %7 = trunc i128 %xor.i.i.i.i to i8
   %conv.i.i2.i = and i8 %7, 127
-  %vecinit.i.i.i.i = insertelement <16 x i8> undef, i8 %conv.i.i2.i, i64 0
+  %vecinit.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i2.i, i64 0
   %vecinit15.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %while.body.i.i
 

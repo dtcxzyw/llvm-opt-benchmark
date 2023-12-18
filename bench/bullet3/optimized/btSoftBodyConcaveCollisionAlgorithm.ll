@@ -1315,7 +1315,7 @@ if.end72:                                         ; preds = %while.body.i.i.i, %
   %222 = extractelement <2 x float> %219, i64 1
   %add8.i200 = fadd float %199, %222
   %add14.i203 = fadd float %200, %mul7.i
-  %retval.sroa.0.0.vec.insert.i204 = insertelement <2 x float> undef, float %add.i197, i64 0
+  %retval.sroa.0.0.vec.insert.i204 = insertelement <2 x float> poison, float %add.i197, i64 0
   %retval.sroa.0.4.vec.insert.i205 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i204, float %add8.i200, i64 1
   %retval.sroa.3.12.vec.insert.i206 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i203, i64 0
   store <2 x float> %retval.sroa.0.4.vec.insert.i205, ptr %arrayinit.element, align 16
@@ -1337,7 +1337,7 @@ if.end72:                                         ; preds = %while.body.i.i.i, %
   %sub.i233 = fsub float %183, %221
   %sub8.i236 = fsub float %199, %222
   %sub14.i239 = fsub float %200, %mul7.i
-  %retval.sroa.0.0.vec.insert.i240 = insertelement <2 x float> undef, float %sub.i233, i64 0
+  %retval.sroa.0.0.vec.insert.i240 = insertelement <2 x float> poison, float %sub.i233, i64 0
   %retval.sroa.0.4.vec.insert.i241 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i240, float %sub8.i236, i64 1
   %retval.sroa.3.12.vec.insert.i242 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i239, i64 0
   store <2 x float> %retval.sroa.0.4.vec.insert.i241, ptr %arrayinit.element102, align 16

@@ -488,7 +488,7 @@ entry:
   %.val5.i.i = load ptr, ptr getelementptr inbounds (%"class.grpc_core::NoDestruct.15", ptr @_ZN9grpc_core19NoDestructSingletonIZNS_23PromiseTracingFilterForEPK19grpc_channel_filterE7GlobalsE6value_E, i64 0, i32 0, i64 16), align 8
   %3 = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i to i8
   %conv.i.i.i = and i8 %3, 127
-  %vecinit.i.i.i.i = insertelement <16 x i8> undef, i8 %conv.i.i.i, i64 0
+  %vecinit.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i.i, i64 0
   %vecinit15.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %while.body.i.i
 

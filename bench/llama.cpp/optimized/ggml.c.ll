@@ -22861,7 +22861,7 @@ ggml_vec_cpy_f32.exit.i.i:                        ; preds = %ggml_vec_cpy_f32.ex
   %274 = phi float [ %.pre148.i.i, %ggml_vec_cpy_f32.exit.loopexit.i.i ], [ %272, %while.body.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !157)
   call void @llvm.experimental.noalias.scope.decl(metadata !160)
-  %vecinit.i.i.i.i = insertelement <8 x float> undef, float %274, i64 0
+  %vecinit.i.i.i.i = insertelement <8 x float> poison, float %274, i64 0
   %vecinit7.i.i.i.i = shufflevector <8 x float> %vecinit.i.i.i.i, <8 x float> poison, <8 x i32> zeroinitializer
   br i1 %cmp44.i.i.i, label %for.cond1.preheader.i53.i.i, label %for.cond32.preheader.i.i.i
 
@@ -23667,7 +23667,7 @@ ggml_vec_dot_f32.exit592.i:                       ; preds = %for.body82.i570.i, 
   %fneg.i = fneg float %400
   call void @llvm.experimental.noalias.scope.decl(metadata !223)
   call void @llvm.experimental.noalias.scope.decl(metadata !226)
-  %vecinit.i.i.i = insertelement <8 x float> undef, float %fneg.i, i64 0
+  %vecinit.i.i.i = insertelement <8 x float> poison, float %fneg.i, i64 0
   %vecinit7.i.i.i = shufflevector <8 x float> %vecinit.i.i.i, <8 x float> poison, <8 x i32> zeroinitializer
   br i1 %cmp44.i.i.i, label %for.cond1.preheader.i596.i, label %for.cond32.preheader.i.i
 
@@ -23717,7 +23717,7 @@ ggml_vec_mad_f32.exit.i:                          ; preds = %for.body34.i.i, %fo
 
 for.end311.i:                                     ; preds = %ggml_vec_mad_f32.exit.i, %ggml_vec_neg_f32.exit548.i
   %div312.i = fdiv float %sumf.0.lcssa.i.i, %sumf.0.lcssa.i511.i
-  %vecinit.i.i607.i = insertelement <8 x float> undef, float %div312.i, i64 0
+  %vecinit.i.i607.i = insertelement <8 x float> poison, float %div312.i, i64 0
   %vecinit7.i.i608.i = shufflevector <8 x float> %vecinit.i.i607.i, <8 x float> poison, <8 x i32> zeroinitializer
   br i1 %cmp44.i.i.i, label %for.cond1.preheader.i611.i, label %for.cond22.preheader.i.i
 
@@ -23845,7 +23845,7 @@ ggml_vec_dot_f32.exit663.i:                       ; preds = %for.body82.i641.i, 
   %sub333.i = fsub float %426, %div325.i
   call void @llvm.experimental.noalias.scope.decl(metadata !241)
   call void @llvm.experimental.noalias.scope.decl(metadata !244)
-  %vecinit.i.i665.i = insertelement <8 x float> undef, float %sub333.i, i64 0
+  %vecinit.i.i665.i = insertelement <8 x float> poison, float %sub333.i, i64 0
   %vecinit7.i.i666.i = shufflevector <8 x float> %vecinit.i.i665.i, <8 x float> poison, <8 x i32> zeroinitializer
   br i1 %cmp44.i.i.i, label %for.cond1.preheader.i679.i, label %for.cond32.preheader.i668.i
 
@@ -40045,7 +40045,7 @@ for.end86.us.us.us.i.loopexit.us.us.us.us.us.us.us.us.us: ; preds = %for.body78.
   %add90.us.us.us.i.us.us.us.us.us.us.us.us.us = fadd float %eps.0.copyload.i, %conv89.us.us.us.i.us.us.us.us.us.us.us.us.us
   %call91.us.us.us.i.us.us.us.us.us.us.us.us.us = tail call float @sqrtf(float noundef %add90.us.us.us.i.us.us.us.us.us.us.us.us.us) #48
   %div92.us.us.us.i.us.us.us.us.us.us.us.us.us = fdiv float 1.000000e+00, %call91.us.us.us.i.us.us.us.us.us.us.us.us.us
-  %vecinit.i.i.us.us.us.i.us.us.us.us.us.us.us.us.us = insertelement <8 x float> undef, float %div92.us.us.us.i.us.us.us.us.us.us.us.us.us, i64 0
+  %vecinit.i.i.us.us.us.i.us.us.us.us.us.us.us.us.us = insertelement <8 x float> poison, float %div92.us.us.us.i.us.us.us.us.us.us.us.us.us, i64 0
   %vecinit7.i.i.us.us.us.i.us.us.us.us.us.us.us.us.us = shufflevector <8 x float> %vecinit.i.i.us.us.us.i.us.us.us.us.us.us.us.us.us, <8 x float> poison, <8 x i32> zeroinitializer
   br label %for.cond1.preheader.i.us.us.us.i.us.us.us.us.us.us.us.us.us
 
@@ -40148,7 +40148,7 @@ for.end86.us.us.us.i.loopexit.us.us.us.us.us.us:  ; preds = %for.body78.us.us.us
   %add90.us.us.us.i.us.us.us.us.us.us = fadd float %eps.0.copyload.i, %conv89.us.us.us.i.us.us.us.us.us.us
   %call91.us.us.us.i.us.us.us.us.us.us = tail call float @sqrtf(float noundef %add90.us.us.us.i.us.us.us.us.us.us) #48
   %div92.us.us.us.i.us.us.us.us.us.us = fdiv float 1.000000e+00, %call91.us.us.us.i.us.us.us.us.us.us
-  %vecinit.i.i.us.us.us.i.us.us.us.us.us.us = insertelement <8 x float> undef, float %div92.us.us.us.i.us.us.us.us.us.us, i64 0
+  %vecinit.i.i.us.us.us.i.us.us.us.us.us.us = insertelement <8 x float> poison, float %div92.us.us.us.i.us.us.us.us.us.us, i64 0
   %vecinit7.i.i.us.us.us.i.us.us.us.us.us.us = shufflevector <8 x float> %vecinit.i.i.us.us.us.i.us.us.us.us.us.us, <8 x float> poison, <8 x i32> zeroinitializer
   br label %for.cond1.preheader.i.us.us.us.i.us.us.us.us.us.us
 
@@ -40356,7 +40356,7 @@ for.body54.us.us.us.i.us2.us.us.us.us.us:         ; preds = %ggml_vec_scale_f32.
   %add.ptr73.us.us.us80.i.us.us.us.us.us.us = getelementptr inbounds i8, ptr %add.ptr71.us.us.us79.i.us.us.us.us.us.us, i64 %mul72.us.us.i.us81.us
   %call91.us.us.us.i.us4.us.us.us.us.us = tail call float @sqrtf(float noundef %add90.us.us.us.i) #48
   %div92.us.us.us.i.us5.us.us.us.us.us = fdiv float 1.000000e+00, %call91.us.us.us.i.us4.us.us.us.us.us
-  %vecinit.i.i.us.us.us.i.us6.us.us.us.us.us = insertelement <8 x float> undef, float %div92.us.us.us.i.us5.us.us.us.us.us, i64 0
+  %vecinit.i.i.us.us.us.i.us6.us.us.us.us.us = insertelement <8 x float> poison, float %div92.us.us.us.i.us5.us.us.us.us.us, i64 0
   %vecinit7.i.i.us.us.us.i.us7.us.us.us.us.us = shufflevector <8 x float> %vecinit.i.i.us.us.us.i.us6.us.us.us.us.us, <8 x float> poison, <8 x i32> zeroinitializer
   br label %for.cond1.preheader.i.us.us.us.i.us8.us.us.us.us.us
 
@@ -40425,7 +40425,7 @@ for.body54.us.us.us.i.us2.us.us:                  ; preds = %for.cond22.preheade
   %add.ptr73.us.us.us80.i.us.us.us = getelementptr inbounds i8, ptr %add.ptr71.us.us.us79.i.us.us.us, i64 %mul72.us.us.i.us81
   %call91.us.us.us.i.us4.us.us = tail call float @sqrtf(float noundef %add90.us.us.us.i) #48
   %div92.us.us.us.i.us5.us.us = fdiv float 1.000000e+00, %call91.us.us.us.i.us4.us.us
-  %vecinit.i.i.us.us.us.i.us6.us.us = insertelement <8 x float> undef, float %div92.us.us.us.i.us5.us.us, i64 0
+  %vecinit.i.i.us.us.us.i.us6.us.us = insertelement <8 x float> poison, float %div92.us.us.us.i.us5.us.us, i64 0
   %vecinit7.i.i.us.us.us.i.us7.us.us = shufflevector <8 x float> %vecinit.i.i.us.us.us.i.us6.us.us, <8 x float> poison, <8 x i32> zeroinitializer
   br label %for.cond1.preheader.i.us.us.us.i.us8.us.us
 
@@ -40758,7 +40758,7 @@ for.cond59.for.end_crit_edge.us.us.us.us.us.us.us.us.us.us.us.us.i: ; preds = %f
   %add77.us.us.us.us.us.us.us.us.us.us.us.us.i = fadd float %eps.0.copyload.i, %conv68.us.us.us.us.us.us.us.us.us.us.us.us.i
   %call78.us.us.us.us.us.us.us.us.us.us.us.us.i = tail call float @sqrtf(float noundef %add77.us.us.us.us.us.us.us.us.us.us.us.us.i) #48
   %div79.us.us.us.us.us.us.us.us.us.us.us.us.i = fdiv float 1.000000e+00, %call78.us.us.us.us.us.us.us.us.us.us.us.us.i
-  %vecinit.i.i.us.us.us.us.us.us.us.us.us.us.us.us.i = insertelement <8 x float> undef, float %div79.us.us.us.us.us.us.us.us.us.us.us.us.i, i64 0
+  %vecinit.i.i.us.us.us.us.us.us.us.us.us.us.us.us.i = insertelement <8 x float> poison, float %div79.us.us.us.us.us.us.us.us.us.us.us.us.i, i64 0
   %vecinit7.i.i.us.us.us.us.us.us.us.us.us.us.us.us.i = shufflevector <8 x float> %vecinit.i.i.us.us.us.us.us.us.us.us.us.us.us.us.i, <8 x float> poison, <8 x i32> zeroinitializer
   br label %for.cond1.preheader.i.us.us.us.us.us.us.us.us.us.us.us.us.i
 
@@ -40843,7 +40843,7 @@ for.cond59.for.end_crit_edge.us.us.us.us.us.us.us.us.us.i: ; preds = %for.body62
   %add77.us.us.us.us.us.us.us.us.us.i = fadd float %eps.0.copyload.i, %conv68.us.us.us.us.us.us.us.us.us.i
   %call78.us.us.us.us.us.us.us.us.us.i = tail call float @sqrtf(float noundef %add77.us.us.us.us.us.us.us.us.us.i) #48
   %div79.us.us.us.us.us.us.us.us.us.i = fdiv float 1.000000e+00, %call78.us.us.us.us.us.us.us.us.us.i
-  %vecinit.i.i.us.us.us.us.us.us.us.us.us.i = insertelement <8 x float> undef, float %div79.us.us.us.us.us.us.us.us.us.i, i64 0
+  %vecinit.i.i.us.us.us.us.us.us.us.us.us.i = insertelement <8 x float> poison, float %div79.us.us.us.us.us.us.us.us.us.i, i64 0
   %vecinit7.i.i.us.us.us.us.us.us.us.us.us.i = shufflevector <8 x float> %vecinit.i.i.us.us.us.us.us.us.us.us.us.i, <8 x float> poison, <8 x i32> zeroinitializer
   br label %for.cond1.preheader.i.us.us.us.us.us.us.us.us.us.i
 
@@ -40887,7 +40887,7 @@ for.body54.us.us.us.us.us.us225.us.us.us.i:       ; preds = %ggml_vec_scale_f32.
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %add.ptr75.us.us.us.us.us.us234.us.us.us.i, ptr align 4 %add.ptr58.us.us.us.us.us.us230.us.us.us.i, i64 %mul76.i, i1 false)
   %call78.us.us.us.us.us.us235.us.us.us.i = tail call float @sqrtf(float noundef %add77.us.us.us.i) #48
   %div79.us.us.us.us.us.us236.us.us.us.i = fdiv float 1.000000e+00, %call78.us.us.us.us.us.us235.us.us.us.i
-  %vecinit.i.i.us.us.us.us.us.us237.us.us.us.i = insertelement <8 x float> undef, float %div79.us.us.us.us.us.us236.us.us.us.i, i64 0
+  %vecinit.i.i.us.us.us.us.us.us237.us.us.us.i = insertelement <8 x float> poison, float %div79.us.us.us.us.us.us236.us.us.us.i, i64 0
   %vecinit7.i.i.us.us.us.us.us.us238.us.us.us.i = shufflevector <8 x float> %vecinit.i.i.us.us.us.us.us.us237.us.us.us.i, <8 x float> poison, <8 x i32> zeroinitializer
   br label %for.cond1.preheader.i.us.us.us.us.us.us239.us.us.us.i
 
@@ -40964,7 +40964,7 @@ for.body54.us.us.us.us.us162.us.i:                ; preds = %for.cond22.preheade
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %add.ptr75.us.us.us.us.us171.us.i, ptr align 4 %add.ptr58.us.us.us.us.us167.us.i, i64 %mul76.i, i1 false)
   %call78.us.us.us.us.us172.us.i = tail call float @sqrtf(float noundef %add77.us.us.us.i) #48
   %div79.us.us.us.us.us173.us.i = fdiv float 1.000000e+00, %call78.us.us.us.us.us172.us.i
-  %vecinit.i.i.us.us.us.us.us174.us.i = insertelement <8 x float> undef, float %div79.us.us.us.us.us173.us.i, i64 0
+  %vecinit.i.i.us.us.us.us.us174.us.i = insertelement <8 x float> poison, float %div79.us.us.us.us.us173.us.i, i64 0
   %vecinit7.i.i.us.us.us.us.us175.us.i = shufflevector <8 x float> %vecinit.i.i.us.us.us.us.us174.us.i, <8 x float> poison, <8 x i32> zeroinitializer
   br label %for.cond1.preheader.i.us.us.us.us.us176.us.i
 
@@ -41503,7 +41503,7 @@ ggml_vec_cpy_f32.exit.us.us.us.i:                 ; preds = %for.body.i.us.us.us
   %37 = fptrunc double %sum_xdz.0.lcssa.us.us.us.i to float
   %conv113.us.us.us.i = fneg float %37
   %div114.us.us.us.i = fdiv float %conv113.us.us.us.i, %34
-  %vecinit.i.i.us.us.us.i = insertelement <8 x float> undef, float %div114.us.us.us.i, i64 0
+  %vecinit.i.i.us.us.us.i = insertelement <8 x float> poison, float %div114.us.us.us.i, i64 0
   %vecinit7.i.i.us.us.us.i = shufflevector <8 x float> %vecinit.i.i.us.us.us.i, <8 x float> poison, <8 x i32> zeroinitializer
   br i1 %cmp26.i.i, label %for.cond1.preheader.i.us.us.us.i, label %for.cond22.preheader.i.us.us.us.i
 
@@ -41557,7 +41557,7 @@ for.body.i93.us.us.us.i:                          ; preds = %ggml_vec_scale_f32.
   br i1 %exitcond.not.i98.us.us.us.i, label %ggml_vec_acc_f32.exit.us.us.us.i, label %for.body.i93.us.us.us.i, !llvm.loop !374
 
 ggml_vec_acc_f32.exit.us.us.us.i:                 ; preds = %for.body.i93.us.us.us.i, %ggml_vec_scale_f32.exit.us.us.us.i
-  %vecinit.i.i100.us.us.us.i = insertelement <8 x float> undef, float %div103.us.us.us.i, i64 0
+  %vecinit.i.i100.us.us.us.i = insertelement <8 x float> poison, float %div103.us.us.us.i, i64 0
   %vecinit7.i.i101.us.us.us.i = shufflevector <8 x float> %vecinit.i.i100.us.us.us.i, <8 x float> poison, <8 x i32> zeroinitializer
   br i1 %cmp26.i.i, label %for.cond1.preheader.i114.us.us.us.i, label %for.cond22.preheader.i103.us.us.us.i
 
@@ -41889,7 +41889,7 @@ for.cond104.for.inc140_crit_edge.split.us.us.us.us.i: ; preds = %for.cond124.for
 
 for.cond160.preheader.lr.ph.us.i:                 ; preds = %for.end142.us.i
   %mul170.us.i = mul i64 %i03.0160.us.i, %22
-  %vecinit.i.i.us.i = insertelement <8 x float> undef, float %div151.us.i, i64 0
+  %vecinit.i.i.us.i = insertelement <8 x float> poison, float %div151.us.i, i64 0
   %vecinit7.i.i.us.i = shufflevector <8 x float> %vecinit.i.i.us.i, <8 x float> poison, <8 x i32> zeroinitializer
   br i1 %cmp6989.i, label %for.inc179.us.i, label %for.cond160.preheader.lr.ph.split.us.us.i
 
@@ -43391,7 +43391,7 @@ for.body160.us.us.us.us.i:                        ; preds = %for.body.us.us.i, %
   %72 = load float, ptr %add.ptr176.us.us.us.us.i, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !494)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !497)
-  %vecinit.i.i.us.us.us.us.i = insertelement <8 x float> undef, float %72, i64 0
+  %vecinit.i.i.us.us.us.us.i = insertelement <8 x float> poison, float %72, i64 0
   %vecinit7.i.i.us.us.us.us.i = shufflevector <8 x float> %vecinit.i.i.us.us.us.us.i, <8 x float> poison, <8 x i32> zeroinitializer
   br label %for.cond1.preheader.i.us.us.us.us.i
 
@@ -43457,7 +43457,7 @@ for.body160.us.us.us.i:                           ; preds = %for.body.us.us.i, %
   %90 = load float, ptr %add.ptr176.us.us.us.i, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !494)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !497)
-  %vecinit.i.i.us.us.us.i = insertelement <8 x float> undef, float %90, i64 0
+  %vecinit.i.i.us.us.us.i = insertelement <8 x float> poison, float %90, i64 0
   %vecinit7.i.i.us.us.us.i = shufflevector <8 x float> %vecinit.i.i.us.us.us.i, <8 x float> poison, <8 x i32> zeroinitializer
   br label %for.cond1.preheader.i.us.us.us.i
 
@@ -43817,7 +43817,7 @@ for.body8.i.us.us.i:                              ; preds = %for.body.i118.us.us
   %arrayidx10.i.us.us.i = getelementptr inbounds [32 x ptr], ptr %v.i.i, i64 0, i64 %indvars.iv58.i.us.us.i
   %157 = load ptr, ptr %arrayidx10.i.us.us.i, align 8, !noalias !512
   %158 = load float, ptr %157, align 4, !noalias !509
-  %vecinit.i.i.us.us.i = insertelement <8 x float> undef, float %158, i64 0
+  %vecinit.i.i.us.us.i = insertelement <8 x float> poison, float %158, i64 0
   %vecinit7.i.i.us.us.i = shufflevector <8 x float> %vecinit.i.i.us.us.i, <8 x float> poison, <8 x i32> zeroinitializer
   %arrayidx13.i.us.us.i = getelementptr inbounds [32 x <8 x float>], ptr %vx.i.i, i64 0, i64 %indvars.iv58.i.us.us.i
   store <8 x float> %vecinit7.i.i.us.us.i, ptr %arrayidx13.i.us.us.i, align 32, !noalias !512
@@ -43953,7 +43953,7 @@ for.body194.us.us.us.i:                           ; preds = %for.body194.lr.ph.u
   %183 = load float, ptr %add.ptr213.us.us.us.i, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !503)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !506)
-  %vecinit.i.i125.us.us.us.i = insertelement <8 x float> undef, float %183, i64 0
+  %vecinit.i.i125.us.us.us.i = insertelement <8 x float> poison, float %183, i64 0
   %vecinit7.i.i126.us.us.us.i = shufflevector <8 x float> %vecinit.i.i125.us.us.us.i, <8 x float> poison, <8 x i32> zeroinitializer
   br label %for.cond1.preheader.i.us.us.us.i46
 
@@ -44257,7 +44257,7 @@ for.body.lr.ph.i:                                 ; preds = %if.end27.i
   %sext.i = shl i64 %3, 32
   %mul54.i = ashr exact i64 %sext.i, 30
   %and.i.i = and i32 %conv.i, -32
-  %vecinit.i.i.i = insertelement <8 x float> undef, float %34, i64 0
+  %vecinit.i.i.i = insertelement <8 x float> poison, float %34, i64 0
   %vecinit7.i.i.i = shufflevector <8 x float> %vecinit.i.i.i, <8 x float> poison, <8 x i32> zeroinitializer
   %cmp26.i.i = icmp sgt i32 %and.i.i, 0
   %37 = and i64 %3, 4294967264
@@ -46023,7 +46023,7 @@ for.body.lr.ph.i:                                 ; preds = %cond.end.i
   %cmp4.i.i = icmp sgt i32 %conv.i, 0
   %wide.trip.count.i.i = and i64 %5, 4294967295
   %and.i.i = and i32 %conv.i, -32
-  %vecinit.i.i.i = insertelement <8 x float> undef, float %scale.0.copyload.i, i64 0
+  %vecinit.i.i.i = insertelement <8 x float> poison, float %scale.0.copyload.i, i64 0
   %vecinit7.i.i.i = shufflevector <8 x float> %vecinit.i.i.i, <8 x float> poison, <8 x i32> zeroinitializer
   %cmp26.i.i = icmp sgt i32 %and.i.i, 0
   %10 = and i64 %5, 4294967264
@@ -46173,7 +46173,7 @@ for.end.i:                                        ; preds = %for.inc.i, %if.end4
   %sum.0.lcssa.i = phi double [ 0.000000e+00, %if.then45.i ], [ 0.000000e+00, %if.end46.i ], [ %sum.1.i, %for.inc.i ]
   %div71.i = fdiv double 1.000000e+00, %sum.0.lcssa.i
   %conv72.i = fptrunc double %div71.i to float
-  %vecinit.i.i73.i = insertelement <8 x float> undef, float %conv72.i, i64 0
+  %vecinit.i.i73.i = insertelement <8 x float> poison, float %conv72.i, i64 0
   %vecinit7.i.i74.i = shufflevector <8 x float> %vecinit.i.i73.i, <8 x float> poison, <8 x i32> zeroinitializer
   br i1 %cmp26.i.i, label %for.cond1.preheader.i87.i, label %for.cond22.preheader.i76.i
 
@@ -51025,7 +51025,7 @@ for.body.lr.ph.i:                                 ; preds = %if.end198.i
   %59 = ashr exact i64 %sext417.i, 32
   %arrayidx.i.c.i = getelementptr inbounds [2 x ptr], ptr %x.i.i, i64 0, i64 1
   %and.i225.i = and i32 %conv.i, -32
-  %vecinit.i.i.i = insertelement <8 x float> undef, float %div210.i, i64 0
+  %vecinit.i.i.i = insertelement <8 x float> poison, float %div210.i, i64 0
   %vecinit7.i.i.i = shufflevector <8 x float> %vecinit.i.i.i, <8 x float> poison, <8 x i32> zeroinitializer
   %cmp26.i.i = icmp sgt i32 %and.i225.i, 0
   %60 = and i64 %10, 4294967264
@@ -51498,7 +51498,7 @@ for.body388.i:                                    ; preds = %for.body388.i.prehe
 for.end394.i:                                     ; preds = %for.body388.i
   %div395.i = fdiv double 1.000000e+00, %add391.i
   %conv397.i = fptrunc double %div395.i to float
-  %vecinit.i.i245.i = insertelement <8 x float> undef, float %conv397.i, i64 0
+  %vecinit.i.i245.i = insertelement <8 x float> poison, float %conv397.i, i64 0
   %vecinit7.i.i246.i = shufflevector <8 x float> %vecinit.i.i245.i, <8 x float> poison, <8 x i32> zeroinitializer
   br i1 %cmp26.i.i, label %for.cond1.preheader.i259.i, label %for.cond22.preheader.i248.i
 
@@ -52099,7 +52099,7 @@ for.body.lr.ph.i110:                              ; preds = %if.end198.i97
   %239 = sext i32 %and.i.i114 to i64
   %sext245.i = shl i64 %184, 32
   %wide.trip.count.i.i115 = ashr exact i64 %sext245.i, 32
-  %vecinit.i.i.i116 = insertelement <8 x float> undef, float %div210.i109, i64 0
+  %vecinit.i.i.i116 = insertelement <8 x float> poison, float %div210.i109, i64 0
   %vecinit7.i.i.i117 = shufflevector <8 x float> %vecinit.i.i.i116, <8 x float> poison, <8 x i32> zeroinitializer
   %cmp295256.i = icmp sgt i32 %and4.i.i41, 0
   %cmp356260.i = icmp sgt i64 %184, 0
@@ -52386,7 +52386,7 @@ for.body344.i:                                    ; preds = %for.body344.i.prehe
 for.end350.i:                                     ; preds = %for.body344.i
   %div351.i = fdiv double 1.000000e+00, %add347.i
   %conv353.i = fptrunc double %div351.i to float
-  %vecinit.i.i171.i = insertelement <8 x float> undef, float %conv353.i, i64 0
+  %vecinit.i.i171.i = insertelement <8 x float> poison, float %conv353.i, i64 0
   %vecinit7.i.i172.i = shufflevector <8 x float> %vecinit.i.i171.i, <8 x float> poison, <8 x i32> zeroinitializer
   br i1 %cmp26.i.i130, label %for.cond1.preheader.preheader.i184.i, label %for.cond22.preheader.i174.i
 
@@ -53648,7 +53648,7 @@ for.body.lr.ph.i:                                 ; preds = %do.end238.i
   %73 = sext i32 %and.i.i to i64
   %sext516.i = shl i64 %1, 32
   %wide.trip.count.i.i = ashr exact i64 %sext516.i, 32
-  %vecinit.i.i.i = insertelement <8 x float> undef, float %div286.i, i64 0
+  %vecinit.i.i.i = insertelement <8 x float> poison, float %div286.i, i64 0
   %vecinit7.i.i.i = shufflevector <8 x float> %vecinit.i.i.i, <8 x float> poison, <8 x i32> zeroinitializer
   %cmp391527.i = icmp sgt i32 %and4.i.i, 0
   %cmp455531.i = icmp sgt i64 %1, 0
@@ -53815,7 +53815,7 @@ for.body393.us.us.us.i:                           ; preds = %ggml_vec_max_f32.ex
 for.end448.us.us.us.i:                            ; preds = %for.body442.us.us.us.i
   %div449.us.us.us.i = fdiv double 1.000000e+00, %add445.us.us.us.i
   %conv451.us.us.us.i = fptrunc double %div449.us.us.us.i to float
-  %vecinit.i.i282.us.us.us.i = insertelement <8 x float> undef, float %conv451.us.us.us.i, i64 0
+  %vecinit.i.i282.us.us.us.i = insertelement <8 x float> poison, float %conv451.us.us.us.i, i64 0
   %vecinit7.i.i283.us.us.us.i = shufflevector <8 x float> %vecinit.i.i282.us.us.us.i, <8 x float> poison, <8 x i32> zeroinitializer
   br i1 %cmp26.i.us.us.us.i, label %for.cond1.preheader.preheader.i295.us.us.us.i, label %for.cond22.preheader.i285.us.us.us.i
 
@@ -54053,7 +54053,7 @@ for.body547.us.us.us.i:                           ; preds = %for.body547.lr.ph.u
   %121 = load float, ptr %add.ptr568.us.us.us.i, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !772)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !775)
-  %vecinit.i.i480.us.us.us.i = insertelement <8 x float> undef, float %121, i64 0
+  %vecinit.i.i480.us.us.us.i = insertelement <8 x float> poison, float %121, i64 0
   %vecinit7.i.i481.us.us.us.i = shufflevector <8 x float> %vecinit.i.i480.us.us.us.i, <8 x float> poison, <8 x i32> zeroinitializer
   br i1 %cmp26.i.us.us.us.i, label %for.cond1.preheader.i494.us.us.us.i, label %for.cond32.preheader.i483.us.us.us.i
 
@@ -54113,7 +54113,7 @@ for.body519.us.us.us.i:                           ; preds = %for.body519.lr.ph.u
   %132 = load float, ptr %arrayidx539.us.us.us.i, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !778)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !781)
-  %vecinit.i.i451.us.us.us.i = insertelement <8 x float> undef, float %132, i64 0
+  %vecinit.i.i451.us.us.us.i = insertelement <8 x float> poison, float %132, i64 0
   %vecinit7.i.i452.us.us.us.i = shufflevector <8 x float> %vecinit.i.i451.us.us.us.i, <8 x float> poison, <8 x i32> zeroinitializer
   br i1 %cmp44.i.i, label %for.cond1.preheader.i465.us.us.us.i, label %for.cond32.preheader.i454.us.us.us.i
 
@@ -54172,7 +54172,7 @@ for.body491.us.us.us.i:                           ; preds = %for.body491.lr.ph.u
   %143 = load float, ptr %arrayidx511.us.us.us.i, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !784)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !787)
-  %vecinit.i.i422.us.us.us.i = insertelement <8 x float> undef, float %143, i64 0
+  %vecinit.i.i422.us.us.us.i = insertelement <8 x float> poison, float %143, i64 0
   %vecinit7.i.i423.us.us.us.i = shufflevector <8 x float> %vecinit.i.i422.us.us.us.i, <8 x float> poison, <8 x i32> zeroinitializer
   br i1 %cmp44.i.i, label %for.cond1.preheader.i436.us.us.us.i, label %for.cond32.preheader.i425.us.us.us.i
 
@@ -54236,7 +54236,7 @@ for.body457.us.us.us.i:                           ; preds = %for.body457.lr.ph.u
   %158 = load float, ptr %add.ptr479.us.us.us.i, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !790)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !793)
-  %vecinit.i.i317.us.us.us.i = insertelement <8 x float> undef, float %158, i64 0
+  %vecinit.i.i317.us.us.us.i = insertelement <8 x float> poison, float %158, i64 0
   %vecinit7.i.i318.us.us.us.i = shufflevector <8 x float> %vecinit.i.i317.us.us.us.i, <8 x float> poison, <8 x i32> zeroinitializer
   br i1 %cmp26.i.us.us.us.i, label %for.cond1.preheader.i321.us.us.us.i, label %for.cond32.preheader.i.us.us.us.i
 
@@ -56723,7 +56723,7 @@ for.end.i:                                        ; preds = %for.inc.i, %for.bod
   %sum.0.lcssa.i = phi double [ 0.000000e+00, %for.body.i ], [ %sum.1.i, %for.inc.i ]
   %div104.i = fdiv double 0x3FEFFFFFFF768FA1, %sum.0.lcssa.i
   %conv105.i = fptrunc double %div104.i to float
-  %vecinit.i.i.i = insertelement <8 x float> undef, float %conv105.i, i64 0
+  %vecinit.i.i.i = insertelement <8 x float> poison, float %conv105.i, i64 0
   %vecinit7.i.i.i = shufflevector <8 x float> %vecinit.i.i.i, <8 x float> poison, <8 x i32> zeroinitializer
   br i1 %cmp26.i.i, label %for.cond1.preheader.i.i, label %for.cond22.preheader.i.i
 
@@ -57173,7 +57173,7 @@ for.end.i:                                        ; preds = %for.inc.i, %ggml_ve
   %sum.0.lcssa.i = phi double [ 0.000000e+00, %ggml_vec_max_f32.exit.i ], [ %sum.1.i, %for.inc.i ]
   %div82.i = fdiv double 0x3FEFFFFFFF768FA1, %sum.0.lcssa.i
   %conv84.i = fptrunc double %div82.i to float
-  %vecinit.i.i.i = insertelement <8 x float> undef, float %conv84.i, i64 0
+  %vecinit.i.i.i = insertelement <8 x float> poison, float %conv84.i, i64 0
   %vecinit7.i.i.i = shufflevector <8 x float> %vecinit.i.i.i, <8 x float> poison, <8 x i32> zeroinitializer
   br i1 %cmp26.i.i, label %for.cond1.preheader.i.i, label %for.cond22.preheader.i.i
 
@@ -57239,7 +57239,7 @@ for.body.i163.i:                                  ; preds = %for.body.i155.i, %f
 ggml_vec_sub_f32.exit.i:                          ; preds = %for.body.i163.i, %ggml_vec_scale_f32.exit.i
   %72 = load float, ptr %54, align 4
   %div90.i = fdiv float %72, %conv89.i
-  %vecinit.i.i171.i = insertelement <8 x float> undef, float %div90.i, i64 0
+  %vecinit.i.i171.i = insertelement <8 x float> poison, float %div90.i, i64 0
   %vecinit7.i.i172.i = shufflevector <8 x float> %vecinit.i.i171.i, <8 x float> poison, <8 x i32> zeroinitializer
   br i1 %cmp26.i.i, label %for.cond1.preheader.i185.i, label %for.cond22.preheader.i174.i
 

@@ -3397,7 +3397,7 @@ entry:
   %3 = load ptr, ptr %slots_.i.i.i.i.i, align 8
   %4 = trunc i128 %xor.i.i.i.i.i to i8
   %conv.i.i2.i.i = and i8 %4, 127
-  %vecinit.i.i.i.i.i = insertelement <16 x i8> undef, i8 %conv.i.i2.i.i, i64 0
+  %vecinit.i.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i2.i.i, i64 0
   %vecinit15.i.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %while.body.i.i.i
 
@@ -4353,7 +4353,7 @@ entry:
   %xor.i.i.i7.i.i.i.i.i = xor i64 %shr.i.i.i6.i.i.i.i.i, %shr.i.i.i.i.i.i.i.i.i
   %5 = trunc i128 %xor.i.i.i.i.i.i.i.i to i8
   %conv.i.i.i.i.i.i = and i8 %5, 127
-  %vecinit.i.i.i.i.i.i.i = insertelement <16 x i8> undef, i8 %conv.i.i.i.i.i.i, i64 0
+  %vecinit.i.i.i.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i.i.i.i.i, i64 0
   %vecinit15.i.i.i.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %slots_.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::TcpZerocopySendCtx", ptr %this, i64 0, i32 10, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %6 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !60

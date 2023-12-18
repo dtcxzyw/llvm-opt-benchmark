@@ -5562,7 +5562,7 @@ entry:
   %sizeAndChunkShiftAndPackedBegin_.i = getelementptr inbounds %"class.folly::f14::detail::F14Table", ptr %this, i64 0, i32 1
   %0 = load i64, ptr %sizeAndChunkShiftAndPackedBegin_.i, align 8, !tbaa !207
   %conv.i = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i
 
@@ -8911,7 +8911,7 @@ if.then32:                                        ; preds = %entry
   %sizeAndChunkShiftAndPackedBegin_.i = getelementptr inbounds %"struct.folly::dynamic", ptr %this, i64 0, i32 1, i32 0, i32 1
   %10 = load i64, ptr %sizeAndChunkShiftAndPackedBegin_.i, align 8, !tbaa !207
   %conv.i = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i
 
@@ -9638,7 +9638,7 @@ if.end:                                           ; preds = %entry
   %notmask.i = shl nsw i64 -1, %sh_prom.i
   %sub.i = xor i64 %notmask.i, -1
   %conv.i = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp324.i.i.i.i = icmp eq ptr %idx.coerce1, %idx.coerce0
   %cmp324.i.i.i.i.fr = freeze i1 %cmp324.i.i.i.i
@@ -9929,7 +9929,7 @@ if.then:                                          ; preds = %entry
   %notmask.i = shl nsw i64 -1, %sh_prom.i
   %sub.i = xor i64 %notmask.i, -1
   %conv.i = trunc i64 %hp.coerce1 to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %e_.i.i.i.i.i = getelementptr inbounds %"class.folly::Range", ptr %key, i64 0, i32 1
   %1 = load ptr, ptr %e_.i.i.i.i.i, align 8
@@ -10403,7 +10403,7 @@ _ZNK5folly7dynamic3getINS0_10ObjectImplEEERKT_v.exit: ; preds = %entry
   %notmask.i = shl nsw i64 -1, %sh_prom.i
   %sub.i = xor i64 %notmask.i, -1
   %conv.i = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp324.i.i.i.i = icmp eq ptr %k.coerce1, %k.coerce0
   %cmp324.i.i.i.i.fr = freeze i1 %cmp324.i.i.i.i
@@ -10583,7 +10583,7 @@ _ZNK5folly7dynamic3getINS0_10ObjectImplEEERKT_v.exit: ; preds = %entry
   %notmask.i = shl nsw i64 -1, %sh_prom.i
   %sub.i = xor i64 %notmask.i, -1
   %conv.i = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp324.i.i.i.i = icmp eq ptr %k.coerce1, %k.coerce0
   %cmp324.i.i.i.i.fr = freeze i1 %cmp324.i.i.i.i
@@ -10766,7 +10766,7 @@ _ZN5folly7dynamic3getINS0_10ObjectImplEEERT_v.exit: ; preds = %entry
   %notmask.i = shl nsw i64 -1, %sh_prom.i.i
   %sub.i = xor i64 %notmask.i, -1
   %conv.i = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp324.i.i.i.i = icmp eq ptr %k.coerce1, %k.coerce0
   %cmp324.i.i.i.i.fr = freeze i1 %cmp324.i.i.i.i
@@ -10949,7 +10949,7 @@ _ZN5folly7dynamic3getINS0_10ObjectImplEEERT_v.exit: ; preds = %entry
   %notmask.i = shl nsw i64 -1, %sh_prom.i.i
   %sub.i = xor i64 %notmask.i, -1
   %conv.i = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp324.i.i.i.i = icmp eq ptr %k.coerce1, %k.coerce0
   %cmp324.i.i.i.i.fr = freeze i1 %cmp324.i.i.i.i
@@ -11218,7 +11218,7 @@ if.then32:                                        ; preds = %entry
   %sizeAndChunkShiftAndPackedBegin_.i = getelementptr inbounds %"struct.folly::dynamic", ptr %this, i64 0, i32 1, i32 0, i32 1
   %10 = load i64, ptr %sizeAndChunkShiftAndPackedBegin_.i, align 8, !tbaa !207
   %conv.i = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i
 
@@ -11324,7 +11324,7 @@ if.end:                                           ; preds = %entry
   %notmask.i = shl nsw i64 -1, %sh_prom.i
   %sub.i = xor i64 %notmask.i, -1
   %conv.i = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp324.i.i.i.i = icmp eq ptr %idx.coerce1, %idx.coerce0
   %cmp324.i.i.i.i.fr = freeze i1 %cmp324.i.i.i.i
@@ -12221,7 +12221,7 @@ _ZNK5folly7dynamic3getINS0_10ObjectImplEEERKT_v.exit: ; preds = %entry
   %sizeAndChunkShiftAndPackedBegin_.i = getelementptr inbounds %"struct.folly::dynamic", ptr %this, i64 0, i32 1, i32 0, i32 1
   %1 = load i64, ptr %sizeAndChunkShiftAndPackedBegin_.i, align 8, !tbaa !207
   %conv.i = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i
 
@@ -12300,7 +12300,7 @@ if.then:                                          ; preds = %entry
   %mul.i = shl i64 %hp.coerce1, 1
   %add.i45 = or disjoint i64 %mul.i, 1
   %conv.i = trunc i64 %hp.coerce1 to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i
 
@@ -12798,7 +12798,7 @@ if.then81:                                        ; preds = %cleanup.cont
   %notmask.i = shl nsw i64 -1, %sh_prom.i
   %sub.i = xor i64 %notmask.i, -1
   %conv.i = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i
 

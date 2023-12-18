@@ -634,7 +634,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local { <2 x float>, <2 x float> } @_Z11make_float4f(float noundef %v) local_unnamed_addr #6 {
 entry:
-  %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> undef, float %v, i64 0
+  %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %v, i64 0
   %retval.sroa.0.4.vec.insert.i = shufflevector <2 x float> %retval.sroa.0.0.vec.insert.i, <2 x float> poison, <2 x i32> zeroinitializer
   %retval.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %v, i64 0
   %.fca.0.insert.i = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %retval.sroa.0.4.vec.insert.i, 0
@@ -645,9 +645,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local { <2 x float>, <2 x float> } @_Z11make_float4ffff(float noundef %x, float noundef %y, float noundef %z, float noundef %w) local_unnamed_addr #6 {
 entry:
-  %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> undef, float %x, i64 0
+  %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %x, i64 0
   %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %y, i64 1
-  %retval.sroa.3.8.vec.insert.i = insertelement <2 x float> undef, float %z, i64 0
+  %retval.sroa.3.8.vec.insert.i = insertelement <2 x float> poison, float %z, i64 0
   %retval.sroa.3.12.vec.insert.i = insertelement <2 x float> %retval.sroa.3.8.vec.insert.i, float %w, i64 1
   %.fca.0.insert.i = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %retval.sroa.0.4.vec.insert.i, 0
   %.fca.1.insert.i = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert.i, <2 x float> %retval.sroa.3.12.vec.insert.i, 1

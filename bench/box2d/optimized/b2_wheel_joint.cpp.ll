@@ -143,7 +143,7 @@ invoke.cont:
   %mul.i = fneg float %5
   %6 = trunc i64 %2 to i32
   %7 = bitcast i32 %6 to float
-  %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> undef, float %mul.i, i64 0
+  %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %mul.i, i64 0
   %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %7, i64 1
   %m_localYAxisA6 = getelementptr inbounds %class.b2WheelJoint, ptr %this, i64 0, i32 4
   store <2 x float> %retval.sroa.0.4.vec.insert.i, ptr %m_localYAxisA6, align 8

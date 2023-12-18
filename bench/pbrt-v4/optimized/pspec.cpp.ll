@@ -6508,7 +6508,7 @@ return:                                           ; preds = %for.end.loopexit.i3
   %.sroa.speculated.i176.sink = phi float [ %.sroa.speculated.i176, %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit226 ], [ %.sroa.speculated.i117, %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit152 ], [ %.sroa.speculated.i66251, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit90 ], [ %.sroa.speculated.i, %for.end.loopexit.i39 ], [ 0.000000e+00, %if.then ]
   %cmp.i.i224 = fcmp ogt float %mul3.i223.sink252, 0x3FEFFFFFE0000000
   %.sroa.speculated.i225 = select i1 %cmp.i.i224, float 0x3FEFFFFFE0000000, float %mul3.i223.sink252
-  %retval.sroa.0.0.vec.insert234 = insertelement <2 x float> undef, float %.sroa.speculated.i176.sink, i64 0
+  %retval.sroa.0.0.vec.insert234 = insertelement <2 x float> poison, float %.sroa.speculated.i176.sink, i64 0
   %retval.sroa.0.4.vec.insert240 = insertelement <2 x float> %retval.sroa.0.0.vec.insert234, float %.sroa.speculated.i225, i64 1
   ret <2 x float> %retval.sroa.0.4.vec.insert240
 }
@@ -8367,7 +8367,7 @@ sw.bb1:                                           ; preds = %entry
   %mul.i14.i.i = fmul float %conv.i13.i.i, 0x3DF0000000000000
   %cmp.i.i15.i.i = fcmp olt float %mul.i14.i.i, 0x3FEFFFFFE0000000
   %.sroa.speculated.i16.i.i = select i1 %cmp.i.i15.i.i, float %mul.i14.i.i, float 0x3FEFFFFFE0000000
-  %retval.sroa.0.0.vec.insert.i.i = insertelement <2 x float> undef, float %.sroa.speculated.i.i.i, i64 0
+  %retval.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %.sroa.speculated.i.i.i, i64 0
   %retval.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i, float %.sroa.speculated.i16.i.i, i64 1
   br label %return
 
@@ -8385,7 +8385,7 @@ sw.bb7:                                           ; preds = %entry
   %call.i.i = tail call noundef float @_ZNK4pbrt13HaltonSampler15SampleDimensionEi(ptr noundef nonnull align 8 dereferenceable(52) %ptr, i32 noundef %spec.select.i.i)
   %add6.i.i = add nsw i32 %spec.select.i.i, 1
   %call7.i.i = tail call noundef float @_ZNK4pbrt13HaltonSampler15SampleDimensionEi(ptr noundef nonnull align 8 dereferenceable(52) %ptr, i32 noundef %add6.i.i)
-  %retval.sroa.0.0.vec.insert.i.i19 = insertelement <2 x float> undef, float %call.i.i, i64 0
+  %retval.sroa.0.0.vec.insert.i.i19 = insertelement <2 x float> poison, float %call.i.i, i64 0
   %retval.sroa.0.4.vec.insert.i.i20 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i19, float %call7.i.i, i64 1
   br label %return
 
@@ -8409,7 +8409,7 @@ _ZZN4pbrt7Sampler5Get2DEvENKUlT_E_clIPNS_12SobolSamplerEEEDaS1_.exit: ; preds = 
   %9 = load i32, ptr %dimension.i.i22, align 8
   %add5.i.i25 = add nsw i32 %9, 1
   %call6.i.i = tail call noundef float @_ZNK4pbrt12SobolSampler15SampleDimensionEi(ptr noundef nonnull align 8 dereferenceable(40) %ptr, i32 noundef %add5.i.i25)
-  %retval.sroa.0.0.vec.insert.i.i26 = insertelement <2 x float> undef, float %call.i.i24, i64 0
+  %retval.sroa.0.0.vec.insert.i.i26 = insertelement <2 x float> poison, float %call.i.i24, i64 0
   %retval.sroa.0.4.vec.insert.i.i27 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i26, float %call6.i.i, i64 1
   %10 = load i32, ptr %dimension.i.i22, align 8
   %add8.i.i = add nsw i32 %10, 2
@@ -8447,7 +8447,7 @@ sw.default:                                       ; preds = %entry
   %conv.i8.i.i.i = sext i32 %add.i.i6.i.i.i to i64
   %add.ptr.i.i9.i.i.i = getelementptr inbounds float, ptr %14, i64 %conv.i8.i.i.i
   %16 = load float, ptr %add.ptr.i.i9.i.i.i, align 4
-  %retval.sroa.0.0.vec.insert.i.i.i = insertelement <2 x float> undef, float %15, i64 0
+  %retval.sroa.0.0.vec.insert.i.i.i = insertelement <2 x float> poison, float %15, i64 0
   %retval.sroa.0.4.vec.insert.i.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i.i, float %16, i64 1
   br label %return
 
@@ -8977,7 +8977,7 @@ cond.end13:                                       ; preds = %_ZN4pbrt18Permutati
   %add21 = fadd float %cond14, %conv20
   %conv22 = sitofp i32 %4 to float
   %div23 = fdiv float %add21, %conv22
-  %retval.sroa.0.0.vec.insert = insertelement <2 x float> undef, float %div19, i64 0
+  %retval.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %div19, i64 0
   %retval.sroa.0.4.vec.insert = insertelement <2 x float> %retval.sroa.0.0.vec.insert, float %div23, i64 1
   ret <2 x float> %retval.sroa.0.4.vec.insert
 }
@@ -9224,7 +9224,7 @@ _ZN4pbrt18PermutationElementEjjj.exit:            ; preds = %do.body.i
   %shr = lshr i64 %mul41.i.i, 32
   %conv7 = trunc i64 %shr to i32
   %call8 = tail call noundef float @_ZNK4pbrt18PaddedSobolSampler15SampleDimensionEijj(ptr noundef nonnull align 4 dereferenceable(28) %this, i32 noundef 1, i32 noundef %rem.i, i32 noundef %conv7)
-  %retval.sroa.0.0.vec.insert = insertelement <2 x float> undef, float %call6, i64 0
+  %retval.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %call6, i64 0
   %retval.sroa.0.4.vec.insert = insertelement <2 x float> %retval.sroa.0.0.vec.insert, float %call8, i64 1
   ret <2 x float> %retval.sroa.0.4.vec.insert
 }

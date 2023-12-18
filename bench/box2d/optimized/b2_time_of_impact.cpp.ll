@@ -713,7 +713,7 @@ if.then23:                                        ; preds = %if.else
   %100 = fsub <2 x float> %98, %97
   %sub3.i74 = extractelement <2 x float> %100, i64 1
   %mul1.i = fneg float %sub.i71
-  %retval.sroa.0.0.vec.insert.i78 = insertelement <2 x float> undef, float %sub3.i74, i64 0
+  %retval.sroa.0.0.vec.insert.i78 = insertelement <2 x float> poison, float %sub3.i74, i64 0
   %retval.sroa.0.4.vec.insert.i79 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i78, float %mul1.i, i64 1
   %m_axis37 = getelementptr inbounds %struct.b2SeparationFunction, ptr %this, i64 0, i32 6
   store <2 x float> %retval.sroa.0.4.vec.insert.i79, ptr %m_axis37, align 4
@@ -776,7 +776,7 @@ _ZN6b2Vec29NormalizeEv.exit89:                    ; preds = %if.then23, %if.end.
 if.then61:                                        ; preds = %_ZN6b2Vec29NormalizeEv.exit89
   %fneg.i = fneg float %104
   %fneg2.i = fneg float %103
-  %retval.sroa.0.0.vec.insert.i137 = insertelement <2 x float> undef, float %fneg.i, i64 0
+  %retval.sroa.0.0.vec.insert.i137 = insertelement <2 x float> poison, float %fneg.i, i64 0
   %retval.sroa.0.4.vec.insert.i138 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i137, float %fneg2.i, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i138, ptr %m_axis37, align 4
   %fneg = fneg float %125
@@ -800,7 +800,7 @@ if.else66:                                        ; preds = %if.else
   %133 = fsub <2 x float> %131, %130
   %sub3.i148 = extractelement <2 x float> %133, i64 1
   %mul1.i152 = fneg float %sub.i145
-  %retval.sroa.0.0.vec.insert.i153 = insertelement <2 x float> undef, float %sub3.i148, i64 0
+  %retval.sroa.0.0.vec.insert.i153 = insertelement <2 x float> poison, float %sub3.i148, i64 0
   %retval.sroa.0.4.vec.insert.i154 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i153, float %mul1.i152, i64 1
   %m_axis82 = getelementptr inbounds %struct.b2SeparationFunction, ptr %this, i64 0, i32 6
   store <2 x float> %retval.sroa.0.4.vec.insert.i154, ptr %m_axis82, align 4
@@ -865,7 +865,7 @@ _ZN6b2Vec29NormalizeEv.exit164:                   ; preds = %if.else66, %if.end.
 if.then110:                                       ; preds = %_ZN6b2Vec29NormalizeEv.exit164
   %fneg.i214 = fneg float %137
   %fneg2.i216 = fneg float %136
-  %retval.sroa.0.0.vec.insert.i217 = insertelement <2 x float> undef, float %fneg.i214, i64 0
+  %retval.sroa.0.0.vec.insert.i217 = insertelement <2 x float> poison, float %fneg.i214, i64 0
   %retval.sroa.0.4.vec.insert.i218 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i217, float %fneg2.i216, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i218, ptr %m_axis82, align 4
   %fneg115 = fneg float %159

@@ -4395,7 +4395,7 @@ entry:
   %agg.tmp7.sroa.0.0.vec.insert = shufflevector <4 x float> %5, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %6 = extractelement <4 x float> %5, i64 2
   %agg.tmp7.sroa.0.4.vec.insert = insertelement <2 x float> %agg.tmp7.sroa.0.0.vec.insert, float %6, i64 1
-  %agg.tmp8.sroa.0.4.vec.insert = shufflevector <4 x float> %5, <4 x float> undef, <2 x i32> <i32 1, i32 3>
+  %agg.tmp8.sroa.0.4.vec.insert = shufflevector <4 x float> %5, <4 x float> poison, <2 x i32> <i32 1, i32 3>
   %call11 = call { <2 x float>, float } @_ZNK4pbrt6MIPMap6FilterINS_3RGBEEET_NS_6Point2IfEENS_7Vector2IfEES7_(ptr noundef nonnull align 8 dereferenceable(52) %4, <2 x float> %agg.tmp5.sroa.0.0.copyload, <2 x float> %agg.tmp7.sroa.0.4.vec.insert, <2 x float> %agg.tmp8.sroa.0.4.vec.insert)
   %call11.fca.0.extract = extractvalue { <2 x float>, float } %call11, 0
   %call11.fca.1.extract = extractvalue { <2 x float>, float } %call11, 1
@@ -6409,7 +6409,7 @@ entry:
   %mul.i.i32 = fmul float %add.i.i.i92.i.i, 1.500000e+00
   %mul2.i.i33 = fmul float %add4.i.i.i94.i.i, 1.500000e+00
   %mul3.i.i34 = fmul float %add6.i.i.i96.i.i, 1.500000e+00
-  %retval.sroa.0.0.vec.insert.i.i35 = insertelement <2 x float> undef, float %mul.i.i32, i64 0
+  %retval.sroa.0.0.vec.insert.i.i35 = insertelement <2 x float> poison, float %mul.i.i32, i64 0
   %retval.sroa.0.4.vec.insert.i.i36 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i35, float %mul2.i.i33, i64 1
   %13 = load ptr, ptr @_ZN4pbrt13RGBColorSpace4sRGBE, align 8
   call void @_ZN4pbrt17RGBAlbedoSpectrumC1ERKNS_13RGBColorSpaceENS_3RGBE(ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp41, ptr noundef nonnull align 8 dereferenceable(152) %13, <2 x float> %retval.sroa.0.4.vec.insert.i.i36, float %mul3.i.i34)
@@ -8163,7 +8163,7 @@ do.end:                                           ; preds = %entry
   %1 = load float, ptr %arrayidx3, align 4
   %arrayidx4 = getelementptr inbounds [3 x float], ptr %result, i64 0, i64 2
   %2 = load float, ptr %arrayidx4, align 4
-  %rgb.sroa.0.0.vec.insert = insertelement <2 x float> undef, float %0, i64 0
+  %rgb.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %0, i64 0
   %rgb.sroa.0.4.vec.insert = insertelement <2 x float> %rgb.sroa.0.0.vec.insert, float %1, i64 1
   %spectrumType = getelementptr inbounds %"class.pbrt::SpectrumPtexTexture", ptr %this, i64 0, i32 1
   %3 = load i32, ptr %spectrumType, align 4
@@ -12144,7 +12144,7 @@ sw.bb:                                            ; preds = %entry
   %agg.tmp6.sroa.0.0.vec.insert.i.i = shufflevector <4 x float> %6, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %7 = extractelement <4 x float> %6, i64 2
   %agg.tmp6.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %agg.tmp6.sroa.0.0.vec.insert.i.i, float %7, i64 1
-  %agg.tmp7.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %6, <4 x float> undef, <2 x i32> <i32 1, i32 3>
+  %agg.tmp7.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %6, <4 x float> poison, <2 x i32> <i32 1, i32 3>
   %call10.i.i = call noundef float @_ZNK4pbrt6MIPMap6FilterIfEET_NS_6Point2IfEENS_7Vector2IfEES6_(ptr noundef nonnull align 8 dereferenceable(52) %5, <2 x float> %agg.tmp4.sroa.0.0.copyload.i.i, <2 x float> %agg.tmp6.sroa.0.4.vec.insert.i.i, <2 x float> %agg.tmp7.sroa.0.4.vec.insert.i.i)
   %mul.i.i = fmul float %4, %call10.i.i
   %invert.i.i = getelementptr inbounds %"class.pbrt::ImageTextureBase", ptr %ptr, i64 0, i32 3

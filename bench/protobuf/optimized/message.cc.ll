@@ -1798,7 +1798,7 @@ entry:
   %4 = load ptr, ptr %slots_.i.i.i.i.i, align 8
   %5 = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i8
   %conv.i.i.i.i = and i8 %5, 127
-  %vecinit.i.i.i.i.i = insertelement <16 x i8> undef, i8 %conv.i.i.i.i, i64 0
+  %vecinit.i.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i.i.i, i64 0
   %vecinit15.i.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %while.body.i.i.i
 
@@ -1918,7 +1918,7 @@ if.end11:                                         ; preds = %cleanup.cont
   %this.val5.i.i.i = load ptr, ptr %26, align 8
   %27 = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i8
   %conv.i.i.i.i14 = and i8 %27, 127
-  %vecinit.i.i.i.i.i15 = insertelement <16 x i8> undef, i8 %conv.i.i.i.i14, i64 0
+  %vecinit.i.i.i.i.i15 = insertelement <16 x i8> poison, i8 %conv.i.i.i.i14, i64 0
   %vecinit15.i.i.i.i.i16 = shufflevector <16 x i8> %vecinit.i.i.i.i.i15, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp.i2.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %21, 0
   br i1 %cmp.i2.i.i.i.i.i.i.i.i.i.i.i, label %while.body.us.i.i.i, label %while.body.i.i.i17
@@ -2254,7 +2254,7 @@ entry:
   %xor.i.i.i.i.i.i.i.i.i.i.i = xor i64 %shr.i.i.i.i.i.i.i.i.i.i.i, %shr.i.i.i.i.i.i.i.i.i.i.i.i
   %4 = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i8
   %conv.i.i.i.i.i.i.i.i.i = and i8 %4, 127
-  %vecinit.i.i.i.i.i.i.i.i.i.i = insertelement <16 x i8> undef, i8 %conv.i.i.i.i.i.i.i.i.i, i64 0
+  %vecinit.i.i.i.i.i.i.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i.i.i.i.i.i.i.i, i64 0
   %vecinit15.i.i.i.i.i.i.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i.i.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %5 = getelementptr inbounds %"class.google::protobuf::(anonymous namespace)::GeneratedMessageFactory", ptr %call, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %this.val6.i.i.i.i.i.i.i.i = load ptr, ptr %5, align 8, !noalias !43
@@ -2542,7 +2542,7 @@ entry:
   %xor.i.i.i.i.i.i = xor i64 %shr.i.i.i.i.i.i.i, %shr.i.i.i.i.i.i
   %4 = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i8
   %conv.i.i.i.i = and i8 %4, 127
-  %vecinit.i.i.i.i.i = insertelement <16 x i8> undef, i8 %conv.i.i.i.i, i64 0
+  %vecinit.i.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i.i.i, i64 0
   %vecinit15.i.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %slots_.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::(anonymous namespace)::GeneratedMessageFactory", ptr %call, i64 0, i32 4, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %5 = load ptr, ptr %slots_.i.i.i.i.i, align 8, !noalias !61
@@ -3199,7 +3199,7 @@ if.then:                                          ; preds = %land.lhs.true
   %xor.i.i.i.i.i = xor i64 %shr.i.i.i.i.i.i, %shr.i.i.i.i.i
   %6 = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i8
   %conv.i.i.i = and i8 %6, 127
-  %vecinit.i.i.i.i = insertelement <16 x i8> undef, i8 %conv.i.i.i, i64 0
+  %vecinit.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i.i, i64 0
   %vecinit15.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %slots_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::(anonymous namespace)::GeneratedMessageFactory", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %7 = load ptr, ptr %slots_.i.i.i.i, align 8, !noalias !68

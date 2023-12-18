@@ -1832,7 +1832,7 @@ entry:
   %2 = load <2 x float>, ptr %arrayidx5.i, align 4
   %3 = load <2 x float>, ptr %arrayidx7.i, align 4
   %4 = fadd <2 x float> %2, %3
-  %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> undef, float %add.i, i64 0
+  %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %add.i, i64 0
   %5 = shufflevector <2 x float> %retval.sroa.0.0.vec.insert.i, <2 x float> %4, <2 x i32> <i32 0, i32 2>
   %6 = shufflevector <2 x float> <float poison, float 0.000000e+00>, <2 x float> %4, <2 x i32> <i32 3, i32 1>
   %.fca.0.insert.i = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %5, 0
@@ -1958,7 +1958,7 @@ entry:
   %24 = shufflevector <2 x float> %9, <2 x float> poison, <2 x i32> <i32 1, i32 1>
   %25 = fmul <2 x float> %24, %23
   %26 = fadd <2 x float> %22, %25
-  %retval.sroa.0.0.vec.insert.i36 = insertelement <2 x float> undef, float %add.i29, i64 0
+  %retval.sroa.0.0.vec.insert.i36 = insertelement <2 x float> poison, float %add.i29, i64 0
   %27 = shufflevector <2 x float> %retval.sroa.0.0.vec.insert.i36, <2 x float> %26, <2 x i32> <i32 0, i32 2>
   %28 = shufflevector <2 x float> <float poison, float 0.000000e+00>, <2 x float> %26, <2 x i32> <i32 3, i32 1>
   %.fca.0.insert.i39 = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %27, 0
@@ -2012,7 +2012,7 @@ entry:
   %24 = shufflevector <2 x float> %9, <2 x float> poison, <2 x i32> <i32 1, i32 1>
   %25 = fmul <2 x float> %24, %23
   %26 = fadd <2 x float> %22, %25
-  %retval.sroa.0.0.vec.insert.i36 = insertelement <2 x float> undef, float %add.i29, i64 0
+  %retval.sroa.0.0.vec.insert.i36 = insertelement <2 x float> poison, float %add.i29, i64 0
   %27 = shufflevector <2 x float> %retval.sroa.0.0.vec.insert.i36, <2 x float> %26, <2 x i32> <i32 0, i32 2>
   %28 = shufflevector <2 x float> <float poison, float 0.000000e+00>, <2 x float> %26, <2 x i32> <i32 3, i32 1>
   %.fca.0.insert.i39 = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %27, 0
@@ -2067,7 +2067,7 @@ return:                                           ; preds = %if.end17, %if.then1
   %10 = insertelement <2 x float> poison, float %9, i64 0
   %11 = shufflevector <2 x float> %10, <2 x float> poison, <2 x i32> zeroinitializer
   %12 = fmul <2 x float> %8, %11
-  %retval.sroa.0.0.vec.insert.i26 = insertelement <2 x float> undef, float %mul.i21, i64 0
+  %retval.sroa.0.0.vec.insert.i26 = insertelement <2 x float> poison, float %mul.i21, i64 0
   %13 = shufflevector <2 x float> %retval.sroa.0.0.vec.insert.i26, <2 x float> %12, <2 x i32> <i32 0, i32 2>
   %14 = shufflevector <2 x float> <float poison, float 0.000000e+00>, <2 x float> %12, <2 x i32> <i32 3, i32 1>
   %.fca.0.insert.i9.pn = insertvalue { <2 x float>, <2 x float> } undef, <2 x float> %13, 0

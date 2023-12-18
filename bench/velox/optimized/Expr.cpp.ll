@@ -20503,7 +20503,7 @@ call2.i134.noexc.i:                               ; preds = %if.end19.i
   %conv.i144521.i = zext i32 %14 to i64
   %chunks_.i.i = getelementptr inbounds %"class.folly::f14::detail::F14Table", ptr %shadowedNames, i64 0, i32 1
   %conv.i.i = trunc i64 %or.i.i to i8
-  %vecinit.i.i.i = insertelement <16 x i8> undef, i8 %conv.i.i, i64 0
+  %vecinit.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i, i64 0
   %vecinit15.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %call6.i.noexc.i
 

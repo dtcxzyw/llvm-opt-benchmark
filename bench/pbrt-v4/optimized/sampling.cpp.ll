@@ -985,7 +985,7 @@ entry:
   %fneg1.i17 = fneg float %v.sroa.0.4.vec.extract
   %5 = tail call noundef float @llvm.fma.f32(float %fneg1.i17, float %w.sroa.0.0.vec.extract, float %mul.i15)
   %add.i18 = fadd float %4, %5
-  %retval.sroa.0.0.vec.insert = insertelement <2 x float> undef, float %add.i, i64 0
+  %retval.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %add.i, i64 0
   %retval.sroa.0.4.vec.insert = insertelement <2 x float> %retval.sroa.0.0.vec.insert, float %add.i14, i64 1
   %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %retval.sroa.0.4.vec.insert, 0
   %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %add.i18, 1
@@ -2182,7 +2182,7 @@ if.end147:                                        ; preds = %if.end125
   %add179 = fadd float %mul.i498, %mul.i497
   %sqrt564 = tail call float @llvm.sqrt.f32(float %add179)
   %mul.i500 = fmul float %sqrt564, %sqrt564
-  %193 = shufflevector <2 x float> %46, <2 x float> undef, <2 x i32> <i32 1, i32 poison>
+  %193 = shufflevector <2 x float> %46, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %194 = shufflevector <2 x float> %193, <2 x float> %40, <2 x i32> <i32 0, i32 3>
   %195 = fmul <2 x float> %194, %194
   %196 = insertelement <2 x float> poison, float %mul.i500, i64 0
@@ -2804,7 +2804,7 @@ do.end:                                           ; preds = %init.end, %if.then1
   %cmp3.i = fcmp ogt float %div167, 1.000000e+00
   %conv2.val.i = select i1 %cmp3.i, float 1.000000e+00, float %div167
   %retval.0.i571 = select i1 %cmp.i570, float 0.000000e+00, float %conv2.val.i
-  %retval.sroa.0.0.vec.insert604 = insertelement <2 x float> undef, float %retval.0.i571, i64 0
+  %retval.sroa.0.0.vec.insert604 = insertelement <2 x float> poison, float %retval.0.i571, i64 0
   br i1 %cmp235, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %do.end
@@ -2931,7 +2931,7 @@ if.end29:                                         ; preds = %_ZN4pbrt16HenyeyGre
   %retval.0.i11.i = select i1 %cmp.i8.i, float -1.000000e+00, float %conv2.val.i10.i
   %mul.i.i11.i = fmul float %v1.sroa.0.0.vec.extract.i.i, %retval.0.i11.i
   %add.i20.i = fadd float %mul.i.i11.i, %add.i.i18
-  %retval.sroa.0.0.vec.insert.i26.i = insertelement <2 x float> undef, float %add.i20.i, i64 0
+  %retval.sroa.0.0.vec.insert.i26.i = insertelement <2 x float> poison, float %add.i20.i, i64 0
   %mul8.i.i = fmul float %1, %mul2.i.i
   %mul2.i.i.i = fmul float %mul8.i.i, %mul.i16
   %mul.i17.i.i = fmul float %v1.sroa.0.4.vec.extract.i.i, %v1.sroa.0.4.vec.extract.i.i

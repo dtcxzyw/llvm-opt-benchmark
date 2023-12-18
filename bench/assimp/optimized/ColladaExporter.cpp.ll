@@ -16678,7 +16678,7 @@ entry:
   %10 = fneg float %4
   %neg14.i = fmul float %8, %10
   %11 = tail call float @llvm.fmuladd.f32(float %6, float %3, float %neg14.i)
-  %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> undef, float %5, i64 0
+  %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %5, i64 0
   %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %9, i64 1
   %mul4.i.i.i28 = fmul float %9, %9
   %12 = tail call float @llvm.fmuladd.f32(float %5, float %5, float %mul4.i.i.i28)

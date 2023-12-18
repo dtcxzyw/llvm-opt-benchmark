@@ -1376,7 +1376,7 @@ entry:
   %arrayidx.i9 = getelementptr inbounds [3 x %class.btVector3], ptr %rot, i64 0, i64 2, i32 0, i64 2
   %3 = load float, ptr %arrayidx.i9, align 4
   %call.i10 = tail call noundef float @atan2f(float noundef %fneg5, float noundef %3) #13
-  %retval.sroa.0.0.vec.insert = insertelement <2 x float> undef, float %call.i10, i64 0
+  %retval.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %call.i10, i64 0
   %4 = load float, ptr %arrayidx.i.i7, align 4
   %call.i13 = tail call noundef float @cosf(float noundef %call.i) #13
   %5 = load float, ptr %rot, align 4

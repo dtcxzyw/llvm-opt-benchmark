@@ -933,7 +933,7 @@ return.sink.split:                                ; preds = %if.then4, %if.then1
   %.sink111 = phi float [ %86, %if.then13 ], [ %48, %if.then4 ]
   %.sink110 = phi float [ %88, %if.then13 ], [ %50, %if.then4 ]
   %.sink = phi float [ %90, %if.then13 ], [ %52, %if.then4 ]
-  %retval.sroa.0.0.vec.insert.i100 = insertelement <2 x float> undef, float %.sink111, i64 0
+  %retval.sroa.0.0.vec.insert.i100 = insertelement <2 x float> poison, float %.sink111, i64 0
   %retval.sroa.0.4.vec.insert.i101 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i100, float %.sink110, i64 1
   %retval.sroa.3.12.vec.insert.i102 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %.sink, i64 0
   store <2 x float> %retval.sroa.0.4.vec.insert.i101, ptr %clampedLocalNormal, align 4
@@ -989,7 +989,7 @@ entry:
   %26 = insertelement <2 x float> poison, float %6, i64 0
   %27 = shufflevector <2 x float> %26, <2 x float> poison, <2 x i32> zeroinitializer
   %28 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %25, <2 x float> %27, <2 x float> %24)
-  %retval.sroa.0.0.vec.insert = insertelement <2 x float> undef, float %7, i64 0
+  %retval.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %7, i64 0
   %29 = shufflevector <2 x float> %retval.sroa.0.0.vec.insert, <2 x float> %28, <2 x i32> <i32 0, i32 2>
   %30 = shufflevector <2 x float> <float poison, float 0.000000e+00>, <2 x float> %28, <2 x i32> <i32 3, i32 1>
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %29, 0
@@ -2626,7 +2626,7 @@ entry:
   %20 = insertelement <2 x float> poison, float %sub14.i, i64 0
   %21 = shufflevector <2 x float> %20, <2 x float> poison, <2 x i32> zeroinitializer
   %22 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %13, <2 x float> %21, <2 x float> %19)
-  %retval.sroa.0.0.vec.insert.i2 = insertelement <2 x float> undef, float %10, i64 0
+  %retval.sroa.0.0.vec.insert.i2 = insertelement <2 x float> poison, float %10, i64 0
   %23 = shufflevector <2 x float> %retval.sroa.0.0.vec.insert.i2, <2 x float> %22, <2 x i32> <i32 0, i32 2>
   %24 = shufflevector <2 x float> <float poison, float 0.000000e+00>, <2 x float> %22, <2 x i32> <i32 3, i32 1>
   %.fca.0.insert.i5 = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %23, 0

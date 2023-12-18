@@ -12990,7 +12990,7 @@ entry:
   %xor.i.i.i7.i.i.i.i.i.i.i = xor i64 %shr.i.i.i6.i.i.i.i.i.i.i, %shr.i.i.i.i.i.i.i.i.i.i.i
   %4 = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i to i8
   %conv.i.i.i.i.i.i.i.i = and i8 %4, 127
-  %vecinit.i.i.i.i.i.i.i.i.i = insertelement <16 x i8> undef, i8 %conv.i.i.i.i.i.i.i.i, i64 0
+  %vecinit.i.i.i.i.i.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i.i.i.i.i.i.i, i64 0
   %vecinit15.i.i.i.i.i.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %slots_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ParseProto2Descriptor::Msg", ptr %msg, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %5 = load ptr, ptr %slots_.i.i.i.i.i.i.i.i.i, align 8, !noalias !243
@@ -13121,7 +13121,7 @@ _ZNK6google8protobuf15FieldDescriptor21real_containing_oneofEv.exit24: ; preds =
   %xor.i.i.i7.i.i.i.i.i.i.i35 = xor i64 %shr.i.i.i6.i.i.i.i.i.i.i33, %shr.i.i.i.i.i.i.i.i.i.i.i34
   %29 = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i30 to i8
   %conv.i.i.i.i.i.i.i.i36 = and i8 %29, 127
-  %vecinit.i.i.i.i.i.i.i.i.i37 = insertelement <16 x i8> undef, i8 %conv.i.i.i.i.i.i.i.i36, i64 0
+  %vecinit.i.i.i.i.i.i.i.i.i37 = insertelement <16 x i8> poison, i8 %conv.i.i.i.i.i.i.i.i36, i64 0
   %vecinit15.i.i.i.i.i.i.i.i.i38 = shufflevector <16 x i8> %vecinit.i.i.i.i.i.i.i.i.i37, <16 x i8> poison, <16 x i32> zeroinitializer
   %slots_.i.i.i.i.i.i.i.i.i39 = getelementptr inbounds %"class.google::protobuf::json_internal::ParseProto2Descriptor::Msg", ptr %msg, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %30 = load ptr, ptr %slots_.i.i.i.i.i.i.i.i.i39, align 8, !noalias !261
@@ -15482,7 +15482,7 @@ entry:
   %xor.i.i.i = xor i64 %shr.i.i.i, %shr.i.i.i.i
   %4 = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i to i8
   %conv.i = and i8 %4, 127
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %slots_.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 1
   br label %while.body
@@ -20651,7 +20651,7 @@ _ZNK6google8protobuf15FieldDescriptor21real_containing_oneofEv.exit21: ; preds =
   %12 = load ptr, ptr %slots_.i.i.i.i.i.i, align 8
   %13 = trunc i128 %xor.i.i.i.i.i to i8
   %conv.i.i.i2.i.i = and i8 %13, 127
-  %vecinit.i.i.i.i.i.i = insertelement <16 x i8> undef, i8 %conv.i.i.i2.i.i, i64 0
+  %vecinit.i.i.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i.i2.i.i, i64 0
   %vecinit15.i.i.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %while.body.i.i.i.i
 
@@ -20728,7 +20728,7 @@ if.end6:                                          ; preds = %if.end
   %25 = load ptr, ptr %slots_.i.i.i.i.i.i33, align 8
   %26 = trunc i128 %xor.i.i.i.i.i27 to i8
   %conv.i.i.i2.i.i34 = and i8 %26, 127
-  %vecinit.i.i.i.i.i.i35 = insertelement <16 x i8> undef, i8 %conv.i.i.i2.i.i34, i64 0
+  %vecinit.i.i.i.i.i.i35 = insertelement <16 x i8> poison, i8 %conv.i.i.i2.i.i34, i64 0
   %vecinit15.i.i.i.i.i.i36 = shufflevector <16 x i8> %vecinit.i.i.i.i.i.i35, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %while.body.i.i.i.i37
 
@@ -25782,7 +25782,7 @@ entry:
   %xor.i.i.i7.i.i.i.i.i.i.i = xor i64 %shr.i.i.i6.i.i.i.i.i.i.i, %shr.i.i.i.i.i.i.i.i.i.i.i
   %5 = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i to i8
   %conv.i.i.i.i.i.i.i.i = and i8 %5, 127
-  %vecinit.i.i.i.i.i.i.i.i.i = insertelement <16 x i8> undef, i8 %conv.i.i.i.i.i.i.i.i, i64 0
+  %vecinit.i.i.i.i.i.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i.i.i.i.i.i.i, i64 0
   %vecinit15.i.i.i.i.i.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %slots_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ParseProto3Type::Msg", ptr %msg, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %6 = load ptr, ptr %slots_.i.i.i.i.i.i.i.i.i, align 8, !noalias !485
@@ -25865,7 +25865,7 @@ if.then:                                          ; preds = %_ZN4absl12lts_20230
   %xor.i.i.i7.i.i.i.i.i.i.i17 = xor i64 %shr.i.i.i.i.i.i.i.i.i.i.i16, %shr.i.i.i6.i.i.i.i.i.i.i15
   %19 = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i12 to i8
   %conv.i.i.i.i.i.i.i.i18 = and i8 %19, 127
-  %vecinit.i.i.i.i.i.i.i.i.i19 = insertelement <16 x i8> undef, i8 %conv.i.i.i.i.i.i.i.i18, i64 0
+  %vecinit.i.i.i.i.i.i.i.i.i19 = insertelement <16 x i8> poison, i8 %conv.i.i.i.i.i.i.i.i18, i64 0
   %vecinit15.i.i.i.i.i.i.i.i.i20 = shufflevector <16 x i8> %vecinit.i.i.i.i.i.i.i.i.i19, <16 x i8> poison, <16 x i32> zeroinitializer
   %slots_.i.i.i.i.i.i.i.i.i21 = getelementptr inbounds %"class.google::protobuf::json_internal::ParseProto3Type::Msg", ptr %msg, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %20 = load ptr, ptr %slots_.i.i.i.i.i.i.i.i.i21, align 8, !noalias !501
@@ -31530,7 +31530,7 @@ if.then:                                          ; preds = %entry
   %5 = load ptr, ptr %slots_.i.i.i.i.i.i, align 8
   %6 = trunc i128 %xor.i.i.i.i.i to i8
   %conv.i.i.i2.i.i = and i8 %6, 127
-  %vecinit.i.i.i.i.i.i = insertelement <16 x i8> undef, i8 %conv.i.i.i2.i.i, i64 0
+  %vecinit.i.i.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i.i2.i.i, i64 0
   %vecinit15.i.i.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %while.body.i.i.i.i
 
@@ -31607,7 +31607,7 @@ if.end6:                                          ; preds = %if.end
   %18 = load ptr, ptr %slots_.i.i.i.i.i.i18, align 8
   %19 = trunc i128 %xor.i.i.i.i.i12 to i8
   %conv.i.i.i2.i.i19 = and i8 %19, 127
-  %vecinit.i.i.i.i.i.i20 = insertelement <16 x i8> undef, i8 %conv.i.i.i2.i.i19, i64 0
+  %vecinit.i.i.i.i.i.i20 = insertelement <16 x i8> poison, i8 %conv.i.i.i2.i.i19, i64 0
   %vecinit15.i.i.i.i.i.i21 = shufflevector <16 x i8> %vecinit.i.i.i.i.i.i20, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %while.body.i.i.i.i22
 

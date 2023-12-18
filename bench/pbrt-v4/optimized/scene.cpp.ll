@@ -3514,7 +3514,7 @@ entry:
   %ref.tmp.i.i = alloca %"class.pbrt::Transform", align 4
   %agg.tmp5.i = alloca %"class.pbrt::Transform", align 8
   %ref.tmp.i = alloca %"class.pbrt::Transform", align 4
-  %agg.tmp.sroa.0.0.vec.insert = insertelement <2 x float> undef, float %dx, i64 0
+  %agg.tmp.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %dx, i64 0
   %agg.tmp.sroa.0.4.vec.insert = insertelement <2 x float> %agg.tmp.sroa.0.0.vec.insert, float %dy, i64 1
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ref.tmp.i)
   %activeTransformBits.i = getelementptr inbounds %"class.pbrt::BasicSceneBuilder", ptr %this, i64 0, i32 4, i32 17
@@ -12249,7 +12249,7 @@ entry:
   %agg.tmp5.i = alloca %"class.pbrt::Transform", align 8
   %ref.tmp.i = alloca %"class.pbrt::Transform", align 4
   %agg.tmp.sroa.0.4.vec.insert = insertelement <2 x float> poison, float %dx, i64 1
-  %agg.tmp.sroa.3.8.vec.insert = insertelement <2 x float> undef, float %dy, i64 0
+  %agg.tmp.sroa.3.8.vec.insert = insertelement <2 x float> poison, float %dy, i64 0
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ref.tmp.i)
   %activeTransformBits.i = getelementptr inbounds %"class.pbrt::BasicSceneBuilder", ptr %this, i64 0, i32 4, i32 17
   %ctm.i = getelementptr inbounds %"class.pbrt::BasicSceneBuilder", ptr %this, i64 0, i32 4, i32 16
@@ -12337,11 +12337,11 @@ entry:
   %ref.tmp.i = alloca %"class.pbrt::Transform", align 4
   %agg.tmp45 = alloca %class.anon.141, align 8
   %lookAt = alloca %"class.pbrt::Transform", align 4
-  %agg.tmp.sroa.0.0.vec.insert = insertelement <2 x float> undef, float %ex, i64 0
+  %agg.tmp.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %ex, i64 0
   %agg.tmp.sroa.0.4.vec.insert = insertelement <2 x float> %agg.tmp.sroa.0.0.vec.insert, float %ey, i64 1
-  %agg.tmp2.sroa.0.0.vec.insert = insertelement <2 x float> undef, float %lx, i64 0
+  %agg.tmp2.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %lx, i64 0
   %agg.tmp2.sroa.0.4.vec.insert = insertelement <2 x float> %agg.tmp2.sroa.0.0.vec.insert, float %ly, i64 1
-  %agg.tmp3.sroa.0.0.vec.insert = insertelement <2 x float> undef, float %ux, i64 0
+  %agg.tmp3.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %ux, i64 0
   %agg.tmp3.sroa.0.4.vec.insert = insertelement <2 x float> %agg.tmp3.sroa.0.0.vec.insert, float %uy, i64 1
   call void @_ZN4pbrt6LookAtENS_6Point3IfEES1_NS_7Vector3IfEE(ptr nonnull sret(%"class.pbrt::Transform") align 4 %lookAt, <2 x float> %agg.tmp.sroa.0.4.vec.insert, float %ez, <2 x float> %agg.tmp2.sroa.0.4.vec.insert, float %lz, <2 x float> %agg.tmp3.sroa.0.4.vec.insert, float %uz)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %agg.tmp45)

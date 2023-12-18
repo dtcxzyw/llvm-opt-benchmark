@@ -2339,7 +2339,7 @@ entry:
   %29 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %27, <2 x float> %28, <2 x float> %25)
   %30 = load <2 x float>, ptr %arrayidx7.i.i, align 4
   %31 = fadd <2 x float> %29, %30
-  %retval.sroa.0.0.vec.insert.i2.i = insertelement <2 x float> undef, float %add.i.i, i64 0
+  %retval.sroa.0.0.vec.insert.i2.i = insertelement <2 x float> poison, float %add.i.i, i64 0
   %32 = shufflevector <2 x float> %retval.sroa.0.0.vec.insert.i2.i, <2 x float> %31, <2 x i32> <i32 0, i32 2>
   %33 = shufflevector <2 x float> <float poison, float 0.000000e+00>, <2 x float> %31, <2 x i32> <i32 3, i32 1>
   %.fca.0.insert.i5.i = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %32, 0

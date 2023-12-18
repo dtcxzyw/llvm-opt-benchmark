@@ -2438,7 +2438,7 @@ invoke.cont15.i.i:                                ; preds = %for.inc.i.i26, %inv
   %284 = call float @llvm.fmuladd.f32(float %div.i.i25, float -1.000000e+00, float 1.000000e+00)
   %285 = fadd float %div.i.i25, 0.000000e+00
   %286 = call float @llvm.fmuladd.f32(float %sub21.i.i.i.i, float %div.i.i25, float %div.i)
-  %retval.sroa.0.0.vec.insert.i.i.i.i = insertelement <2 x float> undef, float %284, i64 0
+  %retval.sroa.0.0.vec.insert.i.i.i.i = insertelement <2 x float> poison, float %284, i64 0
   %retval.sroa.0.4.vec.insert.i.i.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i.i.i, float %285, i64 1
   %retval.sroa.3.12.vec.insert.i.i.i.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %286, i64 0
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i.i, ptr %col.i.i, align 8

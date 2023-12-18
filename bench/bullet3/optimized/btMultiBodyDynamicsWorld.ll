@@ -4669,7 +4669,7 @@ sw.bb92:                                          ; preds = %entry
 sw.epilog.sink.split:                             ; preds = %sw.bb, %sw.bb14, %sw.bb32, %sw.bb53, %sw.bb92
   %add.i289.sink = phi float [ %add.i289, %sw.bb92 ], [ %add.i257, %sw.bb53 ], [ %add.i120, %sw.bb32 ], [ %add.i67, %sw.bb14 ], [ %add.i, %sw.bb ]
   %403 = phi <2 x float> [ %402, %sw.bb92 ], [ %355, %sw.bb53 ], [ %212, %sw.bb32 ], [ %138, %sw.bb14 ], [ %84, %sw.bb ]
-  %retval.sroa.0.0.vec.insert.i296 = insertelement <2 x float> undef, float %add.i289.sink, i64 0
+  %retval.sroa.0.0.vec.insert.i296 = insertelement <2 x float> poison, float %add.i289.sink, i64 0
   %404 = shufflevector <2 x float> %retval.sroa.0.0.vec.insert.i296, <2 x float> %403, <2 x i32> <i32 0, i32 2>
   %405 = shufflevector <2 x float> <float poison, float 0.000000e+00>, <2 x float> %403, <2 x i32> <i32 3, i32 1>
   store <2 x float> %404, ptr %m_cachedRVector, align 8

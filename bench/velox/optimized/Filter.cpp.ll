@@ -10176,7 +10176,7 @@ _ZNK5folly3f146detail21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char
   %20 = load i32, ptr %chunkMask_.i86, align 8
   %conv.i87133 = zext i32 %20 to i64
   %conv.i66 = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i66, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i66, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i90
 
@@ -10285,7 +10285,7 @@ for.body36:                                       ; preds = %for.body36.lr.ph, %
   %mul.i85 = shl nuw nsw i64 %or.i81, 1
   %add.i86 = or disjoint i64 %mul.i85, 1
   %conv.i88 = trunc i64 %or.i81 to i8
-  %vecinit.i.i89 = insertelement <16 x i8> undef, i8 %conv.i88, i64 0
+  %vecinit.i.i89 = insertelement <16 x i8> poison, i8 %conv.i88, i64 0
   %vecinit15.i.i90 = shufflevector <16 x i8> %vecinit.i.i89, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i
 
@@ -12211,7 +12211,7 @@ _ZN5xsimdmlERKNS_5batchImNS_4fma3INS_4avx2EEEEES6_.exit: ; preds = %for.body.i.i
   %sizeMask_ = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %this, i64 0, i32 7
   %11 = load i32, ptr %sizeMask_, align 8
   %conv = sext i32 %11 to i64
-  %vecinit.i.i.i.i = insertelement <4 x i64> undef, i64 %conv, i64 0
+  %vecinit.i.i.i.i = insertelement <4 x i64> poison, i64 %conv, i64 0
   %vecinit3.i.i.i.i = shufflevector <4 x i64> %vecinit.i.i.i.i, <4 x i64> poison, <4 x i32> zeroinitializer
   %and.i.i.i.i = and <4 x i64> %vecinit3.i.i.i.i, %10
   %12 = xor <4 x i1> %or.i.i.i35, <i1 true, i1 true, i1 true, i1 true>
@@ -12247,7 +12247,7 @@ while.body:                                       ; preds = %while.body.preheade
   %19 = load i64, ptr %arrayidx, align 8
   %arrayidx161 = getelementptr inbounds [4 x i64], ptr %valuesArray, i64 0, i64 %idxprom
   %20 = load i64, ptr %arrayidx161, align 8
-  %vecinit.i.i.i.i.i.i17 = insertelement <4 x i64> undef, i64 %20, i64 0
+  %vecinit.i.i.i.i.i.i17 = insertelement <4 x i64> poison, i64 %20, i64 0
   %vecinit3.i.i.i.i.i.i18 = shufflevector <4 x i64> %vecinit.i.i.i.i.i.i17, <4 x i64> poison, <4 x i32> zeroinitializer
   %add.ptr38 = getelementptr inbounds i64, ptr %2, i64 %19
   %21 = load <4 x i64>, ptr %add.ptr38, align 1
@@ -12441,7 +12441,7 @@ _ZN5xsimdmlERKNS_5batchImNS_4fma3INS_4avx2EEEEES6_.exit.i: ; preds = %for.body.i
   %sizeMask_.i = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %this, i64 0, i32 7
   %13 = load i32, ptr %sizeMask_.i, align 8
   %conv.i = sext i32 %13 to i64
-  %vecinit.i.i.i.i.i = insertelement <4 x i64> undef, i64 %conv.i, i64 0
+  %vecinit.i.i.i.i.i = insertelement <4 x i64> poison, i64 %conv.i, i64 0
   %vecinit3.i.i.i.i.i = shufflevector <4 x i64> %vecinit.i.i.i.i.i, <4 x i64> poison, <4 x i32> zeroinitializer
   %and.i.i.i.i.i = and <4 x i64> %vecinit3.i.i.i.i.i, %12
   %14 = xor <4 x i1> %or.i.i.i35.i, <i1 true, i1 true, i1 true, i1 true>
@@ -12476,7 +12476,7 @@ while.body.i:                                     ; preds = %for.end.i, %while.b
   %21 = load i64, ptr %arrayidx.i, align 8
   %arrayidx161.i = getelementptr inbounds [4 x i64], ptr %valuesArray.i, i64 0, i64 %idxprom.i
   %22 = load i64, ptr %arrayidx161.i, align 8
-  %vecinit.i.i.i.i.i.i17.i = insertelement <4 x i64> undef, i64 %22, i64 0
+  %vecinit.i.i.i.i.i.i17.i = insertelement <4 x i64> poison, i64 %22, i64 0
   %vecinit3.i.i.i.i.i.i18.i = shufflevector <4 x i64> %vecinit.i.i.i.i.i.i17.i, <4 x i64> poison, <4 x i32> zeroinitializer
   %add.ptr38.i = getelementptr inbounds i64, ptr %4, i64 %21
   %23 = load <4 x i64>, ptr %add.ptr38.i, align 1
@@ -12607,7 +12607,7 @@ _ZN5xsimdmlERKNS_5batchImNS_4fma3INS_4avx2EEEEES6_.exit.i47: ; preds = %for.body
   %sizeMask_.i48 = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %this, i64 0, i32 7
   %41 = load i32, ptr %sizeMask_.i48, align 8
   %conv.i49 = sext i32 %41 to i64
-  %vecinit.i.i.i.i.i50 = insertelement <4 x i64> undef, i64 %conv.i49, i64 0
+  %vecinit.i.i.i.i.i50 = insertelement <4 x i64> poison, i64 %conv.i49, i64 0
   %vecinit3.i.i.i.i.i51 = shufflevector <4 x i64> %vecinit.i.i.i.i.i50, <4 x i64> poison, <4 x i32> zeroinitializer
   %and.i.i.i.i.i52 = and <4 x i64> %vecinit3.i.i.i.i.i51, %40
   %42 = xor <4 x i1> %or.i.i.i35.i19, <i1 true, i1 true, i1 true, i1 true>
@@ -12642,7 +12642,7 @@ while.body.i63:                                   ; preds = %for.end.i79, %while
   %49 = load i64, ptr %arrayidx.i69, align 8
   %arrayidx161.i70 = getelementptr inbounds [4 x i64], ptr %valuesArray.i10, i64 0, i64 %idxprom.i68
   %50 = load i64, ptr %arrayidx161.i70, align 8
-  %vecinit.i.i.i.i.i.i17.i71 = insertelement <4 x i64> undef, i64 %50, i64 0
+  %vecinit.i.i.i.i.i.i17.i71 = insertelement <4 x i64> poison, i64 %50, i64 0
   %vecinit3.i.i.i.i.i.i18.i72 = shufflevector <4 x i64> %vecinit.i.i.i.i.i.i17.i71, <4 x i64> poison, <4 x i32> zeroinitializer
   %add.ptr38.i73 = getelementptr inbounds i64, ptr %.pre-phi108, i64 %49
   %51 = load <4 x i64>, ptr %add.ptr38.i73, align 1
@@ -13250,7 +13250,7 @@ entry:
   %1 = load i64, ptr %chunkMask_.i.i, align 8
   %2 = load ptr, ptr %values_, align 16
   %conv.i = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i.i
 
@@ -13388,7 +13388,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %mul.i = shl nuw nsw i64 %or.i, 1
   %add.i21 = or disjoint i64 %mul.i, 1
   %conv.i = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i.i
 
@@ -14937,7 +14937,7 @@ entry:
   %1 = load i64, ptr %chunkMask_.i, align 8
   %2 = load ptr, ptr %lengths_, align 8
   %conv.i37 = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i37, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i37, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i
 
@@ -15010,7 +15010,7 @@ call2.i43.noexc:                                  ; preds = %invoke.cont
   %conv.i6282 = zext i32 %11 to i64
   %chunks_.i = getelementptr inbounds %"class.facebook::velox::common::BytesValues", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
   %conv.i50 = trunc i64 %or.i45 to i8
-  %vecinit.i.i51 = insertelement <16 x i8> undef, i8 %conv.i50, i64 0
+  %vecinit.i.i51 = insertelement <16 x i8> poison, i8 %conv.i50, i64 0
   %vecinit15.i.i52 = shufflevector <16 x i8> %vecinit.i.i51, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %call6.i71.noexc
 
@@ -25014,7 +25014,7 @@ call2.i242.noexc:                                 ; preds = %for.body
   %13 = load i32, ptr %chunkMask_.i, align 8
   %conv.i447 = zext i32 %13 to i64
   %conv.i56 = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i56, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i56, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %call6.i.noexc
 
@@ -27937,7 +27937,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %if.then
-  %vecinit.i.i.i.i.i = insertelement <8 x i32> undef, i32 %2, i64 0
+  %vecinit.i.i.i.i.i = insertelement <8 x i32> poison, i32 %2, i64 0
   %vecinit7.i.i.i.i.i = shufflevector <8 x i32> %vecinit.i.i.i.i.i, <8 x i32> poison, <8 x i32> zeroinitializer
   %4 = bitcast <4 x i64> %values.coerce to <8 x i32>
   %cmp.i.i.i.i = icmp eq <8 x i32> %vecinit7.i.i.i.i.i, %4
@@ -27950,7 +27950,7 @@ if.end18:                                         ; preds = %entry
   %vecinit7.i.i.i.i.i2 = shufflevector <4 x i32> %6, <4 x i32> poison, <8 x i32> zeroinitializer
   %7 = bitcast <4 x i64> %values.coerce to <8 x i32>
   %or.i.i.i.i56.i.i.i = icmp sle <8 x i32> %vecinit7.i.i.i.i.i2, %7
-  %vecinit7.i.i.i.i.i4 = shufflevector <4 x i32> %6, <4 x i32> undef, <8 x i32> <i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>
+  %vecinit7.i.i.i.i.i4 = shufflevector <4 x i32> %6, <4 x i32> poison, <8 x i32> <i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>
   %or.i.i.i.i56.i.i.i5 = icmp sge <8 x i32> %vecinit7.i.i.i.i.i4, %7
   %and.i.i.i1112 = and <8 x i1> %or.i.i.i.i56.i.i.i5, %or.i.i.i.i56.i.i.i
   %and.i.i.i11 = sext <8 x i1> %and.i.i.i1112 to <8 x i32>
@@ -27981,7 +27981,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %if.then
-  %vecinit.i.i.i.i.i = insertelement <16 x i16> undef, i16 %2, i64 0
+  %vecinit.i.i.i.i.i = insertelement <16 x i16> poison, i16 %2, i64 0
   %vecinit15.i.i.i.i.i = shufflevector <16 x i16> %vecinit.i.i.i.i.i, <16 x i16> poison, <16 x i32> zeroinitializer
   %4 = bitcast <4 x i64> %values.coerce to <16 x i16>
   %cmp.i.i.i.i = icmp eq <16 x i16> %vecinit15.i.i.i.i.i, %4
@@ -27990,13 +27990,13 @@ if.end:                                           ; preds = %if.then
   br label %return
 
 if.end18:                                         ; preds = %entry
-  %vecinit.i.i.i.i.i1 = insertelement <16 x i16> undef, i16 %2, i64 0
+  %vecinit.i.i.i.i.i1 = insertelement <16 x i16> poison, i16 %2, i64 0
   %vecinit15.i.i.i.i.i2 = shufflevector <16 x i16> %vecinit.i.i.i.i.i1, <16 x i16> poison, <16 x i32> zeroinitializer
   %6 = bitcast <4 x i64> %values.coerce to <16 x i16>
   %or.i.i.i.i56.i.i.i = icmp sle <16 x i16> %vecinit15.i.i.i.i.i2, %6
   %upper16_ = getelementptr inbounds %"class.facebook::velox::common::BigintRange", ptr %this, i64 0, i32 6
   %7 = load i16, ptr %upper16_, align 2
-  %vecinit.i.i.i.i.i3 = insertelement <16 x i16> undef, i16 %7, i64 0
+  %vecinit.i.i.i.i.i3 = insertelement <16 x i16> poison, i16 %7, i64 0
   %vecinit15.i.i.i.i.i4 = shufflevector <16 x i16> %vecinit.i.i.i.i.i3, <16 x i16> poison, <16 x i32> zeroinitializer
   %or.i.i.i.i56.i.i.i5 = icmp sge <16 x i16> %vecinit15.i.i.i.i.i4, %6
   %and.i.i.i1112 = and <16 x i1> %or.i.i.i.i56.i.i.i5, %or.i.i.i.i56.i.i.i
@@ -28138,7 +28138,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.not.i, label %if.end.i, label %_ZNK8facebook5velox6common11BigintRange10testValuesEN5xsimd5batchIiNS3_4fma3INS3_4avx2EEEEE.exit
 
 if.end.i:                                         ; preds = %if.then.i
-  %vecinit.i.i.i.i.i.i = insertelement <8 x i32> undef, i32 %3, i64 0
+  %vecinit.i.i.i.i.i.i = insertelement <8 x i32> poison, i32 %3, i64 0
   %vecinit7.i.i.i.i.i.i = shufflevector <8 x i32> %vecinit.i.i.i.i.i.i, <8 x i32> poison, <8 x i32> zeroinitializer
   %5 = bitcast <4 x i64> %values.coerce to <8 x i32>
   %cmp.i.i.i.i.i = icmp eq <8 x i32> %vecinit7.i.i.i.i.i.i, %5
@@ -28151,7 +28151,7 @@ if.end18.i:                                       ; preds = %entry
   %vecinit7.i.i.i.i.i2.i = shufflevector <4 x i32> %7, <4 x i32> poison, <8 x i32> zeroinitializer
   %8 = bitcast <4 x i64> %values.coerce to <8 x i32>
   %or.i.i.i.i56.i.i.i.i = icmp sle <8 x i32> %vecinit7.i.i.i.i.i2.i, %8
-  %vecinit7.i.i.i.i.i4.i = shufflevector <4 x i32> %7, <4 x i32> undef, <8 x i32> <i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>
+  %vecinit7.i.i.i.i.i4.i = shufflevector <4 x i32> %7, <4 x i32> poison, <8 x i32> <i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>
   %or.i.i.i.i56.i.i.i5.i = icmp sge <8 x i32> %vecinit7.i.i.i.i.i4.i, %8
   %and.i.i.i1112.i = and <8 x i1> %or.i.i.i.i56.i.i.i5.i, %or.i.i.i.i56.i.i.i.i
   %and.i.i.i11.i = sext <8 x i1> %and.i.i.i1112.i to <8 x i32>
@@ -28185,7 +28185,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.not.i, label %if.end.i, label %_ZNK8facebook5velox6common11BigintRange10testValuesEN5xsimd5batchIsNS3_4fma3INS3_4avx2EEEEE.exit
 
 if.end.i:                                         ; preds = %if.then.i
-  %vecinit.i.i.i.i.i.i = insertelement <16 x i16> undef, i16 %3, i64 0
+  %vecinit.i.i.i.i.i.i = insertelement <16 x i16> poison, i16 %3, i64 0
   %vecinit15.i.i.i.i.i.i = shufflevector <16 x i16> %vecinit.i.i.i.i.i.i, <16 x i16> poison, <16 x i32> zeroinitializer
   %5 = bitcast <4 x i64> %values.coerce to <16 x i16>
   %cmp.i.i.i.i.i = icmp eq <16 x i16> %vecinit15.i.i.i.i.i.i, %5
@@ -28194,13 +28194,13 @@ if.end.i:                                         ; preds = %if.then.i
   br label %_ZNK8facebook5velox6common11BigintRange10testValuesEN5xsimd5batchIsNS3_4fma3INS3_4avx2EEEEE.exit
 
 if.end18.i:                                       ; preds = %entry
-  %vecinit.i.i.i.i.i1.i = insertelement <16 x i16> undef, i16 %3, i64 0
+  %vecinit.i.i.i.i.i1.i = insertelement <16 x i16> poison, i16 %3, i64 0
   %vecinit15.i.i.i.i.i2.i = shufflevector <16 x i16> %vecinit.i.i.i.i.i1.i, <16 x i16> poison, <16 x i32> zeroinitializer
   %7 = bitcast <4 x i64> %values.coerce to <16 x i16>
   %or.i.i.i.i56.i.i.i.i = icmp sle <16 x i16> %vecinit15.i.i.i.i.i2.i, %7
   %upper16_.i = getelementptr inbounds %"class.facebook::velox::common::BigintRange", ptr %0, i64 0, i32 6
   %8 = load i16, ptr %upper16_.i, align 2
-  %vecinit.i.i.i.i.i3.i = insertelement <16 x i16> undef, i16 %8, i64 0
+  %vecinit.i.i.i.i.i3.i = insertelement <16 x i16> poison, i16 %8, i64 0
   %vecinit15.i.i.i.i.i4.i = shufflevector <16 x i16> %vecinit.i.i.i.i.i3.i, <16 x i16> poison, <16 x i32> zeroinitializer
   %or.i.i.i.i56.i.i.i5.i = icmp sge <16 x i16> %vecinit15.i.i.i.i.i4.i, %7
   %and.i.i.i1112.i = and <16 x i1> %or.i.i.i.i56.i.i.i5.i, %or.i.i.i.i56.i.i.i.i
@@ -29058,7 +29058,7 @@ _ZN5xsimdmlERKNS_5batchImNS_4fma3INS_4avx2EEEEES6_.exit.i: ; preds = %for.body.i
   %sizeMask_.i = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %0, i64 0, i32 7
   %12 = load i32, ptr %sizeMask_.i, align 8
   %conv.i = sext i32 %12 to i64
-  %vecinit.i.i.i.i.i = insertelement <4 x i64> undef, i64 %conv.i, i64 0
+  %vecinit.i.i.i.i.i = insertelement <4 x i64> poison, i64 %conv.i, i64 0
   %vecinit3.i.i.i.i.i = shufflevector <4 x i64> %vecinit.i.i.i.i.i, <4 x i64> poison, <4 x i32> zeroinitializer
   %and.i.i.i.i.i = and <4 x i64> %vecinit3.i.i.i.i.i, %11
   %13 = xor <4 x i1> %or.i.i.i35.i, <i1 true, i1 true, i1 true, i1 true>
@@ -29094,7 +29094,7 @@ while.body.i:                                     ; preds = %for.end.i, %while.b
   %20 = load i64, ptr %arrayidx.i, align 8
   %arrayidx161.i = getelementptr inbounds [4 x i64], ptr %valuesArray.i, i64 0, i64 %idxprom.i
   %21 = load i64, ptr %arrayidx161.i, align 8
-  %vecinit.i.i.i.i.i.i17.i = insertelement <4 x i64> undef, i64 %21, i64 0
+  %vecinit.i.i.i.i.i.i17.i = insertelement <4 x i64> poison, i64 %21, i64 0
   %vecinit3.i.i.i.i.i.i18.i = shufflevector <4 x i64> %vecinit.i.i.i.i.i.i17.i, <4 x i64> poison, <4 x i32> zeroinitializer
   %add.ptr38.i = getelementptr inbounds i64, ptr %3, i64 %20
   %22 = load <4 x i64>, ptr %add.ptr38.i, align 1
@@ -29419,7 +29419,7 @@ entry:
   %lower_ = getelementptr inbounds %"class.facebook::velox::common::BytesRange", ptr %this, i64 0, i32 2
   %call = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %lower_) #35
   %conv = trunc i64 %call to i32
-  %vecinit.i.i.i.i.i = insertelement <8 x i32> undef, i32 %conv, i64 0
+  %vecinit.i.i.i.i.i = insertelement <8 x i32> poison, i32 %conv, i64 0
   %vecinit7.i.i.i.i.i = shufflevector <8 x i32> %vecinit.i.i.i.i.i, <8 x i32> poison, <8 x i32> zeroinitializer
   %0 = bitcast <4 x i64> %lengths.coerce to <8 x i32>
   %cmp.i.i.i.i = icmp eq <8 x i32> %vecinit7.i.i.i.i.i, %0
@@ -29960,7 +29960,7 @@ entry:
   %1 = load i64, ptr %chunkMask_.i, align 8
   %2 = load ptr, ptr %lengths_, align 8
   %conv.i14 = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i14, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i14, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i
 
@@ -34111,7 +34111,7 @@ _ZNK5folly3f146detail10BasePolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %chunkMask_.i = getelementptr inbounds %"class.folly::f14::detail::F14Table.456", ptr %this, i64 0, i32 1
   %2 = load i64, ptr %chunkMask_.i, align 8
   %conv.i = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i
 
@@ -34213,7 +34213,7 @@ _ZNK5folly3f146detail10BasePolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %chunkMask_.i.i = getelementptr inbounds %"class.folly::f14::detail::F14Table.456", ptr %0, i64 0, i32 1
   %3 = load i64, ptr %chunkMask_.i.i, align 8
   %conv.i = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i.i
 
@@ -34340,7 +34340,7 @@ _ZNK5folly3f146detail10BasePolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %chunkMask_.i = getelementptr inbounds %"class.folly::f14::detail::F14Table.471", ptr %this, i64 0, i32 1
   %2 = load i64, ptr %chunkMask_.i, align 8
   %conv.i = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i
 
@@ -34441,7 +34441,7 @@ _ZNK5folly3f146detail10BasePolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %chunkMask_.i.i = getelementptr inbounds %"class.folly::f14::detail::F14Table.471", ptr %0, i64 0, i32 1
   %3 = load i64, ptr %chunkMask_.i.i, align 8
   %conv.i = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i.i
 
@@ -34563,7 +34563,7 @@ _ZNK5folly3f146detail10BasePolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %chunkMask_.i = getelementptr inbounds %"class.folly::f14::detail::F14Table", ptr %this, i64 0, i32 1
   %2 = load i64, ptr %chunkMask_.i, align 8
   %conv.i = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i
 
@@ -34664,7 +34664,7 @@ _ZNK5folly3f146detail10BasePolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %chunkMask_.i.i = getelementptr inbounds %"class.folly::f14::detail::F14Table", ptr %0, i64 0, i32 1
   %3 = load i64, ptr %chunkMask_.i.i, align 8
   %conv.i = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i.i
 
@@ -35140,7 +35140,7 @@ if.then:                                          ; preds = %entry
   %chunkMask_.i = getelementptr inbounds %"class.folly::f14::detail::F14Table.353", ptr %this, i64 0, i32 1
   %1 = load i64, ptr %chunkMask_.i, align 8
   %conv.i26 = trunc i64 %hp.coerce1 to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i26, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i26, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %u_.i.i = getelementptr inbounds %"struct.folly::dynamic", ptr %ref.tmp.i, i64 0, i32 1
   br label %for.body.i
@@ -40506,7 +40506,7 @@ if.then:                                          ; preds = %entry
   %chunkMask_.i = getelementptr inbounds %"class.folly::f14::detail::F14Table", ptr %this, i64 0, i32 1
   %1 = load i64, ptr %chunkMask_.i, align 8
   %conv.i26 = trunc i64 %hp.coerce1 to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i26, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i26, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i
 
@@ -43095,7 +43095,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %tobool22.not.i, label %if.then23.i, label %_ZNK8facebook5velox6common18FloatingPointRangeIdE18testFloatingPointsEN5xsimd5batchIdNS4_4fma3INS4_4avx2EEEEE.exit
 
 if.then23.i:                                      ; preds = %if.then.i
-  %vecinit3.i.i.i.i.i2.i = shufflevector <2 x double> %2, <2 x double> undef, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
+  %vecinit3.i.i.i.i.i2.i = shufflevector <2 x double> %2, <2 x double> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
   %upperExclusive_.i = getelementptr inbounds %"class.facebook::velox::common::AbstractRange", ptr %this, i64 0, i32 4
   %9 = load i8, ptr %upperExclusive_.i, align 1
   %10 = and i8 %9, 1
@@ -43115,7 +43115,7 @@ if.else43.i:                                      ; preds = %if.then23.i
 if.else58.i:                                      ; preds = %entry
   %upper_60.i = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange.131", ptr %this, i64 0, i32 2
   %13 = load double, ptr %upper_60.i, align 8
-  %vecinit.i.i.i.i.i4.i = insertelement <4 x double> undef, double %13, i64 0
+  %vecinit.i.i.i.i.i4.i = insertelement <4 x double> poison, double %13, i64 0
   %vecinit3.i.i.i.i.i5.i = shufflevector <4 x double> %vecinit.i.i.i.i.i4.i, <4 x double> poison, <4 x i32> zeroinitializer
   %upperExclusive_66.i = getelementptr inbounds %"class.facebook::velox::common::AbstractRange", ptr %this, i64 0, i32 4
   %14 = load i8, ptr %upperExclusive_66.i, align 1
@@ -44155,7 +44155,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %lower_.i = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange", ptr %this, i64 0, i32 1
   %2 = load float, ptr %lower_.i, align 4
-  %vecinit.i.i.i.i.i.i = insertelement <8 x float> undef, float %2, i64 0
+  %vecinit.i.i.i.i.i.i = insertelement <8 x float> poison, float %2, i64 0
   %vecinit7.i.i.i.i.i.i = shufflevector <8 x float> %vecinit.i.i.i.i.i.i, <8 x float> poison, <8 x i32> zeroinitializer
   %lowerExclusive_.i = getelementptr inbounds %"class.facebook::velox::common::AbstractRange", ptr %this, i64 0, i32 2
   %3 = load i8, ptr %lowerExclusive_.i, align 1
@@ -44173,7 +44173,7 @@ if.then.i:                                        ; preds = %entry
 if.then23.i:                                      ; preds = %if.then.i
   %upper_.i = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange", ptr %this, i64 0, i32 2
   %9 = load float, ptr %upper_.i, align 8
-  %vecinit.i.i.i.i.i1.i = insertelement <8 x float> undef, float %9, i64 0
+  %vecinit.i.i.i.i.i1.i = insertelement <8 x float> poison, float %9, i64 0
   %vecinit7.i.i.i.i.i2.i = shufflevector <8 x float> %vecinit.i.i.i.i.i1.i, <8 x float> poison, <8 x i32> zeroinitializer
   %upperExclusive_.i = getelementptr inbounds %"class.facebook::velox::common::AbstractRange", ptr %this, i64 0, i32 4
   %10 = load i8, ptr %upperExclusive_.i, align 1
@@ -44194,7 +44194,7 @@ if.else43.i:                                      ; preds = %if.then23.i
 if.else58.i:                                      ; preds = %entry
   %upper_60.i = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange", ptr %this, i64 0, i32 2
   %14 = load float, ptr %upper_60.i, align 8
-  %vecinit.i.i.i.i.i4.i = insertelement <8 x float> undef, float %14, i64 0
+  %vecinit.i.i.i.i.i4.i = insertelement <8 x float> poison, float %14, i64 0
   %vecinit7.i.i.i.i.i5.i = shufflevector <8 x float> %vecinit.i.i.i.i.i4.i, <8 x float> poison, <8 x i32> zeroinitializer
   %upperExclusive_66.i = getelementptr inbounds %"class.facebook::velox::common::AbstractRange", ptr %this, i64 0, i32 4
   %15 = load i8, ptr %upperExclusive_66.i, align 1
@@ -45736,7 +45736,7 @@ if.then:                                          ; preds = %entry
   %1 = load i64, ptr %chunkMask_.i, align 8
   %2 = load ptr, ptr %this, align 8
   %conv.i25 = trunc i64 %hp.coerce1 to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i25, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i25, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %3 = load i32, ptr %key, align 4
   br label %for.body.i
@@ -45973,7 +45973,7 @@ if.then:                                          ; preds = %entry
   %conv.i57 = zext i32 %1 to i64
   %chunks_.i = getelementptr inbounds %"class.folly::f14::detail::F14Table.167", ptr %this, i64 0, i32 1
   %conv.i25 = trunc i64 %hp.coerce1 to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i25, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i25, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i
 
@@ -48453,7 +48453,7 @@ if.then:                                          ; preds = %entry
   %1 = load i64, ptr %chunkMask_.i, align 8
   %2 = load ptr, ptr %this, align 8
   %conv.i26 = trunc i64 %hp.coerce1 to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i26, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i26, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %3 = load i128, ptr %key, align 16
   br label %for.body.i

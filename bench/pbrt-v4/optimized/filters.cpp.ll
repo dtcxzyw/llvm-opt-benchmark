@@ -493,7 +493,7 @@ invoke.cont7:                                     ; preds = %.noexc12
 invoke.cont9:                                     ; preds = %invoke.cont7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5) #16
-  %ref.tmp13.sroa.0.0.vec.insert = insertelement <2 x float> undef, float %call, i64 0
+  %ref.tmp13.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %call, i64 0
   %ref.tmp13.sroa.0.4.vec.insert = insertelement <2 x float> %ref.tmp13.sroa.0.0.vec.insert, float %call10, i64 1
   %vtable.i.i.i.i = load ptr, ptr %alloc.coerce, align 8
   %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
@@ -641,7 +641,7 @@ invoke.cont16:                                    ; preds = %.noexc23
 invoke.cont18:                                    ; preds = %invoke.cont16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #16
-  %ref.tmp22.sroa.0.0.vec.insert = insertelement <2 x float> undef, float %call, i64 0
+  %ref.tmp22.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %call, i64 0
   %ref.tmp22.sroa.0.4.vec.insert = insertelement <2 x float> %ref.tmp22.sroa.0.0.vec.insert, float %call10, i64 1
   %vtable.i.i.i.i = load ptr, ptr %alloc.coerce, align 8
   %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
@@ -822,7 +822,7 @@ invoke.cont25:                                    ; preds = %.noexc34
 invoke.cont27:                                    ; preds = %invoke.cont25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp23) #16
-  %ref.tmp31.sroa.0.0.vec.insert = insertelement <2 x float> undef, float %call, i64 0
+  %ref.tmp31.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %call, i64 0
   %ref.tmp31.sroa.0.4.vec.insert = insertelement <2 x float> %ref.tmp31.sroa.0.0.vec.insert, float %call10, i64 1
   %vtable.i.i.i.i = load ptr, ptr %alloc.coerce, align 8
   %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
@@ -1160,7 +1160,7 @@ invoke.cont16:                                    ; preds = %.noexc23
 invoke.cont18:                                    ; preds = %invoke.cont16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #16
-  %ref.tmp22.sroa.0.0.vec.insert = insertelement <2 x float> undef, float %call, i64 0
+  %ref.tmp22.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %call, i64 0
   %ref.tmp22.sroa.0.4.vec.insert = insertelement <2 x float> %ref.tmp22.sroa.0.0.vec.insert, float %call10, i64 1
   %vtable.i.i.i.i = load ptr, ptr %alloc.coerce, align 8
   %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
@@ -1292,7 +1292,7 @@ invoke.cont7:                                     ; preds = %.noexc12
 invoke.cont9:                                     ; preds = %invoke.cont7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5) #16
-  %ref.tmp13.sroa.0.0.vec.insert = insertelement <2 x float> undef, float %call, i64 0
+  %ref.tmp13.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %call, i64 0
   %ref.tmp13.sroa.0.4.vec.insert = insertelement <2 x float> %ref.tmp13.sroa.0.0.vec.insert, float %call10, i64 1
   %vtable.i.i.i.i = load ptr, ptr %alloc.coerce, align 8
   %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2

@@ -1073,7 +1073,7 @@ if.end.i.i.i.i:                                   ; preds = %entry
   %79 = load ptr, ptr %ptr4.i.i.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %79, i64 %idxprom.i.i.i.i.i.i
   %agg.tmp.sroa.0.4.vec.insert.i.i.i.i.i.i.i = shufflevector <4 x float> %agg.tmp18.sroa.11.0.copyload.i.i.i.i, <4 x float> poison, <2 x i32> <i32 0, i32 1>
-  %agg.tmp.sroa.3.12.vec.insert.i.i.i.i.i.i.i = shufflevector <4 x float> %agg.tmp18.sroa.11.0.copyload.i.i.i.i, <4 x float> undef, <2 x i32> <i32 2, i32 3>
+  %agg.tmp.sroa.3.12.vec.insert.i.i.i.i.i.i.i = shufflevector <4 x float> %agg.tmp18.sroa.11.0.copyload.i.i.i.i, <4 x float> poison, <2 x i32> <i32 2, i32 3>
   store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i.i.i.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i.i, align 16
   %v.sroa.2.0.p.addr.0..sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i, i64 8
   store <2 x float> %agg.tmp.sroa.3.12.vec.insert.i.i.i.i.i.i.i, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i.i.i.i.i.i.i.i, align 8
@@ -1081,7 +1081,7 @@ if.end.i.i.i.i:                                   ; preds = %entry
   %80 = load ptr, ptr %ptr4.i40.i.i.i.i.i.i, align 8
   %add.ptr.i42.i.i.i.i.i.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %80, i64 %idxprom.i.i.i.i.i.i
   %agg.tmp.sroa.0.4.vec.insert.i43.i.i.i.i.i.i = shufflevector <4 x float> %agg.tmp18.sroa.12.0.copyload.i.i.i.i, <4 x float> poison, <2 x i32> <i32 0, i32 1>
-  %agg.tmp.sroa.3.12.vec.insert.i44.i.i.i.i.i.i = shufflevector <4 x float> %agg.tmp18.sroa.12.0.copyload.i.i.i.i, <4 x float> undef, <2 x i32> <i32 2, i32 3>
+  %agg.tmp.sroa.3.12.vec.insert.i44.i.i.i.i.i.i = shufflevector <4 x float> %agg.tmp18.sroa.12.0.copyload.i.i.i.i, <4 x float> poison, <2 x i32> <i32 2, i32 3>
   store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i43.i.i.i.i.i.i, ptr %add.ptr.i42.i.i.i.i.i.i, align 16
   %v.sroa.2.0.p.addr.0..sroa_idx.i.i45.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i42.i.i.i.i.i.i, i64 8
   store <2 x float> %agg.tmp.sroa.3.12.vec.insert.i44.i.i.i.i.i.i, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i.i45.i.i.i.i.i.i, align 8
@@ -1102,7 +1102,7 @@ if.end.i.i.i.i:                                   ; preds = %entry
   %agg.tmp198.i.i.i.i.16.agg.tmp198.i.i.i.i.16.agg.tmp198.i.i.i.i.16.agg.tmp198.i.i.i.16.agg.tmp198.i.i.i.16.agg.tmp198.i.i.16.agg.tmp198.i.i.16.agg.tmp198.i.16.agg.tmp198.i.16.agg.tmp198.16.agg.tmp198.16.pdf.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp198.i.i.i.i, i64 16
   %agg.tmp198.i.i.i.i.16.agg.tmp198.i.i.i.i.16.agg.tmp198.i.i.i.i.16.agg.tmp198.i.i.i.16.agg.tmp198.i.i.i.16.agg.tmp198.i.i.16.agg.tmp198.i.i.16.agg.tmp198.i.16.agg.tmp198.i.16.agg.tmp198.16.agg.tmp198.16..i.i.i.i = load <4 x float>, ptr %agg.tmp198.i.i.i.i.16.agg.tmp198.i.i.i.i.16.agg.tmp198.i.i.i.i.16.agg.tmp198.i.i.i.16.agg.tmp198.i.i.i.16.agg.tmp198.i.i.16.agg.tmp198.i.i.16.agg.tmp198.i.16.agg.tmp198.i.16.agg.tmp198.16.agg.tmp198.16.pdf.i.i.sroa_idx, align 16
   %agg.tmp22.sroa.0.4.vec.insert.i.i.i.i.i.i = shufflevector <4 x float> %agg.tmp198.i.i.i.i.16.agg.tmp198.i.i.i.i.16.agg.tmp198.i.i.i.i.16.agg.tmp198.i.i.i.16.agg.tmp198.i.i.i.16.agg.tmp198.i.i.16.agg.tmp198.i.i.16.agg.tmp198.i.16.agg.tmp198.i.16.agg.tmp198.16.agg.tmp198.16..i.i.i.i, <4 x float> poison, <2 x i32> <i32 0, i32 1>
-  %agg.tmp22.sroa.3.12.vec.insert.i.i.i.i.i.i = shufflevector <4 x float> %agg.tmp198.i.i.i.i.16.agg.tmp198.i.i.i.i.16.agg.tmp198.i.i.i.i.16.agg.tmp198.i.i.i.16.agg.tmp198.i.i.i.16.agg.tmp198.i.i.16.agg.tmp198.i.i.16.agg.tmp198.i.16.agg.tmp198.i.16.agg.tmp198.16.agg.tmp198.16..i.i.i.i, <4 x float> undef, <2 x i32> <i32 2, i32 3>
+  %agg.tmp22.sroa.3.12.vec.insert.i.i.i.i.i.i = shufflevector <4 x float> %agg.tmp198.i.i.i.i.16.agg.tmp198.i.i.i.i.16.agg.tmp198.i.i.i.i.16.agg.tmp198.i.i.i.16.agg.tmp198.i.i.i.16.agg.tmp198.i.i.16.agg.tmp198.i.i.16.agg.tmp198.i.16.agg.tmp198.i.16.agg.tmp198.16.agg.tmp198.16..i.i.i.i, <4 x float> poison, <2 x i32> <i32 2, i32 3>
   store <2 x float> %agg.tmp22.sroa.0.4.vec.insert.i.i.i.i.i.i, ptr %add.ptr21.i.i.i.i.i.i, align 16
   %v.sroa.2.0.p.addr.0..sroa_idx.i28.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr21.i.i.i.i.i.i, i64 8
   store <2 x float> %agg.tmp22.sroa.3.12.vec.insert.i.i.i.i.i.i, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i28.i.i.i.i.i.i, align 8
@@ -3940,7 +3940,7 @@ if.end.i.i.i.i:                                   ; preds = %entry
   %fneg1.i17.i.i.i.i.i.i.i.i = fneg float %11
   %19 = call noundef float @llvm.fma.f32(float %fneg1.i17.i.i.i.i.i.i.i.i, float %15, float %mul.i15.i.i.i.i.i.i.i.i)
   %add.i18.i.i.i.i.i.i.i.i = fadd float %18, %19
-  %retval.sroa.0.0.vec.insert.i.i2.i.i.i.i.i.i = insertelement <2 x float> undef, float %add.i.i.i1.i.i.i.i.i.i, i64 0
+  %retval.sroa.0.0.vec.insert.i.i2.i.i.i.i.i.i = insertelement <2 x float> poison, float %add.i.i.i1.i.i.i.i.i.i, i64 0
   %retval.sroa.0.4.vec.insert.i.i3.i.i.i.i.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i2.i.i.i.i.i.i, float %add.i14.i.i.i.i.i.i.i.i, i64 1
   %agg.tmp.sroa.0.sroa.0.0.copyload.i.i.i.i.i.i = load float, ptr %ssi.i.i.i.i, align 8, !noalias !44
   %agg.tmp.sroa.0.sroa.2.0.this.sroa_idx.i.i.i.i.i.i = getelementptr inbounds %"struct.pbrt::SubsurfaceScatterWorkItem", ptr %agg.tmp.i.i.i, i64 0, i32 10, i32 0, i32 0, i32 0, i32 0, i32 1
@@ -4661,7 +4661,7 @@ if.end165.i.i.i.i:                                ; preds = %if.end147.i.i.i.i
   %add.ptr.i.i268.i.i.i.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %124, i64 %idxprom.i.i.i.i.i.i.i
   %125 = load <4 x float>, ptr %beta40.i.i.i.i, align 16
   %agg.tmp.sroa.0.4.vec.insert.i.i.i.i.i.i = shufflevector <4 x float> %125, <4 x float> poison, <2 x i32> <i32 0, i32 1>
-  %agg.tmp.sroa.3.12.vec.insert.i.i.i.i.i.i = shufflevector <4 x float> %125, <4 x float> undef, <2 x i32> <i32 2, i32 3>
+  %agg.tmp.sroa.3.12.vec.insert.i.i.i.i.i.i = shufflevector <4 x float> %125, <4 x float> poison, <2 x i32> <i32 2, i32 3>
   store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i.i.i.i.i.i, ptr %add.ptr.i.i268.i.i.i.i, align 16
   %v.sroa.2.0.p.addr.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i268.i.i.i.i, i64 8
   store <2 x float> %agg.tmp.sroa.3.12.vec.insert.i.i.i.i.i.i, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i.i.i.i.i.i.i, align 8
@@ -4670,7 +4670,7 @@ if.end165.i.i.i.i:                                ; preds = %if.end147.i.i.i.i
   %add.ptr.i31.i.i.i.i.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %126, i64 %idxprom.i.i.i.i.i.i.i
   %127 = load <4 x float>, ptr %indir_r_u.i.i.i.i, align 16
   %agg.tmp.sroa.0.4.vec.insert.i32.i.i.i.i.i = shufflevector <4 x float> %127, <4 x float> poison, <2 x i32> <i32 0, i32 1>
-  %agg.tmp.sroa.3.12.vec.insert.i33.i.i.i.i.i = shufflevector <4 x float> %127, <4 x float> undef, <2 x i32> <i32 2, i32 3>
+  %agg.tmp.sroa.3.12.vec.insert.i33.i.i.i.i.i = shufflevector <4 x float> %127, <4 x float> poison, <2 x i32> <i32 2, i32 3>
   store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i32.i.i.i.i.i, ptr %add.ptr.i31.i.i.i.i.i, align 16
   %v.sroa.2.0.p.addr.0..sroa_idx.i.i34.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i31.i.i.i.i.i, i64 8
   store <2 x float> %agg.tmp.sroa.3.12.vec.insert.i33.i.i.i.i.i, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i.i34.i.i.i.i.i, align 8
@@ -4698,7 +4698,7 @@ if.end165.i.i.i.i:                                ; preds = %if.end147.i.i.i.i
   %lambda.i.i.i.i.16.lambda.i.i.i.i.16.lambda.i.i.i.i.16.lambda.i.i.i.16.lambda.i.i.i.16.lambda.i.i.16.lambda.i.i.16.lambda.i.16.lambda.i.16.lambda.16.lambda.16.pdf.i.i.sroa_idx = getelementptr inbounds i8, ptr %lambda.i.i.i.i, i64 16
   %lambda.i.i.i.i.16.lambda.i.i.i.i.16.lambda.i.i.i.i.16.lambda.i.i.i.16.lambda.i.i.i.16.lambda.i.i.16.lambda.i.i.16.lambda.i.16.lambda.i.16.lambda.16.lambda.16..i.i.i.i = load <4 x float>, ptr %lambda.i.i.i.i.16.lambda.i.i.i.i.16.lambda.i.i.i.i.16.lambda.i.i.i.16.lambda.i.i.i.16.lambda.i.i.16.lambda.i.i.16.lambda.i.16.lambda.i.16.lambda.16.lambda.16.pdf.i.i.sroa_idx, align 16
   %agg.tmp22.sroa.0.4.vec.insert.i.i.i.i.i.i = shufflevector <4 x float> %lambda.i.i.i.i.16.lambda.i.i.i.i.16.lambda.i.i.i.i.16.lambda.i.i.i.16.lambda.i.i.i.16.lambda.i.i.16.lambda.i.i.16.lambda.i.16.lambda.i.16.lambda.16.lambda.16..i.i.i.i, <4 x float> poison, <2 x i32> <i32 0, i32 1>
-  %agg.tmp22.sroa.3.12.vec.insert.i.i.i.i.i.i = shufflevector <4 x float> %lambda.i.i.i.i.16.lambda.i.i.i.i.16.lambda.i.i.i.i.16.lambda.i.i.i.16.lambda.i.i.i.16.lambda.i.i.16.lambda.i.i.16.lambda.i.16.lambda.i.16.lambda.16.lambda.16..i.i.i.i, <4 x float> undef, <2 x i32> <i32 2, i32 3>
+  %agg.tmp22.sroa.3.12.vec.insert.i.i.i.i.i.i = shufflevector <4 x float> %lambda.i.i.i.i.16.lambda.i.i.i.i.16.lambda.i.i.i.i.16.lambda.i.i.i.16.lambda.i.i.i.16.lambda.i.i.16.lambda.i.i.16.lambda.i.16.lambda.i.16.lambda.16.lambda.16..i.i.i.i, <4 x float> poison, <2 x i32> <i32 2, i32 3>
   store <2 x float> %agg.tmp22.sroa.0.4.vec.insert.i.i.i.i.i.i, ptr %add.ptr21.i.i.i.i.i.i, align 16
   %v.sroa.2.0.p.addr.0..sroa_idx.i28.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr21.i.i.i.i.i.i, i64 8
   store <2 x float> %agg.tmp22.sroa.3.12.vec.insert.i.i.i.i.i.i, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i28.i.i.i.i.i.i, align 8
@@ -5369,7 +5369,7 @@ entry:
   %57 = load ptr, ptr %low.i.i.i, align 8, !noalias !76
   %arrayidx.i.i.i = getelementptr inbounds float, ptr %57, i64 %idxprom.i
   %58 = load float, ptr %arrayidx.i.i.i, align 4, !noalias !76
-  %retval.sroa.0.0.vec.insert.i.i.i = insertelement <2 x float> undef, float %58, i64 0
+  %retval.sroa.0.0.vec.insert.i.i.i = insertelement <2 x float> poison, float %58, i64 0
   %high.i.i.i = getelementptr inbounds %"struct.pbrt::SOA.19", ptr %this, i64 0, i32 14, i32 1, i32 1, i32 2
   %59 = load ptr, ptr %high.i.i.i, align 8, !noalias !76
   %arrayidx4.i.i.i = getelementptr inbounds float, ptr %59, i64 %idxprom.i
@@ -5379,7 +5379,7 @@ entry:
   %61 = load ptr, ptr %low.i3.i.i, align 8, !noalias !76
   %arrayidx.i5.i.i = getelementptr inbounds float, ptr %61, i64 %idxprom.i
   %62 = load float, ptr %arrayidx.i5.i.i, align 4, !noalias !76
-  %retval.sroa.0.0.vec.insert.i6.i.i = insertelement <2 x float> undef, float %62, i64 0
+  %retval.sroa.0.0.vec.insert.i6.i.i = insertelement <2 x float> poison, float %62, i64 0
   %high.i7.i.i = getelementptr inbounds %"struct.pbrt::SOA.19", ptr %this, i64 0, i32 14, i32 1, i32 2, i32 2
   %63 = load ptr, ptr %high.i7.i.i, align 8, !noalias !76
   %arrayidx4.i8.i.i = getelementptr inbounds float, ptr %63, i64 %idxprom.i
@@ -5389,7 +5389,7 @@ entry:
   %65 = load ptr, ptr %low.i10.i.i, align 8, !noalias !76
   %arrayidx.i12.i.i = getelementptr inbounds float, ptr %65, i64 %idxprom.i
   %66 = load float, ptr %arrayidx.i12.i.i, align 4, !noalias !76
-  %retval.sroa.0.0.vec.insert.i13.i.i = insertelement <2 x float> undef, float %66, i64 0
+  %retval.sroa.0.0.vec.insert.i13.i.i = insertelement <2 x float> poison, float %66, i64 0
   %high.i14.i.i = getelementptr inbounds %"struct.pbrt::SOA.19", ptr %this, i64 0, i32 14, i32 1, i32 3, i32 2
   %67 = load ptr, ptr %high.i14.i.i, align 8, !noalias !76
   %arrayidx4.i15.i.i = getelementptr inbounds float, ptr %67, i64 %idxprom.i
@@ -5610,7 +5610,7 @@ if.end21.i.i.i:                                   ; preds = %if.else.i.i.i, %if.
   %call.i19.i.i.i = tail call noundef float @sinf(float noundef %theta.0.i.i.i) #20, !noalias !82
   %mul.i.i22.i.i.i = fmul float %r.0.i.i.i, %call.i.i.i.i
   %mul2.i.i.i.i.i = fmul float %r.0.i.i.i, %call.i19.i.i.i
-  %retval.sroa.0.0.vec.insert.i.i24.i.i.i = insertelement <2 x float> undef, float %mul.i.i22.i.i.i, i64 0
+  %retval.sroa.0.0.vec.insert.i.i24.i.i.i = insertelement <2 x float> poison, float %mul.i.i22.i.i.i, i64 0
   %retval.sroa.0.4.vec.insert.i.i25.i.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i24.i.i.i, float %mul2.i.i.i.i.i, i64 1
   br label %_ZN4pbrt22SampleCosineHemisphereENS_6Point2IfEE.exit.i
 
@@ -5917,7 +5917,7 @@ entry:
   %add.ptr21.i.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %22, i64 %idxprom.i.i.i
   %23 = load <4 x float>, ptr %pdf.i.i, align 4
   %agg.tmp22.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %23, <4 x float> poison, <2 x i32> <i32 0, i32 1>
-  %agg.tmp22.sroa.3.12.vec.insert.i.i = shufflevector <4 x float> %23, <4 x float> undef, <2 x i32> <i32 2, i32 3>
+  %agg.tmp22.sroa.3.12.vec.insert.i.i = shufflevector <4 x float> %23, <4 x float> poison, <2 x i32> <i32 2, i32 3>
   store <2 x float> %agg.tmp22.sroa.0.4.vec.insert.i.i, ptr %add.ptr21.i.i, align 16
   %v.sroa.2.0.p.addr.0..sroa_idx.i28.i.i = getelementptr inbounds i8, ptr %add.ptr21.i.i, i64 8
   store <2 x float> %agg.tmp22.sroa.3.12.vec.insert.i.i, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i28.i.i, align 8
@@ -5927,7 +5927,7 @@ entry:
   %add.ptr.i13.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %24, i64 %idxprom.i.i.i
   %25 = load <4 x float>, ptr %Ld.i, align 4
   %agg.tmp.sroa.0.4.vec.insert.i14.i = shufflevector <4 x float> %25, <4 x float> poison, <2 x i32> <i32 0, i32 1>
-  %agg.tmp.sroa.3.12.vec.insert.i15.i = shufflevector <4 x float> %25, <4 x float> undef, <2 x i32> <i32 2, i32 3>
+  %agg.tmp.sroa.3.12.vec.insert.i15.i = shufflevector <4 x float> %25, <4 x float> poison, <2 x i32> <i32 2, i32 3>
   store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i14.i, ptr %add.ptr.i13.i, align 16
   %v.sroa.2.0.p.addr.0..sroa_idx.i.i16.i = getelementptr inbounds i8, ptr %add.ptr.i13.i, i64 8
   store <2 x float> %agg.tmp.sroa.3.12.vec.insert.i15.i, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i.i16.i, align 8
@@ -5937,7 +5937,7 @@ entry:
   %add.ptr.i22.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %26, i64 %idxprom.i.i.i
   %27 = load <4 x float>, ptr %r_u.i, align 4
   %agg.tmp.sroa.0.4.vec.insert.i23.i = shufflevector <4 x float> %27, <4 x float> poison, <2 x i32> <i32 0, i32 1>
-  %agg.tmp.sroa.3.12.vec.insert.i24.i = shufflevector <4 x float> %27, <4 x float> undef, <2 x i32> <i32 2, i32 3>
+  %agg.tmp.sroa.3.12.vec.insert.i24.i = shufflevector <4 x float> %27, <4 x float> poison, <2 x i32> <i32 2, i32 3>
   store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i23.i, ptr %add.ptr.i22.i, align 16
   %v.sroa.2.0.p.addr.0..sroa_idx.i.i25.i = getelementptr inbounds i8, ptr %add.ptr.i22.i, i64 8
   store <2 x float> %agg.tmp.sroa.3.12.vec.insert.i24.i, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i.i25.i, align 8
@@ -5947,7 +5947,7 @@ entry:
   %add.ptr.i31.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %28, i64 %idxprom.i.i.i
   %29 = load <4 x float>, ptr %r_l.i, align 4
   %agg.tmp.sroa.0.4.vec.insert.i32.i = shufflevector <4 x float> %29, <4 x float> poison, <2 x i32> <i32 0, i32 1>
-  %agg.tmp.sroa.3.12.vec.insert.i33.i = shufflevector <4 x float> %29, <4 x float> undef, <2 x i32> <i32 2, i32 3>
+  %agg.tmp.sroa.3.12.vec.insert.i33.i = shufflevector <4 x float> %29, <4 x float> poison, <2 x i32> <i32 2, i32 3>
   store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i32.i, ptr %add.ptr.i31.i, align 16
   %v.sroa.2.0.p.addr.0..sroa_idx.i.i34.i = getelementptr inbounds i8, ptr %add.ptr.i31.i, i64 8
   store <2 x float> %agg.tmp.sroa.3.12.vec.insert.i33.i, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i.i34.i, align 8
@@ -7970,7 +7970,7 @@ if.end.i:                                         ; preds = %_ZNK4pbrt7Bounds3If
   %add3.i.i.i.i26.i = fadd float %mul.i2.i.i.i.i25.i, %add.i.i.i.i24.i
   %sqrt.i.i.i27.i = tail call noundef float @llvm.sqrt.f32(float %add3.i.i.i.i26.i)
   %div3.i.i.i.i = fdiv float %div3.i.i7.i, %sqrt.i.i.i27.i
-  %retval.sroa.3.8.vec.insert.i = insertelement <2 x float> undef, float %div3.i.i.i.i, i64 0
+  %retval.sroa.3.8.vec.insert.i = insertelement <2 x float> poison, float %div3.i.i.i.i, i64 0
   %retval.sroa.3.12.vec.insert.i = insertelement <2 x float> %retval.sroa.3.8.vec.insert.i, float %sqrt.i.i89, i64 1
   br label %_ZN4pbrt24BoundSubtendedDirectionsERKNS_7Bounds3IfEENS_6Point3IfEE.exit
 
@@ -8193,7 +8193,7 @@ _ZZNK4pbrt5Light8SampleLiENS_18LightSampleContextENS_6Point2IfEENS_18SampledWave
   %18 = extractelement <2 x float> %17, i64 0
   %mul.i.i.i = fmul float %mul.i.i, %18
   %add.i.i.i = fadd float %div.i.i.i.i.i.i, %mul.i.i.i
-  %retval.sroa.0.0.vec.insert.i7.i.i = insertelement <2 x float> undef, float %add.i.i.i, i64 0
+  %retval.sroa.0.0.vec.insert.i7.i.i = insertelement <2 x float> poison, float %add.i.i.i, i64 0
   %19 = extractelement <2 x float> %17, i64 1
   %mul2.i.i.i = fmul float %mul.i.i, %19
   %add.i.i2.i.i.i.i = fadd float %agg.tmp.sroa.3.0.copyload.i, %agg.tmp.sroa.4.0.copyload.i
@@ -8210,7 +8210,7 @@ _ZZNK4pbrt5Light8SampleLiENS_18LightSampleContextENS_6Point2IfEENS_18SampledWave
   %agg.tmp.sroa.0.4.vec.insert.i.i.i.i = shufflevector <2 x float> %retval.sroa.0.0.vec.insert.i7.i.i, <2 x float> poison, <2 x i32> zeroinitializer
   %20 = insertelement <2 x float> poison, float %add4.i.i.i, i64 0
   %agg.tmp2.sroa.0.4.vec.insert.i.i.i.i = shufflevector <2 x float> %20, <2 x float> poison, <2 x i32> zeroinitializer
-  %agg.tmp3.sroa.0.0.vec.insert.i.i.i.i = insertelement <2 x float> undef, float %add6.i.i.i, i64 0
+  %agg.tmp3.sroa.0.0.vec.insert.i.i.i.i = insertelement <2 x float> poison, float %add6.i.i.i, i64 0
   %agg.tmp3.sroa.0.4.vec.insert.i.i.i.i = shufflevector <2 x float> %agg.tmp3.sroa.0.0.vec.insert.i.i.i.i, <2 x float> poison, <2 x i32> zeroinitializer
   %set.i.i.i = getelementptr inbounds %"class.pstd::optional.74", ptr %agg.result, i64 0, i32 1
   store i8 1, ptr %set.i.i.i, align 8, !alias.scope !132
@@ -8507,8 +8507,8 @@ _ZNK4pbrt10PointLight8SampleLiENS_18LightSampleContextENS_6Point2IfEENS_18Sample
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ret.i.i), !noalias !154
   %mediumInterface.i = getelementptr inbounds %"class.pbrt::LightBase", ptr %ptr, i64 0, i32 2
   %agg.tmp.sroa.0.4.vec.insert.i.i.i = shufflevector <2 x float> %call.fca.0.extract.i, <2 x float> poison, <2 x i32> zeroinitializer
-  %agg.tmp2.sroa.0.4.vec.insert.i.i.i = shufflevector <2 x float> %call.fca.0.extract.i, <2 x float> undef, <2 x i32> <i32 1, i32 1>
-  %agg.tmp3.sroa.0.0.vec.insert.i.i.i = insertelement <2 x float> undef, float %call.fca.1.extract.i, i64 0
+  %agg.tmp2.sroa.0.4.vec.insert.i.i.i = shufflevector <2 x float> %call.fca.0.extract.i, <2 x float> poison, <2 x i32> <i32 1, i32 1>
+  %agg.tmp3.sroa.0.0.vec.insert.i.i.i = insertelement <2 x float> poison, float %call.fca.1.extract.i, i64 0
   %agg.tmp3.sroa.0.4.vec.insert.i.i.i = shufflevector <2 x float> %agg.tmp3.sroa.0.0.vec.insert.i.i.i, <2 x float> poison, <2 x i32> zeroinitializer
   %set.i.i = getelementptr inbounds %"class.pstd::optional.74", ptr %agg.result, i64 0, i32 1
   store i8 1, ptr %set.i.i, align 8, !alias.scope !154
@@ -8650,8 +8650,8 @@ if.then.i:                                        ; preds = %for.cond.i.i, %_ZNK
 if.end.i:                                         ; preds = %_ZNK4pbrt15SampledSpectrumcvbEv.exit.i, %_ZNK4pbrt15SampledSpectrumdvEf.exit.i
   %mediumInterface.i = getelementptr inbounds %"class.pbrt::LightBase", ptr %ptr, i64 0, i32 2
   %agg.tmp.sroa.0.4.vec.insert.i.i.i = shufflevector <2 x float> %call.fca.0.extract.i, <2 x float> poison, <2 x i32> zeroinitializer
-  %agg.tmp2.sroa.0.4.vec.insert.i.i.i = shufflevector <2 x float> %call.fca.0.extract.i, <2 x float> undef, <2 x i32> <i32 1, i32 1>
-  %agg.tmp3.sroa.0.0.vec.insert.i.i.i = insertelement <2 x float> undef, float %call.fca.1.extract.i, i64 0
+  %agg.tmp2.sroa.0.4.vec.insert.i.i.i = shufflevector <2 x float> %call.fca.0.extract.i, <2 x float> poison, <2 x i32> <i32 1, i32 1>
+  %agg.tmp3.sroa.0.0.vec.insert.i.i.i = insertelement <2 x float> poison, float %call.fca.1.extract.i, i64 0
   %agg.tmp3.sroa.0.4.vec.insert.i.i.i = shufflevector <2 x float> %agg.tmp3.sroa.0.0.vec.insert.i.i.i, <2 x float> poison, <2 x i32> zeroinitializer
   %set.i50.i = getelementptr inbounds %"class.pstd::optional.74", ptr %agg.result, i64 0, i32 1
   store i8 1, ptr %set.i50.i, align 8, !alias.scope !157
@@ -9064,12 +9064,12 @@ _ZNK4pbrt18ImageInfiniteLight7ImageLeENS_6Point2IfEERKNS_18SampledWavelengthsE.e
   %add.i = fadd float %div.i.i.i.i, %mul.i
   %add4.i = fadd float %div.i.i3.i.i, %mul2.i
   %add6.i = fadd float %div.i.i6.i.i, %mul3.i
-  %retval.sroa.0.0.vec.insert.i8 = insertelement <2 x float> undef, float %add.i, i64 0
+  %retval.sroa.0.0.vec.insert.i8 = insertelement <2 x float> poison, float %add.i, i64 0
   %mediumInterface = getelementptr inbounds %"class.pbrt::LightBase", ptr %this, i64 0, i32 2
   %agg.tmp.sroa.0.4.vec.insert.i.i = shufflevector <2 x float> %retval.sroa.0.0.vec.insert.i8, <2 x float> poison, <2 x i32> zeroinitializer
   %12 = insertelement <2 x float> poison, float %add4.i, i64 0
   %agg.tmp2.sroa.0.4.vec.insert.i.i = shufflevector <2 x float> %12, <2 x float> poison, <2 x i32> zeroinitializer
-  %agg.tmp3.sroa.0.0.vec.insert.i.i = insertelement <2 x float> undef, float %add6.i, i64 0
+  %agg.tmp3.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %add6.i, i64 0
   %agg.tmp3.sroa.0.4.vec.insert.i.i = shufflevector <2 x float> %agg.tmp3.sroa.0.0.vec.insert.i.i, <2 x float> poison, <2 x i32> zeroinitializer
   %set.i12 = getelementptr inbounds %"class.pstd::optional.74", ptr %agg.result, i64 0, i32 1
   store i8 1, ptr %set.i12, align 8

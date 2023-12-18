@@ -6236,7 +6236,7 @@ entry:
   %4 = load ptr, ptr %slots_.i.i.i.i, align 8
   %5 = trunc i128 %xor.i.i.i.i to i8
   %conv.i.i2.i = and i8 %5, 127
-  %vecinit.i.i.i.i = insertelement <16 x i8> undef, i8 %conv.i.i2.i, i64 0
+  %vecinit.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i2.i, i64 0
   %vecinit15.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %while.body.i.i
 
@@ -8429,7 +8429,7 @@ entry:
   %xor.i.i.i7.i = xor i64 %shr.i.i.i6.i, %shr.i.i.i.i.i
   %5 = trunc i128 %xor.i.i.i.i to i8
   %conv.i.i = and i8 %5, 127
-  %vecinit.i.i.i = insertelement <16 x i8> undef, i8 %conv.i.i, i64 0
+  %vecinit.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i, i64 0
   %vecinit15.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %slots_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %0, i64 0, i32 1
   %6 = load ptr, ptr %slots_.i.i.i, align 8
@@ -9257,7 +9257,7 @@ entry:
   %xor.i.i.i7.i = xor i64 %shr.i.i.i6.i, %shr.i.i.i.i.i
   %5 = trunc i128 %xor.i.i.i.i to i8
   %conv.i.i = and i8 %5, 127
-  %vecinit.i.i.i = insertelement <16 x i8> undef, i8 %conv.i.i, i64 0
+  %vecinit.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i, i64 0
   %vecinit15.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %slots_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %0, i64 0, i32 1
   %6 = load ptr, ptr %slots_.i.i.i, align 8
@@ -9771,7 +9771,7 @@ entry:
   %xor.i.i.i7.i = xor i64 %shr.i.i.i6.i, %shr.i.i.i.i.i
   %5 = trunc i128 %xor.i.i.i.i to i8
   %conv.i.i = and i8 %5, 127
-  %vecinit.i.i.i = insertelement <16 x i8> undef, i8 %conv.i.i, i64 0
+  %vecinit.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i, i64 0
   %vecinit15.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %slots_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %0, i64 0, i32 1
   %6 = load ptr, ptr %slots_.i.i.i, align 8

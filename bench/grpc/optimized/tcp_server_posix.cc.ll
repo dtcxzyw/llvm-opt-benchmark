@@ -4810,7 +4810,7 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont3.i.i.i.
   %28 = load ptr, ptr %slots_.i.i.i.i.i.i.i.i.i, align 8
   %29 = trunc i128 %xor.i.i.i.i.i.i.i.i.i to i8
   %conv.i.i2.i.i.i.i.i.i = and i8 %29, 127
-  %vecinit.i.i.i.i.i.i.i.i.i = insertelement <16 x i8> undef, i8 %conv.i.i2.i.i.i.i.i.i, i64 0
+  %vecinit.i.i.i.i.i.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i2.i.i.i.i.i.i, i64 0
   %vecinit15.i.i.i.i.i.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %while.body.i.i.i.i.i.i.i
 
@@ -7986,7 +7986,7 @@ _ZNR4absl12lts_202308028StatusOrIiEdeEv.exit.i.i.i.i.i: ; preds = %entry
   %xor.i.i.i7.i.i.i.i.i.i.i = xor i64 %shr.i.i.i6.i.i.i.i.i.i.i, %shr.i.i.i.i.i.i.i.i.i.i.i
   %10 = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i to i8
   %conv.i.i.i.i.i.i.i.i = and i8 %10, 127
-  %vecinit.i.i.i.i.i.i.i.i.i = insertelement <16 x i8> undef, i8 %conv.i.i.i.i.i.i.i.i, i64 0
+  %vecinit.i.i.i.i.i.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i.i.i.i.i.i.i, i64 0
   %vecinit15.i.i.i.i.i.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %slots_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.grpc_tcp_server, ptr %call.val, i64 0, i32 24, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %11 = load ptr, ptr %slots_.i.i.i.i.i.i.i.i.i, align 8, !noalias !82

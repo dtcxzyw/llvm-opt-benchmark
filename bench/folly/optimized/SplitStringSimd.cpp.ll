@@ -388,13 +388,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
-  %.pre320 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %.pre320 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %.pre321 = shufflevector <16 x i8> %.pre320, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %if.end16.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %3 = load <16 x i8>, ptr %0, align 16, !tbaa !7
-  %vecinit.i = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %vecinit.i = insertelement <16 x i8> poison, i8 %sep, i64 0
   %vecinit15.i = shufflevector <16 x i8> %vecinit.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp.i71 = icmp eq <16 x i8> %3, %vecinit15.i
   %4 = bitcast <16 x i1> %cmp.i71 to i16
@@ -889,13 +889,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
-  %.pre = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %.pre = insertelement <16 x i8> poison, i8 %sep, i64 0
   %.pre311 = shufflevector <16 x i8> %.pre, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %if.end16.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %3 = load <16 x i8>, ptr %0, align 16, !tbaa !7
-  %vecinit.i.i12 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %vecinit.i.i12 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %vecinit15.i.i27 = shufflevector <16 x i8> %vecinit.i.i12, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp.i.i28 = icmp eq <16 x i8> %3, %vecinit15.i.i27
   %4 = bitcast <16 x i1> %cmp.i.i28 to i16
@@ -1368,13 +1368,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
-  %.pre191 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %.pre191 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %.pre192 = shufflevector <16 x i8> %.pre191, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %if.end16.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %3 = load <16 x i8>, ptr %0, align 16, !tbaa !7
-  %vecinit.i.i10 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %vecinit.i.i10 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %vecinit15.i.i25 = shufflevector <16 x i8> %vecinit.i.i10, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp.i.i26 = icmp eq <16 x i8> %3, %vecinit15.i.i25
   %4 = bitcast <16 x i1> %cmp.i.i26 to i16
@@ -2151,13 +2151,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
-  %.pre = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %.pre = insertelement <16 x i8> poison, i8 %sep, i64 0
   %.pre197 = shufflevector <16 x i8> %.pre, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %if.end16.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %3 = load <16 x i8>, ptr %0, align 16, !tbaa !7
-  %vecinit.i.i12 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %vecinit.i.i12 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %vecinit15.i.i27 = shufflevector <16 x i8> %vecinit.i.i12, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp.i.i28 = icmp eq <16 x i8> %3, %vecinit15.i.i27
   %4 = bitcast <16 x i1> %cmp.i.i28 to i16
@@ -2454,13 +2454,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
-  %.pre273 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %.pre273 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %.pre274 = shufflevector <16 x i8> %.pre273, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %if.end16.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %3 = load <16 x i8>, ptr %0, align 16, !tbaa !7
-  %vecinit.i.i10 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %vecinit.i.i10 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %vecinit15.i.i25 = shufflevector <16 x i8> %vecinit.i.i10, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp.i.i26 = icmp eq <16 x i8> %3, %vecinit15.i.i25
   %4 = bitcast <16 x i1> %cmp.i.i26 to i16
@@ -3232,13 +3232,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
-  %.pre = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %.pre = insertelement <16 x i8> poison, i8 %sep, i64 0
   %.pre277 = shufflevector <16 x i8> %.pre, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %if.end16.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %3 = load <16 x i8>, ptr %0, align 16, !tbaa !7
-  %vecinit.i.i12 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %vecinit.i.i12 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %vecinit15.i.i27 = shufflevector <16 x i8> %vecinit.i.i12, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp.i.i28 = icmp eq <16 x i8> %3, %vecinit15.i.i27
   %4 = bitcast <16 x i1> %cmp.i.i28 to i16
@@ -3735,13 +3735,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
-  %.pre253 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %.pre253 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %.pre254 = shufflevector <16 x i8> %.pre253, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %if.end16.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %3 = load <16 x i8>, ptr %0, align 16, !tbaa !7
-  %vecinit.i.i10 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %vecinit.i.i10 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %vecinit15.i.i25 = shufflevector <16 x i8> %vecinit.i.i10, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp.i.i26 = icmp eq <16 x i8> %3, %vecinit15.i.i25
   %4 = bitcast <16 x i1> %cmp.i.i26 to i16
@@ -4299,13 +4299,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
-  %.pre = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %.pre = insertelement <16 x i8> poison, i8 %sep, i64 0
   %.pre256 = shufflevector <16 x i8> %.pre, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %if.end16.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %3 = load <16 x i8>, ptr %0, align 16, !tbaa !7
-  %vecinit.i.i12 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %vecinit.i.i12 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %vecinit15.i.i27 = shufflevector <16 x i8> %vecinit.i.i12, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp.i.i28 = icmp eq <16 x i8> %3, %vecinit15.i.i27
   %4 = bitcast <16 x i1> %cmp.i.i28 to i16
@@ -4703,13 +4703,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
-  %.pre253 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %.pre253 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %.pre254 = shufflevector <16 x i8> %.pre253, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %if.end16.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %3 = load <16 x i8>, ptr %0, align 16, !tbaa !7
-  %vecinit.i.i10 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %vecinit.i.i10 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %vecinit15.i.i25 = shufflevector <16 x i8> %vecinit.i.i10, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp.i.i26 = icmp eq <16 x i8> %3, %vecinit15.i.i25
   %4 = bitcast <16 x i1> %cmp.i.i26 to i16
@@ -5267,13 +5267,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
-  %.pre = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %.pre = insertelement <16 x i8> poison, i8 %sep, i64 0
   %.pre256 = shufflevector <16 x i8> %.pre, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %if.end16.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %3 = load <16 x i8>, ptr %0, align 16, !tbaa !7
-  %vecinit.i.i12 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %vecinit.i.i12 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %vecinit15.i.i27 = shufflevector <16 x i8> %vecinit.i.i12, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp.i.i28 = icmp eq <16 x i8> %3, %vecinit15.i.i27
   %4 = bitcast <16 x i1> %cmp.i.i28 to i16
@@ -5671,13 +5671,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
-  %.pre253 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %.pre253 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %.pre254 = shufflevector <16 x i8> %.pre253, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %if.end16.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %3 = load <16 x i8>, ptr %0, align 16, !tbaa !7
-  %vecinit.i.i10 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %vecinit.i.i10 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %vecinit15.i.i25 = shufflevector <16 x i8> %vecinit.i.i10, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp.i.i26 = icmp eq <16 x i8> %3, %vecinit15.i.i25
   %4 = bitcast <16 x i1> %cmp.i.i26 to i16
@@ -6235,13 +6235,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
-  %.pre = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %.pre = insertelement <16 x i8> poison, i8 %sep, i64 0
   %.pre256 = shufflevector <16 x i8> %.pre, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %if.end16.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %3 = load <16 x i8>, ptr %0, align 16, !tbaa !7
-  %vecinit.i.i12 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %vecinit.i.i12 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %vecinit15.i.i27 = shufflevector <16 x i8> %vecinit.i.i12, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp.i.i28 = icmp eq <16 x i8> %3, %vecinit15.i.i27
   %4 = bitcast <16 x i1> %cmp.i.i28 to i16
@@ -6639,13 +6639,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
-  %.pre253 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %.pre253 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %.pre254 = shufflevector <16 x i8> %.pre253, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %if.end16.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %3 = load <16 x i8>, ptr %0, align 16, !tbaa !7
-  %vecinit.i.i10 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %vecinit.i.i10 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %vecinit15.i.i25 = shufflevector <16 x i8> %vecinit.i.i10, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp.i.i26 = icmp eq <16 x i8> %3, %vecinit15.i.i25
   %4 = bitcast <16 x i1> %cmp.i.i26 to i16
@@ -7203,13 +7203,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
-  %.pre = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %.pre = insertelement <16 x i8> poison, i8 %sep, i64 0
   %.pre256 = shufflevector <16 x i8> %.pre, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %if.end16.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %3 = load <16 x i8>, ptr %0, align 16, !tbaa !7
-  %vecinit.i.i12 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %vecinit.i.i12 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %vecinit15.i.i27 = shufflevector <16 x i8> %vecinit.i.i12, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp.i.i28 = icmp eq <16 x i8> %3, %vecinit15.i.i27
   %4 = bitcast <16 x i1> %cmp.i.i28 to i16
@@ -7607,13 +7607,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
-  %.pre253 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %.pre253 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %.pre254 = shufflevector <16 x i8> %.pre253, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %if.end16.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %3 = load <16 x i8>, ptr %0, align 16, !tbaa !7
-  %vecinit.i.i10 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %vecinit.i.i10 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %vecinit15.i.i25 = shufflevector <16 x i8> %vecinit.i.i10, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp.i.i26 = icmp eq <16 x i8> %3, %vecinit15.i.i25
   %4 = bitcast <16 x i1> %cmp.i.i26 to i16
@@ -8171,13 +8171,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
-  %.pre = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %.pre = insertelement <16 x i8> poison, i8 %sep, i64 0
   %.pre256 = shufflevector <16 x i8> %.pre, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %if.end16.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %3 = load <16 x i8>, ptr %0, align 16, !tbaa !7
-  %vecinit.i.i12 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %vecinit.i.i12 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %vecinit15.i.i27 = shufflevector <16 x i8> %vecinit.i.i12, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp.i.i28 = icmp eq <16 x i8> %3, %vecinit15.i.i27
   %4 = bitcast <16 x i1> %cmp.i.i28 to i16
@@ -8575,13 +8575,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
-  %.pre253 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %.pre253 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %.pre254 = shufflevector <16 x i8> %.pre253, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %if.end16.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %3 = load <16 x i8>, ptr %0, align 16, !tbaa !7
-  %vecinit.i.i10 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %vecinit.i.i10 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %vecinit15.i.i25 = shufflevector <16 x i8> %vecinit.i.i10, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp.i.i26 = icmp eq <16 x i8> %3, %vecinit15.i.i25
   %4 = bitcast <16 x i1> %cmp.i.i26 to i16
@@ -9139,13 +9139,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
-  %.pre = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %.pre = insertelement <16 x i8> poison, i8 %sep, i64 0
   %.pre256 = shufflevector <16 x i8> %.pre, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %if.end16.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %3 = load <16 x i8>, ptr %0, align 16, !tbaa !7
-  %vecinit.i.i12 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %vecinit.i.i12 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %vecinit15.i.i27 = shufflevector <16 x i8> %vecinit.i.i12, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp.i.i28 = icmp eq <16 x i8> %3, %vecinit15.i.i27
   %4 = bitcast <16 x i1> %cmp.i.i28 to i16
@@ -9543,13 +9543,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
-  %.pre253 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %.pre253 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %.pre254 = shufflevector <16 x i8> %.pre253, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %if.end16.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %3 = load <16 x i8>, ptr %0, align 16, !tbaa !7
-  %vecinit.i.i10 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %vecinit.i.i10 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %vecinit15.i.i25 = shufflevector <16 x i8> %vecinit.i.i10, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp.i.i26 = icmp eq <16 x i8> %3, %vecinit15.i.i25
   %4 = bitcast <16 x i1> %cmp.i.i26 to i16
@@ -10107,13 +10107,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
-  %.pre = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %.pre = insertelement <16 x i8> poison, i8 %sep, i64 0
   %.pre256 = shufflevector <16 x i8> %.pre, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %if.end16.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %3 = load <16 x i8>, ptr %0, align 16, !tbaa !7
-  %vecinit.i.i12 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %vecinit.i.i12 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %vecinit15.i.i27 = shufflevector <16 x i8> %vecinit.i.i12, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp.i.i28 = icmp eq <16 x i8> %3, %vecinit15.i.i27
   %4 = bitcast <16 x i1> %cmp.i.i28 to i16
@@ -10499,13 +10499,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
-  %.pre300 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %.pre300 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %.pre301 = shufflevector <16 x i8> %.pre300, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %if.end16.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %3 = load <16 x i8>, ptr %0, align 16, !tbaa !7
-  %vecinit.i.i10 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %vecinit.i.i10 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %vecinit15.i.i25 = shufflevector <16 x i8> %vecinit.i.i10, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp.i.i26 = icmp eq <16 x i8> %3, %vecinit15.i.i25
   %4 = bitcast <16 x i1> %cmp.i.i26 to i16
@@ -10957,13 +10957,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
-  %.pre = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %.pre = insertelement <16 x i8> poison, i8 %sep, i64 0
   %.pre305 = shufflevector <16 x i8> %.pre, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %if.end16.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %3 = load <16 x i8>, ptr %0, align 16, !tbaa !7
-  %vecinit.i.i12 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %vecinit.i.i12 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %vecinit15.i.i27 = shufflevector <16 x i8> %vecinit.i.i12, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp.i.i28 = icmp eq <16 x i8> %3, %vecinit15.i.i27
   %4 = bitcast <16 x i1> %cmp.i.i28 to i16
@@ -11428,13 +11428,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
-  %.pre188 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %.pre188 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %.pre189 = shufflevector <16 x i8> %.pre188, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %if.end16.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %3 = load <16 x i8>, ptr %0, align 16, !tbaa !7
-  %vecinit.i.i10 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %vecinit.i.i10 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %vecinit15.i.i25 = shufflevector <16 x i8> %vecinit.i.i10, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp.i.i26 = icmp eq <16 x i8> %3, %vecinit15.i.i25
   %4 = bitcast <16 x i1> %cmp.i.i26 to i16
@@ -11920,13 +11920,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
-  %.pre = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %.pre = insertelement <16 x i8> poison, i8 %sep, i64 0
   %.pre194 = shufflevector <16 x i8> %.pre, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %if.end16.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %3 = load <16 x i8>, ptr %0, align 16, !tbaa !7
-  %vecinit.i.i12 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %vecinit.i.i12 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %vecinit15.i.i27 = shufflevector <16 x i8> %vecinit.i.i12, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp.i.i28 = icmp eq <16 x i8> %3, %vecinit15.i.i27
   %4 = bitcast <16 x i1> %cmp.i.i28 to i16
@@ -12219,13 +12219,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
-  %.pre266 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %.pre266 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %.pre267 = shufflevector <16 x i8> %.pre266, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %if.end16.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %3 = load <16 x i8>, ptr %0, align 16, !tbaa !7
-  %vecinit.i.i10 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %vecinit.i.i10 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %vecinit15.i.i25 = shufflevector <16 x i8> %vecinit.i.i10, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp.i.i26 = icmp eq <16 x i8> %3, %vecinit15.i.i25
   %4 = bitcast <16 x i1> %cmp.i.i26 to i16
@@ -12931,13 +12931,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
-  %.pre = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %.pre = insertelement <16 x i8> poison, i8 %sep, i64 0
   %.pre270 = shufflevector <16 x i8> %.pre, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %if.end16.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %3 = load <16 x i8>, ptr %0, align 16, !tbaa !7
-  %vecinit.i.i12 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %vecinit.i.i12 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %vecinit15.i.i27 = shufflevector <16 x i8> %vecinit.i.i12, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp.i.i28 = icmp eq <16 x i8> %3, %vecinit15.i.i27
   %4 = bitcast <16 x i1> %cmp.i.i28 to i16
@@ -13426,13 +13426,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
-  %.pre246 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %.pre246 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %.pre247 = shufflevector <16 x i8> %.pre246, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %if.end16.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %3 = load <16 x i8>, ptr %0, align 16, !tbaa !7
-  %vecinit.i.i10 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %vecinit.i.i10 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %vecinit15.i.i25 = shufflevector <16 x i8> %vecinit.i.i10, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp.i.i26 = icmp eq <16 x i8> %3, %vecinit15.i.i25
   %4 = bitcast <16 x i1> %cmp.i.i26 to i16
@@ -13981,13 +13981,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
-  %.pre = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %.pre = insertelement <16 x i8> poison, i8 %sep, i64 0
   %.pre249 = shufflevector <16 x i8> %.pre, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %if.end16.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %3 = load <16 x i8>, ptr %0, align 16, !tbaa !7
-  %vecinit.i.i12 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %vecinit.i.i12 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %vecinit15.i.i27 = shufflevector <16 x i8> %vecinit.i.i12, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp.i.i28 = icmp eq <16 x i8> %3, %vecinit15.i.i27
   %4 = bitcast <16 x i1> %cmp.i.i28 to i16
@@ -14377,13 +14377,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
-  %.pre246 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %.pre246 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %.pre247 = shufflevector <16 x i8> %.pre246, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %if.end16.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %3 = load <16 x i8>, ptr %0, align 16, !tbaa !7
-  %vecinit.i.i10 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %vecinit.i.i10 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %vecinit15.i.i25 = shufflevector <16 x i8> %vecinit.i.i10, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp.i.i26 = icmp eq <16 x i8> %3, %vecinit15.i.i25
   %4 = bitcast <16 x i1> %cmp.i.i26 to i16
@@ -14932,13 +14932,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
-  %.pre = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %.pre = insertelement <16 x i8> poison, i8 %sep, i64 0
   %.pre249 = shufflevector <16 x i8> %.pre, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %if.end16.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %3 = load <16 x i8>, ptr %0, align 16, !tbaa !7
-  %vecinit.i.i12 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %vecinit.i.i12 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %vecinit15.i.i27 = shufflevector <16 x i8> %vecinit.i.i12, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp.i.i28 = icmp eq <16 x i8> %3, %vecinit15.i.i27
   %4 = bitcast <16 x i1> %cmp.i.i28 to i16
@@ -15328,13 +15328,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
-  %.pre246 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %.pre246 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %.pre247 = shufflevector <16 x i8> %.pre246, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %if.end16.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %3 = load <16 x i8>, ptr %0, align 16, !tbaa !7
-  %vecinit.i.i10 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %vecinit.i.i10 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %vecinit15.i.i25 = shufflevector <16 x i8> %vecinit.i.i10, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp.i.i26 = icmp eq <16 x i8> %3, %vecinit15.i.i25
   %4 = bitcast <16 x i1> %cmp.i.i26 to i16
@@ -15883,13 +15883,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
-  %.pre = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %.pre = insertelement <16 x i8> poison, i8 %sep, i64 0
   %.pre249 = shufflevector <16 x i8> %.pre, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %if.end16.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %3 = load <16 x i8>, ptr %0, align 16, !tbaa !7
-  %vecinit.i.i12 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %vecinit.i.i12 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %vecinit15.i.i27 = shufflevector <16 x i8> %vecinit.i.i12, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp.i.i28 = icmp eq <16 x i8> %3, %vecinit15.i.i27
   %4 = bitcast <16 x i1> %cmp.i.i28 to i16
@@ -16279,13 +16279,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
-  %.pre246 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %.pre246 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %.pre247 = shufflevector <16 x i8> %.pre246, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %if.end16.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %3 = load <16 x i8>, ptr %0, align 16, !tbaa !7
-  %vecinit.i.i10 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %vecinit.i.i10 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %vecinit15.i.i25 = shufflevector <16 x i8> %vecinit.i.i10, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp.i.i26 = icmp eq <16 x i8> %3, %vecinit15.i.i25
   %4 = bitcast <16 x i1> %cmp.i.i26 to i16
@@ -16834,13 +16834,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
-  %.pre = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %.pre = insertelement <16 x i8> poison, i8 %sep, i64 0
   %.pre249 = shufflevector <16 x i8> %.pre, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %if.end16.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %3 = load <16 x i8>, ptr %0, align 16, !tbaa !7
-  %vecinit.i.i12 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %vecinit.i.i12 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %vecinit15.i.i27 = shufflevector <16 x i8> %vecinit.i.i12, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp.i.i28 = icmp eq <16 x i8> %3, %vecinit15.i.i27
   %4 = bitcast <16 x i1> %cmp.i.i28 to i16
@@ -17230,13 +17230,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
-  %.pre246 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %.pre246 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %.pre247 = shufflevector <16 x i8> %.pre246, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %if.end16.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %3 = load <16 x i8>, ptr %0, align 16, !tbaa !7
-  %vecinit.i.i10 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %vecinit.i.i10 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %vecinit15.i.i25 = shufflevector <16 x i8> %vecinit.i.i10, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp.i.i26 = icmp eq <16 x i8> %3, %vecinit15.i.i25
   %4 = bitcast <16 x i1> %cmp.i.i26 to i16
@@ -17785,13 +17785,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
-  %.pre = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %.pre = insertelement <16 x i8> poison, i8 %sep, i64 0
   %.pre249 = shufflevector <16 x i8> %.pre, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %if.end16.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %3 = load <16 x i8>, ptr %0, align 16, !tbaa !7
-  %vecinit.i.i12 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %vecinit.i.i12 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %vecinit15.i.i27 = shufflevector <16 x i8> %vecinit.i.i12, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp.i.i28 = icmp eq <16 x i8> %3, %vecinit15.i.i27
   %4 = bitcast <16 x i1> %cmp.i.i28 to i16
@@ -18181,13 +18181,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
-  %.pre246 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %.pre246 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %.pre247 = shufflevector <16 x i8> %.pre246, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %if.end16.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %3 = load <16 x i8>, ptr %0, align 16, !tbaa !7
-  %vecinit.i.i10 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %vecinit.i.i10 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %vecinit15.i.i25 = shufflevector <16 x i8> %vecinit.i.i10, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp.i.i26 = icmp eq <16 x i8> %3, %vecinit15.i.i25
   %4 = bitcast <16 x i1> %cmp.i.i26 to i16
@@ -18736,13 +18736,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
-  %.pre = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %.pre = insertelement <16 x i8> poison, i8 %sep, i64 0
   %.pre249 = shufflevector <16 x i8> %.pre, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %if.end16.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %3 = load <16 x i8>, ptr %0, align 16, !tbaa !7
-  %vecinit.i.i12 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %vecinit.i.i12 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %vecinit15.i.i27 = shufflevector <16 x i8> %vecinit.i.i12, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp.i.i28 = icmp eq <16 x i8> %3, %vecinit15.i.i27
   %4 = bitcast <16 x i1> %cmp.i.i28 to i16
@@ -19132,13 +19132,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
-  %.pre246 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %.pre246 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %.pre247 = shufflevector <16 x i8> %.pre246, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %if.end16.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %3 = load <16 x i8>, ptr %0, align 16, !tbaa !7
-  %vecinit.i.i10 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %vecinit.i.i10 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %vecinit15.i.i25 = shufflevector <16 x i8> %vecinit.i.i10, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp.i.i26 = icmp eq <16 x i8> %3, %vecinit15.i.i25
   %4 = bitcast <16 x i1> %cmp.i.i26 to i16
@@ -19687,13 +19687,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
-  %.pre = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %.pre = insertelement <16 x i8> poison, i8 %sep, i64 0
   %.pre249 = shufflevector <16 x i8> %.pre, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %if.end16.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %3 = load <16 x i8>, ptr %0, align 16, !tbaa !7
-  %vecinit.i.i12 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %vecinit.i.i12 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %vecinit15.i.i27 = shufflevector <16 x i8> %vecinit.i.i12, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp.i.i28 = icmp eq <16 x i8> %3, %vecinit15.i.i27
   %4 = bitcast <16 x i1> %cmp.i.i28 to i16
@@ -20080,13 +20080,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
-  %.pre158 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %.pre158 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %.pre159 = shufflevector <16 x i8> %.pre158, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %if.end16.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %3 = load <16 x i8>, ptr %0, align 16, !tbaa !7
-  %vecinit.i.i10 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %vecinit.i.i10 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %vecinit15.i.i25 = shufflevector <16 x i8> %vecinit.i.i10, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp.i.i26 = icmp eq <16 x i8> %3, %vecinit15.i.i25
   %4 = bitcast <16 x i1> %cmp.i.i26 to i16
@@ -20642,13 +20642,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
-  %.pre = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %.pre = insertelement <16 x i8> poison, i8 %sep, i64 0
   %.pre158 = shufflevector <16 x i8> %.pre, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %if.end16.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %3 = load <16 x i8>, ptr %0, align 16, !tbaa !7
-  %vecinit.i.i12 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %vecinit.i.i12 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %vecinit15.i.i27 = shufflevector <16 x i8> %vecinit.i.i12, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp.i.i28 = icmp eq <16 x i8> %3, %vecinit15.i.i27
   %4 = bitcast <16 x i1> %cmp.i.i28 to i16
@@ -20922,13 +20922,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
-  %.pre188 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %.pre188 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %.pre189 = shufflevector <16 x i8> %.pre188, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %if.end16.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %3 = load <16 x i8>, ptr %0, align 16, !tbaa !7
-  %vecinit.i.i10 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %vecinit.i.i10 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %vecinit15.i.i25 = shufflevector <16 x i8> %vecinit.i.i10, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp.i.i26 = icmp eq <16 x i8> %3, %vecinit15.i.i25
   %4 = bitcast <16 x i1> %cmp.i.i26 to i16
@@ -21928,13 +21928,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
-  %.pre = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %.pre = insertelement <16 x i8> poison, i8 %sep, i64 0
   %.pre194 = shufflevector <16 x i8> %.pre, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %if.end16.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %3 = load <16 x i8>, ptr %0, align 16, !tbaa !7
-  %vecinit.i.i12 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %vecinit.i.i12 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %vecinit15.i.i27 = shufflevector <16 x i8> %vecinit.i.i12, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp.i.i28 = icmp eq <16 x i8> %3, %vecinit15.i.i27
   %4 = bitcast <16 x i1> %cmp.i.i28 to i16
@@ -22523,13 +22523,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
-  %.pre238 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %.pre238 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %.pre239 = shufflevector <16 x i8> %.pre238, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %if.end16.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %3 = load <16 x i8>, ptr %0, align 16, !tbaa !7
-  %vecinit.i.i10 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %vecinit.i.i10 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %vecinit15.i.i25 = shufflevector <16 x i8> %vecinit.i.i10, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp.i.i26 = icmp eq <16 x i8> %3, %vecinit15.i.i25
   %4 = bitcast <16 x i1> %cmp.i.i26 to i16
@@ -23464,13 +23464,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
-  %.pre = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %.pre = insertelement <16 x i8> poison, i8 %sep, i64 0
   %.pre246 = shufflevector <16 x i8> %.pre, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %if.end16.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %3 = load <16 x i8>, ptr %0, align 16, !tbaa !7
-  %vecinit.i.i12 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %vecinit.i.i12 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %vecinit15.i.i27 = shufflevector <16 x i8> %vecinit.i.i12, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp.i.i28 = icmp eq <16 x i8> %3, %vecinit15.i.i27
   %4 = bitcast <16 x i1> %cmp.i.i28 to i16
@@ -23941,13 +23941,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
-  %.pre189 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %.pre189 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %.pre190 = shufflevector <16 x i8> %.pre189, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %if.end16.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %3 = load <16 x i8>, ptr %0, align 16, !tbaa !7
-  %vecinit.i.i10 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %vecinit.i.i10 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %vecinit15.i.i25 = shufflevector <16 x i8> %vecinit.i.i10, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp.i.i26 = icmp eq <16 x i8> %3, %vecinit15.i.i25
   %4 = bitcast <16 x i1> %cmp.i.i26 to i16
@@ -24915,13 +24915,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
-  %.pre = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %.pre = insertelement <16 x i8> poison, i8 %sep, i64 0
   %.pre195 = shufflevector <16 x i8> %.pre, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %if.end16.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %3 = load <16 x i8>, ptr %0, align 16, !tbaa !7
-  %vecinit.i.i12 = insertelement <16 x i8> undef, i8 %sep, i64 0
+  %vecinit.i.i12 = insertelement <16 x i8> poison, i8 %sep, i64 0
   %vecinit15.i.i27 = shufflevector <16 x i8> %vecinit.i.i12, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp.i.i28 = icmp eq <16 x i8> %3, %vecinit15.i.i27
   %4 = bitcast <16 x i1> %cmp.i.i28 to i16

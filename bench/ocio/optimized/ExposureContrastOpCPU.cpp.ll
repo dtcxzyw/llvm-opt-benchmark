@@ -1373,14 +1373,14 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %exitcond45.not, label %if.end, label %for.body, !llvm.loop !31
 
 if.else:                                          ; preds = %entry
-  %vecinit.i57 = insertelement <4 x float> undef, float %conv, i64 0
+  %vecinit.i57 = insertelement <4 x float> poison, float %conv, i64 0
   %vecinit3.i60 = shufflevector <4 x float> %vecinit.i57, <4 x float> poison, <4 x i32> zeroinitializer
   %m_pivot = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::ECRendererBase", ptr %this, i64 0, i32 4
   %10 = load float, ptr %m_pivot, align 8
   %div = fdiv float %exp2f, %10
-  %vecinit.i51 = insertelement <4 x float> undef, float %div, i64 0
+  %vecinit.i51 = insertelement <4 x float> poison, float %div, i64 0
   %vecinit3.i54 = shufflevector <4 x float> %vecinit.i51, <4 x float> poison, <4 x i32> zeroinitializer
-  %vecinit.i = insertelement <4 x float> undef, float %10, i64 0
+  %vecinit.i = insertelement <4 x float> poison, float %10, i64 0
   %vecinit3.i = shufflevector <4 x float> %vecinit.i, <4 x float> poison, <4 x i32> zeroinitializer
   %cmp3236 = icmp sgt i64 %numPixels, 0
   br i1 %cmp3236, label %for.body33.lr.ph, label %if.end
@@ -2180,15 +2180,15 @@ for.body:                                         ; preds = %for.cond.preheader,
 
 if.else:                                          ; preds = %entry
   %div = fdiv float 1.000000e+00, %conv
-  %vecinit.i60 = insertelement <4 x float> undef, float %div, i64 0
+  %vecinit.i60 = insertelement <4 x float> poison, float %div, i64 0
   %vecinit3.i63 = shufflevector <4 x float> %vecinit.i60, <4 x float> poison, <4 x i32> zeroinitializer
   %m_pivot = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::ECRendererBase", ptr %this, i64 0, i32 4
   %10 = load float, ptr %m_pivot, align 8
   %mul28 = fmul float %div14, %10
   %div30 = fdiv float 1.000000e+00, %10
-  %vecinit.i54 = insertelement <4 x float> undef, float %mul28, i64 0
+  %vecinit.i54 = insertelement <4 x float> poison, float %mul28, i64 0
   %vecinit3.i57 = shufflevector <4 x float> %vecinit.i54, <4 x float> poison, <4 x i32> zeroinitializer
-  %vecinit.i = insertelement <4 x float> undef, float %div30, i64 0
+  %vecinit.i = insertelement <4 x float> poison, float %div30, i64 0
   %vecinit3.i = shufflevector <4 x float> %vecinit.i, <4 x float> poison, <4 x i32> zeroinitializer
   %cmp3536 = icmp sgt i64 %numPixels, 0
   br i1 %cmp3536, label %for.body36.lr.ph, label %if.end
@@ -2436,14 +2436,14 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %exitcond45.not, label %if.end, label %for.body, !llvm.loop !36
 
 if.else:                                          ; preds = %entry
-  %vecinit.i58 = insertelement <4 x float> undef, float %conv, i64 0
+  %vecinit.i58 = insertelement <4 x float> poison, float %conv, i64 0
   %vecinit3.i61 = shufflevector <4 x float> %vecinit.i58, <4 x float> poison, <4 x i32> zeroinitializer
   %m_pivot = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::ECRendererBase", ptr %this, i64 0, i32 4
   %10 = load float, ptr %m_pivot, align 8
   %div = fdiv float %call14, %10
-  %vecinit.i52 = insertelement <4 x float> undef, float %div, i64 0
+  %vecinit.i52 = insertelement <4 x float> poison, float %div, i64 0
   %vecinit3.i55 = shufflevector <4 x float> %vecinit.i52, <4 x float> poison, <4 x i32> zeroinitializer
-  %vecinit.i = insertelement <4 x float> undef, float %10, i64 0
+  %vecinit.i = insertelement <4 x float> poison, float %10, i64 0
   %vecinit3.i = shufflevector <4 x float> %vecinit.i, <4 x float> poison, <4 x i32> zeroinitializer
   %cmp3336 = icmp sgt i64 %numPixels, 0
   br i1 %cmp3336, label %for.body34.lr.ph, label %if.end
@@ -2698,11 +2698,11 @@ if.else:                                          ; preds = %entry
   %div18 = fdiv float 1.000000e+00, %10
   %mul16 = fmul float %div15, %10
   %div = fdiv float 1.000000e+00, %conv
-  %vecinit.i61 = insertelement <4 x float> undef, float %div, i64 0
+  %vecinit.i61 = insertelement <4 x float> poison, float %div, i64 0
   %vecinit3.i64 = shufflevector <4 x float> %vecinit.i61, <4 x float> poison, <4 x i32> zeroinitializer
-  %vecinit.i55 = insertelement <4 x float> undef, float %mul16, i64 0
+  %vecinit.i55 = insertelement <4 x float> poison, float %mul16, i64 0
   %vecinit3.i58 = shufflevector <4 x float> %vecinit.i55, <4 x float> poison, <4 x i32> zeroinitializer
-  %vecinit.i = insertelement <4 x float> undef, float %div18, i64 0
+  %vecinit.i = insertelement <4 x float> poison, float %div18, i64 0
   %vecinit3.i = shufflevector <4 x float> %vecinit.i, <4 x float> poison, <4 x i32> zeroinitializer
   %cmp3636 = icmp sgt i64 %numPixels, 0
   br i1 %cmp3636, label %for.body37.lr.ph, label %if.end
@@ -2921,9 +2921,9 @@ entry:
   %7 = load float, ptr %m_pivot, align 8
   %sub = fsub float %mul, %7
   %8 = tail call float @llvm.fmuladd.f32(float %sub, float %conv13, float %7)
-  %vecinit.i29 = insertelement <4 x float> undef, float %conv13, i64 0
+  %vecinit.i29 = insertelement <4 x float> poison, float %conv13, i64 0
   %vecinit3.i32 = shufflevector <4 x float> %vecinit.i29, <4 x float> poison, <4 x i32> zeroinitializer
-  %vecinit.i = insertelement <4 x float> undef, float %8, i64 0
+  %vecinit.i = insertelement <4 x float> poison, float %8, i64 0
   %vecinit3.i = shufflevector <4 x float> %vecinit.i, <4 x float> poison, <4 x i32> zeroinitializer
   %cmp16 = icmp sgt i64 %numPixels, 0
   br i1 %cmp16, label %for.body, label %for.end

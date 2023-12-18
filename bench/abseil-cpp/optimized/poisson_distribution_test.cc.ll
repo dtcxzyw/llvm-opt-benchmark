@@ -2553,7 +2553,7 @@ invoke.cont2.i:                                   ; preds = %for.body.i
   %xor.i.i.i7.i.i.i.i.i = xor i64 %shr.i.i.i.i.i.i.i.i.i, %shr.i.i.i6.i.i.i.i.i
   %15 = trunc i128 %xor.i.i.i.i.i.i.i.i to i8
   %conv.i.i.i.i.i.i = and i8 %15, 127
-  %vecinit.i.i.i.i.i.i.i = insertelement <16 x i8> undef, i8 %conv.i.i.i.i.i.i, i64 0
+  %vecinit.i.i.i.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i.i.i.i.i, i64 0
   %vecinit15.i.i.i.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %16 = load ptr, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i.i.i.i, align 8, !noalias !24
   br label %while.body.i.i.i.i.i

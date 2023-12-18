@@ -905,7 +905,7 @@ _ZL7ImClampRK6ImVec2S1_S_.exit.i:                 ; preds = %cond.false16.i.i, %
   %cmp5.i.i325 = fcmp olt float %mx.sroa.0.0.vec.extract.i.i, %103
   %mx.sroa.0.0.vec.extract..i.i = select i1 %cmp5.i.i325, float %mx.sroa.0.0.vec.extract.i.i, float %103
   %cond11.i.i326 = select i1 %cmp.i.i324, float %r.val.i323, float %mx.sroa.0.0.vec.extract..i.i
-  %retval.sroa.0.0.vec.insert.i.i327 = insertelement <2 x float> undef, float %cond11.i.i326, i64 0
+  %retval.sroa.0.0.vec.insert.i.i327 = insertelement <2 x float> poison, float %cond11.i.i326, i64 0
   %retval.sroa.0.4.vec.insert.i.i328 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i327, float %cond27.i.i, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i328, ptr %InnerClipRect, align 4
   %104 = extractelement <2 x float> %100, i64 1
@@ -925,7 +925,7 @@ _ZN6ImRect12ClipWithFullERKS_.exit:               ; preds = %_ZL7ImClampRK6ImVec
   %cmp5.i17.i = fcmp olt float %mx.sroa.0.0.vec.extract.i.i, %105
   %mx.sroa.0.0.vec.extract..i18.i = select i1 %cmp5.i17.i, float %mx.sroa.0.0.vec.extract.i.i, float %105
   %cond11.i19.i = select i1 %cmp.i15.i, float %r.val.i323, float %mx.sroa.0.0.vec.extract..i18.i
-  %retval.sroa.0.0.vec.insert.i20.i = insertelement <2 x float> undef, float %cond11.i19.i, i64 0
+  %retval.sroa.0.0.vec.insert.i20.i = insertelement <2 x float> poison, float %cond11.i19.i, i64 0
   %retval.sroa.0.4.vec.insert.i21.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i20.i, float %cond27.i14.i, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i21.i, ptr %Max.i320, align 4
   %and272 = and i32 %flags.addr.6.i, 131072
@@ -3516,7 +3516,7 @@ if.then532:                                       ; preds = %if.end521
   %cmp5.i.i = fcmp olt float %mx.sroa.0.0.vec.extract.i.i536, %offset_x.1
   %mx.sroa.0.0.vec.extract..i.i = select i1 %cmp5.i.i, float %mx.sroa.0.0.vec.extract.i.i536, float %offset_x.1
   %cond11.i.i = select i1 %cmp.i.i505, float %host_clip_rect.sroa.0.0649, float %mx.sroa.0.0.vec.extract..i.i
-  %retval.sroa.0.0.vec.insert.i.i = insertelement <2 x float> undef, float %cond11.i.i, i64 0
+  %retval.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %cond11.i.i, i64 0
   %retval.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i, float %cond27.i.i, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i, ptr %ClipRect, align 4
   %retval.sroa.0.4.vec.insert.i21.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i, float %cond27.i14.i, i64 1
@@ -8635,9 +8635,9 @@ entry:
   %5 = load float, ptr %RowPosY1, align 4
   %RowPosY2 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 19
   %6 = load float, ptr %RowPosY2, align 8
-  %retval.sroa.0.0.vec.insert = insertelement <2 x float> undef, float %cond.i, i64 0
+  %retval.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %cond.i, i64 0
   %retval.sroa.0.4.vec.insert = insertelement <2 x float> %retval.sroa.0.0.vec.insert, float %5, i64 1
-  %retval.sroa.3.8.vec.insert = insertelement <2 x float> undef, float %cond.i9, i64 0
+  %retval.sroa.3.8.vec.insert = insertelement <2 x float> poison, float %cond.i9, i64 0
   %retval.sroa.3.12.vec.insert = insertelement <2 x float> %retval.sroa.3.8.vec.insert, float %6, i64 1
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %retval.sroa.0.4.vec.insert, 0
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %retval.sroa.3.12.vec.insert, 1
@@ -11425,7 +11425,7 @@ if.then231:                                       ; preds = %if.then217
   %ItemInnerSpacing234 = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 3, i32 16
   %100 = load float, ptr %ItemInnerSpacing234, align 4
   %add236 = fadd float %cond.i175, %100
-  %agg.tmp.sroa.0.0.vec.insert = insertelement <2 x float> undef, float %add236, i64 0
+  %agg.tmp.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %add236, i64 0
   %agg.tmp.sroa.0.4.vec.insert = insertelement <2 x float> %agg.tmp.sroa.0.0.vec.insert, float %25, i64 1
   call void @_ZN5ImGui10RenderTextE6ImVec2PKcS2_b(<2 x float> %agg.tmp.sroa.0.4.vec.insert, ptr noundef nonnull %sort_order_suf, ptr noundef null, i1 noundef zeroext true)
   call void @_ZN5ImGui13PopStyleColorEi(i32 noundef 1)
@@ -11436,7 +11436,7 @@ if.end239:                                        ; preds = %if.then231, %if.the
   %x218.0 = phi float [ %add238, %if.then231 ], [ %cond.i175, %if.then217 ]
   %DrawList = getelementptr inbounds %struct.ImGuiWindow, ptr %1, i64 0, i32 86
   %101 = load ptr, ptr %DrawList, align 8
-  %agg.tmp240.sroa.0.0.vec.insert = insertelement <2 x float> undef, float %x218.0, i64 0
+  %agg.tmp240.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %x218.0, i64 0
   %agg.tmp240.sroa.0.4.vec.insert = insertelement <2 x float> %agg.tmp240.sroa.0.0.vec.insert, float %25, i64 1
   %call241 = call noundef i32 @_ZN5ImGui11GetColorU32Eif(i32 noundef 0, float noundef 1.000000e+00)
   %SortDirection = getelementptr inbounds %struct.ImGuiTableColumn, ptr %6, i64 %idx.ext.i, i32 37
@@ -15012,7 +15012,7 @@ _ZL7ImClampRK6ImVec2S1_S_.exit.i:                 ; preds = %cond.false16.i.i, %
   %cmp5.i.i = fcmp olt float %mx.sroa.0.0.vec.extract.i.i, %conv70179
   %mx.sroa.0.0.vec.extract..i.i = select i1 %cmp5.i.i, float %mx.sroa.0.0.vec.extract.i.i, float %conv70179
   %cond11.i.i = select i1 %cmp.i.i, float %r.val.i, float %mx.sroa.0.0.vec.extract..i.i
-  %retval.sroa.0.0.vec.insert.i.i = insertelement <2 x float> undef, float %cond11.i.i, i64 0
+  %retval.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %cond11.i.i, i64 0
   %retval.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i, float %cond27.i.i, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i, ptr %ClipRect80, align 4
   %agg.tmp7.sroa.0.0.copyload.i = load <2 x float>, ptr %Max.i131, align 4
@@ -15034,7 +15034,7 @@ _ZN6ImRect12ClipWithFullERKS_.exit:               ; preds = %_ZL7ImClampRK6ImVec
   %cmp5.i17.i = fcmp olt float %mx.sroa.0.0.vec.extract.i16.i, %conv79
   %mx.sroa.0.0.vec.extract..i18.i = select i1 %cmp5.i17.i, float %mx.sroa.0.0.vec.extract.i16.i, float %conv79
   %cond11.i19.i = select i1 %cmp.i15.i, float %r.val7.i, float %mx.sroa.0.0.vec.extract..i18.i
-  %retval.sroa.0.0.vec.insert.i20.i = insertelement <2 x float> undef, float %cond11.i19.i, i64 0
+  %retval.sroa.0.0.vec.insert.i20.i = insertelement <2 x float> poison, float %cond11.i19.i, i64 0
   %retval.sroa.0.4.vec.insert.i21.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i20.i, float %cond27.i14.i, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i21.i, ptr %ref.tmp.sroa.3.0.ClipRect80.sroa_idx, align 4
   %cmp59 = icmp slt i32 %add73180, %columns_count

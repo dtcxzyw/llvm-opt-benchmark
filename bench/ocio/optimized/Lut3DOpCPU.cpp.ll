@@ -1193,14 +1193,14 @@ entry:
   %1 = load i64, ptr %m_dim, align 8
   %sub = add i64 %1, -1
   %conv = uitofp i64 %sub to float
-  %vecinit.i = insertelement <4 x float> undef, float %conv, i64 0
+  %vecinit.i = insertelement <4 x float> poison, float %conv, i64 0
   %vecinit3.i = shufflevector <4 x float> %vecinit.i, <4 x float> poison, <4 x i32> zeroinitializer
   %cmp86 = icmp sgt i64 %numPixels, 0
   br i1 %cmp86, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
   %conv4 = trunc i64 %1 to i32
-  %vecinit.i71 = insertelement <4 x i32> undef, i32 %conv4, i64 0
+  %vecinit.i71 = insertelement <4 x i32> poison, i32 %conv4, i64 0
   %vecinit3.i74 = shufflevector <4 x i32> %vecinit.i71, <4 x i32> poison, <4 x i32> zeroinitializer
   %2 = bitcast <4 x i32> %vecinit3.i74 to <2 x i64>
   %m_optLut = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::BaseLut3DRenderer", ptr %this, i64 0, i32 1

@@ -1829,7 +1829,7 @@ for.body41.i:                                     ; preds = %if.end31.i, %if.end
 if.then45.i:                                      ; preds = %for.body41.i
   %arrayidx.i.i = getelementptr inbounds [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %72
   %73 = load <8 x i32>, ptr %arrayidx.i.i, align 32
-  %vecinit.i.i.i.i = insertelement <8 x i32> undef, i32 %row.146.i, i64 0
+  %vecinit.i.i.i.i = insertelement <8 x i32> poison, i32 %row.146.i, i64 0
   %vecinit7.i.i.i.i = shufflevector <8 x i32> %vecinit.i.i.i.i, <8 x i32> poison, <8 x i32> zeroinitializer
   %add.i.i.i.i.i121 = add <8 x i32> %73, %vecinit7.i.i.i.i
   store <8 x i32> %add.i.i.i.i.i121, ptr %result.addr.248.i, align 1
@@ -2073,7 +2073,7 @@ for.body41.i246:                                  ; preds = %if.end31.i238, %if.
 if.then45.i253:                                   ; preds = %for.body41.i246
   %arrayidx.i.i254 = getelementptr inbounds [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %97
   %98 = load <8 x i32>, ptr %arrayidx.i.i254, align 32
-  %vecinit.i.i.i.i255 = insertelement <8 x i32> undef, i32 %row.146.i249, i64 0
+  %vecinit.i.i.i.i255 = insertelement <8 x i32> poison, i32 %row.146.i249, i64 0
   %vecinit7.i.i.i.i256 = shufflevector <8 x i32> %vecinit.i.i.i.i255, <8 x i32> poison, <8 x i32> zeroinitializer
   %add.i.i.i.i.i257 = add <8 x i32> %98, %vecinit7.i.i.i.i256
   store <8 x i32> %add.i.i.i.i.i257, ptr %result.addr.248.i247, align 1

@@ -433,7 +433,7 @@ entry:
   %9 = fneg <2 x float> %6
   %10 = fcmp oge <2 x float> %8, zeroinitializer
   %11 = select <2 x i1> %10, <2 x float> %6, <2 x float> %9
-  %retval.sroa.0.0.vec.insert = insertelement <2 x float> undef, float %cond.i, i64 0
+  %retval.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %cond.i, i64 0
   %12 = shufflevector <2 x float> %retval.sroa.0.0.vec.insert, <2 x float> %11, <2 x i32> <i32 0, i32 2>
   %13 = shufflevector <2 x float> <float poison, float 0.000000e+00>, <2 x float> %11, <2 x i32> <i32 3, i32 1>
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %12, 0
@@ -457,7 +457,7 @@ entry:
   %4 = fneg <2 x float> %3
   %5 = fcmp oge <2 x float> %2, zeroinitializer
   %6 = select <2 x i1> %5, <2 x float> %3, <2 x float> %4
-  %retval.sroa.0.0.vec.insert = insertelement <2 x float> undef, float %cond.i, i64 0
+  %retval.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %cond.i, i64 0
   %7 = shufflevector <2 x float> %retval.sroa.0.0.vec.insert, <2 x float> %6, <2 x i32> <i32 0, i32 2>
   %8 = shufflevector <2 x float> <float poison, float 0.000000e+00>, <2 x float> %6, <2 x i32> <i32 3, i32 1>
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %7, 0

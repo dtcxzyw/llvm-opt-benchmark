@@ -12130,7 +12130,7 @@ if.then73:                                        ; preds = %land.lhs.true.i.i, 
   %xor.i.i.i7.i.i.i.i.i.i.i = xor i64 %shr.i.i.i6.i.i.i.i.i.i.i, %shr.i.i.i.i.i.i.i.i.i.i.i
   %42 = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i to i8
   %conv.i.i.i.i.i.i.i.i = and i8 %42, 127
-  %vecinit.i.i.i.i.i.i.i.i.i = insertelement <16 x i8> undef, i8 %conv.i.i.i.i.i.i.i.i, i64 0
+  %vecinit.i.i.i.i.i.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i.i.i.i.i.i.i, i64 0
   %vecinit15.i.i.i.i.i.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %43 = load ptr, ptr %slots_.i.i.i.i.i.i, align 8, !noalias !67
   br label %while.body.i.i.i.i.i.i.i
@@ -12511,7 +12511,7 @@ if.then73:                                        ; preds = %land.lhs.true.i.i, 
   %xor.i.i.i7.i.i.i.i.i.i.i = xor i64 %shr.i.i.i6.i.i.i.i.i.i.i, %shr.i.i.i.i.i.i.i.i.i.i.i
   %42 = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i to i8
   %conv.i.i.i.i.i.i.i.i = and i8 %42, 127
-  %vecinit.i.i.i.i.i.i.i.i.i = insertelement <16 x i8> undef, i8 %conv.i.i.i.i.i.i.i.i, i64 0
+  %vecinit.i.i.i.i.i.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i.i.i.i.i.i.i, i64 0
   %vecinit15.i.i.i.i.i.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %43 = load ptr, ptr %slots_.i.i.i.i.i.i, align 8, !noalias !85
   br label %while.body.i.i.i.i.i.i.i

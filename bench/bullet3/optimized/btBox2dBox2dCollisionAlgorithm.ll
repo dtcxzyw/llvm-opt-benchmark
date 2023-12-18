@@ -474,7 +474,7 @@ _ZL16FindIncidentEdgeP10ClipVertexPK12btBox2dShapeRK11btTransformiS3_S6_.exit: ;
   %mul.i.i.i = fmul float %62, %div.i.i
   %mul4.i.i.i = fmul float %64, %div.i.i
   %mul28 = fneg float %mul.i.i.i
-  %frontNormal.sroa.0.0.vec.insert = insertelement <2 x float> undef, float %mul4.i.i.i, i64 0
+  %frontNormal.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %mul4.i.i.i, i64 0
   %mul8.i.i.i.i63 = fmul float %xf1.sroa.6.0, %v11.sroa.0.4.vec.extract
   %69 = tail call float @llvm.fmuladd.f32(float %v11.sroa.0.0.vec.extract, float %xf1.sroa.0.0, float %mul8.i.i.i.i63)
   %70 = tail call noundef float @llvm.fmuladd.f32(float %v11.sroa.10.8.vec.extract, float %xf1.sroa.10.0, float %69)
@@ -680,7 +680,7 @@ if.end86:                                         ; preds = %_ZL17ClipSegmentToL
   br i1 %cmp92374, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end86
-  %retval.sroa.0.0.vec.insert.i186 = insertelement <2 x float> undef, float %fneg4.i, i64 0
+  %retval.sroa.0.0.vec.insert.i186 = insertelement <2 x float> poison, float %fneg4.i, i64 0
   %retval.sroa.0.4.vec.insert.i187 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i186, float %mul.i.i.i, i64 1
   %manifoldNormal.sroa.0.0 = select i1 %cmp5, <2 x float> %frontNormal.sroa.0.4.vec.insert, <2 x float> %retval.sroa.0.4.vec.insert.i187
   %134 = fneg <2 x float> %manifoldNormal.sroa.0.0

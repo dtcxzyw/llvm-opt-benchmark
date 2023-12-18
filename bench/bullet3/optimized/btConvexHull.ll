@@ -175,7 +175,7 @@ entry:
   %19 = fmul <2 x float> %8, %18
   %add.i = fadd float %1, %mul.i
   %20 = fadd <2 x float> %7, %19
-  %retval.sroa.0.0.vec.insert.i20 = insertelement <2 x float> undef, float %add.i, i64 0
+  %retval.sroa.0.0.vec.insert.i20 = insertelement <2 x float> poison, float %add.i, i64 0
   %21 = shufflevector <2 x float> %retval.sroa.0.0.vec.insert.i20, <2 x float> %20, <2 x i32> <i32 0, i32 2>
   %22 = shufflevector <2 x float> <float poison, float 0.000000e+00>, <2 x float> %20, <2 x i32> <i32 3, i32 1>
   %.fca.0.insert.i23 = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %21, 0
@@ -207,7 +207,7 @@ entry:
   %12 = fmul <2 x float> %4, %11
   %sub.i = fsub float %0, %mul.i
   %13 = fsub <2 x float> %3, %12
-  %retval.sroa.0.0.vec.insert.i5 = insertelement <2 x float> undef, float %sub.i, i64 0
+  %retval.sroa.0.0.vec.insert.i5 = insertelement <2 x float> poison, float %sub.i, i64 0
   %14 = shufflevector <2 x float> %retval.sroa.0.0.vec.insert.i5, <2 x float> %13, <2 x i32> <i32 0, i32 2>
   %15 = shufflevector <2 x float> <float poison, float 0.000000e+00>, <2 x float> %13, <2 x i32> <i32 3, i32 1>
   %.fca.0.insert.i8 = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %14, 0
@@ -2241,7 +2241,7 @@ if.end:                                           ; preds = %lor.rhs
   %24 = call float @llvm.fmuladd.f32(float %18, float 0.000000e+00, float %neg19.i.i77)
   %neg30.i.i78 = fneg float %18
   %25 = call float @llvm.fmuladd.f32(float %sub8.i, float 0xBF947AE140000000, float %neg30.i.i78)
-  %retval.sroa.0.0.vec.insert.i.i79 = insertelement <2 x float> undef, float %23, i64 0
+  %retval.sroa.0.0.vec.insert.i.i79 = insertelement <2 x float> poison, float %23, i64 0
   %retval.sroa.0.4.vec.insert.i.i80 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i79, float %24, i64 1
   %retval.sroa.3.12.vec.insert.i.i81 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %25, i64 0
   %arrayidx40 = getelementptr inbounds [3 x %class.btVector3], ptr %basis, i64 0, i64 2

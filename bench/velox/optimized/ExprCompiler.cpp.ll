@@ -4422,7 +4422,7 @@ if.then.i.i.i.i43.i:                              ; preds = %call.i.i.i.i.i.noex
   %416 = load i32, ptr %chunkMask_.i.i.i.i.i44.i, align 8, !noalias !78
   %conv.i10.i.i.i.i.i = zext i32 %416 to i64
   %conv.i26.i.i.i.i.i = trunc i64 %or.i.i.i.i.i to i8
-  %vecinit.i.i.i.i.i.i.i = insertelement <16 x i8> undef, i8 %conv.i26.i.i.i.i.i, i64 0
+  %vecinit.i.i.i.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i26.i.i.i.i.i, i64 0
   %vecinit15.i.i.i.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i.i.i.i.i.i
 
@@ -6701,7 +6701,7 @@ if.then.i.i.i.i191:                               ; preds = %call.i.i.i.i.i.noex
   %conv.i10.i.i.i.i = zext i32 %741 to i64
   %chunks_.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::exec::(anonymous namespace)::Scope", ptr %scope, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1
   %conv.i26.i.i.i.i = trunc i64 %or.i.i.i.i to i8
-  %vecinit.i.i.i.i.i.i = insertelement <16 x i8> undef, i8 %conv.i26.i.i.i.i, i64 0
+  %vecinit.i.i.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i26.i.i.i.i, i64 0
   %vecinit15.i.i.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i.i.i.i.i
 
@@ -9327,7 +9327,7 @@ entry:
   %conv.i38 = zext i32 %1 to i64
   %chunks_.i = getelementptr inbounds %"class.folly::f14::detail::F14Table", ptr %visited, i64 0, i32 1
   %conv.i19 = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i19, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i19, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i
 

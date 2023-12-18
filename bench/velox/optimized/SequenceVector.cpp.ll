@@ -2935,7 +2935,7 @@ _ZNK8facebook5velox14SequenceVectorIiE11valueAtFastEi.exit: ; preds = %do.body10
   %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 44
   %22 = load ptr, ptr %vfn.i, align 8
   %call3.i = tail call noundef i32 %22(ptr noundef nonnull align 8 dereferenceable(124) %21, i32 noundef %20)
-  %vecinit.i.i.i.i.i.i = insertelement <8 x i32> undef, i32 %call3.i, i64 0
+  %vecinit.i.i.i.i.i.i = insertelement <8 x i32> poison, i32 %call3.i, i64 0
   %vecinit7.i.i.i.i.i.i = shufflevector <8 x i32> %vecinit.i.i.i.i.i.i, <8 x i32> poison, <8 x i32> zeroinitializer
   %23 = bitcast <8 x i32> %vecinit7.i.i.i.i.i.i to <4 x i64>
   br label %return
@@ -11095,7 +11095,7 @@ if.then:                                          ; preds = %entry
   %1 = load i64, ptr %chunkMask_.i, align 8
   %2 = load ptr, ptr %this, align 8
   %conv.i26 = trunc i64 %hp.coerce1 to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i26, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i26, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %3 = load ptr, ptr %key, align 8
   br label %for.body.i

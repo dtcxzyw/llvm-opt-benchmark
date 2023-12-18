@@ -1063,7 +1063,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %259 = call float @llvm.fmuladd.f32(float %neg30.i234, float %238, float %258)
   %260 = extractelement <2 x float> %250, i64 0
   %261 = call float @llvm.fmuladd.f32(float %260, float %224, float %259)
-  %retval.sroa.3.8.vec.insert.i238 = insertelement <2 x float> undef, float %256, i64 0
+  %retval.sroa.3.8.vec.insert.i238 = insertelement <2 x float> poison, float %256, i64 0
   %retval.sroa.3.12.vec.insert.i239 = insertelement <2 x float> %retval.sroa.3.8.vec.insert.i238, float %261, i64 1
   store <2 x float> %251, ptr %ref.tmp67, align 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i239, ptr %202, align 8

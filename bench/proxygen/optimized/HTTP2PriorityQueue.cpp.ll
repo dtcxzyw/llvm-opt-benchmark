@@ -605,7 +605,7 @@ if.end.i.i:                                       ; preds = %entry
   %notmask.i.i.i = shl nsw i64 -1, %sh_prom.i.i.i
   %sub.i.i.i = xor i64 %notmask.i.i.i, -1
   %conv.i19.i.i = trunc i64 %or.i.i.i to i8
-  %vecinit.i.i.i.i = insertelement <16 x i8> undef, i8 %conv.i19.i.i, i64 0
+  %vecinit.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i19.i.i, i64 0
   %vecinit15.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i.i.i
 
@@ -3114,7 +3114,7 @@ if.end.i:                                         ; preds = %entry
   %notmask.i.i = shl nsw i64 -1, %sh_prom.i.i.i
   %sub.i.i = xor i64 %notmask.i.i, -1
   %conv.i28.i = trunc i64 %or.i.i to i8
-  %vecinit.i.i.i = insertelement <16 x i8> undef, i8 %conv.i28.i, i64 0
+  %vecinit.i.i.i = insertelement <16 x i8> poison, i8 %conv.i28.i, i64 0
   %vecinit15.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i.i.i
 
@@ -3239,7 +3239,7 @@ if.end:                                           ; preds = %entry
   %notmask.i = shl nsw i64 -1, %sh_prom.i.i
   %sub.i = xor i64 %notmask.i, -1
   %conv.i28 = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i28, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i28, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i.i
 
@@ -3511,7 +3511,7 @@ if.end.i:                                         ; preds = %if.then
   %notmask.i.i = shl nsw i64 -1, %sh_prom.i.i.i
   %sub.i.i = xor i64 %notmask.i.i, -1
   %conv.i28.i = trunc i64 %or.i.i to i8
-  %vecinit.i.i.i = insertelement <16 x i8> undef, i8 %conv.i28.i, i64 0
+  %vecinit.i.i.i = insertelement <16 x i8> poison, i8 %conv.i28.i, i64 0
   %vecinit15.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i.i.i
 
@@ -3670,7 +3670,7 @@ if.end.i44:                                       ; preds = %if.end78
   %notmask.i.i61 = shl nsw i64 -1, %sh_prom.i.i.i60
   %sub.i.i62 = xor i64 %notmask.i.i61, -1
   %conv.i28.i63 = trunc i64 %or.i.i55 to i8
-  %vecinit.i.i.i64 = insertelement <16 x i8> undef, i8 %conv.i28.i63, i64 0
+  %vecinit.i.i.i64 = insertelement <16 x i8> poison, i8 %conv.i28.i63, i64 0
   %vecinit15.i.i.i65 = shufflevector <16 x i8> %vecinit.i.i.i64, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i.i.i66
 
@@ -4286,7 +4286,7 @@ if.end.i36:                                       ; preds = %if.end50
   %notmask.i.i = shl nsw i64 -1, %sh_prom.i.i.i
   %sub.i.i = xor i64 %notmask.i.i, -1
   %conv.i28.i = trunc i64 %or.i.i to i8
-  %vecinit.i.i.i = insertelement <16 x i8> undef, i8 %conv.i28.i, i64 0
+  %vecinit.i.i.i = insertelement <16 x i8> poison, i8 %conv.i28.i, i64 0
   %vecinit15.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i.i.i
 
@@ -4854,7 +4854,7 @@ if.end.i.i:                                       ; preds = %while.body30
   %notmask.i.i.i = shl nsw i64 -1, %sh_prom.i.i.i.i
   %sub.i.i.i = xor i64 %notmask.i.i.i, -1
   %conv.i28.i.i = trunc i64 %or.i.i.i to i8
-  %vecinit.i.i.i.i = insertelement <16 x i8> undef, i8 %conv.i28.i.i, i64 0
+  %vecinit.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i28.i.i, i64 0
   %vecinit15.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i.i.i.i
 
@@ -6888,7 +6888,7 @@ if.then:                                          ; preds = %entry
   %notmask.i = shl nsw i64 -1, %sh_prom.i
   %sub.i = xor i64 %notmask.i, -1
   %conv.i = trunc i64 %hp.coerce1 to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %1 = load i64, ptr %key, align 8
   br label %for.body.i

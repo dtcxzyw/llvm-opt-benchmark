@@ -830,7 +830,7 @@ _ZNK5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__c
   %6 = load i64, ptr %sizeAndChunkShiftAndPackedBegin_.i, align 8
   %chunks_.i = getelementptr inbounds %"class.proxygen::HeaderTable", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 0, i32 1
   %conv.i21 = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i21, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i21, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i
 

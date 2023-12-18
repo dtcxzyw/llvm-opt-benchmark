@@ -2133,7 +2133,7 @@ call2.i.noexc:                                    ; preds = %if.end
   %chunks_.i = getelementptr inbounds %"class.facebook::velox::cache::SsdFile", ptr %this, i64 0, i32 12, i32 0, i32 0, i32 0, i32 1
   %8 = load ptr, ptr %chunks_.i, align 8
   %conv.i19 = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i19, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i19, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %9 = load ptr, ptr %entries_, align 8
   br label %call6.i.noexc
@@ -2304,7 +2304,7 @@ call2.i.noexc:                                    ; preds = %entry
   %chunks_.i = getelementptr inbounds %"class.facebook::velox::cache::SsdFile", ptr %this, i64 0, i32 12, i32 0, i32 0, i32 0, i32 1
   %3 = load ptr, ptr %chunks_.i, align 8
   %conv.i54 = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i54, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i54, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %4 = load ptr, ptr %entries_, align 8
   br label %call6.i.noexc
@@ -3029,7 +3029,7 @@ call2.i.noexc:                                    ; preds = %for.cond.i.i.i.i.i,
   %conv.i = zext i32 %19 to i64
   %20 = load ptr, ptr %chunks_.i, align 8
   %conv.i34 = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i34, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i34, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %call6.i.noexc81
 
@@ -3886,7 +3886,7 @@ if.then.i114:                                     ; preds = %_ZN8facebook5velox5
   %add.i24.i = or disjoint i64 %mul.i.i115, 1
   %conv.i.i = zext i32 %.pre to i64
   %conv.i25.i = trunc i64 %or.i.i.i.i to i8
-  %vecinit.i.i.i = insertelement <16 x i8> undef, i8 %conv.i25.i, i64 0
+  %vecinit.i.i.i = insertelement <16 x i8> poison, i8 %conv.i25.i, i64 0
   %vecinit15.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %56 = load ptr, ptr %entries_, align 8, !noalias !31
   br label %for.body.i.i
@@ -6012,7 +6012,7 @@ call2.i.noexc:                                    ; preds = %entry
   %chunks_.i = getelementptr inbounds %"class.facebook::velox::StringIdMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
   %2 = load ptr, ptr %chunks_.i, align 8
   %conv.i17 = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i17, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i17, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %3 = load ptr, ptr %idToString_, align 8
   br label %call6.i.noexc
@@ -8443,7 +8443,7 @@ if.then:                                          ; preds = %_ZNSt16allocator_tr
   %chunks_.i = getelementptr inbounds %"class.folly::f14::detail::F14Table", ptr %this, i64 0, i32 1
   %13 = load ptr, ptr %chunks_.i, align 8
   %conv.i24 = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i24, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i24, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.cond.i
 
@@ -9832,7 +9832,7 @@ if.then:                                          ; preds = %entry
   %chunks_.i = getelementptr inbounds %"class.folly::f14::detail::F14Table", ptr %this, i64 0, i32 1
   %2 = load ptr, ptr %chunks_.i, align 8
   %conv.i25 = trunc i64 %hp.coerce1 to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i25, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i25, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %3 = load ptr, ptr %this, align 8
   %id_.i.i.i.i = getelementptr inbounds %"class.facebook::velox::StringIdLease", ptr %key, i64 0, i32 1

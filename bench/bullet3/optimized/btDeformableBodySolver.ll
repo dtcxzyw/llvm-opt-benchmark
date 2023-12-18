@@ -10104,7 +10104,7 @@ if.then12.i:                                      ; preds = %if.else.i
 
 if.else17.i:                                      ; preds = %if.else.i
   %fneg20.i = fneg float %120
-  %retval.sroa.0.0.vec.insert25.i = insertelement <2 x float> undef, float %fneg20.i, i64 0
+  %retval.sroa.0.0.vec.insert25.i = insertelement <2 x float> poison, float %fneg20.i, i64 0
   %retval.sroa.0.4.vec.insert32.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert25.i, float %119, i64 1
   %.pre = fneg float %121
   br label %invoke.cont86
@@ -10138,7 +10138,7 @@ invoke.cont86:                                    ; preds = %if.then.i, %if.then
   %137 = fneg float %120
   %neg30.i.i = fmul float %135, %137
   %138 = call float @llvm.fmuladd.f32(float %119, float %132, float %neg30.i.i)
-  %retval.sroa.0.0.vec.insert.i.i100 = insertelement <2 x float> undef, float %133, i64 0
+  %retval.sroa.0.0.vec.insert.i.i100 = insertelement <2 x float> poison, float %133, i64 0
   %retval.sroa.0.4.vec.insert.i.i101 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i100, float %136, i64 1
   %retval.sroa.3.12.vec.insert.i.i102 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %138, i64 0
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i101, ptr %t2, align 8
@@ -13139,7 +13139,7 @@ if.then5:                                         ; preds = %if.then
   %cmp.i10.i15.i = fcmp olt float %points.sroa.4.0.copyload, 0.000000e+00
   %ref.tmp11.sroa.17.1 = select i1 %cmp.i10.i15.i, float 0.000000e+00, float %points.sroa.4.0.copyload
   %sub13.i.i = fsub float %ref.tmp11.sroa.6.1, %cond
-  %6 = insertelement <2 x float> undef, float %sub13.i.i, i64 0
+  %6 = insertelement <2 x float> poison, float %sub13.i.i, i64 0
   %vol.sroa.8.8.vec.insert = insertelement <2 x float> %6, float %ref.tmp11.sroa.8.1, i64 1
   %7 = load <2 x float>, ptr %m_x, align 8
   %8 = load <2 x float>, ptr %m_v, align 4
@@ -13156,7 +13156,7 @@ if.then5:                                         ; preds = %if.then
   %19 = fsub <2 x float> %16, %18
   %20 = fadd <2 x float> %18, %14
   %add13.i.i = fadd float %cond, %ref.tmp11.sroa.15.1
-  %21 = insertelement <2 x float> undef, float %add13.i.i, i64 0
+  %21 = insertelement <2 x float> poison, float %add13.i.i, i64 0
   %vol.sroa.20.24.vec.insert = insertelement <2 x float> %21, float %ref.tmp11.sroa.17.1, i64 1
   br label %if.end
 

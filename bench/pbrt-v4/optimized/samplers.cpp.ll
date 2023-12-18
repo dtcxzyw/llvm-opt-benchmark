@@ -3431,7 +3431,7 @@ entry:
   %8 = load ptr, ptr %ptr.i.i, align 8
   %arrayidx.i.i9 = getelementptr inbounds %"struct.pbrt::MLTSampler::PrimarySample", ptr %8, i64 %conv.i7
   %9 = load float, ptr %arrayidx.i.i9, align 8
-  %retval.sroa.0.0.vec.insert = insertelement <2 x float> undef, float %4, i64 0
+  %retval.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %4, i64 0
   %retval.sroa.0.4.vec.insert = insertelement <2 x float> %retval.sroa.0.0.vec.insert, float %9, i64 1
   ret <2 x float> %retval.sroa.0.4.vec.insert
 }
@@ -3467,7 +3467,7 @@ entry:
   %8 = load ptr, ptr %ptr.i.i.i, align 8
   %arrayidx.i.i9.i = getelementptr inbounds %"struct.pbrt::MLTSampler::PrimarySample", ptr %8, i64 %conv.i7.i
   %9 = load float, ptr %arrayidx.i.i9.i, align 8
-  %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> undef, float %4, i64 0
+  %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %4, i64 0
   %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %9, i64 1
   ret <2 x float> %retval.sroa.0.4.vec.insert.i
 }

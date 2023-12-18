@@ -123,7 +123,7 @@ invoke.cont24:                                    ; preds = %invoke.cont8
   %20 = call float @llvm.fmuladd.f32(float %ref.tmp7.sroa.3.12.vec.extract, float %ref.tmp13.sroa.3.12.vec.extract, float %neg37.i)
   %21 = call float @llvm.fmuladd.f32(float %17, float %ref.tmp13.sroa.0.4.vec.extract, float %20)
   %22 = call float @llvm.fmuladd.f32(float %ref.tmp7.sroa.3.8.vec.extract, float %ref.tmp13.sroa.3.8.vec.extract, float %21)
-  %retval.sroa.3.8.vec.insert.i15 = insertelement <2 x float> undef, float %18, i64 0
+  %retval.sroa.3.8.vec.insert.i15 = insertelement <2 x float> poison, float %18, i64 0
   %retval.sroa.3.12.vec.insert.i16 = insertelement <2 x float> %retval.sroa.3.8.vec.insert.i15, float %22, i64 1
   store <2 x float> %12, ptr %m_relTargetAB, align 16
   %ref.tmp.sroa.2.0.m_relTargetAB29.sroa_idx = getelementptr inbounds %class.b3FixedConstraint, ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i64 2

@@ -527,7 +527,7 @@ sw.bb2.i:                                         ; preds = %sw.epilog.sw.bb2.i_
 
 if.then.i61:                                      ; preds = %sw.bb2.i
   %mul.i.i = fneg float %35
-  %retval.sroa.0.0.vec.insert.i11.i = insertelement <2 x float> undef, float %mul.i.i, i64 0
+  %retval.sroa.0.0.vec.insert.i11.i = insertelement <2 x float> poison, float %mul.i.i, i64 0
   %39 = shufflevector <2 x float> %retval.sroa.0.0.vec.insert.i11.i, <2 x float> %32, <2 x i32> <i32 0, i32 2>
   br label %_ZNK9b2Simplex18GetSearchDirectionEv.exit
 

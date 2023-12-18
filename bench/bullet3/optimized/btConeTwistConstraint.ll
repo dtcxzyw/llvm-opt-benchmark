@@ -5588,7 +5588,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit.i: ; preds = %if.else.i.i, %if.th
   %n.sroa.0.0.i = phi float [ 0.000000e+00, %if.then.i.i ], [ %mul58.i.i, %if.else.i.i ]
   %n.sroa.4.0.i = phi float [ %mul.i.i, %if.then.i.i ], [ %mul63.i.i, %if.else.i.i ]
   %n.sroa.8.0.i = phi float [ %mul20.i.i, %if.then.i.i ], [ 0.000000e+00, %if.else.i.i ]
-  %retval.sroa.0.0.vec.insert.i256 = insertelement <2 x float> undef, float %n.sroa.0.0.i, i64 0
+  %retval.sroa.0.0.vec.insert.i256 = insertelement <2 x float> poison, float %n.sroa.0.0.i, i64 0
   %retval.sroa.0.4.vec.insert.i257 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i256, float %n.sroa.4.0.i, i64 1
   %retval.sroa.5.12.vec.insert.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %n.sroa.8.0.i, i64 0
   br label %_Z15shortestArcQuatRK9btVector3S1_.exit
@@ -5611,7 +5611,7 @@ if.end.i:                                         ; preds = %if.then117
   %199 = insertelement <2 x float> %198, float %call.i.i, i64 1
   %200 = insertelement <2 x float> <float poison, float 5.000000e-01>, float %div.i251, i64 0
   %201 = fmul <2 x float> %199, %200
-  %retval.sroa.0.0.vec.insert24.i = insertelement <2 x float> undef, float %mul8.i252, i64 0
+  %retval.sroa.0.0.vec.insert24.i = insertelement <2 x float> poison, float %mul8.i252, i64 0
   %retval.sroa.0.4.vec.insert26.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert24.i, float %mul11.i, i64 1
   br label %_Z15shortestArcQuatRK9btVector3S1_.exit
 
@@ -6033,7 +6033,7 @@ if.end:                                           ; preds = %entry.if.end_crit_e
   %45 = shufflevector <2 x float> %22, <2 x float> %42, <2 x i32> <i32 1, i32 2>
   %46 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %44, <2 x float> %45, <2 x float> %43)
   %47 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %23, <2 x float> %13, <2 x float> %46)
-  %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> undef, float %35, i64 0
+  %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %35, i64 0
   %48 = shufflevector <2 x float> %retval.sroa.0.0.vec.insert.i, <2 x float> %47, <2 x i32> <i32 0, i32 2>
   %49 = shufflevector <2 x float> <float poison, float 0.000000e+00>, <2 x float> %47, <2 x i32> <i32 3, i32 1>
   %.fca.0.insert.i = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %48, 0
@@ -6397,7 +6397,7 @@ if.then.i71:                                      ; preds = %if.then32
   %124 = extractelement <2 x float> %103, i64 0
   %fneg7.i.i = fneg float %124
   %fneg9.i.i = fneg float %122
-  %retval.sroa.3.8.vec.insert.i.i = insertelement <2 x float> undef, float %fneg7.i.i, i64 0
+  %retval.sroa.3.8.vec.insert.i.i = insertelement <2 x float> poison, float %fneg7.i.i, i64 0
   %retval.sroa.3.12.vec.insert.i.i = insertelement <2 x float> %retval.sroa.3.8.vec.insert.i.i, float %fneg9.i.i, i64 1
   %cmp.i.i10.i = fcmp olt float %fneg9.i.i, -1.000000e+00
   %x.addr.0.i.i11.i = select i1 %cmp.i.i10.i, float -1.000000e+00, float %fneg9.i.i

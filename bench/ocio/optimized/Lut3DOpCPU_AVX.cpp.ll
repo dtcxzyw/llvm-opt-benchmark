@@ -34,19 +34,19 @@ entry:
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ref.tmp65.i)
   %conv.i = sitofp i32 %dim to float
   %sub.i = fadd float %conv.i, -1.000000e+00
-  %vecinit.i.i = insertelement <8 x float> undef, float %sub.i, i64 0
+  %vecinit.i.i = insertelement <8 x float> poison, float %sub.i, i64 0
   %vecinit7.i.i = shufflevector <8 x float> %vecinit.i.i, <8 x float> poison, <8 x i32> zeroinitializer
   store ptr %lut3d, ptr %ctx.i, align 32
   %lutmax3.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::Lut3DContextAVX", ptr %ctx.i, i64 0, i32 1
   store <8 x float> %vecinit7.i.i, ptr %lutmax3.i, align 32
   %mul.i = fmul float %conv.i, 4.000000e+00
-  %vecinit.i170.i = insertelement <8 x float> undef, float %mul.i, i64 0
+  %vecinit.i170.i = insertelement <8 x float> poison, float %mul.i, i64 0
   %vecinit7.i177.i = shufflevector <8 x float> %vecinit.i170.i, <8 x float> poison, <8 x i32> zeroinitializer
   %lutsize.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::Lut3DContextAVX", ptr %ctx.i, i64 0, i32 2
   store <8 x float> %vecinit7.i177.i, ptr %lutsize.i, align 32
   %mul8.i = fmul float %conv.i, %conv.i
   %mul9.i = fmul float %mul8.i, 4.000000e+00
-  %vecinit.i187.i = insertelement <8 x float> undef, float %mul9.i, i64 0
+  %vecinit.i187.i = insertelement <8 x float> poison, float %mul9.i, i64 0
   %vecinit7.i194.i = shufflevector <8 x float> %vecinit.i187.i, <8 x float> poison, <8 x i32> zeroinitializer
   %lutsize2.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::Lut3DContextAVX", ptr %ctx.i, i64 0, i32 3
   store <8 x float> %vecinit7.i194.i, ptr %lutsize2.i, align 32

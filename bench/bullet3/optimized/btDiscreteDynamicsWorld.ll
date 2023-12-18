@@ -6595,13 +6595,13 @@ if.then542:                                       ; preds = %if.end540
   %vfn569 = getelementptr inbounds ptr, ptr %vtable568, i64 4
   %716 = load ptr, ptr %vfn569, align 8
   call void %716(ptr noundef nonnull align 8 dereferenceable(8) %call563, ptr noundef nonnull align 4 dereferenceable(16) %li_min, ptr noundef nonnull align 4 dereferenceable(16) %li_max, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp564)
-  %retval.sroa.0.0.vec.insert.i911 = insertelement <2 x float> undef, float %tr543.sroa.0.0.copyload, i64 0
+  %retval.sroa.0.0.vec.insert.i911 = insertelement <2 x float> poison, float %tr543.sroa.0.0.copyload, i64 0
   %retval.sroa.0.4.vec.insert.i912 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i911, float %tr543.sroa.9936.16.copyload, i64 1
   %retval.sroa.3.12.vec.insert.i913 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %tr543.sroa.18942.32.copyload, i64 0
   store <2 x float> %retval.sroa.0.4.vec.insert.i912, ptr %normal570, align 8
   %717 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %normal570, i64 0, i32 1
   store <2 x float> %retval.sroa.3.12.vec.insert.i913, ptr %717, align 8
-  %retval.sroa.0.0.vec.insert.i921 = insertelement <2 x float> undef, float %tr543.sroa.4.0.copyload, i64 0
+  %retval.sroa.0.0.vec.insert.i921 = insertelement <2 x float> poison, float %tr543.sroa.4.0.copyload, i64 0
   %retval.sroa.0.4.vec.insert.i922 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i921, float %tr543.sroa.13.16.copyload, i64 1
   %retval.sroa.3.12.vec.insert.i923 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %tr543.sroa.22.32.copyload, i64 0
   store <2 x float> %retval.sroa.0.4.vec.insert.i922, ptr %axis574, align 8

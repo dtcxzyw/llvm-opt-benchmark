@@ -68,7 +68,7 @@ entry:
   %out_buf = alloca [32 x i8], align 16
   %conv = sitofp i32 %dim to float
   %sub = fadd float %conv, -1.000000e+00
-  %vecinit.i = insertelement <8 x float> undef, float %sub, i64 0
+  %vecinit.i = insertelement <8 x float> poison, float %sub, i64 0
   %vecinit7.i = shufflevector <8 x float> %vecinit.i, <8 x float> poison, <8 x i32> zeroinitializer
   %div = sdiv i64 %numPixels, 8
   %div.tr = trunc i64 %div to i32
@@ -368,7 +368,7 @@ entry:
   %out_buf = alloca [32 x i16], align 16
   %conv = sitofp i32 %dim to float
   %sub = fadd float %conv, -1.000000e+00
-  %vecinit.i = insertelement <8 x float> undef, float %sub, i64 0
+  %vecinit.i = insertelement <8 x float> poison, float %sub, i64 0
   %vecinit7.i = shufflevector <8 x float> %vecinit.i, <8 x float> poison, <8 x i32> zeroinitializer
   %div = sdiv i64 %numPixels, 8
   %div.tr = trunc i64 %div to i32
@@ -685,7 +685,7 @@ entry:
   %out_buf = alloca [32 x i16], align 16
   %conv = sitofp i32 %dim to float
   %sub = fadd float %conv, -1.000000e+00
-  %vecinit.i = insertelement <8 x float> undef, float %sub, i64 0
+  %vecinit.i = insertelement <8 x float> poison, float %sub, i64 0
   %vecinit7.i = shufflevector <8 x float> %vecinit.i, <8 x float> poison, <8 x i32> zeroinitializer
   %div = sdiv i64 %numPixels, 8
   %div.tr = trunc i64 %div to i32
@@ -1002,7 +1002,7 @@ entry:
   %out_buf = alloca [32 x i16], align 16
   %conv = sitofp i32 %dim to float
   %sub = fadd float %conv, -1.000000e+00
-  %vecinit.i = insertelement <8 x float> undef, float %sub, i64 0
+  %vecinit.i = insertelement <8 x float> poison, float %sub, i64 0
   %vecinit7.i = shufflevector <8 x float> %vecinit.i, <8 x float> poison, <8 x i32> zeroinitializer
   %div = sdiv i64 %numPixels, 8
   %div.tr = trunc i64 %div to i32
@@ -1321,7 +1321,7 @@ entry:
   %out_buf = alloca [32 x %"class.Imath_3_1::half"], align 16
   %conv = sitofp i32 %dim to float
   %sub = fadd float %conv, -1.000000e+00
-  %vecinit.i = insertelement <8 x float> undef, float %sub, i64 0
+  %vecinit.i = insertelement <8 x float> poison, float %sub, i64 0
   %vecinit7.i = shufflevector <8 x float> %vecinit.i, <8 x float> poison, <8 x i32> zeroinitializer
   %div = sdiv i64 %numPixels, 8
   %div.tr = trunc i64 %div to i32
@@ -1572,7 +1572,7 @@ entry:
   %out_buf = alloca [32 x float], align 16
   %conv = sitofp i32 %dim to float
   %sub = fadd float %conv, -1.000000e+00
-  %vecinit.i = insertelement <8 x float> undef, float %sub, i64 0
+  %vecinit.i = insertelement <8 x float> poison, float %sub, i64 0
   %vecinit7.i = shufflevector <8 x float> %vecinit.i, <8 x float> poison, <8 x i32> zeroinitializer
   %div = sdiv i64 %numPixels, 8
   %div.tr = trunc i64 %div to i32

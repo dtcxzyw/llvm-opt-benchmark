@@ -21,7 +21,7 @@ entry:
   br i1 %tobool.not, label %arrayctor.loop.preheader, label %if.then
 
 arrayctor.loop.preheader:                         ; preds = %entry
-  %key.sroa.0.0.vec.insert = insertelement <2 x i64> undef, i64 %key.coerce0.fr, i64 0
+  %key.sroa.0.0.vec.insert = insertelement <2 x i64> poison, i64 %key.coerce0.fr, i64 0
   %3 = ptrtoint ptr %key.coerce1 to i64
   %key.sroa.0.8.vec.insert = insertelement <2 x i64> %key.sroa.0.0.vec.insert, i64 %3, i64 1
   %key2.sroa.0.0.vec.expand = shufflevector <2 x i64> %key.sroa.0.8.vec.insert, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
@@ -39,7 +39,7 @@ if.then.for.cond.preheader.i_crit_edge:           ; preds = %if.then
   br label %for.cond.preheader.i
 
 for.body.lr.ph:                                   ; preds = %if.then
-  %vecinit.i.i.i = insertelement <4 x i64> undef, i64 %key.coerce0.fr, i64 0
+  %vecinit.i.i.i = insertelement <4 x i64> poison, i64 %key.coerce0.fr, i64 0
   %vecinit3.i.i.i = shufflevector <4 x i64> %vecinit.i.i.i, <4 x i64> poison, <4 x i32> zeroinitializer
   %cmp7.i = icmp sgt i32 %conv, 0
   %4 = zext nneg i32 %1 to i64

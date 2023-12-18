@@ -196,7 +196,7 @@ invoke.cont:                                      ; preds = %for.body.i
   %17 = fneg float %8
   %neg14.i.i = fmul float %sideA.sroa.0.0.vec.extract43.i, %17
   %18 = call float @llvm.fmuladd.f32(float %9, float %sideA.sroa.0.4.vec.extract50.i, float %neg14.i.i)
-  %retval.sroa.0.0.vec.insert.i.i = insertelement <2 x float> undef, float %15, i64 0
+  %retval.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %15, i64 0
   %retval.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i, float %16, i64 1
   %mul4.i.i.i.i = fmul float %16, %16
   %19 = call float @llvm.fmuladd.f32(float %15, float %15, float %mul4.i.i.i.i)
@@ -793,7 +793,7 @@ entry:
   %10 = fneg float %1
   %neg14.i = fmul float %sideA.sroa.0.0.vec.extract43, %10
   %11 = tail call float @llvm.fmuladd.f32(float %2, float %sideA.sroa.0.4.vec.extract50, float %neg14.i)
-  %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> undef, float %8, i64 0
+  %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %8, i64 0
   %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %9, i64 1
   %mul4.i.i.i = fmul float %9, %9
   %12 = tail call float @llvm.fmuladd.f32(float %8, float %8, float %mul4.i.i.i)

@@ -208,7 +208,7 @@ sw.epilog:                                        ; preds = %entry.sw.epilog_cri
   %mul.i.i = fmul float %add.i, 5.000000e-01
   %mul4.i.i = fmul float %add8.i, 5.000000e-01
   %mul8.i.i = fmul float %add14.i, 5.000000e-01
-  %retval.sroa.0.0.vec.insert.i.i = insertelement <2 x float> undef, float %mul.i.i, i64 0
+  %retval.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %mul.i.i, i64 0
   %retval.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i, float %mul4.i.i, i64 1
   %retval.sroa.3.12.vec.insert.i.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %mul8.i.i, i64 0
   %m_localOrigin = getelementptr inbounds %class.btHeightfieldTerrainShape, ptr %this, i64 0, i32 3
@@ -1226,7 +1226,7 @@ if.else6.i491.us:                                 ; preds = %_ZNK25btHeightfield
 
 if.else9.i493.us:                                 ; preds = %if.else6.i491.us
   %cmp10.i494.us = fcmp ogt float %154, %155
-  %retval.sroa.0.0.vec.insert33.i495.us = insertelement <2 x float> undef, float %153, i64 0
+  %retval.sroa.0.0.vec.insert33.i495.us = insertelement <2 x float> poison, float %153, i64 0
   br i1 %cmp10.i494.us, label %if.then11.i499.us, label %if.else12.i496.us
 
 if.else12.i496.us:                                ; preds = %if.else9.i493.us
@@ -1238,7 +1238,7 @@ if.then11.i499.us:                                ; preds = %if.else9.i493.us
   br label %_ZL11minmaxRangefff.exit516.us
 
 if.then8.i501.us:                                 ; preds = %if.else6.i491.us
-  %retval.sroa.0.0.vec.insert31.i502.us = insertelement <2 x float> undef, float %155, i64 0
+  %retval.sroa.0.0.vec.insert31.i502.us = insertelement <2 x float> poison, float %155, i64 0
   %retval.sroa.0.4.vec.insert41.i503.us = insertelement <2 x float> %retval.sroa.0.0.vec.insert31.i502.us, float %154, i64 1
   br label %_ZL11minmaxRangefff.exit516.us
 
@@ -1248,7 +1248,7 @@ if.then.i504.us:                                  ; preds = %_ZNK25btHeightfield
 
 if.else.i506.us:                                  ; preds = %if.then.i504.us
   %cmp3.i507.us = fcmp ogt float %153, %155
-  %retval.sroa.0.0.vec.insert27.i508.us = insertelement <2 x float> undef, float %154, i64 0
+  %retval.sroa.0.0.vec.insert27.i508.us = insertelement <2 x float> poison, float %154, i64 0
   br i1 %cmp3.i507.us, label %if.then4.i511.us, label %if.else5.i509.us
 
 if.else5.i509.us:                                 ; preds = %if.else.i506.us
@@ -1260,7 +1260,7 @@ if.then4.i511.us:                                 ; preds = %if.else.i506.us
   br label %_ZL11minmaxRangefff.exit516.us
 
 if.then2.i513.us:                                 ; preds = %if.then.i504.us
-  %retval.sroa.0.0.vec.insert.i514.us = insertelement <2 x float> undef, float %155, i64 0
+  %retval.sroa.0.0.vec.insert.i514.us = insertelement <2 x float> poison, float %155, i64 0
   %retval.sroa.0.4.vec.insert.i515.us = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i514.us, float %153, i64 1
   br label %_ZL11minmaxRangefff.exit516.us
 
@@ -1601,7 +1601,7 @@ if.else6.i.us:                                    ; preds = %_ZNK25btHeightfield
 
 if.else9.i.us:                                    ; preds = %if.else6.i.us
   %cmp10.i.us = fcmp ogt float %285, %286
-  %retval.sroa.0.0.vec.insert33.i.us = insertelement <2 x float> undef, float %284, i64 0
+  %retval.sroa.0.0.vec.insert33.i.us = insertelement <2 x float> poison, float %284, i64 0
   br i1 %cmp10.i.us, label %if.then11.i.us, label %if.else12.i.us
 
 if.else12.i.us:                                   ; preds = %if.else9.i.us
@@ -1613,7 +1613,7 @@ if.then11.i.us:                                   ; preds = %if.else9.i.us
   br label %_ZL11minmaxRangefff.exit.us
 
 if.then8.i.us:                                    ; preds = %if.else6.i.us
-  %retval.sroa.0.0.vec.insert31.i.us = insertelement <2 x float> undef, float %286, i64 0
+  %retval.sroa.0.0.vec.insert31.i.us = insertelement <2 x float> poison, float %286, i64 0
   %retval.sroa.0.4.vec.insert41.i.us = insertelement <2 x float> %retval.sroa.0.0.vec.insert31.i.us, float %285, i64 1
   br label %_ZL11minmaxRangefff.exit.us
 
@@ -1623,7 +1623,7 @@ if.then.i.us:                                     ; preds = %_ZNK25btHeightfield
 
 if.else.i.us:                                     ; preds = %if.then.i.us
   %cmp3.i.us = fcmp ogt float %284, %286
-  %retval.sroa.0.0.vec.insert27.i.us = insertelement <2 x float> undef, float %285, i64 0
+  %retval.sroa.0.0.vec.insert27.i.us = insertelement <2 x float> poison, float %285, i64 0
   br i1 %cmp3.i.us, label %if.then4.i.us, label %if.else5.i.us
 
 if.else5.i.us:                                    ; preds = %if.else.i.us
@@ -1635,7 +1635,7 @@ if.then4.i.us:                                    ; preds = %if.else.i.us
   br label %_ZL11minmaxRangefff.exit.us
 
 if.then2.i.us:                                    ; preds = %if.then.i.us
-  %retval.sroa.0.0.vec.insert.i259.us = insertelement <2 x float> undef, float %286, i64 0
+  %retval.sroa.0.0.vec.insert.i259.us = insertelement <2 x float> poison, float %286, i64 0
   %retval.sroa.0.4.vec.insert.i260.us = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i259.us, float %284, i64 1
   br label %_ZL11minmaxRangefff.exit.us
 

@@ -1536,7 +1536,7 @@ if.end4.i.i:                                      ; preds = %if.then.i.i.i70.i, 
   %106 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !25
   %107 = trunc i128 %xor.i.i.i.i.i.i.i to i8
   %conv.i.i2.i.i.i.i = and i8 %107, 127
-  %vecinit.i.i.i.i.i.i.i = insertelement <16 x i8> undef, i8 %conv.i.i2.i.i.i.i, i64 0
+  %vecinit.i.i.i.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i2.i.i.i.i, i64 0
   %vecinit15.i.i.i.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %while.body.i.i.i.i.i
 
@@ -2092,7 +2092,7 @@ if.end.i.i:                                       ; preds = %.noexc244
   %177 = load ptr, ptr %slots_.i.i.i.i.i.i105.i, align 8, !noalias !54
   %178 = trunc i128 %xor.i.i.i.i.i.i99.i to i8
   %conv.i.i2.i.i.i106.i = and i8 %178, 127
-  %vecinit.i.i.i.i.i.i107.i = insertelement <16 x i8> undef, i8 %conv.i.i2.i.i.i106.i, i64 0
+  %vecinit.i.i.i.i.i.i107.i = insertelement <16 x i8> poison, i8 %conv.i.i2.i.i.i106.i, i64 0
   %vecinit15.i.i.i.i.i.i108.i = shufflevector <16 x i8> %vecinit.i.i.i.i.i.i107.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %while.body.i.i.i.i109.i
 
@@ -2464,7 +2464,7 @@ if.then1.i.i:                                     ; preds = %if.end.i181.i
   %221 = load ptr, ptr %slots_.i.i.i.i.i.i196.i, align 8, !noalias !74
   %222 = trunc i128 %xor.i.i.i.i.i.i190.i to i8
   %conv.i.i2.i.i.i197.i = and i8 %222, 127
-  %vecinit.i.i.i.i.i.i198.i = insertelement <16 x i8> undef, i8 %conv.i.i2.i.i.i197.i, i64 0
+  %vecinit.i.i.i.i.i.i198.i = insertelement <16 x i8> poison, i8 %conv.i.i2.i.i.i197.i, i64 0
   %vecinit15.i.i.i.i.i.i199.i = shufflevector <16 x i8> %vecinit.i.i.i.i.i.i198.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %while.body.i.i.i.i200.i
 
@@ -4034,7 +4034,7 @@ land.end:                                         ; preds = %if.end, %if.then3
   %11 = load ptr, ptr %slots_.i.i.i.i.i, align 8
   %12 = trunc i128 %xor.i.i.i.i.i to i8
   %conv.i.i2.i.i = and i8 %12, 127
-  %vecinit.i.i.i.i.i = insertelement <16 x i8> undef, i8 %conv.i.i2.i.i, i64 0
+  %vecinit.i.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i2.i.i, i64 0
   %vecinit15.i.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %while.body.i.i.i
 

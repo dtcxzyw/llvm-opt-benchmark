@@ -1379,7 +1379,7 @@ if.then:                                          ; preds = %entry
   %agg.tmp26.sroa.2.0.insert.shift = shl nuw i64 %agg.tmp26.sroa.2.0.insert.ext, 32
   %agg.tmp26.sroa.0.0.insert.insert = or disjoint i64 %agg.tmp26.sroa.2.0.insert.shift, %agg.tmp26.sroa.2.0.insert.ext
   %call31 = tail call noundef float @_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE(ptr noundef nonnull align 8 dereferenceable(152) %arrayidx.i18, i64 %st.coerce, i32 noundef 2, i64 %agg.tmp26.sroa.0.0.insert.insert)
-  %retval.sroa.0.0.vec.insert = insertelement <2 x float> undef, float %call11, i64 0
+  %retval.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %call11, i64 0
   %retval.sroa.0.4.vec.insert = insertelement <2 x float> %retval.sroa.0.0.vec.insert, float %call21, i64 1
   br label %return
 
@@ -1400,7 +1400,7 @@ do.end39:                                         ; preds = %do.body32
   %agg.tmp44.sroa.2.0.insert.shift = shl nuw i64 %agg.tmp44.sroa.2.0.insert.ext, 32
   %agg.tmp44.sroa.0.0.insert.insert = or disjoint i64 %agg.tmp44.sroa.2.0.insert.shift, %agg.tmp44.sroa.2.0.insert.ext
   %call49 = tail call noundef float @_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE(ptr noundef nonnull align 8 dereferenceable(152) %arrayidx.i, i64 %st.coerce, i32 noundef 0, i64 %agg.tmp44.sroa.0.0.insert.insert)
-  %retval.sroa.0.0.vec.insert31 = insertelement <2 x float> undef, float %call49, i64 0
+  %retval.sroa.0.0.vec.insert31 = insertelement <2 x float> poison, float %call49, i64 0
   %retval.sroa.0.4.vec.insert33 = shufflevector <2 x float> %retval.sroa.0.0.vec.insert31, <2 x float> poison, <2 x i32> zeroinitializer
   br label %return
 
@@ -1577,12 +1577,12 @@ if.then:                                          ; preds = %entry
   %mul63.i107 = fmul float %36, %37
   %mul65.i108 = fmul float %call47.i92, %mul63.i107
   %add66.i109 = fadd float %mul65.i108, %add62.i106
-  %retval.sroa.0.0.vec.insert = insertelement <2 x float> undef, float %add66.i, i64 0
+  %retval.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %add66.i, i64 0
   %retval.sroa.0.4.vec.insert = insertelement <2 x float> %retval.sroa.0.0.vec.insert, float %add66.i61, i64 1
   br label %return
 
 do.end33:                                         ; preds = %entry
-  %retval.sroa.0.0.vec.insert162 = insertelement <2 x float> undef, float %add66.i, i64 0
+  %retval.sroa.0.0.vec.insert162 = insertelement <2 x float> poison, float %add66.i, i64 0
   %retval.sroa.0.4.vec.insert164 = shufflevector <2 x float> %retval.sroa.0.0.vec.insert162, <2 x float> poison, <2 x i32> zeroinitializer
   br label %return
 
@@ -2473,7 +2473,7 @@ sw.default.i162:                                  ; preds = %if.end.i95
 _ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit163: ; preds = %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit394, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i157, %_ZNK4pbrt4HalfcvfEv.exit.i129, %sw.bb22.i96
   %retval.0.i94 = phi float [ %112, %sw.bb22.i96 ], [ %107, %_ZNK4pbrt4HalfcvfEv.exit.i129 ], [ %99, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i157 ], [ 0.000000e+00, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit394 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %r.i90)
-  %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> undef, float %retval.0.i245, i64 0
+  %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %retval.0.i245, i64 0
   %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %retval.0.i169, i64 1
   br label %_ZNK4pbrt6MIPMap5TexelINS_3RGBEEET_iNS_6Point2IiEE.exit
 
@@ -2710,7 +2710,7 @@ sw.default.i:                                     ; preds = %if.end.i
 _ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit: ; preds = %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i, %_ZNK4pbrt4HalfcvfEv.exit.i, %sw.bb22.i
   %retval.0.i = phi float [ %135, %sw.bb22.i ], [ %132, %_ZNK4pbrt4HalfcvfEv.exit.i ], [ %126, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i ], [ 0.000000e+00, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %r.i)
-  %retval.sroa.0.0.vec.insert31.i = insertelement <2 x float> undef, float %retval.0.i, i64 0
+  %retval.sroa.0.0.vec.insert31.i = insertelement <2 x float> poison, float %retval.0.i, i64 0
   %retval.sroa.0.4.vec.insert33.i = shufflevector <2 x float> %retval.sroa.0.0.vec.insert31.i, <2 x float> poison, <2 x i32> zeroinitializer
   br label %_ZNK4pbrt6MIPMap5TexelINS_3RGBEEET_iNS_6Point2IiEE.exit
 

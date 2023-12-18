@@ -4829,7 +4829,7 @@ entry:
   %8 = load <2 x float>, ptr %arrayidx2.i, align 4
   %9 = load <2 x float>, ptr %arrayidx3.i, align 4
   %10 = fmul <2 x float> %8, %9
-  %retval.sroa.0.0.vec.insert.i.i = insertelement <2 x float> undef, float %mul.i, i64 0
+  %retval.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %mul.i, i64 0
   %11 = shufflevector <2 x float> %retval.sroa.0.0.vec.insert.i.i, <2 x float> %10, <2 x i32> <i32 0, i32 2>
   %12 = shufflevector <2 x float> <float poison, float 0.000000e+00>, <2 x float> %10, <2 x i32> <i32 3, i32 1>
   %.fca.0.insert.i.i = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %11, 0
@@ -5029,7 +5029,7 @@ _ZNK20b3ConvexHullInternal6Vertex6zvalueEv.exit:  ; preds = %cond.true.i21, %con
   %16 = fmul <2 x float> %14, %15
   %17 = load <2 x float>, ptr %arrayidx3.i24, align 4
   %18 = fadd <2 x float> %16, %17
-  %retval.sroa.0.0.vec.insert.i.i27 = insertelement <2 x float> undef, float %add.i, i64 0
+  %retval.sroa.0.0.vec.insert.i.i27 = insertelement <2 x float> poison, float %add.i, i64 0
   %19 = shufflevector <2 x float> %retval.sroa.0.0.vec.insert.i.i27, <2 x float> %18, <2 x i32> <i32 0, i32 2>
   %20 = shufflevector <2 x float> <float poison, float 0.000000e+00>, <2 x float> %18, <2 x i32> <i32 3, i32 1>
   %.fca.0.insert.i.i30 = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %19, 0

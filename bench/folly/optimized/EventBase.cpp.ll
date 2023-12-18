@@ -5446,7 +5446,7 @@ if.end.i.i.i:                                     ; preds = %invoke.cont116
   %notmask.i.i.i.i = shl nsw i64 -1, %sh_prom.i.i.i.i
   %sub.i.i.i.i = xor i64 %notmask.i.i.i.i, -1
   %conv.i21.i.i.i = trunc i64 %or.i.i.i.i to i8
-  %vecinit.i.i.i.i.i = insertelement <16 x i8> undef, i8 %conv.i21.i.i.i, i64 0
+  %vecinit.i.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i21.i.i.i, i64 0
   %vecinit15.i.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i.i.i.i
 
@@ -8809,7 +8809,7 @@ if.end.i.i.i:                                     ; preds = %invoke.cont2
   %notmask.i.i.i.i = shl nsw i64 -1, %sh_prom.i.i.i.i
   %sub.i.i.i.i = xor i64 %notmask.i.i.i.i, -1
   %conv.i21.i.i.i = trunc i64 %or.i.i.i.i to i8
-  %vecinit.i.i.i.i.i = insertelement <16 x i8> undef, i8 %conv.i21.i.i.i, i64 0
+  %vecinit.i.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i21.i.i.i, i64 0
   %vecinit15.i.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i.i.i.i
 
@@ -9362,7 +9362,7 @@ entry:
   %notmask.i.i.i.i.i = shl nsw i64 -1, %sh_prom.i.i.i.i.i
   %sub.i.i.i.i.i = xor i64 %notmask.i.i.i.i.i, -1
   %conv.i11.i.i.i.i = trunc i64 %or.i.i.i.i.i to i8
-  %vecinit.i.i.i.i.i.i = insertelement <16 x i8> undef, i8 %conv.i11.i.i.i.i, i64 0
+  %vecinit.i.i.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i11.i.i.i.i, i64 0
   %vecinit15.i.i.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %3 = load ptr, ptr %localStorage_.i, align 8
   br label %for.body.i.i.i.i.i
@@ -9497,7 +9497,7 @@ if.then:                                          ; preds = %_ZNSt16allocator_tr
   %notmask.i = shl nsw i64 -1, %sh_prom.i
   %sub.i = xor i64 %notmask.i, -1
   %conv.i32 = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i32, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i32, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.cond.i
 

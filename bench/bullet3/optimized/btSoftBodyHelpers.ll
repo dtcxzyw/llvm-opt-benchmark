@@ -699,7 +699,7 @@ if.end110:                                        ; preds = %for.body104
   %59 = load float, ptr %arrayidx5.i244, align 4
   %arrayidx11.i246 = getelementptr inbounds [4 x float], ptr %m_x112, i64 0, i64 2
   %60 = load float, ptr %arrayidx11.i246, align 4
-  %retval.sroa.0.0.vec.insert.i247 = insertelement <2 x float> undef, float %sub.i, i64 0
+  %retval.sroa.0.0.vec.insert.i247 = insertelement <2 x float> poison, float %sub.i, i64 0
   %retval.sroa.0.4.vec.insert.i248 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i247, float %59, i64 1
   %retval.sroa.3.12.vec.insert.i249 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %60, i64 0
   store <2 x float> %retval.sroa.0.4.vec.insert.i248, ptr %ref.tmp111, align 8
@@ -720,7 +720,7 @@ if.end110:                                        ; preds = %for.body104
   %66 = load float, ptr %arrayidx5.i244, align 4
   %sub8.i273 = fadd float %66, 0xBFB99999A0000000
   %67 = load float, ptr %arrayidx11.i246, align 4
-  %retval.sroa.0.0.vec.insert.i277 = insertelement <2 x float> undef, float %65, i64 0
+  %retval.sroa.0.0.vec.insert.i277 = insertelement <2 x float> poison, float %65, i64 0
   %retval.sroa.0.4.vec.insert.i278 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i277, float %sub8.i273, i64 1
   %retval.sroa.3.12.vec.insert.i279 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %67, i64 0
   store <2 x float> %retval.sroa.0.4.vec.insert.i278, ptr %ref.tmp131, align 8
@@ -1288,7 +1288,7 @@ if.end447:                                        ; preds = %for.body439
   %add.i802 = fadd float %mul.i.i770, %mul.i792
   %add8.i805 = fadd float %mul4.i.i772, %mul4.i794
   %add14.i808 = fadd float %mul8.i.i774, %mul8.i796
-  %retval.sroa.0.0.vec.insert.i809 = insertelement <2 x float> undef, float %add.i802, i64 0
+  %retval.sroa.0.0.vec.insert.i809 = insertelement <2 x float> poison, float %add.i802, i64 0
   %retval.sroa.0.4.vec.insert.i810 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i809, float %add8.i805, i64 1
   %retval.sroa.3.12.vec.insert.i811 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i808, i64 0
   store <2 x float> %retval.sroa.0.4.vec.insert.i810, ptr %ref.tmp482, align 8
@@ -1302,7 +1302,7 @@ if.end447:                                        ; preds = %for.body439
   %add.i836 = fadd float %mul.i.i770, %mul.i826
   %add8.i839 = fadd float %mul4.i.i772, %mul4.i828
   %add14.i842 = fadd float %mul8.i.i774, %mul8.i830
-  %retval.sroa.0.0.vec.insert.i843 = insertelement <2 x float> undef, float %add.i836, i64 0
+  %retval.sroa.0.0.vec.insert.i843 = insertelement <2 x float> poison, float %add.i836, i64 0
   %retval.sroa.0.4.vec.insert.i844 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i843, float %add8.i839, i64 1
   %retval.sroa.3.12.vec.insert.i845 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i842, i64 0
   store <2 x float> %retval.sroa.0.4.vec.insert.i844, ptr %ref.tmp492, align 8
@@ -1316,7 +1316,7 @@ if.end447:                                        ; preds = %for.body439
   %add.i870 = fadd float %mul.i.i770, %mul.i860
   %add8.i873 = fadd float %mul4.i.i772, %mul4.i862
   %add14.i876 = fadd float %mul8.i.i774, %mul8.i864
-  %retval.sroa.0.0.vec.insert.i877 = insertelement <2 x float> undef, float %add.i870, i64 0
+  %retval.sroa.0.0.vec.insert.i877 = insertelement <2 x float> poison, float %add.i870, i64 0
   %retval.sroa.0.4.vec.insert.i878 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i877, float %add8.i873, i64 1
   %retval.sroa.3.12.vec.insert.i879 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i876, i64 0
   store <2 x float> %retval.sroa.0.4.vec.insert.i878, ptr %ref.tmp502, align 8
@@ -1338,7 +1338,7 @@ if.end447:                                        ; preds = %for.body439
   %add.i972 = fadd float %mul.i.i770, %mul.i962
   %add8.i975 = fadd float %mul4.i.i772, %mul4.i964
   %add14.i978 = fadd float %mul8.i.i774, %mul8.i966
-  %retval.sroa.0.0.vec.insert.i979 = insertelement <2 x float> undef, float %add.i972, i64 0
+  %retval.sroa.0.0.vec.insert.i979 = insertelement <2 x float> poison, float %add.i972, i64 0
   %retval.sroa.0.4.vec.insert.i980 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i979, float %add8.i975, i64 1
   %retval.sroa.3.12.vec.insert.i981 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i978, i64 0
   store <2 x float> %retval.sroa.0.4.vec.insert.i980, ptr %ref.tmp534, align 8
@@ -3649,7 +3649,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store <2 x float> %retval.sroa.3.12.vec.insert.i184, ptr %116, align 8
   %add.i42.i = fadd float %138, 0.000000e+00
   %add8.i45.i = fadd float %142, 0x3FB99999A0000000
-  %retval.sroa.0.0.vec.insert.i49.i = insertelement <2 x float> undef, float %add.i42.i, i64 0
+  %retval.sroa.0.0.vec.insert.i49.i = insertelement <2 x float> poison, float %add.i42.i, i64 0
   %retval.sroa.0.4.vec.insert.i50.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i49.i, float %add8.i45.i, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i50.i, ptr %ref.tmp16.i, align 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i21.i, ptr %117, align 8

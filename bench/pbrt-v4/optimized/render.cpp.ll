@@ -1327,7 +1327,7 @@ invoke.cont277:                                   ; preds = %invoke.cont270
   %div.i.i3.i.i = fmul float %add.i.i2.i.i, 5.000000e-01
   %add.i.i5.i.i = fadd float %agg.tmp.sroa.0.sroa.5.0.copyload.i, %agg.tmp.sroa.0.sroa.6.0.copyload.i
   %div.i.i6.i.i = fmul float %add.i.i5.i.i, 5.000000e-01
-  %retval.sroa.0.0.vec.insert.i188 = insertelement <2 x float> undef, float %div.i.i.i.i, i64 0
+  %retval.sroa.0.0.vec.insert.i188 = insertelement <2 x float> poison, float %div.i.i.i.i, i64 0
   %retval.sroa.0.4.vec.insert.i189 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i188, float %div.i.i3.i.i, i64 1
   %call281 = invoke { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_6Point3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %worldFromRender, <2 x float> %retval.sroa.0.4.vec.insert.i189, float %div.i.i6.i.i)
           to label %invoke.cont280 unwind label %lpad254.loopexit

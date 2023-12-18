@@ -2409,7 +2409,7 @@ if.end15:                                         ; preds = %if.end.i.i60.if.end
   %arrayidx13.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i.i, i64 0, i64 2
   %38 = load float, ptr %arrayidx13.i.i, align 4
   %sub14.i.i = fsub float %37, %38
-  %retval.sroa.0.0.vec.insert.i.i = insertelement <2 x float> undef, float %sub.i.i97, i64 0
+  %retval.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %sub.i.i97, i64 0
   %retval.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i, float %sub8.i.i, i64 1
   %retval.sroa.3.12.vec.insert.i.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i.i, i64 0
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i, ptr %AB, align 8
@@ -2420,7 +2420,7 @@ if.end15:                                         ; preds = %if.end.i.i60.if.end
   %arrayidx11.i.i102 = getelementptr inbounds [4 x float], ptr %simplex, i64 0, i64 2
   %39 = load float, ptr %arrayidx11.i.i102, align 4
   %sub14.i.i104 = fsub float %39, %38
-  %retval.sroa.0.0.vec.insert.i.i105 = insertelement <2 x float> undef, float %sub.i.i98, i64 0
+  %retval.sroa.0.0.vec.insert.i.i105 = insertelement <2 x float> poison, float %sub.i.i98, i64 0
   %retval.sroa.0.4.vec.insert.i.i106 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i105, float %sub8.i.i101, i64 1
   %retval.sroa.3.12.vec.insert.i.i107 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i.i104, i64 0
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i106, ptr %AC, align 8

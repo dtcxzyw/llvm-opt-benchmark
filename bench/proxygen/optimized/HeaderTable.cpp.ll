@@ -705,7 +705,7 @@ _ZNK5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__c
   %9 = load i64, ptr %sizeAndChunkShiftAndPackedBegin_.i, align 8
   %chunks_.i.i = getelementptr inbounds %"class.proxygen::HeaderTable", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 0, i32 1
   %conv.i18 = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i18, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i18, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i.i
 
@@ -1041,7 +1041,7 @@ _ZNK5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__c
   %9 = load i64, ptr %sizeAndChunkShiftAndPackedBegin_.i, align 8
   %chunks_.i.i = getelementptr inbounds %"class.proxygen::HeaderTable", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 0, i32 1
   %conv.i17 = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i17, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i17, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i.i
 
@@ -1338,7 +1338,7 @@ _ZNK5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__c
   %sizeAndChunkShiftAndPackedBegin_.i = getelementptr inbounds %"class.proxygen::HeaderTable", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 0, i32 2
   %chunks_.i.i = getelementptr inbounds %"class.proxygen::HeaderTable", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 0, i32 1
   %conv.i65 = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i65, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i65, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.cond.i.i
 
@@ -1491,7 +1491,7 @@ _ZNK5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__c
   %notmask.i101 = shl nsw i64 -1, %sh_prom.i
   %sub.i102 = xor i64 %notmask.i101, -1
   %conv.i104 = trunc i64 %or.i91 to i8
-  %vecinit.i.i105 = insertelement <16 x i8> undef, i8 %conv.i104, i64 0
+  %vecinit.i.i105 = insertelement <16 x i8> poison, i8 %conv.i104, i64 0
   %vecinit15.i.i106 = shufflevector <16 x i8> %vecinit.i.i105, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i
 
@@ -2665,7 +2665,7 @@ if.then:                                          ; preds = %entry
   %add.i24 = or disjoint i64 %mul.i, 1
   %chunks_.i = getelementptr inbounds %"class.folly::f14::detail::F14Table", ptr %this, i64 0, i32 1
   %conv.i = trunc i64 %hp.coerce1 to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i
 
@@ -3881,7 +3881,7 @@ _ZNK5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__c
   %notmask.i = shl nsw i64 -1, %sh_prom.i
   %sub.i = xor i64 %notmask.i, -1
   %conv.i27 = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i27, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i27, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.cond.i
 

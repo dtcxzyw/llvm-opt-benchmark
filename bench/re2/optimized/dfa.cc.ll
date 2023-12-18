@@ -1593,7 +1593,7 @@ entry:
   %xor.i.i.i = xor i64 %shr.i.i.i, %shr.i.i.i.i
   %6 = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i8
   %conv.i.i = and i8 %6, 127
-  %vecinit.i.i.i = insertelement <16 x i8> undef, i8 %conv.i.i, i64 0
+  %vecinit.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i, i64 0
   %vecinit15.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %slots_.i = getelementptr inbounds %"class.absl::debian2::container_internal::raw_hash_set", ptr %this, i64 0, i32 1
   %7 = load ptr, ptr %slots_.i, align 8
@@ -10346,7 +10346,7 @@ invoke.cont12:                                    ; preds = %invoke.cont10
   %xor.i.i.i.i133 = xor i64 %shr.i.i.i.i131, %shr.i.i.i.i.i132
   %10 = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i8
   %conv.i.i.i134 = and i8 %10, 127
-  %vecinit.i.i.i.i135 = insertelement <16 x i8> undef, i8 %conv.i.i.i134, i64 0
+  %vecinit.i.i.i.i135 = insertelement <16 x i8> poison, i8 %conv.i.i.i134, i64 0
   %vecinit15.i.i.i.i136 = shufflevector <16 x i8> %vecinit.i.i.i.i135, <16 x i8> poison, <16 x i32> zeroinitializer
   %11 = load ptr, ptr %slots_.i.i.i, align 8, !noalias !80
   br label %while.body.i.i138
@@ -10696,7 +10696,7 @@ if.end77:                                         ; preds = %invoke.cont66
   %xor.i.i.i.i = xor i64 %shr.i.i.i.i.i, %shr.i.i.i.i
   %55 = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i to i8
   %conv.i.i.i = and i8 %55, 127
-  %vecinit.i.i.i.i = insertelement <16 x i8> undef, i8 %conv.i.i.i, i64 0
+  %vecinit.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i.i, i64 0
   %vecinit15.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %56 = load ptr, ptr %slots_.i.i.i, align 8
   br label %while.body.i.i
@@ -11040,7 +11040,7 @@ entry:
   %xor.i.i.i.i = xor i64 %shr.i.i.i.i, %shr.i.i.i.i.i
   %5 = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i8
   %conv.i.i.i = and i8 %5, 127
-  %vecinit.i.i.i.i = insertelement <16 x i8> undef, i8 %conv.i.i.i, i64 0
+  %vecinit.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i.i, i64 0
   %vecinit15.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %slots_.i.i = getelementptr inbounds %"class.absl::debian2::container_internal::raw_hash_set.53", ptr %this, i64 0, i32 1
   %6 = load ptr, ptr %slots_.i.i, align 8, !noalias !92
@@ -12500,7 +12500,7 @@ entry:
   %xor.i.i = xor i64 %shr.i.i, %shr.i.i.i
   %6 = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i8
   %conv.i = and i8 %6, 127
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %slots_ = getelementptr inbounds %"class.absl::debian2::container_internal::raw_hash_set", ptr %this, i64 0, i32 1
   %7 = load ptr, ptr %slots_, align 8

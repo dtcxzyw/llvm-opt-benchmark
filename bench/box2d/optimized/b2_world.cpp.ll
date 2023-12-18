@@ -2416,7 +2416,7 @@ sw.bb:                                            ; preds = %entry
   %19 = fsub float %18, %neg.i32
   %mul6.i = fmul float %18, 0.000000e+00
   %20 = fadd float %6, %mul6.i
-  %retval.sroa.0.0.vec.insert.i33 = insertelement <2 x float> undef, float %19, i64 0
+  %retval.sroa.0.0.vec.insert.i33 = insertelement <2 x float> poison, float %19, i64 0
   %retval.sroa.0.4.vec.insert.i34 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i33, float %20, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i34, ptr %axis, align 8
   %m_debugDraw = getelementptr inbounds %class.b2World, ptr %this, i64 0, i32 11

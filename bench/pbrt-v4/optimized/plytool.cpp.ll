@@ -12230,7 +12230,7 @@ entry:
   %y.val.i6.i.i.i = load float, ptr %y.i.i.i.i, align 4
   %mul4.i.i.i = fmul float %1, %y.val.i6.i.i.i
   %sub.i.i.i = fsub float 1.000000e+00, %mul4.i.i.i
-  %uvp.sroa.0.0.vec.insert.i.i.i = insertelement <2 x float> undef, float %mul.i.i.i, i64 0
+  %uvp.sroa.0.0.vec.insert.i.i.i = insertelement <2 x float> poison, float %mul.i.i.i, i64 0
   %uvp.sroa.0.4.vec.insert.i.i.i = insertelement <2 x float> %uvp.sroa.0.0.vec.insert.i.i.i, float %sub.i.i.i, i64 1
   %5 = getelementptr inbounds %class.anon.114, ptr %__functor.val, i64 0, i32 2
   %6 = load ptr, ptr %5, align 8

@@ -196,7 +196,7 @@ _ZL18b2FindIncidentEdgeP12b2ClipVertexPK14b2PolygonShapeRK11b2TransformiS3_S6_.e
   %localTangent.sroa.0.4.vec.extract119 = extractelement <2 x float> %localTangent.sroa.0.0, i64 1
   %localTangent.sroa.0.0.vec.extract114 = extractelement <2 x float> %localTangent.sroa.0.0, i64 0
   %mul1.i = fneg float %localTangent.sroa.0.0.vec.extract114
-  %retval.sroa.0.0.vec.insert.i51 = insertelement <2 x float> undef, float %localTangent.sroa.0.4.vec.extract119, i64 0
+  %retval.sroa.0.0.vec.insert.i51 = insertelement <2 x float> poison, float %localTangent.sroa.0.4.vec.extract119, i64 0
   %retval.sroa.0.4.vec.insert.i52 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i51, float %mul1.i, i64 1
   %53 = fadd <2 x float> %44, %45
   %54 = fmul <2 x float> %53, <float 5.000000e-01, float 5.000000e-01>

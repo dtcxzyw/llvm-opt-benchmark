@@ -158,7 +158,7 @@ entry:
   %mul5.i13.i = fmul float %add39.i.i, %35
   %41 = tail call float @llvm.fmuladd.f32(float %sub37.i.i, float %34, float %mul5.i13.i)
   %42 = tail call noundef float @llvm.fmuladd.f32(float %sub42.i.i, float %37, float %41)
-  %retval.sroa.0.0.vec.insert.i.i = insertelement <2 x float> undef, float %38, i64 0
+  %retval.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %38, i64 0
   %retval.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i, float %40, i64 1
   %retval.sroa.3.12.vec.insert.i.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %42, i64 0
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i, ptr %a1, align 16
@@ -232,7 +232,7 @@ if.end:                                           ; preds = %if.then, %entry
   %mul5.i13.i110 = fmul float %add39.i.i76, %56
   %62 = tail call float @llvm.fmuladd.f32(float %sub37.i.i75, float %55, float %mul5.i13.i110)
   %63 = tail call noundef float @llvm.fmuladd.f32(float %sub42.i.i78, float %58, float %62)
-  %retval.sroa.0.0.vec.insert.i.i112 = insertelement <2 x float> undef, float %59, i64 0
+  %retval.sroa.0.0.vec.insert.i.i112 = insertelement <2 x float> poison, float %59, i64 0
   %retval.sroa.0.4.vec.insert.i.i113 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i112, float %61, i64 1
   %retval.sroa.3.12.vec.insert.i.i114 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %63, i64 0
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i113, ptr %a2, align 16

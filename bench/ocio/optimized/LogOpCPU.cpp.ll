@@ -1138,7 +1138,7 @@ define hidden void @_ZNK19OpenColorIO_v2_4dev14LogRendererSSE5applyEPKvPvl(ptr n
 entry:
   %m_logScale = getelementptr inbounds %"class.OpenColorIO_v2_4dev::LogRenderer", ptr %this, i64 0, i32 1
   %0 = load float, ptr %m_logScale, align 8
-  %vecinit.i = insertelement <4 x float> undef, float %0, i64 0
+  %vecinit.i = insertelement <4 x float> poison, float %0, i64 0
   %vecinit3.i = shufflevector <4 x float> %vecinit.i, <4 x float> poison, <4 x i32> zeroinitializer
   %cmp17 = icmp sgt i64 %numPixels, 0
   br i1 %cmp17, label %for.body.lr.ph, label %for.end
@@ -1275,7 +1275,7 @@ define hidden void @_ZNK19OpenColorIO_v2_4dev18AntiLogRendererSSE5applyEPKvPvl(p
 entry:
   %m_log2_base = getelementptr inbounds %"class.OpenColorIO_v2_4dev::AntiLogRenderer", ptr %this, i64 0, i32 1
   %0 = load float, ptr %m_log2_base, align 8
-  %vecinit.i = insertelement <4 x float> undef, float %0, i64 0
+  %vecinit.i = insertelement <4 x float> poison, float %0, i64 0
   %vecinit3.i = shufflevector <4 x float> %vecinit.i, <4 x float> poison, <4 x i32> zeroinitializer
   %cmp12 = icmp sgt i64 %numPixels, 0
   br i1 %cmp12, label %for.body.lr.ph, label %for.end

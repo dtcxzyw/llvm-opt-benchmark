@@ -4451,7 +4451,7 @@ entry:
   %6 = load ptr, ptr %slots_.i.i.i, align 8
   %7 = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i8
   %conv.i.i = and i8 %7, 127
-  %vecinit.i.i.i = insertelement <16 x i8> undef, i8 %conv.i.i, i64 0
+  %vecinit.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i, i64 0
   %vecinit15.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %eq.i = getelementptr inbounds %"struct.absl::lts_20230802::container_internal::raw_hash_set<absl::lts_20230802::container_internal::FlatHashMapPolicy<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::unique_ptr<grpc_core::Server::RegisteredMethod>>, grpc_core::Server::StringViewStringViewPairHash, grpc_core::Server::StringViewStringViewPairEq, std::allocator<std::pair<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::unique_ptr<grpc_core::Server::RegisteredMethod>>>>::EqualElement", ptr %ref.tmp16.i, i64 0, i32 1
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.553", ptr %agg.tmp.i.i.i.i, i64 0, i32 1
@@ -21246,7 +21246,7 @@ entry:
   %xor.i.i.i = xor i64 %shr.i.i.i, %shr.i.i.i.i
   %6 = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i8
   %conv.i = and i8 %6, 127
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %eq = getelementptr inbounds %"struct.absl::lts_20230802::container_internal::raw_hash_set<absl::lts_20230802::container_internal::FlatHashMapPolicy<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::unique_ptr<grpc_core::Server::RegisteredMethod>>, grpc_core::Server::StringViewStringViewPairHash, grpc_core::Server::StringViewStringViewPairEq, std::allocator<std::pair<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::unique_ptr<grpc_core::Server::RegisteredMethod>>>>::EqualElement", ptr %ref.tmp18, i64 0, i32 1
   %slots_.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 1
@@ -22002,7 +22002,7 @@ entry:
   %3 = load ptr, ptr %slots_.i.i, align 8
   %4 = trunc i64 %hash to i8
   %conv.i = and i8 %4, 127
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %agg.tmp1.sroa.2.0.first2.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %key, i64 8
   %second5.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.178", ptr %key, i64 0, i32 1
@@ -22112,7 +22112,7 @@ entry:
   %3 = load ptr, ptr %slots_.i.i, align 8
   %4 = trunc i64 %hash to i8
   %conv.i = and i8 %4, 127
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %second3.i2.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.180", ptr %key, i64 0, i32 1
   %ref.tmp4.sroa.6.16.second3.i2.sroa_idx.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.180", ptr %key, i64 0, i32 1, i32 1

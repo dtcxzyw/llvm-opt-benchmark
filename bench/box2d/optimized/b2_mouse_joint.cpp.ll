@@ -261,10 +261,10 @@ entry:
   %div.i = fdiv float 1.000000e+00, %37
   %det.0.i = select i1 %cmp.i, float %div.i, float %37
   %mul.i = fmul float %add55, %det.0.i
-  %retval.sroa.0.0.vec.insert.i21 = insertelement <2 x float> undef, float %mul.i, i64 0
+  %retval.sroa.0.0.vec.insert.i21 = insertelement <2 x float> poison, float %mul.i, i64 0
   %fneg.i = fneg float %det.0.i
   %mul9.i = fmul float %mul40, %fneg.i
-  %retval.sroa.3.8.vec.insert.i = insertelement <2 x float> undef, float %mul9.i, i64 0
+  %retval.sroa.3.8.vec.insert.i = insertelement <2 x float> poison, float %mul9.i, i64 0
   %retval.sroa.0.4.vec.insert.i22 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i21, float %mul9.i, i64 1
   %mul16.i = fmul float %add, %det.0.i
   %retval.sroa.3.12.vec.insert.i = insertelement <2 x float> %retval.sroa.3.8.vec.insert.i, float %mul16.i, i64 1

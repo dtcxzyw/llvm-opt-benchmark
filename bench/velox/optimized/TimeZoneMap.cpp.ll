@@ -320,7 +320,7 @@ call2.i.noexc:                                    ; preds = %invoke.cont7
   %7 = load i32, ptr getelementptr inbounds (%"class.folly::F14FastMap", ptr @_ZZN8facebook5velox4util13getTimeZoneIDESt17basic_string_viewIcSt11char_traitsIcEEE11nameToIdMapB5cxx11, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
   %conv.i.i130 = zext i32 %7 to i64
   %conv.i = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %call6.i.i.noexc
 
@@ -555,7 +555,7 @@ call.i.i.i.i.i.i.noexc53:                         ; preds = %init.end.i.i
   %30 = load i32, ptr getelementptr inbounds (%"class.folly::F14FastSet", ptr @_ZZN8facebook5velox4util12_GLOBAL__N_119isUtcEquivalentNameESt17basic_string_viewIcSt11char_traitsIcEEE6utcSetB5cxx11, i64 0, i32 0, i32 0, i32 0, i32 2), align 8, !noalias !13
   %conv.i48.i.i = zext i32 %30 to i64
   %conv.i25.i.i = trunc i64 %or.i.i.i to i8
-  %vecinit.i.i.i.i = insertelement <16 x i8> undef, i8 %conv.i25.i.i, i64 0
+  %vecinit.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i25.i.i, i64 0
   %vecinit15.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp.i8.i.i.i.i.i.i = icmp eq i64 %zone.coerce0.fr.i.i, 0
   br i1 %cmp.i8.i.i.i.i.i.i, label %for.body.i.us.i.i, label %for.body.i.i.i48
@@ -1051,7 +1051,7 @@ call2.i.noexc109:                                 ; preds = %invoke.cont21
   %79 = load i32, ptr getelementptr inbounds (%"class.folly::F14FastMap", ptr @_ZZN8facebook5velox4util13getTimeZoneIDESt17basic_string_viewIcSt11char_traitsIcEEE11nameToIdMapB5cxx11, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
   %conv.i.i79136 = zext i32 %79 to i64
   %conv.i67 = trunc i64 %or.i62 to i8
-  %vecinit.i.i68 = insertelement <16 x i8> undef, i8 %conv.i67, i64 0
+  %vecinit.i.i68 = insertelement <16 x i8> poison, i8 %conv.i67, i64 0
   %vecinit15.i.i69 = shufflevector <16 x i8> %vecinit.i.i68, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %call6.i.i.noexc111
 
@@ -2022,7 +2022,7 @@ if.then:                                          ; preds = %entry
   %conv.i57 = zext i32 %1 to i64
   %chunks_.i = getelementptr inbounds %"class.folly::f14::detail::F14Table", ptr %this, i64 0, i32 1
   %conv.i25 = trunc i64 %hp.coerce1 to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i25, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i25, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i
 
@@ -2608,7 +2608,7 @@ if.then:                                          ; preds = %entry
   %conv.i57 = zext i32 %1 to i64
   %chunks_.i = getelementptr inbounds %"class.folly::f14::detail::F14Table", ptr %this, i64 0, i32 1
   %conv.i25 = trunc i64 %hp.coerce1 to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i25, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i25, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i
 
@@ -3823,7 +3823,7 @@ if.then:                                          ; preds = %entry
   %conv.i57 = zext i32 %1 to i64
   %chunks_.i = getelementptr inbounds %"class.folly::f14::detail::F14Table.57", ptr %this, i64 0, i32 1
   %conv.i25 = trunc i64 %hp.coerce1 to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i25, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i25, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i
 

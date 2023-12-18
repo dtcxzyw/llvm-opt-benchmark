@@ -5728,7 +5728,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %11 = load i16, ptr %alphaFillValue, align 2
-  %vecinit.i.i = insertelement <8 x i16> undef, i16 %11, i64 0
+  %vecinit.i.i = insertelement <8 x i16> poison, i16 %11, i64 0
   %vecinit7.i.i = shufflevector <8 x i16> %vecinit.i.i, <8 x i16> poison, <8 x i32> zeroinitializer
   %12 = load i64, ptr %pixelsToCopySSE, align 8
   %cmp35.not.i = icmp eq i64 %12, 0
@@ -5792,7 +5792,7 @@ if.else:                                          ; preds = %entry
 
 if.then24:                                        ; preds = %if.else
   %32 = load i16, ptr %alphaFillValue, align 2
-  %vecinit.i.i51 = insertelement <8 x i16> undef, i16 %32, i64 0
+  %vecinit.i.i51 = insertelement <8 x i16> poison, i16 %32, i64 0
   %vecinit7.i.i52 = shufflevector <8 x i16> %vecinit.i.i51, <8 x i16> poison, <8 x i32> zeroinitializer
   %33 = load i64, ptr %pixelsToCopySSE, align 8
   %cmp35.not.i53 = icmp eq i64 %33, 0
@@ -5856,7 +5856,7 @@ if.else25:                                        ; preds = %if.else
 
 if.then29:                                        ; preds = %if.else25
   %53 = load i16, ptr %alphaFillValue, align 2
-  %vecinit.i.i75 = insertelement <8 x i16> undef, i16 %53, i64 0
+  %vecinit.i.i75 = insertelement <8 x i16> poison, i16 %53, i64 0
   %vecinit7.i.i76 = shufflevector <8 x i16> %vecinit.i.i75, <8 x i16> poison, <8 x i32> zeroinitializer
   %54 = load i64, ptr %pixelsToCopySSE, align 8
   %cmp35.not.i77 = icmp eq i64 %54, 0
@@ -5919,7 +5919,7 @@ if.else30:                                        ; preds = %if.else25
 
 if.then34:                                        ; preds = %if.else30
   %74 = load i16, ptr %alphaFillValue, align 2
-  %vecinit.i.i99 = insertelement <8 x i16> undef, i16 %74, i64 0
+  %vecinit.i.i99 = insertelement <8 x i16> poison, i16 %74, i64 0
   %vecinit7.i.i100 = shufflevector <8 x i16> %vecinit.i.i99, <8 x i16> poison, <8 x i32> zeroinitializer
   %75 = load i64, ptr %pixelsToCopySSE, align 8
   %cmp35.not.i101 = icmp eq i64 %75, 0

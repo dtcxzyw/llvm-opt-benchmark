@@ -499,7 +499,7 @@ if.end35:                                         ; preds = %if.end24
   %32 = shufflevector <2 x float> %31, <2 x float> poison, <2 x i32> zeroinitializer
   %33 = fdiv <2 x float> %call42.fca.0.extract, %32
   %div3.i.i.i = fdiv float %call42.fca.1.extract, %sqrt.i.i.i
-  %retval.sroa.8.8.vec.insert = insertelement <2 x float> undef, float %div3.i.i.i, i64 0
+  %retval.sroa.8.8.vec.insert = insertelement <2 x float> poison, float %div3.i.i.i, i64 0
   %retval.sroa.8.12.vec.insert = insertelement <2 x float> %retval.sroa.8.8.vec.insert, float %call.i, i64 1
   br label %return
 

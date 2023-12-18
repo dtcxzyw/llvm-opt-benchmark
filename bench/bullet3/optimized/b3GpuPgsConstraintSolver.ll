@@ -265,7 +265,7 @@ entry:
   %add.i = fadd float %8, %3
   %16 = load <2 x float>, ptr %arrayidx2.i2, align 4
   %17 = fadd <2 x float> %16, %15
-  %retval.sroa.0.0.vec.insert.i.i4 = insertelement <2 x float> undef, float %add.i, i64 0
+  %retval.sroa.0.0.vec.insert.i.i4 = insertelement <2 x float> poison, float %add.i, i64 0
   %18 = shufflevector <2 x float> %retval.sroa.0.0.vec.insert.i.i4, <2 x float> %17, <2 x i32> <i32 0, i32 2>
   %19 = shufflevector <2 x float> <float poison, float 0.000000e+00>, <2 x float> %17, <2 x i32> <i32 3, i32 1>
   %.fca.0.insert.i.i7 = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %18, 0
@@ -1847,7 +1847,7 @@ invoke.cont39:                                    ; preds = %invoke.cont39.lr.ph
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %arrayidx.i212, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %m_pushVelocity.i.i, i8 0, i64 32, i1 false)
   %60 = load float, ptr %m_invMass.i, align 4
-  %retval.sroa.0.0.vec.insert.i.i = insertelement <2 x float> undef, float %60, i64 0
+  %retval.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %60, i64 0
   %retval.sroa.0.4.vec.insert.i.i = shufflevector <2 x float> %retval.sroa.0.0.vec.insert.i.i, <2 x float> poison, <2 x i32> zeroinitializer
   %retval.sroa.3.12.vec.insert.i.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %60, i64 0
   %m_invMass.i.i = getelementptr inbounds %struct.b3GpuSolverBody, ptr %59, i64 %indvars.iv, i32 4
@@ -4510,7 +4510,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %solverBody, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %m_pushVelocity.i, i8 0, i64 32, i1 false)
   %0 = load float, ptr %m_invMass, align 4
-  %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> undef, float %0, i64 0
+  %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %0, i64 0
   %retval.sroa.0.4.vec.insert.i = shufflevector <2 x float> %retval.sroa.0.0.vec.insert.i, <2 x float> poison, <2 x i32> zeroinitializer
   %retval.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %0, i64 0
   %m_invMass.i = getelementptr inbounds %struct.b3GpuSolverBody, ptr %solverBody, i64 0, i32 4

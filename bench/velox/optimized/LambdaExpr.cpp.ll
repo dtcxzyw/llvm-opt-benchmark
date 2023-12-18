@@ -4000,7 +4000,7 @@ _ZNK5folly3f146detail21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char
   %12 = load i32, ptr %chunkMask_.i.i, align 8
   %conv.i.i120 = zext i32 %12 to i64
   %conv.i62 = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i62, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i62, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i.i
 
@@ -4123,7 +4123,7 @@ _ZNK5folly3f146detail21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char
   %conv.i = zext i32 %30 to i64
   %31 = load ptr, ptr %chunks_.i.i, align 8
   %conv.i81 = trunc i64 %or.i76 to i8
-  %vecinit.i.i82 = insertelement <16 x i8> undef, i8 %conv.i81, i64 0
+  %vecinit.i.i82 = insertelement <16 x i8> poison, i8 %conv.i81, i64 0
   %vecinit15.i.i83 = shufflevector <16 x i8> %vecinit.i.i82, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i
 
@@ -11668,7 +11668,7 @@ if.then:                                          ; preds = %entry
   %conv.i57 = zext i32 %1 to i64
   %chunks_.i = getelementptr inbounds %"class.folly::f14::detail::F14Table.114", ptr %this, i64 0, i32 1
   %conv.i25 = trunc i64 %hp.coerce1 to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i25, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i25, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i
 
@@ -12630,7 +12630,7 @@ _ZNK5folly3f146detail21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char
   %chunks_.i = getelementptr inbounds %"class.folly::f14::detail::F14Table.114", ptr %this, i64 0, i32 1
   %7 = load ptr, ptr %chunks_.i, align 8
   %conv.i23 = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i23, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i23, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.cond.i
 

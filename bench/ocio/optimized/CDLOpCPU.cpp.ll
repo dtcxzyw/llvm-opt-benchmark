@@ -611,7 +611,7 @@ entry:
   store <4 x float> %2, ptr %power, align 16
   %m_saturation.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RenderParams", ptr %renderParams, i64 0, i32 3
   %3 = load float, ptr %m_saturation.i, align 4
-  %vecinit.i = insertelement <4 x float> undef, float %3, i64 0
+  %vecinit.i = insertelement <4 x float> poison, float %3, i64 0
   %vecinit3.i = shufflevector <4 x float> %vecinit.i, <4 x float> poison, <4 x i32> zeroinitializer
   store <4 x float> %vecinit3.i, ptr %saturation, align 16
   ret void
@@ -965,7 +965,7 @@ entry:
   %2 = load <4 x float>, ptr %m_power.i.i, align 8
   %m_saturation.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 3
   %3 = load float, ptr %m_saturation.i.i, align 8
-  %vecinit.i.i = insertelement <4 x float> undef, float %3, i64 0
+  %vecinit.i.i = insertelement <4 x float> poison, float %3, i64 0
   %vecinit3.i.i = shufflevector <4 x float> %vecinit.i.i, <4 x float> poison, <4 x i32> zeroinitializer
   %cmp8 = icmp sgt i64 %numPixels, 0
   br i1 %cmp8, label %for.body.lr.ph, label %for.end
@@ -1363,7 +1363,7 @@ entry:
   %2 = load <4 x float>, ptr %m_power.i.i, align 8
   %m_saturation.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 3
   %3 = load float, ptr %m_saturation.i.i, align 8
-  %vecinit.i.i = insertelement <4 x float> undef, float %3, i64 0
+  %vecinit.i.i = insertelement <4 x float> poison, float %3, i64 0
   %vecinit3.i.i = shufflevector <4 x float> %vecinit.i.i, <4 x float> poison, <4 x i32> zeroinitializer
   %cmp7 = icmp sgt i64 %numPixels, 0
   br i1 %cmp7, label %for.body.lr.ph, label %for.end
@@ -1757,7 +1757,7 @@ entry:
   %2 = load <4 x float>, ptr %m_power.i.i, align 8
   %m_saturation.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 3
   %3 = load float, ptr %m_saturation.i.i, align 8
-  %vecinit.i.i = insertelement <4 x float> undef, float %3, i64 0
+  %vecinit.i.i = insertelement <4 x float> poison, float %3, i64 0
   %vecinit3.i.i = shufflevector <4 x float> %vecinit.i.i, <4 x float> poison, <4 x i32> zeroinitializer
   %cmp10 = icmp sgt i64 %numPixels, 0
   br i1 %cmp10, label %for.body.lr.ph, label %for.end
@@ -2149,7 +2149,7 @@ entry:
   %2 = load <4 x float>, ptr %m_power.i.i, align 8
   %m_saturation.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 3
   %3 = load float, ptr %m_saturation.i.i, align 8
-  %vecinit.i.i = insertelement <4 x float> undef, float %3, i64 0
+  %vecinit.i.i = insertelement <4 x float> poison, float %3, i64 0
   %vecinit3.i.i = shufflevector <4 x float> %vecinit.i.i, <4 x float> poison, <4 x i32> zeroinitializer
   %cmp8 = icmp sgt i64 %numPixels, 0
   br i1 %cmp8, label %for.body.lr.ph, label %for.end

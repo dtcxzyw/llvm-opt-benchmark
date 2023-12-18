@@ -2061,7 +2061,7 @@ if.then:                                          ; preds = %for.body, %land.lhs
   %13 = load float, ptr %arrayidx7.i, align 4
   %arrayidx12.i = getelementptr inbounds float, ptr %arrayidx9.i, i64 %indvars.iv
   %14 = load float, ptr %arrayidx12.i, align 4
-  %retval.sroa.0.0.vec.insert.i.i = insertelement <2 x float> undef, float %12, i64 0
+  %retval.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %12, i64 0
   %retval.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i, float %13, i64 1
   %retval.sroa.3.12.vec.insert.i.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %14, i64 0
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i, ptr %axis, align 16

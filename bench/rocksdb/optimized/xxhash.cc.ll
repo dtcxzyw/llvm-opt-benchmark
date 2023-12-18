@@ -1889,7 +1889,7 @@ _ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.exit.i: ; preds = 
   br label %_ZL35XXH3_hashLong_64b_withSeed_internalPKvmmPFvPmPKhS3_mEPFvPvS0_EPFvS6_mE.exit
 
 if.end.i:                                         ; preds = %entry
-  %vecinit.i.i.i = insertelement <8 x i64> undef, i64 %seed, i64 0
+  %vecinit.i.i.i = insertelement <8 x i64> poison, i64 %seed, i64 0
   %vecinit7.i.i.i = shufflevector <8 x i64> %vecinit.i.i.i, <8 x i64> poison, <8 x i32> zeroinitializer
   %sub.i.i.i = sub <8 x i64> <i64 poison, i64 0, i64 poison, i64 0, i64 poison, i64 0, i64 poison, i64 0>, %vecinit7.i.i.i
   %35 = shufflevector <8 x i64> %vecinit7.i.i.i, <8 x i64> %sub.i.i.i, <8 x i32> <i32 0, i32 9, i32 2, i32 11, i32 4, i32 13, i32 6, i32 15>
@@ -2370,7 +2370,7 @@ if.then7:                                         ; preds = %lor.lhs.false, %if.
   %and.i = and i64 %2, 63
   %cmp.i9 = icmp eq i64 %and.i, 0
   tail call void @llvm.assume(i1 %cmp.i9)
-  %vecinit.i.i = insertelement <8 x i64> undef, i64 %seed, i64 0
+  %vecinit.i.i = insertelement <8 x i64> poison, i64 %seed, i64 0
   %vecinit7.i.i = shufflevector <8 x i64> %vecinit.i.i, <8 x i64> poison, <8 x i32> zeroinitializer
   %sub.i.i = sub <8 x i64> <i64 poison, i64 0, i64 poison, i64 0, i64 poison, i64 0, i64 poison, i64 0>, %vecinit7.i.i
   %3 = shufflevector <8 x i64> %vecinit7.i.i, <8 x i64> %sub.i.i, <8 x i32> <i32 0, i32 9, i32 2, i32 11, i32 4, i32 13, i32 6, i32 15>
@@ -3940,7 +3940,7 @@ if.then.i:                                        ; preds = %entry
   br label %_ZL36XXH3_hashLong_128b_withSeed_internalPKvmmPFvPmPKhS3_mEPFvPvS0_EPFvS6_mE.exit
 
 if.end.i:                                         ; preds = %entry
-  %vecinit.i.i.i = insertelement <8 x i64> undef, i64 %seed64, i64 0
+  %vecinit.i.i.i = insertelement <8 x i64> poison, i64 %seed64, i64 0
   %vecinit7.i.i.i = shufflevector <8 x i64> %vecinit.i.i.i, <8 x i64> poison, <8 x i32> zeroinitializer
   %sub.i.i.i = sub <8 x i64> <i64 poison, i64 0, i64 poison, i64 0, i64 poison, i64 0, i64 poison, i64 0>, %vecinit7.i.i.i
   %0 = shufflevector <8 x i64> %vecinit7.i.i.i, <8 x i64> %sub.i.i.i, <8 x i32> <i32 0, i32 9, i32 2, i32 11, i32 4, i32 13, i32 6, i32 15>
@@ -4091,7 +4091,7 @@ if.then7.i:                                       ; preds = %lor.lhs.false.i, %i
   %and.i.i = and i64 %2, 63
   %cmp.i9.i = icmp eq i64 %and.i.i, 0
   tail call void @llvm.assume(i1 %cmp.i9.i)
-  %vecinit.i.i.i = insertelement <8 x i64> undef, i64 %seed, i64 0
+  %vecinit.i.i.i = insertelement <8 x i64> poison, i64 %seed, i64 0
   %vecinit7.i.i.i = shufflevector <8 x i64> %vecinit.i.i.i, <8 x i64> poison, <8 x i32> zeroinitializer
   %sub.i.i.i = sub <8 x i64> <i64 poison, i64 0, i64 poison, i64 0, i64 poison, i64 0, i64 poison, i64 0>, %vecinit7.i.i.i
   %3 = shufflevector <8 x i64> %vecinit7.i.i.i, <8 x i64> %sub.i.i.i, <8 x i32> <i32 0, i32 9, i32 2, i32 11, i32 4, i32 13, i32 6, i32 15>
@@ -4468,7 +4468,7 @@ return:                                           ; preds = %if.end3, %entry, %f
 define void @ROCKSDB_XXH3_generateSecret_fromSeed(ptr nocapture noundef writeonly %secretBuffer, i64 noundef %seed) local_unnamed_addr #17 {
 entry:
   %secret = alloca [192 x i8], align 64
-  %vecinit.i.i = insertelement <8 x i64> undef, i64 %seed, i64 0
+  %vecinit.i.i = insertelement <8 x i64> poison, i64 %seed, i64 0
   %vecinit7.i.i = shufflevector <8 x i64> %vecinit.i.i, <8 x i64> poison, <8 x i32> zeroinitializer
   %sub.i.i = sub <8 x i64> <i64 poison, i64 0, i64 poison, i64 0, i64 poison, i64 0, i64 poison, i64 0>, %vecinit7.i.i
   %0 = shufflevector <8 x i64> %vecinit7.i.i, <8 x i64> %sub.i.i, <8 x i32> <i32 0, i32 9, i32 2, i32 11, i32 4, i32 13, i32 6, i32 15>

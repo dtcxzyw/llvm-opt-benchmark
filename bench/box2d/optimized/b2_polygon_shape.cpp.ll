@@ -226,7 +226,7 @@ for.body9.i:                                      ; preds = %if.end, %_ZN6b2Vec2
   %8 = load float, ptr %y2.i.i, align 4
   %sub3.i.i = fsub float %7, %8
   %mul1.i.i = fneg float %sub.i.i
-  %retval.sroa.0.0.vec.insert.i13.i = insertelement <2 x float> undef, float %sub3.i.i, i64 0
+  %retval.sroa.0.0.vec.insert.i13.i = insertelement <2 x float> poison, float %sub3.i.i, i64 0
   %retval.sroa.0.4.vec.insert.i14.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i13.i, float %mul1.i.i, i64 1
   %arrayidx21.i = getelementptr inbounds %class.b2PolygonShape, ptr %this, i64 0, i32 3, i64 %indvars.iv23.i
   store <2 x float> %retval.sroa.0.4.vec.insert.i14.i, ptr %arrayidx21.i, align 8
@@ -375,7 +375,7 @@ for.body9:                                        ; preds = %for.cond6.preheader
   %10 = load float, ptr %y2.i, align 4
   %sub3.i = fsub float %9, %10
   %mul1.i = fneg float %sub.i
-  %retval.sroa.0.0.vec.insert.i13 = insertelement <2 x float> undef, float %sub3.i, i64 0
+  %retval.sroa.0.0.vec.insert.i13 = insertelement <2 x float> poison, float %sub3.i, i64 0
   %retval.sroa.0.4.vec.insert.i14 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i13, float %mul1.i, i64 1
   %arrayidx21 = getelementptr inbounds %class.b2PolygonShape, ptr %this, i64 0, i32 3, i64 %indvars.iv23
   store <2 x float> %retval.sroa.0.4.vec.insert.i14, ptr %arrayidx21, align 8

@@ -366,7 +366,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   store i64 %normal1.sroa.0.0.insert.insert, ptr %axes.i, align 16, !noalias !6
   %arrayinit.element.i = getelementptr inbounds %struct.b2Vec2, ptr %axes.i, i64 1
   %fneg.i.i = fneg float %edge1.sroa.0.4.vec.extract
-  %retval.sroa.0.0.vec.insert.i.i92 = insertelement <2 x float> undef, float %fneg.i.i, i64 0
+  %retval.sroa.0.0.vec.insert.i.i92 = insertelement <2 x float> poison, float %fneg.i.i, i64 0
   %retval.sroa.0.4.vec.insert.i.i93 = shufflevector <2 x float> %retval.sroa.0.0.vec.insert.i.i92, <2 x float> %edge1.sroa.0.0, <2 x i32> <i32 0, i32 2>
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i93, ptr %arrayinit.element.i, align 8, !noalias !6
   %cmp21.i = icmp sgt i32 %66, 0
@@ -685,7 +685,7 @@ for.end99:                                        ; preds = %for.body88, %if.the
   store i32 %148, ptr %v2136.sroa_idx, align 4
   %normal138 = getelementptr inbounds %struct.b2ReferenceFace, ptr %ref, i64 0, i32 4
   store <2 x float> %133, ptr %normal138, align 4
-  %retval.sroa.0.0.vec.insert.i164 = insertelement <2 x float> undef, float %fneg, i64 0
+  %retval.sroa.0.0.vec.insert.i164 = insertelement <2 x float> poison, float %fneg, i64 0
   %retval.sroa.0.4.vec.insert.i165 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i164, float %fneg.i.i, i64 1
   %sideNormal1 = getelementptr inbounds %struct.b2ReferenceFace, ptr %ref, i64 0, i32 5
   store <2 x float> %retval.sroa.0.4.vec.insert.i165, ptr %sideNormal1, align 4
@@ -757,7 +757,7 @@ if.else141:                                       ; preds = %if.end76
   %y.i166 = getelementptr inbounds %struct.b2ReferenceFace, ptr %ref, i64 0, i32 5, i32 1
   store float %fneg207, ptr %y.i166, align 4
   %fneg.i167 = fneg float %160
-  %retval.sroa.0.0.vec.insert.i170 = insertelement <2 x float> undef, float %fneg.i167, i64 0
+  %retval.sroa.0.0.vec.insert.i170 = insertelement <2 x float> poison, float %fneg.i167, i64 0
   %retval.sroa.0.4.vec.insert.i171 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i170, float %162, i64 1
   %sideNormal2211 = getelementptr inbounds %struct.b2ReferenceFace, ptr %ref, i64 0, i32 7
   store <2 x float> %retval.sroa.0.4.vec.insert.i171, ptr %sideNormal2211, align 4

@@ -27054,7 +27054,7 @@ if.then:                                          ; preds = %entry
   %chunks_.i.i43 = getelementptr inbounds %"class.folly::f14::detail::F14Table", ptr %32, i64 0, i32 1
   %35 = load ptr, ptr %chunks_.i.i43, align 8
   %conv.i.i44 = trunc i64 %or.i.i to i8
-  %vecinit.i.i.i = insertelement <16 x i8> undef, i8 %conv.i.i44, i64 0
+  %vecinit.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i44, i64 0
   %vecinit15.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %values_.i.i = getelementptr inbounds %"class.folly::f14::detail::VectorContainerPolicy", ptr %32, i64 0, i32 1
   br label %for.body.i.i45
@@ -27309,7 +27309,7 @@ _ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE0EE13getMapAtIndexEi.ex
   %chunks_.i.i = getelementptr inbounds %"struct.std::pair.92", ptr %78, i64 %idxprom.i.i107, i32 1, i32 0, i32 0, i32 0, i32 1
   %83 = load ptr, ptr %chunks_.i.i, align 8
   %conv.i = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i.i
 
@@ -27654,7 +27654,7 @@ if.then:                                          ; preds = %entry
   %chunks_.i = getelementptr inbounds %"class.folly::f14::detail::F14Table", ptr %this, i64 0, i32 1
   %2 = load ptr, ptr %chunks_.i, align 8
   %conv.i25 = trunc i64 %hp.coerce1 to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i25, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i25, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %values_.i = getelementptr inbounds %"class.folly::f14::detail::VectorContainerPolicy", ptr %this, i64 0, i32 1
   %3 = load ptr, ptr %values_.i, align 8
@@ -28426,7 +28426,7 @@ if.then:                                          ; preds = %entry
   %chunks_.i = getelementptr inbounds %"class.folly::f14::detail::F14Table.96", ptr %this, i64 0, i32 1
   %2 = load ptr, ptr %chunks_.i, align 8
   %conv.i26 = trunc i64 %hp.coerce1 to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i26, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i26, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %3 = load i8, ptr %key, align 1
   br label %for.body.i
@@ -29790,7 +29790,7 @@ if.then:                                          ; preds = %entry
   %chunks_.i.i43 = getelementptr inbounds %"class.folly::f14::detail::F14Table.233", ptr %30, i64 0, i32 1
   %33 = load ptr, ptr %chunks_.i.i43, align 8
   %conv.i.i44 = trunc i64 %or.i.i to i8
-  %vecinit.i.i.i = insertelement <16 x i8> undef, i8 %conv.i.i44, i64 0
+  %vecinit.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i44, i64 0
   %vecinit15.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %values_.i.i = getelementptr inbounds %"class.folly::f14::detail::VectorContainerPolicy.234", ptr %30, i64 0, i32 1
   br label %for.body.i.i45
@@ -30039,7 +30039,7 @@ _ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE3EE13getMapAtIndexEi.ex
   %chunks_.i.i = getelementptr inbounds %"struct.std::pair.237", ptr %76, i64 %idxprom.i.i105, i32 1, i32 0, i32 0, i32 0, i32 1
   %81 = load ptr, ptr %chunks_.i.i, align 8
   %conv.i = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i.i
 
@@ -30145,7 +30145,7 @@ if.then:                                          ; preds = %entry
   %chunks_.i = getelementptr inbounds %"class.folly::f14::detail::F14Table.233", ptr %this, i64 0, i32 1
   %2 = load ptr, ptr %chunks_.i, align 8
   %conv.i25 = trunc i64 %hp.coerce1 to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i25, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i25, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %values_.i = getelementptr inbounds %"class.folly::f14::detail::VectorContainerPolicy.234", ptr %this, i64 0, i32 1
   %3 = load ptr, ptr %values_.i, align 8
@@ -30911,7 +30911,7 @@ if.then:                                          ; preds = %entry
   %chunks_.i = getelementptr inbounds %"class.folly::f14::detail::F14Table.242", ptr %this, i64 0, i32 1
   %2 = load ptr, ptr %chunks_.i, align 8
   %conv.i26 = trunc i64 %hp.coerce1 to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i26, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i26, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %3 = load i32, ptr %key, align 4
   br label %for.body.i
@@ -32081,7 +32081,7 @@ if.then:                                          ; preds = %entry
   %chunks_.i.i43 = getelementptr inbounds %"class.folly::f14::detail::F14Table.318", ptr %30, i64 0, i32 1
   %33 = load ptr, ptr %chunks_.i.i43, align 8
   %conv.i.i44 = trunc i64 %or.i.i to i8
-  %vecinit.i.i.i = insertelement <16 x i8> undef, i8 %conv.i.i44, i64 0
+  %vecinit.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i44, i64 0
   %vecinit15.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %values_.i.i = getelementptr inbounds %"class.folly::f14::detail::VectorContainerPolicy.319", ptr %30, i64 0, i32 1
   br label %for.body.i.i45
@@ -32330,7 +32330,7 @@ _ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE1EE13getMapAtIndexEi.ex
   %chunks_.i.i = getelementptr inbounds %"struct.std::pair.322", ptr %76, i64 %idxprom.i.i105, i32 1, i32 0, i32 0, i32 0, i32 1
   %81 = load ptr, ptr %chunks_.i.i, align 8
   %conv.i = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i.i
 
@@ -32436,7 +32436,7 @@ if.then:                                          ; preds = %entry
   %chunks_.i = getelementptr inbounds %"class.folly::f14::detail::F14Table.318", ptr %this, i64 0, i32 1
   %2 = load ptr, ptr %chunks_.i, align 8
   %conv.i25 = trunc i64 %hp.coerce1 to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i25, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i25, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %values_.i = getelementptr inbounds %"class.folly::f14::detail::VectorContainerPolicy.319", ptr %this, i64 0, i32 1
   %3 = load ptr, ptr %values_.i, align 8
@@ -33202,7 +33202,7 @@ if.then:                                          ; preds = %entry
   %chunks_.i = getelementptr inbounds %"class.folly::f14::detail::F14Table.327", ptr %this, i64 0, i32 1
   %2 = load ptr, ptr %chunks_.i, align 8
   %conv.i26 = trunc i64 %hp.coerce1 to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i26, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i26, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %3 = load i8, ptr %key, align 1
   br label %for.body.i
@@ -34372,7 +34372,7 @@ if.then:                                          ; preds = %entry
   %chunks_.i.i43 = getelementptr inbounds %"class.folly::f14::detail::F14Table.411", ptr %30, i64 0, i32 1
   %33 = load ptr, ptr %chunks_.i.i43, align 8
   %conv.i.i44 = trunc i64 %or.i.i to i8
-  %vecinit.i.i.i = insertelement <16 x i8> undef, i8 %conv.i.i44, i64 0
+  %vecinit.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i44, i64 0
   %vecinit15.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %values_.i.i = getelementptr inbounds %"class.folly::f14::detail::VectorContainerPolicy.412", ptr %30, i64 0, i32 1
   br label %for.body.i.i45
@@ -34621,7 +34621,7 @@ _ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE2EE13getMapAtIndexEi.ex
   %chunks_.i.i = getelementptr inbounds %"struct.std::pair.415", ptr %76, i64 %idxprom.i.i105, i32 1, i32 0, i32 0, i32 0, i32 1
   %81 = load ptr, ptr %chunks_.i.i, align 8
   %conv.i = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i.i
 
@@ -34727,7 +34727,7 @@ if.then:                                          ; preds = %entry
   %chunks_.i = getelementptr inbounds %"class.folly::f14::detail::F14Table.411", ptr %this, i64 0, i32 1
   %2 = load ptr, ptr %chunks_.i, align 8
   %conv.i25 = trunc i64 %hp.coerce1 to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i25, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i25, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %values_.i = getelementptr inbounds %"class.folly::f14::detail::VectorContainerPolicy.412", ptr %this, i64 0, i32 1
   %3 = load ptr, ptr %values_.i, align 8
@@ -35493,7 +35493,7 @@ if.then:                                          ; preds = %entry
   %chunks_.i = getelementptr inbounds %"class.folly::f14::detail::F14Table.420", ptr %this, i64 0, i32 1
   %2 = load ptr, ptr %chunks_.i, align 8
   %conv.i26 = trunc i64 %hp.coerce1 to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i26, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i26, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %3 = load i16, ptr %key, align 2
   br label %for.body.i
@@ -36775,7 +36775,7 @@ if.then:                                          ; preds = %entry
   %chunks_.i.i43 = getelementptr inbounds %"class.folly::f14::detail::F14Table.504", ptr %30, i64 0, i32 1
   %33 = load ptr, ptr %chunks_.i.i43, align 8
   %conv.i.i44 = trunc i64 %or.i.i to i8
-  %vecinit.i.i.i = insertelement <16 x i8> undef, i8 %conv.i.i44, i64 0
+  %vecinit.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i44, i64 0
   %vecinit15.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %values_.i.i = getelementptr inbounds %"class.folly::f14::detail::VectorContainerPolicy.505", ptr %30, i64 0, i32 1
   br label %for.body.i.i45
@@ -37022,7 +37022,7 @@ _ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE4EE13getMapAtIndexEi.ex
   %chunks_.i.i = getelementptr inbounds %"struct.std::pair.508", ptr %76, i64 %idxprom.i.i105, i32 1, i32 0, i32 0, i32 0, i32 1
   %81 = load ptr, ptr %chunks_.i.i, align 8
   %conv.i = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i.i
 
@@ -37128,7 +37128,7 @@ if.then:                                          ; preds = %entry
   %chunks_.i = getelementptr inbounds %"class.folly::f14::detail::F14Table.504", ptr %this, i64 0, i32 1
   %2 = load ptr, ptr %chunks_.i, align 8
   %conv.i25 = trunc i64 %hp.coerce1 to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i25, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i25, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %values_.i = getelementptr inbounds %"class.folly::f14::detail::VectorContainerPolicy.505", ptr %this, i64 0, i32 1
   %3 = load ptr, ptr %values_.i, align 8
@@ -37862,7 +37862,7 @@ if.then:                                          ; preds = %entry
   %chunks_.i = getelementptr inbounds %"class.folly::f14::detail::F14Table.513", ptr %this, i64 0, i32 1
   %2 = load ptr, ptr %chunks_.i, align 8
   %conv.i26 = trunc i64 %hp.coerce1 to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i26, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i26, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %3 = load i64, ptr %key, align 8
   br label %for.body.i
@@ -39052,7 +39052,7 @@ if.then:                                          ; preds = %entry
   %chunks_.i.i31 = getelementptr inbounds %"class.folly::f14::detail::F14Table.600", ptr %28, i64 0, i32 1
   %31 = load ptr, ptr %chunks_.i.i31, align 8
   %conv.i.i32 = trunc i64 %or.i.i to i8
-  %vecinit.i.i.i = insertelement <16 x i8> undef, i8 %conv.i.i32, i64 0
+  %vecinit.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i32, i64 0
   %vecinit15.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %values_.i.i = getelementptr inbounds %"class.folly::f14::detail::VectorContainerPolicy.601", ptr %28, i64 0, i32 1
   br label %for.body.i.i33
@@ -39304,7 +39304,7 @@ _ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE10EE13getMapAtIndexEi.e
   %chunks_.i.i = getelementptr inbounds %"struct.std::pair.604", ptr %retval.sroa.0.0.i.i102, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
   %78 = load ptr, ptr %chunks_.i.i, align 8
   %conv.i113 = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i113, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i113, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %values_.i = getelementptr inbounds %"struct.std::pair.604", ptr %retval.sroa.0.0.i.i102, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
   br label %for.body.i.i
@@ -39413,7 +39413,7 @@ if.then:                                          ; preds = %entry
   %chunks_.i = getelementptr inbounds %"class.folly::f14::detail::F14Table.600", ptr %this, i64 0, i32 1
   %2 = load ptr, ptr %chunks_.i, align 8
   %conv.i25 = trunc i64 %hp.coerce1 to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i25, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i25, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %values_.i = getelementptr inbounds %"class.folly::f14::detail::VectorContainerPolicy.601", ptr %this, i64 0, i32 1
   %3 = load ptr, ptr %values_.i, align 8
@@ -40177,7 +40177,7 @@ if.then:                                          ; preds = %entry
   %chunks_.i = getelementptr inbounds %"class.folly::f14::detail::F14Table.609", ptr %this, i64 0, i32 1
   %2 = load ptr, ptr %chunks_.i, align 8
   %conv.i25 = trunc i64 %hp.coerce1 to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i25, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i25, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %values_.i = getelementptr inbounds %"class.folly::f14::detail::VectorContainerPolicy.610", ptr %this, i64 0, i32 1
   %3 = load ptr, ptr %values_.i, align 8
@@ -41358,7 +41358,7 @@ if.then:                                          ; preds = %entry
   %chunks_.i.i43 = getelementptr inbounds %"class.folly::f14::detail::F14Table.685", ptr %30, i64 0, i32 1
   %33 = load ptr, ptr %chunks_.i.i43, align 8
   %conv.i.i44 = trunc i64 %or.i.i to i8
-  %vecinit.i.i.i = insertelement <16 x i8> undef, i8 %conv.i.i44, i64 0
+  %vecinit.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i44, i64 0
   %vecinit15.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %values_.i.i = getelementptr inbounds %"class.folly::f14::detail::VectorContainerPolicy.686", ptr %30, i64 0, i32 1
   br label %for.body.i.i45
@@ -41645,7 +41645,7 @@ _ZNK5folly3f146detail10BasePolicyIfivvN8facebook5velox6memory12StlAllocatorISt4p
   %chunks_.i.i = getelementptr inbounds %"struct.std::pair.689", ptr %retval.sroa.0.0.i.i108, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
   %85 = load ptr, ptr %chunks_.i.i, align 8
   %conv.i = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i.i
 
@@ -41751,7 +41751,7 @@ if.then:                                          ; preds = %entry
   %chunks_.i = getelementptr inbounds %"class.folly::f14::detail::F14Table.685", ptr %this, i64 0, i32 1
   %2 = load ptr, ptr %chunks_.i, align 8
   %conv.i25 = trunc i64 %hp.coerce1 to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i25, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i25, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %values_.i = getelementptr inbounds %"class.folly::f14::detail::VectorContainerPolicy.686", ptr %this, i64 0, i32 1
   %3 = load ptr, ptr %values_.i, align 8
@@ -42517,7 +42517,7 @@ if.then:                                          ; preds = %entry
   %chunks_.i = getelementptr inbounds %"class.folly::f14::detail::F14Table.694", ptr %this, i64 0, i32 1
   %2 = load ptr, ptr %chunks_.i, align 8
   %conv.i26 = trunc i64 %hp.coerce1 to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i26, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i26, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %3 = load float, ptr %key, align 4
   br label %for.body.i
@@ -43822,7 +43822,7 @@ if.then:                                          ; preds = %entry
   %chunks_.i.i43 = getelementptr inbounds %"class.folly::f14::detail::F14Table.778", ptr %30, i64 0, i32 1
   %33 = load ptr, ptr %chunks_.i.i43, align 8
   %conv.i.i44 = trunc i64 %or.i.i to i8
-  %vecinit.i.i.i = insertelement <16 x i8> undef, i8 %conv.i.i44, i64 0
+  %vecinit.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i44, i64 0
   %vecinit15.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %values_.i.i = getelementptr inbounds %"class.folly::f14::detail::VectorContainerPolicy.779", ptr %30, i64 0, i32 1
   br label %for.body.i.i45
@@ -44109,7 +44109,7 @@ _ZNK5folly3f146detail10BasePolicyIdivvN8facebook5velox6memory12StlAllocatorISt4p
   %chunks_.i.i = getelementptr inbounds %"struct.std::pair.782", ptr %retval.sroa.0.0.i.i108, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
   %85 = load ptr, ptr %chunks_.i.i, align 8
   %conv.i = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i.i
 
@@ -44215,7 +44215,7 @@ if.then:                                          ; preds = %entry
   %chunks_.i = getelementptr inbounds %"class.folly::f14::detail::F14Table.778", ptr %this, i64 0, i32 1
   %2 = load ptr, ptr %chunks_.i, align 8
   %conv.i25 = trunc i64 %hp.coerce1 to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i25, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i25, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %values_.i = getelementptr inbounds %"class.folly::f14::detail::VectorContainerPolicy.779", ptr %this, i64 0, i32 1
   %3 = load ptr, ptr %values_.i, align 8
@@ -44949,7 +44949,7 @@ if.then:                                          ; preds = %entry
   %chunks_.i = getelementptr inbounds %"class.folly::f14::detail::F14Table.787", ptr %this, i64 0, i32 1
   %2 = load ptr, ptr %chunks_.i, align 8
   %conv.i26 = trunc i64 %hp.coerce1 to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i26, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i26, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %3 = load double, ptr %key, align 8
   br label %for.body.i
@@ -46128,7 +46128,7 @@ if.then:                                          ; preds = %entry
   %chunks_.i.i31 = getelementptr inbounds %"class.folly::f14::detail::F14Table.873", ptr %23, i64 0, i32 1
   %26 = load ptr, ptr %chunks_.i.i31, align 8
   %conv.i.i32 = trunc i64 %or.i.i to i8
-  %vecinit.i.i.i = insertelement <16 x i8> undef, i8 %conv.i.i32, i64 0
+  %vecinit.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i32, i64 0
   %vecinit15.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %values_.i.i = getelementptr inbounds %"class.folly::f14::detail::VectorContainerPolicy.874", ptr %23, i64 0, i32 1
   br label %for.body.i.i33
@@ -46404,7 +46404,7 @@ _ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE7EE13getMapAtIndexEi.ex
   %chunks_.i.i = getelementptr inbounds %"struct.std::pair.877", ptr %retval.sroa.0.0.i.i103, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
   %78 = load ptr, ptr %chunks_.i.i, align 8
   %conv.i = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %values_.i = getelementptr inbounds %"struct.std::pair.877", ptr %retval.sroa.0.0.i.i103, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
   %add.ptr.i.i.i119 = getelementptr inbounds i8, ptr %searchKey.coerce1, i64 4
@@ -46614,7 +46614,7 @@ if.then:                                          ; preds = %entry
   %chunks_.i = getelementptr inbounds %"class.folly::f14::detail::F14Table.873", ptr %this, i64 0, i32 1
   %2 = load ptr, ptr %chunks_.i, align 8
   %conv.i25 = trunc i64 %hp.coerce1 to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i25, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i25, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %values_.i = getelementptr inbounds %"class.folly::f14::detail::VectorContainerPolicy.874", ptr %this, i64 0, i32 1
   %3 = load ptr, ptr %values_.i, align 8
@@ -47378,7 +47378,7 @@ if.then:                                          ; preds = %entry
   %chunks_.i = getelementptr inbounds %"class.folly::f14::detail::F14Table.882", ptr %this, i64 0, i32 1
   %2 = load ptr, ptr %chunks_.i, align 8
   %conv.i25 = trunc i64 %hp.coerce1 to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i25, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i25, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %values_.i = getelementptr inbounds %"class.folly::f14::detail::VectorContainerPolicy.883", ptr %this, i64 0, i32 1
   %3 = load ptr, ptr %values_.i, align 8
@@ -48521,7 +48521,7 @@ if.then:                                          ; preds = %entry
   %chunks_.i.i31 = getelementptr inbounds %"class.folly::f14::detail::F14Table.873", ptr %23, i64 0, i32 1
   %26 = load ptr, ptr %chunks_.i.i31, align 8
   %conv.i.i32 = trunc i64 %or.i.i to i8
-  %vecinit.i.i.i = insertelement <16 x i8> undef, i8 %conv.i.i32, i64 0
+  %vecinit.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i32, i64 0
   %vecinit15.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %values_.i.i = getelementptr inbounds %"class.folly::f14::detail::VectorContainerPolicy.874", ptr %23, i64 0, i32 1
   br label %for.body.i.i33
@@ -48797,7 +48797,7 @@ _ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE8EE13getMapAtIndexEi.ex
   %chunks_.i.i = getelementptr inbounds %"struct.std::pair.877", ptr %retval.sroa.0.0.i.i103, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
   %78 = load ptr, ptr %chunks_.i.i, align 8
   %conv.i = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %values_.i = getelementptr inbounds %"struct.std::pair.877", ptr %retval.sroa.0.0.i.i103, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
   %add.ptr.i.i.i119 = getelementptr inbounds i8, ptr %searchKey.coerce1, i64 4
@@ -49467,7 +49467,7 @@ if.then:                                          ; preds = %entry
   %chunks_.i.i31 = getelementptr inbounds %"class.folly::f14::detail::F14Table.974", ptr %30, i64 0, i32 1
   %33 = load ptr, ptr %chunks_.i.i31, align 8
   %conv.i.i32 = trunc i64 %or.i.i to i8
-  %vecinit.i.i.i = insertelement <16 x i8> undef, i8 %conv.i.i32, i64 0
+  %vecinit.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i32, i64 0
   %vecinit15.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %values_.i.i = getelementptr inbounds %"class.folly::f14::detail::VectorContainerPolicy.975", ptr %30, i64 0, i32 1
   br label %for.body.i.i33
@@ -49739,7 +49739,7 @@ _ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE9EE13getMapAtIndexEi.ex
   %chunks_.i.i = getelementptr inbounds %"struct.std::pair.978", ptr %retval.sroa.0.0.i.i102, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
   %83 = load ptr, ptr %chunks_.i.i, align 8
   %conv.i = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %values_.i = getelementptr inbounds %"struct.std::pair.978", ptr %retval.sroa.0.0.i.i102, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
   br label %for.body.i.i
@@ -49856,7 +49856,7 @@ if.then:                                          ; preds = %entry
   %chunks_.i = getelementptr inbounds %"class.folly::f14::detail::F14Table.974", ptr %this, i64 0, i32 1
   %2 = load ptr, ptr %chunks_.i, align 8
   %conv.i25 = trunc i64 %hp.coerce1 to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i25, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i25, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %values_.i = getelementptr inbounds %"class.folly::f14::detail::VectorContainerPolicy.975", ptr %this, i64 0, i32 1
   %3 = load ptr, ptr %values_.i, align 8
@@ -50620,7 +50620,7 @@ if.then:                                          ; preds = %entry
   %chunks_.i = getelementptr inbounds %"class.folly::f14::detail::F14Table.983", ptr %this, i64 0, i32 1
   %2 = load ptr, ptr %chunks_.i, align 8
   %conv.i25 = trunc i64 %hp.coerce1 to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i25, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i25, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %values_.i = getelementptr inbounds %"class.folly::f14::detail::VectorContainerPolicy.984", ptr %this, i64 0, i32 1
   %3 = load ptr, ptr %values_.i, align 8

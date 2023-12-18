@@ -26,14 +26,14 @@ entry:
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %out_buf.i)
   %conv.i = sitofp i32 %dim to float
   %sub.i = fadd float %conv.i, -1.000000e+00
-  %vecinit.i124.i = insertelement <4 x float> undef, float %sub.i, i64 0
+  %vecinit.i124.i = insertelement <4 x float> poison, float %sub.i, i64 0
   %vecinit3.i127.i = shufflevector <4 x float> %vecinit.i124.i, <4 x float> poison, <4 x i32> zeroinitializer
   %mul.i = fmul float %conv.i, 4.000000e+00
-  %vecinit.i100.i = insertelement <4 x float> undef, float %mul.i, i64 0
+  %vecinit.i100.i = insertelement <4 x float> poison, float %mul.i, i64 0
   %vecinit3.i103.i = shufflevector <4 x float> %vecinit.i100.i, <4 x float> poison, <4 x i32> zeroinitializer
   %mul10.i = fmul float %conv.i, %conv.i
   %mul11.i = fmul float %mul10.i, 4.000000e+00
-  %vecinit.i.i = insertelement <4 x float> undef, float %mul11.i, i64 0
+  %vecinit.i.i = insertelement <4 x float> poison, float %mul11.i, i64 0
   %vecinit3.i.i = shufflevector <4 x float> %vecinit.i.i, <4 x float> poison, <4 x i32> zeroinitializer
   %div.i = sdiv i32 %total_pixel_count, 4
   %mul13.i = shl nsw i32 %div.i, 2

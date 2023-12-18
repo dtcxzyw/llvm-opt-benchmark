@@ -2107,7 +2107,7 @@ call2.i137.noexc:                                 ; preds = %entry
   %chunks_.i = getelementptr inbounds %"class.facebook::velox::cache::CacheShard", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
   %5 = load ptr, ptr %chunks_.i, align 8
   %conv.i69 = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i69, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i69, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %6 = load ptr, ptr %entryMap_, align 8
   br label %call6.i.noexc
@@ -2811,7 +2811,7 @@ call2.i.noexc:                                    ; preds = %entry
   %chunks_.i = getelementptr inbounds %"class.facebook::velox::cache::CacheShard", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
   %3 = load ptr, ptr %chunks_.i, align 8
   %conv.i16 = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i16, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i16, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %4 = load ptr, ptr %entryMap_, align 8
   br label %call6.i.noexc
@@ -3676,7 +3676,7 @@ if.end:                                           ; preds = %entry
   %chunks_.i = getelementptr inbounds %"class.facebook::velox::cache::CacheShard", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
   %5 = load ptr, ptr %chunks_.i, align 8
   %conv.i66 = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i66, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i66, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %6 = load ptr, ptr %entryMap_, align 8
   br label %for.body.i
@@ -11210,7 +11210,7 @@ if.then:                                          ; preds = %entry
   %chunks_.i = getelementptr inbounds %"class.folly::f14::detail::F14Table", ptr %this, i64 0, i32 1
   %2 = load ptr, ptr %chunks_.i, align 8
   %conv.i25 = trunc i64 %hp.coerce1 to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i25, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i25, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %3 = load ptr, ptr %this, align 8
   %4 = load <2 x i64>, ptr %key, align 8
@@ -12266,7 +12266,7 @@ if.then:                                          ; preds = %entry
   %chunks_.i = getelementptr inbounds %"class.folly::f14::detail::F14Table", ptr %this, i64 0, i32 1
   %9 = load ptr, ptr %chunks_.i, align 8
   %conv.i24 = trunc i64 %or.i to i8
-  %vecinit.i.i = insertelement <16 x i8> undef, i8 %conv.i24, i64 0
+  %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i24, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.cond.i
 
