@@ -16,6 +16,7 @@ git commit -a -m "llvm: Update baseline to $llvm_commit"
 if [ $? -eq 0 ] || [ $ret -ne 0 ]
 then
   git pull --rebase
+  git submodule update
   git push -u origin
   git show --name-only | grep bench
   if [ $? -eq 0 ] || [ $ret -ne 0 ]
