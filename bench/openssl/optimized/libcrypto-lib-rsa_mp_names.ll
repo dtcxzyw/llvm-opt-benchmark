@@ -1,0 +1,44 @@
+; ModuleID = 'bench/openssl/original/libcrypto-lib-rsa_mp_names.ll'
+source_filename = "bench/openssl/original/libcrypto-lib-rsa_mp_names.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-unknown-linux-gnu"
+
+@.str = private unnamed_addr constant [12 x i8] c"rsa-factor1\00", align 1
+@.str.1 = private unnamed_addr constant [12 x i8] c"rsa-factor2\00", align 1
+@.str.2 = private unnamed_addr constant [12 x i8] c"rsa-factor3\00", align 1
+@.str.3 = private unnamed_addr constant [12 x i8] c"rsa-factor4\00", align 1
+@.str.4 = private unnamed_addr constant [12 x i8] c"rsa-factor5\00", align 1
+@.str.5 = private unnamed_addr constant [12 x i8] c"rsa-factor6\00", align 1
+@.str.6 = private unnamed_addr constant [12 x i8] c"rsa-factor7\00", align 1
+@.str.7 = private unnamed_addr constant [12 x i8] c"rsa-factor8\00", align 1
+@.str.8 = private unnamed_addr constant [12 x i8] c"rsa-factor9\00", align 1
+@.str.9 = private unnamed_addr constant [13 x i8] c"rsa-factor10\00", align 1
+@ossl_rsa_mp_factor_names = local_unnamed_addr global [11 x ptr] [ptr @.str, ptr @.str.1, ptr @.str.2, ptr @.str.3, ptr @.str.4, ptr @.str.5, ptr @.str.6, ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr null], align 16
+@.str.10 = private unnamed_addr constant [14 x i8] c"rsa-exponent1\00", align 1
+@.str.11 = private unnamed_addr constant [14 x i8] c"rsa-exponent2\00", align 1
+@.str.12 = private unnamed_addr constant [14 x i8] c"rsa-exponent3\00", align 1
+@.str.13 = private unnamed_addr constant [14 x i8] c"rsa-exponent4\00", align 1
+@.str.14 = private unnamed_addr constant [14 x i8] c"rsa-exponent5\00", align 1
+@.str.15 = private unnamed_addr constant [14 x i8] c"rsa-exponent6\00", align 1
+@.str.16 = private unnamed_addr constant [14 x i8] c"rsa-exponent7\00", align 1
+@.str.17 = private unnamed_addr constant [14 x i8] c"rsa-exponent8\00", align 1
+@.str.18 = private unnamed_addr constant [14 x i8] c"rsa-exponent9\00", align 1
+@.str.19 = private unnamed_addr constant [15 x i8] c"rsa-exponent10\00", align 1
+@ossl_rsa_mp_exp_names = local_unnamed_addr global [11 x ptr] [ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14, ptr @.str.15, ptr @.str.16, ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr null], align 16
+@.str.20 = private unnamed_addr constant [17 x i8] c"rsa-coefficient1\00", align 1
+@.str.21 = private unnamed_addr constant [17 x i8] c"rsa-coefficient2\00", align 1
+@.str.22 = private unnamed_addr constant [17 x i8] c"rsa-coefficient3\00", align 1
+@.str.23 = private unnamed_addr constant [17 x i8] c"rsa-coefficient4\00", align 1
+@.str.24 = private unnamed_addr constant [17 x i8] c"rsa-coefficient5\00", align 1
+@.str.25 = private unnamed_addr constant [17 x i8] c"rsa-coefficient6\00", align 1
+@.str.26 = private unnamed_addr constant [17 x i8] c"rsa-coefficient7\00", align 1
+@.str.27 = private unnamed_addr constant [17 x i8] c"rsa-coefficient8\00", align 1
+@.str.28 = private unnamed_addr constant [17 x i8] c"rsa-coefficient9\00", align 1
+@ossl_rsa_mp_coeff_names = local_unnamed_addr global [10 x ptr] [ptr @.str.20, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.24, ptr @.str.25, ptr @.str.26, ptr @.str.27, ptr @.str.28, ptr null], align 16
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{i32 7, !"frame-pointer", i32 2}
