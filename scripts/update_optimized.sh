@@ -9,14 +9,15 @@ cmake ../llvm-project/llvm -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=ON -G 
 cmake --build . -j -t opt
 cd ../..
 
-scripts/gen_optimized.py bench $LLVM_OPT_BENCHMARK_WORKSPACE/llvm-build/bin/opt
+scripts/gen_optimized.py bench llvm/llvm-build/bin/opt
+ret=$?
 llvm_commit=$(git -C llvm/llvm-project rev-parse HEAD)
 git commit -a -m "llvm: Update baseline to $llvm_commit"
-if [ $? -eq 0 ]
+if [ $? -eq 0 ] || [ $ret -ne 0 ]
 then
   git push -u origin
   git show --name-only | grep bench
-  if [ $? -eq 0 ]
+  if [ $? -eq 0 ] || [ $ret -ne 0 ]
   then
     scripts/gen_issue_report.py $(git rev-parse HEAD)
     echo "SHOULD_OPEN_ISSUE=1" >> $GITHUB_OUTPUT
