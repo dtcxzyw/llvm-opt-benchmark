@@ -2,10 +2,11 @@
 
 export GITHUB_PATCH_ID="<user_name>/llvm-project/commit/<commit_hash>"
 
-echo "LLVM_REVISION=$(git -C llvm/llvm-project rev-parse HEAD)" >> $GITHUB_ENV
+git fetch origin
+git rebase origin/main
+git submodule update
 
-git -C llvm/llvm-project checkout .
-git -C llvm/llvm-project clean -fdx
+echo "LLVM_REVISION=$(git -C llvm/llvm-project rev-parse HEAD)" >> $GITHUB_ENV
 
 COMMIT_URL=https://github.com/${GITHUB_PATCH_ID}
 PATCH_URL=https://github.com/${GITHUB_PATCH_ID}.patch
