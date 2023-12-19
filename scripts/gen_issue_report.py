@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import sys
 import html
+import os
 
 commit_hash = sys.argv[1]
 report_file = "scripts/issue.md"
@@ -23,6 +24,8 @@ with open(report_file, 'w') as issue_report:
     issue_report.write(
         "title: Update diff {{ date | date('MMMM Do YYYY, h:mm:ss a') }}\n")
     issue_report.write('---\n')
+    issue_report.write('from: https://github.com/llvm/llvm-project/commit/{}\n'.format(os.environ['LLVM_LAST_REVISION']))
+    issue_report.write('to: https://github.com/llvm/llvm-project/commit/{}\n'.format(os.environ['LLVM_REVISION']))
     issue_report.write('commit: {}\n'.format(commit_hash))
     issue_report.write('\n')
     with open('test.log', 'r') as log:

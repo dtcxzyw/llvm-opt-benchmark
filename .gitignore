@@ -2,3 +2,4 @@ bench_build
 llvm-build
 CHANGELOGS
 test.log
+patch.diff
