@@ -1,4 +1,6 @@
 #!/bin/bash
+set -euo pipefail
+shopt -s inherit_errexit
 
 export GITHUB_PATCH_ID="<user_name>/llvm-project/commit/<commit_hash>"
 
