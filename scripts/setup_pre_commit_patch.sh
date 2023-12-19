@@ -4,9 +4,10 @@ shopt -s inherit_errexit
 
 export GITHUB_PATCH_ID="<user_name>/llvm-project/commit/<commit_hash>"
 
-git fetch origin
-git rebase origin/main
-git submodule update
+# Please rebase manually
+# git fetch origin
+# git rebase origin/main
+# git submodule update
 
 echo "LLVM_REVISION=$(git -C llvm/llvm-project rev-parse HEAD)" >> $GITHUB_ENV
 
