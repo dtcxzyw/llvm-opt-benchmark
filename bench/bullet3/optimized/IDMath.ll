@@ -1369,7 +1369,7 @@ entry:
   %fneg = fneg float %0
   %1 = load float, ptr %rot, align 4
   %call.i = tail call noundef float @atan2f(float noundef %fneg, float noundef %1) #13
-  %retval.sroa.4.8.vec.insert = insertelement <2 x float> undef, float %call.i, i64 0
+  %retval.sroa.4.8.vec.insert = insertelement <2 x float> <float poison, float undef>, float %call.i, i64 0
   %arrayidx.i.i7 = getelementptr inbounds [3 x %class.btVector3], ptr %rot, i64 0, i64 2
   %2 = load float, ptr %arrayidx.i.i7, align 4
   %fneg5 = fneg float %2

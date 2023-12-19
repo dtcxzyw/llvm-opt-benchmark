@@ -269,7 +269,7 @@ entry:
   %idxprom1.i = zext i8 %0 to i64
   %arrayidx2.i = getelementptr [256 x i8], ptr @AES_sbox, i64 0, i64 %idxprom1.i
   %1 = load i8, ptr %arrayidx2.i, align 1
-  %t.i.sroa.0.0.vec.insert = insertelement <16 x i8> undef, i8 %1, i64 0
+  %t.i.sroa.0.0.vec.insert = insertelement <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 undef, i8 undef, i8 undef, i8 undef, i8 undef, i8 undef>, i8 %1, i64 0
   %arrayidx8.i = getelementptr [16 x i8], ptr %s, i64 0, i64 5
   %2 = load i8, ptr %arrayidx8.i, align 1
   %idxprom9.i = zext i8 %2 to i64
@@ -448,7 +448,7 @@ entry:
   %idxprom121.i = zext i8 %30 to i64
   %arrayidx122.i = getelementptr [256 x i8], ptr @AES_sbox, i64 0, i64 %idxprom121.i
   %31 = load i8, ptr %arrayidx122.i, align 1
-  %32 = insertelement <16 x i8> undef, i8 %31, i64 0
+  %32 = insertelement <16 x i8> poison, i8 %31, i64 0
   %33 = insertelement <16 x i8> %32, i8 %29, i64 1
   %34 = insertelement <16 x i8> %33, i8 %27, i64 2
   %35 = insertelement <16 x i8> %34, i8 %25, i64 3
@@ -947,7 +947,7 @@ entry:
   %idxprom1.i = zext i8 %0 to i64
   %arrayidx2.i = getelementptr [256 x i8], ptr @AES_isbox, i64 0, i64 %idxprom1.i
   %1 = load i8, ptr %arrayidx2.i, align 1
-  %t.i.sroa.0.0.vec.insert = insertelement <16 x i8> undef, i8 %1, i64 0
+  %t.i.sroa.0.0.vec.insert = insertelement <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 undef, i8 undef, i8 undef, i8 undef, i8 undef, i8 undef>, i8 %1, i64 0
   %arrayidx8.i = getelementptr [16 x i8], ptr %s, i64 0, i64 13
   %2 = load i8, ptr %arrayidx8.i, align 1
   %idxprom9.i = zext i8 %2 to i64
@@ -1126,7 +1126,7 @@ entry:
   %idxprom121.i = zext i8 %30 to i64
   %arrayidx122.i = getelementptr [256 x i8], ptr @AES_isbox, i64 0, i64 %idxprom121.i
   %31 = load i8, ptr %arrayidx122.i, align 1
-  %32 = insertelement <16 x i8> undef, i8 %31, i64 0
+  %32 = insertelement <16 x i8> poison, i8 %31, i64 0
   %33 = insertelement <16 x i8> %32, i8 %29, i64 1
   %34 = insertelement <16 x i8> %33, i8 %27, i64 2
   %35 = insertelement <16 x i8> %34, i8 %25, i64 3
@@ -1389,7 +1389,7 @@ entry:
   %idxprom1.i.i = zext i8 %0 to i64
   %arrayidx2.i.i = getelementptr [256 x i8], ptr @AES_isbox, i64 0, i64 %idxprom1.i.i
   %1 = load i8, ptr %arrayidx2.i.i, align 1
-  %t.i.sroa.0.0.vec.insert.i = insertelement <16 x i8> undef, i8 %1, i64 0
+  %t.i.sroa.0.0.vec.insert.i = insertelement <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 undef, i8 undef, i8 undef, i8 undef, i8 undef, i8 undef>, i8 %1, i64 0
   %arrayidx8.i.i = getelementptr [16 x i8], ptr %st, i64 0, i64 13
   %2 = load i8, ptr %arrayidx8.i.i, align 1
   %idxprom9.i.i = zext i8 %2 to i64
@@ -1667,7 +1667,7 @@ entry:
   %idxprom121.i.i = zext i8 %30 to i64
   %arrayidx122.i.i = getelementptr [256 x i8], ptr @AES_isbox, i64 0, i64 %idxprom121.i.i
   %31 = load i8, ptr %arrayidx122.i.i, align 1
-  %32 = insertelement <16 x i8> undef, i8 %31, i64 0
+  %32 = insertelement <16 x i8> poison, i8 %31, i64 0
   %33 = insertelement <16 x i8> %32, i8 %29, i64 1
   %34 = insertelement <16 x i8> %33, i8 %27, i64 2
   %35 = insertelement <16 x i8> %34, i8 %25, i64 3

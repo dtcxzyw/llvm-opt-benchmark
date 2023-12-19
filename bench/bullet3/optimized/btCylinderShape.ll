@@ -395,7 +395,7 @@ if.then.i:                                        ; preds = %entry
   %6 = insertelement <2 x float> poison, float %cond.i, i64 0
   %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> %6, float %mul.i, i64 1
   %mul24.i = fmul float %3, %div.i
-  %retval.sroa.5.8.vec.insert.i = insertelement <2 x float> undef, float %mul24.i, i64 0
+  %retval.sroa.5.8.vec.insert.i = insertelement <2 x float> <float poison, float undef>, float %mul24.i, i64 0
   br label %_Z21CylinderLocalSupportXRK9btVector3S1_.exit
 
 if.else.i:                                        ; preds = %entry
@@ -438,7 +438,7 @@ if.then.i:                                        ; preds = %entry
   %cmp19.i = fcmp olt float %6, 0.000000e+00
   %fneg.i = fneg float %1
   %cond.i = select i1 %cmp19.i, float %fneg.i, float %1
-  %retval.sroa.5.8.vec.insert.i = insertelement <2 x float> undef, float %cond.i, i64 0
+  %retval.sroa.5.8.vec.insert.i = insertelement <2 x float> <float poison, float undef>, float %cond.i, i64 0
   %7 = insertelement <2 x float> poison, float %div.i, i64 0
   %8 = shufflevector <2 x float> %7, <2 x float> poison, <2 x i32> zeroinitializer
   %9 = fmul <2 x float> %2, %8
@@ -450,7 +450,7 @@ if.else.i:                                        ; preds = %entry
   %cmp32.i = fcmp olt float %10, 0.000000e+00
   %fneg34.i = fneg float %1
   %cond37.i = select i1 %cmp32.i, float %fneg34.i, float %1
-  %retval.sroa.5.8.vec.insert22.i = insertelement <2 x float> undef, float %cond37.i, i64 0
+  %retval.sroa.5.8.vec.insert22.i = insertelement <2 x float> <float poison, float undef>, float %cond37.i, i64 0
   %retval.sroa.0.4.vec.insert19.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %0, i64 0
   br label %_Z21CylinderLocalSupportZRK9btVector3S1_.exit
 
@@ -489,7 +489,7 @@ if.then.i:                                        ; preds = %entry
   %cond.i = select i1 %cmp19.i, float %fneg.i, float %1
   %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %cond.i, i64 1
   %mul24.i = fmul float %3, %div.i
-  %retval.sroa.5.8.vec.insert.i = insertelement <2 x float> undef, float %mul24.i, i64 0
+  %retval.sroa.5.8.vec.insert.i = insertelement <2 x float> <float poison, float undef>, float %mul24.i, i64 0
   br label %_Z21CylinderLocalSupportYRK9btVector3S1_.exit
 
 if.else.i:                                        ; preds = %entry
@@ -547,7 +547,7 @@ if.then.i:                                        ; preds = %for.body
   %cond.i = select i1 %cmp19.i, float %fneg.i, float %1
   %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %cond.i, i64 1
   %mul24.i = fmul float %3, %div.i
-  %retval.sroa.5.8.vec.insert.i = insertelement <2 x float> undef, float %mul24.i, i64 0
+  %retval.sroa.5.8.vec.insert.i = insertelement <2 x float> <float poison, float undef>, float %mul24.i, i64 0
   br label %_Z21CylinderLocalSupportYRK9btVector3S1_.exit
 
 if.else.i:                                        ; preds = %for.body
@@ -608,7 +608,7 @@ if.then.i:                                        ; preds = %for.body
   %cmp19.i = fcmp olt float %6, 0.000000e+00
   %fneg.i = fneg float %1
   %cond.i = select i1 %cmp19.i, float %fneg.i, float %1
-  %retval.sroa.5.8.vec.insert.i = insertelement <2 x float> undef, float %cond.i, i64 0
+  %retval.sroa.5.8.vec.insert.i = insertelement <2 x float> <float poison, float undef>, float %cond.i, i64 0
   %7 = insertelement <2 x float> poison, float %div.i, i64 0
   %8 = shufflevector <2 x float> %7, <2 x float> poison, <2 x i32> zeroinitializer
   %9 = fmul <2 x float> %2, %8
@@ -620,7 +620,7 @@ if.else.i:                                        ; preds = %for.body
   %cmp32.i = fcmp olt float %10, 0.000000e+00
   %fneg34.i = fneg float %1
   %cond37.i = select i1 %cmp32.i, float %fneg34.i, float %1
-  %retval.sroa.5.8.vec.insert22.i = insertelement <2 x float> undef, float %cond37.i, i64 0
+  %retval.sroa.5.8.vec.insert22.i = insertelement <2 x float> <float poison, float undef>, float %cond37.i, i64 0
   %retval.sroa.0.4.vec.insert19.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %0, i64 0
   br label %_Z21CylinderLocalSupportZRK9btVector3S1_.exit
 
@@ -676,7 +676,7 @@ if.then.i:                                        ; preds = %for.body
   %6 = insertelement <2 x float> poison, float %cond.i, i64 0
   %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> %6, float %mul.i, i64 1
   %mul24.i = fmul float %3, %div.i
-  %retval.sroa.5.8.vec.insert.i = insertelement <2 x float> undef, float %mul24.i, i64 0
+  %retval.sroa.5.8.vec.insert.i = insertelement <2 x float> <float poison, float undef>, float %mul24.i, i64 0
   br label %_Z21CylinderLocalSupportXRK9btVector3S1_.exit
 
 if.else.i:                                        ; preds = %for.body
