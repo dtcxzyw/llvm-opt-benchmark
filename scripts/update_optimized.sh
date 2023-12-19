@@ -7,6 +7,7 @@ cmake ../llvm-project/llvm -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=ON -G 
     -DLLVM_ENABLE_WARNINGS=OFF -DLLVM_APPEND_VC_REV=OFF -DLLVM_TARGETS_TO_BUILD="X86;" \
     -DCMAKE_C_COMPILER_LAUNCHER=ccache -DCMAKE_CXX_COMPILER_LAUNCHER=ccache
 cmake --build . -j -t opt
+cmake --build . -j -t llvm-diff
 cd ../..
 
 scripts/gen_optimized.py bench llvm/llvm-build/bin/opt
