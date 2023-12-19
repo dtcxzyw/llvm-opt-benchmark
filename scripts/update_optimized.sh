@@ -19,7 +19,7 @@ then
   then
     git pull --rebase
     git submodule update
-    git push
+    git push -f
     git show --name-only | grep bench
     if [ $? -eq 0 ] || [ $ret -ne 0 ]
     then
@@ -33,7 +33,7 @@ then
   fi
 else
   git commit -a -m "pre-commit: Update"
-  git push
+  git push -f
   echo "baseline: https://github.com/llvm/llvm-project/commit/$LLVM_REVISION" > scripts/pr-comment.md
   echo "patch: $COMMIT_URL" >> scripts/pr-comment.md
   echo "sha256: $PATCH_SHA256" >> scripts/pr-comment.md

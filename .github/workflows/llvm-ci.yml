@@ -8,10 +8,6 @@ on:
 
 jobs:
   build:
-    concurrency:
-      group: single
-      cancel-in-progress: false
-
     runs-on: self-hosted
 
     permissions:

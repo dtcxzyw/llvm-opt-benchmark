@@ -1,7 +1,7 @@
 name: Pre-Commit CI
 
 on:
-  pull_request_target:
+  pull_request:
     types: [opened, reopened]
     paths:
       - 'scripts/setup_pre_commit_patch.sh'
@@ -16,6 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: ${{github.event.pull_request.head.ref}}
           submodules: true
           fetch-depth: 0
 
