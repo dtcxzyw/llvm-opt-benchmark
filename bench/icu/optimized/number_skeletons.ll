@@ -4082,10 +4082,8 @@ if.then149:                                       ; preds = %do.body147
 
 if.end150:                                        ; preds = %do.body147
   store i8 1, ptr %decimal, align 1
-  %switch.selectcmp.i = icmp eq i32 %cond.i, 48
-  %switch.select.i = select i1 %switch.selectcmp.i, i32 1, i32 2
-  %switch.selectcmp1.i = icmp eq i32 %cond.i, 47
-  %switch.select2.i = select i1 %switch.selectcmp1.i, i32 0, i32 %switch.select.i
+  %switch.selectcmp1.i = icmp ne i32 %cond.i, 47
+  %switch.select2.i = zext i1 %switch.selectcmp1.i to i32
   %decimal154 = getelementptr inbounds %"struct.icu_75::number::impl::MacroProps", ptr %macros, i64 0, i32 13
   store i32 %switch.select2.i, ptr %decimal154, align 4
   br label %return

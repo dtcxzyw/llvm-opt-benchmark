@@ -3002,7 +3002,6 @@ if.end140:                                        ; preds = %if.end73, %if.end12
   br i1 %or.cond7, label %if.then149, label %if.else342
 
 if.then149:                                       ; preds = %if.end140
-  %cmp147 = icmp eq i32 %0, 3
   switch i32 %0, label %return [
     i32 1, label %sw.bb
     i32 2, label %sw.bb164
@@ -3030,7 +3029,6 @@ if.end158:                                        ; preds = %if.end153
 
 sw.bb164:                                         ; preds = %if.then149.thread, %if.then149
   %iff_size.0237249256 = phi i64 [ %add107, %if.then149.thread ], [ %iff_size.0237, %if.then149 ]
-  %cmp147250255 = phi i1 [ false, %if.then149.thread ], [ %cmp147, %if.then149 ]
   %call165 = tail call i64 @fwrite(ptr noundef nonnull @.str.80, i64 noundef 1, i64 noundef 16, ptr noundef %f)
   %cmp166.not = icmp eq i64 %call165, 16
   br i1 %cmp166.not, label %if.end169, label %return
@@ -3112,7 +3110,7 @@ if.end217:                                        ; preds = %if.end213
   br i1 %cmp.i209.not, label %if.end222, label %return
 
 if.end222:                                        ; preds = %if.end158, %if.end173, %if.end217
-  %cmp147250253 = phi i1 [ true, %if.end217 ], [ false, %if.end158 ], [ %cmp147250255, %if.end173 ]
+  %cmp147250253 = phi i1 [ true, %if.end217 ], [ false, %if.end158 ], [ false, %if.end173 ]
   %call223 = tail call i64 @ftello64(ptr noundef %f)
   %fm_offset1 = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 40
   store i64 %call223, ptr %fm_offset1, align 8

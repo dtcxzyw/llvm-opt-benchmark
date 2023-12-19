@@ -4080,7 +4080,6 @@ lpad:                                             ; preds = %lpad.loopexit.split
 
 if.end:                                           ; preds = %for.end.i
   %.pr18 = load ptr, ptr %mdl, align 8
-  %cmp = icmp ne ptr %.pr18, null
   %tobool.not.i.i10 = icmp eq ptr %.pr18, null
   br i1 %tobool.not.i.i10, label %_ZN3refI5modelED2Ev.exit, label %if.then.i.i11
 
@@ -4107,7 +4106,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i.i15
   unreachable
 
 _ZN3refI5modelED2Ev.exit:                         ; preds = %.noexc, %invoke.cont2, %if.end, %if.then.i.i11, %if.then.i.i.i15
-  %cmp21 = phi i1 [ %cmp, %if.end ], [ true, %if.then.i.i11 ], [ true, %if.then.i.i.i15 ], [ false, %invoke.cont2 ], [ false, %.noexc ]
+  %cmp21 = phi i1 [ false, %if.end ], [ true, %if.then.i.i11 ], [ true, %if.then.i.i.i15 ], [ false, %invoke.cont2 ], [ false, %.noexc ]
   ret i1 %cmp21
 }
 

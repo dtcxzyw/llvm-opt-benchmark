@@ -834,7 +834,6 @@ cleanup.action.i.i:                               ; preds = %lor.rhs.i.i
   %_M_engaged.i.i1.i.i = getelementptr inbounds %"struct.std::_Optional_payload_base", ptr %ref.tmp1.i.i, i64 0, i32 1
   %16 = load i8, ptr %_M_engaged.i.i1.i.i, align 8
   %17 = and i8 %16, 1
-  %tobool.i.i2.i.i = icmp ne i8 %17, 0
   %tobool.not.i.i.i.i.i.i = icmp eq i8 %17, 0
   br i1 %tobool.not.i.i.i.i.i.i, label %cleanup.done.i.i, label %if.then.i.i.i.i.i.i
 
@@ -844,7 +843,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %cleanup.action.i.i
   br label %cleanup.done.i.i
 
 cleanup.done.i.i:                                 ; preds = %if.then.i.i.i.i.i.i, %cleanup.action.i.i, %.noexc16.i
-  %18 = phi i1 [ %tobool.i.i2.i.i, %cleanup.action.i.i ], [ true, %if.then.i.i.i.i.i.i ], [ true, %.noexc16.i ]
+  %18 = phi i1 [ false, %cleanup.action.i.i ], [ true, %if.then.i.i.i.i.i.i ], [ true, %.noexc16.i ]
   %19 = load i8, ptr %_M_engaged.i.i.i.i, align 8
   %20 = and i8 %19, 1
   %tobool.not.i.i.i.i4.i.i = icmp eq i8 %20, 0
