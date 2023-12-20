@@ -24,6 +24,8 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git -C llvm/llvm-project checkout .
+          git -C llvm/llvm-project clean -fdx
 
       - name: Setup patch
         run: ${{ github.workspace }}/scripts/setup_pre_commit_patch.sh
