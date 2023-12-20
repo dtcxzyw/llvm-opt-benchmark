@@ -5631,7 +5631,7 @@ call6.i.noexc:                                    ; preds = %if.end5.i
 invoke.cont34:                                    ; preds = %call.i.noexc
   %19 = trunc i64 %indvars.iv.i to i32
   %add.i = or disjoint i32 %19, 4096
-  %cmp36 = icmp slt i32 %19, 0
+  %cmp36 = icmp slt i32 %19, -4096
   br i1 %cmp36, label %if.then37, label %if.end39
 
 if.then37:                                        ; preds = %call6.i.noexc, %invoke.cont34

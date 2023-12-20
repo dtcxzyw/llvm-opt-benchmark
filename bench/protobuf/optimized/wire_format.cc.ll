@@ -1089,7 +1089,7 @@ sw.bb7:                                           ; preds = %_ZN6google8protobuf
   %10 = load i32, ptr %data_.i66, align 8
   %shl.i67 = shl i32 %9, 3
   %or.i68 = or disjoint i32 %shl.i67, 5
-  %cmp.i7.i69 = icmp ugt i32 %or.i68, 127
+  %cmp.i7.i69 = icmp ugt i32 %shl.i67, 122
   br i1 %cmp.i7.i69, label %while.body.i.i74, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit81
 
 while.body.i.i74:                                 ; preds = %sw.bb7, %while.body.i.i74
@@ -1119,7 +1119,7 @@ sw.bb11:                                          ; preds = %_ZN6google8protobuf
   %13 = load i64, ptr %data_.i83, align 8
   %shl.i84 = shl i32 %12, 3
   %or.i85 = or disjoint i32 %shl.i84, 1
-  %cmp.i7.i86 = icmp ugt i32 %or.i85, 127
+  %cmp.i7.i86 = icmp ugt i32 %shl.i84, 126
   br i1 %cmp.i7.i86, label %while.body.i.i91, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit98
 
 while.body.i.i91:                                 ; preds = %sw.bb11, %while.body.i.i91
@@ -1185,7 +1185,7 @@ if.then.i:                                        ; preds = %sw.bb15, %_ZN6googl
 
 if.end.i:                                         ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream7TagSizeEj.exit
   %or.i = or disjoint i32 %shl.i, 2
-  %cmp.i87139 = icmp ugt i32 %or.i, 127
+  %cmp.i87139 = icmp ugt i32 %shl.i, 125
   br i1 %cmp.i87139, label %while.body.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintIjEEPhT_S4_.exit
 
 while.body.i:                                     ; preds = %if.end.i, %while.body.i
@@ -1217,7 +1217,7 @@ sw.bb19:                                          ; preds = %_ZN6google8protobuf
   %22 = load i32, ptr %add.ptr.i.i, align 8
   %shl.i103 = shl i32 %22, 3
   %or.i104 = or disjoint i32 %shl.i103, 3
-  %cmp.i7.i105 = icmp ugt i32 %or.i104, 127
+  %cmp.i7.i105 = icmp ugt i32 %shl.i103, 124
   br i1 %cmp.i7.i105, label %while.body.i.i110, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit117
 
 while.body.i.i110:                                ; preds = %sw.bb19, %while.body.i.i110
@@ -1253,7 +1253,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit123: ; preds = %
   %26 = load i32, ptr %add.ptr.i.i, align 8
   %shl.i124 = shl i32 %26, 3
   %or.i125 = or disjoint i32 %shl.i124, 4
-  %cmp.i7.i126 = icmp ugt i32 %or.i125, 127
+  %cmp.i7.i126 = icmp ugt i32 %shl.i124, 123
   br i1 %cmp.i7.i126, label %while.body.i.i131, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit138
 
 while.body.i.i131:                                ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit123, %while.body.i.i131
@@ -6393,7 +6393,7 @@ call.i1074.noexc:                                 ; preds = %invoke.cont93, %if.
   %retval.0.i792 = phi ptr [ %retval.0.i, %invoke.cont93 ], [ %call.i791793, %if.then.i790 ]
   %shl.i.i = shl i32 %59, 3
   %or.i.i1107 = or disjoint i32 %shl.i.i, 2
-  %cmp.i.i.i2023 = icmp ugt i32 %or.i.i1107, 127
+  %cmp.i.i.i2023 = icmp ugt i32 %shl.i.i, 125
   br i1 %cmp.i.i.i2023, label %while.body.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream16WriteLengthDelimEijPh.exit
 
 while.body.i.i.i:                                 ; preds = %call.i1074.noexc, %while.body.i.i.i
@@ -6550,7 +6550,7 @@ call.i1430.noexc:                                 ; preds = %invoke.cont106, %if
   %retval.0.i820 = phi ptr [ %retval.0.i, %invoke.cont106 ], [ %call.i819823, %if.then.i818 ]
   %shl.i.i.i = shl i32 %74, 3
   %or.i.i.i1432 = or disjoint i32 %shl.i.i.i, 2
-  %cmp.i.i.i.i2006 = icmp ugt i32 %or.i.i.i1432, 127
+  %cmp.i.i.i.i2006 = icmp ugt i32 %shl.i.i.i, 125
   br i1 %cmp.i.i.i.i2006, label %while.body.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream16WriteLengthDelimEijPh.exit.i
 
 while.body.i.i.i.i:                               ; preds = %call.i1430.noexc, %while.body.i.i.i.i
@@ -6706,7 +6706,7 @@ call.i1478.noexc:                                 ; preds = %invoke.cont120, %if
   %retval.0.i853 = phi ptr [ %retval.0.i, %invoke.cont120 ], [ %call.i852854, %if.then.i851 ]
   %shl.i.i.i1481 = shl i32 %89, 3
   %or.i.i.i1482 = or disjoint i32 %shl.i.i.i1481, 2
-  %cmp.i.i.i.i14841989 = icmp ugt i32 %or.i.i.i1482, 127
+  %cmp.i.i.i.i14841989 = icmp ugt i32 %shl.i.i.i1481, 125
   br i1 %cmp.i.i.i.i14841989, label %while.body.i.i.i.i1515, label %_ZN6google8protobuf2io19EpsCopyOutputStream16WriteLengthDelimEijPh.exit.i1485
 
 while.body.i.i.i.i1515:                           ; preds = %call.i1478.noexc, %while.body.i.i.i.i1515
@@ -6865,7 +6865,7 @@ call.i1547.noexc:                                 ; preds = %invoke.cont134, %if
   %retval.0.i887 = phi ptr [ %retval.0.i, %invoke.cont134 ], [ %call.i886889, %if.then.i885 ]
   %shl.i.i.i1550 = shl i32 %104, 3
   %or.i.i.i1551 = or disjoint i32 %shl.i.i.i1550, 2
-  %cmp.i.i.i.i15531972 = icmp ugt i32 %or.i.i.i1551, 127
+  %cmp.i.i.i.i15531972 = icmp ugt i32 %shl.i.i.i1550, 125
   br i1 %cmp.i.i.i.i15531972, label %while.body.i.i.i.i1585, label %_ZN6google8protobuf2io19EpsCopyOutputStream16WriteLengthDelimEijPh.exit.i1554
 
 while.body.i.i.i.i1585:                           ; preds = %call.i1547.noexc, %while.body.i.i.i.i1585
@@ -7024,7 +7024,7 @@ call.i1617.noexc:                                 ; preds = %invoke.cont148, %if
   %retval.0.i923 = phi ptr [ %retval.0.i, %invoke.cont148 ], [ %call.i922925, %if.then.i921 ]
   %shl.i.i.i1620 = shl i32 %119, 3
   %or.i.i.i1621 = or disjoint i32 %shl.i.i.i1620, 2
-  %cmp.i.i.i.i16231955 = icmp ugt i32 %or.i.i.i1621, 127
+  %cmp.i.i.i.i16231955 = icmp ugt i32 %shl.i.i.i1620, 125
   br i1 %cmp.i.i.i.i16231955, label %while.body.i.i.i.i1655, label %_ZN6google8protobuf2io19EpsCopyOutputStream16WriteLengthDelimEijPh.exit.i1624
 
 while.body.i.i.i.i1655:                           ; preds = %call.i1617.noexc, %while.body.i.i.i.i1655
@@ -7180,7 +7180,7 @@ call.i1687.noexc:                                 ; preds = %invoke.cont162, %if
   %retval.0.i955 = phi ptr [ %retval.0.i, %invoke.cont162 ], [ %call.i954956, %if.then.i953 ]
   %shl.i.i.i1690 = shl i32 %134, 3
   %or.i.i.i1691 = or disjoint i32 %shl.i.i.i1690, 2
-  %cmp.i.i.i.i16931938 = icmp ugt i32 %or.i.i.i1691, 127
+  %cmp.i.i.i.i16931938 = icmp ugt i32 %shl.i.i.i1690, 125
   br i1 %cmp.i.i.i.i16931938, label %while.body.i.i.i.i1725, label %_ZN6google8protobuf2io19EpsCopyOutputStream16WriteLengthDelimEijPh.exit.i1694
 
 while.body.i.i.i.i1725:                           ; preds = %call.i1687.noexc, %while.body.i.i.i.i1725
@@ -7336,7 +7336,7 @@ call.i1051.noexc:                                 ; preds = %invoke.cont176, %if
   %retval.0.i986 = phi ptr [ %retval.0.i, %invoke.cont176 ], [ %call.i985987, %if.then.i984 ]
   %shl.i.i1121 = shl i32 %149, 3
   %or.i.i1122 = or disjoint i32 %shl.i.i1121, 2
-  %cmp.i.i.i11241921 = icmp ugt i32 %or.i.i1122, 127
+  %cmp.i.i.i11241921 = icmp ugt i32 %shl.i.i1121, 125
   br i1 %cmp.i.i.i11241921, label %while.body.i.i.i1128, label %_ZN6google8protobuf2io19EpsCopyOutputStream16WriteLengthDelimEijPh.exit1133
 
 while.body.i.i.i1128:                             ; preds = %call.i1051.noexc, %while.body.i.i.i1128
@@ -7490,7 +7490,7 @@ call.i819.noexc:                                  ; preds = %invoke.cont186, %if
   %mul.i = shl i32 %166, 2
   %shl.i.i1296 = shl i32 %164, 3
   %or.i.i1297 = or disjoint i32 %shl.i.i1296, 2
-  %cmp.i.i.i12991909 = icmp ugt i32 %or.i.i1297, 127
+  %cmp.i.i.i12991909 = icmp ugt i32 %shl.i.i1296, 125
   br i1 %cmp.i.i.i12991909, label %while.body.i.i.i1303, label %_ZN6google8protobuf2io19EpsCopyOutputStream16WriteLengthDelimEijPh.exit1308
 
 while.body.i.i.i1303:                             ; preds = %call.i819.noexc, %while.body.i.i.i1303
@@ -7610,7 +7610,7 @@ call.i832.noexc:                                  ; preds = %invoke.cont197, %if
   %mul.i835 = shl i32 %180, 3
   %shl.i.i1271 = shl i32 %178, 3
   %or.i.i1272 = or disjoint i32 %shl.i.i1271, 2
-  %cmp.i.i.i12741897 = icmp ugt i32 %or.i.i1272, 127
+  %cmp.i.i.i12741897 = icmp ugt i32 %shl.i.i1271, 125
   br i1 %cmp.i.i.i12741897, label %while.body.i.i.i1278, label %_ZN6google8protobuf2io19EpsCopyOutputStream16WriteLengthDelimEijPh.exit1283
 
 while.body.i.i.i1278:                             ; preds = %call.i832.noexc, %while.body.i.i.i1278
@@ -7730,7 +7730,7 @@ call.i850.noexc:                                  ; preds = %invoke.cont208, %if
   %mul.i853 = shl i32 %194, 2
   %shl.i.i1246 = shl i32 %192, 3
   %or.i.i1247 = or disjoint i32 %shl.i.i1246, 2
-  %cmp.i.i.i12491885 = icmp ugt i32 %or.i.i1247, 127
+  %cmp.i.i.i12491885 = icmp ugt i32 %shl.i.i1246, 125
   br i1 %cmp.i.i.i12491885, label %while.body.i.i.i1253, label %_ZN6google8protobuf2io19EpsCopyOutputStream16WriteLengthDelimEijPh.exit1258
 
 while.body.i.i.i1253:                             ; preds = %call.i850.noexc, %while.body.i.i.i1253
@@ -7850,7 +7850,7 @@ call.i868.noexc:                                  ; preds = %invoke.cont219, %if
   %mul.i871 = shl i32 %208, 3
   %shl.i.i1221 = shl i32 %206, 3
   %or.i.i1222 = or disjoint i32 %shl.i.i1221, 2
-  %cmp.i.i.i12241873 = icmp ugt i32 %or.i.i1222, 127
+  %cmp.i.i.i12241873 = icmp ugt i32 %shl.i.i1221, 125
   br i1 %cmp.i.i.i12241873, label %while.body.i.i.i1228, label %_ZN6google8protobuf2io19EpsCopyOutputStream16WriteLengthDelimEijPh.exit1233
 
 while.body.i.i.i1228:                             ; preds = %call.i868.noexc, %while.body.i.i.i1228
@@ -7970,7 +7970,7 @@ call.i886.noexc:                                  ; preds = %invoke.cont230, %if
   %mul.i889 = shl i32 %222, 2
   %shl.i.i1196 = shl i32 %220, 3
   %or.i.i1197 = or disjoint i32 %shl.i.i1196, 2
-  %cmp.i.i.i11991861 = icmp ugt i32 %or.i.i1197, 127
+  %cmp.i.i.i11991861 = icmp ugt i32 %shl.i.i1196, 125
   br i1 %cmp.i.i.i11991861, label %while.body.i.i.i1203, label %_ZN6google8protobuf2io19EpsCopyOutputStream16WriteLengthDelimEijPh.exit1208
 
 while.body.i.i.i1203:                             ; preds = %call.i886.noexc, %while.body.i.i.i1203
@@ -8090,7 +8090,7 @@ call.i904.noexc:                                  ; preds = %invoke.cont241, %if
   %mul.i907 = shl i32 %236, 3
   %shl.i.i1171 = shl i32 %234, 3
   %or.i.i1172 = or disjoint i32 %shl.i.i1171, 2
-  %cmp.i.i.i11741849 = icmp ugt i32 %or.i.i1172, 127
+  %cmp.i.i.i11741849 = icmp ugt i32 %shl.i.i1171, 125
   br i1 %cmp.i.i.i11741849, label %while.body.i.i.i1178, label %_ZN6google8protobuf2io19EpsCopyOutputStream16WriteLengthDelimEijPh.exit1183
 
 while.body.i.i.i1178:                             ; preds = %call.i904.noexc, %while.body.i.i.i1178
@@ -8209,7 +8209,7 @@ call.i922.noexc:                                  ; preds = %invoke.cont252, %if
   %250 = load i32, ptr %r249, align 8
   %shl.i.i1146 = shl i32 %248, 3
   %or.i.i1147 = or disjoint i32 %shl.i.i1146, 2
-  %cmp.i.i.i11491837 = icmp ugt i32 %or.i.i1147, 127
+  %cmp.i.i.i11491837 = icmp ugt i32 %shl.i.i1146, 125
   br i1 %cmp.i.i.i11491837, label %while.body.i.i.i1153, label %_ZN6google8protobuf2io19EpsCopyOutputStream16WriteLengthDelimEijPh.exit1158
 
 while.body.i.i.i1153:                             ; preds = %call.i922.noexc, %while.body.i.i.i1153
@@ -8786,7 +8786,7 @@ cond.end378:                                      ; preds = %cond.false375, %con
   %302 = load i32, ptr %number_.i1734, align 4
   %shl.i1492 = shl i32 %302, 3
   %or.i1493 = or disjoint i32 %shl.i1492, 5
-  %cmp.i7.i1494 = icmp ugt i32 %or.i1493, 127
+  %cmp.i7.i1494 = icmp ugt i32 %shl.i1492, 122
   br i1 %cmp.i7.i1494, label %while.body.i.i1500, label %call.i.noexc596
 
 while.body.i.i1500:                               ; preds = %cond.end378, %while.body.i.i1500
@@ -8830,7 +8830,7 @@ cond.end394:                                      ; preds = %cond.false391, %con
   %306 = load i32, ptr %number_.i1734, align 4
   %shl.i1513 = shl i32 %306, 3
   %or.i1514 = or disjoint i32 %shl.i1513, 1
-  %cmp.i7.i1515 = icmp ugt i32 %or.i1514, 127
+  %cmp.i7.i1515 = icmp ugt i32 %shl.i1513, 126
   br i1 %cmp.i7.i1515, label %while.body.i.i1521, label %call.i.noexc602
 
 while.body.i.i1521:                               ; preds = %cond.end394, %while.body.i.i1521
@@ -8874,7 +8874,7 @@ cond.end410:                                      ; preds = %cond.false407, %con
   %310 = load i32, ptr %number_.i1734, align 4
   %shl.i1534 = shl i32 %310, 3
   %or.i1535 = or disjoint i32 %shl.i1534, 5
-  %cmp.i7.i1536 = icmp ugt i32 %or.i1535, 127
+  %cmp.i7.i1536 = icmp ugt i32 %shl.i1534, 122
   br i1 %cmp.i7.i1536, label %while.body.i.i1542, label %_ZN6google8protobuf8internal14WireFormatLite20WriteSFixed32ToArrayEiiPh.exit
 
 while.body.i.i1542:                               ; preds = %cond.end410, %while.body.i.i1542
@@ -8918,7 +8918,7 @@ cond.end426:                                      ; preds = %cond.false423, %con
   %314 = load i32, ptr %number_.i1734, align 4
   %shl.i1555 = shl i32 %314, 3
   %or.i1556 = or disjoint i32 %shl.i1555, 1
-  %cmp.i7.i1557 = icmp ugt i32 %or.i1556, 127
+  %cmp.i7.i1557 = icmp ugt i32 %shl.i1555, 126
   br i1 %cmp.i7.i1557, label %while.body.i.i1563, label %_ZN6google8protobuf8internal14WireFormatLite20WriteSFixed64ToArrayEilPh.exit
 
 while.body.i.i1563:                               ; preds = %cond.end426, %while.body.i.i1563
@@ -8962,7 +8962,7 @@ cond.end442:                                      ; preds = %cond.false439, %con
   %318 = load i32, ptr %number_.i1734, align 4
   %shl.i1577 = shl i32 %318, 3
   %or.i1578 = or disjoint i32 %shl.i1577, 5
-  %cmp.i7.i1579 = icmp ugt i32 %or.i1578, 127
+  %cmp.i7.i1579 = icmp ugt i32 %shl.i1577, 122
   br i1 %cmp.i7.i1579, label %while.body.i.i1585, label %_ZN6google8protobuf8internal14WireFormatLite22WriteFloatNoTagToArrayEfPh.exit
 
 while.body.i.i1585:                               ; preds = %cond.end442, %while.body.i.i1585
@@ -9006,7 +9006,7 @@ cond.end458:                                      ; preds = %cond.false455, %con
   %322 = load i32, ptr %number_.i1734, align 4
   %shl.i1598 = shl i32 %322, 3
   %or.i1599 = or disjoint i32 %shl.i1598, 1
-  %cmp.i7.i1600 = icmp ugt i32 %or.i1599, 127
+  %cmp.i7.i1600 = icmp ugt i32 %shl.i1598, 126
   br i1 %cmp.i7.i1600, label %while.body.i.i1606, label %_ZN6google8protobuf8internal14WireFormatLite23WriteDoubleNoTagToArrayEdPh.exit
 
 while.body.i.i1606:                               ; preds = %cond.end458, %while.body.i.i1606
@@ -9286,7 +9286,7 @@ if.then.i635:                                     ; preds = %if.end548, %_ZN6goo
 
 if.end.i627:                                      ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream7TagSizeEj.exit
   %or.i629 = or disjoint i32 %shl.i620, 2
-  %cmp.i9831827 = icmp ugt i32 %or.i629, 127
+  %cmp.i9831827 = icmp ugt i32 %shl.i620, 125
   br i1 %cmp.i9831827, label %while.body.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintIjEEPhT_S4_.exit
 
 while.body.i:                                     ; preds = %if.end.i627, %while.body.i
@@ -9394,7 +9394,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i: ; preds = %i
   %retval.0.i.i1737 = phi ptr [ %retval.0.i1277, %invoke.cont560 ], [ %call.i.i1746, %if.then.i.i1736 ]
   %shl.i.i1738 = shl i32 %362, 3
   %or.i.i = or disjoint i32 %shl.i.i1738, 2
-  %cmp.i.i9.i = icmp ugt i32 %or.i.i, 127
+  %cmp.i.i9.i = icmp ugt i32 %shl.i.i1738, 125
   br i1 %cmp.i.i9.i, label %while.body.i.i.i1741, label %_ZN6google8protobuf2io19EpsCopyOutputStream8WriteTagEjjPh.exit.i
 
 while.body.i.i.i1741:                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i, %while.body.i.i.i1741
@@ -9497,7 +9497,7 @@ if.then.i:                                        ; preds = %cond.end579, %_ZN6g
 
 if.end.i:                                         ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream7TagSizeEj.exit1764
   %or.i = or disjoint i32 %shl.i, 2
-  %cmp.i9901823 = icmp ugt i32 %or.i, 127
+  %cmp.i9901823 = icmp ugt i32 %shl.i, 125
   br i1 %cmp.i9901823, label %while.body.i993, label %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintIjEEPhT_S4_.exit998
 
 while.body.i993:                                  ; preds = %if.end.i, %while.body.i993
@@ -10757,7 +10757,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %ent
   %3 = load i32, ptr %number_.i, align 4
   %shl.i = shl i32 %3, 3
   %or.i = or disjoint i32 %shl.i, 2
-  %cmp.i7.i = icmp ugt i32 %or.i, 127
+  %cmp.i7.i = icmp ugt i32 %shl.i, 125
   br i1 %cmp.i7.i, label %while.body.i.i, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit
 
 while.body.i.i:                                   ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit, %while.body.i.i

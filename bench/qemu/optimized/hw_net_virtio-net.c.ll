@@ -2800,19 +2800,17 @@ if.end104:                                        ; preds = %for.inc, %if.end85
   %28 = load i16, ptr %max_queue_pairs105, align 4
   %29 = tail call i16 @llvm.umax.i16(i16 %28, i16 1)
   store i16 %29, ptr %max_queue_pairs105, align 4
-  %conv117 = zext i16 %29 to i32
-  %mul = shl nuw nsw i32 %conv117, 1
-  %add = or disjoint i32 %mul, 1
-  %cmp118 = icmp ugt i32 %add, 1024
+  %cmp118 = icmp ugt i16 %28, 511
   br i1 %cmp118, label %if.then120, label %if.end123
 
 if.then120:                                       ; preds = %if.end104
+  %conv117 = zext i16 %29 to i32
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 3680, ptr noundef nonnull @__func__.virtio_net_device_realize, ptr noundef nonnull @.str.94, i32 noundef %conv117, i32 noundef 511) #19
   tail call void @virtio_cleanup(ptr noundef %call.i) #19
   br label %if.end249
 
 if.end123:                                        ; preds = %if.end104
-  %conv125 = zext i16 %29 to i64
+  %conv125 = zext nneg i16 %29 to i64
   %call126 = tail call noalias ptr @g_malloc0_n(i64 noundef %conv125, i64 noundef 56) #24
   %vqs = getelementptr inbounds %struct.VirtIONet, ptr %call.i139, i64 0, i32 3
   store ptr %call126, ptr %vqs, align 8

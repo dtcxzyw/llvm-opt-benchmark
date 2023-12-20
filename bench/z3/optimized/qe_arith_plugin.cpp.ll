@@ -35310,7 +35310,7 @@ if.then66:                                        ; preds = %if.then.i.i16.i.i, 
   %m_ptr.i4.i.i173 = getelementptr inbounds %class.mpq, ptr %ref.tmp67, i64 0, i32 1, i32 2
   store ptr null, ptr %m_ptr.i4.i.i173, align 8
   %68 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
-  %cmp.i.i.i.i174 = icmp sgt i32 %add69, -1
+  %cmp.i.i.i.i174 = icmp sgt i32 %mul68, -2
   br i1 %cmp.i.i.i.i174, label %if.then.i.i.i.i178, label %if.else.i.i.i.i175
 
 if.then.i.i.i.i178:                               ; preds = %if.then66

@@ -7152,7 +7152,7 @@ entry:
   %mul3.i31 = shl i64 %newChunkCount, 8
   %retval.0.i32 = select i1 %cmp.i28, i64 %add.i30, i64 %mul3.i31
   store i64 %retval.0.i32, ptr %newAllocSize, align 8
-  %cmp.i.i.i.i.i = icmp slt i64 %retval.0.i32, 0
+  %cmp.i.i.i.i.i = icmp slt i64 %retval.0.i32, -15
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN5folly3f146detail10BasePolicyImPN8proxygen18HTTP2PriorityQueue4NodeEvvvSt4pairIKmS6_EE12beforeRehashEmmmmRPh.exit
 
 if.then.i.i.i.i.i:                                ; preds = %entry
@@ -7160,7 +7160,8 @@ if.then.i.i.i.i.i:                                ; preds = %entry
   unreachable
 
 _ZN5folly3f146detail10BasePolicyImPN8proxygen18HTTP2PriorityQueue4NodeEvvvSt4pairIKmS6_EE12beforeRehashEmmmmRPh.exit: ; preds = %entry
-  %call5.i.i2.i.i1.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %retval.0.i32) #30
+  %div1.i.i.i = and i64 %retval.0.i32, 9223372036854775792
+  %call5.i.i2.i.i1.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %div1.i.i.i) #30
   store ptr %call5.i.i2.i.i1.i, ptr %rawAllocation, align 8
   store i8 0, ptr %undoState, align 1
   %cmp5.not.i = icmp ne i64 %newChunkCount, 0

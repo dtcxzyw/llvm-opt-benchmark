@@ -833,7 +833,7 @@ if.then42:                                        ; preds = %invoke.cont39
   %55 = load i32, ptr %number_.i141, align 4
   %shl.i = shl i32 %55, 3
   %or.i = or disjoint i32 %shl.i, 4
-  %cmp.i7.i142 = icmp ugt i32 %or.i, 127
+  %cmp.i7.i142 = icmp ugt i32 %shl.i, 123
   br i1 %cmp.i7.i142, label %while.body.i.i147, label %invoke.cont49
 
 while.body.i.i147:                                ; preds = %if.then42, %while.body.i.i147

@@ -36386,7 +36386,7 @@ if.else11.i:                                      ; preds = %if.end
   %add.i.i = sub nuw nsw i32 64, %2
   %conv.i = zext nneg i32 %add.i.i to i64
   %shl.i = shl nuw nsw i64 1, %conv.i
-  %cmp17.i = icmp ult i32 %2, 53
+  %cmp17.i = icmp ugt i32 %sub.i, 20479
   %sub18.i.neg = add nsw i32 %1, -20
   %.neg = select i1 %cmp17.i, i32 %sub18.i.neg, i32 0
   %sh_prom.i = add nsw i32 %.neg, %add.i.i
@@ -39270,7 +39270,7 @@ entry:
   %mul3.i31 = shl i64 %newChunkCount, 8
   %retval.0.i32 = select i1 %cmp.i28, i64 %add.i30, i64 %mul3.i31
   store i64 %retval.0.i32, ptr %newAllocSize, align 8
-  %cmp.i.i.i.i.i = icmp slt i64 %retval.0.i32, 0
+  %cmp.i.i.i.i.i = icmp slt i64 %retval.0.i32, -15
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN5folly3f146detail10BasePolicyInvvvvnE12beforeRehashEmmmmRPh.exit
 
 if.then.i.i.i.i.i:                                ; preds = %entry
@@ -39278,7 +39278,8 @@ if.then.i.i.i.i.i:                                ; preds = %entry
   unreachable
 
 _ZN5folly3f146detail10BasePolicyInvvvvnE12beforeRehashEmmmmRPh.exit: ; preds = %entry
-  %call5.i.i2.i.i1.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %retval.0.i32) #38
+  %div1.i.i.i = and i64 %retval.0.i32, 9223372036854775792
+  %call5.i.i2.i.i1.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %div1.i.i.i) #38
   store ptr %call5.i.i2.i.i1.i, ptr %rawAllocation, align 8
   store i8 0, ptr %undoState, align 1
   %cmp5.not.i = icmp ne i64 %newChunkCount, 0

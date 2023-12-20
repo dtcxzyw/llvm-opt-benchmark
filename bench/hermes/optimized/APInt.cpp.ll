@@ -14842,8 +14842,7 @@ entry:
   %mul2 = mul i32 %cond, %mul
   %mul3 = shl i32 %sub, 1
   %add = add i32 %mul2, %mul3
-  %add4 = or disjoint i32 %add, 1
-  %cmp = icmp ult i32 %add4, 129
+  %cmp = icmp ult i32 %add, 128
   %add6 = or disjoint i32 %mul1, 1
   %idxprom = zext i32 %add6 to i64
   br i1 %cmp, label %if.then, label %if.else

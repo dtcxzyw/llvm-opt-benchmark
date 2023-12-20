@@ -6107,7 +6107,7 @@ for.cond:                                         ; preds = %_ZN4llvh6detail9IEE
   %12 = load i32, ptr %precision9, align 4
   %sub10 = sub i32 %sub5, %12
   store ptr %calcSemantics, ptr %decSig, align 8
-  %cmp.i.i.i = icmp ugt i32 %mul, 127
+  %cmp.i.i.i = icmp ugt i32 %mul, 64
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %for.cond._ZN4llvh6detail9IEEEFloatC2ERKNS_12fltSemanticsENS_11APFloatBase16uninitializedTagE.exit_crit_edge
 
 for.cond._ZN4llvh6detail9IEEEFloatC2ERKNS_12fltSemanticsENS_11APFloatBase16uninitializedTagE.exit_crit_edge: ; preds = %for.cond

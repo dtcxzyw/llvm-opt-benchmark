@@ -708,8 +708,7 @@ if.then208:                                       ; preds = %if.end206
   %num.addr.0183216 = phi i64 [ %add, %if.then208.thread ], [ %num, %if.then208 ]
   %60 = phi ptr [ %p, %if.then208.thread ], [ %spec.select224, %if.then208 ]
   %mul.i = shl i64 %num.addr.0183216, 4
-  %add.i = or disjoint i64 %mul.i, 6
-  %cmp.i = icmp ugt i64 %add.i, 22369621
+  %cmp.i = icmp ugt i64 %mul.i, 22369615
   br i1 %cmp.i, label %err.critedge, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %59
