@@ -7739,9 +7739,7 @@ if.then428:                                       ; preds = %if.end424
   %sub434 = sub i64 %conv432, %104
   %cond437 = call i64 @llvm.umin.i64(i64 %sub434, i64 1023)
   %cmp438 = icmp ult i64 %cond437, %conv430
-  %cmp442 = icmp ugt i32 %105, 4095
-  %or.cond3 = or i1 %cmp442, %cmp438
-  br i1 %or.cond3, label %if.then444, label %if.end445
+  br i1 %cmp438, label %if.then444, label %if.end445
 
 if.then444:                                       ; preds = %if.then428
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %spec.select, ptr noundef nonnull @.str.1, i32 noundef 1723, ptr noundef nonnull @__func__.qcow2_do_open, ptr noundef nonnull @.str.173) #22

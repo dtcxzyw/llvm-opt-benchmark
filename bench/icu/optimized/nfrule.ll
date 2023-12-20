@@ -841,10 +841,8 @@ cond.end:                                         ; preds = %if.end
   %6 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i88 = select i1 %cmp.i.i.i85, i32 %6, i32 %shr.i.i.i86
   %call2.i89 = tail call noundef i32 @_ZNK6icu_7513UnicodeString9doIndexOfEDsii(ptr noundef nonnull align 8 dereferenceable(64) %description, i16 noundef zeroext 93, i32 noundef 0, i32 noundef %cond.i.i88)
-  %cmp5 = icmp slt i32 %call2.i89, 0
   %cmp6 = icmp sgt i32 %call2.i, %call2.i89
-  %or.cond = or i1 %cmp5, %cmp6
-  br i1 %or.cond, label %if.then19, label %lor.lhs.false7
+  br i1 %cmp6, label %if.then19, label %lor.lhs.false7
 
 lor.lhs.false7:                                   ; preds = %cond.end
   %7 = load i64, ptr %call, align 8

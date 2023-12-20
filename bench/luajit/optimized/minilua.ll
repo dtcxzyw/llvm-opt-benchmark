@@ -35165,9 +35165,7 @@ while.body.i:                                     ; preds = %for.body, %lor.end.
   %dec7.i = add i64 %dec7.in.i, -1
   %33 = load ptr, ptr %b, align 8
   %cmp.i43 = icmp ult ptr %33, %add.ptr.i
-  %cmp.i104 = icmp eq ptr %33, %buffer.i
-  %or.cond157 = select i1 %cmp.i43, i1 true, i1 %cmp.i104
-  br i1 %or.cond157, label %lor.end.i, label %if.else.i105
+  br i1 %cmp.i43, label %lor.end.i, label %if.else.i105
 
 if.else.i105:                                     ; preds = %while.body.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %33 to i64
@@ -42670,9 +42668,7 @@ while.body.i112:                                  ; preds = %sw.epilog, %lor.end
   %dec7.i = add i64 %dec7.in.i, -1
   %88 = load ptr, ptr %b, align 8
   %cmp.i113 = icmp ult ptr %88, %add.ptr4
-  %cmp.i125 = icmp eq ptr %88, %buffer.i
-  %or.cond142 = select i1 %cmp.i113, i1 true, i1 %cmp.i125
-  br i1 %or.cond142, label %lor.end.i118, label %if.else.i126
+  br i1 %cmp.i113, label %lor.end.i118, label %if.else.i126
 
 if.else.i126:                                     ; preds = %while.body.i112
   %sub.ptr.lhs.cast.i128 = ptrtoint ptr %88 to i64
@@ -43803,9 +43799,7 @@ while.body.i:                                     ; preds = %while.body, %lor.en
   %dec7.i = add i64 %dec7.in.i, -1
   %14 = load ptr, ptr %b, align 8
   %cmp.i7 = icmp ult ptr %14, %add.ptr.i
-  %cmp.i19 = icmp eq ptr %14, %buffer.i
-  %or.cond = select i1 %cmp.i7, i1 true, i1 %cmp.i19
-  br i1 %or.cond, label %lor.end.i, label %if.else.i
+  br i1 %cmp.i7, label %lor.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %while.body.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %14 to i64
