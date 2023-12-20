@@ -15083,7 +15083,7 @@ _ZN3sat10simplifier19blocked_clause_elim6insertENS_7literalE.exit: ; preds = %_Z
   br i1 %cmp.i.i.i.i12, label %_ZNK6vectorIiLb0EjE4sizeEv.exit.i.i.i40, label %_ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i.i.i13
 
 _ZNK6vectorIiLb0EjE4sizeEv.exit.i.i.i40:          ; preds = %_ZN3sat10simplifier19blocked_clause_elim6insertENS_7literalE.exit
-  %cmp.i.i.i41 = icmp ult i32 %add.i.i, 2147483647
+  %cmp.i.i.i41 = icmp ult i32 %shl.i, 2147483646
   br i1 %cmp.i.i.i41, label %while.cond.i.i.i.i.i23.preheader, label %_ZN3sat10simplifier19blocked_clause_elim6insertENS_7literalE.exit42
 
 _ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i.i.i13:   ; preds = %_ZN3sat10simplifier19blocked_clause_elim6insertENS_7literalE.exit

@@ -615,7 +615,7 @@ for.inc.i79.i:                                    ; preds = %for.body.i74.i
 
 _ZN6icu_7512_GLOBAL__N_114getReorderCodeEPKc.exit85.i: ; preds = %for.body.i74.i
   %24 = trunc i64 %indvars.iv.i75.i to i32
-  %cmp108.i = icmp slt i32 %24, 0
+  %cmp108.i = icmp slt i32 %24, -4096
   br i1 %cmp108.i, label %_ZN6icu_7512_GLOBAL__N_125setAttributesFromKeywordsERKNS_6LocaleERNS_8CollatorER10UErrorCode.exit.thread36, label %if.end114.i
 
 if.end114.i:                                      ; preds = %_ZN6icu_7512_GLOBAL__N_114getReorderCodeEPKc.exit85.i

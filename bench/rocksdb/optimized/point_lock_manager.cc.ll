@@ -6859,7 +6859,7 @@ invoke.cont5.i:                                   ; preds = %invoke.cont5.i.preh
   %__trip_count.074.i185 = phi i64 [ %dec.i117, %invoke.cont.i113 ], [ %shr.i, %invoke.cont5.i.preheader ]
   %agg.tmp.sroa.2.0.copyload.i184 = phi i64 [ %inc.i33.i, %invoke.cont.i113 ], [ 0, %invoke.cont5.i.preheader ]
   %inc.i.i = or disjoint i64 %agg.tmp.sroa.2.0.copyload.i184, 1
-  %cmp.i.i.i5.i = icmp ult i64 %inc.i.i, 8
+  %cmp.i.i.i5.i = icmp ult i64 %agg.tmp.sroa.2.0.copyload.i184, 7
   %retval.0.i.i.i10.i.v = select i1 %cmp.i.i.i5.i, ptr %40, ptr %invariant.gep
   %retval.0.i.i.i10.i = getelementptr i64, ptr %retval.0.i.i.i10.i.v, i64 %inc.i.i
   %44 = load i64, ptr %retval.0.i.i.i10.i, align 8, !noalias !105
@@ -6868,7 +6868,7 @@ invoke.cont5.i:                                   ; preds = %invoke.cont5.i.preh
 
 invoke.cont12.i:                                  ; preds = %invoke.cont5.i
   %inc.i13.i = or disjoint i64 %agg.tmp.sroa.2.0.copyload.i184, 2
-  %cmp.i.i.i15.i = icmp ult i64 %inc.i13.i, 8
+  %cmp.i.i.i15.i = icmp ult i64 %agg.tmp.sroa.2.0.copyload.i184, 6
   %retval.0.i.i.i20.i.v = select i1 %cmp.i.i.i15.i, ptr %40, ptr %invariant.gep
   %retval.0.i.i.i20.i = getelementptr i64, ptr %retval.0.i.i.i20.i.v, i64 %inc.i13.i
   %45 = load i64, ptr %retval.0.i.i.i20.i, align 8, !noalias !105
@@ -6877,7 +6877,7 @@ invoke.cont12.i:                                  ; preds = %invoke.cont5.i
 
 invoke.cont19.i:                                  ; preds = %invoke.cont12.i
   %inc.i23.i = or disjoint i64 %agg.tmp.sroa.2.0.copyload.i184, 3
-  %cmp.i.i.i25.i = icmp ult i64 %inc.i23.i, 8
+  %cmp.i.i.i25.i = icmp ult i64 %agg.tmp.sroa.2.0.copyload.i184, 5
   %retval.0.i.i.i30.i.v = select i1 %cmp.i.i.i25.i, ptr %40, ptr %invariant.gep
   %retval.0.i.i.i30.i = getelementptr i64, ptr %retval.0.i.i.i30.i.v, i64 %inc.i23.i
   %46 = load i64, ptr %retval.0.i.i.i30.i, align 8, !noalias !105

@@ -4115,7 +4115,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %do.
   %conv = trunc i64 %call2 to i32
   %shl.i = shl i32 %num, 3
   %or.i11 = or disjoint i32 %shl.i, 2
-  %cmp.i1633 = icmp ugt i32 %or.i11, 127
+  %cmp.i1633 = icmp ugt i32 %shl.i, 125
   br i1 %cmp.i1633, label %while.body.i19, label %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintIjEEPhT_S4_.exit
 
 while.body.i19:                                   ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit, %while.body.i19
@@ -4354,7 +4354,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %do.
   %conv = trunc i64 %call2 to i32
   %shl.i = shl i32 %num, 3
   %or.i11 = or disjoint i32 %shl.i, 2
-  %cmp.i1623 = icmp ugt i32 %or.i11, 127
+  %cmp.i1623 = icmp ugt i32 %shl.i, 125
   br i1 %cmp.i1623, label %while.body.i19, label %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintIjEEPhT_S4_.exit
 
 while.body.i19:                                   ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit, %while.body.i19
@@ -4534,7 +4534,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %do.
   %conv = trunc i64 %s.coerce0 to i32
   %shl.i = shl i32 %num, 3
   %or.i11 = or disjoint i32 %shl.i, 2
-  %cmp.i1622 = icmp ugt i32 %or.i11, 127
+  %cmp.i1622 = icmp ugt i32 %shl.i, 125
   br i1 %cmp.i1622, label %while.body.i19, label %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintIjEEPhT_S4_.exit
 
 while.body.i19:                                   ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit, %while.body.i19

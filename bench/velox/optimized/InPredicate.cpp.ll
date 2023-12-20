@@ -3678,7 +3678,7 @@ _ZNK5folly3f146detail8F14TableINS1_20ValueContainerPolicyIN8facebook5velox9funct
   %mul3.i34.i.i.i.i.i.i.i.i.i.i = shl i64 %.pn.i.i.i.i.i.i.i.i.i.i, 8
   %retval.0.i35.i.i.i.i.i.i.i.i.i.i = select i1 %cmp.i31.i.i.i.i.i.i.i.i.i.i, i64 %add.i33.i.i.i.i.i.i.i.i.i.i, i64 %mul3.i34.i.i.i.i.i.i.i.i.i.i
   store i64 %retval.0.i35.i.i.i.i.i.i.i.i.i.i, ptr %newAllocSize.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !52
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %retval.0.i35.i.i.i.i.i.i.i.i.i.i, 0
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %retval.0.i35.i.i.i.i.i.i.i.i.i.i, -15
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5folly3f146detail10BasePolicyIN8facebook5velox9functions12_GLOBAL__N_122ComplexTypeInPredicate12ComplexValueEvNS7_16ComplexValueHashENS7_19ComplexValueEqualToEvS8_E12beforeRehashEmmmmRPh.exit.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %_ZNK5folly3f146detail8F14TableINS1_20ValueContainerPolicyIN8facebook5velox9functions12_GLOBAL__N_122ComplexTypeInPredicate12ComplexValueEvNS8_16ComplexValueHashENS8_19ComplexValueEqualToEvEEE25computeChunkCountAndScaleEmbb.exit.i.i.i.i.i.i.i.i.i
@@ -3689,7 +3689,8 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %_ZNK5folly3f146deta
   unreachable
 
 _ZN5folly3f146detail10BasePolicyIN8facebook5velox9functions12_GLOBAL__N_122ComplexTypeInPredicate12ComplexValueEvNS7_16ComplexValueHashENS7_19ComplexValueEqualToEvS8_E12beforeRehashEmmmmRPh.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZNK5folly3f146detail8F14TableINS1_20ValueContainerPolicyIN8facebook5velox9functions12_GLOBAL__N_122ComplexTypeInPredicate12ComplexValueEvNS8_16ComplexValueHashENS8_19ComplexValueEqualToEvEEE25computeChunkCountAndScaleEmbb.exit.i.i.i.i.i.i.i.i.i
-  %call5.i.i2.i.i1.i.i.i.i.i.i.i.i.i.i11.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %retval.0.i35.i.i.i.i.i.i.i.i.i.i) #36
+  %div1.i.i.i.i.i.i.i.i.i.i.i.i.i = and i64 %retval.0.i35.i.i.i.i.i.i.i.i.i.i, 9223372036854775792
+  %call5.i.i2.i.i1.i.i.i.i.i.i.i.i.i.i11.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %div1.i.i.i.i.i.i.i.i.i.i.i.i.i) #36
           to label %call5.i.i2.i.i1.i.i.i.i.i.i.i.i.i.i.noexc.i unwind label %lpad.loopexit.split-lp.loopexit.i, !noalias !38
 
 call5.i.i2.i.i1.i.i.i.i.i.i.i.i.i.i.noexc.i:      ; preds = %_ZN5folly3f146detail10BasePolicyIN8facebook5velox9functions12_GLOBAL__N_122ComplexTypeInPredicate12ComplexValueEvNS7_16ComplexValueHashENS7_19ComplexValueEqualToEvS8_E12beforeRehashEmmmmRPh.exit.i.i.i.i.i.i.i.i.i.i

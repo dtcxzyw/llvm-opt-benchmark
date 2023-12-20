@@ -1277,7 +1277,7 @@ vaarg.end68:                                      ; preds = %vaarg.end56
   %44 = or disjoint i32 %gp_offset24, 32
   store i32 %44, ptr %ap, align 16
   %45 = load i32, ptr %43, align 4
-  %fits_in_gp73 = icmp ult i32 %44, 41
+  %fits_in_gp73 = icmp ult i32 %gp_offset24, 9
   br i1 %fits_in_gp73, label %vaarg.in_reg74, label %vaarg.in_mem76
 
 vaarg.in_reg74:                                   ; preds = %vaarg.end68
@@ -1396,7 +1396,7 @@ vaarg.end137:                                     ; preds = %vaarg.end125
   %87 = or disjoint i32 %gp_offset93, 32
   store i32 %87, ptr %ap, align 16
   %88 = load i32, ptr %86, align 4
-  %fits_in_gp142 = icmp ult i32 %87, 41
+  %fits_in_gp142 = icmp ult i32 %gp_offset93, 9
   br i1 %fits_in_gp142, label %vaarg.in_reg143, label %vaarg.in_mem145
 
 vaarg.in_reg143:                                  ; preds = %vaarg.end137
@@ -2028,7 +2028,7 @@ vaarg.end540:                                     ; preds = %vaarg.end527
   %272 = or disjoint i32 %gp_offset495, 32
   store i32 %272, ptr %ap, align 16
   %273 = load i64, ptr %271, align 8
-  %fits_in_gp547 = icmp ult i32 %272, 41
+  %fits_in_gp547 = icmp ult i32 %gp_offset495, 9
   br i1 %fits_in_gp547, label %vaarg.in_reg548, label %vaarg.in_mem550
 
 vaarg.in_reg548:                                  ; preds = %vaarg.end540
@@ -2346,7 +2346,7 @@ vaarg.end753:                                     ; preds = %vaarg.end741
   %366 = or disjoint i32 %gp_offset709, 32
   store i32 %366, ptr %ap, align 16
   %367 = load i32, ptr %365, align 4
-  %fits_in_gp758 = icmp ult i32 %366, 41
+  %fits_in_gp758 = icmp ult i32 %gp_offset709, 9
   br i1 %fits_in_gp758, label %vaarg.in_reg759, label %vaarg.in_mem761
 
 vaarg.in_reg759:                                  ; preds = %vaarg.end753

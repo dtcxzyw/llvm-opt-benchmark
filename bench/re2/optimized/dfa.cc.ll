@@ -12746,7 +12746,7 @@ entry:
   %and.i.i.i.i = add i64 %3, 24
   %mul.i.i = shl i64 %new_capacity, 3
   %add.i.i = add i64 %and.i.i.i.i, %mul.i.i
-  %cmp.i.i.i.i = icmp slt i64 %add.i.i, 0
+  %cmp.i.i.i.i = icmp slt i64 %add.i.i, -7
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN3re23DFA5StateEEENS5_9StateHashENS5_10StateEqualESaIS7_EE16initialize_slotsEv.exit
 
 if.then.i.i.i.i:                                  ; preds = %entry
@@ -12754,7 +12754,8 @@ if.then.i.i.i.i:                                  ; preds = %entry
   unreachable
 
 _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN3re23DFA5StateEEENS5_9StateHashENS5_10StateEqualESaIS7_EE16initialize_slotsEv.exit: ; preds = %entry
-  %call5.i.i2.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %add.i.i) #20
+  %div1.i.i = and i64 %add.i.i, 9223372036854775800
+  %call5.i.i2.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %div1.i.i) #20
   store ptr %call5.i.i2.i.i, ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i2.i.i, i64 %and.i.i.i.i
   store ptr %add.ptr.i.i, ptr %slots_, align 8
@@ -13214,7 +13215,7 @@ entry:
   %and.i.i.i.i = add i64 %3, 24
   %mul.i.i = shl i64 %new_capacity, 4
   %add.i.i = add i64 %and.i.i.i.i, %mul.i.i
-  %cmp.i.i.i.i = icmp slt i64 %add.i.i, 0
+  %cmp.i.i.i.i = icmp slt i64 %add.i.i, -7
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPN3re23DFA5StateEiEENS1_6HashEqIS7_vE4HashENSA_2EqESaISt4pairIKS7_iEEE16initialize_slotsEv.exit
 
 if.then.i.i.i.i:                                  ; preds = %entry
@@ -13222,7 +13223,8 @@ if.then.i.i.i.i:                                  ; preds = %entry
   unreachable
 
 _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPN3re23DFA5StateEiEENS1_6HashEqIS7_vE4HashENSA_2EqESaISt4pairIKS7_iEEE16initialize_slotsEv.exit: ; preds = %entry
-  %call5.i.i2.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %add.i.i) #20
+  %div1.i.i = and i64 %add.i.i, 9223372036854775800
+  %call5.i.i2.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %div1.i.i) #20
   store ptr %call5.i.i2.i.i, ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i2.i.i, i64 %and.i.i.i.i
   store ptr %add.ptr.i.i, ptr %slots_, align 8

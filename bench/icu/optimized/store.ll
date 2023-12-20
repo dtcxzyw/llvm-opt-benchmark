@@ -524,17 +524,17 @@ if.end25.i:                                       ; preds = %if.end17.i, %if.the
 if.then29.i:                                      ; preds = %if.end25.i
   %10 = load i16, ptr @currentIndex, align 2
   %shl.i = shl i16 %10, 2
-  %11 = or disjoint i16 %shl.i, 2
-  %cmp36.i = icmp ugt i16 %11, -16
+  %cmp36.i = icmp ugt i16 %shl.i, -18
   br i1 %cmp36.i, label %if.then38.i, label %if.end40.i
 
 if.then38.i:                                      ; preds = %if.then29.i
-  %12 = load ptr, ptr @stderr, align 8
-  %call39.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.21, i32 noundef 65520) #15
+  %11 = load ptr, ptr @stderr, align 8
+  %call39.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.21, i32 noundef 65520) #15
   call void @exit(i32 noundef 12) #16
   unreachable
 
 if.end40.i:                                       ; preds = %if.then29.i
+  %12 = or disjoint i16 %shl.i, 2
   %13 = load ptr, ptr @sprepTrie, align 8
   %call41.i = call i32 @utrie_get32_75(ptr noundef %13, i32 noundef %5, ptr noundef null) #13
   switch i32 %call41.i, label %if.else.i [
@@ -553,7 +553,7 @@ if.else.i:                                        ; preds = %if.end40.i
   unreachable
 
 if.end53.i:                                       ; preds = %if.then47.i, %if.end40.i
-  %trieWord.0.i = phi i16 [ %14, %if.then47.i ], [ %11, %if.end40.i ]
+  %trieWord.0.i = phi i16 [ %14, %if.then47.i ], [ %12, %if.end40.i ]
   %16 = load ptr, ptr @sprepTrie, align 8
   %conv54.i = zext i16 %trieWord.0.i to i32
   %call55.i = call signext i8 @utrie_set32_75(ptr noundef %16, i32 noundef %5, i32 noundef %conv54.i) #13
