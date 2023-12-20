@@ -21980,8 +21980,8 @@ if.then.i300:                                     ; preds = %if.end184
   %mul.i301 = shl nsw i32 %79, 1
   %add.i = or disjoint i32 %mul.i301, 1
   %80 = load i32, ptr %m_capacity.i.i, align 8
-  %cmp.i632 = icmp slt i32 %80, %add.i
-  br i1 %cmp.i632, label %if.then.i634, label %.noexc
+  %cmp.i632.not = icmp sgt i32 %80, %mul.i301
+  br i1 %cmp.i632.not, label %.noexc, label %if.then.i634
 
 if.then.i634:                                     ; preds = %if.then.i300
   %conv.i.i.i636 = sext i32 %add.i to i64

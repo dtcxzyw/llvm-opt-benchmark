@@ -5926,8 +5926,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add19 = or disjoint i64 %j.061, 1
   %11 = load i32, ptr %lastmark, align 4
   %conv20 = sext i32 %11 to i64
-  %cmp21.not = icmp sgt i64 %add19, %conv20
-  br i1 %cmp21.not, label %if.else, label %land.lhs.true
+  %cmp21.not.not = icmp slt i64 %j.061, %conv20
+  br i1 %cmp21.not.not, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %for.body
   %12 = load ptr, ptr %mark23, align 8
@@ -5955,7 +5955,7 @@ if.then31:                                        ; preds = %land.lhs.true26
   %sub.ptr.lhs.cast45 = ptrtoint ptr %16 to i64
   %sub.ptr.sub47 = sub i64 %sub.ptr.lhs.cast45, %sub.ptr.rhs.cast
   %div49 = sdiv i64 %sub.ptr.sub47, %conv
-  %add51 = add nuw i64 %j.061, 3
+  %add51 = add nuw nsw i64 %j.061, 3
   %arrayidx52 = getelementptr %struct.MatchObject, ptr %call, i64 0, i32 8, i64 %add51
   store i64 %div49, ptr %arrayidx52, align 8
   %cmp59 = icmp sgt i64 %div38, %div49

@@ -6254,8 +6254,8 @@ if.end12.i:                                       ; preds = %while.body.i
 if.then14.i166:                                   ; preds = %if.end12.i
   %shl.i = shl i64 %ofs.061.i, 1
   %add15.i = or disjoint i64 %shl.i, 1
-  %cmp3.not.i.not = icmp slt i64 %add15.i, %na.addr.4.i99
-  br i1 %cmp3.not.i.not, label %while.body.i, label %while.end.i, !llvm.loop !42
+  %cmp3.not.not.i = icmp slt i64 %shl.i, %sub61.i
+  br i1 %cmp3.not.not.i, label %while.body.i, label %while.end.i, !llvm.loop !42
 
 while.end.i:                                      ; preds = %if.then14.i166, %if.end12.i, %if.then2.i165
   %lastofs.0.lcssa.i = phi i64 [ 0, %if.then2.i165 ], [ %ofs.061.i, %if.then14.i166 ], [ %lastofs.060.i, %if.end12.i ]

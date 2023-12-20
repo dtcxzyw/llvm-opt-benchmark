@@ -31108,9 +31108,14 @@ if.then4:                                         ; preds = %if.then2
 
 if.else:                                          ; preds = %if.then2
   %add11 = shl i64 %sub, 1
+  %2 = shl i64 %la, 1
+  %3 = or disjoint i64 %2, 1
+  %4 = and i64 %add, -2
+  %5 = sub i64 %3, %4
+  %umax = tail call i64 @llvm.umax.i64(i64 %5, i64 1)
+  %6 = shl nuw i64 %umax, 3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %w, i8 0, i64 %6, i1 false)
   %add12 = or disjoint i64 %add11, 1
-  %2 = shl nuw i64 %add12, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %w, i8 0, i64 %2, i1 false)
   %add.ptr13 = getelementptr i64, ptr %a, i64 %div147
   %add.ptr14 = getelementptr i64, ptr %w, i64 %add12
   tail call fastcc void @_karatsuba_rec(ptr noundef %w, ptr noundef %add.ptr13, ptr noundef %b, ptr noundef %add.ptr14, i64 noundef %sub, i64 noundef %lb)
@@ -31124,8 +31129,8 @@ if.end16:                                         ; preds = %if.else, %if.then4
   %add19 = add i64 %sub, %lb
   tail call void @_mpd_baseaddto(ptr noundef %add.ptr17, ptr noundef %w, i64 noundef %add19) #28
   %add21 = or i64 %add, 1
-  %3 = shl nuw i64 %add21, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %w, i8 0, i64 %3, i1 false)
+  %7 = shl nuw i64 %add21, 3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %w, i8 0, i64 %7, i1 false)
   %add.ptr22 = getelementptr i64, ptr %w, i64 %add21
   tail call fastcc void @_karatsuba_rec(ptr noundef %w, ptr noundef %a, ptr noundef %b, ptr noundef %add.ptr22, i64 noundef %div147, i64 noundef %lb)
   %add23 = add nuw i64 %div147, %lb
@@ -31153,9 +31158,14 @@ if.end24:                                         ; preds = %if.end
   %add.ptr42 = getelementptr i64, ptr %w, i64 %mul41
   tail call fastcc void @_karatsuba_rec(ptr noundef %add.ptr37, ptr noundef %w, ptr noundef %add.ptr28, ptr noundef %add.ptr42, i64 noundef %add27, i64 noundef %add27)
   %add47 = shl i64 %sub26, 1
+  %8 = shl i64 %la, 1
+  %9 = or disjoint i64 %8, 1
+  %10 = and i64 %add, -2
+  %11 = sub i64 %9, %10
+  %umax153 = tail call i64 @llvm.umax.i64(i64 %11, i64 1)
+  %12 = shl nuw i64 %umax153, 3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %w, i8 0, i64 %12, i1 false)
   %add48 = or disjoint i64 %add47, 1
-  %4 = shl nuw i64 %add48, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %w, i8 0, i64 %4, i1 false)
   %add.ptr51 = getelementptr i64, ptr %w, i64 %add48
   tail call fastcc void @_karatsuba_rec(ptr noundef nonnull %w, ptr noundef %add.ptr25, ptr noundef %add.ptr35, ptr noundef %add.ptr51, i64 noundef %sub26, i64 noundef %sub36)
   %mul54 = and i64 %add, -2
@@ -31164,8 +31174,8 @@ if.end24:                                         ; preds = %if.end
   tail call void @_mpd_baseaddto(ptr noundef %add.ptr55, ptr noundef nonnull %w, i64 noundef %add58) #28
   tail call void @_mpd_basesubfrom(ptr noundef %add.ptr37, ptr noundef nonnull %w, i64 noundef %add58) #28
   %add64 = or i64 %add, 1
-  %5 = shl nuw i64 %add64, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %w, i8 0, i64 %5, i1 false)
+  %13 = shl nuw i64 %add64, 3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %w, i8 0, i64 %13, i1 false)
   %add.ptr65 = getelementptr i64, ptr %w, i64 %add64
   tail call fastcc void @_karatsuba_rec(ptr noundef nonnull %w, ptr noundef %a, ptr noundef %b, ptr noundef %add.ptr65, i64 noundef %div147, i64 noundef %div147)
   tail call void @_mpd_baseaddto(ptr noundef %c, ptr noundef nonnull %w, i64 noundef %mul54) #28
@@ -31236,9 +31246,14 @@ if.then11:                                        ; preds = %if.then9
 
 if.else19:                                        ; preds = %if.then9
   %add22 = shl i64 %sub, 1
+  %3 = shl i64 %la, 1
+  %4 = or disjoint i64 %3, 1
+  %5 = and i64 %add7, -2
+  %6 = sub i64 %4, %5
+  %umax = tail call i64 @llvm.umax.i64(i64 %6, i64 1)
+  %7 = shl nuw i64 %umax, 3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %w, i8 0, i64 %7, i1 false)
   %add23 = or disjoint i64 %add22, 1
-  %3 = shl nuw i64 %add23, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %w, i8 0, i64 %3, i1 false)
   %add.ptr24 = getelementptr i64, ptr %a, i64 %div156
   %add.ptr25 = getelementptr i64, ptr %w, i64 %add23
   %call27 = tail call fastcc i32 @_karatsuba_rec_fnt(ptr noundef %w, ptr noundef %add.ptr24, ptr noundef %b, ptr noundef %add.ptr25, i64 noundef %sub, i64 noundef %lb), !range !9
@@ -31250,8 +31265,8 @@ if.end31:                                         ; preds = %if.else19, %if.then
   %add34 = add i64 %sub, %lb
   tail call void @_mpd_baseaddto(ptr noundef %add.ptr32, ptr noundef %w, i64 noundef %add34) #28
   %add36 = or i64 %add7, 1
-  %4 = shl nuw i64 %add36, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %w, i8 0, i64 %4, i1 false)
+  %8 = shl nuw i64 %add36, 3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %w, i8 0, i64 %8, i1 false)
   %add.ptr37 = getelementptr i64, ptr %w, i64 %add36
   %call38 = tail call fastcc i32 @_karatsuba_rec_fnt(ptr noundef %w, ptr noundef %a, ptr noundef %b, ptr noundef %add.ptr37, i64 noundef %div156, i64 noundef %lb), !range !9
   %tobool39.not = icmp eq i32 %call38, 0
@@ -31287,9 +31302,14 @@ if.end43:                                         ; preds = %if.end6
 
 if.end68:                                         ; preds = %if.end43
   %add71 = shl i64 %sub46, 1
+  %9 = shl i64 %la, 1
+  %10 = or disjoint i64 %9, 1
+  %11 = and i64 %add7, -2
+  %12 = sub i64 %10, %11
+  %umax162 = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
+  %13 = shl nuw i64 %umax162, 3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %w, i8 0, i64 %13, i1 false)
   %add72 = or disjoint i64 %add71, 1
-  %5 = shl nuw i64 %add72, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %w, i8 0, i64 %5, i1 false)
   %add.ptr75 = getelementptr i64, ptr %w, i64 %add72
   %call78 = tail call fastcc i32 @_karatsuba_rec_fnt(ptr noundef nonnull %w, ptr noundef %add.ptr45, ptr noundef %add.ptr55, ptr noundef %add.ptr75, i64 noundef %sub46, i64 noundef %sub56), !range !9
   %tobool79.not = icmp eq i32 %call78, 0
@@ -31302,8 +31322,8 @@ if.end81:                                         ; preds = %if.end68
   tail call void @_mpd_baseaddto(ptr noundef %add.ptr83, ptr noundef nonnull %w, i64 noundef %add86) #28
   tail call void @_mpd_basesubfrom(ptr noundef %add.ptr57, ptr noundef nonnull %w, i64 noundef %add86) #28
   %add92 = or i64 %add7, 1
-  %6 = shl nuw i64 %add92, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %w, i8 0, i64 %6, i1 false)
+  %14 = shl nuw i64 %add92, 3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %w, i8 0, i64 %14, i1 false)
   %add.ptr93 = getelementptr i64, ptr %w, i64 %add92
   %call94 = tail call fastcc i32 @_karatsuba_rec_fnt(ptr noundef nonnull %w, ptr noundef %a, ptr noundef %b, ptr noundef %add.ptr93, i64 noundef %div156, i64 noundef %div156), !range !9
   %tobool95.not = icmp eq i32 %call94, 0

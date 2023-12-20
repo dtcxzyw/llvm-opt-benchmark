@@ -2356,15 +2356,14 @@ invoke.cont7:                                     ; preds = %if.end5.i.i, %if.en
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load i32, ptr %halfWidth.addr, align 4
   %mul3 = shl nsw i32 %13, 1
-  %add4 = or disjoint i32 %mul3, 1
-  %14 = sext i32 %add4 to i64
-  %cmp = icmp slt i64 %indvars.iv.next, %14
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !15
+  %14 = sext i32 %mul3 to i64
+  %cmp.not.not = icmp slt i64 %indvars.iv, %14
+  br i1 %cmp.not.not, label %for.body, label %for.end, !llvm.loop !15
 
 for.end:                                          ; preds = %invoke.cont7
   %.pre = load ptr, ptr %wts, align 8
-  %.pre109 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %cmp.i.not4.i = icmp eq ptr %.pre, %.pre109
+  %.pre108 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %cmp.i.not4.i = icmp eq ptr %.pre, %.pre108
   br i1 %cmp.i.not4.i, label %for.end28, label %for.body.i
 
 for.body.i:                                       ; preds = %for.end, %for.body.i
@@ -2373,19 +2372,19 @@ for.body.i:                                       ; preds = %for.end, %for.body.
   %15 = load float, ptr %__first.sroa.0.05.i, align 4
   %add.i = fadd float %__init.addr.06.i, %15
   %incdec.ptr.i.i = getelementptr inbounds float, ptr %__first.sroa.0.05.i, i64 1
-  %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %.pre109
+  %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %.pre108
   br i1 %cmp.i.not.i, label %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET0_T_S8_S7_.exit, label %for.body.i, !llvm.loop !16
 
 _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET0_T_S8_S7_.exit: ; preds = %for.body.i
   br i1 %cmp.i.not4.i, label %for.end28, label %for.body24
 
 for.body24:                                       ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET0_T_S8_S7_.exit, %for.body24
-  %__begin1.sroa.0.0107 = phi ptr [ %incdec.ptr.i, %for.body24 ], [ %.pre, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET0_T_S8_S7_.exit ]
-  %16 = load float, ptr %__begin1.sroa.0.0107, align 4
+  %__begin1.sroa.0.0106 = phi ptr [ %incdec.ptr.i, %for.body24 ], [ %.pre, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET0_T_S8_S7_.exit ]
+  %16 = load float, ptr %__begin1.sroa.0.0106, align 4
   %div = fdiv float %16, %add.i
-  store float %div, ptr %__begin1.sroa.0.0107, align 4
-  %incdec.ptr.i = getelementptr inbounds float, ptr %__begin1.sroa.0.0107, i64 1
-  %cmp.i.not = icmp eq ptr %incdec.ptr.i, %.pre109
+  store float %div, ptr %__begin1.sroa.0.0106, align 4
+  %incdec.ptr.i = getelementptr inbounds float, ptr %__begin1.sroa.0.0106, i64 1
+  %cmp.i.not = icmp eq ptr %incdec.ptr.i, %.pre108
   br i1 %cmp.i.not, label %for.end28, label %for.body24
 
 for.end28:                                        ; preds = %for.body24, %for.end, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET0_T_S8_S7_.exit
@@ -2448,13 +2447,13 @@ lpad.i:                                           ; preds = %if.else.i.i, %if.th
   br label %ehcleanup74
 
 invoke.cont35.loopexit:                           ; preds = %for.inc.i
-  %.pre110 = load ptr, ptr %ref.tmp31, align 8
-  %.pre111 = load ptr, ptr %_M_finish.i.i, align 8
+  %.pre109 = load ptr, ptr %ref.tmp31, align 8
+  %.pre110 = load ptr, ptr %_M_finish.i.i, align 8
   br label %invoke.cont35
 
 invoke.cont35:                                    ; preds = %invoke.cont35.loopexit, %for.end28
-  %27 = phi ptr [ %.pre111, %invoke.cont35.loopexit ], [ null, %for.end28 ]
-  %28 = phi ptr [ %.pre110, %invoke.cont35.loopexit ], [ null, %for.end28 ]
+  %27 = phi ptr [ %.pre110, %invoke.cont35.loopexit ], [ null, %for.end28 ]
+  %28 = phi ptr [ %.pre109, %invoke.cont35.loopexit ], [ null, %for.end28 ]
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %27 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %28 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -2597,14 +2596,14 @@ lpad.i44:                                         ; preds = %if.else.i.i50, %if.
   br label %ehcleanup73
 
 invoke.cont58.loopexit:                           ; preds = %for.inc.i47
-  %.pre112 = load ptr, ptr %ref.tmp54, align 8
-  %.pre113 = load ptr, ptr %_M_finish.i.i33, align 8
-  %47 = ptrtoint ptr %.pre113 to i64
+  %.pre111 = load ptr, ptr %ref.tmp54, align 8
+  %.pre112 = load ptr, ptr %_M_finish.i.i33, align 8
+  %47 = ptrtoint ptr %.pre112 to i64
   br label %invoke.cont58
 
 invoke.cont58:                                    ; preds = %invoke.cont58.loopexit, %_ZNSt8functionIFvllEED2Ev.exit
   %sub.ptr.lhs.cast.i.i54 = phi i64 [ %47, %invoke.cont58.loopexit ], [ 0, %_ZNSt8functionIFvllEED2Ev.exit ]
-  %48 = phi ptr [ %.pre112, %invoke.cont58.loopexit ], [ null, %_ZNSt8functionIFvllEED2Ev.exit ]
+  %48 = phi ptr [ %.pre111, %invoke.cont58.loopexit ], [ null, %_ZNSt8functionIFvllEED2Ev.exit ]
   %sub.ptr.rhs.cast.i.i55 = ptrtoint ptr %48 to i64
   %sub.ptr.sub.i.i56 = sub i64 %sub.ptr.lhs.cast.i.i54, %sub.ptr.rhs.cast.i.i55
   %sub.ptr.div.i.i57 = ashr exact i64 %sub.ptr.sub.i.i56, 5

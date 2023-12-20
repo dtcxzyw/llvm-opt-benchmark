@@ -1119,7 +1119,7 @@ sw.bb11:                                          ; preds = %_ZN6google8protobuf
   %13 = load i64, ptr %data_.i83, align 8
   %shl.i84 = shl i32 %12, 3
   %or.i85 = or disjoint i32 %shl.i84, 1
-  %cmp.i7.i86 = icmp ugt i32 %or.i85, 127
+  %cmp.i7.i86 = icmp ugt i32 %shl.i84, 126
   br i1 %cmp.i7.i86, label %while.body.i.i91, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit98
 
 while.body.i.i91:                                 ; preds = %sw.bb11, %while.body.i.i91
@@ -8830,7 +8830,7 @@ cond.end394:                                      ; preds = %cond.false391, %con
   %306 = load i32, ptr %number_.i1734, align 4
   %shl.i1513 = shl i32 %306, 3
   %or.i1514 = or disjoint i32 %shl.i1513, 1
-  %cmp.i7.i1515 = icmp ugt i32 %or.i1514, 127
+  %cmp.i7.i1515 = icmp ugt i32 %shl.i1513, 126
   br i1 %cmp.i7.i1515, label %while.body.i.i1521, label %call.i.noexc602
 
 while.body.i.i1521:                               ; preds = %cond.end394, %while.body.i.i1521
@@ -8918,7 +8918,7 @@ cond.end426:                                      ; preds = %cond.false423, %con
   %314 = load i32, ptr %number_.i1734, align 4
   %shl.i1555 = shl i32 %314, 3
   %or.i1556 = or disjoint i32 %shl.i1555, 1
-  %cmp.i7.i1557 = icmp ugt i32 %or.i1556, 127
+  %cmp.i7.i1557 = icmp ugt i32 %shl.i1555, 126
   br i1 %cmp.i7.i1557, label %while.body.i.i1563, label %_ZN6google8protobuf8internal14WireFormatLite20WriteSFixed64ToArrayEilPh.exit
 
 while.body.i.i1563:                               ; preds = %cond.end426, %while.body.i.i1563
@@ -9006,7 +9006,7 @@ cond.end458:                                      ; preds = %cond.false455, %con
   %322 = load i32, ptr %number_.i1734, align 4
   %shl.i1598 = shl i32 %322, 3
   %or.i1599 = or disjoint i32 %shl.i1598, 1
-  %cmp.i7.i1600 = icmp ugt i32 %or.i1599, 127
+  %cmp.i7.i1600 = icmp ugt i32 %shl.i1598, 126
   br i1 %cmp.i7.i1600, label %while.body.i.i1606, label %_ZN6google8protobuf8internal14WireFormatLite23WriteDoubleNoTagToArrayEdPh.exit
 
 while.body.i.i1606:                               ; preds = %cond.end458, %while.body.i.i1606
@@ -16961,7 +16961,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageE
   %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i, 3
   %.pre.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i2.i, i64 %.pre.i.i.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i, ptr nonnull align 8 %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
   store ptr %2, ptr %__first.coerce, align 8
   br label %for.inc.i
 
@@ -17903,7 +17903,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageE
   %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i, 3
   %.pre.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i2.i, i64 %.pre.i.i.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i, ptr nonnull align 8 %__first.sroa.0.044, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %__first.sroa.0.044, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
   store ptr %2, ptr %__first.sroa.0.044, align 8
   br label %for.inc.i
 
@@ -17972,7 +17972,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageE
   %sub.ptr.div.i.i.i.i.i.i33 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i32, 3
   %.pre.i.i.i.i.i.i34 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i33
   %add.ptr.i.i.i.i.i.i35 = getelementptr inbounds ptr, ptr %add.ptr.i2.i30, i64 %.pre.i.i.i.i.i.i34
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i35, ptr nonnull align 8 %__first.sroa.0.0.lcssa, i64 %sub.ptr.sub.i.i.i.i.i.i32, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i35, ptr noundef nonnull align 8 dereferenceable(1) %__first.sroa.0.0.lcssa, i64 %sub.ptr.sub.i.i.i.i.i.i32, i1 false)
   store ptr %9, ptr %__first.sroa.0.0.lcssa, align 8
   br label %for.inc.i21
 

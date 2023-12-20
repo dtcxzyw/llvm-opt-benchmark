@@ -5040,17 +5040,13 @@ if.else.i.i:                                      ; preds = %lor.lhs.false.i
   %add10.i.i = add i32 %mul9.i.i, 1
   %shr.i.i = lshr i32 %add10.i.i, 1
   %mul12.i.i = mul i32 %shr.i.i, 96
-  %add13.i.i = or disjoint i32 %mul12.i.i, 8
   %cmp15.not.i.i = icmp ugt i32 %shr.i.i, %26
-  br i1 %cmp15.not.i.i, label %lor.lhs.false.i.i, label %if.then17.i.i
-
-lor.lhs.false.i.i:                                ; preds = %if.else.i.i
   %mul6.i.i = mul i32 %26, 96
-  %add7.i.i = or disjoint i32 %mul6.i.i, 8
-  %cmp16.not.i.i = icmp ugt i32 %add13.i.i, %add7.i.i
-  br i1 %cmp16.not.i.i, label %if.end.i.i44, label %if.then17.i.i
+  %cmp16.not.i.i = icmp ugt i32 %mul12.i.i, %mul6.i.i
+  %or.cond.i.i = and i1 %cmp15.not.i.i, %cmp16.not.i.i
+  br i1 %or.cond.i.i, label %if.end.i.i44, label %if.then17.i.i
 
-if.then17.i.i:                                    ; preds = %lor.lhs.false.i.i, %if.else.i.i
+if.then17.i.i:                                    ; preds = %if.else.i.i
   %exception.i.i = call ptr @__cxa_allocate_exception(i64 40) #24
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18.i.i) #24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull @.str.13, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18.i.i)
@@ -5077,7 +5073,8 @@ cleanup.action.i.i:                               ; preds = %if.then17.i.i
   call void @__cxa_free_exception(ptr %exception.i.i) #24
   br label %lpad24.body
 
-if.end.i.i44:                                     ; preds = %lor.lhs.false.i.i
+if.end.i.i44:                                     ; preds = %if.else.i.i
+  %add13.i.i = or disjoint i32 %mul12.i.i, 8
   %conv24.i.i = zext i32 %add13.i.i to i64
   %call25.i.i50 = invoke noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %conv24.i.i)
           to label %_ZNK6vectorIZN2lp10int_solver9local_cutEjRSt8functionIFNS0_8lia_moveEjEEE2exLb1EjE4sizeEv.exit.i.i unwind label %lpad24

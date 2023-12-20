@@ -2191,7 +2191,6 @@ land.rhs.lr.ph:                                   ; preds = %if.end
   %mul222 = shl nsw i32 %widest, 1
   %cmp229 = icmp sgt i32 %widest, 12
   %and = and i32 %widest, 3
-  %add238 = or disjoint i32 %and, 8
   %idx.ext292 = sext i32 %widest to i64
   %idx.neg = sub nsw i64 0, %idx.ext292
   br label %land.rhs
@@ -2220,8 +2219,8 @@ if.then230:                                       ; preds = %if.then228
   %reass.sub = sub i32 %30, %31
   %32 = and i32 %reass.sub, -4
   %and236 = add i32 %32, 4
-  %add237 = or disjoint i32 %and236, %and
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %add237, i32 %add238)
+  %spec.select.v = tail call i32 @llvm.smax.i32(i32 %and236, i32 8)
+  %spec.select = or disjoint i32 %spec.select.v, %and
   %.pre = add nsw i32 %spec.select, %29
   br label %if.end243
 

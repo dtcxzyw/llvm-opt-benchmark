@@ -1086,8 +1086,8 @@ if.then:                                          ; preds = %address_space_looku
   %20 = load i64, ptr %plen, align 8
   %b.sroa.0.0.insert.ext.i17 = zext i64 %20 to i128
   %cond.i = tail call i128 @llvm.smin.i128(i128 %a.sroa.0.0.insert.insert.i, i128 %b.sroa.0.0.insert.ext.i17)
-  %cmp.i25 = icmp ult i128 %cond.i, 18446744073709551616
-  br i1 %cmp.i25, label %int128_get64.exit, label %if.else.i
+  %cmp.i21 = icmp ult i128 %cond.i, 18446744073709551616
+  br i1 %cmp.i21, label %int128_get64.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then
   tail call void @__assert_fail(ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.90, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #25
@@ -1927,14 +1927,14 @@ if.end:                                           ; preds = %if.then
   %coerce23.sroa.0.0.insert.ext = and i128 %a.sroa.0.0.insert.insert.i15, 18446744073709551615
   %coerce23.sroa.0.0.insert.insert = or disjoint i128 %coerce23.sroa.2.0.insert.shift, %coerce23.sroa.0.0.insert.ext
   store i128 %coerce23.sroa.0.0.insert.insert, ptr %remain, align 16
-  %cmp.i23 = icmp ult i128 %cond.i, 18446744073709551616
-  br i1 %cmp.i23, label %int128_get64.exit30, label %if.else.i
+  %cmp.i19 = icmp eq i64 %retval.sroa.2.0.extract.trunc.i, 0
+  br i1 %cmp.i19, label %int128_get64.exit22, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end
   tail call void @__assert_fail(ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.90, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #25
   unreachable
 
-int128_get64.exit30:                              ; preds = %if.end
+int128_get64.exit22:                              ; preds = %if.end
   %add29 = add i64 %0, %coerce15.sroa.0.0.extract.trunc
   store i64 %add29, ptr %offset_within_address_space, align 8
   %offset_within_region = getelementptr inbounds %struct.MemoryRegionSection, ptr %remain, i64 0, i32 3
@@ -1943,11 +1943,11 @@ int128_get64.exit30:                              ; preds = %if.end
   store i64 %add33, ptr %offset_within_region, align 16
   br label %if.end34
 
-if.end34:                                         ; preds = %entry.if.end34_crit_edge, %int128_get64.exit30
-  %now40.sroa.10100.0.copyload = phi i64 [ %0, %entry.if.end34_crit_edge ], [ %add29, %int128_get64.exit30 ]
-  %5 = phi i128 [ %.pre, %entry.if.end34_crit_edge ], [ %coerce23.sroa.0.0.insert.insert, %int128_get64.exit30 ]
-  %cmp.i36 = icmp sgt i128 %5, 4095
-  br i1 %cmp.i36, label %if.then39, label %if.end74
+if.end34:                                         ; preds = %entry.if.end34_crit_edge, %int128_get64.exit22
+  %now40.sroa.1084.0.copyload = phi i64 [ %0, %entry.if.end34_crit_edge ], [ %add29, %int128_get64.exit22 ]
+  %5 = phi i128 [ %.pre, %entry.if.end34_crit_edge ], [ %coerce23.sroa.0.0.insert.insert, %int128_get64.exit22 ]
+  %cmp.i28 = icmp sgt i128 %5, 4095
+  br i1 %cmp.i28, label %if.then39, label %if.end74
 
 if.then39:                                        ; preds = %if.end34
   %now40.sroa.9.0.remain.sroa_idx = getelementptr inbounds i8, ptr %remain, i64 16
@@ -1999,8 +1999,8 @@ phys_section_add.exit.i:                          ; preds = %if.then3.i.i, %if.e
   store ptr %now40.sroa.9.0.copyload, ptr %now40.sroa.9.0.arrayidx.i.i.sroa_idx, align 16
   %now40.sroa.10.0.arrayidx.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %now40.sroa.10.0.arrayidx.i.i.sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %now40.sroa.10.0.remain.sroa_idx, i64 16, i1 false)
-  %now40.sroa.10100.0.arrayidx.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 40
-  store i64 %now40.sroa.10100.0.copyload, ptr %now40.sroa.10100.0.arrayidx.i.i.sroa_idx, align 8
+  %now40.sroa.1084.0.arrayidx.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 40
+  store i64 %now40.sroa.1084.0.copyload, ptr %now40.sroa.1084.0.arrayidx.i.i.sroa_idx, align 8
   %now40.sroa.11.0.arrayidx.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %now40.sroa.11.0.arrayidx.i.i.sroa_idx, ptr noundef nonnull align 16 dereferenceable(16) %now40.sroa.11.0.remain.sroa_idx, i64 16, i1 false)
   tail call void @memory_region_ref(ptr noundef %now40.sroa.9.0.copyload) #26
@@ -2009,23 +2009,23 @@ phys_section_add.exit.i:                          ; preds = %if.then3.i.i, %if.e
   store i32 %inc.i.i, ptr %sections_nb.i.i, align 8
   %shr.i.i = lshr i128 %5, 12
   %retval.sroa.0.0.extract.trunc.i.i = trunc i128 %shr.i.i to i64
-  %cmp.i9.i = icmp ult i128 %5, 75557863725914323419136
-  br i1 %cmp.i9.i, label %int128_get64.exit.i, label %if.else.i10.i
+  %cmp.i5.i = icmp ult i128 %5, 75557863725914323419136
+  br i1 %cmp.i5.i, label %int128_get64.exit.i, label %if.else.i6.i
 
-if.else.i10.i:                                    ; preds = %phys_section_add.exit.i
+if.else.i6.i:                                     ; preds = %phys_section_add.exit.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.90, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #25
   unreachable
 
 int128_get64.exit.i:                              ; preds = %phys_section_add.exit.i
   %tobool.not.i = icmp eq i64 %retval.sroa.0.0.extract.trunc.i.i, 0
-  br i1 %tobool.not.i, label %if.else.i56, label %if.end.i
+  br i1 %tobool.not.i, label %if.else.i48, label %if.end.i
 
-if.else.i56:                                      ; preds = %int128_get64.exit.i
+if.else.i48:                                      ; preds = %int128_get64.exit.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.91, ptr noundef nonnull @.str.1, i32 noundef 1056, ptr noundef nonnull @__PRETTY_FUNCTION__.register_multipage) #25
   unreachable
 
 if.end.i:                                         ; preds = %int128_get64.exit.i
-  %shr.i = lshr i64 %now40.sroa.10100.0.copyload, 12
+  %shr.i = lshr i64 %now40.sroa.1084.0.copyload, 12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %index.addr.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %nb.addr.i.i)
   store i64 %shr.i, ptr %index.addr.i.i, align 8
@@ -2059,31 +2059,29 @@ register_multipage.exit:                          ; preds = %if.end.i, %if.then.
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %index.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %nb.addr.i.i)
   %coerce53.sroa.0.0.extract.trunc = trunc i128 %coerce48.sroa.0.0.insert.insert to i64
-  %b.sroa.0.0.insert.insert.i64 = and i128 %5, 75557863725914323415040
-  %cmp.i65 = icmp eq i128 %5, %b.sroa.0.0.insert.insert.i64
-  br i1 %cmp.i65, label %return, label %if.end56
+  %18 = and i128 %5, 4095
+  %cmp.i57 = icmp eq i128 %18, 0
+  br i1 %cmp.i57, label %return, label %if.end56
 
 if.end56:                                         ; preds = %register_multipage.exit
-  %b.sroa.0.0.insert.ext.i63 = and i128 %5, 18446744073709547520
-  %coerce62.sroa.0.0.insert.ext = and i128 %5, 4095
-  store i128 %coerce62.sroa.0.0.insert.ext, ptr %remain, align 16
-  %cmp.i81 = icmp eq i128 %b.sroa.0.0.insert.insert.i64, %b.sroa.0.0.insert.ext.i63
-  br i1 %cmp.i81, label %int128_get64.exit92, label %if.else.i82
+  store i128 %18, ptr %remain, align 16
+  %cmp.i69 = icmp ult i128 %5, 18446744073709551616
+  br i1 %cmp.i69, label %int128_get64.exit76, label %if.else.i70
 
-if.else.i82:                                      ; preds = %if.end56
+if.else.i70:                                      ; preds = %if.end56
   tail call void @__assert_fail(ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.90, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #25
   unreachable
 
-int128_get64.exit92:                              ; preds = %if.end56
-  %add68 = add i64 %now40.sroa.10100.0.copyload, %coerce53.sroa.0.0.extract.trunc
+int128_get64.exit76:                              ; preds = %if.end56
+  %add68 = add i64 %now40.sroa.1084.0.copyload, %coerce53.sroa.0.0.extract.trunc
   store i64 %add68, ptr %offset_within_address_space, align 8
   %offset_within_region72 = getelementptr inbounds %struct.MemoryRegionSection, ptr %remain, i64 0, i32 3
-  %18 = load i64, ptr %offset_within_region72, align 16
-  %add73 = add i64 %18, %coerce53.sroa.0.0.extract.trunc
+  %19 = load i64, ptr %offset_within_region72, align 16
+  %add73 = add i64 %19, %coerce53.sroa.0.0.extract.trunc
   store i64 %add73, ptr %offset_within_region72, align 16
   br label %if.end74
 
-if.end74:                                         ; preds = %int128_get64.exit92, %if.end34
+if.end74:                                         ; preds = %int128_get64.exit76, %if.end34
   call fastcc void @register_subpage(ptr noundef %fv, ptr noundef nonnull %remain)
   br label %return
 
@@ -8194,7 +8192,7 @@ int128_get64.exit:                                ; preds = %if.end
   %mr.val.i = load i8, ptr %6, align 1
   %7 = and i8 %mr.val.i, 1
   %tobool.i.not.i = icmp eq i8 %7, 0
-  br i1 %is_write, label %if.then.i, label %if.else.i49
+  br i1 %is_write, label %if.then.i, label %if.else.i45
 
 if.then.i:                                        ; preds = %int128_get64.exit
   br i1 %tobool.i.not.i, label %if.end59, label %land.lhs.true.i
@@ -8217,14 +8215,14 @@ land.rhs.i:                                       ; preds = %land.lhs.true2.i
   %call4.i = tail call zeroext i1 @memory_region_is_ram_device(ptr noundef nonnull %5) #26
   br i1 %call4.i, label %if.end59, label %if.then23
 
-if.else.i49:                                      ; preds = %int128_get64.exit
+if.else.i45:                                      ; preds = %int128_get64.exit
   br i1 %tobool.i.not.i, label %lor.rhs.i, label %land.lhs.true6.i
 
-land.lhs.true6.i:                                 ; preds = %if.else.i49
+land.lhs.true6.i:                                 ; preds = %if.else.i45
   %call7.i = tail call zeroext i1 @memory_region_is_ram_device(ptr noundef nonnull %5) #26
   br i1 %call7.i, label %lor.rhs.i, label %if.then23
 
-lor.rhs.i:                                        ; preds = %land.lhs.true6.i, %if.else.i49
+lor.rhs.i:                                        ; preds = %land.lhs.true6.i, %if.else.i45
   %rom_device.i.i = getelementptr inbounds %struct.MemoryRegion, ptr %5, i64 0, i32 6
   %12 = load i8, ptr %rom_device.i.i, align 1
   %13 = and i8 %12, 1
@@ -8254,8 +8252,8 @@ for.cond.i:                                       ; preds = %lor.lhs.false.i, %i
   %sub.i = sub i64 %target_len.addr.0.i, %18
   %add.i = add i64 %18, %addr.addr.0.i
   %add1.i = add i64 %18, %done.0.i
-  %cmp.i50 = icmp eq i64 %sub.i, 0
-  br i1 %cmp.i50, label %flatview_extend_translation.exit, label %if.end.i
+  %cmp.i46 = icmp eq i64 %sub.i, 0
+  br i1 %cmp.i46, label %flatview_extend_translation.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %for.cond.i
   store i64 %sub.i, ptr %len.addr.i, align 8
@@ -10061,17 +10059,17 @@ entry:
   %call1 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.63) #26
   %sections_nb = getelementptr inbounds %struct.AddressSpaceDispatch, ptr %d, i64 0, i32 2, i32 1
   %0 = load i32, ptr %sections_nb, align 8
-  %cmp76.not = icmp eq i32 %0, 0
-  br i1 %cmp76.not, label %for.end, label %for.body.lr.ph
+  %cmp72.not = icmp eq i32 %0, 0
+  br i1 %cmp72.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %sections = getelementptr inbounds %struct.AddressSpaceDispatch, ptr %d, i64 0, i32 2, i32 6
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end
-  %i.077 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %if.end ]
+  %i.073 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %if.end ]
   %1 = load ptr, ptr %sections, align 8
-  %idx.ext = sext i32 %i.077 to i64
+  %idx.ext = sext i32 %i.073 to i64
   %add.ptr = getelementptr %struct.MemoryRegionSection, ptr %1, i64 %idx.ext
   %offset_within_address_space = getelementptr %struct.MemoryRegionSection, ptr %1, i64 %idx.ext, i32 4
   %2 = load i64, ptr %offset_within_address_space, align 8
@@ -10082,8 +10080,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
 cond.true:                                        ; preds = %for.body
   %4 = trunc i128 %3 to i64
   %retval.sroa.0.0.extract.trunc.i = add i64 %4, -1
-  %cmp.i54 = icmp ult i128 %3, 18446744073709551617
-  br i1 %cmp.i54, label %cond.end, label %if.else.i
+  %cmp.i50 = icmp ult i128 %3, 18446744073709551617
+  br i1 %cmp.i50, label %cond.end, label %if.else.i
 
 if.else.i:                                        ; preds = %cond.true
   tail call void @__assert_fail(ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.90, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #25
@@ -10098,7 +10096,7 @@ cond.end:                                         ; preds = %cond.true, %for.bod
   %6 = load ptr, ptr %name, align 8
   %tobool.not = icmp eq ptr %6, null
   %spec.select = select i1 %tobool.not, ptr @.str.69, ptr %6
-  %cmp20 = icmp ult i32 %i.077, 4
+  %cmp20 = icmp ult i32 %i.073, 4
   br i1 %cmp20, label %cond.true22, label %cond.end24
 
 cond.true22:                                      ; preds = %cond.end
@@ -10118,7 +10116,7 @@ cond.end24:                                       ; preds = %cond.end, %cond.tru
   %10 = and i8 %9, 1
   %tobool34.not = icmp eq i8 %10, 0
   %cond36 = select i1 %tobool34.not, ptr @.str.13, ptr @.str.72
-  %call37 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.68, i32 noundef %i.077, i64 noundef %2, i64 noundef %add, ptr noundef nonnull %spec.select, ptr noundef %cond25, ptr noundef nonnull %cond29, ptr noundef nonnull %cond32, ptr noundef nonnull %cond36) #26
+  %call37 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.68, i32 noundef %i.073, i64 noundef %2, i64 noundef %add, ptr noundef nonnull %spec.select, ptr noundef %cond25, ptr noundef nonnull %cond29, ptr noundef nonnull %cond32, ptr noundef nonnull %cond36) #26
   %11 = load ptr, ptr %mr, align 16
   %alias = getelementptr inbounds %struct.MemoryRegion, ptr %11, i64 0, i32 27
   %12 = load ptr, ptr %alias, align 16
@@ -10135,7 +10133,7 @@ if.then:                                          ; preds = %cond.end24
 
 if.end:                                           ; preds = %if.then, %cond.end24
   %call52 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.75) #26
-  %inc = add nuw i32 %i.077, 1
+  %inc = add nuw i32 %i.073, 1
   %14 = load i32, ptr %sections_nb, align 8
   %cmp = icmp ult i32 %inc, %14
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !95
@@ -10148,55 +10146,55 @@ for.end:                                          ; preds = %if.end, %entry
   %call55 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.76, i32 noundef 9, i32 noundef 6, i32 noundef %bf.lshr, i32 noundef %bf.clear) #26
   %nodes_nb = getelementptr inbounds %struct.AddressSpaceDispatch, ptr %d, i64 0, i32 2, i32 3
   %15 = load i32, ptr %nodes_nb, align 8
-  %cmp5881.not = icmp eq i32 %15, 0
-  br i1 %cmp5881.not, label %for.end106, label %for.body60.lr.ph
+  %cmp5877.not = icmp eq i32 %15, 0
+  br i1 %cmp5877.not, label %for.end106, label %for.body60.lr.ph
 
 for.body60.lr.ph:                                 ; preds = %for.end
   %nodes = getelementptr inbounds %struct.AddressSpaceDispatch, ptr %d, i64 0, i32 2, i32 5
   br label %for.body60
 
 for.body60:                                       ; preds = %for.body60.lr.ph, %for.inc104
-  %i.182 = phi i32 [ 0, %for.body60.lr.ph ], [ %inc105, %for.inc104 ]
+  %i.178 = phi i32 [ 0, %for.body60.lr.ph ], [ %inc105, %for.inc104 ]
   %16 = load ptr, ptr %nodes, align 8
-  %idx.ext62 = sext i32 %i.182 to i64
+  %idx.ext62 = sext i32 %i.178 to i64
   %add.ptr63 = getelementptr [512 x %struct.PhysPageEntry], ptr %16, i64 %idx.ext62
-  %call64 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.77, i32 noundef %i.182) #26
+  %call64 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.77, i32 noundef %i.178) #26
   %prev.sroa.0.0.copyload = load i32, ptr %add.ptr63, align 4
   br label %for.body70
 
 for.body70:                                       ; preds = %for.body60, %for.inc92
   %indvars.iv = phi i64 [ 0, %for.body60 ], [ %indvars.iv.next, %for.inc92 ]
-  %prev.sroa.0.079 = phi i32 [ %prev.sroa.0.0.copyload, %for.body60 ], [ %prev.sroa.0.1, %for.inc92 ]
-  %jprev.078 = phi i32 [ 0, %for.body60 ], [ %jprev.1, %for.inc92 ]
+  %prev.sroa.0.075 = phi i32 [ %prev.sroa.0.0.copyload, %for.body60 ], [ %prev.sroa.0.1, %for.inc92 ]
+  %jprev.074 = phi i32 [ 0, %for.body60 ], [ %jprev.1, %for.inc92 ]
   %add.ptr73 = getelementptr %struct.PhysPageEntry, ptr %add.ptr63, i64 %indvars.iv
   %bf.load74 = load i32, ptr %add.ptr73, align 4
   %bf.lshr75 = lshr i32 %bf.load74, 6
-  %bf.lshr77 = lshr i32 %prev.sroa.0.079, 6
+  %bf.lshr77 = lshr i32 %prev.sroa.0.075, 6
   %cmp78 = icmp eq i32 %bf.lshr75, %bf.lshr77
   br i1 %cmp78, label %land.lhs.true, label %if.end87
 
 land.lhs.true:                                    ; preds = %for.body70
-  %17 = xor i32 %bf.load74, %prev.sroa.0.079
+  %17 = xor i32 %bf.load74, %prev.sroa.0.075
   %18 = and i32 %17, 63
   %cmp84 = icmp eq i32 %18, 0
   br i1 %cmp84, label %for.inc92, label %if.end87
 
 if.end87:                                         ; preds = %land.lhs.true, %for.body70
-  %bf.clear89 = and i32 %prev.sroa.0.079, 63
+  %bf.clear89 = and i32 %prev.sroa.0.075, 63
   %19 = trunc i64 %indvars.iv to i32
   %20 = add i32 %19, -1
-  %cmp.i55 = icmp eq i32 %20, %jprev.078
-  br i1 %cmp.i55, label %if.then.i, label %if.else.i56
+  %cmp.i51 = icmp eq i32 %20, %jprev.074
+  br i1 %cmp.i51, label %if.then.i, label %if.else.i52
 
 if.then.i:                                        ; preds = %if.end87
-  %call.i = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.130, i32 noundef %jprev.078) #26
+  %call.i = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.130, i32 noundef %jprev.074) #26
   br label %if.end.i
 
-if.else.i56:                                      ; preds = %if.end87
-  %call2.i = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.131, i32 noundef %jprev.078, i32 noundef %20) #26
+if.else.i52:                                      ; preds = %if.end87
+  %call2.i = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.131, i32 noundef %jprev.074, i32 noundef %20) #26
   br label %if.end.i
 
-if.end.i:                                         ; preds = %if.else.i56, %if.then.i
+if.end.i:                                         ; preds = %if.else.i52, %if.then.i
   %call3.i = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.132, i32 noundef %bf.clear89) #26
   %cmp4.i = icmp eq i32 %bf.lshr77, 67108863
   br i1 %cmp4.i, label %if.then5.i, label %if.else7.i
@@ -10224,8 +10222,8 @@ mtree_print_phys_entries.exit:                    ; preds = %if.then5.i, %if.the
   br label %for.inc92
 
 for.inc92:                                        ; preds = %land.lhs.true, %mtree_print_phys_entries.exit
-  %jprev.1 = phi i32 [ %jprev.078, %land.lhs.true ], [ %21, %mtree_print_phys_entries.exit ]
-  %prev.sroa.0.1 = phi i32 [ %prev.sroa.0.079, %land.lhs.true ], [ %prev.sroa.0.0.copyload7, %mtree_print_phys_entries.exit ]
+  %jprev.1 = phi i32 [ %jprev.074, %land.lhs.true ], [ %21, %mtree_print_phys_entries.exit ]
+  %prev.sroa.0.1 = phi i32 [ %prev.sroa.0.075, %land.lhs.true ], [ %prev.sroa.0.0.copyload7, %mtree_print_phys_entries.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 512
   br i1 %exitcond.not, label %for.end94, label %for.body70, !llvm.loop !96
@@ -10237,44 +10235,44 @@ for.end94:                                        ; preds = %for.inc92
 if.then98:                                        ; preds = %for.end94
   %bf.clear100 = and i32 %prev.sroa.0.1, 63
   %bf.lshr102 = lshr i32 %prev.sroa.0.1, 6
-  %cmp.i58 = icmp eq i32 %jprev.1, 511
-  br i1 %cmp.i58, label %if.then.i73, label %if.else.i59
+  %cmp.i54 = icmp eq i32 %jprev.1, 511
+  br i1 %cmp.i54, label %if.then.i69, label %if.else.i55
 
-if.then.i73:                                      ; preds = %if.then98
-  %call.i74 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.130, i32 noundef 511) #26
-  br label %if.end.i61
+if.then.i69:                                      ; preds = %if.then98
+  %call.i70 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.130, i32 noundef 511) #26
+  br label %if.end.i57
 
-if.else.i59:                                      ; preds = %if.then98
-  %call2.i60 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.131, i32 noundef %jprev.1, i32 noundef 511) #26
-  br label %if.end.i61
+if.else.i55:                                      ; preds = %if.then98
+  %call2.i56 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.131, i32 noundef %jprev.1, i32 noundef 511) #26
+  br label %if.end.i57
 
-if.end.i61:                                       ; preds = %if.else.i59, %if.then.i73
-  %call3.i62 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.132, i32 noundef %bf.clear100) #26
-  %cmp4.i63 = icmp eq i32 %bf.lshr102, 67108863
-  br i1 %cmp4.i63, label %if.then5.i71, label %if.else7.i64
+if.end.i57:                                       ; preds = %if.else.i55, %if.then.i69
+  %call3.i58 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.132, i32 noundef %bf.clear100) #26
+  %cmp4.i59 = icmp eq i32 %bf.lshr102, 67108863
+  br i1 %cmp4.i59, label %if.then5.i67, label %if.else7.i60
 
-if.then5.i71:                                     ; preds = %if.end.i61
-  %call6.i72 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.133) #26
-  br label %mtree_print_phys_entries.exit75
+if.then5.i67:                                     ; preds = %if.end.i57
+  %call6.i68 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.133) #26
+  br label %mtree_print_phys_entries.exit71
 
-if.else7.i64:                                     ; preds = %if.end.i61
-  %tobool.not.i65 = icmp eq i32 %bf.clear100, 0
-  br i1 %tobool.not.i65, label %if.then8.i69, label %if.else10.i66
+if.else7.i60:                                     ; preds = %if.end.i57
+  %tobool.not.i61 = icmp eq i32 %bf.clear100, 0
+  br i1 %tobool.not.i61, label %if.then8.i65, label %if.else10.i62
 
-if.then8.i69:                                     ; preds = %if.else7.i64
-  %call9.i70 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.134, i32 noundef %bf.lshr102) #26
-  br label %mtree_print_phys_entries.exit75
+if.then8.i65:                                     ; preds = %if.else7.i60
+  %call9.i66 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.134, i32 noundef %bf.lshr102) #26
+  br label %mtree_print_phys_entries.exit71
 
-if.else10.i66:                                    ; preds = %if.else7.i64
-  %call11.i67 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.135, i32 noundef %bf.lshr102) #26
-  br label %mtree_print_phys_entries.exit75
+if.else10.i62:                                    ; preds = %if.else7.i60
+  %call11.i63 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.135, i32 noundef %bf.lshr102) #26
+  br label %mtree_print_phys_entries.exit71
 
-mtree_print_phys_entries.exit75:                  ; preds = %if.then5.i71, %if.then8.i69, %if.else10.i66
-  %call14.i68 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.75) #26
+mtree_print_phys_entries.exit71:                  ; preds = %if.then5.i67, %if.then8.i65, %if.else10.i62
+  %call14.i64 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.75) #26
   br label %for.inc104
 
-for.inc104:                                       ; preds = %for.end94, %mtree_print_phys_entries.exit75
-  %inc105 = add nuw i32 %i.182, 1
+for.inc104:                                       ; preds = %for.end94, %mtree_print_phys_entries.exit71
+  %inc105 = add nuw i32 %i.178, 1
   %22 = load i32, ptr %nodes_nb, align 8
   %cmp58 = icmp ult i32 %inc105, %22
   br i1 %cmp58, label %for.body60, label %for.end106, !llvm.loop !97
