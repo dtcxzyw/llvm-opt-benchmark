@@ -791,23 +791,15 @@ invoke.cont74:                                    ; preds = %invoke.cont68
           to label %if.end.i638 unwind label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i729
 
 if.end.i638:                                      ; preds = %invoke.cont74
-  %cmp6.i.not = icmp ugt ptr %call.i.i.i.i.i.i.i.i.i563, %6
-  br i1 %cmp6.i.not, label %_ZNK5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE8validateEv.exit, label %if.end12.i
-
-if.end12.i:                                       ; preds = %if.end.i638
+  %cmp6.i.not = icmp ule ptr %call.i.i.i.i.i.i.i.i.i563, %6
   %add.i643 = add i64 %4, 45
   %9 = inttoptr i64 %add.i643 to ptr
-  %cmp16.i = icmp ule ptr %call.i.i.i.i.i.i.i.i.i563, %9
   %cmp19.i = icmp ule ptr %6, %9
-  %spec.select.i3.i = and i1 %cmp16.i, %cmp19.i
-  br label %_ZNK5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE8validateEv.exit
-
-_ZNK5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE8validateEv.exit: ; preds = %if.end.i638, %if.end12.i
-  %retval.0.i641 = phi i1 [ false, %if.end.i638 ], [ %spec.select.i3.i, %if.end12.i ]
+  %retval.0.i641 = and i1 %cmp6.i.not, %cmp19.i
   %call90 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i641, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 55, ptr noundef nonnull @.str.14)
           to label %invoke.cont93 unwind label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i729
 
-invoke.cont93:                                    ; preds = %_ZNK5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE8validateEv.exit
+invoke.cont93:                                    ; preds = %if.end.i638
   %10 = load i32, ptr %add.ptr.i599, align 4
   %cmp.i.i.i.i = icmp eq i32 %10, 0
   br i1 %cmp.i.i.i.i, label %_ZN5eastl8Internal10TupleEqualILm2EEclINS_5tupleIJRiRfRbEEENS4_IJifbEEEEEbRKT_RKT0_.exit.i.i, label %invoke.cont94
@@ -1046,7 +1038,7 @@ lpad43:                                           ; preds = %_ZN5eastl16TupleVec
           cleanup
   br label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i733
 
-_ZN5eastl9allocator10deallocateEPvm.exit.i.i729:  ; preds = %invoke.cont212, %invoke.cont207, %invoke.cont202, %invoke.cont190, %invoke.cont173, %invoke.cont168, %invoke.cont159, %invoke.cont154, %invoke.cont149, %invoke.cont145, %invoke.cont142, %invoke.cont137, %invoke.cont132, %invoke.cont120, %invoke.cont103, %invoke.cont98, %invoke.cont94, %_ZNK5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE8validateEv.exit, %invoke.cont74, %invoke.cont68, %invoke.cont63, %invoke.cont60
+_ZN5eastl9allocator10deallocateEPvm.exit.i.i729:  ; preds = %invoke.cont212, %invoke.cont207, %invoke.cont202, %invoke.cont190, %invoke.cont173, %invoke.cont168, %invoke.cont159, %invoke.cont154, %invoke.cont149, %invoke.cont145, %invoke.cont142, %invoke.cont137, %invoke.cont132, %invoke.cont120, %invoke.cont103, %invoke.cont98, %invoke.cont94, %if.end.i638, %invoke.cont74, %invoke.cont68, %invoke.cont63, %invoke.cont60
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   call void @_ZdaPv(ptr noundef nonnull %call.i.i.i.i.i.i.i.i.i563) #11
@@ -15927,23 +15919,15 @@ _ZNK5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceIm
           to label %if.end.i10147 unwind label %_ZN5eastl12tuple_vectorIJifbEED2Ev.exit10750
 
 if.end.i10147:                                    ; preds = %_ZNK5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE8validateEv.exit10143
-  %cmp6.i10151.not = icmp ugt ptr %call.i.i.i.i.i.i.i.i.i12778, %2667
-  br i1 %cmp6.i10151.not, label %_ZNK5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE8validateEv.exit10160, label %if.end12.i10154
-
-if.end12.i10154:                                  ; preds = %if.end.i10147
+  %cmp6.i10151.not = icmp ule ptr %call.i.i.i.i.i.i.i.i.i12778, %2667
   %add.i10156 = add i64 %2665, 54
   %2671 = inttoptr i64 %add.i10156 to ptr
-  %cmp16.i10157 = icmp ule ptr %call.i.i.i.i.i.i.i.i.i12778, %2671
   %cmp19.i10158 = icmp ule ptr %2667, %2671
-  %spec.select.i3.i10159 = and i1 %cmp16.i10157, %cmp19.i10158
-  br label %_ZNK5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE8validateEv.exit10160
-
-_ZNK5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE8validateEv.exit10160: ; preds = %if.end.i10147, %if.end12.i10154
-  %retval.0.i10153 = phi i1 [ false, %if.end.i10147 ], [ %spec.select.i3.i10159, %if.end12.i10154 ]
+  %retval.0.i10153 = and i1 %cmp6.i10151.not, %cmp19.i10158
   %call4555 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i10153, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1238, ptr noundef nonnull @.str.169)
           to label %invoke.cont4554 unwind label %_ZN5eastl12tuple_vectorIJifbEED2Ev.exit10750
 
-invoke.cont4554:                                  ; preds = %_ZNK5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE8validateEv.exit10160
+invoke.cont4554:                                  ; preds = %if.end.i10147
   %2672 = load i32, ptr %call.i.i.i.i.i.i.i.i.i12778, align 4
   %cmp4559 = icmp eq i32 %2672, 3
   %call4561 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp4559, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1239, ptr noundef nonnull @.str.170)
@@ -15969,22 +15953,14 @@ if.end.i10169:                                    ; preds = %cond.true.i.i.i.i.i
   store i32 10, ptr %call.i.i.i.i.i.i.i.i.i12864, align 4, !noalias !499
   store float 1.000000e+01, ptr %2676, align 4, !noalias !499
   store i8 1, ptr %2675, align 1, !noalias !499
-  br i1 %cmp6.i10151.not, label %_ZNK5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE8validateEv.exit10182, label %if.end12.i10176
-
-if.end12.i10176:                                  ; preds = %if.end.i10169
   %add.i10178 = add i64 %2665, 54
   %2677 = inttoptr i64 %add.i10178 to ptr
-  %cmp16.i10179 = icmp ule ptr %call.i.i.i.i.i.i.i.i.i12778, %2677
   %cmp19.i10180 = icmp ule ptr %2667, %2677
-  %spec.select.i3.i10181 = and i1 %cmp16.i10179, %cmp19.i10180
-  br label %_ZNK5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE8validateEv.exit10182
-
-_ZNK5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE8validateEv.exit10182: ; preds = %if.end.i10169, %if.end12.i10176
-  %retval.0.i10175 = phi i1 [ false, %if.end.i10169 ], [ %spec.select.i3.i10181, %if.end12.i10176 ]
+  %retval.0.i10175 = and i1 %cmp6.i10151.not, %cmp19.i10180
   %call4575 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i10175, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1245, ptr noundef nonnull @.str.14)
           to label %invoke.cont4574 unwind label %_ZN5eastl12tuple_vectorIJifbEED2Ev.exit10750
 
-invoke.cont4574:                                  ; preds = %_ZNK5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE8validateEv.exit10182
+invoke.cont4574:                                  ; preds = %if.end.i10169
   %2678 = load i32, ptr %call.i.i.i.i.i.i.i.i.i12778, align 4
   %cmp4578 = icmp eq i32 %2678, 3
   %call4580 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp4578, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1246, ptr noundef nonnull @.str.11)
@@ -15997,23 +15973,15 @@ invoke.cont4579:                                  ; preds = %invoke.cont4574
           to label %if.end.i10187 unwind label %_ZN5eastl12tuple_vectorIJifbEED2Ev.exit10750
 
 if.end.i10187:                                    ; preds = %invoke.cont4579
-  %cmp6.i10191.not = icmp ugt ptr %call.i.i.i.i.i.i.i.i.i12864, %2676
-  br i1 %cmp6.i10191.not, label %_ZNK5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE8validateEv.exit10200, label %if.end12.i10194
-
-if.end12.i10194:                                  ; preds = %if.end.i10187
+  %cmp6.i10191.not = icmp ule ptr %call.i.i.i.i.i.i.i.i.i12864, %2676
   %add.i10196 = add i64 %2674, 18
   %2680 = inttoptr i64 %add.i10196 to ptr
-  %cmp16.i10197 = icmp ule ptr %call.i.i.i.i.i.i.i.i.i12864, %2680
   %cmp19.i10198 = icmp ule ptr %2676, %2680
-  %spec.select.i3.i10199 = and i1 %cmp16.i10197, %cmp19.i10198
-  br label %_ZNK5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE8validateEv.exit10200
-
-_ZNK5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE8validateEv.exit10200: ; preds = %if.end.i10187, %if.end12.i10194
-  %retval.0.i10193 = phi i1 [ false, %if.end.i10187 ], [ %spec.select.i3.i10199, %if.end12.i10194 ]
+  %retval.0.i10193 = and i1 %cmp6.i10191.not, %cmp19.i10198
   %call4589 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i10193, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1249, ptr noundef nonnull @.str.169)
           to label %invoke.cont4588 unwind label %_ZN5eastl12tuple_vectorIJifbEED2Ev.exit10750
 
-invoke.cont4588:                                  ; preds = %_ZNK5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE8validateEv.exit10200
+invoke.cont4588:                                  ; preds = %if.end.i10187
   %2681 = load float, ptr %2676, align 4
   %cmp4593 = fcmp oeq float %2681, 1.000000e+01
   %call4595 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp4593, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1250, ptr noundef nonnull @.str.172)
@@ -16286,9 +16254,9 @@ lpad4529:                                         ; preds = %cond.true.i.i.i.i.i
           cleanup
   br label %ehcleanup4601
 
-_ZN5eastl12tuple_vectorIJifbEED2Ev.exit10750:     ; preds = %cond.true.i.i.i.i.i.i.i12842, %invoke.cont4594, %invoke.cont4588, %_ZNK5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE8validateEv.exit10200, %invoke.cont4579, %invoke.cont4574, %_ZNK5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE8validateEv.exit10182, %invoke.cont4560, %invoke.cont4554, %_ZNK5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE8validateEv.exit10160, %_ZNK5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE8validateEv.exit10143, %invoke.cont4545
-  %otherComplexVec.sroa.23.0 = phi ptr [ %call.i.i.i.i.i.i.i.i.i12864, %invoke.cont4594 ], [ %call.i.i.i.i.i.i.i.i.i12864, %invoke.cont4588 ], [ %call.i.i.i.i.i.i.i.i.i12864, %_ZNK5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE8validateEv.exit10200 ], [ %call.i.i.i.i.i.i.i.i.i12864, %invoke.cont4579 ], [ %call.i.i.i.i.i.i.i.i.i12864, %invoke.cont4574 ], [ %call.i.i.i.i.i.i.i.i.i12864, %_ZNK5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE8validateEv.exit10182 ], [ %call.i.i.i.i.i.i.i.i.i12778, %cond.true.i.i.i.i.i.i.i12842 ], [ %call.i.i.i.i.i.i.i.i.i12778, %invoke.cont4560 ], [ %call.i.i.i.i.i.i.i.i.i12778, %invoke.cont4554 ], [ %call.i.i.i.i.i.i.i.i.i12778, %_ZNK5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE8validateEv.exit10160 ], [ %call.i.i.i.i.i.i.i.i.i12778, %_ZNK5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE8validateEv.exit10143 ], [ %call.i.i.i.i.i.i.i.i.i12778, %invoke.cont4545 ]
-  %complexVec4525.sroa.94.6 = phi ptr [ %call.i.i.i.i.i.i.i.i.i12778, %invoke.cont4594 ], [ %call.i.i.i.i.i.i.i.i.i12778, %invoke.cont4588 ], [ %call.i.i.i.i.i.i.i.i.i12778, %_ZNK5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE8validateEv.exit10200 ], [ %call.i.i.i.i.i.i.i.i.i12778, %invoke.cont4579 ], [ %call.i.i.i.i.i.i.i.i.i12778, %invoke.cont4574 ], [ %call.i.i.i.i.i.i.i.i.i12778, %_ZNK5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE8validateEv.exit10182 ], [ null, %cond.true.i.i.i.i.i.i.i12842 ], [ null, %invoke.cont4560 ], [ null, %invoke.cont4554 ], [ null, %_ZNK5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE8validateEv.exit10160 ], [ null, %_ZNK5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE8validateEv.exit10143 ], [ null, %invoke.cont4545 ]
+_ZN5eastl12tuple_vectorIJifbEED2Ev.exit10750:     ; preds = %cond.true.i.i.i.i.i.i.i12842, %invoke.cont4594, %invoke.cont4588, %if.end.i10187, %invoke.cont4579, %invoke.cont4574, %if.end.i10169, %invoke.cont4560, %invoke.cont4554, %if.end.i10147, %_ZNK5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE8validateEv.exit10143, %invoke.cont4545
+  %otherComplexVec.sroa.23.0 = phi ptr [ %call.i.i.i.i.i.i.i.i.i12864, %invoke.cont4594 ], [ %call.i.i.i.i.i.i.i.i.i12864, %invoke.cont4588 ], [ %call.i.i.i.i.i.i.i.i.i12864, %if.end.i10187 ], [ %call.i.i.i.i.i.i.i.i.i12864, %invoke.cont4579 ], [ %call.i.i.i.i.i.i.i.i.i12864, %invoke.cont4574 ], [ %call.i.i.i.i.i.i.i.i.i12864, %if.end.i10169 ], [ %call.i.i.i.i.i.i.i.i.i12778, %cond.true.i.i.i.i.i.i.i12842 ], [ %call.i.i.i.i.i.i.i.i.i12778, %invoke.cont4560 ], [ %call.i.i.i.i.i.i.i.i.i12778, %invoke.cont4554 ], [ %call.i.i.i.i.i.i.i.i.i12778, %if.end.i10147 ], [ %call.i.i.i.i.i.i.i.i.i12778, %_ZNK5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE8validateEv.exit10143 ], [ %call.i.i.i.i.i.i.i.i.i12778, %invoke.cont4545 ]
+  %complexVec4525.sroa.94.6 = phi ptr [ %call.i.i.i.i.i.i.i.i.i12778, %invoke.cont4594 ], [ %call.i.i.i.i.i.i.i.i.i12778, %invoke.cont4588 ], [ %call.i.i.i.i.i.i.i.i.i12778, %if.end.i10187 ], [ %call.i.i.i.i.i.i.i.i.i12778, %invoke.cont4579 ], [ %call.i.i.i.i.i.i.i.i.i12778, %invoke.cont4574 ], [ %call.i.i.i.i.i.i.i.i.i12778, %if.end.i10169 ], [ null, %cond.true.i.i.i.i.i.i.i12842 ], [ null, %invoke.cont4560 ], [ null, %invoke.cont4554 ], [ null, %if.end.i10147 ], [ null, %_ZNK5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE8validateEv.exit10143 ], [ null, %invoke.cont4545 ]
   %2702 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdaPv(ptr noundef nonnull %otherComplexVec.sroa.23.0) #11

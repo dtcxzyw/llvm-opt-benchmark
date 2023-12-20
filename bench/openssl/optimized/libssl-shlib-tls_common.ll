@@ -3675,10 +3675,8 @@ if.then:                                          ; preds = %entry
   br i1 %cmp1, label %if.then2, label %if.end10
 
 if.then2:                                         ; preds = %if.then
-  %cmp4.not = icmp eq i64 %1, 0
   %cmp6.not = icmp eq i64 %2, 1
-  %or.cond = and i1 %cmp4.not, %cmp6.not
-  br i1 %or.cond, label %lor.lhs.false7, label %return
+  br i1 %cmp6.not, label %lor.lhs.false7, label %return
 
 lor.lhs.false7:                                   ; preds = %if.then2
   %left = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 14, i64 0, i32 4

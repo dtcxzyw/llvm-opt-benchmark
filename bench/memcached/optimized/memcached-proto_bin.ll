@@ -963,12 +963,10 @@ if.then62.i:                                      ; preds = %sw.bb51.i
   br label %return
 
 sw.bb64.i:                                        ; preds = %sw.epilog.i, %sw.epilog.thread144.i
-  %cmp66.i = icmp eq i16 %20, 0
   %cmp70.i = icmp eq i32 %27, %conv8.i
-  %or.cond112.i = and i1 %cmp66.i, %cmp70.i
   %48 = and i8 %26, -5
   %or.cond2.i = icmp eq i8 %48, 0
-  %or.cond113.i = select i1 %or.cond112.i, i1 %or.cond2.i, i1 false
+  %or.cond113.i = and i1 %cmp70.i, %or.cond2.i
   br i1 %or.cond113.i, label %if.then80.i, label %if.then232.i
 
 if.then80.i:                                      ; preds = %sw.bb64.i

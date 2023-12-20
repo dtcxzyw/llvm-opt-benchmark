@@ -1346,9 +1346,7 @@ for.body:                                         ; preds = %_ZN6vectorIP4exprLb
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %_ZN6vectorIP4exprLb0EjE6resizeEj.exit ]
   %31 = phi i32 [ %46, %for.inc ], [ %30, %_ZN6vectorIP4exprLb0EjE6resizeEj.exit ]
   %cmp26 = icmp eq i32 %31, 1
-  %cmp28 = icmp eq i64 %indvars.iv, 0
-  %or.cond = and i1 %cmp28, %cmp26
-  br i1 %or.cond, label %cond.end, label %cond.false
+  br i1 %cmp26, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
   %arrayidx.i35 = getelementptr inbounds %class.app, ptr %6, i64 0, i32 3, i64 %indvars.iv

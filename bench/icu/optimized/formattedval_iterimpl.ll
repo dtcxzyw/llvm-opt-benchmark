@@ -675,119 +675,101 @@ entry:
   %div = sdiv i32 %1, 4
   %2 = load i64, ptr %cfpos, align 8
   %conv = trunc i64 %2 to i32
-  %cmp58 = icmp sgt i32 %div, %conv
-  br i1 %cmp58, label %for.body.lr.ph, label %for.end
+  %cmp52 = icmp sgt i32 %div, %conv
+  br i1 %cmp52, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
   %elements.i = getelementptr inbounds %"class.icu_75::FormattedValueFieldPositionIteratorImpl", ptr %this, i64 0, i32 2, i32 4
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %cmp60 = phi i1 [ true, %for.body.lr.ph ], [ %cmp, %for.inc ]
-  %i.059 = phi i32 [ %conv, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %mul = shl nsw i32 %i.059, 2
-  %cmp.i = icmp sgt i32 %i.059, -1
-  br i1 %cmp.i, label %land.lhs.true.i, label %_ZNK6icu_759UVector3210elementAtiEi.exit
-
-land.lhs.true.i:                                  ; preds = %for.body
+  %cmp54 = phi i1 [ true, %for.body.lr.ph ], [ %cmp, %for.inc ]
+  %i.053 = phi i32 [ %conv, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %mul = shl nsw i32 %i.053, 2
+  %cmp.i = icmp sgt i32 %i.053, -1
   %3 = load i32, ptr %count.i, align 8
-  %cmp2.i = icmp sgt i32 %3, 0
   %cmp5.i = icmp sgt i32 %3, %mul
-  %or.cond.i = and i1 %cmp2.i, %cmp5.i
+  %or.cond.i = select i1 %cmp.i, i1 %cmp5.i, i1 false
   br i1 %or.cond.i, label %cond.true.i, label %_ZNK6icu_759UVector3210elementAtiEi.exit
 
-cond.true.i:                                      ; preds = %land.lhs.true.i
+cond.true.i:                                      ; preds = %for.body
   %4 = load ptr, ptr %elements.i, align 8
   %idxprom.i = zext nneg i32 %mul to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %4, i64 %idxprom.i
   %5 = load i32, ptr %arrayidx.i, align 4
   br label %_ZNK6icu_759UVector3210elementAtiEi.exit
 
-_ZNK6icu_759UVector3210elementAtiEi.exit:         ; preds = %for.body, %land.lhs.true.i, %cond.true.i
-  %cond.i = phi i32 [ %5, %cond.true.i ], [ 0, %land.lhs.true.i ], [ 0, %for.body ]
+_ZNK6icu_759UVector3210elementAtiEi.exit:         ; preds = %for.body, %cond.true.i
+  %cond.i = phi i32 [ %5, %cond.true.i ], [ 0, %for.body ]
   %add = or disjoint i32 %mul, 1
   %cmp.i18 = icmp sgt i32 %add, -1
-  br i1 %cmp.i18, label %land.lhs.true.i20, label %_ZNK6icu_759UVector3210elementAtiEi.exit29
+  %cmp5.i20 = icmp sgt i32 %3, %add
+  %or.cond.i21 = select i1 %cmp.i18, i1 %cmp5.i20, i1 false
+  br i1 %or.cond.i21, label %cond.true.i23, label %_ZNK6icu_759UVector3210elementAtiEi.exit27
 
-land.lhs.true.i20:                                ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit
-  %6 = load i32, ptr %count.i, align 8
-  %cmp2.i22 = icmp sgt i32 %6, 0
-  %cmp5.i23 = icmp sgt i32 %6, %add
-  %or.cond.i24 = and i1 %cmp2.i22, %cmp5.i23
-  br i1 %or.cond.i24, label %cond.true.i25, label %_ZNK6icu_759UVector3210elementAtiEi.exit29
+cond.true.i23:                                    ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit
+  %6 = load ptr, ptr %elements.i, align 8
+  %idxprom.i25 = zext nneg i32 %add to i64
+  %arrayidx.i26 = getelementptr inbounds i32, ptr %6, i64 %idxprom.i25
+  %7 = load i32, ptr %arrayidx.i26, align 4
+  br label %_ZNK6icu_759UVector3210elementAtiEi.exit27
 
-cond.true.i25:                                    ; preds = %land.lhs.true.i20
-  %7 = load ptr, ptr %elements.i, align 8
-  %idxprom.i27 = zext nneg i32 %add to i64
-  %arrayidx.i28 = getelementptr inbounds i32, ptr %7, i64 %idxprom.i27
-  %8 = load i32, ptr %arrayidx.i28, align 4
-  br label %_ZNK6icu_759UVector3210elementAtiEi.exit29
-
-_ZNK6icu_759UVector3210elementAtiEi.exit29:       ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit, %land.lhs.true.i20, %cond.true.i25
-  %cond.i19 = phi i32 [ %8, %cond.true.i25 ], [ 0, %land.lhs.true.i20 ], [ 0, %_ZNK6icu_759UVector3210elementAtiEi.exit ]
-  %call8 = tail call noundef signext i8 @_ZNK6icu_7524ConstrainedFieldPosition12matchesFieldEii(ptr noundef nonnull align 8 dereferenceable(25) %cfpos, i32 noundef %cond.i, i32 noundef %cond.i19)
+_ZNK6icu_759UVector3210elementAtiEi.exit27:       ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit, %cond.true.i23
+  %cond.i22 = phi i32 [ %7, %cond.true.i23 ], [ 0, %_ZNK6icu_759UVector3210elementAtiEi.exit ]
+  %call8 = tail call noundef signext i8 @_ZNK6icu_7524ConstrainedFieldPosition12matchesFieldEii(ptr noundef nonnull align 8 dereferenceable(25) %cfpos, i32 noundef %cond.i, i32 noundef %cond.i22)
   %tobool.not = icmp eq i8 %call8, 0
   br i1 %tobool.not, label %for.inc, label %if.then
 
-if.then:                                          ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit29
+if.then:                                          ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit27
   %add11 = or disjoint i32 %mul, 2
-  %cmp.i30 = icmp sgt i32 %add11, -1
-  br i1 %cmp.i30, label %land.lhs.true.i32, label %_ZNK6icu_759UVector3210elementAtiEi.exit41
+  %cmp.i28 = icmp sgt i32 %add11, -1
+  %8 = load i32, ptr %count.i, align 8
+  %cmp5.i30 = icmp sgt i32 %8, %add11
+  %or.cond.i31 = select i1 %cmp.i28, i1 %cmp5.i30, i1 false
+  br i1 %or.cond.i31, label %cond.true.i33, label %_ZNK6icu_759UVector3210elementAtiEi.exit37
 
-land.lhs.true.i32:                                ; preds = %if.then
-  %9 = load i32, ptr %count.i, align 8
-  %cmp2.i34 = icmp sgt i32 %9, 0
-  %cmp5.i35 = icmp sgt i32 %9, %add11
-  %or.cond.i36 = and i1 %cmp2.i34, %cmp5.i35
-  br i1 %or.cond.i36, label %cond.true.i37, label %_ZNK6icu_759UVector3210elementAtiEi.exit41
+cond.true.i33:                                    ; preds = %if.then
+  %9 = load ptr, ptr %elements.i, align 8
+  %idxprom.i35 = zext nneg i32 %add11 to i64
+  %arrayidx.i36 = getelementptr inbounds i32, ptr %9, i64 %idxprom.i35
+  %10 = load i32, ptr %arrayidx.i36, align 4
+  br label %_ZNK6icu_759UVector3210elementAtiEi.exit37
 
-cond.true.i37:                                    ; preds = %land.lhs.true.i32
-  %10 = load ptr, ptr %elements.i, align 8
-  %idxprom.i39 = zext nneg i32 %add11 to i64
-  %arrayidx.i40 = getelementptr inbounds i32, ptr %10, i64 %idxprom.i39
-  %11 = load i32, ptr %arrayidx.i40, align 4
-  br label %_ZNK6icu_759UVector3210elementAtiEi.exit41
-
-_ZNK6icu_759UVector3210elementAtiEi.exit41:       ; preds = %if.then, %land.lhs.true.i32, %cond.true.i37
-  %cond.i31 = phi i32 [ %11, %cond.true.i37 ], [ 0, %land.lhs.true.i32 ], [ 0, %if.then ]
+_ZNK6icu_759UVector3210elementAtiEi.exit37:       ; preds = %if.then, %cond.true.i33
+  %cond.i32 = phi i32 [ %10, %cond.true.i33 ], [ 0, %if.then ]
   %add15 = or disjoint i32 %mul, 3
-  %cmp.i42 = icmp sgt i32 %add15, -1
-  br i1 %cmp.i42, label %land.lhs.true.i44, label %_ZNK6icu_759UVector3210elementAtiEi.exit53
+  %cmp.i38 = icmp sgt i32 %add15, -1
+  %cmp5.i40 = icmp sgt i32 %8, %add15
+  %or.cond.i41 = select i1 %cmp.i38, i1 %cmp5.i40, i1 false
+  br i1 %or.cond.i41, label %cond.true.i43, label %_ZNK6icu_759UVector3210elementAtiEi.exit47
 
-land.lhs.true.i44:                                ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit41
-  %12 = load i32, ptr %count.i, align 8
-  %cmp2.i46 = icmp sgt i32 %12, 0
-  %cmp5.i47 = icmp sgt i32 %12, %add15
-  %or.cond.i48 = and i1 %cmp2.i46, %cmp5.i47
-  br i1 %or.cond.i48, label %cond.true.i49, label %_ZNK6icu_759UVector3210elementAtiEi.exit53
+cond.true.i43:                                    ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit37
+  %11 = load ptr, ptr %elements.i, align 8
+  %idxprom.i45 = zext nneg i32 %add15 to i64
+  %arrayidx.i46 = getelementptr inbounds i32, ptr %11, i64 %idxprom.i45
+  %12 = load i32, ptr %arrayidx.i46, align 4
+  br label %_ZNK6icu_759UVector3210elementAtiEi.exit47
 
-cond.true.i49:                                    ; preds = %land.lhs.true.i44
-  %13 = load ptr, ptr %elements.i, align 8
-  %idxprom.i51 = zext nneg i32 %add15 to i64
-  %arrayidx.i52 = getelementptr inbounds i32, ptr %13, i64 %idxprom.i51
-  %14 = load i32, ptr %arrayidx.i52, align 4
-  br label %_ZNK6icu_759UVector3210elementAtiEi.exit53
-
-_ZNK6icu_759UVector3210elementAtiEi.exit53:       ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit41, %land.lhs.true.i44, %cond.true.i49
-  %cond.i43 = phi i32 [ %14, %cond.true.i49 ], [ 0, %land.lhs.true.i44 ], [ 0, %_ZNK6icu_759UVector3210elementAtiEi.exit41 ]
-  tail call void @_ZN6icu_7524ConstrainedFieldPosition8setStateEiiii(ptr noundef nonnull align 8 dereferenceable(25) %cfpos, i32 noundef %cond.i, i32 noundef %cond.i19, i32 noundef %cond.i31, i32 noundef %cond.i43)
+_ZNK6icu_759UVector3210elementAtiEi.exit47:       ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit37, %cond.true.i43
+  %cond.i42 = phi i32 [ %12, %cond.true.i43 ], [ 0, %_ZNK6icu_759UVector3210elementAtiEi.exit37 ]
+  tail call void @_ZN6icu_7524ConstrainedFieldPosition8setStateEiiii(ptr noundef nonnull align 8 dereferenceable(25) %cfpos, i32 noundef %cond.i, i32 noundef %cond.i22, i32 noundef %cond.i32, i32 noundef %cond.i42)
   br label %for.end
 
-for.inc:                                          ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit29
-  %inc = add i32 %i.059, 1
+for.inc:                                          ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit27
+  %inc = add i32 %i.053, 1
   %cmp = icmp slt i32 %inc, %div
   %exitcond.not = icmp eq i32 %inc, %div
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
-for.end:                                          ; preds = %for.inc, %entry, %_ZNK6icu_759UVector3210elementAtiEi.exit53
-  %i.057 = phi i32 [ %i.059, %_ZNK6icu_759UVector3210elementAtiEi.exit53 ], [ %conv, %entry ], [ %div, %for.inc ]
-  %cmp55 = phi i1 [ %cmp60, %_ZNK6icu_759UVector3210elementAtiEi.exit53 ], [ false, %entry ], [ %cmp, %for.inc ]
-  %cmp17 = icmp ne i32 %i.057, %div
+for.end:                                          ; preds = %for.inc, %entry, %_ZNK6icu_759UVector3210elementAtiEi.exit47
+  %i.051 = phi i32 [ %i.053, %_ZNK6icu_759UVector3210elementAtiEi.exit47 ], [ %conv, %entry ], [ %div, %for.inc ]
+  %cmp49 = phi i1 [ %cmp54, %_ZNK6icu_759UVector3210elementAtiEi.exit47 ], [ false, %entry ], [ %cmp, %for.inc ]
+  %cmp17 = icmp ne i32 %i.051, %div
   %add18 = zext i1 %cmp17 to i32
-  %cond = add nsw i32 %i.057, %add18
+  %cond = add nsw i32 %i.051, %add18
   %conv19 = sext i32 %cond to i64
   tail call void @_ZN6icu_7524ConstrainedFieldPosition24setInt64IterationContextEl(ptr noundef nonnull align 8 dereferenceable(25) %cfpos, i64 noundef %conv19)
-  %conv21 = zext i1 %cmp55 to i8
+  %conv21 = zext i1 %cmp49 to i8
   ret i8 %conv21
 }
 
@@ -845,32 +827,29 @@ entry:
   %fFields = getelementptr inbounds %"class.icu_75::FormattedValueFieldPositionIteratorImpl", ptr %this, i64 0, i32 2
   %count.i = getelementptr inbounds %"class.icu_75::FormattedValueFieldPositionIteratorImpl", ptr %this, i64 0, i32 2, i32 1
   %0 = load i32, ptr %count.i, align 8
-  %cmp212 = icmp sgt i32 %0, 3
-  br i1 %cmp212, label %for.body.lr.ph, label %if.end47
+  %cmp201 = icmp sgt i32 %0, 3
+  br i1 %cmp201, label %for.body.lr.ph, label %if.end47
 
 for.body.lr.ph:                                   ; preds = %entry
-  %div244 = lshr i32 %0, 2
+  %div231 = lshr i32 %0, 2
   %elements.i = getelementptr inbounds %"class.icu_75::FormattedValueFieldPositionIteratorImpl", ptr %this, i64 0, i32 2, i32 4
-  %1 = zext nneg i32 %div244 to i64
-  %wide.trip.count236 = zext nneg i32 %div244 to i64
+  %1 = zext nneg i32 %div231 to i64
+  %wide.trip.count223 = zext nneg i32 %div231 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc33
-  %indvars.iv228 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next229, %for.inc33 ]
+  %indvars.iv216 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next217, %for.inc33 ]
   %indvars.iv = phi i64 [ 1, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc33 ]
-  %s1a.0217 = phi i32 [ 2147483647, %for.body.lr.ph ], [ %s1a.1, %for.inc33 ]
-  %s1b.0216 = phi i32 [ 0, %for.body.lr.ph ], [ %s1b.1, %for.inc33 ]
-  %s2a.0214 = phi i32 [ 2147483647, %for.body.lr.ph ], [ %s2a.1, %for.inc33 ]
-  %s2b.0213 = phi i32 [ 0, %for.body.lr.ph ], [ %s2b.1, %for.inc33 ]
-  %2 = shl nsw i64 %indvars.iv228, 2
+  %s1a.0206 = phi i32 [ 2147483647, %for.body.lr.ph ], [ %s1a.1, %for.inc33 ]
+  %s1b.0205 = phi i32 [ 0, %for.body.lr.ph ], [ %s1b.1, %for.inc33 ]
+  %s2a.0203 = phi i32 [ 2147483647, %for.body.lr.ph ], [ %s2a.1, %for.inc33 ]
+  %s2b.0202 = phi i32 [ 0, %for.body.lr.ph ], [ %s2b.1, %for.inc33 ]
+  %2 = shl nsw i64 %indvars.iv216, 2
   %3 = or disjoint i64 %2, 1
   %4 = load i32, ptr %count.i, align 8
-  %.fr = freeze i32 %4
-  %cmp2.i = icmp sgt i32 %.fr, 0
-  %5 = sext i32 %.fr to i64
+  %5 = sext i32 %4 to i64
   %cmp5.i = icmp slt i64 %3, %5
-  %or.cond.i = and i1 %cmp2.i, %cmp5.i
-  br i1 %or.cond.i, label %cond.true.i, label %_ZNK6icu_759UVector3210elementAtiEi.exit
+  br i1 %cmp5.i, label %cond.true.i, label %_ZNK6icu_759UVector3210elementAtiEi.exit
 
 cond.true.i:                                      ; preds = %for.body
   %6 = load ptr, ptr %elements.i, align 8
@@ -880,355 +859,333 @@ cond.true.i:                                      ; preds = %for.body
 
 _ZNK6icu_759UVector3210elementAtiEi.exit:         ; preds = %for.body, %cond.true.i
   %cond.i = phi i32 [ %7, %cond.true.i ], [ 0, %for.body ]
-  %indvars.iv.next229 = add nuw nsw i64 %indvars.iv228, 1
-  %cmp6209 = icmp ult i64 %indvars.iv.next229, %1
-  br i1 %cmp6209, label %for.body7.lr.ph, label %for.inc33
+  %indvars.iv.next217 = add nuw nsw i64 %indvars.iv216, 1
+  %cmp6199 = icmp ult i64 %indvars.iv.next217, %1
+  br i1 %cmp6199, label %for.body7.lr.ph, label %for.inc33
 
 for.body7.lr.ph:                                  ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit
-  %cmp2.i30 = icmp sgt i32 %.fr, 0
   %8 = load ptr, ptr %elements.i, align 8
-  br i1 %cmp2.i30, label %for.body7.preheader, label %for.body7.lr.ph.split.us
-
-for.body7.preheader:                              ; preds = %for.body7.lr.ph
-  %9 = zext nneg i32 %.fr to i64
   br label %for.body7
 
-for.body7.lr.ph.split.us:                         ; preds = %for.body7.lr.ph
-  %cmp12.not.us = icmp eq i32 %cond.i, 0
-  br i1 %cmp12.not.us, label %if.end.thread, label %for.inc33
-
-if.end.thread:                                    ; preds = %for.body7.lr.ph.split.us
-  %indvars.iv.next229.tr = trunc i64 %indvars.iv.next229 to i32
-  %10 = shl i32 %indvars.iv.next229.tr, 2
-  br label %_ZNK6icu_759UVector3210elementAtiEi.exit49
-
-for.cond5:                                        ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit37
-  %indvars.iv.next224 = add nuw nsw i64 %indvars.iv223, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next224, %wide.trip.count236
+for.cond5:                                        ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit35
+  %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next212, %wide.trip.count223
   br i1 %exitcond.not, label %for.inc33, label %for.body7, !llvm.loop !7
 
-for.body7:                                        ; preds = %for.body7.preheader, %for.cond5
-  %indvars.iv223 = phi i64 [ %indvars.iv, %for.body7.preheader ], [ %indvars.iv.next224, %for.cond5 ]
-  %11 = shl nsw i64 %indvars.iv223, 2
-  %12 = or disjoint i64 %11, 1
-  %cmp5.i31 = icmp ult i64 %12, %9
-  br i1 %cmp5.i31, label %cond.true.i33, label %_ZNK6icu_759UVector3210elementAtiEi.exit37
+for.body7:                                        ; preds = %for.body7.lr.ph, %for.cond5
+  %indvars.iv211 = phi i64 [ %indvars.iv, %for.body7.lr.ph ], [ %indvars.iv.next212, %for.cond5 ]
+  %9 = shl nsw i64 %indvars.iv211, 2
+  %10 = or disjoint i64 %9, 1
+  %cmp5.i28 = icmp slt i64 %10, %5
+  br i1 %cmp5.i28, label %cond.true.i31, label %_ZNK6icu_759UVector3210elementAtiEi.exit35
 
-cond.true.i33:                                    ; preds = %for.body7
-  %arrayidx.i36 = getelementptr inbounds i32, ptr %8, i64 %12
-  %13 = load i32, ptr %arrayidx.i36, align 4
-  br label %_ZNK6icu_759UVector3210elementAtiEi.exit37
+cond.true.i31:                                    ; preds = %for.body7
+  %arrayidx.i34 = getelementptr inbounds i32, ptr %8, i64 %10
+  %11 = load i32, ptr %arrayidx.i34, align 4
+  br label %_ZNK6icu_759UVector3210elementAtiEi.exit35
 
-_ZNK6icu_759UVector3210elementAtiEi.exit37:       ; preds = %for.body7, %cond.true.i33
-  %cond.i27 = phi i32 [ %13, %cond.true.i33 ], [ 0, %for.body7 ]
-  %cmp12.not = icmp eq i32 %cond.i, %cond.i27
+_ZNK6icu_759UVector3210elementAtiEi.exit35:       ; preds = %for.body7, %cond.true.i31
+  %cond.i30 = phi i32 [ %11, %cond.true.i31 ], [ 0, %for.body7 ]
+  %cmp12.not = icmp eq i32 %cond.i, %cond.i30
   br i1 %cmp12.not, label %if.end, label %for.cond5
 
-if.end:                                           ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit37
-  %14 = trunc i64 %11 to i32
-  %15 = or disjoint i64 %2, 2
-  %cmp5.i43 = icmp slt i64 %15, %5
-  %or.cond.i44 = and i1 %cmp2.i, %cmp5.i43
-  br i1 %or.cond.i44, label %cond.true.i45, label %_ZNK6icu_759UVector3210elementAtiEi.exit49
+if.end:                                           ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit35
+  %12 = trunc i64 %9 to i32
+  %13 = or disjoint i64 %2, 2
+  %cmp5.i38 = icmp slt i64 %13, %5
+  br i1 %cmp5.i38, label %cond.true.i41, label %_ZNK6icu_759UVector3210elementAtiEi.exit45
 
-cond.true.i45:                                    ; preds = %if.end
-  %arrayidx.i48 = getelementptr inbounds i32, ptr %8, i64 %15
-  %16 = load i32, ptr %arrayidx.i48, align 4
-  br label %_ZNK6icu_759UVector3210elementAtiEi.exit49
+cond.true.i41:                                    ; preds = %if.end
+  %arrayidx.i44 = getelementptr inbounds i32, ptr %8, i64 %13
+  %14 = load i32, ptr %arrayidx.i44, align 4
+  br label %_ZNK6icu_759UVector3210elementAtiEi.exit45
 
-_ZNK6icu_759UVector3210elementAtiEi.exit49:       ; preds = %if.end.thread, %if.end, %cond.true.i45
-  %.us-phi248 = phi i32 [ %14, %cond.true.i45 ], [ %14, %if.end ], [ %10, %if.end.thread ]
-  %cond.i39 = phi i32 [ %16, %cond.true.i45 ], [ 0, %if.end ], [ 0, %if.end.thread ]
-  %call17 = tail call i32 @uprv_min_75(i32 noundef %s1a.0217, i32 noundef %cond.i39)
-  %17 = or disjoint i64 %2, 3
-  %18 = load i32, ptr %count.i, align 8
-  %cmp2.i54 = icmp sgt i32 %18, 0
-  %19 = sext i32 %18 to i64
-  %cmp5.i55 = icmp slt i64 %17, %19
-  %or.cond.i56 = and i1 %cmp2.i54, %cmp5.i55
-  br i1 %or.cond.i56, label %cond.true.i57, label %_ZNK6icu_759UVector3210elementAtiEi.exit61
+_ZNK6icu_759UVector3210elementAtiEi.exit45:       ; preds = %if.end, %cond.true.i41
+  %cond.i40 = phi i32 [ %14, %cond.true.i41 ], [ 0, %if.end ]
+  %call17 = tail call i32 @uprv_min_75(i32 noundef %s1a.0206, i32 noundef %cond.i40)
+  %15 = or disjoint i64 %2, 3
+  %16 = load i32, ptr %count.i, align 8
+  %17 = sext i32 %16 to i64
+  %cmp5.i48 = icmp slt i64 %15, %17
+  br i1 %cmp5.i48, label %cond.true.i51, label %_ZNK6icu_759UVector3210elementAtiEi.exit55
 
-cond.true.i57:                                    ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit49
-  %20 = load ptr, ptr %elements.i, align 8
-  %arrayidx.i60 = getelementptr inbounds i32, ptr %20, i64 %17
-  %21 = load i32, ptr %arrayidx.i60, align 4
-  br label %_ZNK6icu_759UVector3210elementAtiEi.exit61
+cond.true.i51:                                    ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit45
+  %18 = load ptr, ptr %elements.i, align 8
+  %arrayidx.i54 = getelementptr inbounds i32, ptr %18, i64 %15
+  %19 = load i32, ptr %arrayidx.i54, align 4
+  br label %_ZNK6icu_759UVector3210elementAtiEi.exit55
 
-_ZNK6icu_759UVector3210elementAtiEi.exit61:       ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit49, %cond.true.i57
-  %cond.i51 = phi i32 [ %21, %cond.true.i57 ], [ 0, %_ZNK6icu_759UVector3210elementAtiEi.exit49 ]
-  %call22 = tail call i32 @uprv_max_75(i32 noundef %s1b.0216, i32 noundef %cond.i51)
-  %add25 = or disjoint i32 %.us-phi248, 2
-  %22 = load i32, ptr %count.i, align 8
-  %cmp2.i66 = icmp sgt i32 %22, 0
-  %cmp5.i67 = icmp sgt i32 %22, %add25
-  %or.cond.i68 = and i1 %cmp2.i66, %cmp5.i67
-  br i1 %or.cond.i68, label %cond.true.i69, label %_ZNK6icu_759UVector3210elementAtiEi.exit73
+_ZNK6icu_759UVector3210elementAtiEi.exit55:       ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit45, %cond.true.i51
+  %cond.i50 = phi i32 [ %19, %cond.true.i51 ], [ 0, %_ZNK6icu_759UVector3210elementAtiEi.exit45 ]
+  %call22 = tail call i32 @uprv_max_75(i32 noundef %s1b.0205, i32 noundef %cond.i50)
+  %add25 = or disjoint i32 %12, 2
+  %20 = load i32, ptr %count.i, align 8
+  %cmp5.i58 = icmp sgt i32 %20, %add25
+  br i1 %cmp5.i58, label %cond.true.i61, label %_ZNK6icu_759UVector3210elementAtiEi.exit65
 
-cond.true.i69:                                    ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit61
-  %23 = load ptr, ptr %elements.i, align 8
-  %idxprom.i71 = zext nneg i32 %add25 to i64
-  %arrayidx.i72 = getelementptr inbounds i32, ptr %23, i64 %idxprom.i71
-  %24 = load i32, ptr %arrayidx.i72, align 4
-  br label %_ZNK6icu_759UVector3210elementAtiEi.exit73
+cond.true.i61:                                    ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit55
+  %21 = load ptr, ptr %elements.i, align 8
+  %idxprom.i63 = zext nneg i32 %add25 to i64
+  %arrayidx.i64 = getelementptr inbounds i32, ptr %21, i64 %idxprom.i63
+  %22 = load i32, ptr %arrayidx.i64, align 4
+  br label %_ZNK6icu_759UVector3210elementAtiEi.exit65
 
-_ZNK6icu_759UVector3210elementAtiEi.exit73:       ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit61, %cond.true.i69
-  %cond.i63 = phi i32 [ %24, %cond.true.i69 ], [ 0, %_ZNK6icu_759UVector3210elementAtiEi.exit61 ]
-  %call27 = tail call i32 @uprv_min_75(i32 noundef %s2a.0214, i32 noundef %cond.i63)
-  %add30 = or disjoint i32 %.us-phi248, 3
-  %25 = load i32, ptr %count.i, align 8
-  %cmp2.i78 = icmp sgt i32 %25, 0
-  %cmp5.i79 = icmp sgt i32 %25, %add30
-  %or.cond.i80 = and i1 %cmp2.i78, %cmp5.i79
-  br i1 %or.cond.i80, label %cond.true.i81, label %_ZNK6icu_759UVector3210elementAtiEi.exit85
+_ZNK6icu_759UVector3210elementAtiEi.exit65:       ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit55, %cond.true.i61
+  %cond.i60 = phi i32 [ %22, %cond.true.i61 ], [ 0, %_ZNK6icu_759UVector3210elementAtiEi.exit55 ]
+  %call27 = tail call i32 @uprv_min_75(i32 noundef %s2a.0203, i32 noundef %cond.i60)
+  %add30 = or disjoint i32 %12, 3
+  %23 = load i32, ptr %count.i, align 8
+  %cmp5.i68 = icmp sgt i32 %23, %add30
+  br i1 %cmp5.i68, label %cond.true.i71, label %_ZNK6icu_759UVector3210elementAtiEi.exit75
 
-cond.true.i81:                                    ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit73
-  %26 = load ptr, ptr %elements.i, align 8
-  %idxprom.i83 = zext nneg i32 %add30 to i64
-  %arrayidx.i84 = getelementptr inbounds i32, ptr %26, i64 %idxprom.i83
-  %27 = load i32, ptr %arrayidx.i84, align 4
-  br label %_ZNK6icu_759UVector3210elementAtiEi.exit85
+cond.true.i71:                                    ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit65
+  %24 = load ptr, ptr %elements.i, align 8
+  %idxprom.i73 = zext nneg i32 %add30 to i64
+  %arrayidx.i74 = getelementptr inbounds i32, ptr %24, i64 %idxprom.i73
+  %25 = load i32, ptr %arrayidx.i74, align 4
+  br label %_ZNK6icu_759UVector3210elementAtiEi.exit75
 
-_ZNK6icu_759UVector3210elementAtiEi.exit85:       ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit73, %cond.true.i81
-  %cond.i75 = phi i32 [ %27, %cond.true.i81 ], [ 0, %_ZNK6icu_759UVector3210elementAtiEi.exit73 ]
-  %call32 = tail call i32 @uprv_max_75(i32 noundef %s2b.0213, i32 noundef %cond.i75)
+_ZNK6icu_759UVector3210elementAtiEi.exit75:       ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit65, %cond.true.i71
+  %cond.i70 = phi i32 [ %25, %cond.true.i71 ], [ 0, %_ZNK6icu_759UVector3210elementAtiEi.exit65 ]
+  %call32 = tail call i32 @uprv_max_75(i32 noundef %s2b.0202, i32 noundef %cond.i70)
   br label %for.inc33
 
-for.inc33:                                        ; preds = %for.cond5, %for.body7.lr.ph.split.us, %_ZNK6icu_759UVector3210elementAtiEi.exit, %_ZNK6icu_759UVector3210elementAtiEi.exit85
-  %s2b.1 = phi i32 [ %call32, %_ZNK6icu_759UVector3210elementAtiEi.exit85 ], [ %s2b.0213, %_ZNK6icu_759UVector3210elementAtiEi.exit ], [ %s2b.0213, %for.body7.lr.ph.split.us ], [ %s2b.0213, %for.cond5 ]
-  %s2a.1 = phi i32 [ %call27, %_ZNK6icu_759UVector3210elementAtiEi.exit85 ], [ %s2a.0214, %_ZNK6icu_759UVector3210elementAtiEi.exit ], [ %s2a.0214, %for.body7.lr.ph.split.us ], [ %s2a.0214, %for.cond5 ]
-  %s1b.1 = phi i32 [ %call22, %_ZNK6icu_759UVector3210elementAtiEi.exit85 ], [ %s1b.0216, %_ZNK6icu_759UVector3210elementAtiEi.exit ], [ %s1b.0216, %for.body7.lr.ph.split.us ], [ %s1b.0216, %for.cond5 ]
-  %s1a.1 = phi i32 [ %call17, %_ZNK6icu_759UVector3210elementAtiEi.exit85 ], [ %s1a.0217, %_ZNK6icu_759UVector3210elementAtiEi.exit ], [ %s1a.0217, %for.body7.lr.ph.split.us ], [ %s1a.0217, %for.cond5 ]
+for.inc33:                                        ; preds = %for.cond5, %_ZNK6icu_759UVector3210elementAtiEi.exit, %_ZNK6icu_759UVector3210elementAtiEi.exit75
+  %s2b.1 = phi i32 [ %call32, %_ZNK6icu_759UVector3210elementAtiEi.exit75 ], [ %s2b.0202, %_ZNK6icu_759UVector3210elementAtiEi.exit ], [ %s2b.0202, %for.cond5 ]
+  %s2a.1 = phi i32 [ %call27, %_ZNK6icu_759UVector3210elementAtiEi.exit75 ], [ %s2a.0203, %_ZNK6icu_759UVector3210elementAtiEi.exit ], [ %s2a.0203, %for.cond5 ]
+  %s1b.1 = phi i32 [ %call22, %_ZNK6icu_759UVector3210elementAtiEi.exit75 ], [ %s1b.0205, %_ZNK6icu_759UVector3210elementAtiEi.exit ], [ %s1b.0205, %for.cond5 ]
+  %s1a.1 = phi i32 [ %call17, %_ZNK6icu_759UVector3210elementAtiEi.exit75 ], [ %s1a.0206, %_ZNK6icu_759UVector3210elementAtiEi.exit ], [ %s1a.0206, %for.cond5 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond237.not = icmp eq i64 %indvars.iv.next229, %wide.trip.count236
-  br i1 %exitcond237.not, label %for.end35, label %for.body, !llvm.loop !8
+  %exitcond224.not = icmp eq i64 %indvars.iv.next217, %wide.trip.count223
+  br i1 %exitcond224.not, label %for.end35, label %for.body, !llvm.loop !8
 
 for.end35:                                        ; preds = %for.inc33
   %cmp36.not = icmp eq i32 %s1a.1, 2147483647
   br i1 %cmp36.not, label %if.end47, label %if.then37
 
 if.then37:                                        ; preds = %for.end35
-  %28 = load i32, ptr %count.i, align 8
-  %cmp.i.i = icmp slt i32 %28, -1
+  %26 = load i32, ptr %count.i, align 8
+  %cmp.i.i = icmp slt i32 %26, -1
   %capacity.i.i = getelementptr inbounds %"class.icu_75::FormattedValueFieldPositionIteratorImpl", ptr %this, i64 0, i32 2, i32 2
-  %29 = load i32, ptr %capacity.i.i, align 4
-  %cmp2.not.i.i = icmp sle i32 %29, %28
+  %27 = load i32, ptr %capacity.i.i, align 4
+  %cmp2.not.i.i = icmp sle i32 %27, %26
   %or.cond.i.i = select i1 %cmp.i.i, i1 true, i1 %cmp2.not.i.i
   br i1 %or.cond.i.i, label %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i, label %if.then.i
 
 _ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i: ; preds = %if.then37
-  %add.i = add nsw i32 %28, 1
+  %add.i = add nsw i32 %26, 1
   %call.i.i = tail call noundef signext i8 @_ZN6icu_759UVector3214expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %fFields, i32 noundef %add.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %tobool.not.i = icmp eq i8 %call.i.i, 0
   %.pre = load i32, ptr %count.i, align 8
   br i1 %tobool.not.i, label %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i, %if.then37
-  %30 = phi i32 [ %28, %if.then37 ], [ %.pre, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i ]
-  %elements.i87 = getelementptr inbounds %"class.icu_75::FormattedValueFieldPositionIteratorImpl", ptr %this, i64 0, i32 2, i32 4
-  %31 = load ptr, ptr %elements.i87, align 8
-  %idxprom.i88 = sext i32 %30 to i64
-  %arrayidx.i89 = getelementptr inbounds i32, ptr %31, i64 %idxprom.i88
-  store i32 %spanCategory, ptr %arrayidx.i89, align 4
-  %32 = load i32, ptr %count.i, align 8
-  %inc.i = add nsw i32 %32, 1
+  %28 = phi i32 [ %26, %if.then37 ], [ %.pre, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i ]
+  %elements.i77 = getelementptr inbounds %"class.icu_75::FormattedValueFieldPositionIteratorImpl", ptr %this, i64 0, i32 2, i32 4
+  %29 = load ptr, ptr %elements.i77, align 8
+  %idxprom.i78 = sext i32 %28 to i64
+  %arrayidx.i79 = getelementptr inbounds i32, ptr %29, i64 %idxprom.i78
+  store i32 %spanCategory, ptr %arrayidx.i79, align 4
+  %30 = load i32, ptr %count.i, align 8
+  %inc.i = add nsw i32 %30, 1
   store i32 %inc.i, ptr %count.i, align 8
   br label %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit
 
 _ZN6icu_759UVector3210addElementEiR10UErrorCode.exit: ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i, %if.then.i
-  %33 = phi i32 [ %.pre, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i ], [ %inc.i, %if.then.i ]
+  %31 = phi i32 [ %.pre, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i ], [ %inc.i, %if.then.i ]
   %conv = sext i8 %firstIndex to i32
-  %cmp.i.i91 = icmp slt i32 %33, -1
-  %34 = load i32, ptr %capacity.i.i, align 4
-  %cmp2.not.i.i93 = icmp sle i32 %34, %33
-  %or.cond.i.i94 = select i1 %cmp.i.i91, i1 true, i1 %cmp2.not.i.i93
-  br i1 %or.cond.i.i94, label %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i100, label %if.then.i95
+  %cmp.i.i81 = icmp slt i32 %31, -1
+  %32 = load i32, ptr %capacity.i.i, align 4
+  %cmp2.not.i.i83 = icmp sle i32 %32, %31
+  %or.cond.i.i84 = select i1 %cmp.i.i81, i1 true, i1 %cmp2.not.i.i83
+  br i1 %or.cond.i.i84, label %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i90, label %if.then.i85
 
-_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i100: ; preds = %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit
-  %add.i101 = add nsw i32 %33, 1
-  %call.i.i102 = tail call noundef signext i8 @_ZN6icu_759UVector3214expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %fFields, i32 noundef %add.i101, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %tobool.not.i103 = icmp eq i8 %call.i.i102, 0
-  %.pre238 = load i32, ptr %count.i, align 8
-  br i1 %tobool.not.i103, label %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit106, label %if.then.i95
+_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i90: ; preds = %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit
+  %add.i91 = add nsw i32 %31, 1
+  %call.i.i92 = tail call noundef signext i8 @_ZN6icu_759UVector3214expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %fFields, i32 noundef %add.i91, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %tobool.not.i93 = icmp eq i8 %call.i.i92, 0
+  %.pre225 = load i32, ptr %count.i, align 8
+  br i1 %tobool.not.i93, label %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit96, label %if.then.i85
 
-if.then.i95:                                      ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i100, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit
-  %35 = phi i32 [ %33, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit ], [ %.pre238, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i100 ]
-  %elements.i96 = getelementptr inbounds %"class.icu_75::FormattedValueFieldPositionIteratorImpl", ptr %this, i64 0, i32 2, i32 4
-  %36 = load ptr, ptr %elements.i96, align 8
-  %idxprom.i97 = sext i32 %35 to i64
-  %arrayidx.i98 = getelementptr inbounds i32, ptr %36, i64 %idxprom.i97
-  store i32 %conv, ptr %arrayidx.i98, align 4
-  %37 = load i32, ptr %count.i, align 8
-  %inc.i99 = add nsw i32 %37, 1
-  store i32 %inc.i99, ptr %count.i, align 8
-  br label %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit106
+if.then.i85:                                      ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i90, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit
+  %33 = phi i32 [ %31, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit ], [ %.pre225, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i90 ]
+  %elements.i86 = getelementptr inbounds %"class.icu_75::FormattedValueFieldPositionIteratorImpl", ptr %this, i64 0, i32 2, i32 4
+  %34 = load ptr, ptr %elements.i86, align 8
+  %idxprom.i87 = sext i32 %33 to i64
+  %arrayidx.i88 = getelementptr inbounds i32, ptr %34, i64 %idxprom.i87
+  store i32 %conv, ptr %arrayidx.i88, align 4
+  %35 = load i32, ptr %count.i, align 8
+  %inc.i89 = add nsw i32 %35, 1
+  store i32 %inc.i89, ptr %count.i, align 8
+  br label %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit96
 
-_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit106: ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i100, %if.then.i95
-  %38 = phi i32 [ %.pre238, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i100 ], [ %inc.i99, %if.then.i95 ]
-  %cmp.i.i108 = icmp slt i32 %38, -1
-  %39 = load i32, ptr %capacity.i.i, align 4
-  %cmp2.not.i.i110 = icmp sle i32 %39, %38
-  %or.cond.i.i111 = select i1 %cmp.i.i108, i1 true, i1 %cmp2.not.i.i110
-  br i1 %or.cond.i.i111, label %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i117, label %if.then.i112
+_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit96: ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i90, %if.then.i85
+  %36 = phi i32 [ %.pre225, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i90 ], [ %inc.i89, %if.then.i85 ]
+  %cmp.i.i98 = icmp slt i32 %36, -1
+  %37 = load i32, ptr %capacity.i.i, align 4
+  %cmp2.not.i.i100 = icmp sle i32 %37, %36
+  %or.cond.i.i101 = select i1 %cmp.i.i98, i1 true, i1 %cmp2.not.i.i100
+  br i1 %or.cond.i.i101, label %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i107, label %if.then.i102
 
-_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i117: ; preds = %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit106
-  %add.i118 = add nsw i32 %38, 1
-  %call.i.i119 = tail call noundef signext i8 @_ZN6icu_759UVector3214expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %fFields, i32 noundef %add.i118, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %tobool.not.i120 = icmp eq i8 %call.i.i119, 0
-  %.pre239 = load i32, ptr %count.i, align 8
-  br i1 %tobool.not.i120, label %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit123, label %if.then.i112
+_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i107: ; preds = %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit96
+  %add.i108 = add nsw i32 %36, 1
+  %call.i.i109 = tail call noundef signext i8 @_ZN6icu_759UVector3214expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %fFields, i32 noundef %add.i108, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %tobool.not.i110 = icmp eq i8 %call.i.i109, 0
+  %.pre226 = load i32, ptr %count.i, align 8
+  br i1 %tobool.not.i110, label %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit113, label %if.then.i102
 
-if.then.i112:                                     ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i117, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit106
-  %40 = phi i32 [ %38, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit106 ], [ %.pre239, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i117 ]
-  %elements.i113 = getelementptr inbounds %"class.icu_75::FormattedValueFieldPositionIteratorImpl", ptr %this, i64 0, i32 2, i32 4
-  %41 = load ptr, ptr %elements.i113, align 8
-  %idxprom.i114 = sext i32 %40 to i64
-  %arrayidx.i115 = getelementptr inbounds i32, ptr %41, i64 %idxprom.i114
-  store i32 %s1a.1, ptr %arrayidx.i115, align 4
-  %42 = load i32, ptr %count.i, align 8
-  %inc.i116 = add nsw i32 %42, 1
-  store i32 %inc.i116, ptr %count.i, align 8
-  br label %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit123
+if.then.i102:                                     ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i107, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit96
+  %38 = phi i32 [ %36, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit96 ], [ %.pre226, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i107 ]
+  %elements.i103 = getelementptr inbounds %"class.icu_75::FormattedValueFieldPositionIteratorImpl", ptr %this, i64 0, i32 2, i32 4
+  %39 = load ptr, ptr %elements.i103, align 8
+  %idxprom.i104 = sext i32 %38 to i64
+  %arrayidx.i105 = getelementptr inbounds i32, ptr %39, i64 %idxprom.i104
+  store i32 %s1a.1, ptr %arrayidx.i105, align 4
+  %40 = load i32, ptr %count.i, align 8
+  %inc.i106 = add nsw i32 %40, 1
+  store i32 %inc.i106, ptr %count.i, align 8
+  br label %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit113
 
-_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit123: ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i117, %if.then.i112
-  %43 = phi i32 [ %.pre239, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i117 ], [ %inc.i116, %if.then.i112 ]
-  %cmp.i.i125 = icmp slt i32 %43, -1
-  %44 = load i32, ptr %capacity.i.i, align 4
-  %cmp2.not.i.i127 = icmp sle i32 %44, %43
-  %or.cond.i.i128 = select i1 %cmp.i.i125, i1 true, i1 %cmp2.not.i.i127
-  br i1 %or.cond.i.i128, label %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i134, label %if.then.i129
+_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit113: ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i107, %if.then.i102
+  %41 = phi i32 [ %.pre226, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i107 ], [ %inc.i106, %if.then.i102 ]
+  %cmp.i.i115 = icmp slt i32 %41, -1
+  %42 = load i32, ptr %capacity.i.i, align 4
+  %cmp2.not.i.i117 = icmp sle i32 %42, %41
+  %or.cond.i.i118 = select i1 %cmp.i.i115, i1 true, i1 %cmp2.not.i.i117
+  br i1 %or.cond.i.i118, label %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i124, label %if.then.i119
 
-_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i134: ; preds = %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit123
-  %add.i135 = add nsw i32 %43, 1
-  %call.i.i136 = tail call noundef signext i8 @_ZN6icu_759UVector3214expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %fFields, i32 noundef %add.i135, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %tobool.not.i137 = icmp eq i8 %call.i.i136, 0
-  %.pre240 = load i32, ptr %count.i, align 8
-  br i1 %tobool.not.i137, label %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit140, label %if.then.i129
+_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i124: ; preds = %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit113
+  %add.i125 = add nsw i32 %41, 1
+  %call.i.i126 = tail call noundef signext i8 @_ZN6icu_759UVector3214expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %fFields, i32 noundef %add.i125, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %tobool.not.i127 = icmp eq i8 %call.i.i126, 0
+  %.pre227 = load i32, ptr %count.i, align 8
+  br i1 %tobool.not.i127, label %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit130, label %if.then.i119
 
-if.then.i129:                                     ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i134, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit123
-  %45 = phi i32 [ %43, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit123 ], [ %.pre240, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i134 ]
-  %elements.i130 = getelementptr inbounds %"class.icu_75::FormattedValueFieldPositionIteratorImpl", ptr %this, i64 0, i32 2, i32 4
-  %46 = load ptr, ptr %elements.i130, align 8
-  %idxprom.i131 = sext i32 %45 to i64
-  %arrayidx.i132 = getelementptr inbounds i32, ptr %46, i64 %idxprom.i131
-  store i32 %s1b.1, ptr %arrayidx.i132, align 4
-  %47 = load i32, ptr %count.i, align 8
-  %inc.i133 = add nsw i32 %47, 1
-  store i32 %inc.i133, ptr %count.i, align 8
-  br label %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit140
+if.then.i119:                                     ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i124, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit113
+  %43 = phi i32 [ %41, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit113 ], [ %.pre227, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i124 ]
+  %elements.i120 = getelementptr inbounds %"class.icu_75::FormattedValueFieldPositionIteratorImpl", ptr %this, i64 0, i32 2, i32 4
+  %44 = load ptr, ptr %elements.i120, align 8
+  %idxprom.i121 = sext i32 %43 to i64
+  %arrayidx.i122 = getelementptr inbounds i32, ptr %44, i64 %idxprom.i121
+  store i32 %s1b.1, ptr %arrayidx.i122, align 4
+  %45 = load i32, ptr %count.i, align 8
+  %inc.i123 = add nsw i32 %45, 1
+  store i32 %inc.i123, ptr %count.i, align 8
+  br label %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit130
 
-_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit140: ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i134, %if.then.i129
-  %48 = phi i32 [ %.pre240, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i134 ], [ %inc.i133, %if.then.i129 ]
-  %cmp.i.i142 = icmp slt i32 %48, -1
-  %49 = load i32, ptr %capacity.i.i, align 4
-  %cmp2.not.i.i144 = icmp sle i32 %49, %48
-  %or.cond.i.i145 = select i1 %cmp.i.i142, i1 true, i1 %cmp2.not.i.i144
-  br i1 %or.cond.i.i145, label %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i151, label %if.then.i146
+_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit130: ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i124, %if.then.i119
+  %46 = phi i32 [ %.pre227, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i124 ], [ %inc.i123, %if.then.i119 ]
+  %cmp.i.i132 = icmp slt i32 %46, -1
+  %47 = load i32, ptr %capacity.i.i, align 4
+  %cmp2.not.i.i134 = icmp sle i32 %47, %46
+  %or.cond.i.i135 = select i1 %cmp.i.i132, i1 true, i1 %cmp2.not.i.i134
+  br i1 %or.cond.i.i135, label %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i141, label %if.then.i136
 
-_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i151: ; preds = %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit140
-  %add.i152 = add nsw i32 %48, 1
-  %call.i.i153 = tail call noundef signext i8 @_ZN6icu_759UVector3214expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %fFields, i32 noundef %add.i152, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %tobool.not.i154 = icmp eq i8 %call.i.i153, 0
-  %.pre241 = load i32, ptr %count.i, align 8
-  br i1 %tobool.not.i154, label %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit157, label %if.then.i146
+_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i141: ; preds = %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit130
+  %add.i142 = add nsw i32 %46, 1
+  %call.i.i143 = tail call noundef signext i8 @_ZN6icu_759UVector3214expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %fFields, i32 noundef %add.i142, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %tobool.not.i144 = icmp eq i8 %call.i.i143, 0
+  %.pre228 = load i32, ptr %count.i, align 8
+  br i1 %tobool.not.i144, label %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit147, label %if.then.i136
 
-if.then.i146:                                     ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i151, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit140
-  %50 = phi i32 [ %48, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit140 ], [ %.pre241, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i151 ]
-  %elements.i147 = getelementptr inbounds %"class.icu_75::FormattedValueFieldPositionIteratorImpl", ptr %this, i64 0, i32 2, i32 4
-  %51 = load ptr, ptr %elements.i147, align 8
-  %idxprom.i148 = sext i32 %50 to i64
-  %arrayidx.i149 = getelementptr inbounds i32, ptr %51, i64 %idxprom.i148
-  store i32 %spanCategory, ptr %arrayidx.i149, align 4
-  %52 = load i32, ptr %count.i, align 8
-  %inc.i150 = add nsw i32 %52, 1
-  store i32 %inc.i150, ptr %count.i, align 8
-  br label %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit157
+if.then.i136:                                     ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i141, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit130
+  %48 = phi i32 [ %46, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit130 ], [ %.pre228, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i141 ]
+  %elements.i137 = getelementptr inbounds %"class.icu_75::FormattedValueFieldPositionIteratorImpl", ptr %this, i64 0, i32 2, i32 4
+  %49 = load ptr, ptr %elements.i137, align 8
+  %idxprom.i138 = sext i32 %48 to i64
+  %arrayidx.i139 = getelementptr inbounds i32, ptr %49, i64 %idxprom.i138
+  store i32 %spanCategory, ptr %arrayidx.i139, align 4
+  %50 = load i32, ptr %count.i, align 8
+  %inc.i140 = add nsw i32 %50, 1
+  store i32 %inc.i140, ptr %count.i, align 8
+  br label %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit147
 
-_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit157: ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i151, %if.then.i146
-  %53 = phi i32 [ %.pre241, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i151 ], [ %inc.i150, %if.then.i146 ]
+_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit147: ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i141, %if.then.i136
+  %51 = phi i32 [ %.pre228, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i141 ], [ %inc.i140, %if.then.i136 ]
   %sub = sub nsw i32 1, %conv
-  %cmp.i.i159 = icmp slt i32 %53, -1
-  %54 = load i32, ptr %capacity.i.i, align 4
-  %cmp2.not.i.i161 = icmp sle i32 %54, %53
-  %or.cond.i.i162 = select i1 %cmp.i.i159, i1 true, i1 %cmp2.not.i.i161
-  br i1 %or.cond.i.i162, label %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i168, label %if.then.i163
+  %cmp.i.i149 = icmp slt i32 %51, -1
+  %52 = load i32, ptr %capacity.i.i, align 4
+  %cmp2.not.i.i151 = icmp sle i32 %52, %51
+  %or.cond.i.i152 = select i1 %cmp.i.i149, i1 true, i1 %cmp2.not.i.i151
+  br i1 %or.cond.i.i152, label %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i158, label %if.then.i153
 
-_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i168: ; preds = %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit157
-  %add.i169 = add nsw i32 %53, 1
-  %call.i.i170 = tail call noundef signext i8 @_ZN6icu_759UVector3214expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %fFields, i32 noundef %add.i169, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %tobool.not.i171 = icmp eq i8 %call.i.i170, 0
-  %.pre242 = load i32, ptr %count.i, align 8
-  br i1 %tobool.not.i171, label %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit174, label %if.then.i163
+_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i158: ; preds = %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit147
+  %add.i159 = add nsw i32 %51, 1
+  %call.i.i160 = tail call noundef signext i8 @_ZN6icu_759UVector3214expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %fFields, i32 noundef %add.i159, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %tobool.not.i161 = icmp eq i8 %call.i.i160, 0
+  %.pre229 = load i32, ptr %count.i, align 8
+  br i1 %tobool.not.i161, label %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit164, label %if.then.i153
 
-if.then.i163:                                     ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i168, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit157
-  %55 = phi i32 [ %53, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit157 ], [ %.pre242, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i168 ]
-  %elements.i164 = getelementptr inbounds %"class.icu_75::FormattedValueFieldPositionIteratorImpl", ptr %this, i64 0, i32 2, i32 4
-  %56 = load ptr, ptr %elements.i164, align 8
-  %idxprom.i165 = sext i32 %55 to i64
-  %arrayidx.i166 = getelementptr inbounds i32, ptr %56, i64 %idxprom.i165
-  store i32 %sub, ptr %arrayidx.i166, align 4
-  %57 = load i32, ptr %count.i, align 8
-  %inc.i167 = add nsw i32 %57, 1
-  store i32 %inc.i167, ptr %count.i, align 8
-  br label %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit174
+if.then.i153:                                     ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i158, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit147
+  %53 = phi i32 [ %51, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit147 ], [ %.pre229, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i158 ]
+  %elements.i154 = getelementptr inbounds %"class.icu_75::FormattedValueFieldPositionIteratorImpl", ptr %this, i64 0, i32 2, i32 4
+  %54 = load ptr, ptr %elements.i154, align 8
+  %idxprom.i155 = sext i32 %53 to i64
+  %arrayidx.i156 = getelementptr inbounds i32, ptr %54, i64 %idxprom.i155
+  store i32 %sub, ptr %arrayidx.i156, align 4
+  %55 = load i32, ptr %count.i, align 8
+  %inc.i157 = add nsw i32 %55, 1
+  store i32 %inc.i157, ptr %count.i, align 8
+  br label %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit164
 
-_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit174: ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i168, %if.then.i163
-  %58 = phi i32 [ %.pre242, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i168 ], [ %inc.i167, %if.then.i163 ]
-  %cmp.i.i176 = icmp slt i32 %58, -1
-  %59 = load i32, ptr %capacity.i.i, align 4
-  %cmp2.not.i.i178 = icmp sle i32 %59, %58
-  %or.cond.i.i179 = select i1 %cmp.i.i176, i1 true, i1 %cmp2.not.i.i178
-  br i1 %or.cond.i.i179, label %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i185, label %if.then.i180
+_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit164: ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i158, %if.then.i153
+  %56 = phi i32 [ %.pre229, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i158 ], [ %inc.i157, %if.then.i153 ]
+  %cmp.i.i166 = icmp slt i32 %56, -1
+  %57 = load i32, ptr %capacity.i.i, align 4
+  %cmp2.not.i.i168 = icmp sle i32 %57, %56
+  %or.cond.i.i169 = select i1 %cmp.i.i166, i1 true, i1 %cmp2.not.i.i168
+  br i1 %or.cond.i.i169, label %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i175, label %if.then.i170
 
-_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i185: ; preds = %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit174
-  %add.i186 = add nsw i32 %58, 1
-  %call.i.i187 = tail call noundef signext i8 @_ZN6icu_759UVector3214expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %fFields, i32 noundef %add.i186, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %tobool.not.i188 = icmp eq i8 %call.i.i187, 0
-  %.pre243 = load i32, ptr %count.i, align 8
-  br i1 %tobool.not.i188, label %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit191, label %if.then.i180
+_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i175: ; preds = %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit164
+  %add.i176 = add nsw i32 %56, 1
+  %call.i.i177 = tail call noundef signext i8 @_ZN6icu_759UVector3214expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %fFields, i32 noundef %add.i176, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %tobool.not.i178 = icmp eq i8 %call.i.i177, 0
+  %.pre230 = load i32, ptr %count.i, align 8
+  br i1 %tobool.not.i178, label %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit181, label %if.then.i170
 
-if.then.i180:                                     ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i185, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit174
-  %60 = phi i32 [ %58, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit174 ], [ %.pre243, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i185 ]
-  %elements.i181 = getelementptr inbounds %"class.icu_75::FormattedValueFieldPositionIteratorImpl", ptr %this, i64 0, i32 2, i32 4
-  %61 = load ptr, ptr %elements.i181, align 8
-  %idxprom.i182 = sext i32 %60 to i64
-  %arrayidx.i183 = getelementptr inbounds i32, ptr %61, i64 %idxprom.i182
-  store i32 %s2a.1, ptr %arrayidx.i183, align 4
-  %62 = load i32, ptr %count.i, align 8
-  %inc.i184 = add nsw i32 %62, 1
-  store i32 %inc.i184, ptr %count.i, align 8
-  br label %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit191
+if.then.i170:                                     ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i175, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit164
+  %58 = phi i32 [ %56, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit164 ], [ %.pre230, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i175 ]
+  %elements.i171 = getelementptr inbounds %"class.icu_75::FormattedValueFieldPositionIteratorImpl", ptr %this, i64 0, i32 2, i32 4
+  %59 = load ptr, ptr %elements.i171, align 8
+  %idxprom.i172 = sext i32 %58 to i64
+  %arrayidx.i173 = getelementptr inbounds i32, ptr %59, i64 %idxprom.i172
+  store i32 %s2a.1, ptr %arrayidx.i173, align 4
+  %60 = load i32, ptr %count.i, align 8
+  %inc.i174 = add nsw i32 %60, 1
+  store i32 %inc.i174, ptr %count.i, align 8
+  br label %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit181
 
-_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit191: ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i185, %if.then.i180
-  %63 = phi i32 [ %.pre243, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i185 ], [ %inc.i184, %if.then.i180 ]
-  %cmp.i.i193 = icmp slt i32 %63, -1
-  %64 = load i32, ptr %capacity.i.i, align 4
-  %cmp2.not.i.i195 = icmp sle i32 %64, %63
-  %or.cond.i.i196 = select i1 %cmp.i.i193, i1 true, i1 %cmp2.not.i.i195
-  br i1 %or.cond.i.i196, label %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i202, label %if.then.i197
+_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit181: ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i175, %if.then.i170
+  %61 = phi i32 [ %.pre230, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i175 ], [ %inc.i174, %if.then.i170 ]
+  %cmp.i.i183 = icmp slt i32 %61, -1
+  %62 = load i32, ptr %capacity.i.i, align 4
+  %cmp2.not.i.i185 = icmp sle i32 %62, %61
+  %or.cond.i.i186 = select i1 %cmp.i.i183, i1 true, i1 %cmp2.not.i.i185
+  br i1 %or.cond.i.i186, label %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i192, label %if.then.i187
 
-_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i202: ; preds = %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit191
-  %add.i203 = add nsw i32 %63, 1
-  %call.i.i204 = tail call noundef signext i8 @_ZN6icu_759UVector3214expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %fFields, i32 noundef %add.i203, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %tobool.not.i205 = icmp eq i8 %call.i.i204, 0
-  br i1 %tobool.not.i205, label %if.end47, label %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i206
+_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i192: ; preds = %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit181
+  %add.i193 = add nsw i32 %61, 1
+  %call.i.i194 = tail call noundef signext i8 @_ZN6icu_759UVector3214expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %fFields, i32 noundef %add.i193, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %tobool.not.i195 = icmp eq i8 %call.i.i194, 0
+  br i1 %tobool.not.i195, label %if.end47, label %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i196
 
-_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i206: ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i202
-  %.pre.i207 = load i32, ptr %count.i, align 8
-  br label %if.then.i197
+_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i196: ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i192
+  %.pre.i197 = load i32, ptr %count.i, align 8
+  br label %if.then.i187
 
-if.then.i197:                                     ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i206, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit191
-  %65 = phi i32 [ %.pre.i207, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i206 ], [ %63, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit191 ]
-  %elements.i198 = getelementptr inbounds %"class.icu_75::FormattedValueFieldPositionIteratorImpl", ptr %this, i64 0, i32 2, i32 4
-  %66 = load ptr, ptr %elements.i198, align 8
-  %idxprom.i199 = sext i32 %65 to i64
-  %arrayidx.i200 = getelementptr inbounds i32, ptr %66, i64 %idxprom.i199
-  store i32 %s2b.1, ptr %arrayidx.i200, align 4
-  %67 = load i32, ptr %count.i, align 8
-  %inc.i201 = add nsw i32 %67, 1
-  store i32 %inc.i201, ptr %count.i, align 8
+if.then.i187:                                     ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i196, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit181
+  %63 = phi i32 [ %.pre.i197, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i196 ], [ %61, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit181 ]
+  %elements.i188 = getelementptr inbounds %"class.icu_75::FormattedValueFieldPositionIteratorImpl", ptr %this, i64 0, i32 2, i32 4
+  %64 = load ptr, ptr %elements.i188, align 8
+  %idxprom.i189 = sext i32 %63 to i64
+  %arrayidx.i190 = getelementptr inbounds i32, ptr %64, i64 %idxprom.i189
+  store i32 %s2b.1, ptr %arrayidx.i190, align 4
+  %65 = load i32, ptr %count.i, align 8
+  %inc.i191 = add nsw i32 %65, 1
+  store i32 %inc.i191, ptr %count.i, align 8
   br label %if.end47
 
-if.end47:                                         ; preds = %entry, %if.then.i197, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i202, %for.end35
+if.end47:                                         ; preds = %entry, %if.then.i187, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i192, %for.end35
   ret void
 }
 
@@ -1242,26 +1199,24 @@ entry:
   %fFields = getelementptr inbounds %"class.icu_75::FormattedValueFieldPositionIteratorImpl", ptr %this, i64 0, i32 2
   %count.i = getelementptr inbounds %"class.icu_75::FormattedValueFieldPositionIteratorImpl", ptr %this, i64 0, i32 2, i32 1
   %0 = load i32, ptr %count.i, align 8
-  %cmp135 = icmp sgt i32 %0, 7
+  %cmp107 = icmp sgt i32 %0, 7
   %elements.i = getelementptr inbounds %"class.icu_75::FormattedValueFieldPositionIteratorImpl", ptr %this, i64 0, i32 2, i32 4
-  br i1 %cmp135, label %while.body.us.preheader, label %while.end
+  br i1 %cmp107, label %while.body.us.preheader, label %while.end
 
 while.body.us.preheader:                          ; preds = %entry
-  %div146 = lshr i32 %0, 2
-  %smax = add nsw i32 %div146, -1
+  %div118 = lshr i32 %0, 2
+  %smax = add nsw i32 %div118, -1
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %for.body.us
 
 for.body.us:                                      ; preds = %for.body.us.backedge, %while.body.us.preheader
   %indvars.iv = phi i64 [ 0, %while.body.us.preheader ], [ %indvars.iv.be, %for.body.us.backedge ]
-  %isSorted.0137.us = phi i8 [ 1, %while.body.us.preheader ], [ %isSorted.0137.us.be, %for.body.us.backedge ]
+  %isSorted.0109.us = phi i8 [ 1, %while.body.us.preheader ], [ %isSorted.0109.us.be, %for.body.us.backedge ]
   %1 = shl nsw i64 %indvars.iv, 2
   %2 = load i32, ptr %count.i, align 8
-  %cmp2.i.us = icmp sgt i32 %2, 0
   %3 = sext i32 %2 to i64
   %cmp5.i.us = icmp slt i64 %1, %3
-  %or.cond.i.us = and i1 %cmp2.i.us, %cmp5.i.us
-  br i1 %or.cond.i.us, label %cond.true.i.us, label %_ZNK6icu_759UVector3210elementAtiEi.exit.us
+  br i1 %cmp5.i.us, label %cond.true.i.us, label %_ZNK6icu_759UVector3210elementAtiEi.exit.us
 
 cond.true.i.us:                                   ; preds = %for.body.us
   %4 = load ptr, ptr %elements.i, align 8
@@ -1272,125 +1227,118 @@ cond.true.i.us:                                   ; preds = %for.body.us
 _ZNK6icu_759UVector3210elementAtiEi.exit.us:      ; preds = %cond.true.i.us, %for.body.us
   %cond.i.us = phi i32 [ %5, %cond.true.i.us ], [ 0, %for.body.us ]
   %6 = or disjoint i64 %1, 1
-  %cmp5.i40.us = icmp slt i64 %6, %3
-  %or.cond.i41.us = and i1 %cmp2.i.us, %cmp5.i40.us
-  br i1 %or.cond.i41.us, label %cond.true.i42.us, label %_ZNK6icu_759UVector3210elementAtiEi.exit46.us
+  %cmp5.i37.us = icmp slt i64 %6, %3
+  br i1 %cmp5.i37.us, label %cond.true.i40.us, label %_ZNK6icu_759UVector3210elementAtiEi.exit44.us
 
-cond.true.i42.us:                                 ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit.us
+cond.true.i40.us:                                 ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit.us
   %7 = load ptr, ptr %elements.i, align 8
-  %arrayidx.i45.us = getelementptr inbounds i32, ptr %7, i64 %6
-  %8 = load i32, ptr %arrayidx.i45.us, align 4
-  br label %_ZNK6icu_759UVector3210elementAtiEi.exit46.us
+  %arrayidx.i43.us = getelementptr inbounds i32, ptr %7, i64 %6
+  %8 = load i32, ptr %arrayidx.i43.us, align 4
+  br label %_ZNK6icu_759UVector3210elementAtiEi.exit44.us
 
-_ZNK6icu_759UVector3210elementAtiEi.exit46.us:    ; preds = %cond.true.i42.us, %_ZNK6icu_759UVector3210elementAtiEi.exit.us
-  %cond.i36.us = phi i32 [ %8, %cond.true.i42.us ], [ 0, %_ZNK6icu_759UVector3210elementAtiEi.exit.us ]
+_ZNK6icu_759UVector3210elementAtiEi.exit44.us:    ; preds = %cond.true.i40.us, %_ZNK6icu_759UVector3210elementAtiEi.exit.us
+  %cond.i39.us = phi i32 [ %8, %cond.true.i40.us ], [ 0, %_ZNK6icu_759UVector3210elementAtiEi.exit.us ]
   %9 = or disjoint i64 %1, 2
-  %cmp5.i52.us = icmp slt i64 %9, %3
-  %or.cond.i53.us = and i1 %cmp2.i.us, %cmp5.i52.us
-  br i1 %or.cond.i53.us, label %cond.true.i54.us, label %_ZNK6icu_759UVector3210elementAtiEi.exit58.us
+  %cmp5.i47.us = icmp slt i64 %9, %3
+  br i1 %cmp5.i47.us, label %cond.true.i50.us, label %_ZNK6icu_759UVector3210elementAtiEi.exit54.us
 
-cond.true.i54.us:                                 ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit46.us
+cond.true.i50.us:                                 ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit44.us
   %10 = load ptr, ptr %elements.i, align 8
-  %arrayidx.i57.us = getelementptr inbounds i32, ptr %10, i64 %9
-  %11 = load i32, ptr %arrayidx.i57.us, align 4
-  br label %_ZNK6icu_759UVector3210elementAtiEi.exit58.us
+  %arrayidx.i53.us = getelementptr inbounds i32, ptr %10, i64 %9
+  %11 = load i32, ptr %arrayidx.i53.us, align 4
+  br label %_ZNK6icu_759UVector3210elementAtiEi.exit54.us
 
-_ZNK6icu_759UVector3210elementAtiEi.exit58.us:    ; preds = %cond.true.i54.us, %_ZNK6icu_759UVector3210elementAtiEi.exit46.us
-  %cond.i48.us = phi i32 [ %11, %cond.true.i54.us ], [ 0, %_ZNK6icu_759UVector3210elementAtiEi.exit46.us ]
+_ZNK6icu_759UVector3210elementAtiEi.exit54.us:    ; preds = %cond.true.i50.us, %_ZNK6icu_759UVector3210elementAtiEi.exit44.us
+  %cond.i49.us = phi i32 [ %11, %cond.true.i50.us ], [ 0, %_ZNK6icu_759UVector3210elementAtiEi.exit44.us ]
   %12 = or disjoint i64 %1, 3
-  %cmp5.i64.us = icmp slt i64 %12, %3
-  %or.cond.i65.us = and i1 %cmp2.i.us, %cmp5.i64.us
-  br i1 %or.cond.i65.us, label %cond.true.i66.us, label %_ZNK6icu_759UVector3210elementAtiEi.exit70.us
+  %cmp5.i57.us = icmp slt i64 %12, %3
+  br i1 %cmp5.i57.us, label %cond.true.i60.us, label %_ZNK6icu_759UVector3210elementAtiEi.exit64.us
 
-cond.true.i66.us:                                 ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit58.us
+cond.true.i60.us:                                 ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit54.us
   %13 = load ptr, ptr %elements.i, align 8
-  %arrayidx.i69.us = getelementptr inbounds i32, ptr %13, i64 %12
-  %14 = load i32, ptr %arrayidx.i69.us, align 4
-  br label %_ZNK6icu_759UVector3210elementAtiEi.exit70.us
+  %arrayidx.i63.us = getelementptr inbounds i32, ptr %13, i64 %12
+  %14 = load i32, ptr %arrayidx.i63.us, align 4
+  br label %_ZNK6icu_759UVector3210elementAtiEi.exit64.us
 
-_ZNK6icu_759UVector3210elementAtiEi.exit70.us:    ; preds = %cond.true.i66.us, %_ZNK6icu_759UVector3210elementAtiEi.exit58.us
-  %cond.i60.us = phi i32 [ %14, %cond.true.i66.us ], [ 0, %_ZNK6icu_759UVector3210elementAtiEi.exit58.us ]
+_ZNK6icu_759UVector3210elementAtiEi.exit64.us:    ; preds = %cond.true.i60.us, %_ZNK6icu_759UVector3210elementAtiEi.exit54.us
+  %cond.i59.us = phi i32 [ %14, %cond.true.i60.us ], [ 0, %_ZNK6icu_759UVector3210elementAtiEi.exit54.us ]
   %15 = add nuw nsw i64 %1, 4
-  %cmp5.i76.us = icmp slt i64 %15, %3
-  %or.cond.i77.us = and i1 %cmp2.i.us, %cmp5.i76.us
-  br i1 %or.cond.i77.us, label %_ZNK6icu_759UVector3210elementAtiEi.exit82.thread.us, label %land.lhs.true.i85.us
+  %cmp5.i67.us = icmp slt i64 %15, %3
+  br i1 %cmp5.i67.us, label %cond.true.i70.us, label %_ZNK6icu_759UVector3210elementAtiEi.exit74.us
 
-_ZNK6icu_759UVector3210elementAtiEi.exit82.thread.us: ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit70.us
+cond.true.i70.us:                                 ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit64.us
   %16 = load ptr, ptr %elements.i, align 8
-  %arrayidx.i81.us = getelementptr inbounds i32, ptr %16, i64 %15
-  %17 = load i32, ptr %arrayidx.i81.us, align 4
-  br label %land.lhs.true.i85.us
+  %arrayidx.i73.us = getelementptr inbounds i32, ptr %16, i64 %15
+  %17 = load i32, ptr %arrayidx.i73.us, align 4
+  br label %_ZNK6icu_759UVector3210elementAtiEi.exit74.us
 
-land.lhs.true.i85.us:                             ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit82.thread.us, %_ZNK6icu_759UVector3210elementAtiEi.exit70.us
-  %cond.i72123.us = phi i32 [ %17, %_ZNK6icu_759UVector3210elementAtiEi.exit82.thread.us ], [ 0, %_ZNK6icu_759UVector3210elementAtiEi.exit70.us ]
+_ZNK6icu_759UVector3210elementAtiEi.exit74.us:    ; preds = %cond.true.i70.us, %_ZNK6icu_759UVector3210elementAtiEi.exit64.us
+  %cond.i69.us = phi i32 [ %17, %cond.true.i70.us ], [ 0, %_ZNK6icu_759UVector3210elementAtiEi.exit64.us ]
   %18 = add nuw nsw i64 %1, 5
-  %cmp5.i88.us = icmp slt i64 %18, %3
-  %or.cond.i89.us = and i1 %cmp2.i.us, %cmp5.i88.us
-  br i1 %or.cond.i89.us, label %cond.true.i90.us, label %_ZNK6icu_759UVector3210elementAtiEi.exit94.us
+  %cmp5.i77.us = icmp slt i64 %18, %3
+  br i1 %cmp5.i77.us, label %cond.true.i80.us, label %_ZNK6icu_759UVector3210elementAtiEi.exit84.us
 
-cond.true.i90.us:                                 ; preds = %land.lhs.true.i85.us
+cond.true.i80.us:                                 ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit74.us
   %19 = load ptr, ptr %elements.i, align 8
-  %arrayidx.i93.us = getelementptr inbounds i32, ptr %19, i64 %18
-  %20 = load i32, ptr %arrayidx.i93.us, align 4
+  %arrayidx.i83.us = getelementptr inbounds i32, ptr %19, i64 %18
+  %20 = load i32, ptr %arrayidx.i83.us, align 4
+  br label %_ZNK6icu_759UVector3210elementAtiEi.exit84.us
+
+_ZNK6icu_759UVector3210elementAtiEi.exit84.us:    ; preds = %cond.true.i80.us, %_ZNK6icu_759UVector3210elementAtiEi.exit74.us
+  %cond.i79.us = phi i32 [ %20, %cond.true.i80.us ], [ 0, %_ZNK6icu_759UVector3210elementAtiEi.exit74.us ]
+  %21 = add nuw nsw i64 %1, 6
+  %cmp5.i87.us = icmp slt i64 %21, %3
+  br i1 %cmp5.i87.us, label %cond.true.i90.us, label %_ZNK6icu_759UVector3210elementAtiEi.exit94.us
+
+cond.true.i90.us:                                 ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit84.us
+  %22 = load ptr, ptr %elements.i, align 8
+  %arrayidx.i93.us = getelementptr inbounds i32, ptr %22, i64 %21
+  %23 = load i32, ptr %arrayidx.i93.us, align 4
   br label %_ZNK6icu_759UVector3210elementAtiEi.exit94.us
 
-_ZNK6icu_759UVector3210elementAtiEi.exit94.us:    ; preds = %cond.true.i90.us, %land.lhs.true.i85.us
-  %cond.i84.us = phi i32 [ %20, %cond.true.i90.us ], [ 0, %land.lhs.true.i85.us ]
-  %21 = add nuw nsw i64 %1, 6
-  %cmp5.i100.us = icmp slt i64 %21, %3
-  %or.cond.i101.us = and i1 %cmp2.i.us, %cmp5.i100.us
-  br i1 %or.cond.i101.us, label %_ZNK6icu_759UVector3210elementAtiEi.exit106.thread.us, label %land.lhs.true.i109.us
-
-_ZNK6icu_759UVector3210elementAtiEi.exit106.thread.us: ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit94.us
-  %22 = load ptr, ptr %elements.i, align 8
-  %arrayidx.i105.us = getelementptr inbounds i32, ptr %22, i64 %21
-  %23 = load i32, ptr %arrayidx.i105.us, align 4
-  br label %land.lhs.true.i109.us
-
-land.lhs.true.i109.us:                            ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit106.thread.us, %_ZNK6icu_759UVector3210elementAtiEi.exit94.us
-  %cond.i96130.us = phi i32 [ %23, %_ZNK6icu_759UVector3210elementAtiEi.exit106.thread.us ], [ 0, %_ZNK6icu_759UVector3210elementAtiEi.exit94.us ]
+_ZNK6icu_759UVector3210elementAtiEi.exit94.us:    ; preds = %cond.true.i90.us, %_ZNK6icu_759UVector3210elementAtiEi.exit84.us
+  %cond.i89.us = phi i32 [ %23, %cond.true.i90.us ], [ 0, %_ZNK6icu_759UVector3210elementAtiEi.exit84.us ]
   %24 = add nuw nsw i64 %1, 7
-  %cmp5.i112.us = icmp slt i64 %24, %3
-  %or.cond.i113.us = and i1 %cmp2.i.us, %cmp5.i112.us
-  br i1 %or.cond.i113.us, label %cond.true.i114.us, label %_ZNK6icu_759UVector3210elementAtiEi.exit118.us
+  %cmp5.i97.us = icmp slt i64 %24, %3
+  br i1 %cmp5.i97.us, label %cond.true.i100.us, label %_ZNK6icu_759UVector3210elementAtiEi.exit104.us
 
-cond.true.i114.us:                                ; preds = %land.lhs.true.i109.us
+cond.true.i100.us:                                ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit94.us
   %25 = load ptr, ptr %elements.i, align 8
-  %arrayidx.i117.us = getelementptr inbounds i32, ptr %25, i64 %24
-  %26 = load i32, ptr %arrayidx.i117.us, align 4
-  br label %_ZNK6icu_759UVector3210elementAtiEi.exit118.us
+  %arrayidx.i103.us = getelementptr inbounds i32, ptr %25, i64 %24
+  %26 = load i32, ptr %arrayidx.i103.us, align 4
+  br label %_ZNK6icu_759UVector3210elementAtiEi.exit104.us
 
-_ZNK6icu_759UVector3210elementAtiEi.exit118.us:   ; preds = %cond.true.i114.us, %land.lhs.true.i109.us
-  %cond.i108.us = phi i32 [ %26, %cond.true.i114.us ], [ 0, %land.lhs.true.i109.us ]
-  %cmp32.not.us = icmp eq i32 %cond.i48.us, %cond.i96130.us
+_ZNK6icu_759UVector3210elementAtiEi.exit104.us:   ; preds = %cond.true.i100.us, %_ZNK6icu_759UVector3210elementAtiEi.exit94.us
+  %cond.i99.us = phi i32 [ %26, %cond.true.i100.us ], [ 0, %_ZNK6icu_759UVector3210elementAtiEi.exit94.us ]
+  %cmp32.not.us = icmp eq i32 %cond.i49.us, %cond.i89.us
   br i1 %cmp32.not.us, label %if.else.us, label %if.then.us
 
-if.then.us:                                       ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit118.us
-  %sub33.us = sub nsw i32 %cond.i96130.us, %cond.i48.us
+if.then.us:                                       ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit104.us
+  %sub33.us = sub nsw i32 %cond.i89.us, %cond.i49.us
   br label %if.end50.us
 
-if.else.us:                                       ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit118.us
-  %cmp34.not.us = icmp eq i32 %cond.i60.us, %cond.i108.us
+if.else.us:                                       ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit104.us
+  %cmp34.not.us = icmp eq i32 %cond.i59.us, %cond.i99.us
   br i1 %cmp34.not.us, label %if.else38.us, label %if.then35.us
 
 if.then35.us:                                     ; preds = %if.else.us
-  %sub36.us = sub nsw i32 %cond.i60.us, %cond.i108.us
+  %sub36.us = sub nsw i32 %cond.i59.us, %cond.i99.us
   br label %if.end50.us
 
 if.else38.us:                                     ; preds = %if.else.us
-  %cmp39.not.us = icmp eq i32 %cond.i.us, %cond.i72123.us
+  %cmp39.not.us = icmp eq i32 %cond.i.us, %cond.i69.us
   br i1 %cmp39.not.us, label %if.else43.us, label %if.then40.us
 
 if.then40.us:                                     ; preds = %if.else38.us
-  %sub41.us = sub nsw i32 %cond.i.us, %cond.i72123.us
+  %sub41.us = sub nsw i32 %cond.i.us, %cond.i69.us
   br label %if.end50.us
 
 if.else43.us:                                     ; preds = %if.else38.us
-  %cmp44.not.us = icmp eq i32 %cond.i36.us, %cond.i84.us
+  %cmp44.not.us = icmp eq i32 %cond.i39.us, %cond.i79.us
   br i1 %cmp44.not.us, label %for.inc.us, label %if.then45.us
 
 if.then45.us:                                     ; preds = %if.else43.us
-  %sub46.us = sub nsw i32 %cond.i84.us, %cond.i36.us
+  %sub46.us = sub nsw i32 %cond.i79.us, %cond.i39.us
   br label %if.end50.us
 
 if.end50.us:                                      ; preds = %if.then45.us, %if.then40.us, %if.then35.us, %if.then.us
@@ -1400,32 +1348,32 @@ if.end50.us:                                      ; preds = %if.then45.us, %if.t
 
 if.then52.us:                                     ; preds = %if.end50.us
   %27 = trunc i64 %1 to i32
-  tail call void @_ZN6icu_759UVector3212setElementAtEii(ptr noundef nonnull align 8 dereferenceable(32) %fFields, i32 noundef %cond.i72123.us, i32 noundef %27)
+  tail call void @_ZN6icu_759UVector3212setElementAtEii(ptr noundef nonnull align 8 dereferenceable(32) %fFields, i32 noundef %cond.i69.us, i32 noundef %27)
   %28 = trunc i64 %6 to i32
-  tail call void @_ZN6icu_759UVector3212setElementAtEii(ptr noundef nonnull align 8 dereferenceable(32) %fFields, i32 noundef %cond.i84.us, i32 noundef %28)
+  tail call void @_ZN6icu_759UVector3212setElementAtEii(ptr noundef nonnull align 8 dereferenceable(32) %fFields, i32 noundef %cond.i79.us, i32 noundef %28)
   %29 = trunc i64 %9 to i32
-  tail call void @_ZN6icu_759UVector3212setElementAtEii(ptr noundef nonnull align 8 dereferenceable(32) %fFields, i32 noundef %cond.i96130.us, i32 noundef %29)
+  tail call void @_ZN6icu_759UVector3212setElementAtEii(ptr noundef nonnull align 8 dereferenceable(32) %fFields, i32 noundef %cond.i89.us, i32 noundef %29)
   %30 = trunc i64 %12 to i32
-  tail call void @_ZN6icu_759UVector3212setElementAtEii(ptr noundef nonnull align 8 dereferenceable(32) %fFields, i32 noundef %cond.i108.us, i32 noundef %30)
+  tail call void @_ZN6icu_759UVector3212setElementAtEii(ptr noundef nonnull align 8 dereferenceable(32) %fFields, i32 noundef %cond.i99.us, i32 noundef %30)
   %31 = trunc i64 %15 to i32
   tail call void @_ZN6icu_759UVector3212setElementAtEii(ptr noundef nonnull align 8 dereferenceable(32) %fFields, i32 noundef %cond.i.us, i32 noundef %31)
   %32 = trunc i64 %18 to i32
-  tail call void @_ZN6icu_759UVector3212setElementAtEii(ptr noundef nonnull align 8 dereferenceable(32) %fFields, i32 noundef %cond.i36.us, i32 noundef %32)
+  tail call void @_ZN6icu_759UVector3212setElementAtEii(ptr noundef nonnull align 8 dereferenceable(32) %fFields, i32 noundef %cond.i39.us, i32 noundef %32)
   %33 = trunc i64 %21 to i32
-  tail call void @_ZN6icu_759UVector3212setElementAtEii(ptr noundef nonnull align 8 dereferenceable(32) %fFields, i32 noundef %cond.i48.us, i32 noundef %33)
+  tail call void @_ZN6icu_759UVector3212setElementAtEii(ptr noundef nonnull align 8 dereferenceable(32) %fFields, i32 noundef %cond.i49.us, i32 noundef %33)
   %34 = trunc i64 %24 to i32
-  tail call void @_ZN6icu_759UVector3212setElementAtEii(ptr noundef nonnull align 8 dereferenceable(32) %fFields, i32 noundef %cond.i60.us, i32 noundef %34)
+  tail call void @_ZN6icu_759UVector3212setElementAtEii(ptr noundef nonnull align 8 dereferenceable(32) %fFields, i32 noundef %cond.i59.us, i32 noundef %34)
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.then52.us, %if.end50.us, %if.else43.us
-  %isSorted.1.us = phi i8 [ 0, %if.then52.us ], [ %isSorted.0137.us, %if.end50.us ], [ %isSorted.0137.us, %if.else43.us ]
+  %isSorted.1.us = phi i8 [ 0, %if.then52.us ], [ %isSorted.0109.us, %if.end50.us ], [ %isSorted.0109.us, %if.else43.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.cond.for.end_crit_edge.us, label %for.body.us.backedge
 
 for.body.us.backedge:                             ; preds = %for.inc.us, %for.cond.for.end_crit_edge.us
   %indvars.iv.be = phi i64 [ %indvars.iv.next, %for.inc.us ], [ 0, %for.cond.for.end_crit_edge.us ]
-  %isSorted.0137.us.be = phi i8 [ %isSorted.1.us, %for.inc.us ], [ 1, %for.cond.for.end_crit_edge.us ]
+  %isSorted.0109.us.be = phi i8 [ %isSorted.1.us, %for.inc.us ], [ 1, %for.cond.for.end_crit_edge.us ]
   br label %for.body.us, !llvm.loop !9
 
 for.cond.for.end_crit_edge.us:                    ; preds = %for.inc.us

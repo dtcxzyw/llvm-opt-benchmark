@@ -503,32 +503,28 @@ _ZNK6icu_759UVector3210elementAtiEi.exit:         ; preds = %if.then
   tail call void @_ZN6icu_759UVector3212setElementAtEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %add, i32 noundef %dec)
   %dec8 = add nsw i32 %2, -2
   %5 = load ptr, ptr %vec, align 8
-  %cmp.i11.not = icmp eq i32 %2, 1
-  br i1 %cmp.i11.not, label %_ZNK6icu_759UVector3210elementAtiEi.exit22, label %land.lhs.true.i13
+  %cmp.i11 = icmp ne i32 %2, 1
+  %count.i12 = getelementptr inbounds %"class.icu_75::UVector32", ptr %5, i64 0, i32 1
+  %6 = load i32, ptr %count.i12, align 8
+  %cmp5.i13 = icmp sgt i32 %6, %dec8
+  %or.cond.i14 = select i1 %cmp.i11, i1 %cmp5.i13, i1 false
+  br i1 %or.cond.i14, label %cond.true.i16, label %_ZNK6icu_759UVector3210elementAtiEi.exit20
 
-land.lhs.true.i13:                                ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit
-  %count.i14 = getelementptr inbounds %"class.icu_75::UVector32", ptr %5, i64 0, i32 1
-  %6 = load i32, ptr %count.i14, align 8
-  %cmp2.i15 = icmp sgt i32 %6, 0
-  %cmp5.i16 = icmp sgt i32 %6, %dec8
-  %or.cond.i17 = and i1 %cmp2.i15, %cmp5.i16
-  br i1 %or.cond.i17, label %cond.true.i18, label %_ZNK6icu_759UVector3210elementAtiEi.exit22
+cond.true.i16:                                    ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit
+  %elements.i17 = getelementptr inbounds %"class.icu_75::UVector32", ptr %5, i64 0, i32 4
+  %7 = load ptr, ptr %elements.i17, align 8
+  %idxprom.i18 = zext nneg i32 %dec8 to i64
+  %arrayidx.i19 = getelementptr inbounds i32, ptr %7, i64 %idxprom.i18
+  %8 = load i32, ptr %arrayidx.i19, align 4
+  br label %_ZNK6icu_759UVector3210elementAtiEi.exit20
 
-cond.true.i18:                                    ; preds = %land.lhs.true.i13
-  %elements.i19 = getelementptr inbounds %"class.icu_75::UVector32", ptr %5, i64 0, i32 4
-  %7 = load ptr, ptr %elements.i19, align 8
-  %idxprom.i20 = zext nneg i32 %dec8 to i64
-  %arrayidx.i21 = getelementptr inbounds i32, ptr %7, i64 %idxprom.i20
-  %8 = load i32, ptr %arrayidx.i21, align 4
-  br label %_ZNK6icu_759UVector3210elementAtiEi.exit22
-
-_ZNK6icu_759UVector3210elementAtiEi.exit22:       ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit, %land.lhs.true.i13, %cond.true.i18
-  %cond.i12 = phi i32 [ %8, %cond.true.i18 ], [ 0, %land.lhs.true.i13 ], [ 0, %_ZNK6icu_759UVector3210elementAtiEi.exit ]
-  %add12 = add nsw i32 %cond.i12, %delta
+_ZNK6icu_759UVector3210elementAtiEi.exit20:       ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit, %cond.true.i16
+  %cond.i15 = phi i32 [ %8, %cond.true.i16 ], [ 0, %_ZNK6icu_759UVector3210elementAtiEi.exit ]
+  %add12 = add nsw i32 %cond.i15, %delta
   tail call void @_ZN6icu_759UVector3212setElementAtEii(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef %add12, i32 noundef %dec8)
   br label %if.end13
 
-if.end13:                                         ; preds = %if.then, %_ZNK6icu_759UVector3210elementAtiEi.exit22, %entry
+if.end13:                                         ; preds = %if.then, %_ZNK6icu_759UVector3210elementAtiEi.exit20, %entry
   ret void
 }
 

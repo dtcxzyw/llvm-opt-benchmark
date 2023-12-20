@@ -383,15 +383,11 @@ if.then:                                          ; preds = %land.lhs.true3
   %inc = zext i1 %cmp6.not to i32
   %spec.select = add nsw i32 %4, %inc
   %cmp.i2 = icmp sgt i32 %spec.select, -1
-  br i1 %cmp.i2, label %land.lhs.true.i, label %return
-
-land.lhs.true.i:                                  ; preds = %if.then
-  %cmp2.i = icmp sgt i32 %2, 0
   %cmp5.i = icmp sgt i32 %2, %spec.select
-  %or.cond.i = and i1 %cmp2.i, %cmp5.i
+  %or.cond.i = and i1 %cmp.i2, %cmp5.i
   br i1 %or.cond.i, label %cond.true.i, label %return
 
-cond.true.i:                                      ; preds = %land.lhs.true.i
+cond.true.i:                                      ; preds = %if.then
   %elements.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %1, i64 0, i32 4
   %6 = load ptr, ptr %elements.i, align 8
   %idxprom.i = zext nneg i32 %spec.select to i64
@@ -408,8 +404,8 @@ if.end10:                                         ; preds = %land.lhs.true3, %la
   %call12 = tail call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(389) %8)
   br label %return
 
-return:                                           ; preds = %cond.true.i, %land.lhs.true.i, %if.then, %if.end10
-  %retval.0 = phi i32 [ %call12, %if.end10 ], [ %7, %cond.true.i ], [ 0, %land.lhs.true.i ], [ 0, %if.then ]
+return:                                           ; preds = %cond.true.i, %if.then, %if.end10
+  %retval.0 = phi i32 [ %call12, %if.end10 ], [ %7, %cond.true.i ], [ 0, %if.then ]
   ret i32 %retval.0
 }
 

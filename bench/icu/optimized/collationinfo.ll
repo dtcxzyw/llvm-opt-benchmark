@@ -297,11 +297,11 @@ for.cond.preheader:                               ; preds = %invoke.cont
   %count.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %ranges, i64 0, i32 1
   %1 = load i32, ptr %count.i, align 8
   %cmp29 = icmp sgt i32 %1, 0
-  br i1 %cmp29, label %for.body.lr.ph, label %cleanup
+  br i1 %cmp29, label %_ZNK6icu_759UVector3210elementAtiEi.exit.lr.ph, label %cleanup
 
-for.body.lr.ph:                                   ; preds = %for.cond.preheader
+_ZNK6icu_759UVector3210elementAtiEi.exit.lr.ph:   ; preds = %for.cond.preheader
   %elements.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %ranges, i64 0, i32 4
-  br label %for.body
+  br label %_ZNK6icu_759UVector3210elementAtiEi.exit
 
 if.then:                                          ; preds = %invoke.cont
   %call3 = invoke ptr @u_errorName_75(i32 noundef %0)
@@ -317,26 +317,20 @@ lpad:                                             ; preds = %if.then, %entry
   call void @_ZN6icu_759UVector32D1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ranges) #6
   resume { ptr, i32 } %2
 
-for.body:                                         ; preds = %for.body.lr.ph, %if.end36
-  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end36 ]
-  %3 = phi i32 [ %1, %for.body.lr.ph ], [ %6, %if.end36 ]
-  %start.032 = phi i32 [ 0, %for.body.lr.ph ], [ %shr28, %if.end36 ]
-  %cmp2.i = icmp sgt i32 %3, 0
-  br i1 %cmp2.i, label %_ZNK6icu_759UVector3210elementAtiEi.exit, label %if.then12
-
-_ZNK6icu_759UVector3210elementAtiEi.exit:         ; preds = %for.body
-  %4 = load ptr, ptr %elements.i, align 8
-  %arrayidx.i = getelementptr inbounds i32, ptr %4, i64 %indvars.iv
-  %5 = load i32, ptr %arrayidx.i, align 4
-  %shr = lshr i32 %5, 16
-  %sext = shl i32 %5, 16
+_ZNK6icu_759UVector3210elementAtiEi.exit:         ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit.lr.ph, %if.end36
+  %indvars.iv = phi i64 [ 0, %_ZNK6icu_759UVector3210elementAtiEi.exit.lr.ph ], [ %indvars.iv.next, %if.end36 ]
+  %start.031 = phi i32 [ 0, %_ZNK6icu_759UVector3210elementAtiEi.exit.lr.ph ], [ %shr, %if.end36 ]
+  %3 = load ptr, ptr %elements.i, align 8
+  %arrayidx.i = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
+  %4 = load i32, ptr %arrayidx.i, align 4
+  %shr = lshr i32 %4, 16
+  %sext = shl i32 %4, 16
   %conv10 = ashr exact i32 %sext, 16
   %cmp11 = icmp eq i32 %sext, 0
   br i1 %cmp11, label %if.then12, label %if.else
 
-if.then12:                                        ; preds = %for.body, %_ZNK6icu_759UVector3210elementAtiEi.exit
-  %shr27 = phi i32 [ %shr, %_ZNK6icu_759UVector3210elementAtiEi.exit ], [ 0, %for.body ]
-  %call14 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %start.032, i32 noundef %shr27)
+if.then12:                                        ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit
+  %call14 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %start.031, i32 noundef %shr)
   br label %if.end36
 
 if.else:                                          ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit
@@ -345,26 +339,25 @@ if.else:                                          ; preds = %_ZNK6icu_759UVector
 
 if.then17:                                        ; preds = %if.else
   %shl = lshr exact i32 %sext, 8
-  %add = add nuw nsw i32 %shl, %start.032
+  %add = add nuw nsw i32 %shl, %start.031
   %add22 = add nuw nsw i32 %shl, %shr
-  %call24 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, i32 noundef %start.032, i32 noundef %shr, i32 noundef %conv10, i32 noundef %add, i32 noundef %add22)
+  %call24 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, i32 noundef %start.031, i32 noundef %shr, i32 noundef %conv10, i32 noundef %add, i32 noundef %add22)
   br label %if.end36
 
 if.else25:                                        ; preds = %if.else
   %sub = sub nsw i32 0, %conv10
   %shl28 = ashr exact i32 %sext, 8
-  %add29 = add nsw i32 %shl28, %start.032
+  %add29 = add nsw i32 %shl28, %start.031
   %add32 = add nsw i32 %shl28, %shr
-  %call34 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %start.032, i32 noundef %shr, i32 noundef %sub, i32 noundef %add29, i32 noundef %add32)
+  %call34 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %start.031, i32 noundef %shr, i32 noundef %sub, i32 noundef %add29, i32 noundef %add32)
   br label %if.end36
 
 if.end36:                                         ; preds = %if.then17, %if.else25, %if.then12
-  %shr28 = phi i32 [ %shr, %if.then17 ], [ %shr, %if.else25 ], [ %shr27, %if.then12 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %6 = load i32, ptr %count.i, align 8
-  %7 = sext i32 %6 to i64
-  %cmp = icmp slt i64 %indvars.iv.next, %7
-  br i1 %cmp, label %for.body, label %cleanup, !llvm.loop !4
+  %5 = load i32, ptr %count.i, align 8
+  %6 = sext i32 %5 to i64
+  %cmp = icmp slt i64 %indvars.iv.next, %6
+  br i1 %cmp, label %_ZNK6icu_759UVector3210elementAtiEi.exit, label %cleanup, !llvm.loop !4
 
 cleanup:                                          ; preds = %if.end36, %for.cond.preheader, %invoke.cont2
   call void @_ZN6icu_759UVector32D1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ranges) #6

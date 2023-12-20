@@ -1213,8 +1213,8 @@ if.end:                                           ; preds = %entry
   %type = getelementptr inbounds %"class.icu_75::PluralRuleParser", ptr %this, i64 0, i32 4
   %currentChain217 = getelementptr inbounds %"class.icu_75::PluralRuleParser", ptr %this, i64 0, i32 7
   %token220 = getelementptr inbounds %"class.icu_75::PluralRuleParser", ptr %this, i64 0, i32 3
-  %fUnion.i.i.i254 = getelementptr inbounds %"class.icu_75::PluralRuleParser", ptr %this, i64 0, i32 3, i32 1
-  %fLength.i.i257 = getelementptr inbounds %"class.icu_75::PluralRuleParser", ptr %this, i64 0, i32 3, i32 1, i32 0, i32 1
+  %fUnion.i.i.i250 = getelementptr inbounds %"class.icu_75::PluralRuleParser", ptr %this, i64 0, i32 3, i32 1
+  %fLength.i.i253 = getelementptr inbounds %"class.icu_75::PluralRuleParser", ptr %this, i64 0, i32 3, i32 1, i32 0, i32 1
   %mRules = getelementptr inbounds %"class.icu_75::PluralRules", ptr %prules, i64 0, i32 1
   %curAndConstraint198 = getelementptr inbounds %"class.icu_75::PluralRuleParser", ptr %this, i64 0, i32 6
   %rangeLowIdx126 = getelementptr inbounds %"class.icu_75::PluralRuleParser", ptr %this, i64 0, i32 8
@@ -1276,14 +1276,14 @@ if.end11:                                         ; preds = %if.end7
 for.cond.preheader:                               ; preds = %if.end11
   call void @_ZN6icu_7516PluralRuleParser12getNextTokenER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %9 = load i32, ptr %status, align 4
-  %cmp.i252285 = icmp slt i32 %9, 1
-  br i1 %cmp.i252285, label %lor.lhs.false203, label %sw.epilog
+  %cmp.i248281 = icmp slt i32 %9, 1
+  br i1 %cmp.i248281, label %lor.lhs.false203, label %sw.epilog
 
 for.cond223.preheader:                            ; preds = %if.end11
   call void @_ZN6icu_7516PluralRuleParser12getNextTokenER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %10 = load i32, ptr %status, align 4
-  %cmp.i259292 = icmp slt i32 %10, 1
-  br i1 %cmp.i259292, label %lor.lhs.false226, label %sw.epilog
+  %cmp.i255288 = icmp slt i32 %10, 1
+  br i1 %cmp.i255288, label %lor.lhs.false226, label %sw.epilog
 
 sw.bb:                                            ; preds = %if.end11
   %11 = load ptr, ptr %curAndConstraint198, align 8
@@ -1440,8 +1440,8 @@ if.then.i77:                                      ; preds = %new.cont41
   br label %sw.epilog
 
 _ZN6icu_7512LocalPointerINS_9UVector32EEC2EPS1_R10UErrorCode.exit: ; preds = %new.notnull38
-  %.pre296 = load i32, ptr %status, align 4
-  %cmp.i79 = icmp slt i32 %.pre296, 1
+  %.pre292 = load i32, ptr %status, align 4
+  %cmp.i79 = icmp slt i32 %.pre292, 1
   br i1 %cmp.i79, label %if.end47, label %delete.notnull.i106
 
 lpad:                                             ; preds = %new.notnull38
@@ -1559,11 +1559,11 @@ land.lhs.true:                                    ; preds = %sw.bb61
 
 if.then66:                                        ; preds = %land.lhs.true
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %digits.i)
-  %47 = load i16, ptr %fUnion.i.i.i254, align 8
+  %47 = load i16, ptr %fUnion.i.i.i250, align 8
   %cmp.i.i.i = icmp slt i16 %47, 0
   %48 = ashr i16 %47, 5
   %shr.i.i.i = sext i16 %48 to i32
-  %49 = load i32, ptr %fLength.i.i257, align 4
+  %49 = load i32, ptr %fLength.i.i253, align 4
   %cond.i.i = select i1 %cmp.i.i.i, i32 %49, i32 %shr.i.i.i
   %call1.i = call noundef i32 @_ZNK6icu_7513UnicodeString7extractEiiPciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %token220, i32 noundef 0, i32 noundef %cond.i.i, ptr noundef nonnull %digits.i, i32 noundef 128, i32 noundef 0)
   %idxprom.i110 = sext i32 %call1.i to i64
@@ -1584,11 +1584,11 @@ if.else:                                          ; preds = %land.lhs.true, %sw.
 
 if.then73:                                        ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %digits.i113)
-  %52 = load i16, ptr %fUnion.i.i.i254, align 8
+  %52 = load i16, ptr %fUnion.i.i.i250, align 8
   %cmp.i.i.i115 = icmp slt i16 %52, 0
   %53 = ashr i16 %52, 5
   %shr.i.i.i116 = sext i16 %53 to i32
-  %54 = load i32, ptr %fLength.i.i257, align 4
+  %54 = load i32, ptr %fLength.i.i253, align 4
   %cond.i.i118 = select i1 %cmp.i.i.i115, i32 %54, i32 %shr.i.i.i116
   %call1.i119 = call noundef i32 @_ZNK6icu_7513UnicodeString7extractEiiPciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %token220, i32 noundef 0, i32 noundef %cond.i.i118, ptr noundef nonnull %digits.i113, i32 noundef 128, i32 noundef 0)
   %idxprom.i120 = sext i32 %call1.i119 to i64
@@ -1604,17 +1604,13 @@ if.then73:                                        ; preds = %if.else
 if.else78:                                        ; preds = %if.else
   %56 = load i32, ptr %rangeLowIdx126, align 8
   %cmp.i123 = icmp sgt i32 %56, -1
-  br i1 %cmp.i123, label %land.lhs.true.i, label %if.else95
-
-land.lhs.true.i:                                  ; preds = %if.else78
-  %count.i125 = getelementptr inbounds %"class.icu_75::UVector32", ptr %51, i64 0, i32 1
-  %57 = load i32, ptr %count.i125, align 8
-  %cmp2.i = icmp sgt i32 %57, 0
+  %count.i124 = getelementptr inbounds %"class.icu_75::UVector32", ptr %51, i64 0, i32 1
+  %57 = load i32, ptr %count.i124, align 8
   %cmp5.i = icmp sgt i32 %57, %56
-  %or.cond.i126 = and i1 %cmp2.i, %cmp5.i
-  br i1 %or.cond.i126, label %_ZNK6icu_759UVector3210elementAtiEi.exit, label %if.else95
+  %or.cond.i125 = select i1 %cmp.i123, i1 %cmp5.i, i1 false
+  br i1 %or.cond.i125, label %_ZNK6icu_759UVector3210elementAtiEi.exit, label %if.else95
 
-_ZNK6icu_759UVector3210elementAtiEi.exit:         ; preds = %land.lhs.true.i
+_ZNK6icu_759UVector3210elementAtiEi.exit:         ; preds = %if.else78
   %elements.i127 = getelementptr inbounds %"class.icu_75::UVector32", ptr %51, i64 0, i32 4
   %58 = load ptr, ptr %elements.i127, align 8
   %idxprom.i128 = zext nneg i32 %56 to i64
@@ -1625,11 +1621,11 @@ _ZNK6icu_759UVector3210elementAtiEi.exit:         ; preds = %land.lhs.true.i
 
 if.then84:                                        ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %digits.i130)
-  %60 = load i16, ptr %fUnion.i.i.i254, align 8
+  %60 = load i16, ptr %fUnion.i.i.i250, align 8
   %cmp.i.i.i132 = icmp slt i16 %60, 0
   %61 = ashr i16 %60, 5
   %shr.i.i.i133 = sext i16 %61 to i32
-  %62 = load i32, ptr %fLength.i.i257, align 4
+  %62 = load i32, ptr %fLength.i.i253, align 4
   %cond.i.i135 = select i1 %cmp.i.i.i132, i32 %62, i32 %shr.i.i.i133
   %call1.i136 = call noundef i32 @_ZNK6icu_7513UnicodeString7extractEiiPciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %token220, i32 noundef 0, i32 noundef %cond.i.i135, ptr noundef nonnull %digits.i130, i32 noundef 128, i32 noundef 0)
   %idxprom.i137 = sext i32 %call1.i136 to i64
@@ -1643,11 +1639,11 @@ if.then84:                                        ; preds = %_ZNK6icu_759UVector
   %rangeList91 = getelementptr inbounds %"class.icu_75::AndConstraint", ptr %64, i64 0, i32 5
   %65 = load ptr, ptr %rangeList91, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %digits.i140)
-  %66 = load i16, ptr %fUnion.i.i.i254, align 8
+  %66 = load i16, ptr %fUnion.i.i.i250, align 8
   %cmp.i.i.i142 = icmp slt i16 %66, 0
   %67 = ashr i16 %66, 5
   %shr.i.i.i143 = sext i16 %67 to i32
-  %68 = load i32, ptr %fLength.i.i257, align 4
+  %68 = load i32, ptr %fLength.i.i253, align 4
   %cond.i.i145 = select i1 %cmp.i.i.i142, i32 %68, i32 %shr.i.i.i143
   %call1.i146 = call noundef i32 @_ZNK6icu_7513UnicodeString7extractEiiPciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %token220, i32 noundef 0, i32 noundef %cond.i.i145, ptr noundef nonnull %digits.i140, i32 noundef 128, i32 noundef 0)
   %idxprom.i147 = sext i32 %call1.i146 to i64
@@ -1659,13 +1655,13 @@ if.then84:                                        ; preds = %_ZNK6icu_759UVector
   call void @_ZN6icu_759UVector3212setElementAtEii(ptr noundef nonnull align 8 dereferenceable(32) %65, i32 noundef %call3.i149, i32 noundef %69)
   br label %sw.epilog
 
-if.else95:                                        ; preds = %if.else78, %land.lhs.true.i, %_ZNK6icu_759UVector3210elementAtiEi.exit
+if.else95:                                        ; preds = %if.else78, %_ZNK6icu_759UVector3210elementAtiEi.exit
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %digits.i150)
-  %70 = load i16, ptr %fUnion.i.i.i254, align 8
+  %70 = load i16, ptr %fUnion.i.i.i250, align 8
   %cmp.i.i.i152 = icmp slt i16 %70, 0
   %71 = ashr i16 %70, 5
   %shr.i.i.i153 = sext i16 %71 to i32
-  %72 = load i32, ptr %fLength.i.i257, align 4
+  %72 = load i32, ptr %fLength.i.i253, align 4
   %cond.i.i155 = select i1 %cmp.i.i.i152, i32 %72, i32 %shr.i.i.i153
   %call1.i156 = call noundef i32 @_ZNK6icu_7513UnicodeString7extractEiiPciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %token220, i32 noundef 0, i32 noundef %cond.i.i155, ptr noundef nonnull %digits.i150, i32 noundef 128, i32 noundef 0)
   %idxprom.i157 = sext i32 %call1.i156 to i64
@@ -1680,64 +1676,54 @@ if.else95:                                        ; preds = %if.else78, %land.lh
   %75 = load ptr, ptr %rangeList102, align 8
   %76 = load i32, ptr %rangeLowIdx126, align 8
   %cmp.i160 = icmp sgt i32 %76, -1
-  br i1 %cmp.i160, label %land.lhs.true.i162, label %_ZNK6icu_759UVector3210elementAtiEi.exit171
+  %count.i161 = getelementptr inbounds %"class.icu_75::UVector32", ptr %75, i64 0, i32 1
+  %77 = load i32, ptr %count.i161, align 8
+  %cmp5.i162 = icmp sgt i32 %77, %76
+  %or.cond.i163 = select i1 %cmp.i160, i1 %cmp5.i162, i1 false
+  br i1 %or.cond.i163, label %cond.true.i165, label %_ZNK6icu_759UVector3210elementAtiEi.exit169
 
-land.lhs.true.i162:                               ; preds = %if.else95
-  %count.i163 = getelementptr inbounds %"class.icu_75::UVector32", ptr %75, i64 0, i32 1
-  %77 = load i32, ptr %count.i163, align 8
-  %cmp2.i164 = icmp sgt i32 %77, 0
-  %cmp5.i165 = icmp sgt i32 %77, %76
-  %or.cond.i166 = and i1 %cmp2.i164, %cmp5.i165
-  br i1 %or.cond.i166, label %cond.true.i167, label %_ZNK6icu_759UVector3210elementAtiEi.exit171
+cond.true.i165:                                   ; preds = %if.else95
+  %elements.i166 = getelementptr inbounds %"class.icu_75::UVector32", ptr %75, i64 0, i32 4
+  %78 = load ptr, ptr %elements.i166, align 8
+  %idxprom.i167 = zext nneg i32 %76 to i64
+  %arrayidx.i168 = getelementptr inbounds i32, ptr %78, i64 %idxprom.i167
+  %79 = load i32, ptr %arrayidx.i168, align 4
+  br label %_ZNK6icu_759UVector3210elementAtiEi.exit169
 
-cond.true.i167:                                   ; preds = %land.lhs.true.i162
-  %elements.i168 = getelementptr inbounds %"class.icu_75::UVector32", ptr %75, i64 0, i32 4
-  %78 = load ptr, ptr %elements.i168, align 8
-  %idxprom.i169 = zext nneg i32 %76 to i64
-  %arrayidx.i170 = getelementptr inbounds i32, ptr %78, i64 %idxprom.i169
-  %79 = load i32, ptr %arrayidx.i170, align 4
-  br label %_ZNK6icu_759UVector3210elementAtiEi.exit171
-
-_ZNK6icu_759UVector3210elementAtiEi.exit171:      ; preds = %if.else95, %land.lhs.true.i162, %cond.true.i167
-  %cond.i161 = phi i32 [ %79, %cond.true.i167 ], [ 0, %land.lhs.true.i162 ], [ 0, %if.else95 ]
+_ZNK6icu_759UVector3210elementAtiEi.exit169:      ; preds = %if.else95, %cond.true.i165
+  %cond.i164 = phi i32 [ %79, %cond.true.i165 ], [ 0, %if.else95 ]
   %80 = load i32, ptr %rangeHiIdx132, align 4
-  %cmp.i172 = icmp sgt i32 %80, -1
-  br i1 %cmp.i172, label %land.lhs.true.i174, label %_ZNK6icu_759UVector3210elementAtiEi.exit183
+  %cmp.i170 = icmp sgt i32 %80, -1
+  %cmp5.i172 = icmp sgt i32 %77, %80
+  %or.cond.i173 = select i1 %cmp.i170, i1 %cmp5.i172, i1 false
+  br i1 %or.cond.i173, label %cond.true.i175, label %_ZNK6icu_759UVector3210elementAtiEi.exit179
 
-land.lhs.true.i174:                               ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit171
-  %count.i175 = getelementptr inbounds %"class.icu_75::UVector32", ptr %75, i64 0, i32 1
-  %81 = load i32, ptr %count.i175, align 8
-  %cmp2.i176 = icmp sgt i32 %81, 0
-  %cmp5.i177 = icmp sgt i32 %81, %80
-  %or.cond.i178 = and i1 %cmp2.i176, %cmp5.i177
-  br i1 %or.cond.i178, label %cond.true.i179, label %_ZNK6icu_759UVector3210elementAtiEi.exit183
+cond.true.i175:                                   ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit169
+  %elements.i176 = getelementptr inbounds %"class.icu_75::UVector32", ptr %75, i64 0, i32 4
+  %81 = load ptr, ptr %elements.i176, align 8
+  %idxprom.i177 = zext nneg i32 %80 to i64
+  %arrayidx.i178 = getelementptr inbounds i32, ptr %81, i64 %idxprom.i177
+  %82 = load i32, ptr %arrayidx.i178, align 4
+  br label %_ZNK6icu_759UVector3210elementAtiEi.exit179
 
-cond.true.i179:                                   ; preds = %land.lhs.true.i174
-  %elements.i180 = getelementptr inbounds %"class.icu_75::UVector32", ptr %75, i64 0, i32 4
-  %82 = load ptr, ptr %elements.i180, align 8
-  %idxprom.i181 = zext nneg i32 %80 to i64
-  %arrayidx.i182 = getelementptr inbounds i32, ptr %82, i64 %idxprom.i181
-  %83 = load i32, ptr %arrayidx.i182, align 4
-  br label %_ZNK6icu_759UVector3210elementAtiEi.exit183
-
-_ZNK6icu_759UVector3210elementAtiEi.exit183:      ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit171, %land.lhs.true.i174, %cond.true.i179
-  %cond.i173 = phi i32 [ %83, %cond.true.i179 ], [ 0, %land.lhs.true.i174 ], [ 0, %_ZNK6icu_759UVector3210elementAtiEi.exit171 ]
-  %cmp109 = icmp sgt i32 %cond.i161, %cond.i173
+_ZNK6icu_759UVector3210elementAtiEi.exit179:      ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit169, %cond.true.i175
+  %cond.i174 = phi i32 [ %82, %cond.true.i175 ], [ 0, %_ZNK6icu_759UVector3210elementAtiEi.exit169 ]
+  %cmp109 = icmp sgt i32 %cond.i164, %cond.i174
   br i1 %cmp109, label %if.then110, label %sw.epilog
 
-if.then110:                                       ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit183
+if.then110:                                       ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit179
   store i32 65792, ptr %status, align 4
   br label %sw.epilog
 
 sw.bb115:                                         ; preds = %if.end11
-  %84 = load ptr, ptr %curAndConstraint198, align 8
-  %cmp117 = icmp eq ptr %84, null
+  %83 = load ptr, ptr %curAndConstraint198, align 8
+  %cmp117 = icmp eq ptr %83, null
   br i1 %cmp117, label %if.then121, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %sw.bb115
-  %rangeList119 = getelementptr inbounds %"class.icu_75::AndConstraint", ptr %84, i64 0, i32 5
-  %85 = load ptr, ptr %rangeList119, align 8
-  %cmp120 = icmp eq ptr %85, null
+  %rangeList119 = getelementptr inbounds %"class.icu_75::AndConstraint", ptr %83, i64 0, i32 5
+  %84 = load ptr, ptr %rangeList119, align 8
+  %cmp120 = icmp eq ptr %84, null
   br i1 %cmp120, label %if.then121, label %if.end122
 
 if.then121:                                       ; preds = %lor.lhs.false, %sw.bb115
@@ -1745,89 +1731,89 @@ if.then121:                                       ; preds = %lor.lhs.false, %sw.
   br label %sw.epilog
 
 if.end122:                                        ; preds = %lor.lhs.false
-  %count.i184 = getelementptr inbounds %"class.icu_75::UVector32", ptr %85, i64 0, i32 1
-  %86 = load i32, ptr %count.i184, align 8
-  store i32 %86, ptr %rangeLowIdx126, align 8
-  %87 = load ptr, ptr %rangeList119, align 8
-  %count.i185 = getelementptr inbounds %"class.icu_75::UVector32", ptr %87, i64 0, i32 1
-  %88 = load i32, ptr %count.i185, align 8
-  %cmp.i.i186 = icmp slt i32 %88, -1
-  %capacity.i.i187 = getelementptr inbounds %"class.icu_75::UVector32", ptr %87, i64 0, i32 2
-  %89 = load i32, ptr %capacity.i.i187, align 4
-  %cmp2.not.i.i188 = icmp sle i32 %89, %88
-  %or.cond.i.i189 = select i1 %cmp.i.i186, i1 true, i1 %cmp2.not.i.i188
-  br i1 %or.cond.i.i189, label %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i196, label %if.then.i190
+  %count.i180 = getelementptr inbounds %"class.icu_75::UVector32", ptr %84, i64 0, i32 1
+  %85 = load i32, ptr %count.i180, align 8
+  store i32 %85, ptr %rangeLowIdx126, align 8
+  %86 = load ptr, ptr %rangeList119, align 8
+  %count.i181 = getelementptr inbounds %"class.icu_75::UVector32", ptr %86, i64 0, i32 1
+  %87 = load i32, ptr %count.i181, align 8
+  %cmp.i.i182 = icmp slt i32 %87, -1
+  %capacity.i.i183 = getelementptr inbounds %"class.icu_75::UVector32", ptr %86, i64 0, i32 2
+  %88 = load i32, ptr %capacity.i.i183, align 4
+  %cmp2.not.i.i184 = icmp sle i32 %88, %87
+  %or.cond.i.i185 = select i1 %cmp.i.i182, i1 true, i1 %cmp2.not.i.i184
+  br i1 %or.cond.i.i185, label %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i192, label %if.then.i186
 
-_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i196: ; preds = %if.end122
-  %add.i197 = add nsw i32 %88, 1
-  %call.i.i = call noundef signext i8 @_ZN6icu_759UVector3214expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %87, i32 noundef %add.i197, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %tobool.not.i198 = icmp eq i8 %call.i.i, 0
-  br i1 %tobool.not.i198, label %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit201, label %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i199
+_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i192: ; preds = %if.end122
+  %add.i193 = add nsw i32 %87, 1
+  %call.i.i = call noundef signext i8 @_ZN6icu_759UVector3214expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %86, i32 noundef %add.i193, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %tobool.not.i194 = icmp eq i8 %call.i.i, 0
+  br i1 %tobool.not.i194, label %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit197, label %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i195
 
-_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i199: ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i196
-  %.pre.i200 = load i32, ptr %count.i185, align 8
-  br label %if.then.i190
+_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i195: ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i192
+  %.pre.i196 = load i32, ptr %count.i181, align 8
+  br label %if.then.i186
 
-if.then.i190:                                     ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i199, %if.end122
-  %90 = phi i32 [ %.pre.i200, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i199 ], [ %88, %if.end122 ]
-  %elements.i191 = getelementptr inbounds %"class.icu_75::UVector32", ptr %87, i64 0, i32 4
-  %91 = load ptr, ptr %elements.i191, align 8
-  %idxprom.i192 = sext i32 %90 to i64
-  %arrayidx.i193 = getelementptr inbounds i32, ptr %91, i64 %idxprom.i192
-  store i32 -1, ptr %arrayidx.i193, align 4
-  %92 = load i32, ptr %count.i185, align 8
-  %inc.i194 = add nsw i32 %92, 1
-  store i32 %inc.i194, ptr %count.i185, align 8
-  br label %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit201
+if.then.i186:                                     ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i195, %if.end122
+  %89 = phi i32 [ %.pre.i196, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i195 ], [ %87, %if.end122 ]
+  %elements.i187 = getelementptr inbounds %"class.icu_75::UVector32", ptr %86, i64 0, i32 4
+  %90 = load ptr, ptr %elements.i187, align 8
+  %idxprom.i188 = sext i32 %89 to i64
+  %arrayidx.i189 = getelementptr inbounds i32, ptr %90, i64 %idxprom.i188
+  store i32 -1, ptr %arrayidx.i189, align 4
+  %91 = load i32, ptr %count.i181, align 8
+  %inc.i190 = add nsw i32 %91, 1
+  store i32 %inc.i190, ptr %count.i181, align 8
+  br label %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit197
 
-_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit201: ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i196, %if.then.i190
-  %93 = load ptr, ptr %curAndConstraint198, align 8
-  %rangeList130 = getelementptr inbounds %"class.icu_75::AndConstraint", ptr %93, i64 0, i32 5
-  %94 = load ptr, ptr %rangeList130, align 8
-  %count.i202 = getelementptr inbounds %"class.icu_75::UVector32", ptr %94, i64 0, i32 1
-  %95 = load i32, ptr %count.i202, align 8
-  store i32 %95, ptr %rangeHiIdx132, align 4
-  %96 = load ptr, ptr %rangeList130, align 8
-  %count.i203 = getelementptr inbounds %"class.icu_75::UVector32", ptr %96, i64 0, i32 1
-  %97 = load i32, ptr %count.i203, align 8
-  %cmp.i.i204 = icmp slt i32 %97, -1
-  %capacity.i.i205 = getelementptr inbounds %"class.icu_75::UVector32", ptr %96, i64 0, i32 2
-  %98 = load i32, ptr %capacity.i.i205, align 4
-  %cmp2.not.i.i206 = icmp sle i32 %98, %97
-  %or.cond.i.i207 = select i1 %cmp.i.i204, i1 true, i1 %cmp2.not.i.i206
-  br i1 %or.cond.i.i207, label %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i214, label %if.then.i208
+_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit197: ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i192, %if.then.i186
+  %92 = load ptr, ptr %curAndConstraint198, align 8
+  %rangeList130 = getelementptr inbounds %"class.icu_75::AndConstraint", ptr %92, i64 0, i32 5
+  %93 = load ptr, ptr %rangeList130, align 8
+  %count.i198 = getelementptr inbounds %"class.icu_75::UVector32", ptr %93, i64 0, i32 1
+  %94 = load i32, ptr %count.i198, align 8
+  store i32 %94, ptr %rangeHiIdx132, align 4
+  %95 = load ptr, ptr %rangeList130, align 8
+  %count.i199 = getelementptr inbounds %"class.icu_75::UVector32", ptr %95, i64 0, i32 1
+  %96 = load i32, ptr %count.i199, align 8
+  %cmp.i.i200 = icmp slt i32 %96, -1
+  %capacity.i.i201 = getelementptr inbounds %"class.icu_75::UVector32", ptr %95, i64 0, i32 2
+  %97 = load i32, ptr %capacity.i.i201, align 4
+  %cmp2.not.i.i202 = icmp sle i32 %97, %96
+  %or.cond.i.i203 = select i1 %cmp.i.i200, i1 true, i1 %cmp2.not.i.i202
+  br i1 %or.cond.i.i203, label %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i210, label %if.then.i204
 
-_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i214: ; preds = %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit201
-  %add.i215 = add nsw i32 %97, 1
-  %call.i.i216 = call noundef signext i8 @_ZN6icu_759UVector3214expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %96, i32 noundef %add.i215, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %tobool.not.i217 = icmp eq i8 %call.i.i216, 0
-  br i1 %tobool.not.i217, label %sw.epilog, label %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i218
+_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i210: ; preds = %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit197
+  %add.i211 = add nsw i32 %96, 1
+  %call.i.i212 = call noundef signext i8 @_ZN6icu_759UVector3214expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %95, i32 noundef %add.i211, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %tobool.not.i213 = icmp eq i8 %call.i.i212, 0
+  br i1 %tobool.not.i213, label %sw.epilog, label %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i214
 
-_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i218: ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i214
-  %.pre.i219 = load i32, ptr %count.i203, align 8
-  br label %if.then.i208
+_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i214: ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i210
+  %.pre.i215 = load i32, ptr %count.i199, align 8
+  br label %if.then.i204
 
-if.then.i208:                                     ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i218, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit201
-  %99 = phi i32 [ %.pre.i219, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i218 ], [ %97, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit201 ]
-  %elements.i209 = getelementptr inbounds %"class.icu_75::UVector32", ptr %96, i64 0, i32 4
-  %100 = load ptr, ptr %elements.i209, align 8
-  %idxprom.i210 = sext i32 %99 to i64
-  %arrayidx.i211 = getelementptr inbounds i32, ptr %100, i64 %idxprom.i210
-  store i32 -1, ptr %arrayidx.i211, align 4
-  %101 = load i32, ptr %count.i203, align 8
-  %inc.i212 = add nsw i32 %101, 1
-  store i32 %inc.i212, ptr %count.i203, align 8
+if.then.i204:                                     ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i214, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit197
+  %98 = phi i32 [ %.pre.i215, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i214 ], [ %96, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit197 ]
+  %elements.i205 = getelementptr inbounds %"class.icu_75::UVector32", ptr %95, i64 0, i32 4
+  %99 = load ptr, ptr %elements.i205, align 8
+  %idxprom.i206 = sext i32 %98 to i64
+  %arrayidx.i207 = getelementptr inbounds i32, ptr %99, i64 %idxprom.i206
+  store i32 -1, ptr %arrayidx.i207, align 4
+  %100 = load i32, ptr %count.i199, align 8
+  %inc.i208 = add nsw i32 %100, 1
+  store i32 %inc.i208, ptr %count.i199, align 8
   br label %sw.epilog
 
 sw.bb135:                                         ; preds = %if.end11
-  %102 = load ptr, ptr %curAndConstraint198, align 8
-  %op137 = getelementptr inbounds %"class.icu_75::AndConstraint", ptr %102, i64 0, i32 1
+  %101 = load ptr, ptr %curAndConstraint198, align 8
+  %op137 = getelementptr inbounds %"class.icu_75::AndConstraint", ptr %101, i64 0, i32 1
   store i32 1, ptr %op137, align 8
   br label %sw.epilog
 
 sw.bb138:                                         ; preds = %if.end11, %if.end11, %if.end11, %if.end11, %if.end11, %if.end11, %if.end11
-  %103 = load ptr, ptr %curAndConstraint198, align 8
-  %digitsType = getelementptr inbounds %"class.icu_75::AndConstraint", ptr %103, i64 0, i32 9
+  %102 = load ptr, ptr %curAndConstraint198, align 8
+  %digitsType = getelementptr inbounds %"class.icu_75::AndConstraint", ptr %102, i64 0, i32 9
   store i32 %8, ptr %digitsType, align 4
   br label %sw.epilog
 
@@ -1860,56 +1846,56 @@ if.end155:                                        ; preds = %sw.bb141
   store i8 0, ptr %fDecimalSamplesUnbounded.i, align 8
   %fIntegerSamplesUnbounded.i = getelementptr inbounds %"class.icu_75::RuleChain", ptr %call142, i64 0, i32 7
   store i8 0, ptr %fIntegerSamplesUnbounded.i, align 1
-  %fInternalStatus.i221 = getelementptr inbounds %"class.icu_75::RuleChain", ptr %call142, i64 0, i32 8
-  store i32 0, ptr %fInternalStatus.i221, align 4
+  %fInternalStatus.i217 = getelementptr inbounds %"class.icu_75::RuleChain", ptr %call142, i64 0, i32 8
+  store i32 0, ptr %fInternalStatus.i217, align 4
   %call157 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %fKeyword.i, ptr noundef nonnull align 8 dereferenceable(64) %token220)
-  %104 = load ptr, ptr %mRules, align 8
-  %cmp158 = icmp eq ptr %104, null
+  %103 = load ptr, ptr %mRules, align 8
+  %cmp158 = icmp eq ptr %103, null
   br i1 %cmp158, label %if.end185, label %while.cond163.preheader
 
 while.cond163.preheader:                          ; preds = %if.end155
-  %fNext288 = getelementptr inbounds %"class.icu_75::RuleChain", ptr %104, i64 0, i32 2
-  %105 = load ptr, ptr %fNext288, align 8
-  %cmp164.not.not289 = icmp eq ptr %105, null
-  br i1 %cmp164.not.not289, label %while.end181, label %land.rhs
+  %fNext284 = getelementptr inbounds %"class.icu_75::RuleChain", ptr %103, i64 0, i32 2
+  %104 = load ptr, ptr %fNext284, align 8
+  %cmp164.not.not285 = icmp eq ptr %104, null
+  br i1 %cmp164.not.not285, label %while.end181, label %land.rhs
 
 land.rhs:                                         ; preds = %while.cond163.preheader, %while.body179
-  %106 = phi ptr [ %110, %while.body179 ], [ %105, %while.cond163.preheader ]
-  %fNext290 = phi ptr [ %fNext, %while.body179 ], [ %fNext288, %while.cond163.preheader ]
-  %fKeyword166 = getelementptr inbounds %"class.icu_75::RuleChain", ptr %106, i64 0, i32 1
-  %fUnion.i.i.i222 = getelementptr inbounds %"class.icu_75::RuleChain", ptr %106, i64 0, i32 1, i32 1
-  %107 = load i16, ptr %fUnion.i.i.i222, align 8
-  %cmp.i.i.i223 = icmp slt i16 %107, 0
-  %108 = ashr i16 %107, 5
-  %shr.i.i.i224 = sext i16 %108 to i32
-  %fLength.i.i225 = getelementptr inbounds %"class.icu_75::RuleChain", ptr %106, i64 0, i32 1, i32 1, i32 0, i32 1
-  %109 = load i32, ptr %fLength.i.i225, align 4
-  %cond.i.i226 = select i1 %cmp.i.i.i223, i32 %109, i32 %shr.i.i.i224
-  %call3.i227228 = invoke noundef signext i8 @_ZNK6icu_7513UnicodeString9doCompareEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %fKeyword166, i32 noundef 0, i32 noundef %cond.i.i226, ptr noundef nonnull @_ZN6icu_75L20PLURAL_KEYWORD_OTHERE, i32 noundef 0, i32 noundef 5)
+  %105 = phi ptr [ %109, %while.body179 ], [ %104, %while.cond163.preheader ]
+  %fNext286 = phi ptr [ %fNext, %while.body179 ], [ %fNext284, %while.cond163.preheader ]
+  %fKeyword166 = getelementptr inbounds %"class.icu_75::RuleChain", ptr %105, i64 0, i32 1
+  %fUnion.i.i.i218 = getelementptr inbounds %"class.icu_75::RuleChain", ptr %105, i64 0, i32 1, i32 1
+  %106 = load i16, ptr %fUnion.i.i.i218, align 8
+  %cmp.i.i.i219 = icmp slt i16 %106, 0
+  %107 = ashr i16 %106, 5
+  %shr.i.i.i220 = sext i16 %107 to i32
+  %fLength.i.i221 = getelementptr inbounds %"class.icu_75::RuleChain", ptr %105, i64 0, i32 1, i32 1, i32 0, i32 1
+  %108 = load i32, ptr %fLength.i.i221, align 4
+  %cond.i.i222 = select i1 %cmp.i.i.i219, i32 %108, i32 %shr.i.i.i220
+  %call3.i223224 = invoke noundef signext i8 @_ZNK6icu_7513UnicodeString9doCompareEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %fKeyword166, i32 noundef 0, i32 noundef %cond.i.i222, ptr noundef nonnull @_ZN6icu_75L20PLURAL_KEYWORD_OTHERE, i32 noundef 0, i32 noundef 5)
           to label %cleanup.done175 unwind label %lpad168
 
 cleanup.done175:                                  ; preds = %land.rhs
-  %cmp172.not = icmp eq i8 %call3.i227228, 0
+  %cmp172.not = icmp eq i8 %call3.i223224, 0
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull @_ZN6icu_75L20PLURAL_KEYWORD_OTHERE) #27, !srcloc !7
-  %.pre.pre = load ptr, ptr %fNext290, align 8
+  %.pre.pre = load ptr, ptr %fNext286, align 8
   br i1 %cmp172.not, label %while.end181, label %while.body179
 
 while.body179:                                    ; preds = %cleanup.done175
   %fNext = getelementptr inbounds %"class.icu_75::RuleChain", ptr %.pre.pre, i64 0, i32 2
-  %110 = load ptr, ptr %fNext, align 8
-  %cmp164.not.not = icmp eq ptr %110, null
+  %109 = load ptr, ptr %fNext, align 8
+  %cmp164.not.not = icmp eq ptr %109, null
   br i1 %cmp164.not.not, label %while.end181, label %land.rhs, !llvm.loop !8
 
 lpad168:                                          ; preds = %land.rhs
-  %111 = landingpad { ptr, i32 }
+  %110 = landingpad { ptr, i32 }
           cleanup
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull @_ZN6icu_75L20PLURAL_KEYWORD_OTHERE) #27, !srcloc !7
   br label %eh.resume
 
 while.end181:                                     ; preds = %while.body179, %cleanup.done175, %while.cond163.preheader
-  %112 = phi ptr [ null, %while.cond163.preheader ], [ null, %while.body179 ], [ %.pre.pre, %cleanup.done175 ]
-  %fNext.lcssa = phi ptr [ %fNext288, %while.cond163.preheader ], [ %fNext, %while.body179 ], [ %fNext290, %cleanup.done175 ]
-  store ptr %112, ptr %fNext.i, align 8
+  %111 = phi ptr [ null, %while.cond163.preheader ], [ null, %while.body179 ], [ %.pre.pre, %cleanup.done175 ]
+  %fNext.lcssa = phi ptr [ %fNext284, %while.cond163.preheader ], [ %fNext, %while.body179 ], [ %fNext286, %cleanup.done175 ]
+  store ptr %111, ptr %fNext.i, align 8
   br label %if.end185
 
 if.end185:                                        ; preds = %if.end155, %while.end181
@@ -1924,65 +1910,65 @@ if.then194:                                       ; preds = %if.end185
   br label %sw.epilog
 
 if.end195:                                        ; preds = %if.end185
-  %113 = getelementptr inbounds i8, ptr %call187, i64 24
-  store i64 0, ptr %113, align 8
+  %112 = getelementptr inbounds i8, ptr %call187, i64 24
+  store i64 0, ptr %112, align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7512OrConstraintE, i64 0, inrange i32 0, i64 2), ptr %call187, align 8
-  %childNode.i229 = getelementptr inbounds %"class.icu_75::OrConstraint", ptr %call187, i64 0, i32 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %childNode.i229, i8 0, i64 20, i1 false)
+  %childNode.i225 = getelementptr inbounds %"class.icu_75::OrConstraint", ptr %call187, i64 0, i32 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %childNode.i225, i8 0, i64 20, i1 false)
   %ruleHeader196 = getelementptr inbounds %"class.icu_75::RuleChain", ptr %call142, i64 0, i32 3
   store ptr %call187, ptr %ruleHeader196, align 8
-  %fInternalStatus.i230 = getelementptr inbounds %"class.icu_75::OrConstraint", ptr %call187, i64 0, i32 3
-  %114 = load i32, ptr %fInternalStatus.i230, align 8
-  %cmp.i.i231 = icmp slt i32 %114, 1
-  br i1 %cmp.i.i231, label %while.cond.i234, label %if.then.i232
+  %fInternalStatus.i226 = getelementptr inbounds %"class.icu_75::OrConstraint", ptr %call187, i64 0, i32 3
+  %113 = load i32, ptr %fInternalStatus.i226, align 8
+  %cmp.i.i227 = icmp slt i32 %113, 1
+  br i1 %cmp.i.i227, label %while.cond.i230, label %if.then.i228
 
-if.then.i232:                                     ; preds = %if.end195
-  store i32 %114, ptr %status, align 4
-  br label %_ZN6icu_7512OrConstraint3addER10UErrorCode.exit251
+if.then.i228:                                     ; preds = %if.end195
+  store i32 %113, ptr %status, align 4
+  br label %_ZN6icu_7512OrConstraint3addER10UErrorCode.exit247
 
-while.cond.i234:                                  ; preds = %if.end195, %while.cond.i234
-  %curOrConstraint.0.i235 = phi ptr [ %115, %while.cond.i234 ], [ %call187, %if.end195 ]
-  %next.i236 = getelementptr inbounds %"class.icu_75::OrConstraint", ptr %curOrConstraint.0.i235, i64 0, i32 2
-  %115 = load ptr, ptr %next.i236, align 8
-  %cmp.not.i237 = icmp eq ptr %115, null
-  br i1 %cmp.not.i237, label %while.end.i238, label %while.cond.i234, !llvm.loop !6
+while.cond.i230:                                  ; preds = %if.end195, %while.cond.i230
+  %curOrConstraint.0.i231 = phi ptr [ %114, %while.cond.i230 ], [ %call187, %if.end195 ]
+  %next.i232 = getelementptr inbounds %"class.icu_75::OrConstraint", ptr %curOrConstraint.0.i231, i64 0, i32 2
+  %114 = load ptr, ptr %next.i232, align 8
+  %cmp.not.i233 = icmp eq ptr %114, null
+  br i1 %cmp.not.i233, label %while.end.i234, label %while.cond.i230, !llvm.loop !6
 
-while.end.i238:                                   ; preds = %while.cond.i234
-  %call4.i239 = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 56) #27
-  %new.isnull.i240 = icmp eq ptr %call4.i239, null
-  br i1 %new.isnull.i240, label %if.then7.i248, label %new.cont.i241
+while.end.i234:                                   ; preds = %while.cond.i230
+  %call4.i235 = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 56) #27
+  %new.isnull.i236 = icmp eq ptr %call4.i235, null
+  br i1 %new.isnull.i236, label %if.then7.i244, label %new.cont.i237
 
-new.cont.i241:                                    ; preds = %while.end.i238
-  %116 = getelementptr inbounds i8, ptr %call4.i239, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %116, i8 0, i64 40, i1 false)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7513AndConstraintE, i64 0, inrange i32 0, i64 2), ptr %call4.i239, align 8
-  %op.i.i242 = getelementptr inbounds %"class.icu_75::AndConstraint", ptr %call4.i239, i64 0, i32 1
-  store i32 0, ptr %op.i.i242, align 8
-  %opNum.i.i243 = getelementptr inbounds %"class.icu_75::AndConstraint", ptr %call4.i239, i64 0, i32 2
-  store i32 -1, ptr %opNum.i.i243, align 4
-  store i32 -1, ptr %116, align 8
-  %digitsType.i.i246 = getelementptr inbounds %"class.icu_75::AndConstraint", ptr %call4.i239, i64 0, i32 9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %digitsType.i.i246, i8 0, i64 16, i1 false)
-  %childNode.i247 = getelementptr inbounds %"class.icu_75::OrConstraint", ptr %curOrConstraint.0.i235, i64 0, i32 1
-  store ptr %call4.i239, ptr %childNode.i247, align 8
-  br label %_ZN6icu_7512OrConstraint3addER10UErrorCode.exit251
+new.cont.i237:                                    ; preds = %while.end.i234
+  %115 = getelementptr inbounds i8, ptr %call4.i235, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %115, i8 0, i64 40, i1 false)
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7513AndConstraintE, i64 0, inrange i32 0, i64 2), ptr %call4.i235, align 8
+  %op.i.i238 = getelementptr inbounds %"class.icu_75::AndConstraint", ptr %call4.i235, i64 0, i32 1
+  store i32 0, ptr %op.i.i238, align 8
+  %opNum.i.i239 = getelementptr inbounds %"class.icu_75::AndConstraint", ptr %call4.i235, i64 0, i32 2
+  store i32 -1, ptr %opNum.i.i239, align 4
+  store i32 -1, ptr %115, align 8
+  %digitsType.i.i242 = getelementptr inbounds %"class.icu_75::AndConstraint", ptr %call4.i235, i64 0, i32 9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %digitsType.i.i242, i8 0, i64 16, i1 false)
+  %childNode.i243 = getelementptr inbounds %"class.icu_75::OrConstraint", ptr %curOrConstraint.0.i231, i64 0, i32 1
+  store ptr %call4.i235, ptr %childNode.i243, align 8
+  br label %_ZN6icu_7512OrConstraint3addER10UErrorCode.exit247
 
-if.then7.i248:                                    ; preds = %while.end.i238
-  %childNode6.i249 = getelementptr inbounds %"class.icu_75::OrConstraint", ptr %curOrConstraint.0.i235, i64 0, i32 1
-  store ptr null, ptr %childNode6.i249, align 8
+if.then7.i244:                                    ; preds = %while.end.i234
+  %childNode6.i245 = getelementptr inbounds %"class.icu_75::OrConstraint", ptr %curOrConstraint.0.i231, i64 0, i32 1
+  store ptr null, ptr %childNode6.i245, align 8
   store i32 7, ptr %status, align 4
-  %.pre.i250 = load ptr, ptr %childNode6.i249, align 8
-  br label %_ZN6icu_7512OrConstraint3addER10UErrorCode.exit251
+  %.pre.i246 = load ptr, ptr %childNode6.i245, align 8
+  br label %_ZN6icu_7512OrConstraint3addER10UErrorCode.exit247
 
-_ZN6icu_7512OrConstraint3addER10UErrorCode.exit251: ; preds = %if.then.i232, %new.cont.i241, %if.then7.i248
-  %retval.0.i233 = phi ptr [ null, %if.then.i232 ], [ %.pre.i250, %if.then7.i248 ], [ %call4.i239, %new.cont.i241 ]
-  store ptr %retval.0.i233, ptr %curAndConstraint198, align 8
+_ZN6icu_7512OrConstraint3addER10UErrorCode.exit247: ; preds = %if.then.i228, %new.cont.i237, %if.then7.i244
+  %retval.0.i229 = phi ptr [ null, %if.then.i228 ], [ %.pre.i246, %if.then7.i244 ], [ %call4.i235, %new.cont.i237 ]
+  store ptr %retval.0.i229, ptr %curAndConstraint198, align 8
   store ptr %call142, ptr %currentChain217, align 8
   br label %sw.epilog
 
 lor.lhs.false203:                                 ; preds = %for.cond.preheader, %for.cond.backedge
-  %117 = load i32, ptr %type, align 8
-  switch i32 %117, label %if.end218 [
+  %116 = load i32, ptr %type, align 8
+  switch i32 %116, label %if.end218 [
     i32 3, label %sw.epilog
     i32 30, label %sw.epilog
     i32 6, label %sw.epilog
@@ -1990,32 +1976,32 @@ lor.lhs.false203:                                 ; preds = %for.cond.preheader,
   ]
 
 if.then216:                                       ; preds = %lor.lhs.false203
-  %118 = load ptr, ptr %currentChain217, align 8
-  %fIntegerSamplesUnbounded = getelementptr inbounds %"class.icu_75::RuleChain", ptr %118, i64 0, i32 7
+  %117 = load ptr, ptr %currentChain217, align 8
+  %fIntegerSamplesUnbounded = getelementptr inbounds %"class.icu_75::RuleChain", ptr %117, i64 0, i32 7
   store i8 1, ptr %fIntegerSamplesUnbounded, align 1
   br label %for.cond.backedge
 
 for.cond.backedge:                                ; preds = %if.then216, %if.end218
   call void @_ZN6icu_7516PluralRuleParser12getNextTokenER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %119 = load i32, ptr %status, align 4
-  %cmp.i252 = icmp slt i32 %119, 1
-  br i1 %cmp.i252, label %lor.lhs.false203, label %sw.epilog, !llvm.loop !9
+  %118 = load i32, ptr %status, align 4
+  %cmp.i248 = icmp slt i32 %118, 1
+  br i1 %cmp.i248, label %lor.lhs.false203, label %sw.epilog, !llvm.loop !9
 
 if.end218:                                        ; preds = %lor.lhs.false203
-  %120 = load ptr, ptr %currentChain217, align 8
-  %fIntegerSamples = getelementptr inbounds %"class.icu_75::RuleChain", ptr %120, i64 0, i32 5
-  %121 = load i16, ptr %fUnion.i.i.i254, align 8
-  %cmp.i.i.i255 = icmp slt i16 %121, 0
-  %122 = ashr i16 %121, 5
-  %shr.i.i.i256 = sext i16 %122 to i32
-  %123 = load i32, ptr %fLength.i.i257, align 4
-  %cond.i.i258 = select i1 %cmp.i.i.i255, i32 %123, i32 %shr.i.i.i256
-  %call2.i = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %fIntegerSamples, ptr noundef nonnull align 8 dereferenceable(64) %token220, i32 noundef 0, i32 noundef %cond.i.i258)
+  %119 = load ptr, ptr %currentChain217, align 8
+  %fIntegerSamples = getelementptr inbounds %"class.icu_75::RuleChain", ptr %119, i64 0, i32 5
+  %120 = load i16, ptr %fUnion.i.i.i250, align 8
+  %cmp.i.i.i251 = icmp slt i16 %120, 0
+  %121 = ashr i16 %120, 5
+  %shr.i.i.i252 = sext i16 %121 to i32
+  %122 = load i32, ptr %fLength.i.i253, align 4
+  %cond.i.i254 = select i1 %cmp.i.i.i251, i32 %122, i32 %shr.i.i.i252
+  %call2.i = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %fIntegerSamples, ptr noundef nonnull align 8 dereferenceable(64) %token220, i32 noundef 0, i32 noundef %cond.i.i254)
   br label %for.cond.backedge
 
 lor.lhs.false226:                                 ; preds = %for.cond223.preheader, %for.cond223.backedge
-  %124 = load i32, ptr %type, align 8
-  switch i32 %124, label %if.end241 [
+  %123 = load i32, ptr %type, align 8
+  switch i32 %123, label %if.end241 [
     i32 3, label %sw.epilog
     i32 30, label %sw.epilog
     i32 6, label %sw.epilog
@@ -2023,41 +2009,41 @@ lor.lhs.false226:                                 ; preds = %for.cond223.prehead
   ]
 
 if.then239:                                       ; preds = %lor.lhs.false226
-  %125 = load ptr, ptr %currentChain217, align 8
-  %fDecimalSamplesUnbounded = getelementptr inbounds %"class.icu_75::RuleChain", ptr %125, i64 0, i32 6
+  %124 = load ptr, ptr %currentChain217, align 8
+  %fDecimalSamplesUnbounded = getelementptr inbounds %"class.icu_75::RuleChain", ptr %124, i64 0, i32 6
   store i8 1, ptr %fDecimalSamplesUnbounded, align 8
   br label %for.cond223.backedge
 
 for.cond223.backedge:                             ; preds = %if.then239, %if.end241
   call void @_ZN6icu_7516PluralRuleParser12getNextTokenER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %126 = load i32, ptr %status, align 4
-  %cmp.i259 = icmp slt i32 %126, 1
-  br i1 %cmp.i259, label %lor.lhs.false226, label %sw.epilog, !llvm.loop !10
+  %125 = load i32, ptr %status, align 4
+  %cmp.i255 = icmp slt i32 %125, 1
+  br i1 %cmp.i255, label %lor.lhs.false226, label %sw.epilog, !llvm.loop !10
 
 if.end241:                                        ; preds = %lor.lhs.false226
-  %127 = load ptr, ptr %currentChain217, align 8
-  %fDecimalSamples = getelementptr inbounds %"class.icu_75::RuleChain", ptr %127, i64 0, i32 4
-  %128 = load i16, ptr %fUnion.i.i.i254, align 8
-  %cmp.i.i.i262 = icmp slt i16 %128, 0
-  %129 = ashr i16 %128, 5
-  %shr.i.i.i263 = sext i16 %129 to i32
-  %130 = load i32, ptr %fLength.i.i257, align 4
-  %cond.i.i265 = select i1 %cmp.i.i.i262, i32 %130, i32 %shr.i.i.i263
-  %call2.i266 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %fDecimalSamples, ptr noundef nonnull align 8 dereferenceable(64) %token220, i32 noundef 0, i32 noundef %cond.i.i265)
+  %126 = load ptr, ptr %currentChain217, align 8
+  %fDecimalSamples = getelementptr inbounds %"class.icu_75::RuleChain", ptr %126, i64 0, i32 4
+  %127 = load i16, ptr %fUnion.i.i.i250, align 8
+  %cmp.i.i.i258 = icmp slt i16 %127, 0
+  %128 = ashr i16 %127, 5
+  %shr.i.i.i259 = sext i16 %128 to i32
+  %129 = load i32, ptr %fLength.i.i253, align 4
+  %cond.i.i261 = select i1 %cmp.i.i.i258, i32 %129, i32 %shr.i.i.i259
+  %call2.i262 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %fDecimalSamples, ptr noundef nonnull align 8 dereferenceable(64) %token220, i32 noundef 0, i32 noundef %cond.i.i261)
   br label %for.cond223.backedge
 
-sw.epilog:                                        ; preds = %for.cond.backedge, %lor.lhs.false203, %lor.lhs.false203, %lor.lhs.false203, %for.cond223.backedge, %lor.lhs.false226, %lor.lhs.false226, %lor.lhs.false226, %new.cont41, %if.then.i77, %for.cond.preheader, %for.cond223.preheader, %if.then.i208, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i214, %delete.notnull.i106, %cleanup.thread, %if.end11, %if.then66, %if.then84, %_ZNK6icu_759UVector3210elementAtiEi.exit183, %if.then73, %_ZN6icu_7512OrConstraint3addER10UErrorCode.exit251, %if.then194, %if.then154, %sw.bb138, %sw.bb135, %if.then121, %if.then110, %sw.bb30, %_ZN6icu_7512OrConstraint3addER10UErrorCode.exit, %if.then23, %_ZN6icu_7513AndConstraint3addER10UErrorCode.exit
-  %131 = load i32, ptr %type, align 8
-  store i32 %131, ptr %prevType, align 4
-  %132 = load i32, ptr %status, align 4
-  %cmp.i267 = icmp slt i32 %132, 1
-  br i1 %cmp.i267, label %while.cond, label %while.end251, !llvm.loop !11
+sw.epilog:                                        ; preds = %for.cond.backedge, %lor.lhs.false203, %lor.lhs.false203, %lor.lhs.false203, %for.cond223.backedge, %lor.lhs.false226, %lor.lhs.false226, %lor.lhs.false226, %new.cont41, %if.then.i77, %for.cond.preheader, %for.cond223.preheader, %if.then.i204, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i210, %delete.notnull.i106, %cleanup.thread, %if.end11, %if.then66, %if.then84, %_ZNK6icu_759UVector3210elementAtiEi.exit179, %if.then73, %_ZN6icu_7512OrConstraint3addER10UErrorCode.exit247, %if.then194, %if.then154, %sw.bb138, %sw.bb135, %if.then121, %if.then110, %sw.bb30, %_ZN6icu_7512OrConstraint3addER10UErrorCode.exit, %if.then23, %_ZN6icu_7513AndConstraint3addER10UErrorCode.exit
+  %130 = load i32, ptr %type, align 8
+  store i32 %130, ptr %prevType, align 4
+  %131 = load i32, ptr %status, align 4
+  %cmp.i263 = icmp slt i32 %131, 1
+  br i1 %cmp.i263, label %while.cond, label %while.end251, !llvm.loop !11
 
 while.end251:                                     ; preds = %sw.epilog, %if.end7, %while.body, %while.cond, %entry
   ret void
 
 eh.resume:                                        ; preds = %lpad168, %lpad
-  %.pn = phi { ptr, i32 } [ %111, %lpad168 ], [ %24, %lpad ]
+  %.pn = phi { ptr, i32 } [ %110, %lpad168 ], [ %24, %lpad ]
   resume { ptr, i32 } %.pn
 }
 
@@ -5469,8 +5455,8 @@ if.then:                                          ; preds = %entry
   %call.i85 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %result, ptr noundef nonnull %ch.addr.i84, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ch.addr.i84)
   %4 = load ptr, ptr %ruleHeader, align 8
-  %cmp5.not284 = icmp eq ptr %4, null
-  br i1 %cmp5.not284, label %if.end246, label %while.body.lr.ph
+  %cmp5.not282 = icmp eq ptr %4, null
+  br i1 %cmp5.not282, label %if.end246, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.then
   %fUnion.i.i.i117 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp46, i64 0, i32 1
@@ -5487,14 +5473,14 @@ while.body.lr.ph:                                 ; preds = %if.then
   %fLength.i.i194 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp148, i64 0, i32 1, i32 0, i32 1
   %fUnion.i.i.i199 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp158, i64 0, i32 1
   %fLength.i.i202 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp158, i64 0, i32 1, i32 0, i32 1
-  %fUnion.i.i.i220 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp178, i64 0, i32 1
-  %fLength.i.i223 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp178, i64 0, i32 1, i32 0, i32 1
-  %fUnion.i.i.i228 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp184, i64 0, i32 1
-  %fLength.i.i231 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp184, i64 0, i32 1, i32 0, i32 1
-  %fUnion.i.i.i236 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp195, i64 0, i32 1
-  %fLength.i.i239 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp195, i64 0, i32 1, i32 0, i32 1
-  %fUnion.i.i.i245 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp206, i64 0, i32 1
-  %fLength.i.i248 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp206, i64 0, i32 1, i32 0, i32 1
+  %fUnion.i.i.i218 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp178, i64 0, i32 1
+  %fLength.i.i221 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp178, i64 0, i32 1, i32 0, i32 1
+  %fUnion.i.i.i226 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp184, i64 0, i32 1
+  %fLength.i.i229 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp184, i64 0, i32 1, i32 0, i32 1
+  %fUnion.i.i.i234 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp195, i64 0, i32 1
+  %fLength.i.i237 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp195, i64 0, i32 1, i32 0, i32 1
+  %fUnion.i.i.i243 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp206, i64 0, i32 1
+  %fLength.i.i246 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp206, i64 0, i32 1, i32 0, i32 1
   %fUnion.i.i.i143 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp80, i64 0, i32 1
   %fLength.i.i146 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp80, i64 0, i32 1, i32 0, i32 1
   %fUnion.i.i.i151 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp92, i64 0, i32 1
@@ -5511,40 +5497,40 @@ while.body.lr.ph:                                 ; preds = %if.then
   %fLength.i.i104 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp28, i64 0, i32 1, i32 0, i32 1
   %fUnion.i.i.i109 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp39, i64 0, i32 1
   %fLength.i.i112 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp39, i64 0, i32 1, i32 0, i32 1
-  %fUnion.i.i.i253 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp222, i64 0, i32 1
-  %fLength.i.i256 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp222, i64 0, i32 1, i32 0, i32 1
-  %fUnion.i.i.i261 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp235, i64 0, i32 1
-  %fLength.i.i264 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp235, i64 0, i32 1, i32 0, i32 1
+  %fUnion.i.i.i251 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp222, i64 0, i32 1
+  %fLength.i.i254 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp222, i64 0, i32 1, i32 0, i32 1
+  %fUnion.i.i.i259 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp235, i64 0, i32 1
+  %fLength.i.i262 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp235, i64 0, i32 1, i32 0, i32 1
   br label %while.body
 
 while.body:                                       ; preds = %invoke.cont240, %while.body.lr.ph
-  %orRule.0285 = phi ptr [ %4, %while.body.lr.ph ], [ %152, %invoke.cont240 ]
-  %childNode = getelementptr inbounds %"class.icu_75::OrConstraint", ptr %orRule.0285, i64 0, i32 1
+  %orRule.0283 = phi ptr [ %4, %while.body.lr.ph ], [ %151, %invoke.cont240 ]
+  %childNode = getelementptr inbounds %"class.icu_75::OrConstraint", ptr %orRule.0283, i64 0, i32 1
   %5 = load ptr, ptr %childNode, align 8
-  %cmp7.not280 = icmp eq ptr %5, null
-  br i1 %cmp7.not280, label %while.end, label %while.body8
+  %cmp7.not278 = icmp eq ptr %5, null
+  br i1 %cmp7.not278, label %while.end, label %while.body8
 
 while.body8:                                      ; preds = %while.body, %invoke.cont227
-  %andRule.0281 = phi ptr [ %144, %invoke.cont227 ], [ %5, %while.body ]
-  %op = getelementptr inbounds %"class.icu_75::AndConstraint", ptr %andRule.0281, i64 0, i32 1
+  %andRule.0279 = phi ptr [ %143, %invoke.cont227 ], [ %5, %while.body ]
+  %op = getelementptr inbounds %"class.icu_75::AndConstraint", ptr %andRule.0279, i64 0, i32 1
   %6 = load i32, ptr %op, align 8
   %cmp9 = icmp eq i32 %6, 0
   br i1 %cmp9, label %land.lhs.true, label %if.else45
 
 land.lhs.true:                                    ; preds = %while.body8
-  %rangeList = getelementptr inbounds %"class.icu_75::AndConstraint", ptr %andRule.0281, i64 0, i32 5
+  %rangeList = getelementptr inbounds %"class.icu_75::AndConstraint", ptr %andRule.0279, i64 0, i32 5
   %7 = load ptr, ptr %rangeList, align 8
   %cmp10 = icmp eq ptr %7, null
   br i1 %cmp10, label %land.lhs.true11, label %if.else45
 
 land.lhs.true11:                                  ; preds = %land.lhs.true
-  %value = getelementptr inbounds %"class.icu_75::AndConstraint", ptr %andRule.0281, i64 0, i32 3
+  %value = getelementptr inbounds %"class.icu_75::AndConstraint", ptr %andRule.0279, i64 0, i32 3
   %8 = load i32, ptr %value, align 8
   %cmp12 = icmp eq i32 %8, -1
   br i1 %cmp12, label %if.end219, label %if.then19
 
 if.then19:                                        ; preds = %land.lhs.true11
-  %digitsType = getelementptr inbounds %"class.icu_75::AndConstraint", ptr %andRule.0281, i64 0, i32 9
+  %digitsType = getelementptr inbounds %"class.icu_75::AndConstraint", ptr %andRule.0279, i64 0, i32 9
   %9 = load i32, ptr %digitsType, align 4
   call fastcc void @_ZN6icu_75L11tokenStringENS_9tokenTypeE(ptr noalias nonnull align 8 %ref.tmp, i32 noundef %9)
   %10 = load i16, ptr %fUnion.i.i.i86, align 8
@@ -5576,7 +5562,7 @@ invoke.cont25:                                    ; preds = %invoke.cont23
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp21) #27
   %16 = load ptr, ptr %agg.tmp, align 8
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %16) #27, !srcloc !7
-  %negated = getelementptr inbounds %"class.icu_75::AndConstraint", ptr %andRule.0281, i64 0, i32 6
+  %negated = getelementptr inbounds %"class.icu_75::AndConstraint", ptr %andRule.0279, i64 0, i32 6
   %17 = load i8, ptr %negated, align 8
   %tobool.not = icmp eq i8 %17, 0
   br i1 %tobool.not, label %if.end, label %if.then27
@@ -5643,7 +5629,7 @@ ehcleanup36:                                      ; preds = %lpad32, %lpad30
   br label %eh.resume
 
 if.end:                                           ; preds = %invoke.cont33, %invoke.cont25
-  %value37 = getelementptr inbounds %"class.icu_75::AndConstraint", ptr %andRule.0281, i64 0, i32 3
+  %value37 = getelementptr inbounds %"class.icu_75::AndConstraint", ptr %andRule.0279, i64 0, i32 3
   %29 = load i32, ptr %value37, align 8
   %call38 = call i32 @uprv_itou_75(ptr noundef nonnull %digitString, i32 noundef 16, i32 noundef %29, i32 noundef 10, i32 noundef 0)
   call void @_ZN6icu_7513UnicodeStringC1EPKDs(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp39, ptr noundef nonnull %digitString)
@@ -5663,7 +5649,7 @@ lpad41:                                           ; preds = %if.end
   br label %eh.resume
 
 if.else45:                                        ; preds = %land.lhs.true, %while.body8
-  %digitsType47 = getelementptr inbounds %"class.icu_75::AndConstraint", ptr %andRule.0281, i64 0, i32 9
+  %digitsType47 = getelementptr inbounds %"class.icu_75::AndConstraint", ptr %andRule.0279, i64 0, i32 9
   %34 = load i32, ptr %digitsType47, align 4
   call fastcc void @_ZN6icu_75L11tokenStringENS_9tokenTypeE(ptr noalias nonnull align 8 %ref.tmp46, i32 noundef %34)
   %35 = load i16, ptr %fUnion.i.i.i117, align 8
@@ -5704,7 +5690,7 @@ invoke.cont61:                                    ; preds = %invoke.cont59
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp56) #27
   %42 = load ptr, ptr %agg.tmp57, align 8
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %42) #27, !srcloc !7
-  %opNum = getelementptr inbounds %"class.icu_75::AndConstraint", ptr %andRule.0281, i64 0, i32 2
+  %opNum = getelementptr inbounds %"class.icu_75::AndConstraint", ptr %andRule.0279, i64 0, i32 2
   %43 = load i32, ptr %opNum, align 4
   %call66 = call i32 @uprv_itou_75(ptr noundef nonnull %digitString, i32 noundef 16, i32 noundef %43, i32 noundef 10, i32 noundef 0)
   call void @_ZN6icu_7513UnicodeStringC1EPKDs(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp67, ptr noundef nonnull %digitString)
@@ -5751,10 +5737,10 @@ lpad69:                                           ; preds = %invoke.cont61
   br label %eh.resume
 
 if.end73:                                         ; preds = %invoke.cont70, %invoke.cont49
-  %rangeList74 = getelementptr inbounds %"class.icu_75::AndConstraint", ptr %andRule.0281, i64 0, i32 5
+  %rangeList74 = getelementptr inbounds %"class.icu_75::AndConstraint", ptr %andRule.0279, i64 0, i32 5
   %52 = load ptr, ptr %rangeList74, align 8
   %cmp75 = icmp eq ptr %52, null
-  %negated77 = getelementptr inbounds %"class.icu_75::AndConstraint", ptr %andRule.0281, i64 0, i32 6
+  %negated77 = getelementptr inbounds %"class.icu_75::AndConstraint", ptr %andRule.0279, i64 0, i32 6
   %53 = load i8, ptr %negated77, align 8
   %tobool78.not = icmp eq i8 %53, 0
   br i1 %cmp75, label %if.then76, label %if.else118
@@ -5781,7 +5767,7 @@ invoke.cont85:                                    ; preds = %invoke.cont83
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp80) #27
   %57 = load ptr, ptr %agg.tmp81, align 8
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %57) #27, !srcloc !7
-  %value90 = getelementptr inbounds %"class.icu_75::AndConstraint", ptr %andRule.0281, i64 0, i32 3
+  %value90 = getelementptr inbounds %"class.icu_75::AndConstraint", ptr %andRule.0279, i64 0, i32 3
   %58 = load i32, ptr %value90, align 8
   %call91 = call i32 @uprv_itou_75(ptr noundef nonnull %digitString, i32 noundef 16, i32 noundef %58, i32 noundef 10, i32 noundef 0)
   call void @_ZN6icu_7513UnicodeStringC1EPKDs(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp92, ptr noundef nonnull %digitString)
@@ -5836,7 +5822,7 @@ invoke.cont104:                                   ; preds = %invoke.cont102
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp99) #27
   %69 = load ptr, ptr %agg.tmp100, align 8
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %69) #27, !srcloc !7
-  %value109 = getelementptr inbounds %"class.icu_75::AndConstraint", ptr %andRule.0281, i64 0, i32 3
+  %value109 = getelementptr inbounds %"class.icu_75::AndConstraint", ptr %andRule.0279, i64 0, i32 3
   %70 = load i32, ptr %value109, align 8
   %call110 = call i32 @uprv_itou_75(ptr noundef nonnull %digitString, i32 noundef 16, i32 noundef %70, i32 noundef 10, i32 noundef 0)
   call void @_ZN6icu_7513UnicodeStringC1EPKDs(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp111, ptr noundef nonnull %digitString)
@@ -5873,7 +5859,7 @@ lpad113:                                          ; preds = %invoke.cont104
   br label %eh.resume
 
 if.else118:                                       ; preds = %if.end73
-  %integerOnly145 = getelementptr inbounds %"class.icu_75::AndConstraint", ptr %andRule.0281, i64 0, i32 7
+  %integerOnly145 = getelementptr inbounds %"class.icu_75::AndConstraint", ptr %andRule.0279, i64 0, i32 7
   %78 = load i8, ptr %integerOnly145, align 1
   %tobool146.not = icmp eq i8 %78, 0
   br i1 %tobool78.not, label %if.else144, label %if.then121
@@ -6038,89 +6024,81 @@ ehcleanup166:                                     ; preds = %lpad162, %lpad160
 
 if.end168:                                        ; preds = %invoke.cont153, %invoke.cont163, %invoke.cont129, %invoke.cont139
   %107 = load ptr, ptr %rangeList74, align 8
-  %count.i277 = getelementptr inbounds %"class.icu_75::UVector32", ptr %107, i64 0, i32 1
-  %108 = load i32, ptr %count.i277, align 8
-  %cmp171278 = icmp sgt i32 %108, 0
-  br i1 %cmp171278, label %for.body, label %if.end219
+  %count.i275 = getelementptr inbounds %"class.icu_75::UVector32", ptr %107, i64 0, i32 1
+  %108 = load i32, ptr %count.i275, align 8
+  %cmp171276 = icmp sgt i32 %108, 0
+  br i1 %cmp171276, label %cond.true.i, label %if.end219
 
-for.body:                                         ; preds = %if.end168, %for.inc
+cond.true.i:                                      ; preds = %if.end168, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %if.end168 ]
-  %109 = phi i32 [ %142, %for.inc ], [ %108, %if.end168 ]
-  %110 = phi ptr [ %143, %for.inc ], [ %107, %if.end168 ]
-  %cmp2.i = icmp sgt i32 %109, 0
-  br i1 %cmp2.i, label %_ZNK6icu_759UVector3210elementAtiEi.exit, label %_ZNK6icu_759UVector3210elementAtiEi.exit219
-
-_ZNK6icu_759UVector3210elementAtiEi.exit:         ; preds = %for.body
+  %109 = phi i32 [ %141, %for.inc ], [ %108, %if.end168 ]
+  %110 = phi ptr [ %142, %for.inc ], [ %107, %if.end168 ]
   %elements.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %110, i64 0, i32 4
   %111 = load ptr, ptr %elements.i, align 8
   %arrayidx.i = getelementptr inbounds i32, ptr %111, i64 %indvars.iv
   %112 = load i32, ptr %arrayidx.i, align 4
   %113 = or disjoint i64 %indvars.iv, 1
-  %114 = zext nneg i32 %109 to i64
-  %cmp5.i213 = icmp slt i64 %113, %114
-  %or.cond.i214 = and i1 %cmp2.i, %cmp5.i213
-  br i1 %or.cond.i214, label %cond.true.i215, label %_ZNK6icu_759UVector3210elementAtiEi.exit219
+  %114 = sext i32 %109 to i64
+  %cmp5.i210 = icmp slt i64 %113, %114
+  br i1 %cmp5.i210, label %cond.true.i213, label %_ZNK6icu_759UVector3210elementAtiEi.exit217
 
-cond.true.i215:                                   ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit
-  %elements.i216 = getelementptr inbounds %"class.icu_75::UVector32", ptr %110, i64 0, i32 4
-  %115 = load ptr, ptr %elements.i216, align 8
-  %arrayidx.i218 = getelementptr inbounds i32, ptr %115, i64 %113
-  %116 = load i32, ptr %arrayidx.i218, align 4
-  br label %_ZNK6icu_759UVector3210elementAtiEi.exit219
+cond.true.i213:                                   ; preds = %cond.true.i
+  %arrayidx.i216 = getelementptr inbounds i32, ptr %111, i64 %113
+  %115 = load i32, ptr %arrayidx.i216, align 4
+  br label %_ZNK6icu_759UVector3210elementAtiEi.exit217
 
-_ZNK6icu_759UVector3210elementAtiEi.exit219:      ; preds = %for.body, %_ZNK6icu_759UVector3210elementAtiEi.exit, %cond.true.i215
-  %cond.i294 = phi i32 [ %112, %cond.true.i215 ], [ %112, %_ZNK6icu_759UVector3210elementAtiEi.exit ], [ 0, %for.body ]
-  %cond.i209 = phi i32 [ %116, %cond.true.i215 ], [ 0, %_ZNK6icu_759UVector3210elementAtiEi.exit ], [ 0, %for.body ]
-  %call177 = call i32 @uprv_itou_75(ptr noundef nonnull %digitString, i32 noundef 16, i32 noundef %cond.i294, i32 noundef 10, i32 noundef 0)
+_ZNK6icu_759UVector3210elementAtiEi.exit217:      ; preds = %cond.true.i, %cond.true.i213
+  %cond.i212 = phi i32 [ %115, %cond.true.i213 ], [ 0, %cond.true.i ]
+  %call177 = call i32 @uprv_itou_75(ptr noundef nonnull %digitString, i32 noundef 16, i32 noundef %112, i32 noundef 10, i32 noundef 0)
   call void @_ZN6icu_7513UnicodeStringC1EPKDs(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp178, ptr noundef nonnull %digitString)
-  %117 = load i16, ptr %fUnion.i.i.i220, align 8
-  %cmp.i.i.i221 = icmp slt i16 %117, 0
-  %118 = ashr i16 %117, 5
-  %shr.i.i.i222 = sext i16 %118 to i32
-  %119 = load i32, ptr %fLength.i.i223, align 4
-  %cond.i.i224 = select i1 %cmp.i.i.i221, i32 %119, i32 %shr.i.i.i222
-  %call2.i225226 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %result, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp178, i32 noundef 0, i32 noundef %cond.i.i224)
+  %116 = load i16, ptr %fUnion.i.i.i218, align 8
+  %cmp.i.i.i219 = icmp slt i16 %116, 0
+  %117 = ashr i16 %116, 5
+  %shr.i.i.i220 = sext i16 %117 to i32
+  %118 = load i32, ptr %fLength.i.i221, align 4
+  %cond.i.i222 = select i1 %cmp.i.i.i219, i32 %118, i32 %shr.i.i.i220
+  %call2.i223224 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %result, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp178, i32 noundef 0, i32 noundef %cond.i.i222)
           to label %invoke.cont181 unwind label %lpad180
 
-invoke.cont181:                                   ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit219
+invoke.cont181:                                   ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit217
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp178) #27
   store ptr @.str.12, ptr %agg.tmp185, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp184, i8 noundef signext 1, ptr noundef nonnull %agg.tmp185, i32 noundef -1)
           to label %invoke.cont187 unwind label %lpad186
 
 invoke.cont187:                                   ; preds = %invoke.cont181
-  %120 = load i16, ptr %fUnion.i.i.i228, align 8
-  %cmp.i.i.i229 = icmp slt i16 %120, 0
-  %121 = ashr i16 %120, 5
-  %shr.i.i.i230 = sext i16 %121 to i32
-  %122 = load i32, ptr %fLength.i.i231, align 4
-  %cond.i.i232 = select i1 %cmp.i.i.i229, i32 %122, i32 %shr.i.i.i230
-  %call2.i233234 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %result, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp184, i32 noundef 0, i32 noundef %cond.i.i232)
+  %119 = load i16, ptr %fUnion.i.i.i226, align 8
+  %cmp.i.i.i227 = icmp slt i16 %119, 0
+  %120 = ashr i16 %119, 5
+  %shr.i.i.i228 = sext i16 %120 to i32
+  %121 = load i32, ptr %fLength.i.i229, align 4
+  %cond.i.i230 = select i1 %cmp.i.i.i227, i32 %121, i32 %shr.i.i.i228
+  %call2.i231232 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %result, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp184, i32 noundef 0, i32 noundef %cond.i.i230)
           to label %invoke.cont189 unwind label %lpad188
 
 invoke.cont189:                                   ; preds = %invoke.cont187
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp184) #27
-  %123 = load ptr, ptr %agg.tmp185, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %123) #27, !srcloc !7
-  %call194 = call i32 @uprv_itou_75(ptr noundef nonnull %digitString, i32 noundef 16, i32 noundef %cond.i209, i32 noundef 10, i32 noundef 0)
+  %122 = load ptr, ptr %agg.tmp185, align 8
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %122) #27, !srcloc !7
+  %call194 = call i32 @uprv_itou_75(ptr noundef nonnull %digitString, i32 noundef 16, i32 noundef %cond.i212, i32 noundef 10, i32 noundef 0)
   call void @_ZN6icu_7513UnicodeStringC1EPKDs(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp195, ptr noundef nonnull %digitString)
-  %124 = load i16, ptr %fUnion.i.i.i236, align 8
-  %cmp.i.i.i237 = icmp slt i16 %124, 0
-  %125 = ashr i16 %124, 5
-  %shr.i.i.i238 = sext i16 %125 to i32
-  %126 = load i32, ptr %fLength.i.i239, align 4
-  %cond.i.i240 = select i1 %cmp.i.i.i237, i32 %126, i32 %shr.i.i.i238
-  %call2.i241242 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %result, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp195, i32 noundef 0, i32 noundef %cond.i.i240)
+  %123 = load i16, ptr %fUnion.i.i.i234, align 8
+  %cmp.i.i.i235 = icmp slt i16 %123, 0
+  %124 = ashr i16 %123, 5
+  %shr.i.i.i236 = sext i16 %124 to i32
+  %125 = load i32, ptr %fLength.i.i237, align 4
+  %cond.i.i238 = select i1 %cmp.i.i.i235, i32 %125, i32 %shr.i.i.i236
+  %call2.i239240 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %result, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp195, i32 noundef 0, i32 noundef %cond.i.i238)
           to label %invoke.cont198 unwind label %lpad197
 
 invoke.cont198:                                   ; preds = %invoke.cont189
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp195) #27
   %indvars.iv.next = add nuw i64 %indvars.iv, 2
-  %127 = load ptr, ptr %rangeList74, align 8
-  %count.i244 = getelementptr inbounds %"class.icu_75::UVector32", ptr %127, i64 0, i32 1
-  %128 = load i32, ptr %count.i244, align 8
-  %129 = trunc i64 %indvars.iv.next to i32
-  %cmp204 = icmp sgt i32 %128, %129
+  %126 = load ptr, ptr %rangeList74, align 8
+  %count.i242 = getelementptr inbounds %"class.icu_75::UVector32", ptr %126, i64 0, i32 1
+  %127 = load i32, ptr %count.i242, align 8
+  %128 = trunc i64 %indvars.iv.next to i32
+  %cmp204 = icmp sgt i32 %127, %128
   br i1 %cmp204, label %if.then205, label %for.inc
 
 if.then205:                                       ; preds = %invoke.cont198
@@ -6129,75 +6107,75 @@ if.then205:                                       ; preds = %invoke.cont198
           to label %invoke.cont209 unwind label %lpad208
 
 invoke.cont209:                                   ; preds = %if.then205
-  %130 = load i16, ptr %fUnion.i.i.i245, align 8
-  %cmp.i.i.i246 = icmp slt i16 %130, 0
-  %131 = ashr i16 %130, 5
-  %shr.i.i.i247 = sext i16 %131 to i32
-  %132 = load i32, ptr %fLength.i.i248, align 4
-  %cond.i.i249 = select i1 %cmp.i.i.i246, i32 %132, i32 %shr.i.i.i247
-  %call2.i250251 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %result, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp206, i32 noundef 0, i32 noundef %cond.i.i249)
+  %129 = load i16, ptr %fUnion.i.i.i243, align 8
+  %cmp.i.i.i244 = icmp slt i16 %129, 0
+  %130 = ashr i16 %129, 5
+  %shr.i.i.i245 = sext i16 %130 to i32
+  %131 = load i32, ptr %fLength.i.i246, align 4
+  %cond.i.i247 = select i1 %cmp.i.i.i244, i32 %131, i32 %shr.i.i.i245
+  %call2.i248249 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %result, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp206, i32 noundef 0, i32 noundef %cond.i.i247)
           to label %invoke.cont211 unwind label %lpad210
 
 invoke.cont211:                                   ; preds = %invoke.cont209
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp206) #27
-  %133 = load ptr, ptr %agg.tmp207, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %133) #27, !srcloc !7
+  %132 = load ptr, ptr %agg.tmp207, align 8
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %132) #27, !srcloc !7
   %.pre = load ptr, ptr %rangeList74, align 8
   %count.i.phi.trans.insert = getelementptr inbounds %"class.icu_75::UVector32", ptr %.pre, i64 0, i32 1
-  %.pre290 = load i32, ptr %count.i.phi.trans.insert, align 8
+  %.pre288 = load i32, ptr %count.i.phi.trans.insert, align 8
   br label %for.inc
 
-lpad180:                                          ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit219
-  %134 = landingpad { ptr, i32 }
+lpad180:                                          ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit217
+  %133 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp178) #27
   br label %eh.resume
 
 lpad186:                                          ; preds = %invoke.cont181
-  %135 = landingpad { ptr, i32 }
+  %134 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup192
 
 lpad188:                                          ; preds = %invoke.cont187
-  %136 = landingpad { ptr, i32 }
+  %135 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp184) #27
   br label %ehcleanup192
 
 ehcleanup192:                                     ; preds = %lpad188, %lpad186
-  %.pn69 = phi { ptr, i32 } [ %136, %lpad188 ], [ %135, %lpad186 ]
-  %137 = load ptr, ptr %agg.tmp185, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %137) #27, !srcloc !7
+  %.pn69 = phi { ptr, i32 } [ %135, %lpad188 ], [ %134, %lpad186 ]
+  %136 = load ptr, ptr %agg.tmp185, align 8
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %136) #27, !srcloc !7
   br label %eh.resume
 
 lpad197:                                          ; preds = %invoke.cont189
-  %138 = landingpad { ptr, i32 }
+  %137 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp195) #27
   br label %eh.resume
 
 lpad208:                                          ; preds = %if.then205
-  %139 = landingpad { ptr, i32 }
+  %138 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup214
 
 lpad210:                                          ; preds = %invoke.cont209
-  %140 = landingpad { ptr, i32 }
+  %139 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp206) #27
   br label %ehcleanup214
 
 ehcleanup214:                                     ; preds = %lpad210, %lpad208
-  %.pn71 = phi { ptr, i32 } [ %140, %lpad210 ], [ %139, %lpad208 ]
-  %141 = load ptr, ptr %agg.tmp207, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %141) #27, !srcloc !7
+  %.pn71 = phi { ptr, i32 } [ %139, %lpad210 ], [ %138, %lpad208 ]
+  %140 = load ptr, ptr %agg.tmp207, align 8
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %140) #27, !srcloc !7
   br label %eh.resume
 
 for.inc:                                          ; preds = %invoke.cont198, %invoke.cont211
-  %142 = phi i32 [ %128, %invoke.cont198 ], [ %.pre290, %invoke.cont211 ]
-  %143 = phi ptr [ %127, %invoke.cont198 ], [ %.pre, %invoke.cont211 ]
-  %cmp171 = icmp sgt i32 %142, %129
-  br i1 %cmp171, label %for.body, label %if.end219, !llvm.loop !47
+  %141 = phi i32 [ %127, %invoke.cont198 ], [ %.pre288, %invoke.cont211 ]
+  %142 = phi ptr [ %126, %invoke.cont198 ], [ %.pre, %invoke.cont211 ]
+  %cmp171 = icmp sgt i32 %141, %128
+  br i1 %cmp171, label %cond.true.i, label %if.end219, !llvm.loop !47
 
 if.end219.sink.split:                             ; preds = %invoke.cont104, %invoke.cont85, %if.end
   %ref.tmp39.sink = phi ptr [ %ref.tmp39, %if.end ], [ %ref.tmp92, %invoke.cont85 ], [ %ref.tmp111, %invoke.cont104 ]
@@ -6205,9 +6183,9 @@ if.end219.sink.split:                             ; preds = %invoke.cont104, %in
   br label %if.end219
 
 if.end219:                                        ; preds = %for.inc, %if.end219.sink.split, %if.end168, %land.lhs.true11
-  %next = getelementptr inbounds %"class.icu_75::AndConstraint", ptr %andRule.0281, i64 0, i32 10
-  %144 = load ptr, ptr %next, align 8
-  %cond = icmp eq ptr %144, null
+  %next = getelementptr inbounds %"class.icu_75::AndConstraint", ptr %andRule.0279, i64 0, i32 10
+  %143 = load ptr, ptr %next, align 8
+  %cond = icmp eq ptr %143, null
   br i1 %cond, label %while.end, label %if.then221
 
 if.then221:                                       ; preds = %if.end219
@@ -6216,43 +6194,43 @@ if.then221:                                       ; preds = %if.end219
           to label %invoke.cont225 unwind label %lpad224
 
 invoke.cont225:                                   ; preds = %if.then221
-  %145 = load i16, ptr %fUnion.i.i.i253, align 8
-  %cmp.i.i.i254 = icmp slt i16 %145, 0
-  %146 = ashr i16 %145, 5
-  %shr.i.i.i255 = sext i16 %146 to i32
-  %147 = load i32, ptr %fLength.i.i256, align 4
-  %cond.i.i257 = select i1 %cmp.i.i.i254, i32 %147, i32 %shr.i.i.i255
-  %call2.i258259 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %result, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp222, i32 noundef 0, i32 noundef %cond.i.i257)
+  %144 = load i16, ptr %fUnion.i.i.i251, align 8
+  %cmp.i.i.i252 = icmp slt i16 %144, 0
+  %145 = ashr i16 %144, 5
+  %shr.i.i.i253 = sext i16 %145 to i32
+  %146 = load i32, ptr %fLength.i.i254, align 4
+  %cond.i.i255 = select i1 %cmp.i.i.i252, i32 %146, i32 %shr.i.i.i253
+  %call2.i256257 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %result, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp222, i32 noundef 0, i32 noundef %cond.i.i255)
           to label %invoke.cont227 unwind label %lpad226
 
 invoke.cont227:                                   ; preds = %invoke.cont225
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp222) #27
-  %148 = load ptr, ptr %agg.tmp223, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %148) #27, !srcloc !7
+  %147 = load ptr, ptr %agg.tmp223, align 8
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %147) #27, !srcloc !7
   br label %while.body8
 
 lpad224:                                          ; preds = %if.then221
-  %149 = landingpad { ptr, i32 }
+  %148 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup230
 
 lpad226:                                          ; preds = %invoke.cont225
-  %150 = landingpad { ptr, i32 }
+  %149 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp222) #27
   br label %ehcleanup230
 
 ehcleanup230:                                     ; preds = %lpad226, %lpad224
-  %.pn81 = phi { ptr, i32 } [ %150, %lpad226 ], [ %149, %lpad224 ]
-  %151 = load ptr, ptr %agg.tmp223, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %151) #27, !srcloc !7
+  %.pn81 = phi { ptr, i32 } [ %149, %lpad226 ], [ %148, %lpad224 ]
+  %150 = load ptr, ptr %agg.tmp223, align 8
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %150) #27, !srcloc !7
   br label %eh.resume
 
 while.end:                                        ; preds = %if.end219, %while.body
-  %next232 = getelementptr inbounds %"class.icu_75::OrConstraint", ptr %orRule.0285, i64 0, i32 2
-  %152 = load ptr, ptr %next232, align 8
-  %cond287 = icmp eq ptr %152, null
-  br i1 %cond287, label %if.end246, label %if.then234
+  %next232 = getelementptr inbounds %"class.icu_75::OrConstraint", ptr %orRule.0283, i64 0, i32 2
+  %151 = load ptr, ptr %next232, align 8
+  %cond285 = icmp eq ptr %151, null
+  br i1 %cond285, label %if.end246, label %if.then234
 
 if.then234:                                       ; preds = %while.end
   store ptr @.str.15, ptr %agg.tmp236, align 8
@@ -6260,42 +6238,42 @@ if.then234:                                       ; preds = %while.end
           to label %invoke.cont238 unwind label %lpad237
 
 invoke.cont238:                                   ; preds = %if.then234
-  %153 = load i16, ptr %fUnion.i.i.i261, align 8
-  %cmp.i.i.i262 = icmp slt i16 %153, 0
-  %154 = ashr i16 %153, 5
-  %shr.i.i.i263 = sext i16 %154 to i32
-  %155 = load i32, ptr %fLength.i.i264, align 4
-  %cond.i.i265 = select i1 %cmp.i.i.i262, i32 %155, i32 %shr.i.i.i263
-  %call2.i266267 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %result, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp235, i32 noundef 0, i32 noundef %cond.i.i265)
+  %152 = load i16, ptr %fUnion.i.i.i259, align 8
+  %cmp.i.i.i260 = icmp slt i16 %152, 0
+  %153 = ashr i16 %152, 5
+  %shr.i.i.i261 = sext i16 %153 to i32
+  %154 = load i32, ptr %fLength.i.i262, align 4
+  %cond.i.i263 = select i1 %cmp.i.i.i260, i32 %154, i32 %shr.i.i.i261
+  %call2.i264265 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %result, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp235, i32 noundef 0, i32 noundef %cond.i.i263)
           to label %invoke.cont240 unwind label %lpad239
 
 invoke.cont240:                                   ; preds = %invoke.cont238
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp235) #27
-  %156 = load ptr, ptr %agg.tmp236, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %156) #27, !srcloc !7
+  %155 = load ptr, ptr %agg.tmp236, align 8
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %155) #27, !srcloc !7
   br label %while.body
 
 lpad237:                                          ; preds = %if.then234
-  %157 = landingpad { ptr, i32 }
+  %156 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup243
 
 lpad239:                                          ; preds = %invoke.cont238
-  %158 = landingpad { ptr, i32 }
+  %157 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp235) #27
   br label %ehcleanup243
 
 ehcleanup243:                                     ; preds = %lpad239, %lpad237
-  %.pn57 = phi { ptr, i32 } [ %158, %lpad239 ], [ %157, %lpad237 ]
-  %159 = load ptr, ptr %agg.tmp236, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %159) #27, !srcloc !7
+  %.pn57 = phi { ptr, i32 } [ %157, %lpad239 ], [ %156, %lpad237 ]
+  %158 = load ptr, ptr %agg.tmp236, align 8
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %158) #27, !srcloc !7
   br label %eh.resume
 
 if.end246:                                        ; preds = %while.end, %if.then, %entry
   %fNext = getelementptr inbounds %"class.icu_75::RuleChain", ptr %this, i64 0, i32 2
-  %160 = load ptr, ptr %fNext, align 8
-  %cmp247.not = icmp eq ptr %160, null
+  %159 = load ptr, ptr %fNext, align 8
+  %cmp247.not = icmp eq ptr %159, null
   br i1 %cmp247.not, label %if.end259, label %if.then248
 
 if.then248:                                       ; preds = %if.end246
@@ -6304,47 +6282,47 @@ if.then248:                                       ; preds = %if.end246
           to label %invoke.cont252 unwind label %lpad251
 
 invoke.cont252:                                   ; preds = %if.then248
-  %fUnion.i.i.i269 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp249, i64 0, i32 1
-  %161 = load i16, ptr %fUnion.i.i.i269, align 8
-  %cmp.i.i.i270 = icmp slt i16 %161, 0
-  %162 = ashr i16 %161, 5
-  %shr.i.i.i271 = sext i16 %162 to i32
-  %fLength.i.i272 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp249, i64 0, i32 1, i32 0, i32 1
-  %163 = load i32, ptr %fLength.i.i272, align 4
-  %cond.i.i273 = select i1 %cmp.i.i.i270, i32 %163, i32 %shr.i.i.i271
-  %call2.i274275 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %result, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp249, i32 noundef 0, i32 noundef %cond.i.i273)
+  %fUnion.i.i.i267 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp249, i64 0, i32 1
+  %160 = load i16, ptr %fUnion.i.i.i267, align 8
+  %cmp.i.i.i268 = icmp slt i16 %160, 0
+  %161 = ashr i16 %160, 5
+  %shr.i.i.i269 = sext i16 %161 to i32
+  %fLength.i.i270 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp249, i64 0, i32 1, i32 0, i32 1
+  %162 = load i32, ptr %fLength.i.i270, align 4
+  %cond.i.i271 = select i1 %cmp.i.i.i268, i32 %162, i32 %shr.i.i.i269
+  %call2.i272273 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %result, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp249, i32 noundef 0, i32 noundef %cond.i.i271)
           to label %invoke.cont254 unwind label %lpad253
 
 invoke.cont254:                                   ; preds = %invoke.cont252
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp249) #27
-  %164 = load ptr, ptr %agg.tmp250, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %164) #27, !srcloc !7
-  %165 = load ptr, ptr %fNext, align 8
-  call void @_ZN6icu_759RuleChain9dumpRulesERNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(224) %165, ptr noundef nonnull align 8 dereferenceable(64) %result)
+  %163 = load ptr, ptr %agg.tmp250, align 8
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %163) #27, !srcloc !7
+  %164 = load ptr, ptr %fNext, align 8
+  call void @_ZN6icu_759RuleChain9dumpRulesERNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(224) %164, ptr noundef nonnull align 8 dereferenceable(64) %result)
   br label %if.end259
 
 lpad251:                                          ; preds = %if.then248
-  %166 = landingpad { ptr, i32 }
+  %165 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup257
 
 lpad253:                                          ; preds = %invoke.cont252
-  %167 = landingpad { ptr, i32 }
+  %166 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp249) #27
   br label %ehcleanup257
 
 ehcleanup257:                                     ; preds = %lpad253, %lpad251
-  %.pn = phi { ptr, i32 } [ %167, %lpad253 ], [ %166, %lpad251 ]
-  %168 = load ptr, ptr %agg.tmp250, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %168) #27, !srcloc !7
+  %.pn = phi { ptr, i32 } [ %166, %lpad253 ], [ %165, %lpad251 ]
+  %167 = load ptr, ptr %agg.tmp250, align 8
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %167) #27, !srcloc !7
   br label %eh.resume
 
 if.end259:                                        ; preds = %invoke.cont254, %if.end246
   ret void
 
 eh.resume:                                        ; preds = %ehcleanup257, %ehcleanup243, %ehcleanup230, %ehcleanup214, %lpad197, %ehcleanup192, %lpad180, %ehcleanup166, %ehcleanup156, %ehcleanup142, %ehcleanup132, %lpad113, %ehcleanup107, %lpad94, %ehcleanup88, %lpad69, %ehcleanup64, %lpad48, %lpad41, %ehcleanup36, %ehcleanup, %lpad
-  %.pn81.pn = phi { ptr, i32 } [ %.pn81, %ehcleanup230 ], [ %33, %lpad41 ], [ %.pn79, %ehcleanup36 ], [ %.pn77, %ehcleanup ], [ %22, %lpad ], [ %65, %lpad94 ], [ %.pn75, %ehcleanup88 ], [ %77, %lpad113 ], [ %.pn73, %ehcleanup107 ], [ %.pn71, %ehcleanup214 ], [ %138, %lpad197 ], [ %.pn69, %ehcleanup192 ], [ %134, %lpad180 ], [ %.pn67, %ehcleanup132 ], [ %.pn65, %ehcleanup142 ], [ %.pn63, %ehcleanup156 ], [ %.pn61, %ehcleanup166 ], [ %51, %lpad69 ], [ %.pn59, %ehcleanup64 ], [ %47, %lpad48 ], [ %.pn57, %ehcleanup243 ], [ %.pn, %ehcleanup257 ]
+  %.pn81.pn = phi { ptr, i32 } [ %.pn81, %ehcleanup230 ], [ %33, %lpad41 ], [ %.pn79, %ehcleanup36 ], [ %.pn77, %ehcleanup ], [ %22, %lpad ], [ %65, %lpad94 ], [ %.pn75, %ehcleanup88 ], [ %77, %lpad113 ], [ %.pn73, %ehcleanup107 ], [ %.pn71, %ehcleanup214 ], [ %137, %lpad197 ], [ %.pn69, %ehcleanup192 ], [ %133, %lpad180 ], [ %.pn67, %ehcleanup132 ], [ %.pn65, %ehcleanup142 ], [ %.pn63, %ehcleanup156 ], [ %.pn61, %ehcleanup166 ], [ %51, %lpad69 ], [ %.pn59, %ehcleanup64 ], [ %47, %lpad48 ], [ %.pn57, %ehcleanup243 ], [ %.pn, %ehcleanup257 ]
   resume { ptr, i32 } %.pn81.pn
 }
 
@@ -6601,57 +6579,57 @@ if.end11:                                         ; preds = %if.then9, %if.end7
 for.cond.preheader:                               ; preds = %if.end11
   %count.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %5, i64 0, i32 1
   %6 = load i32, ptr %count.i, align 8
-  %cmp2124 = icmp sgt i32 %6, 0
-  br i1 %cmp2124, label %for.body.us.preheader, label %do.end
+  %cmp2122 = icmp sgt i32 %6, 0
+  br i1 %cmp2122, label %cond.true.i.lr.ph, label %do.end
 
-for.body.us.preheader:                            ; preds = %for.cond.preheader
+cond.true.i.lr.ph:                                ; preds = %for.cond.preheader
   %elements.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %5, i64 0, i32 4
   %7 = load ptr, ptr %elements.i, align 8
   %8 = zext nneg i32 %6 to i64
-  br label %for.body.us
-
-for.body.us:                                      ; preds = %for.body.us.preheader, %for.inc.us
-  %indvars.iv = phi i64 [ 0, %for.body.us.preheader ], [ %indvars.iv.next, %for.inc.us ]
-  %arrayidx.i.us = getelementptr inbounds i32, ptr %7, i64 %indvars.iv
-  %9 = load i32, ptr %arrayidx.i.us, align 4
-  %conv24.us = sitofp i32 %9 to double
-  %cmp25.us = fcmp ult double %n.0, %conv24.us
-  br i1 %cmp25.us, label %for.inc.us, label %land.lhs.true26.us
-
-land.lhs.true26.us:                               ; preds = %for.body.us
-  %10 = or disjoint i64 %indvars.iv, 1
-  %cmp5.i17.us = icmp slt i64 %10, %8
-  br i1 %cmp5.i17.us, label %cond.true.i19.us, label %_ZNK6icu_759UVector3210elementAtiEi.exit23.us
-
-cond.true.i19.us:                                 ; preds = %land.lhs.true26.us
-  %arrayidx.i22.us = getelementptr inbounds i32, ptr %7, i64 %10
-  %11 = load i32, ptr %arrayidx.i22.us, align 4
-  br label %_ZNK6icu_759UVector3210elementAtiEi.exit23.us
-
-_ZNK6icu_759UVector3210elementAtiEi.exit23.us:    ; preds = %cond.true.i19.us, %land.lhs.true26.us
-  %cond.i13.us = phi i32 [ %11, %cond.true.i19.us ], [ 0, %land.lhs.true26.us ]
-  %conv29.us = sitofp i32 %cond.i13.us to double
-  %cmp30.us = fcmp ugt double %n.0, %conv29.us
-  br i1 %cmp30.us, label %for.inc.us, label %do.end
-
-for.inc.us:                                       ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit23.us, %for.body.us
-  %indvars.iv.next = add nuw i64 %indvars.iv, 2
-  %12 = trunc i64 %indvars.iv.next to i32
-  %cmp21.us = icmp sgt i32 %6, %12
-  br i1 %cmp21.us, label %for.body.us, label %do.end, !llvm.loop !48
+  br label %cond.true.i
 
 if.then13:                                        ; preds = %if.end11
   %value = getelementptr inbounds %"class.icu_75::AndConstraint", ptr %this, i64 0, i32 3
-  %13 = load i32, ptr %value, align 8
-  %cmp14 = icmp eq i32 %13, -1
-  %conv = sitofp i32 %13 to double
+  %9 = load i32, ptr %value, align 8
+  %cmp14 = icmp eq i32 %9, -1
+  %conv = sitofp i32 %9 to double
   %cmp16 = fcmp oeq double %n.0, %conv
   %narrow = or i1 %cmp14, %cmp16
   %conv17 = zext i1 %narrow to i8
   br label %do.end
 
-do.end:                                           ; preds = %for.inc.us, %_ZNK6icu_759UVector3210elementAtiEi.exit23.us, %for.cond.preheader, %land.lhs.true, %if.then13
-  %result.0 = phi i8 [ %conv17, %if.then13 ], [ 0, %land.lhs.true ], [ 0, %for.cond.preheader ], [ 0, %for.inc.us ], [ 1, %_ZNK6icu_759UVector3210elementAtiEi.exit23.us ]
+cond.true.i:                                      ; preds = %cond.true.i.lr.ph, %for.inc
+  %indvars.iv = phi i64 [ 0, %cond.true.i.lr.ph ], [ %indvars.iv.next, %for.inc ]
+  %arrayidx.i = getelementptr inbounds i32, ptr %7, i64 %indvars.iv
+  %10 = load i32, ptr %arrayidx.i, align 4
+  %conv24 = sitofp i32 %10 to double
+  %cmp25 = fcmp ult double %n.0, %conv24
+  br i1 %cmp25, label %for.inc, label %land.lhs.true26
+
+land.lhs.true26:                                  ; preds = %cond.true.i
+  %11 = or disjoint i64 %indvars.iv, 1
+  %cmp5.i14 = icmp slt i64 %11, %8
+  br i1 %cmp5.i14, label %cond.true.i17, label %_ZNK6icu_759UVector3210elementAtiEi.exit21
+
+cond.true.i17:                                    ; preds = %land.lhs.true26
+  %arrayidx.i20 = getelementptr inbounds i32, ptr %7, i64 %11
+  %12 = load i32, ptr %arrayidx.i20, align 4
+  br label %_ZNK6icu_759UVector3210elementAtiEi.exit21
+
+_ZNK6icu_759UVector3210elementAtiEi.exit21:       ; preds = %land.lhs.true26, %cond.true.i17
+  %cond.i16 = phi i32 [ %12, %cond.true.i17 ], [ 0, %land.lhs.true26 ]
+  %conv29 = sitofp i32 %cond.i16 to double
+  %cmp30 = fcmp ugt double %n.0, %conv29
+  br i1 %cmp30, label %for.inc, label %do.end
+
+for.inc:                                          ; preds = %cond.true.i, %_ZNK6icu_759UVector3210elementAtiEi.exit21
+  %indvars.iv.next = add nuw i64 %indvars.iv, 2
+  %13 = trunc i64 %indvars.iv.next to i32
+  %cmp21 = icmp sgt i32 %6, %13
+  br i1 %cmp21, label %cond.true.i, label %do.end, !llvm.loop !48
+
+do.end:                                           ; preds = %for.inc, %_ZNK6icu_759UVector3210elementAtiEi.exit21, %for.cond.preheader, %land.lhs.true, %if.then13
+  %result.0 = phi i8 [ %conv17, %if.then13 ], [ 0, %land.lhs.true ], [ 0, %for.cond.preheader ], [ 0, %for.inc ], [ 1, %_ZNK6icu_759UVector3210elementAtiEi.exit21 ]
   %negated = getelementptr inbounds %"class.icu_75::AndConstraint", ptr %this, i64 0, i32 6
   %14 = load i8, ptr %negated, align 8
   %tobool34.not = icmp ne i8 %14, 0
@@ -6902,57 +6880,57 @@ if.end11.i:                                       ; preds = %if.then9.i, %if.end
 for.cond.preheader.i:                             ; preds = %if.end11.i
   %count.i.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %5, i64 0, i32 1
   %6 = load i32, ptr %count.i.i, align 8
-  %cmp2124.i = icmp sgt i32 %6, 0
-  br i1 %cmp2124.i, label %for.body.us.preheader.i, label %do.end.i
+  %cmp2122.i = icmp sgt i32 %6, 0
+  br i1 %cmp2122.i, label %cond.true.i.lr.ph.i, label %do.end.i
 
-for.body.us.preheader.i:                          ; preds = %for.cond.preheader.i
+cond.true.i.lr.ph.i:                              ; preds = %for.cond.preheader.i
   %elements.i.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %5, i64 0, i32 4
   %7 = load ptr, ptr %elements.i.i, align 8
   %8 = zext nneg i32 %6 to i64
-  br label %for.body.us.i
-
-for.body.us.i:                                    ; preds = %for.inc.us.i, %for.body.us.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %for.body.us.preheader.i ], [ %indvars.iv.next.i, %for.inc.us.i ]
-  %arrayidx.i.us.i = getelementptr inbounds i32, ptr %7, i64 %indvars.iv.i
-  %9 = load i32, ptr %arrayidx.i.us.i, align 4
-  %conv24.us.i = sitofp i32 %9 to double
-  %cmp25.us.i = fcmp ult double %n.0.i, %conv24.us.i
-  br i1 %cmp25.us.i, label %for.inc.us.i, label %land.lhs.true26.us.i
-
-land.lhs.true26.us.i:                             ; preds = %for.body.us.i
-  %10 = or disjoint i64 %indvars.iv.i, 1
-  %cmp5.i17.us.i = icmp slt i64 %10, %8
-  br i1 %cmp5.i17.us.i, label %cond.true.i19.us.i, label %_ZNK6icu_759UVector3210elementAtiEi.exit23.us.i
-
-cond.true.i19.us.i:                               ; preds = %land.lhs.true26.us.i
-  %arrayidx.i22.us.i = getelementptr inbounds i32, ptr %7, i64 %10
-  %11 = load i32, ptr %arrayidx.i22.us.i, align 4
-  br label %_ZNK6icu_759UVector3210elementAtiEi.exit23.us.i
-
-_ZNK6icu_759UVector3210elementAtiEi.exit23.us.i:  ; preds = %cond.true.i19.us.i, %land.lhs.true26.us.i
-  %cond.i13.us.i = phi i32 [ %11, %cond.true.i19.us.i ], [ 0, %land.lhs.true26.us.i ]
-  %conv29.us.i = sitofp i32 %cond.i13.us.i to double
-  %cmp30.us.i = fcmp ugt double %n.0.i, %conv29.us.i
-  br i1 %cmp30.us.i, label %for.inc.us.i, label %do.end.i
-
-for.inc.us.i:                                     ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit23.us.i, %for.body.us.i
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 2
-  %12 = trunc i64 %indvars.iv.next.i to i32
-  %cmp21.us.i = icmp sgt i32 %6, %12
-  br i1 %cmp21.us.i, label %for.body.us.i, label %do.end.i, !llvm.loop !48
+  br label %cond.true.i.i
 
 if.then13.i:                                      ; preds = %if.end11.i
   %value.i = getelementptr inbounds %"class.icu_75::AndConstraint", ptr %andRule.011, i64 0, i32 3
-  %13 = load i32, ptr %value.i, align 8
-  %cmp14.i = icmp eq i32 %13, -1
-  %conv.i = sitofp i32 %13 to double
+  %9 = load i32, ptr %value.i, align 8
+  %cmp14.i = icmp eq i32 %9, -1
+  %conv.i = sitofp i32 %9 to double
   %cmp16.i = fcmp oeq double %n.0.i, %conv.i
   %narrow.i = or i1 %cmp14.i, %cmp16.i
   %conv17.i = zext i1 %narrow.i to i8
   br label %do.end.i
 
-do.end.i:                                         ; preds = %for.inc.us.i, %_ZNK6icu_759UVector3210elementAtiEi.exit23.us.i, %if.then13.i, %for.cond.preheader.i, %land.lhs.true.i
-  %result.0.i = phi i8 [ %conv17.i, %if.then13.i ], [ 0, %land.lhs.true.i ], [ 0, %for.cond.preheader.i ], [ 1, %_ZNK6icu_759UVector3210elementAtiEi.exit23.us.i ], [ 0, %for.inc.us.i ]
+cond.true.i.i:                                    ; preds = %for.inc.i, %cond.true.i.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %cond.true.i.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
+  %arrayidx.i.i = getelementptr inbounds i32, ptr %7, i64 %indvars.iv.i
+  %10 = load i32, ptr %arrayidx.i.i, align 4
+  %conv24.i = sitofp i32 %10 to double
+  %cmp25.i = fcmp ult double %n.0.i, %conv24.i
+  br i1 %cmp25.i, label %for.inc.i, label %land.lhs.true26.i
+
+land.lhs.true26.i:                                ; preds = %cond.true.i.i
+  %11 = or disjoint i64 %indvars.iv.i, 1
+  %cmp5.i14.i = icmp slt i64 %11, %8
+  br i1 %cmp5.i14.i, label %cond.true.i17.i, label %_ZNK6icu_759UVector3210elementAtiEi.exit21.i
+
+cond.true.i17.i:                                  ; preds = %land.lhs.true26.i
+  %arrayidx.i20.i = getelementptr inbounds i32, ptr %7, i64 %11
+  %12 = load i32, ptr %arrayidx.i20.i, align 4
+  br label %_ZNK6icu_759UVector3210elementAtiEi.exit21.i
+
+_ZNK6icu_759UVector3210elementAtiEi.exit21.i:     ; preds = %cond.true.i17.i, %land.lhs.true26.i
+  %cond.i16.i = phi i32 [ %12, %cond.true.i17.i ], [ 0, %land.lhs.true26.i ]
+  %conv29.i = sitofp i32 %cond.i16.i to double
+  %cmp30.i = fcmp ugt double %n.0.i, %conv29.i
+  br i1 %cmp30.i, label %for.inc.i, label %do.end.i
+
+for.inc.i:                                        ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit21.i, %cond.true.i.i
+  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 2
+  %13 = trunc i64 %indvars.iv.next.i to i32
+  %cmp21.i = icmp sgt i32 %6, %13
+  br i1 %cmp21.i, label %cond.true.i.i, label %do.end.i, !llvm.loop !48
+
+do.end.i:                                         ; preds = %for.inc.i, %_ZNK6icu_759UVector3210elementAtiEi.exit21.i, %if.then13.i, %for.cond.preheader.i, %land.lhs.true.i
+  %result.0.i = phi i8 [ %conv17.i, %if.then13.i ], [ 0, %land.lhs.true.i ], [ 0, %for.cond.preheader.i ], [ 1, %_ZNK6icu_759UVector3210elementAtiEi.exit21.i ], [ 0, %for.inc.i ]
   %negated.i = getelementptr inbounds %"class.icu_75::AndConstraint", ptr %andRule.011, i64 0, i32 6
   %14 = load i8, ptr %negated.i, align 8
   %tobool34.not.i = icmp ne i8 %14, 0
