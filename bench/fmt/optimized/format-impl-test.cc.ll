@@ -39643,6 +39643,7 @@ if.end.i.i.i.i:                                   ; preds = %_ZN3fmt3v106detail1
 
 for.body.lr.ph.i.i.i.i:                           ; preds = %if.end.i.i.i.i
   %19 = load ptr, ptr %cond-lvalue.i.i.i.i, align 8
+  %cmp9.i.i.old.i.i.i.i = icmp eq ptr %incdec.ptr19.lcssa, %begin
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i, %for.body.lr.ph.i.i.i.i
@@ -39650,11 +39651,11 @@ for.body.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i, %f
   %arrayidx4.i.i.i.i = getelementptr inbounds %"struct.fmt::v10::detail::named_arg_info", ptr %19, i64 %i.013.i.i.i.i
   %20 = load ptr, ptr %arrayidx4.i.i.i.i, align 8
   %call.i8.i.i.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #26
-  %.other.coerce1.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %call.i8.i.i.i.i, i64 %sub.ptr.sub)
-  %cmp.i.i.i.i.i.i.i = icmp eq i64 %.other.coerce1.i.i.i.i.i.i, 0
+  %cmp.i.i.i.i.i.i.i = icmp eq i64 %call.i8.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i
+  %.other.coerce1.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %call.i8.i.i.i.i, i64 %sub.ptr.sub)
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr %20, ptr nonnull %begin, i64 %.other.coerce1.i.i.i.i.i.i)
   %cmp6.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   %cmp9.i.i.i.i.i.i = icmp eq i64 %call.i8.i.i.i.i, %sub.ptr.sub
@@ -39662,7 +39663,6 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %for.body.i.i.
   br i1 %or.cond.i.i.i.i, label %_ZN3fmt3v1020basic_format_contextINS0_8appenderEcE6arg_idENS0_17basic_string_viewIcEE.exit.i.i, label %for.inc.i.i.i.i
 
 _ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit.i.i.i.i: ; preds = %for.body.i.i.i.i
-  %cmp9.i.i.old.i.i.i.i = icmp eq i64 %call.i8.i.i.i.i, %sub.ptr.sub
   br i1 %cmp9.i.i.old.i.i.i.i, label %_ZN3fmt3v1020basic_format_contextINS0_8appenderEcE6arg_idENS0_17basic_string_viewIcEE.exit.i.i, label %for.inc.i.i.i.i
 
 for.inc.i.i.i.i:                                  ; preds = %_ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
